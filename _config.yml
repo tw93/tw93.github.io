@@ -1,35 +1,17 @@
 # Site settings
-title:       Tw93
-email:       tw93@qq.com
-author:      汤威
-description: "前端-js-node-后端"
-baseurl:     ""
-url:         "http://tw93.github.io/"
-
-# Google analytics
-google_analytics:
-
-# Optional features
-animated:           false
-show_related_posts: false
-show_post_footers:  false
-
-# Disqus post comments
-# (leave blank to disable Disqus)
-disqus_shortname:
-
-# Social icons
-show_social_icons: false
-github_username: tw93
-stackoverflow_id:
-twitter_username:
-google_plus_id:
-linkedin_username:
-bitcoin_url:
-paypal_url:
-flattr_button:
+title: Your awesome title
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: jekyllrb
+github_username:  jekyll
 
 # Build settings
+<<<<<<< HEAD
 markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
@@ -40,3 +22,6 @@ sass:
   compressed: true
 gems:
   - jekyll-sitemap
+=======
+markdown: kramdown
+>>>>>>> 0826828679129257036c9abd70cb9cc78c31630d
