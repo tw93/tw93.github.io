@@ -1,0 +1,17 @@
+---
+layout:     post
+title:      JavaScript的加载和执行性能优化
+date:       2015-02-03 10:15:18
+summary:    由于js代码执行过程中会阻塞浏览器其他进程，比如用户界面的绘制。每次遇到<script>标签，页面都必须停下下等待页面下载（如果是外链文件）并执行，然后继续处理其他部分。尽管如此还是有几种方法减少JavaScript对性能的影响：
+categories: JavaScript性能优化
+---
+
+Jekyll is a tool for transforming your plain text into static websites and 
+blogs. It is simple, static, and blog-aware. Jekyll uses the 
+[Liquid](http://docs.shopify.com/themes/liquid-basics) templating
+language and has builtin [Markdown](http://daringfireball.net/projects/markdown/)
+and [Textile](http://en.wikipedia.org/wiki/Textile_(markup_language)) support.
+
+It also ties in nicely to [Github Pages](https://pages.github.com/).
+
+Learn more about Jekyll on their [website](http://jekyllrb.com/).
