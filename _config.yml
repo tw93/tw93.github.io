@@ -33,7 +33,8 @@ flattr_button:
 markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    pretty
+permalink:    /:year-:month/:title.html
+output: true
 paginate:     3
 sass:
   compressed: true
