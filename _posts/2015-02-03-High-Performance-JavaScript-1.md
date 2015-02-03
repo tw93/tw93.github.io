@@ -14,7 +14,7 @@ categories: JavaScript
  
 ###组织脚本###
 由于每个script标签的初始下载时候都会阻塞页面渲染，所以减少页面包含的script标签数量有助于减少这一情况，无论是外链文件还是内嵌脚本都是如此。    
-这里可以使用[Grunt](http://www.gruntjs.org/)的内置concat工具来合并我们的脚本，通过min工具来压缩我们的脚本。  
+这里可以使用[Grunt](http://www.gruntjs.org/){:target="_blank"}的内置concat工具来合并我们的脚本，通过min工具来压缩我们的脚本。  
 那么什么是Grunt呢？Grunt 是一个基于任务的 JavaScript 项目命令行构建工具，运行于Node.js 平台。Grunt能够从模板快速创建项目，合并、压缩和校验 CSS & JS 文件，运行单元测试以及启动静态服务器。
 
 ###无阻塞的脚本###
