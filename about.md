@@ -12,9 +12,10 @@ permalink: /about/
 * 应届毕业生，还处在查官方文档写项目的阶段。
 
 
-我的联系方式:
+我的足迹:
 
 * [Github](https://github.com/{{site.github_username}}){:target="_blank"}
-* [Weibo](http://weibo.com/{{site.sina_id}}){:target="_blank"}
-* [Zhihu](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
+* [微博](http://weibo.com/{{site.sina_id}}){:target="_blank"}
+* [知乎](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
+* [简历](https://github.com/tw93/Resume){:target="_blank"}
 * Email: tangwei93@outlook.com
