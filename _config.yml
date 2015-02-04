@@ -7,7 +7,7 @@ baseurl:     ""
 url:         "http://tw93.github.io/"
 
 # Google analytics
-google_analytics:UA-57207999-1
+google_analytics: UA-57207999-1
 
 # Optional features
 animated:           true
