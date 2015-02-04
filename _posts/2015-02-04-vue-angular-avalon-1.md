@@ -6,8 +6,7 @@ summary:    前端开发已经不是前几年的那种前端开发了，已经�
 categories: JavaScript
 ---
 
-前端开发已经不是前几年的那种前端开发了，已经有农业时代进入工业时代了，这几年出现了很多优秀的JavaScript方面的MVVM框架，今天我们来比较下Vuejs，AngularJS，
-Avalon.js这些框架优缺点。    
+前端开发已经不是前几年的那种前端开发了，已经有农业时代进入工业时代了，这几年出现了很多优秀的JavaScript方面的MVVM框架，今天我们来比较下Vuejs，AngularJS，Avalon.js这些框架优缺点。    
 
 ###Vue.js###
 Vue.js 尤雨溪老师写的一个用于创建 web 交互界面的库，是一个精简的MVVM。从技术角度讲，[Vue.js](http://vuejs.org/){:target="_blank"} 专注于 MVVM 模型的 ViewModel 层。它通过双向数据绑定把 View 层和 Model 层连接了起来。实际的 DOM 封装和输出格式都被抽象为了Directives 和 Filters。Vue.js和其他库相比是一个小而美的库，作者的主要目的是通过一个尽量简单的 API 产生可反映的数据绑定和可组合的视图组件，感觉作者的思路非常清晰。
@@ -36,14 +35,12 @@ AngularJS最近很火，追随者也很多，[Superheroic JavaScript MVW Framewo
 
 ####缺点#### 
 1. 大而全：学习起来有难度，对于我来讲学习曲线很曲折，比较难理解一些。
-推翻重写：前段时候逛社区发现AngularJS2。
-2. 会把之前的推翻重写，两个框架的改变很大，基本是两个框架了，等于是说等到2.0
-出来后又需要从头开始。正如徐飞所说2.0的流行至少还要3年。不跳票的情况下，1年
+2. 推翻重写：前段时候逛社区发现AngularJS2会把之前的推翻重写，两个框架的改变很大，基本是两个框架了，等于是说等到2.0出来后又需要从头开始。正如徐飞所说2.0的流行至少还要3年。不跳票的情况下，1年
 之后才有稳定版，这个稳定版应该不支持很多浏览器了，稳定版一段时间内是没有任何周边的，所以，目前学1.3不能算是无效投资。
 3. 不支持IE8以下，貌似2.0变得只支持移动端了，等到出来后再看吧。
 
 ###AngularJS###
-[Avalon.js](https://github.com/RubyLouvre/avalon){:target="_blank"}是司徒正美老师缩写的个简单易用迷你的MVVM框架，它最早发布于2012.09.15，为解决同一业务逻辑存在各种视图呈现而开发出来的。常常可以看到老师推广他的Avalon.js，除了很多教程，无疑对国内学习Avalon.js的人提供了巨大方便。  
+[Avalon.js](https://github.com/RubyLouvre/avalon){:target="_blank"}是司徒正美老师所写的个简单易用迷你的MVVM框架，它最早发布于2012.09.15，为解决同一业务逻辑存在各种视图呈现而开发出来的。常常可以看到老师推广他的Avalon.js，出了很多教程，无疑对国内学习Avalon.js的人提供了巨大方便。  
 
 ####优点####
 1. 使用简单，在HTML中添加绑定，在JS中用avalon.define定义ViewModel，再调用avalon.scan方法，它就能动了！
