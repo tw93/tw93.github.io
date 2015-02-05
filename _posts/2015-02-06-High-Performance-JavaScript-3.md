@@ -34,13 +34,29 @@ function innerHTMLLoop() {
 
 ####多次访问DOM节点，使用局部变量存储它的引用####
 
-这些方法返回值是一个集合
+这些方法返回值是一个集合  
  - document.getElementByName()
  - document.getElementByClassName()
  - document.getElementByTagName()
 
-下面属性也同样返回HTML集合：
+下面属性也同样返回HTML集合  
  - document.images 
  - document.links 
  - document.forms 
  - document.forms[0].elements 
+
+ 这些集合是一些昂贵的东西，一般来说，对于任何类型的DOM访问，当同一个DOM属性或方法需要多次访问时候，最好把一个局部变量缓存此成员。<span class="orange">当遍历一个集合时，首先优化原则是把集合存储在局部变量中，并把length缓存在循环外部，然后使局部变量访问这些需要多次访问的元素。</span>
+
+####使用速度最快的API####
+浏览器提供了一个名为<span class="orange">querySelectorAll()的原生DOM方法</span>，这种方法自然比使用JavaScript和DOM来遍历查找元素要快很多。
+
+{% highlight javascript %}
+//查找id="menu"的元素中的所有a元素
+//我们习惯做法
+var elements=document.getElementById('menu').getElementsByTagName('a');
+
+//建议做法
+var elements=document.querySelectAll('#menu a')；
+{% endhightlight %}
+
+还有一个遍历方法--querySelector()来获取第一个匹配的节点。
