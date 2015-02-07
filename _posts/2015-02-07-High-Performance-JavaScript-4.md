@@ -10,7 +10,7 @@ categories: JavaScript  学习笔记
 
 ###循环
 
-####for、while和do-while循环性能特性相似，for-in循环性能相比前三者慢
+####for、while和do-while循环性能特性相似，for-in相比前三者慢
 
  - 由于酶促迭代操作会同时搜索实例或者原型属性，for-in循环的每次迭代都会产生更多的开销，对比其他循环类型要慢，对比相同迭代次数的循环，for-in循环最终只有其他类型速度的1/7，因此，除非你明确<span class="orange">需要迭代一个属性数量未知的对象</span>,否则应该避免使用for-in循环。还有不要使用for-in来循环数组成员。
  - 改善循环性能的最佳方式是减少每次迭代的运算量和减少循环迭代次数。
@@ -44,7 +44,7 @@ var results=[result0,result1,result2,result3,result4,result5,
             result6,result7,result8,result09]
 //返回当前结果
 return results[value];
-<% endhightlight %>
+<% endhighlight %>
 
 ###递归
  - 浏览器的调用栈大小限制了递归算法在JavaScript中的应用，栈溢出错误会导致其他代码中断运行。
