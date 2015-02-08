@@ -38,7 +38,7 @@ item.forEach(function(value,index,array){
  - 当你使用查找表时候，必须完全抛弃条件判断语句，这个过程变成数组项查询或者对象成员查询。
  - 优点：不用写任何条件判断语句，既是候选值增加时，也几乎不会产生额外的性能开销。
 
-{% highlight javascript %}
+{% highlight javascript %}  
 //将返回值存入数组
 var results=[result0,result1,result2,result3,result4,result5,
             result6,result7,result8,result09]
