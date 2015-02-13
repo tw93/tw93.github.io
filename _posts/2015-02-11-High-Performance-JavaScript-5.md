@@ -59,4 +59,34 @@ var worker=new Worker("code.js");
 {% endhighlight %}
 
 ###与Worker通信
-网页代码可以通过postMessage()方法给Worker传递数据，它接受一个参数，即需要传递给Worker的数据。此外Worker还有一个用来接收onmessage事件处理器。
+网页代码可以通过postMessage()方法给Worker传递数据，它接受一个参数，即需要传递给Worker的数据。此外Worker还有一个用来接收onmessage事件处理器。**消息系统是网页和Worker通信的唯一途径。**
+{% highlight javascript %}
+/*
+    Description:
+    The Worker() constructor creates a Worker that executes the script at the specified URL. This script must obey the same-origin policy.
+
+    Syntax:
+    webWorker = new Worker(aURL);
+*/
+var worker = new Worker("code.js");
+worker.onmessage = function(event) {
+    alert(event.data);
+};
+worker.postMessage("Tangwei");
+
+//Worker可以通过它自己的postMessage()方法把消息传回页面
+self.onmessage = function(event) {
+    self.postMessage("Hello", event.data + "!");
+};
+{% endhighlight %}
+注意：只有特定类型的数据才可以使用postMessage()传递。
+
+###加载外部文件
+
+Worker通过importScripts()方法加载外部的JavaScript文件，该方法可以接收一个或多个JavaScript文件URL作为参数。importScripts()的调用过程是阻塞式的，直到所有文件加载执行完成之后，脚本才会继续运行。由于Worker在UI线程之外运行，所以这种阻塞并不会影响UI响应。
+{% highlight javascript %}
+importScripts("file1.js","file2.js");
+self.onmessage = function(event) {
+    self.postMessage("Hello", event.data + "!");
+};
+{% endhighlight %}
