@@ -38,4 +38,62 @@ req.send(null); //发送一个请求
 只有当请求URL加上参数长度接近或者超过2048个字符时候，才应该使用POST获取数据，这是因为**IE限制了URL长度**，过长请求会被截断。
 
 ####动态脚本注入
-这种方法克服了XHR的最大限制：它能跨域请求。
+
+这种方法克服了XHR的最大限制：它能跨域请求。你不需要实例化一个专用对象，而可以使用JavaScript创建一个新的脚本标签，并设置它的属性为不同域的URL,但是和XHR相比，动态脚本注入提供的控制是有限的，你不能设置请求头信息，传递参数也只能使用GET，不能设置请求的超时处理和重试，也就是说失败了你也不一定知道。你必须等到所有数据都返回你才可以访问它们。你不能请求头信息，也不能把整个响应信息作为字符串来处理。还有必须是可执行的JavaScript源码，而且必须封装在一个回调函数中。
+{% highlight javascript %}
+var scriptElement=document.createElement('script');
+scriptElement.src='http://any-domain.com/javascript/lib.js';
+document.getElementByTagName('head')[0].appendChild(scriptElement);
+
+function jsonCallback(jsonString){
+    var data=eval('('+jsonString+')');
+    //处理数据...
+    }
+{% endhighlight %}
+在上面那个例子里，lib.js必须把数据封装在jsonCallback函数里面：
+{% highlight javascript %}
+jsonCallback({"status":1,"color":["#fff","#000","f00"]});
+//尽管有很多限制，但是这项技术的速度非常快。
+{%endhighlight%}
+
+####Multipart XHR
+MXHR允许客户端只使用一个HTTP请求就可以从服务端向客户端传送多个资源，它通过在服务端将资源（CSS文件，HTML片段，JavaScript代码，或base64编码的图片）打包成一个双方约定的字符串并发送到客户端，然后用JavaScript代码处理这个长字符串，并根据它的mime-type类型和传入其他头信息解析出每个资源。
+但是以这种技术获得的资源不能够被浏览器缓存 ，但是某些情况下MXHR依然能显著提高页面的整体性能。
+
+###发送数据给服务器
+
+####XMLHttpRequest
+数据可以使用GET或POST的方式传回来，包括任意数量的HTTP头信息，当使用XHR发送数据给服务器时候，使用GET会更快，只需要发送一个数据包，POST至少两个数据包，一个装载头信息，一个装载POST正文。POST更适合发送大量数据到服务器。
+{% highlight javascript %}
+var url = '/data.php';
+var params = [
+    'id=9798',
+    'limit=20'
+];
+var req = new XMLHttpRequest();
+req.onerror=function(){
+    //出错
+    };
+req.onreadystatechange = function() {
+    if (req.readyState === 4) {
+        //成功
+    }
+}
+req.open('POST',url, true);
+req.setRequstHeader('Content-Type','application/x-www-form-urlencoded');
+req.setRequstHeader('Content-Length',params.length);
+req.send(params.join('&'));
+{%endhighlight%}
+
+####Beacons（图片信标）
+这项技术非常类似动态脚本注入。使用JavaScript创建一个新的Image对象，并把src属性设置为服务器上传脚本的URL。该URL包含我们通过GET传回的键值对数据。请注意并没有创建img元素或把它插入DOM。
+{% highlight javascript%}
+var url='/status_tracker.php';
+var params=[
+'step=2',
+'time=123241223'
+];
+(new Image()).src=url+'?'+params.join('&');
+{% endhighlight %}
+
+服务器会接收数据并保存下来，它无需向客户端发送任何回馈信息，因为没有图片会实际显示出来，这是往服务器回传信息最有效的方式。它的性能消耗很小，而且服务器的错误完全不会影响客户端。如果你需要返回大量数据给客户端，那么请使用XHR，如果你只关心发送数据给服务器（可能需要极少的返回信息），那么请使用图片信标。
