@@ -16,14 +16,14 @@ categories: JavaScript  学习笔记
 在JavaScript中创建对象和数组的方法有很多，但使用对象和数组直接量是最快的方式，而且直接量可以有助于节省代码量，以减少整个文件的尺寸。
 {% highlight JavaScript%}
 //创建一个对象
-var myObject={
-    name:"Tangwei",
-    age:21,
-    count:50
-    };
+var myObject = {
+    name: "Tangwei",
+    age: 21,
+    count: 50
+};
 
 //创建一个数组
-var myArray=["Tangwei",21,50];
+var myArray = ["Tangwei", 21, 50];
 {%endhighlight%}
 
 ###不要重复工作
@@ -40,48 +40,48 @@ var myArray=["Tangwei",21,50];
 ####位操作
 有好几种方法来利用为创造·位操作符提升JavaScript的速度。
 
- -使用运运算代替纯数学操作  
- ｛% highlight javascript %｝
-//通常采用对2取模的方式实现表格颜色交换
-    for(var i=0,len=rows.length;i<len;i++){
-        if(i%2){
-            className="even";
-        }else{
-            className="odd";
-        }
-    } 
+ - 使用运算代替纯数学操作
 
-//通过使用位运算的方式，比原来版本快了50%(取决于浏览器)
-    for(var i=0,len=rows.length;i<len;i++){
-        if(i &１){
-            className="even";
-        }else{
-            className="odd";
+  {% highlight javascript %}
+        //通常采用对2取模的方式实现表格颜色交换
+    for (var i = 0, len = rows.length; i < len; i++) {
+        if (i % 2) {
+            className = "even";
+        } else {
+            className = "odd";
         }
-    } 
+    }
 
+    //通过使用位运算的方式，比原来版本快了50%(取决于浏览器)
+    for (var i = 0, len = rows.length; i < len; i++) {
+        if (i & １) {
+            className = "even";
+        } else {
+            className = "odd";
+        }
+    }
   {%endhighlight%}
 
  - 使用“位掩码”
 
     位掩码是计数机科学中一种常用的技术，用于处理同时存在多个布尔选项的情况，其思路是使用单个数字的每一位来判定是否选项成立，从而有效地数字转换为布尔值标记组成的数组。掩码中每个选项的值都等于2的幂。
     例如：
-    {%highlight javascript%}
-        var OPTION_A=1;
-        var OPTION_B=2;
-        var OPTION_C=4;
-        var OPTION_D=16;
-    //通过定于这些选项，你可以用按位或运算创建一个数字来包含多个设置选项
-        var options=OPTION_A | OPTION_C | OPTION_D;
-    //然后通过按位与操作判断一个给定的选项是否可用
-    //如果该选项未设置，则结果为0，反之为1
+  {%highlight javascript%}
+         var OPTION_A = 1;
+         var OPTION_B = 2;
+         var OPTION_C = 4;
+         var OPTION_D = 16;
+         //通过定于这些选项，你可以用按位或运算创建一个数字来包含多个设置选项
+         var options = OPTION_A | OPTION_C | OPTION_D;
+         //然后通过按位与操作判断一个给定的选项是否可用
+         //如果该选项未设置，则结果为0，反之为1
 
-    //选项A是否在列表中？
-        if(options & OPTION_A){
-    //代码处理
-        }
+         //选项A是否在列表中？
+         if (options & OPTION_A) {
+             //代码处理
+         }
 
-    //像这样掩码运算速度非常快
+         //像这样掩码运算速度非常快
     {%endhighlight%}
 
 ####原生方法
