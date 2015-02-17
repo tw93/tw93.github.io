@@ -9,9 +9,10 @@ categories: 我的前端总结分享
 
 
 ###[cmder](http://bliker.github.io/cmder/){:target="_blank"}
-你一定会被这个cmd代替工具所吸引，首先上图：
+看起来cmder貌似和我们的前端开发流程关系不大，假如说bower、grunt、Yeoman这些工具是“马”的话，那么cmder这个工具就是一个好“鞍”（好马配好鞍）。你一定会被这个cmd代替工具所吸引，首先上图：
 ![cmder](http://tw93.github.io/images/main.jpg)
 只能用优雅来形容这个软件，色彩非常性感，在使用上面也明显方便于windows自带的那个蹩脚的cmd。官方是这个介绍的：Cmder is a software package created out of pure frustration over the absence of nice console emulators on Windows. It is based on amazing software, and spiced up with the Monokai color scheme and a custom prompt layout. Looking sexy from the start.  
+
 全安装版cmder自带了 msysgit, 压缩包 23M, 除了 git 本身这个命令之外,里面可以使用大量的 linux 命令，譬如下面我用它来提交我的博客内容。
 ![cmder](http://tw93.github.io/images/cmder1.jpg)  
 由于这里仅仅是一个介绍，对于有很多配置方面的，建议大家google查找对应的设置方案，我相信你会喜欢上这个工具的。
