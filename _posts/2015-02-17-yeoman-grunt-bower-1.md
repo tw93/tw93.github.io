@@ -37,11 +37,15 @@ Bower是twitter推出的一款包管理工具，官网是这样概括的：Web s
 
 
 如何使用呢？我简单地介绍一下：
- 1. 由于Bower要求你的系统中已经安装了Node、npm和git，然后我们将Bower安装到我们的全局变量中。
- >npm install -g bower
- 2. 安装包时候我们使用bower install这个命令，运行这个命令后我们的包会被安装到bower_components/这个目录里面。
- >bower install <package>
- 3. 譬如我要安装angular这个库，见下图：
+1.由于Bower要求你的系统中已经安装了Node、npm和git，然后我们将Bower安装到我们的全局变量中。
+
+<blockquote>npm install -g bower</blockquote>
+
+2.安装包时候我们使用bower install这个命令，运行这个命令后我们的包会被安装到bower_components/这个目录里面。  
+
+<blockquote>bower install package </blockquote>
+
+3.譬如我要安装angular这个库，见下图：
 ![Bower](http://tw93.github.io/images/angular1.jpg)
 
 最后还有一些详细的使用方法，请访问官网学习更加详细的知识。
