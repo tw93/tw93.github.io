@@ -33,7 +33,7 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
 
 ####在我们的项目中使用grunt来管理
 
- 1. 首先需要往项目里添加两个文件：package.json和Gruntfile.js。其中package.json是用来为npm存放项目配置的元数据的，可以通过这里来学习[npm init](https://docs.npmjs.com/cli/init){:target="_blank"}。可以通过这个命令来生成我们项目的package.json，与grunt关系最大的配置在devDependencies中。这是我的一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的package.json：
+ - 首先需要往项目里添加两个文件：package.json和Gruntfile.js。其中package.json是用来为npm存放项目配置的元数据的，可以通过这里来学习[npm init](https://docs.npmjs.com/cli/init){:target="_blank"}。可以通过这个命令来生成我们项目的package.json，与grunt关系最大的配置在devDependencies中。这是我的一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的package.json：
 
 {% highlight json%}
 {
@@ -84,12 +84,12 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
 
 {%endhighlight%}
 
- 2. 在命令行进入项目所在目录，键入如下命令即可，npm会根据devDependencies中的配置，将需要的grunt及其插件下载到你的项目目录中。
+ - 然后在命令行进入项目所在目录，键入如下命令即可，npm会根据devDependencies中的配置，将需要的grunt及其插件下载到你的项目目录中。
  <blockquote>npm install grunt --save-dev</blockquote>
 
- 3. 然后需要新建一个叫做Gruntfilejs的文件，它用于配置或者定义Grunt任务和加载Grunt插件，这个文件就是当我们在命令行里面运行grunt时候的一个“入口文件”，我们需要在这个文件里面设置好我们的自定义任务，具体可以看Grunt的[官方文档](http://www.gruntjs.org/docs/sample-gruntfile.html){:target="_blank"}。
+ - 接着需要新建一个叫做Gruntfilejs的文件，它用于配置或者定义Grunt任务和加载Grunt插件，这个文件就是当我们在命令行里面运行grunt时候的一个“入口文件”，我们需要在这个文件里面设置好我们的自定义任务，具体可以看Grunt的[官方文档](http://www.gruntjs.org/docs/sample-gruntfile.html){:target="_blank"}。
 
- 4. 最后通过grunt命令就可以自动化运行我们的项目了。 
+ - 最后通过grunt命令就可以自动化运行我们的项目了。 
 
 注：一个比较完整的Gruntfile.js我是这样写的：
 {%highlight javascript%}
