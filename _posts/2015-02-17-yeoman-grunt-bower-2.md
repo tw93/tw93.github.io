@@ -31,7 +31,7 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
 
 注意，安装grunt-cli并不等于安装了grunt任务运行器！Grunt CLI的工作很简单：在Gruntfile所在目录调用运行已经安装好的相应版本的Grunt。这就意味着可以在同一台机器上同时安装多个版本的Grunt。
 
-####在我们的项目中使用grunt来管理
+####如和使用grunt来管理项目？
 
  - 首先需要往项目里添加两个文件：package.json和Gruntfile.js。其中package.json是用来为npm存放项目配置的元数据的，可以通过这里来学习[npm init](https://docs.npmjs.com/cli/init){:target="_blank"}。可以通过这个命令来生成我们项目的package.json，与grunt关系最大的配置在devDependencies中。这是我的一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的package.json：
 
