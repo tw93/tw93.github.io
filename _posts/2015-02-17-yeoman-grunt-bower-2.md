@@ -9,15 +9,143 @@ categories: 我的前端总结分享
 
 ###[Grunt](http://www.gruntjs.org/){:target="_blank"}
 
-为什么使用任务运行工具?  
+####为什么使用任务运行工具?  
 简而言之，自动化。当你处理诸如代码最小化, 代码编译, 单元测试, 代码规范校验等等重复任务时, 你必须要做的工作越少，你的工作就变得越简单。在你完成配置后，不费吹灰之力，一个任务运行工具可以替你和你的团队完成绝大部分日常工作。(官网资料)
 
-为什么使用Grunt?  
+####为什么使用Grunt?  
+
 Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选择数以百计的插件以帮助你自动化的处理任务。如果你所需要的插件还被有人创建，那么你可以自己创建插件并通过npm很方便的发布以供更多人使用并一起完善。（官网资料）
 
 下面我们来看看当我们运行Grunt的样子吧，下面这图是我使用Grunt自动运行我一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的截图:
 
 ![grunt](http://tw93.github.io/images/grunt1.jpg)
+
+####如何安装Grunt？
+ 
+ 1. Grunt和Grunt的插件都是通过Node.js的包管理器npm来安装和管理的。Grunt 0.4.x要求Node.js的版本>=0.8.0(也就是0.8.0及以上版本的Node.js才能很好的运行Grunt)。  
+
+ 2. 为了方便使用Grunt，我们可以把我们的Grunt安装到我们的全局变量中，这样我们就可以在每个项目都使用Grunt。  
+ <blockquote>npm install -g  grunt-cli</blockquote>
+
+通过以上这两步，我们就将Grunt按照好了，以后直接在我们命令行中就可以使用了。  
+
+注意，安装grunt-cli并不等于安装了grunt任务运行器！Grunt CLI的工作很简单：在Gruntfile所在目录调用运行已经安装好的相应版本的Grunt。这就意味着可以在同一台机器上同时安装多个版本的Grunt。
+
+####在我们的项目中使用grunt来管理
+
+ 1. 首先需要往项目里添加两个文件：package.json和Gruntfile.js。其中package.json是用来为npm存放项目配置的元数据的，可以通过这里来学习[npm init](https://docs.npmjs.com/cli/init){:target="_blank"}。可以通过这个命令来生成我们项目的package.json，与grunt关系最大的配置在devDependencies中。这是我的一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的package.json：
+
+    {% highlight json%}
+    {
+      "name": "twMovie",
+      "version": "0.0.1",
+      "description": "twMovie is builded by node and mongodb",
+      "main": "app.js",
+      "dependencies": {
+        "body-parser": "^1.10.2",
+        "connect-mongo": "^0.7.0",
+        "cookie-parser": "^1.3.3",
+        "crypto": "0.0.3",
+        "express": "^4.11.1",
+        "express-session": "^1.10.1",
+        "grunt-concurrent": "^1.0.0",
+        "jade": "^1.9.1",
+        "moment": "^2.9.0",
+        "mongoose": "^3.8.22",
+        "morgan": "^1.5.1",
+        "path": "^0.11.14",
+        "serve-favicon": "^2.2.0",
+        "underscore": "^1.7.0"
+      },
+      "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-concurrent": "^1.0.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-nodemon": "^0.3.0"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/tw93/twMovie.git"
+      },
+      "keywords": [
+        "twmovie",
+        "movie"
+      ],
+      "author": "tw93",
+      "license": "ISC",
+      "bugs": {
+        "url": "https://github.com/tw93/twMovie/issues"
+      },
+      "homepage": "https://github.com/tw93/twMovie"
+    }
+
+    {%endhighlight%}
+
+ 2. 在命令行进入项目所在目录，键入如下命令即可，npm会根据devDependencies中的配置，将需要的grunt及其插件下载到你的项目目录中。
+ <blockquote>npm install grunt --save-dev</blockquote>
+
+ 3. 然后需要新建一个叫做Gruntfilejs的文件，它用于配置或者定义Grunt任务和加载Grunt插件，这个文件就是当我们在命令行里面运行grunt时候的一个“入口文件”，我们需要在这个文件里面设置好我们的自定义任务，具体可以看Grunt的[官方文档](http://www.gruntjs.org/docs/sample-gruntfile.html){:target="_blank"}。
+
+ 4. 最后通过grunt命令就可以自动化运行我们的项目了。 
+
+注：一个比较完整的Gruntfile.js我是这样写的：
+{%highlight javascript%}
+module.exports = function(grunt) {
+    grunt.initConfig({
+        watch: {
+            jade: {
+                files: ['views/**'],
+                options: {
+                    livereload: true
+                }
+            },
+            js: {
+                files: ['public/js/**', 'models/**/*.js', 'schemas/**/*.js'],
+                // tasks: ['jshint'],
+                options: {
+                    livereload: true
+                }
+            }
+        },
+        nodemon: {
+            dev: {
+                script: 'app.js',
+                options: {
+                    file: 'app.js',
+                    args: [],
+                    ignoredFiles: ['README.md', 'node_modules/**', '.DS_Store'],
+                    watchedExtensions: ['js'],
+                    watchedFolders: ['./'],
+                    debug: true,
+                    delayTime: 1,
+                    env: {
+                        PORT: 3000
+                    },
+                    cwd: __dirname
+                }
+            }
+        },
+        concurrent: {
+            target: {
+                tasks: ['nodemon', 'watch'],
+                options: {
+                    logConcurrentOutput: true
+                }
+            }
+        }
+    });
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-concurrent');
+    grunt.option('force', true);
+    grunt.registerTask('default', ['concurrent:target']);
+};
+{%endhighlight%}
+
+还是建议大家多看看Grunt的官方文档，通过官方文档来学习会快一点。
 
 
 
