@@ -27,7 +27,7 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
  2. 为了方便使用Grunt，我们可以把我们的Grunt安装到我们的全局变量中，这样我们就可以在每个项目都使用Grunt。  
  <blockquote>npm install -g  grunt-cli</blockquote>
 
-通过以上这两步，我们就将Grunt按照好了，以后直接在我们命令行中就可以使用了。  
+通过以上这两步，我们就将Grunt安装好了，以后直接在我们命令行中就可以使用了。  
 
 注意，安装grunt-cli并不等于安装了grunt任务运行器！Grunt CLI的工作很简单：在Gruntfile所在目录调用运行已经安装好的相应版本的Grunt。这就意味着可以在同一台机器上同时安装多个版本的Grunt。
 
@@ -35,54 +35,54 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
 
  1. 首先需要往项目里添加两个文件：package.json和Gruntfile.js。其中package.json是用来为npm存放项目配置的元数据的，可以通过这里来学习[npm init](https://docs.npmjs.com/cli/init){:target="_blank"}。可以通过这个命令来生成我们项目的package.json，与grunt关系最大的配置在devDependencies中。这是我的一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的package.json：
 
-    {% highlight json%}
-    {
-      "name": "twMovie",
-      "version": "0.0.1",
-      "description": "twMovie is builded by node and mongodb",
-      "main": "app.js",
-      "dependencies": {
-        "body-parser": "^1.10.2",
-        "connect-mongo": "^0.7.0",
-        "cookie-parser": "^1.3.3",
-        "crypto": "0.0.3",
-        "express": "^4.11.1",
-        "express-session": "^1.10.1",
-        "grunt-concurrent": "^1.0.0",
-        "jade": "^1.9.1",
-        "moment": "^2.9.0",
-        "mongoose": "^3.8.22",
-        "morgan": "^1.5.1",
-        "path": "^0.11.14",
-        "serve-favicon": "^2.2.0",
-        "underscore": "^1.7.0"
-      },
-      "devDependencies": {
-        "grunt": "^0.4.5",
-        "grunt-concurrent": "^1.0.0",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-nodemon": "^0.3.0"
-      },
-      "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-      },
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/tw93/twMovie.git"
-      },
-      "keywords": [
-        "twmovie",
-        "movie"
-      ],
-      "author": "tw93",
-      "license": "ISC",
-      "bugs": {
-        "url": "https://github.com/tw93/twMovie/issues"
-      },
-      "homepage": "https://github.com/tw93/twMovie"
-    }
+{% highlight json%}
+{
+  "name": "twMovie",
+  "version": "0.0.1",
+  "description": "twMovie is builded by node and mongodb",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "connect-mongo": "^0.7.0",
+    "cookie-parser": "^1.3.3",
+    "crypto": "0.0.3",
+    "express": "^4.11.1",
+    "express-session": "^1.10.1",
+    "grunt-concurrent": "^1.0.0",
+    "jade": "^1.9.1",
+    "moment": "^2.9.0",
+    "mongoose": "^3.8.22",
+    "morgan": "^1.5.1",
+    "path": "^0.11.14",
+    "serve-favicon": "^2.2.0",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tw93/twMovie.git"
+  },
+  "keywords": [
+    "twmovie",
+    "movie"
+  ],
+  "author": "tw93",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tw93/twMovie/issues"
+  },
+  "homepage": "https://github.com/tw93/twMovie"
+}
 
-    {%endhighlight%}
+{%endhighlight%}
 
  2. 在命令行进入项目所在目录，键入如下命令即可，npm会根据devDependencies中的配置，将需要的grunt及其插件下载到你的项目目录中。
  <blockquote>npm install grunt --save-dev</blockquote>
