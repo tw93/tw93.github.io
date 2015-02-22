@@ -19,7 +19,7 @@ Yeoman主要由以下3部分组成：
  - [Grunt](http://tw93.github.io/2015-02-18/yeoman-grunt-bower-2.html){:target="_blank"}：一个帮助我们自动管理和运行JavaScript的任务之执行工具，可以用了检查代码语法是否正确，压缩代码，合并文件，通过Grunt可以简化我们的工作流程。
  
 
-####怎么来使用Yeoman  
+####怎么来使用Yeoman？  
  1.首先你需要安装yo和其他一些要求的工具。（前提是那你已经安装了Nodejs和npm）
  <blockquote>$ npm install -g yo bower grunt-cli gulp</blockquote>
  ![Yeoman](http://tw93.github.io/images/yeoman2.jpg)
