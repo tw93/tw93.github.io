@@ -37,6 +37,7 @@ Yeoman主要由以下3部分组成：
  ![Yeoman](http://tw93.github.io/images/yeoman3.jpg)
  然后选择你需要安装的东西，接着你就可以看到命令行开始飞起来了，完成后，你的目录下会生出如下文件：
  ![Yeoman](http://tw93.github.io/images/yeoman4.jpg)
+
  5.然后运行下面命令，你会发现有神奇的东西出现：
  <blockquote>$ grunt server</blockquote>
 
