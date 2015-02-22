@@ -44,4 +44,5 @@ Yeoman主要由以下3部分组成：
  ![Yeoman](http://tw93.github.io/images/yeoman5.jpg)
  接着你就可以愉快的开发你的项目了。
 
- 如果想进一步了解Yeoman，很建议你看官方的一个[Tutorial]{http://yeoman.io/codelab.html}{:target="_blank"},这里有一个详细的例子，相信你通过它后，能够更了解Yeoman。
+ 如果想进一步了解Yeoman，很建议你看官方的一个[Tutorial](http://yeoman.io/codelab.html
+ ){:target="_blank"},这里有一个详细的例子，相信你通过它后，能够更了解Yeoman。
