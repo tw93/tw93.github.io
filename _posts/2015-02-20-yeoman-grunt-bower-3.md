@@ -14,9 +14,10 @@ Yeoman---用于构建现代Web应用的脚手架（一种提高开发效率的�
 Yeoman主要由以下3部分组成：
 ![Yeoman](http://tw93.github.io/images/yeoman1.jpg)
 
- - yo：Yo 是一个 Web 应用的架构（scaffolding）工具。它提供了非常多的模板，用来生成不同类型的 Web 应用。这些模板称为生成器（generator）。
+ - yo：Yo 是一个 Web 应用的架构（scaffolding）工具。它提供了非常多的模板，用来生成不同类型的 Web 应用。这些模板称为生成器（generator）。  
+ - [Bower](http://tw93.github.io/2015-02-17/yeoman-grunt-bower-1.html){:target="_blank"}：Bower是一个js的包管理器，可以管理各个包之间的依赖关系，有了它以后你再也不需要手动下载和管理你的脚本文件。  
  - [Grunt](http://tw93.github.io/2015-02-18/yeoman-grunt-bower-2.html){:target="_blank"}：一个帮助我们自动管理和运行JavaScript的任务之执行工具，可以用了检查代码语法是否正确，压缩代码，合并文件，通过Grunt可以简化我们的工作流程。
- - [Bower](http://tw93.github.io/2015-02-17/yeoman-grunt-bower-1.html){:target="_blank"}：Bower是一个js的包管理器，可以管理各个包之间的依赖关系，有了它以后你再也不需要手动下载和管理你的脚本文件。
+ 
 
 ####怎么来使用Yeoman  
  1. 首先你需要安装yo和其他一些要求的工具。（前提是那你已经安装了Nodejs和npm）
