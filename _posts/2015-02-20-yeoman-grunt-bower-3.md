@@ -20,26 +20,27 @@ Yeoman主要由以下3部分组成：
  
 
 ####怎么来使用Yeoman  
- 1. 首先你需要安装yo和其他一些要求的工具。（前提是那你已经安装了Nodejs和npm）
- <blockquote>$ npm install -g yo bower grunt-cli gulp</blockquote> 
- ![Yeoman](http://tw93.github.io/images/yeoman2.jpg)  
+ 1.首先你需要安装yo和其他一些要求的工具。（前提是那你已经安装了Nodejs和npm）
+ <blockquote>$ npm install -g yo bower grunt-cli gulp</blockquote>
+ ![Yeoman](http://tw93.github.io/images/yeoman2.jpg)
  有一个小彩蛋，在这里看到了Yeoman也很推荐[cmder](http://bliker.github.io/cmder/){:target="_blank"} （跑题了，逃）  
 
- 2. 为了搭建你的Web应用，你需要安装'generator-webapp'生成器。
+ 2.为了搭建你的Web应用，你需要安装'generator-webapp'生成器。
  <blockquote>$ npm install -g generator-webapp</blockquote>
  这是一个默认的Web应用生成器，通过它你可以脚手架一个包含 HTML5 Boilerplate, jQuery, Modernizr,Bootstrap的项目，同时你也可以选择使用它们，这个generator将会使用Grunt来进行任务管理（当然你也可以使用gulp）。
 
- 3. 等到上面都安装好后，你就可以新建你的项目目录了。
+ 3.等到上面都安装好后，你就可以新建你的项目目录了。
  <blockquote>$ mkdir my-yo-webapp && cd my-yo-webapp</blockquote> 
- 接着使用下面命令：
+
+ 4.接着使用下面命令：
  <blockquote>$ yo webapp</blockquote> 
  ![Yeoman](http://tw93.github.io/images/yeoman3.jpg)
  然后选择你需要安装的东西，接着你就可以看到命令行开始飞起来了，完成后，你的目录下会生出如下文件：
  ![Yeoman](http://tw93.github.io/images/yeoman4.jpg)
- 
- 4. 然后运行下面命令，你会发现有神奇的东西出现：
+ 5.然后运行下面命令，你会发现有神奇的东西出现：
  <blockquote>$ grunt server</blockquote>
- 你的浏览器就会自动打开一个页面：
+
+ 6.最后你的浏览器就会自动打开一个页面：
  ![Yeoman](http://tw93.github.io/images/yeoman5.jpg)
  接着你就可以愉快的开发你的项目了。
 
