@@ -10,17 +10,17 @@ categories: 我的前端总结分享
 
 我喜欢[AngularJs](http://angularjs.org/){:target="_blank"},我不仅在一些有趣的小项目中使用它，同时也在一些大型的专业项目中来使用AngularJs。我同时也尝试其他框架，像[BackboneJs](http://backbonejs.org/){:target="_blank"}和[EmberJs](http://emberjs.com/){:target="_blank"}，这俩也是很好的工具，以上三种都属于一类叫做MVC的框架(可以叫MVVC),但是每次使用它们的时候，我都会在渲染方面遇到的一些性能的不足。对于渲染列表项目，双向数据绑定和单向数据绑定并没有实际的区别。对我而言在不考虑双向数据绑定情况下BackboneJS渲染性能优于AngularJs。
 
-最近出现一个叫做[ReactJs](http://facebook.github.io/react/){:target="_blank"}的优秀框架，一个看起来有点弱小的库接下来一段时间将对JavaScript MVC框架造成很大的影响。简而言之，这个库能够使网页渲染性能得到提升，ReactJs主要使用的部分是针对MVC框架中的View部分，刚开始我不明白设计者为什么会把Model和Controller这两部分给抛弃呢，难道像EmberJs, BackboneJS 和AngularJS这些框架中最有趣的地方不就是Model和Controller部分吗？仔细思考后，其实ReactJs在Controller部分也有很特色的地方，然而ReactJs不是一个大而全的MVC框架，ReactJs的工作原理是保持一个虚拟的DOM,渲染只有在当UI更新时才会改变，这是否有意义呢，听起来新颖但又有理，通过发送指令来更新UI,React只改变和更新现存的DOM（使用虚拟DOM超级快），通过虚拟DOM技术可以使变化的差异很快的被展现，Facebook和Instagram已经在实际项目中开始使用ReactJs了。
+最近出现一个叫做[ReactJs](http://facebook.github.io/react/){:target="_blank"}的优秀框架，一个看起来有点弱小的库接下来一段时间将对JavaScript MVC框架造成很大的影响。简而言之，这个库能够使网页渲染性能得到提升，ReactJs主要使用的部分是针对MVC框架中的View部分，刚开始我不明白设计者为什么会把Model和Controller这两部分给抛弃呢，难道像EmberJs, BackboneJS 和AngularJS这些框架中最有趣的地方不就是Model和Controller部分吗？仔细思考后，其实ReactJs在Controller部分也有很特色的地方，然而ReactJs不是一个大而全的MVC框架，ReactJs的工作原理是保持一个虚拟的DOM,渲染只有在当UI更新时才会改变，这是否有意义呢，听起来新颖但又有理，通过发送指令来更新UI，React只改变和更新现存的DOM（使用虚拟DOM超级快），通过虚拟DOM技术可以使变化的差异很快的被展现，Facebook和Instagram已经开始在实际项目中使用ReactJs了。
 
-我听过ReactJs的开发者Pete Hunt的谈论ReactJs意图的[podcast](http://codewinds.com/podcast/004.html){:target="_blank"}，很建议你也去听一下这个[podcast](http://codewinds.com/podcast/004.html){:target="_blank"}，他开源reactjs目的是在现有框架的View部分制造一些噪音，我发现这些现存的框架在UI部分将打算采取这种相同的策略，一些可以使用的新库将会出现的。
+我听过ReactJs的开发者Pete Hunt的谈论ReactJs意图的一个[podcast](http://codewinds.com/podcast/004.html){:target="_blank"}，很建议你也去听一下这个[podcast](http://codewinds.com/podcast/004.html){:target="_blank"}，他开源reactjs目的是在现有框架的View部分制造一些噪音，我发现这些现存的框架在UI部分将打算采取这种相同的策略，一些可以使用的新库将会出现。
 
-ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，还有angular的ngRepeat，可以和Coffeescript一起使用，所以使用React来渲染可以在你应用性能上面派上用场，例如通过ng-repeat来重复几百项，在我以前的[文章](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/){:target="_blank"}中,我写了一篇如何使长列表在AngularJs有效，但是所有的使渲染更快的技术是通过渲染列表中的一部分实现的，使用ReactJS来渲染AngularJs，可以使你的**渲染时间较少80%**，我玩ngReact的时候那种性能的提升然后觉得是不是哪儿出错了，渲染时间从原来直接使用AngularJs的4200ms降低到通过使用ReactJs渲染的120ms，你自己也可以去尝试下，或者直接看这篇文章下面的例子。
+ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone，还有angular的ngRepeat，可以和Coffeescript一起使用，所以使用React来渲染可以在你应用性能上面派上用场，例如通过ng-repeat来重复几百项，在我以前的[文章](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/){:target="_blank"}中,我写了一篇如何使长列表在AngularJs有效，但是所有的使渲染更快的技术是通过渲染列表中的一部分实现的，使用ReactJS来渲染AngularJs，可以使你的**渲染时间较少80%**，我玩ngReact的时候那种性能的提升让我质疑代码是不是哪儿出错了，渲染时间从原来直接使用AngularJs的4200ms降低到通过使用ReactJs渲染的120ms，你也可以去尝试下，或者直接看这篇文章下面的例子。
 
-我仍然经历这一些问题当使用AngularJs进行大量的DOM绑定，但是另外一个问题是特殊的双向数据绑定。如果你对这个问题有些担心，或许你应该去使用比AngularJs更强大的框架，然后ReactJs一个伟大的作用将就是帮助我们使东西尽可能快的显示在用户屏幕上面。
+我仍然经历这一些问题当使用AngularJs进行大量的DOM绑定，但是另外一个问题是特殊的双向数据绑定。如果你对这个问题有些担心，或许你应该考虑使用比AngularJs更强大的框架，然而ReactJs的重大作用将就是帮助我们尽可能快的渲染元素到用户的屏幕上。
 
-我将会用一个小案例来向你们解释如何来使用ReactJs来渲染一个AngularJs的应用。
+我将会用一个小案例来向你们解释如何来使用ReactJs来渲染一个AngularJs的应用，步骤如下：
  
- - 默认你已经安装了Bower，新建目录，安装reactjs和AngularJs：
+ - 默认你已经安装了Bower，然后新建目录，安装reactjs和AngularJs到你的目录下：
   <blockquote>$ mkdir fast-angular</blockquote>  
   <blockquote>$ cd fast-angular</blockquote>  
   <blockquote>$ bower install --save react </blockquote>  
