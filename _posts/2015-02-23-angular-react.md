@@ -28,85 +28,80 @@ ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，
   <blockquote>$ bower install --save angular</blockquote>  
 
  - 当这些命令运行好后，我们需要的AngularJs和ReactJs已经在我们本地安装好了，接着我们建立一个简单的HTML文件，将这两个脚本引入。
-
-    {%highlight html%}
-        <!doctype html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title></title>
-            <meta name="description" content="">
-            <meta name="viewport" content="width=device-width">
-
-          </head>
-          <body>
-            <h1>Fast AngularJs</h1> <h3>AngularJs with ReactJs</h3>
-
-
-            <script src="bower_components/angular/angular.js"></script>
-            <script src="bower_components/react/react.js"></script>
-
-        </body>
-        </html>
-    {%endhiglight%}
+    {% highlight html  %}
+    <!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+      </head>
+      <body>
+        <h1>Fast AngularJs</h1> <h3>AngularJs with ReactJs</h3>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/react/react.js"></script>
+      </body>
+    </html>
+    {%endhighlight%}
  
  - 我们需要创建一个来渲染我们输入的字符串的ReactJs组件，所以我们使用ReactJs来渲染我们的模型，创建一个名叫做MYAPP的组件，传递给它来呈现一个props，接着我们创建一个传统的angular指令和控制器（增加标记在我们的html来启动这个应用），通过使用指令来告诉它渲染，而不是去调用ReactJs的组件，我们使用$watch来重新渲染和更新我们的框架，当组件已安装更新现有的实例中我们叫做createComponent 。  
-    {%highlight html%}
-        <!doctype html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title></title>
-            <meta name="description" content="">
-            <meta name="viewport" content="width=device-width">
+{%highlight html%}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
-          </head>
-          <body ng-app="fasterAngular">
-            <h1>Fast AngularJs</h1> <h3>AngularJs with ReactJs</h3>
-            <div ng-controller="mycontroller">
-                <input ng-model="framework"/>
-                <hr>
-                <fast-ng framework="framework"></fast-ng>
-                <hr>
-                Rendering with traditional AngularJs {{framework}}
-            </div>
+  </head>
+  <body ng-app="fasterAngular">
+    <h1>Fast AngularJs</h1> <h3>AngularJs with ReactJs</h3>
+    <div ng-controller="mycontroller">
+        <input ng-model="framework"/>
+        <hr>
+        <fast-ng framework="framework"></fast-ng>
+        <hr>
+        Rendering with traditional AngularJs {{framework}}
+    </div>
 
-            <script src="bower_components/angular/angular.js"></script>
-            <script src="bower_components/react/react.js"></script>
-            <script >
-                var MYAPP = React.createClass({
-                    displayName:'MYAPP',
-                    render:function(){
-                        return React.DOM.div(null, "Rendering faster in AngularJs with ", this.props.framework);
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/react/react.js"></script>
+    <script >
+        var MYAPP = React.createClass({
+            displayName:'MYAPP',
+            render:function(){
+                return React.DOM.div(null, "Rendering faster in AngularJs with ", this.props.framework);
 
-                    }
-                });
-            </script>
+            }
+        });
+    </script>
 
-            <script>
-                angular.module('fasterAngular', []).
-                controller('mycontroller', ['$scope', function($scope){
-                    $scope.framework = 'ReactJs';
-         
-                }]).directive('fastNg', function(){
-                    return{
-                        restrict:'E',
-                        scope:{
-                            framework:'='
-                        },
-                        link:function(scope, el, attrs){
-                            scope.$watch('framework', function(newValue, oldValue){
-                                React.renderComponent(
-                                    MYAPP({framework:newValue}),
-                                    el[0]
-                                );
-                            })
-                        }
-                    }
-                })
-            </script>
-        </body>
-        </html>
-    {%endhighlight%}  
+    <script>
+        angular.module('fasterAngular', []).
+        controller('mycontroller', ['$scope', function($scope){
+            $scope.framework = 'ReactJs';
+ 
+        }]).directive('fastNg', function(){
+            return{
+                restrict:'E',
+                scope:{
+                    framework:'='
+                },
+                link:function(scope, el, attrs){
+                    scope.$watch('framework', function(newValue, oldValue){
+                        React.renderComponent(
+                            MYAPP({framework:newValue}),
+                            el[0]
+                        );
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+{%endhighlight%}  
