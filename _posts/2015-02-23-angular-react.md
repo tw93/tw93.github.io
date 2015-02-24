@@ -27,7 +27,7 @@ ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，
   <blockquote>$ bower install --save react </blockquote>  
   <blockquote>$ bower install --save angular</blockquote>  
 
-  - 当这些命令运行好后，我们需要的AngularJs和ReactJs已经在我们本地安装好了，接着我们建立一个简单的HTML文件，将这两个脚本引入。
+ - 当这些命令运行好后，我们需要的AngularJs和ReactJs已经在我们本地安装好了，接着我们建立一个简单的HTML文件，将这两个脚本引入。
     {%highlight html%}
         <!doctype html>
         <html>
