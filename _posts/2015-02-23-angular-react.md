@@ -15,4 +15,4 @@ categories: 我的前端总结分享
 
 我听过ReactJs的开发者Pete Hunt的谈论ReactJs意图一个播客，很建议你也去听一下这个播客，他在开源reactjs意图是在现有框架的V部分制造一些噪音，我发现这些现存的框架在UI部分打算采取相同的策略，一些可以使用的新库将会出现的。
 
-ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，还有angular的ngRepeat，可以和Coffeescript一起使用，所以使用React来渲染可以在你应用性能上面派上用场，例如通过ng-repeat来重复几百项，在我以前的[文章](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/){:target="_blank"}中,我写了一篇如何使长列表在AngularJs有效，但是所有的使渲染更快的技术是通过渲染列表中的一部分实现的，使用ReactJS来渲染AngularJs，可以使你的**渲染时间较少80%**，我玩ngReact的时候那种性能的提升然后觉得是不是哪儿出错了，渲染时间从原来直接使用AngularJs的4200ms降低到通过使用ReactJs渲染的120ms
+ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，还有angular的ngRepeat，可以和Coffeescript一起使用，所以使用React来渲染可以在你应用性能上面派上用场，例如通过ng-repeat来重复几百项，在我以前的[文章](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/){:target="_blank"}中,我写了一篇如何使长列表在AngularJs有效，但是所有的使渲染更快的技术是通过渲染列表中的一部分实现的，使用ReactJS来渲染AngularJs，可以使你的**渲染时间较少80%**，我玩ngReact的时候那种性能的提升然后觉得是不是哪儿出错了，渲染时间从原来直接使用AngularJs的4200ms降低到通过使用ReactJs渲染的120ms，你自己也可以去尝试下，或者直接看这篇文章下面的例子。
