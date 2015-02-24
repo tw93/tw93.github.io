@@ -22,9 +22,7 @@ ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，
 我将会用一个小案例来向你们解释如何来使用ReactJs来渲染一个AngularJs的应用。
  
  - 默认你已经安装了Bower，新建目录，安装reactjs和AngularJs：
-  <blockquote>
-  $ mkdir fast-angular  
-  cd fast-angular  
-  bower install --save react  
-  bower install --save angular  
-  </blockquote>
+  <blockquote>$ mkdir fast-angular</blockquote>  
+  <blockquote>$ cd fast-angular</blockquote>  
+  <blockquote>$ bower install --save react </blockquote>  
+  <blockquote>$ bower install --save angular</blockquote>  
