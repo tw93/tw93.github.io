@@ -297,7 +297,7 @@ ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone
 </html>
 {%endhighlight%}
 
- - 使用AngularJs渲染1500行大概用了1.35秒，然而使用ReactJs渲染仅仅用了310ms，详细见下面两张从chrome开发者工具的截图：
+ - 使用AngularJs渲染1500行大概用了1.35秒，然而使用ReactJs渲染仅仅用了320ms，详细见下面两张从chrome开发者工具的截图：
 
  ![Rendering with ReactJs, 320ms](http://tw93.github.io/images/with-react-chromedev.png)
  ***使用ReactJs渲染320ms***
