@@ -23,8 +23,8 @@ ReactJs当中的那个V很容易在现在现存的框架中那个V，backbone，
  
  - 默认你已经安装了Bower，新建目录，安装reactjs和AngularJs：
   <blockquote>
-  $ mkdir fast-angular
-  cd fast-angular
-  bower install --save react
-  bower install --save angular
+  $ mkdir fast-angular  
+  cd fast-angular  
+  bower install --save react  
+  bower install --save angular  
   </blockquote>
