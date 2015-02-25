@@ -14,13 +14,13 @@ categories: 我的前端总结分享
 
 我听过ReactJs的开发者Pete Hunt的谈论ReactJs意图的一个[podcast](http://codewinds.com/podcast/004.html){:target="_blank"}，很建议你也去听一下这个[podcast](http://codewinds.com/podcast/004.html){:target="_blank"}，他开源reactjs目的是在现有框架的View部分制造一些噪音，我发现这些现存的框架在UI部分将打算采取这种相同的策略，一些可以使用的新库将会出现。
 
-ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone，还有angular的ngRepeat，可以和Coffeescript一起使用，所以使用React来渲染可以在你应用性能上面派上用场，例如通过ng-repeat来重复几百项，在我以前的[文章](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/){:target="_blank"}中,我写了一篇如何使长列表在AngularJs有效，但是所有的使渲染更快的技术是通过渲染列表中的一部分实现的，使用ReactJS来渲染AngularJs，可以使你的**渲染时间较少80%**，我玩ngReact的时候那种性能的提升让我质疑代码是不是哪儿出错了，渲染时间从原来直接使用AngularJs的4200ms降低到通过使用ReactJs渲染的120ms，你也可以去尝试下，或者直接看这篇文章下面的例子。
+ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone，还有angular的ngRepeat，可以和Coffeescript一起使用，所以使用React来渲染可以在你应用性能上面派上用场，例如通过ng-repeat来重复几百项，在我以前的[文章](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/){:target="_blank"}中,我写了一篇如何使长列表在AngularJs有效，但是所有的使渲染更快的[技术](https://github.com/webux/ux-angularjs-datagrid){:target="_blank"}是通过渲染列表中的一部分实现的，使用ReactJS来渲染AngularJs，可以使你的**渲染时间较少80%**，我玩ngReact的时候那种性能的提升让我质疑代码是不是哪儿出错了，渲染时间从原来直接使用AngularJs的4200ms降低到通过使用ReactJs渲染的120ms，你也可以去尝试下，或者直接看这篇文章下面的例子。
 
 我仍然经历这一些问题当使用AngularJs进行大量的DOM绑定，但是另外一个问题是特殊的双向数据绑定。如果你对这个问题有些担心，或许你应该考虑使用比AngularJs更强大的框架，然而ReactJs的重大作用将就是帮助我们尽可能快的渲染元素到用户的屏幕上。
 
 我将会用一个小案例来向你们解释如何来使用ReactJs来渲染一个AngularJs的应用，步骤如下：
  
- - 默认你已经安装了Bower，然后新建目录，安装reactjs和AngularJs到你的目录下：
+ - 默认你已经安装了[Bower](http://bower.io/){:target="_blank"}，然后新建目录，安装reactjs和AngularJs到你的目录下：
   <blockquote>$ mkdir fast-angular</blockquote>  
   <blockquote>$ cd fast-angular</blockquote>  
   <blockquote>$ bower install --save react </blockquote>  
@@ -45,7 +45,8 @@ ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone
     </html>
     {%endhighlight%}
  
- - 我们需要创建一个来渲染我们输入的字符串的ReactJs组件，所以我们使用ReactJs来渲染我们的模型，创建一个名叫做MYAPP的组件，传递给它来呈现一个props，接着我们创建一个传统的angular指令和控制器（增加标记在我们的html来启动这个应用），通过使用指令来告诉它渲染，而不是去调用ReactJs的组件，我们使用$watch来重新渲染和更新我们的框架，当组件已安装更新现有的实例中我们叫做createComponent 。  
+ - 我们需要创建一个来渲染我们输入的字符串的ReactJs组件，所以我们使用ReactJs来渲染我们的模型，创建一个名叫做MYAPP的组件，传递给它来呈现一个props，接着我们创建一个传统的angular指令和控制器（增加标记在我们的html来启动这个应用），通过使用指令来告诉它渲染，而不是去调用ReactJs的组件，我们使用$watch来重新渲染和更新我们的框架，当组件已安装更新现有的实例中我们叫做createComponent 。
+ 实际代码演示[http://plnkr.co/edit/FXK3lU?p=preview](http://plnkr.co/edit/FXK3lU?p=preview){:target="_blank"}  
 {%highlight html%}
 <!doctype html>
 <html>
@@ -107,7 +108,7 @@ ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone
 </html>
 {%endhighlight%}  
  
- - 当然上面这个例子没有使我们看到性能上面的提升，但是它阐述了如何通过ReactJs来渲染我们的模块。下面这个渲染一长串数字例子就是展现出性能的例子，是一个来自ng-react的例子，我们生成了一个含有1500个数据的数组并将其渲染到表格中，假如使用AngularJs中原生的ng-repeat通常会带来一些性能上面的问题，看这个使用ReactJs来渲染的[Plunkr]()，另外一个是使用原生ng-repeat来渲染的[例子]()。使用ReactJs渲染的代码如下：
+ - 当然上面这个例子没有使我们看到性能上面的提升，但是它阐述了如何通过ReactJs来渲染我们的模块。下面这个渲染一长串数字例子就是展现出性能的例子，是一个来自ng-react的例子，我们生成了一个含有1500个数据的数组并将其渲染到表格中，假如使用AngularJs中原生的ng-repeat通常会带来一些性能上面的问题，看这个使用ReactJs来渲染的[Plunkr](http://plnkr.co/edit/ykYILa?p=preview){:target="_blank"}，另外一个是使用原生ng-repeat来渲染的[Plunkr](http://plnkr.co/edit/YnF7Vn){:target="_blank"}。使用ReactJs渲染的代码如下：
 
 {%highlight html%}
 <!doctype html>
