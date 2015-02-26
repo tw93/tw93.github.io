@@ -143,6 +143,8 @@ module.exports = function(grunt) {
 };
 {%endhighlight%}
 
+这是我运行以后的截图：
+![grunt](http://tw93.github.io/images/grunt.jpg)  
 还是建议大家多看看Grunt的官方文档，通过官方文档来学习会快一点。
 
 
