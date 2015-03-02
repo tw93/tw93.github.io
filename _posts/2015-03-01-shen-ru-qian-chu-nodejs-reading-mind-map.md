@@ -10,5 +10,6 @@ categories: Node学习笔记
 
 ###Node简介
 
-这一章简要介绍了Node，从中可以了解Node的发展历程及其带来的影响和价值。  
+这一章简要介绍了Node，从中可以了解Node的发展历程及其带来的影响和价值。
+  
 ![Node简介](http://tw93.github.io/images/Node1.png)
