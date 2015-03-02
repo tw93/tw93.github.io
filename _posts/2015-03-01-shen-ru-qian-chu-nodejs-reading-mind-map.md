@@ -17,4 +17,4 @@ categories: Node学习笔记
 ###模块机制  
 这一章主要介绍Node的模块机制，从中了解到Node如何实现CommonJS模块和包规范的。在这一章中，我们详细的解释了模块在引用过程中的编译、加载规则。另外，我们还能读到更深度的关于Node自身源代码的组织架构。
 
-![Node模块机制](http://tw93.github.io/images/Node2.png){:class="bigImg"}
+![Node模块机制](http://tw93.github.io/images/Node2.png){: .imgZoom}
