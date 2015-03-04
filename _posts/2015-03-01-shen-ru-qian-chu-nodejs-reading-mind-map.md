@@ -17,5 +17,12 @@ categories: Node学习笔记
 ###模块机制  
 这一章主要介绍Node的模块机制，从中了解到Node如何实现CommonJS模块和包规范的。在这一章中，我们详细的解释了模块在引用过程中的编译、加载规则。另外，我们还能读到更深度的关于Node自身源代码的组织架构。
 
-![Node模块机制](http://tw93.github.io/images/Node2.png){: .imgZoom}
+![Node模块机制](http://tw93.github.io/images/Node2.png)
 *图片太小可以右键从新标签页打开图片，然后点击就可以全屏显示。*
+
+###异步I/O  
+这一章展示了Node中我们将异步I/O作为主要设计理念的原因。另外，还会介绍到异步I/O的详细实现过程。
+Node正是依靠构建了一套完善的高性能异步I/O框架，打破了JavaScript在服务器止步不前的局面。  
+
+![Node异步I/O](http://tw93.github.io/images/Node3.png)
+
