@@ -26,3 +26,8 @@ Node正是依靠构建了一套完善的高性能异步I/O框架，打破了Java
 
 ![Node异步I/O](http://tw93.github.io/images/Node3.png)
 
+###异步编程  
+这一章主要介绍异步编程，其中最常见的异步编程问题介绍，也有详细的解决方案。在这一章中我们可以接触到Promise、事件、高阶函数是如何进行流程控制的。  
+![Node异步I/O](http://tw93.github.io/images/Node4.png)
+
+
