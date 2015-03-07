@@ -39,3 +39,8 @@ CommonJS规范为JavaScript定制了一个美好的愿景---希望JavaScript能�
 Node将JavaScript的主要应用场景帮到了服务器端，相应要考虑的细节也与浏览器端不同，在服务器端，资源向来是寸土寸金，要为海量用户服务，就使得一切资源都要高效循环利用，需要更严谨为每一份资源作出安排。
 
 ![Node内存控制](http://7vihmc.com1.z0.glb.clouddn.com/Node5.png)
+
+###理解Buffer  
+这一章主要介绍了前端JavaScript里不能遇到的Buffer。由于Node中会涉及频繁的网络和磁盘I/O，处理字节流数据会是很常见的行为，这部分的场景与纯粹的前端开发完全不同。
+体会过JavaScript友好字符串操作后，有些开发者可能会形成思维定势，将Buffer当作字符串来理解。但字符串与Buffer之间有实质性的差异，即Buffer是二进制数据，字符串与Buffer之间存在编码关系。因此，理解Buffer的诸多细节十分必要，对于如何高效处理二进制十分有用。
+![Node理解Buffer](http://7vihmc.com1.z0.glb.clouddn.com/Node6.png)
