@@ -49,3 +49,5 @@ Node将JavaScript的主要应用场景帮到了服务器端，相应要考虑的
 
 这一章介绍了Node支持的TCP,UDP,HTTP编程，还讲了有关于Websocket与TSL、HTTPS的介绍。  
 利用Node可以十分方便地搭建网络服务器，不需要专门的Web服务器作为容器，仅仅需要几行代码就可以构建服务器。Node提供了net、dgram、http、https这4个模块，分别用于处理TCP、UDP、HTTP、HTTPS，适用于服务端和客户端。
+
+![Node网络编程](http://7vihmc.com1.z0.glb.clouddn.com/Node7.png)    
