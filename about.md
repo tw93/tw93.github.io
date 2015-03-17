@@ -15,6 +15,7 @@ permalink: /about/
 我的足迹:
 
 * [Github](https://github.com/{{site.github_username}}){:target="_blank"}
+* [Codewars](http://www.codewars.com/users/tangwei){:target="_blank"}
 * [微博](http://weibo.com/{{site.sina_id}}){:target="_blank"}
 * [知乎](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
 * [前端乱炖专栏](http://www.html-js.com/article/column/765){:target="_blank"}
