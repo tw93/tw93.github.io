@@ -61,3 +61,5 @@ Node将JavaScript的主要应用场景帮到了服务器端，相应要考虑的
 
 ###玩转进程    
 这一章主要介绍Node的多进程技术，以及如何借助多进程方式来提升应用的可用性和性能。从严格意义上面来讲,Node并非真正的单线程架构，在第3章我们还叙述过Node自身还有一定的I/O线程存在，这些I/O线程由底层libuv处理，这部分线程对于JavaScript开发者是透明的，只在C++扩展开发时才会关注到。JavaScript代码永远运行在V8上，是单线程的。本章将围绕JavaScript部分展开，所以屏蔽底层细节的讨论。
+![Node玩转进程](http://7vihmc.com1.z0.glb.clouddn.com/Node9.png)  
+
