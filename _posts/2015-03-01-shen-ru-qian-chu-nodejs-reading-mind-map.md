@@ -44,7 +44,7 @@ Node将JavaScript的主要应用场景帮到了服务器端，相应要考虑的
 
 ###理解Buffer  
 这一章主要介绍了前端JavaScript里不能遇到的Buffer。由于Node中会涉及频繁的网络和磁盘I/O，处理字节流数据会是很常见的行为，这部分的场景与纯粹的前端开发完全不同。  
-体会过JavaScript友好字符串操作后，有些开发者可能会形成思维定势，将Buffer当作字符串来理解。但字符串与Buffer之间有实质性的差异，即Buffer是二进制数据，字符串与Buffer之间存在编码关系。因此，理解Buffer的诸多细节十分必要，对于如何高效处理二进制十分有用。[脑图](http://naotu.baidu.com/viewshare.html?shareId=au9r3m20x0gg){:target="_blank"} 
+体会过JavaScript友好字符串操作后，有些开发者可能会形成思维定势，将Buffer当作字符串来理解。但字符串与Buffer之间有实质性的差异，即Buffer是二进制数据，字符串与Buffer之间存在编码关系。因此，理解Buffer的诸多细节十分必要，对于如何高效处理二进制十分有用。[脑图](http://naotu.baidu.com/viewshare.html?shareId=au9r8oahp0c0){:target="_blank"} 
 ![Node理解Buffer](http://7vihmc.com1.z0.glb.clouddn.com/Node6.png)
 
 ###网络编程
