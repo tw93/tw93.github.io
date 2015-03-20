@@ -14,24 +14,24 @@ categories: Node学习笔记
 
 这一章简要介绍了Node，从中可以了解Node的发展历程及其带来的影响和价值。
 
-为什么叫Node?起初，Ryan Dahl称他的项目为web.js，就是一个Web服务器，但是项目的发展超过了他当初单纯开发一个Web服务器的想法，变成构建网络应用的一个基本框架,这样可以在它的基础上构建更多的东西,诸如服务器、客户端、命令行工具等。Node发展为一个强制不共享任何资源的单线程、单进程系统，包括十分适宜网络的库，为构建大型分布式应用程序提供了基础设施，其目标也是成为一个构建快速、可伸缩的网络应用平台。它自身非常简单，通过通信协议来组织很多Node，非常容易通过扩展来达成构建大型网络应用的目的。**每一个Node进程都构成这个网络应用中的一个节点，这是它名字所含意义的真谛。**
+为什么叫Node?起初，Ryan Dahl称他的项目为web.js，就是一个Web服务器，但是项目的发展超过了他当初单纯开发一个Web服务器的想法，变成构建网络应用的一个基本框架,这样可以在它的基础上构建更多的东西,诸如服务器、客户端、命令行工具等。Node发展为一个强制不共享任何资源的单线程、单进程系统，包括十分适宜网络的库，为构建大型分布式应用程序提供了基础设施，其目标也是成为一个构建快速、可伸缩的网络应用平台。它自身非常简单，通过通信协议来组织很多Node，非常容易通过扩展来达成构建大型网络应用的目的。**每一个Node进程都构成这个网络应用中的一个节点，这是它名字所含意义的真谛。** [脑图原文件](http://naotu.baidu.com/viewshare.html?shareId=atyzcu65ssw8){:target="_blank"}
   
 ![Node简介](http://7vihmc.com1.z0.glb.clouddn.com/Node1.png)
 
 ###模块机制  
 这一章主要介绍Node的模块机制，从中了解到Node如何实现CommonJS模块和包规范的。在这一章中，我们详细的解释了模块在引用过程中的编译、加载规则。另外，我们还能读到更深度的关于Node自身源代码的组织架构。  
-CommonJS规范为JavaScript定制了一个美好的愿景---希望JavaScript能够在任何地方运行。
+CommonJS规范为JavaScript定制了一个美好的愿景---希望JavaScript能够在任何地方运行。[脑图原文件](http://naotu.baidu.com/viewshare.html?shareId=au9i3m5vx0gk){:target="_blank"}
 ![Node模块机制](http://7vihmc.com1.z0.glb.clouddn.com/Node2.png)
 
 
 ###异步I/O  
 这一章展示了Node中我们将异步I/O作为主要设计理念的原因。另外，还会介绍到异步I/O的详细实现过程。   
-事件循环是异步实现的核心，它与浏览器中的执行模型基本上保持一致。而向古老的[Rhino](https://developer.mozilla.org/zh-CN/docs/Mozilla/Projects/Rhino){:target="_blank"}，尽管是较早就能在服务器运行的JavaScript运行时但是执行模型并不像浏览器采用事件驱动，而是使用像其他语言一样采用同步I/O作为主要模型，这造成它在性能上面无法发挥。**Node正是依靠构建了一套完善的高性能异步I/O框架，打破了JavaScript在服务器止步不前的局面。**  
+事件循环是异步实现的核心，它与浏览器中的执行模型基本上保持一致。而向古老的[Rhino](https://developer.mozilla.org/zh-CN/docs/Mozilla/Projects/Rhino){:target="_blank"}，尽管是较早就能在服务器运行的JavaScript运行时但是执行模型并不像浏览器采用事件驱动，而是使用像其他语言一样采用同步I/O作为主要模型，这造成它在性能上面无法发挥。**Node正是依靠构建了一套完善的高性能异步I/O框架，打破了JavaScript在服务器止步不前的局面。** [脑图原文件](http://naotu.baidu.com/viewshare.html?shareId=au9i4efc4u0w){:target="_blank"}  
 
 ![Node异步I/O](http://7vihmc.com1.z0.glb.clouddn.com/Node3.png)
 
 ###异步编程  
-这一章主要介绍异步编程，其中最常见的异步编程问题介绍，也有详细的解决方案。在这一章中我们可以接触到Promise、事件、高阶函数是如何进行流程控制的。 （这一章建议多看书）    
+这一章主要介绍异步编程，其中最常见的异步编程问题介绍，也有详细的解决方案。在这一章中我们可以接触到Promise、事件、高阶函数是如何进行流程控制的。 （这一章建议多看书）[脑图原文件](http://naotu.baidu.com/viewshare.html?shareId=au9i54fq5q80){:target="_blank"}      
 ![Node异步I/O](http://7vihmc.com1.z0.glb.clouddn.com/Node4.png)
 
 
