@@ -13,7 +13,6 @@ google_analytics: UA-57207999-1
 animated:           true
 show_related_posts: false
 show_post_footers:  false
-site.disqus_shortname: Tw93
 
 # Disqus post comments
 # (leave blank to disable Disqus)
