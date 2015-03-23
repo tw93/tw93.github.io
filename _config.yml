@@ -28,6 +28,7 @@ email_url: http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=qd3ekJrp2NiHysb
 bitcoin_url:
 paypal_url:
 flattr_button:
+site.disqus_shortname:Tw93
 
 # Build settings
 markdown:     kramdown
