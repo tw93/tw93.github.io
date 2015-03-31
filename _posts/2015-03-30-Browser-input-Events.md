@@ -25,6 +25,7 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：
 
  > touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
+ 
 这是由于Web的向后兼容性，指针事件采取的一种可替代方案触发相容事件内联： 
 
  > mousemove → pointerover → mouseover → pointerdown → mousedown → gotpointercapture → pointerup → mouseup → lostpointercapture → pointerout → mouseout → focus → click
@@ -40,16 +41,16 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 
 ![IOS Touch Events](http://tw93.github.io/images/01-ios-opt-small.png)
 
-**在IOS设备上的点击一个元素两次和松开的事件级联**
+*在IOS设备上的点击一个元素两次和松开的事件级联*
 
 
 ![Android4.4 Touch Events](http://tw93.github.io/images/02-android-opt-small.png)
 
-**在 Android 4.4 设备上的点击一个元素两次和松开的事件级联**
+*在 Android 4.4 设备上的点击一个元素两次和松开的事件级联*
 
 ![Android4.4 Touch Events](http://tw93.github.io/images/03-pointer-opt-small.png)
 
-**在Internet Explorer 11（在兼容的触摸事件实现）上点击元素两次然后松开的事件级联**
+*在Internet Explorer 11（在兼容的触摸事件实现）上点击元素两次然后松开的事件级联*
 
 ###应用事件级联
 由于浏览器工程师的工作，大多数现在建成的桌面网站“只是可以工作而已”。尽管级联看起来有点粗糙，建立鼠标事件是我们以前通常工作的保守做法。
