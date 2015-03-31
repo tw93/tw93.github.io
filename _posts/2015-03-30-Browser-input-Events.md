@@ -23,5 +23,6 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 
 ###事件级联  
 当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：
+
  > touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
 
