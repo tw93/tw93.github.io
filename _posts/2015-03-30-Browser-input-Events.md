@@ -22,13 +22,9 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 谷歌的这个决定不并不是最终的决定，但是目前在指针事件上没有活跃的工作。我们通过polyfills输入和使用指针事件和替代解决方案将是等式的一部分，可能最终起决定作用。苹果在2012年申明反对指针事件，我现在没有从Safari的工程师那里得到任何公众回应。
 
 ###事件级联  
-当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：
+当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
 
- > touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
- 
-这是由于Web的向后兼容性，指针事件采取的一种可替代方案触发相容事件内联： 
-
- > mousemove → pointerover → mouseover → pointerdown → mousedown → gotpointercapture → pointerup → mouseup → lostpointercapture → pointerout → mouseout → focus → click
+这是由于Web的向后兼容性，指针事件采取的一种可替代方案触发相容事件内联：mousemove → pointerover → mouseover → pointerdown → mousedown → gotpointercapture → pointerup → mouseup → lostpointercapture → pointerout → mouseout → focus → click
 
  事件规范允许用户代理们用不同的方式来实现相容的事件，Patrick Lauke和Peter-Paul Koch维护着关于这一主题的广泛的参考材料（资源链接位于文章底部）。
  以下图片显示下列行为的事件串：
