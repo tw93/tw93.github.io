@@ -22,9 +22,11 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 谷歌的这个决定不并不是最终的决定，但是目前在指针事件上没有活跃的工作。我们通过polyfills输入和使用指针事件和替代解决方案将是等式的一部分，可能最终起决定作用。苹果在2012年申明反对指针事件，我现在没有从Safari的工程师那里得到任何公众回应。
 
 ###事件级联  
-当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
+当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：  
+ > touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
 
-这是由于Web的向后兼容性，指针事件采取的一种可替代方案触发相容事件内联：mousemove → pointerover → mouseover → pointerdown → mousedown → gotpointercapture → pointerup → mouseup → lostpointercapture → pointerout → mouseout → focus → click
+这是由于Web的向后兼容性，指针事件采取的一种可替代方案触发相容事件内联：   
+ > mousemove → pointerover → mouseover → pointerdown → mousedown → gotpointercapture → pointerup → mouseup → lostpointercapture → pointerout → mouseout → focus → click
 
  事件规范允许用户代理们用不同的方式来实现相容的事件，Patrick Lauke和Peter-Paul Koch维护着关于这一主题的广泛的参考材料（资源链接位于文章底部）。
  以下图片显示下列行为的事件串：
@@ -56,3 +58,11 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
  
  - 我们只为现代的Android和桌面端的Chrome优化，通过使用<meta name="viewport" content="width=device-width">来启动禁用延迟这一功能。
  - 我们只为IOS设备优化，用户有一个明确的点击，不是那种快速的点击或者长按，仅仅是一个元素良好的、正常的、明确的点击。
+
+如果我们的目标是创建一个能在用户体验和本地应用媲美的Web应用，那么我们需要减少交互响应的延迟。为了达到这个目标，我们需要在原始事件（如down,move,up）上创建我们自己的复合事件(click,double-click),当然我们还需要对本地事件的回退处理程序提供广泛和可行的支持。
+
+做这些需要不少的代码和知识。为了避免在浏览器终中的300ms延迟，我们需要处理全部生命周期内的自我交互。对于一个给定｛类型｝down事件，我们需要绑定所有必需的事件来完成这个功能，当交互已经完成后，我们需要清理自己解绑的起始事件。
+
+网站开发人员，你是唯一一个知道页面是否应该放大或另一个双击事件是否必须等待的人。如果只有你需要回调推迟你应该允许一个预定的动作来延迟。
+
+在接下来链接中，你会发现一个小的、相互间无依赖的点击演示来创造一个多输入、低延迟的点击事件。
