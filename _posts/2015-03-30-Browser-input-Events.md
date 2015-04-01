@@ -10,7 +10,7 @@ categories: 我的翻译
 
 在本文中，我们将介绍事件级联和使用这些知识来实现演示一个tap点击事件，支持多种输入方法但是又没有违反像Opera Mini这一类的代理浏览器规则。
 
-*注：tap也翻译为点击，tap和click都是在点击时候触发，但在手机Web端click会有200~300ms延迟，为了避免歧义，下文将” tap event“翻译成“tap点击事件“*
+<small>注：tap也翻译为点击，tap和click都是在点击时候触发，但在手机Web端click会有200~300ms延迟，为了避免歧义，下文将” tap event“翻译成“tap点击事件“</small>
 
 ###概况  
 目前被用于与Web交互的3种主要的交互方式是：数字光标（鼠标）、触觉（直接触摸或者手写笔）、键盘。在JavaScript中我们可以通过[触摸事件](http://www.w3.org/TR/touch-events/){:target="_blank"},[鼠标事件](http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-mouseevents){:target="_blank"},[指针事件](http://www.w3.org/TR/pointerevents/){:target="_blank"}和[键盘事件](http://www.w3.org/TR/2014/WD-DOM-Level-3-Events-20140925/#keys){:target="_blank"}来使用它们。在这篇文章中我们主要讨论触摸和基于鼠标的交互，虽然这里有键盘事件已经形成标准，如click和submit事件。
@@ -44,18 +44,19 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 
 ![IOS Touch Events](http://tw93.github.io/images/01-ios-opt-small.png)  
 
-*在IOS设备上的tap点击一个元素两次和松开的事件级联*
-
+<small>在IOS设备上的tap点击一个元素两次和松开的事件级联</small>
+---
 
 
 ![Android4.4 Touch Events](http://tw93.github.io/images/02-android-opt-small.png)
 
-*在 Android 4.4 设备上的tap点击一个元素两次和松开的事件级联*
-
+<small>在 Android 4.4 设备上的tap点击一个元素两次和松开的事件级联</small>
+---
 
 ![Android4.4 Touch Events](http://tw93.github.io/images/03-pointer-opt-small.png) 
  
-*在Internet Explorer 11（在兼容的触摸事件实现）上tap点击元素两次然后松开的事件级联*
+<small>在Internet Explorer 11（在兼容的触摸事件实现）上tap点击元素两次然后松开的事件级联</small>
+---
 
 ###应用事件级联
 由于浏览器工程师的工作，大多数现在建成的桌面网站“只是可以工作而已”。尽管级联看起来有点粗糙，但建立鼠标事件是我们以前通常工作的保守做法。  
