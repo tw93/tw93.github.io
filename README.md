@@ -1,2 +1,5 @@
-Learn JavaScript.    
-Stay hungry. Stay foolish.  
+KEEP CALM AND LEARN JAVASCRIPT   
+
+STAY HUNGRY. STAY FOOLISH
+
+LESS IS  MORE.
