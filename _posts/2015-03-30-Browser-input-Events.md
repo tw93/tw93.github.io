@@ -65,4 +65,102 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 
 网站开发人员，你是唯一一个知道页面是否应该放大或另一个双击事件是否必须等待的人。如果只有你需要回调推迟你应该允许一个预定的动作来延迟。
 
-在接下来链接中，你会发现一个小的、相互间无依赖的点击演示来创造一个多输入、低延迟的点击事件。
+在接下来链接中，你会发现一个小的、相互间无依赖的tab事件演示来创造一个多输入、低延迟的tab事件。Polymer-gestures是一个tab和其他事件生产准备实施。尽管是这个名字，但是它是不依赖Polymer的库而且很容易被隔离。
+ 
+明确的说，实施这个从一开始来说就是一个坏主意，以下这些应该仅仅用于教育而不是用于生产环境。用于生产环境的已经存在，例如：[ FastClick](https://github.com/ftlabs/fastclick/){:target="_blank"},[polymer-gestures](https://github.com/Polymer/polymer-gestures){:target="_blank"}和[Hammer.js](http://hammerjs.github.io/){:target="_blank"}。
+
+ - Demo：[The tap event](){:target="_blank"}
+ - Code:[taps.js](https://github.com/Skookum/smashing-input-events/blob/gh-pages/taps.js#L1){:target="_blank"}
+
+###重要部分
+所有开始的地方是绑定你的初始事件，这下面的处理多输入的模式是被认为保险的方式。
+{% highlight javascript%}
+    /**
+     * If there are pointer events, let the platform handle the input 
+     * mechanism abstraction. If not, then it’s on you to handle 
+     * between mouse and touch events.
+     */
+
+    if (hasPointer) {
+      tappable.addEventListener(POINTER_DOWN, tapStart, false);
+      clickable.addEventListener(POINTER_DOWN, clickStart, false);
+    }
+
+    else {
+      tappable.addEventListener('mousedown', tapStart, false);
+      clickable.addEventListener('mousedown', clickStart, false);
+
+      if (hasTouch) {
+        tappable.addEventListener('touchstart', tapStart, false);
+        clickable.addEventListener('touchstart', clickStart, false);
+      }
+    }
+
+    clickable.addEventListener('click', clickEnd, false);
+{%endhighlight%}
+
+绑定touch事件可以和渲染性能妥协，即使他们没有做任何事，为了减少这种影响,在处理程序开始时候绑定跟踪事件通常是被推荐的。别忘了在完成你的事件处理后要清理自己的环境和解绑跟踪事件。
+
+{% highlight javascript%}
+    /**
+     * On tapStart we want to bind our move and end events to detect 
+     * whether this is a “tap” action.
+     * @param {Event} event the browser event object
+     */
+
+    function tapStart(event) {
+      // bind tracking events. “bindEventsFor” is a helper that automatically 
+      // binds the appropriate pointer, touch or mouse events based on our 
+      // current event type. Additionally, it saves the event target to give 
+      // us similar behavior to pointer events’ “setPointerCapture” method.
+
+      bindEventsFor(event.type, event.target);
+      if (typeof event.setPointerCapture === 'function') {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }
+
+      // prevent the cascade
+      event.preventDefault();
+      
+      // start our profiler to track time between events
+      set(event, 'tapStart', Date.now());
+    }
+
+    /**
+     * tapEnd. Our work here is done. Let’s clean up our tracking events.
+     * @param {Element} target the html element
+     * @param {Event} event the browser event object
+     */
+
+    function tapEnd(target, event) {
+      unbindEventsFor(event.type, target);
+      var _id = idFor(event);
+      log('Tap', diff(get(_id, 'tapStart'), Date.now()));
+      setTimeout(function() {
+        delete events[_id];
+      });
+{%endhighlight%}
+
+剩下的这些代码应该能够很好的自我解释，事实上，它有很多簿记，实现自定义手势要求你用浏览器事件系统来紧密合作。为了挽救你的受伤和心痛，不要在你的代码库里做à la carte。相反，你应该建立或使用一个强大的抽象，例如[Hammer.js](http://hammerjs.github.io/){:target="_blank"},jQuery polyfill的[Pointer Events](https://github.com/jquery/PEP){:target="_blank"}或者[polymer-gestures](https://github.com/Polymer/polymer-gestures){:target="_blank"}。
+
+###总结
+
+一些事件曾经是很清楚的然后现在确是有歧义的，click事件用来指有且只有一件事，但是在触摸屏上面需要辨别是双击、滚动或者其他操作系统的手势。
+
+好消息是，我们现在明白了好多用户的操作和浏览器的响应之间的事件级联和相互作用，通过在工作中认识的原语，我们能够在我们的项目中为我们的用户和Web的未来做出更好的决策。
+
+你在构建多设备的网站时，有遇到什么意想不到的问题？你采取什么样的方法来解决Web上众多的交互模式？
+
+###额外的资源
+
+ - [“Pointer Events Finalized, But Apple’s Lack of Support Still a Deal Breaker,”](http://arstechnica.com/information-technology/2015/02/pointer-events-finalized-but-apples-lack-of-support-still-a-deal-breaker/){:target="_blank"}Peter Bright
+ - Getting Touchy: An Introduction to Touch and Pointer Events,包括[slides](http://patrickhlauke.github.io/getting-touchy-presentation/){:target="_blank"}和[talk](https://www.youtube.com/watch?v=QYLC8o3U_XY){:target="_blank"} Patrick E. Lauke
+ - [“Apple’s Web?”](http://timkadlec.com/2015/02/apples-web/){:target="_blank"} by Tim Kadlec
+ - [“Avoiding the 300ms Click Delay, Accessibly,”](http://timkadlec.com/2013/11/Avoiding-the-300ms-click-delay-accessibly/){:target="_blank"} Tim Kadlec
+ - [“Touch Table,”](http://www.quirksmode.org/mobile/tableTouch.html){:target="_blank"} Peter-Paul Koch
+ - [“Making the Web ‘Just Work’ With Any Input: Mouse, Touch, and Pointer Events,”](http://blogs.msdn.com/b/ie/archive/2014/09/05/making-the-web-just-work-with-any-input.aspx){:target="_blank"} Jacob Rossi
+ - [FastClick library](https://github.com/ftlabs/fastclick){:target="_blank"}
+ - [Hammer.js](http://hammerjs.github.io/){:target="_blank"}
+ - [polymer-gestures](https://github.com/Polymer/polymer-gestures){:target="_blank"}
+ - [Pointer Events](https://github.com/jquery/PEP){:target="_blank"}jQuery polyfill
+ - [“Implement Custom Gestures,”](https://developers.google.com/web/fundamentals/input/touch/touchevents/){:target="_blank"} Google Developers
