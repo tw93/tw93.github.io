@@ -43,20 +43,13 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 请注意：为了适应这个栈这个事件栈故意忽略了focus和blur事件。
 
 ![IOS Touch Events](http://tw93.github.io/images/01-ios-opt-small.png)  
-
 <small>在IOS设备上的tap点击一个元素两次和松开的事件级联</small>
----
-
 
 ![Android4.4 Touch Events](http://tw93.github.io/images/02-android-opt-small.png)
-
 <small>在 Android 4.4 设备上的tap点击一个元素两次和松开的事件级联</small>
----
 
 ![Android4.4 Touch Events](http://tw93.github.io/images/03-pointer-opt-small.png) 
- 
 <small>在Internet Explorer 11（在兼容的触摸事件实现）上tap点击元素两次然后松开的事件级联</small>
----
 
 ###应用事件级联
 由于浏览器工程师的工作，大多数现在建成的桌面网站“只是可以工作而已”。尽管级联看起来有点粗糙，但建立鼠标事件是我们以前通常工作的保守做法。  
