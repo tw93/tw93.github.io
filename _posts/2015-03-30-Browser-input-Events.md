@@ -15,7 +15,7 @@ categories: 我的翻译
 你很有可能已经实现过鼠标和触摸事件的处理程序，在过去我们推荐的做法是这样：  
 {% highlight javascript %}
 /** DO NOT EVER DO THIS! */
-$('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
+$('a', ('ontouchstart' in window)?'touchend':'click',handler);
 {% endhighlight %}
 
 微软已经负责创建了一个更好的，更有前途的“指针事件”的事件模型规范。指针事件是一个抽象的输入机制,现在是W3C推荐标准。指针事件给用户代理(UA)带来灵活性，给一个事件系统提供丰富的输入机制。鼠标、触摸、手写笔是今天很容易想到的输入方式，但实现延伸到[myo](https://www.thalmic.com/en/myo/){:target="_blank"}和[Ring](http://logbar.jp/ring/en/){:target="_blank"}也是可实现的。虽然Web开发者似乎对这些很兴奋，但并不是所有的浏览器开发者也会这样以为。就像苹果和谷歌现在就没有打算来实现指针事件。  
@@ -75,70 +75,70 @@ $('a', ('ontouchstart' in window) ? 'touchend' : 'click', handler);
 ###重要部分
 所有开始的地方是绑定你的初始事件，这下面的处理多输入的模式是被认为保险的方式。
 {% highlight javascript%}
-    /**
-     * If there are pointer events, let the platform handle the input 
-     * mechanism abstraction. If not, then it’s on you to handle 
-     * between mouse and touch events.
-     */
+/**
+ * If there are pointer events, let the platform handle the input 
+ * mechanism abstraction. If not, then it’s on you to handle 
+ * between mouse and touch events.
+ */
 
-    if (hasPointer) {
-      tappable.addEventListener(POINTER_DOWN, tapStart, false);
-      clickable.addEventListener(POINTER_DOWN, clickStart, false);
-    }
+if (hasPointer) {
+  tappable.addEventListener(POINTER_DOWN, tapStart, false);
+  clickable.addEventListener(POINTER_DOWN, clickStart, false);
+}
 
-    else {
-      tappable.addEventListener('mousedown', tapStart, false);
-      clickable.addEventListener('mousedown', clickStart, false);
+else {
+  tappable.addEventListener('mousedown', tapStart, false);
+  clickable.addEventListener('mousedown', clickStart, false);
 
-      if (hasTouch) {
-        tappable.addEventListener('touchstart', tapStart, false);
-        clickable.addEventListener('touchstart', clickStart, false);
-      }
-    }
+  if (hasTouch) {
+    tappable.addEventListener('touchstart', tapStart, false);
+    clickable.addEventListener('touchstart', clickStart, false);
+  }
+}
 
-    clickable.addEventListener('click', clickEnd, false);
+clickable.addEventListener('click', clickEnd, false);
 {%endhighlight%}
 
 绑定touch事件可以和渲染性能妥协，即使他们没有做任何事，为了减少这种影响,在处理程序开始时候绑定跟踪事件通常是被推荐的。别忘了在完成你的事件处理后要清理自己的环境和解绑跟踪事件。
 
 {% highlight javascript%}
-    /**
-     * On tapStart we want to bind our move and end events to detect 
-     * whether this is a “tap” action.
-     * @param {Event} event the browser event object
-     */
+/**
+ * On tapStart we want to bind our move and end events to detect 
+ * whether this is a “tap” action.
+ * @param {Event} event the browser event object
+ */
 
-    function tapStart(event) {
-      // bind tracking events. “bindEventsFor” is a helper that automatically 
-      // binds the appropriate pointer, touch or mouse events based on our 
-      // current event type. Additionally, it saves the event target to give 
-      // us similar behavior to pointer events’ “setPointerCapture” method.
+function tapStart(event) {
+  // bind tracking events. “bindEventsFor” is a helper that automatically 
+  // binds the appropriate pointer, touch or mouse events based on our 
+  // current event type. Additionally, it saves the event target to give 
+  // us similar behavior to pointer events’ “setPointerCapture” method.
 
-      bindEventsFor(event.type, event.target);
-      if (typeof event.setPointerCapture === 'function') {
-        event.currentTarget.setPointerCapture(event.pointerId);
-      }
+  bindEventsFor(event.type, event.target);
+  if (typeof event.setPointerCapture === 'function') {
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
 
-      // prevent the cascade
-      event.preventDefault();
-      
-      // start our profiler to track time between events
-      set(event, 'tapStart', Date.now());
-    }
+  // prevent the cascade
+  event.preventDefault();
+  
+  // start our profiler to track time between events
+  set(event, 'tapStart', Date.now());
+}
 
-    /**
-     * tapEnd. Our work here is done. Let’s clean up our tracking events.
-     * @param {Element} target the html element
-     * @param {Event} event the browser event object
-     */
+/**
+ * tapEnd. Our work here is done. Let’s clean up our tracking events.
+ * @param {Element} target the html element
+ * @param {Event} event the browser event object
+ */
 
-    function tapEnd(target, event) {
-      unbindEventsFor(event.type, target);
-      var _id = idFor(event);
-      log('Tap', diff(get(_id, 'tapStart'), Date.now()));
-      setTimeout(function() {
-        delete events[_id];
-      });
+function tapEnd(target, event) {
+  unbindEventsFor(event.type, target);
+  var _id = idFor(event);
+  log('Tap', diff(get(_id, 'tapStart'), Date.now()));
+  setTimeout(function() {
+    delete events[_id];
+  });
 {%endhighlight%}
 
 剩下的这些代码应该能够很好的自我解释，事实上，它有很多簿记，实现自定义手势要求你用浏览器事件系统来紧密合作。为了挽救你的受伤和心痛，不要在你的代码库里做à la carte。相反，你应该建立或使用一个强大的抽象，例如[Hammer.js](http://hammerjs.github.io/){:target="_blank"},jQuery polyfill的[Pointer Events](https://github.com/jquery/PEP){:target="_blank"}或者[polymer-gestures](https://github.com/Polymer/polymer-gestures){:target="_blank"}。
