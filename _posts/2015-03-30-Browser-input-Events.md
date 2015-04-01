@@ -23,9 +23,11 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 
 ###事件级联  
 当用户在移动设备上面点击一个元素时，浏览器会触发一系列事件。这个动作通常触发的一系列事件类是于这样：  
+ 
  > touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
 
 这是由于Web的向后兼容性，指针事件采取的一种可替代方案触发相容事件内联：   
+ 
  > mousemove → pointerover → mouseover → pointerdown → mousedown → gotpointercapture → pointerup → mouseup → lostpointercapture → pointerout → mouseout → focus → click
 
  事件规范允许用户代理们用不同的方式来实现相容的事件，Patrick Lauke和Peter-Paul Koch维护着关于这一主题的广泛的参考材料（资源链接位于文章底部）。
