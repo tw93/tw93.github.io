@@ -8,4 +8,6 @@ categories: 我的生活
 
 <iframe frameborder="0" width="100%" height="498" src="http://v.qq.com/iframe/player.html?vid=o001169cnsp&tiny=0&auto=0" allowfullscreen></iframe>
 
+<small>本来使用youtube视频的，但是由于大部分人在墙内，所以选择不那么流氓的腾讯视频。</small>
+
 只想靠两手，向理想挥手，这句歌词来自Beyond的《不再犹豫》。大概从初中开始听歌起就喜欢Beyond的歌，断断续续一直听到大学，每一次看他们以前演唱会视频都特别激动和感动。带给我的大部分是向上和力量和酷酷的独一无二的精神。回到文章，这篇文章打算把自己找工作的过程给记录下，顺便总结一下我的大学四年的生活。
