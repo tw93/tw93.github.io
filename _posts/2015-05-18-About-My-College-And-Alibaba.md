@@ -6,7 +6,7 @@ summary:    只想靠两手，向理想挥手，这句歌词来自Beyond的《�
 categories: 我的生活
 ---
 
-<iframe frameborder="0" width="100%" height="480" src="http://v.qq.com/iframe/player.html?vid=o001169cnsp&tiny=0&auto=0" allowfullscreen></iframe>
+<iframe frameborder="0" width="100%" height="498" src="http://v.qq.com/iframe/player.html?vid=o001169cnsp&tiny=0&auto=0" allowfullscreen></iframe>
 
 <small>本来使用youtube视频的，但是由于大部分人在墙内，所以选择不那么流氓的腾讯视频。</small>
 
