@@ -5,6 +5,6 @@ date:       2015-05-18 21:47:29
 summary:    只想靠两手，向理想挥手，这句歌词来自Beyond的《不再犹豫》。大概从初中开始听歌起就喜欢Beyond的歌，断断续续一直听到大学，每一次看他们以前演唱会视频都特别激动和感动。带给我的大部分是向上和力量和酷酷的独一无二的精神。回到文章，这篇文章打算把自己找工作的过程给记录下，顺便总结一下我的大学四年的生活。
 categories: 我的生活
 ---
-<iframe src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=-aAutv7P4LM&lcode=&resourceId=0_06_05_99" allowtransparency="true" allowfullscreen="true" allowfullscreenInteractive="true" scrolling="no" border="0" frameborder="0" style="width:100%;height:400px;"></iframe>
+<embed src="http://www.tudou.com/v/-aAutv7P4LM/&bid=05&resourceId=0_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="100%" height="400"></embed>
 
 只想靠两手，向理想挥手，这句歌词来自Beyond的《不再犹豫》。大概从初中开始听歌起就喜欢Beyond的歌，断断续续一直听到大学，每一次看他们以前演唱会视频都特别激动和感动。带给我的大部分是向上和力量和酷酷的独一无二的精神。回到文章，这篇文章打算把自己找工作的过程给记录下，顺便总结一下我的大学四年的生活。
