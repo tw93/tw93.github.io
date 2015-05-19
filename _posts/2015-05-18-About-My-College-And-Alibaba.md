@@ -44,8 +44,8 @@ categories: 我的生活
 ![杭帮菜2](http://7vihmc.com1.z0.glb.clouddn.com/hbc2.jpg)
 ![杭帮菜3](http://7vihmc.com1.z0.glb.clouddn.com/hbc3.jpg)
 ![杭帮菜4](http://7vihmc.com1.z0.glb.clouddn.com/hbc4.jpg)
-  
-远处是雷峰塔，“中峰一径分，盘折上幽云，夕照前村见，秋涛隔岭闻”
+
+远处是雷峰塔，“中峰一径分，盘折上幽云，夕照前村见，秋涛隔岭闻”的既视感。
 ![西湖](http://7vihmc.com1.z0.glb.clouddn.com/xh1.jpg)
 
 下图仿佛有一种”木落汉川夜，西湖悬玉钩“的感觉。
