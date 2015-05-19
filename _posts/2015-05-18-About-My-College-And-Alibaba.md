@@ -38,15 +38,15 @@ categories: 我的生活
 然后发了一条朋友圈“未来的路还很长，不以物喜不以己悲“。
 
 之后去西湖看了会儿夜间，放松了一下心情。
-![西湖晚上](http://tw93.github.io/images/hznight.png)
+![西湖晚上](http://tw93.github.io/images/hznight.jpg)
 
 之后3月12日，在杭州玩了一天，骑行西湖，并在绿茶吃了有名的杭帮菜，完全不一样的口味，有一种吃零食随便吃吃的感觉，杭州做得特别精美漂亮，让人很喜欢。晚上坐机场大巴来到机场，并在那边酒店住了下来。
-![杭帮菜1](http://tw93.github.io/images/hbc1.png)
-![杭帮菜2](http://tw93.github.io/images/hbc2.png)
-![杭帮菜3](http://tw93.github.io/images/hbc3.png)
-![杭帮菜4](http://tw93.github.io/images/hbc4.png)
-![西湖](http://tw93.github.io/images/xh1.png)
-![西湖](http://tw93.github.io/images/xh2.png)
+![杭帮菜1](http://tw93.github.io/images/hbc1.jpg)
+![杭帮菜2](http://tw93.github.io/images/hbc2.jpg)
+![杭帮菜3](http://tw93.github.io/images/hbc3.jpg)
+![杭帮菜4](http://tw93.github.io/images/hbc4.jpg)
+![西湖](http://tw93.github.io/images/xh1.jpg)
+![西湖](http://tw93.github.io/images/xh2.jpg)
 
 3月13日，早上8点多飞机，大概11点样子到的西安，饿的不行，去机场那里买了一个大肉夹馍和一瓶冰峰。吃完很爽，之后就坐机场大巴回学校了。
 
