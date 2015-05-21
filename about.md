@@ -6,10 +6,9 @@ permalink: /about/
 
 简要介绍：  
 
-* 热爱Web开发，写过PHP(Symfony2.3)，写过前端，近期在学习Node.js，AngularJS。  
-* 有一个Node.js开源项目在[Github](https://github.com/{{site.github_username}}//twMovie){:target="_blank"}上面。 
-* 热爱分享，热爱开源，喜欢在知乎上面回答关于web方面的问题。 
-* 应届毕业生，还处在查官方文档写项目的阶段。
+* 热爱Web开发，写过PHP，写过前端，近期在学习Node.js，AngularJS。  
+* 热爱分享，热爱开源，喜欢在知乎上面回答关于web方面的问题。
+* 博客内所有文章均为原创，采用知识共享署名-非商业性使用 3.0 中国大陆许可协议进行许可。 
 
 
 我的足迹:
