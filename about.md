@@ -6,7 +6,8 @@ permalink: /about/
 
 简要介绍：  
 
-* 热爱Web开发，写过PHP，写过前端，近期在学习Node.js，AngularJS。  
+* 热爱Web开发，主要是PHP、Node、Angular，近期在学习React。
+* 以后为Hybrid混合式开发方向。  
 * 热爱分享，热爱开源，喜欢在知乎上面回答关于web方面的问题。
 * 博客内所有文章均为Tw93原创。
 
