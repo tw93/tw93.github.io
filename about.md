@@ -6,10 +6,10 @@ permalink: /about/
 
 简要介绍：  
 
-* 热爱Web开发，主要是PHP、Node、Angular，近期在学习React。
-* 以后为Hybrid混合式开发方向。  
+* 热爱Web开发，之前是写PHP的，现在主要方向是JavaScript、Node，近期在学习React。
+* 以后职业方向为Hybrid混合式开发。  
 * 热爱分享，热爱开源，喜欢在知乎上面回答关于web方面的问题。
-* 博客内所有文章均为Tw93原创。
+* 博客内所有文章均为Tw93原创，遵循 CC 3.0 License版权原则。
 
 
 我的足迹:
@@ -22,5 +22,5 @@ permalink: /about/
 * Email: tangwei93@outlook.com
 
 <br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" ><img alt="知识共享许可协议" style="border-width:0;" src="https://i.creativecommons.org/l/by-nc/3.0/cn/88x31.png" /></a><br />本博客内所有文章均采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/">知识共享署名-非商业性使用 3.0 中国大陆许可协议</a>进行许可。
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank"><img alt="知识共享许可协议" style="border-width:0;" src="https://i.creativecommons.org/l/by-nc/3.0/cn/88x31.png"/></a><br />本博客内所有文章均采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">知识共享署名-非商业性使用 3.0 中国大陆许可协议</a>进行许可。
 
