@@ -1,10 +1,10 @@
 ---
 layout: page
-title: About Tw93
+title: 
 permalink: /about/
 ---
 
-About me：  
+About Tw93：  
 
 * The main direction is JavaScript.
 * Also using PHP and Node.
