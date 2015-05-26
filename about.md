@@ -4,23 +4,19 @@ title: About Tw93
 permalink: /about/
 ---
 
-简要介绍：  
+About me：  
 
-* 热爱Web开发，之前是写PHP的，现在主要方向是JavaScript、Node，近期在学习React。
-* 以后职业方向为Hybrid混合式开发。  
-* 热爱分享，热爱开源，喜欢在知乎上面回答关于web方面的问题。
-* 博客内所有文章均为Tw93原创，遵循 CC 3.0 License版权原则。
+* The main direction is JavaScript.
+* Also using PHP and Node.
+* Recently in learning React.
+* Every blog post in this site by Tw93 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">CC 3.0 License.</a>
 
 
-我的足迹:
+Follow me:
 
 * [Github](https://github.com/{{site.github_username}}){:target="_blank"}
-* [Codewars](http://www.codewars.com/users/tangwei){:target="_blank"}
-* [微博](http://weibo.com/{{site.sina_id}}){:target="_blank"}
-* [知乎](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
-* [前端乱炖专栏](http://www.html-js.com/article/column/765){:target="_blank"}
-* Email: tangwei93@outlook.com
+* [Weibo](http://weibo.com/{{site.sina_id}}){:target="_blank"}
+* [Zhihu](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
 
-<br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank"><img alt="知识共享许可协议" style="border-width:0;" src="https://i.creativecommons.org/l/by-nc/3.0/cn/88x31.png"/></a><br />本博客内所有文章均采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">知识共享署名-非商业性使用 3.0 中国大陆许可协议</a>进行许可。
+
 
