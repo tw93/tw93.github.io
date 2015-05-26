@@ -9,7 +9,8 @@ About：
 * The main direction is JavaScript.
 * Also using PHP and Node.
 * Recently in learning React.
-* Every blog post in this site by Tw93 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">CC 3.0 License.</a>
+* Every blog post in this site by Tw93 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">CC 3.0 License.</a>   
+<br>   
 
 
 Follow:
