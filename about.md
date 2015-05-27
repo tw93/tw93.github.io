@@ -4,7 +4,7 @@ title:
 permalink: /about/
 ---
 
-About me：  
+About：  
 
 * The main direction is JavaScript.
 * Also using PHP and Node.
@@ -13,7 +13,7 @@ About me：
 <br>   
 
 
-Follow me:
+Follow:
 
 * [Github](https://github.com/{{site.github_username}}){:target="_blank"}
 * [Weibo](http://weibo.com/{{site.sina_id}}){:target="_blank"}
