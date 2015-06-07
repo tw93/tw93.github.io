@@ -20,5 +20,6 @@ Follow Me:
 * [Weibo](http://weibo.com/{{site.sina_id}}){:target="_blank"}
 * [Zhihu](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
 
-
+Recent Reading:
+<script type="text/javascript" src="http://www.douban.com/service/badge/77063977/?selection=favorite&amp;picsize=medium&amp;hideself=on&amp;show=collection&amp;n=40&amp;hidelogo=on&amp;cat=book&amp;columns=5"></script>
 
