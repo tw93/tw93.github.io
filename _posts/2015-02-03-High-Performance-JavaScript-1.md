@@ -83,7 +83,7 @@ xhr.send(null);
     loadScript("the-rest.js", function() {
         Application.init(); //参考动态加载脚本
     }); 
-< /script>
+</script>
 //还有一种方式直接将loadScript()函数嵌入页面，避免多一次请求
 //初始化代码压缩到最小尺寸的一些库  YUI Compressor,
 //YUI3的方式，LazyLoad，LABjs
