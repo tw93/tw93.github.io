@@ -10,6 +10,8 @@ categories: 设计模式
 
 ###面向对象的JavaScript
 
+本文打算分成两部分来写，第一部分是总结JavaScript面向程序设计的基础知识，主要包括富有表现的JavaScript、接口、封装和信息隐藏、继承、单体模式、方法的链式调用这6部分。第二部分再来讲述具体的设计模式及在JavaScript中的实际应用。
+
 ####富有表现力的JavaScript   
 
 为什么说JavaScript是富有表现力的呢？
@@ -25,11 +27,11 @@ categories: 设计模式
 
 接口是面向对象JavaScript程序员工具箱中最有用的工具之一。但是JavaScript中没有内置创建或者实现接口的方法，也没有内置的方法用于判断一个对象是否实现了与另一个对象相同的一套方法。
 
-什么是接口呢？
+**什么是接口呢？**
 
 对于JavaScript初学者很少在自己的js代码中使用接口，那么到底什么是接口呢？接口提供了一种用以说明一个对象应该具有哪些方法的手段，用来表明方法的语义，但是不规定方法是如何实现的。
 
-接口的好处是啥呢？
+**接口的好处是啥呢？**
 
  - 既定的一批对象具有自我描述性，并能促进代码的重用。接口可以告诉一个程序员一个类实现了哪些方法，从而帮助其使用这个类。
  - 接口有助于稳定不同类之间的通信方式，事先知道了接口，就能减少在集成两个对象过程中出现的问题。
@@ -37,4 +39,29 @@ categories: 设计模式
 
 但是接口并非没有缺点，使用接口在一定程度上面强化了类型的作用，降低了语言的灵活性。再次由于接口带来额外的方法调用开销，对性能造成一定影响。最后JavaScript没有提供对接口的内置支持（JavaScript中没有interface和implements关键字），需要去模仿一些其他语言的接口，导致无法强迫其他程序员遵循你定义的接口，这也是我认为接口在使用中存在的最大问题。
 
-#####在JavaScript中模仿接口
+**在JavaScript中模仿接口**
+
+注释法、属性检查法和鸭式辨形法（把对象的实现方法集作为判断它是不是某个类实例的唯一标准。也就是说如果对象具有与接口定义的方法同名的所有方法，那么就可以认为它实现了这个接口，“像鸭子一样走路并且嘎嘎叫的就是鸭子，/*外国程序员真会玩*/”）。没有哪种技术是完美的，但三者的结合使用基本上 可以令人满意。
+
+建议采用注释法和鸭式辨形法这两种方法综合使用，我们用注释申明类支持的接口，从而提高代码的可重用性及其文档的完善性。我们还用辅助类Interface及其类方法Interface.ensureImplements来对对象实现方法进行显示检查。如果对象未能通过检查，这个方法将返回一条错误的消息。
+
+下面是结合使用Interface类与注释的实例。
+
+{% highlight javascript %}
+//Interface
+var Composite=new Interface('Composite',['add','remove','getChild']);
+var FormItem=new Interface('FormItem',['save']);
+
+// CompositeForm class
+var CompositeForm=function(id,method,action){//implements Composite,FormItem
+    ...
+};
+...
+
+function addForm(formInstance){
+    Interface.ensureImplements(formInstance,Composite,FormItem);
+    //如果一个调用的方法没有被执行，函数将会扔出一个错误
+    //中断程序的执行
+    //只有在检查正确通过后，之后的代码才会被执行
+}
+{% endhight %}
