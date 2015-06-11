@@ -37,7 +37,7 @@ categories: 设计模式
  - 接口有助于稳定不同类之间的通信方式，事先知道了接口，就能减少在集成两个对象过程中出现的问题。
  - 使测试和调试变得更加轻松，用于检测类型不匹配，同时还能使代码变得更加稳固。
 
-但是接口并非没有缺点，使用接口在一定程度上面强化了类型的作用，降低了语言的灵活性。再次由于接口带来额外的方法调用开销，对性能造成一定影响。最后JavaScript没有提供对接口的内置支持（JavaScript中没有interface和implements关键字），需要去模仿一些其他语言的接口，导致无法强迫其他程序员遵循你定义的接口，这也是我认为接口在使用中存在的最大问题。
+但是接口并非没有缺点，使用接口在一定程度上面强化了类型的作用，降低了语言的灵活性。由于接口带来额外的方法调用开销，对性能造成一定影响。而且JavaScript没有提供对接口的内置支持（JavaScript中没有interface和implements关键字），需要去模仿一些其他语言的接口，导致无法强迫其他程序员遵循你定义的接口，这也是我认为接口在使用中存在的最大问题。
 
 **在JavaScript中模仿接口**
 
@@ -53,7 +53,8 @@ var Composite=new Interface('Composite',['add','remove','getChild']);
 var FormItem=new Interface('FormItem',['save']);
 
 // CompositeForm class
-var CompositeForm=function(id,method,action){//implements Composite,FormItem
+var CompositeForm=function(id,method,action){
+//implements Composite,FormItem
     ...
 };
 ...
