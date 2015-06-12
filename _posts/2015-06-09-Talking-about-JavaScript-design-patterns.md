@@ -70,3 +70,91 @@ function addForm(formInstance){
 判断在代码总是否使用接口是否划算是最后重要也是最困难的一步，对于小型的、不太费事的项目来说，接口的好处并不明显，只是徒增复杂度而已。你需要自行权衡其利弊。
 
 对于工厂模式、组合模式、装饰者模式、命令模式尤其依赖接口。使用接口使代码耦合度降低，在对代码进行优化和重构时候将获得更大的自由。
+
+####封装和信息隐藏
+
+为对象创建私用成员是任何面向对象语言中的最基本和有用的特性之一。通过将一个方法或属性声明为私用，可以让对象的实现细节对其他对象保密以降低对象之间的耦合程度，可以保持数据完整性并对其修改方式加以约束。也即封装是面向对象设计的基石。
+
+封装和信息隐藏之间可以看作同一个概念的两种表达。信息隐藏是目的，而封装则是借以达到这个目的的技术，封装可以定义为对象的内部数据表现形式和实现细节进行隐藏。
+
+**创建对象的基本模式**
+JavaScript中创建对象的基本模式有3中：
+
+ - 门户大开型：按照传统类型创建一个类，用一个函数来做其构造器，所有属性和方法都是公开的，可访问的。以下示例是为每个属性增加了取值器和赋值器方法。
+    {% highlight javascript %}
+         var Book = function(isbn, title, author) {
+        this.setIsbn(isbn);
+        this.setTitle(title);
+        this.setAuthor(author);
+    }
+    Book.prototype = {
+        checkIsbn: function(isbn) {
+            ...
+        };
+        getIsbn = function() {
+            return this.isbn;
+        },
+        setIsbn: function(isbn) {
+            if (!this.checkIsbn(isbn)) {
+                throw new Error('Book:Invalid ISBN');
+            }
+            this.isbn = isbn;
+        },
+        getTitle: function() {
+            return this.title;
+        },
+        setTitle: function(title) {
+            this.title = title || 'No title specified';
+        },
+        getAuthor: function() {
+            return this.author;
+        },
+        setAuthor: function(title) {
+            this.author =author || 'No author specified';
+        },
+        display:function(){
+            ...
+        }
+    };
+    {%endhighlight%}
+ 
+ - 用命名规范区别私用成员：和本质上面此模式和门户大开型对象创建如出一辙，只不过在一些方法和属性的名称的前面加了下划线表示其私用性而已。
+     {% highlight javascript %}
+         var Book = function(isbn, title, author) {
+        this.setIsbn(isbn);
+        this.setTitle(title);
+        this.setAuthor(author);
+    }
+    Book.prototype = {
+        checkIsbn: function(isbn) {
+            ...
+        };
+        getIsbn = function() {
+            return this._isbn;
+        },
+        setIsbn: function(isbn) {
+            if (!this.checkIsbn(isbn)) {
+                throw new Error('Book:Invalid ISBN');
+            }
+            this.isbn = isbn;
+        },
+        getTitle: function() {
+            return this._title;
+        },
+        setTitle: function(title) {
+            this._title = title || 'No title specified';
+        },
+        getAuthor: function() {
+            return this._author;
+        },
+        setAuthor: function(title) {
+            this._author =author || 'No author specified';
+        },
+        display:function(){
+            ...
+        }
+    };
+    {%endhighlight%}
+
+    下划线的这种用法表示一个属性（或方法）仅对对象内部使用，直接访问它或者设置它可能会导致意想不到的后果。但是这只是一种约定，只有在遵循时候才有效果。主要适合于非敏感性的内部方法和属性。
+
