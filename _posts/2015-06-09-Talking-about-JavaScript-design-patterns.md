@@ -159,3 +159,57 @@ JavaScript中创建对象的基本模式有3中：
 
 下划线的这种用法表示一个属性（或方法）仅对对象内部使用，直接访问它或者设置它可能会导致意想不到的后果。但是这只是一种约定，只有在遵循时候才有效果。主要适合于非敏感性的内部方法和属性。
 
+ - 用闭包实现私用成员：使用闭包可以创建只允许特定函数访问的变量，而且这些变量在这些函数中的各次调用关系依然存在。我么使用var来申明这些变量，意味着它们只存在那个构造器中。
+{% highlight javascript %}
+var Book = function(newIsbn, newTitle, newAuthor) {
+    //implements Publication
+    //Private attributes
+    var isbn, title, author;
+
+    //Private method
+    function checkIsbn() {
+        ...
+    }
+
+    //privileged methods
+    this.getIsbn = function() {
+        return isbn;
+    };
+    this.setIsbn: function(isbn) {
+        if (!this.checkIsbn(newIsbn)) {
+            throw new Error('Book:Invalid ISBN');
+        }
+        this.isbn = newIsbn;
+    };
+    this.getTitle: function() {
+        return title;
+    };
+    this.setTitle: function(title) {
+        title = newTitle || 'No title specified';
+    };
+    this.getAuthor: function() {
+        return author;
+    };
+    this.setAuthor: function(title) {
+        this.author = newAuthor || 'No author specified';
+    };
+    //Constructor code
+    this.setIsbn(newIsbn);
+    this.setTitle(newTitle);
+    this.setAuthor(newAuthor);
+};
+
+//Public,non-privileged methods
+Book.prototype = {
+    display: function() {
+        ...
+    }
+};
+{%endhighlight%}
+
+需要访问这些变量和函数只需申明在Book中即可，这些方法被称为**特权方法(privileged method)**，因为它们是公开方法，但是能够访问私用属性和方法。为了在外部访问这些特权函数，它们的前面都被加上了关键字this。
+
+**封装的优缺点**
+封装保护了内部数据的完整性。通过将数据的访问限制为取值器和赋值器这两个方法，可以获得对取值和赋值的完全控制；同时封装可以使重构变得更轻松；通过只公开那些在接口中规定的方法，可以弱化模块间的耦合，这是面向对象设计最重要的原则之一。
+
+但是私用方法很难进行测试，因为它们及其内部变量都是私用的，所以在外部很难访问它们；同时封装意味着不得不与复杂的作用链打交道，而这会使错误调试更加困难；同时在JavaScript中实现封装很困难，没有对封装提供内置的支持，必须依赖一些其他的技术。
