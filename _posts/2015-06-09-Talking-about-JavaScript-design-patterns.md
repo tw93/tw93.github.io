@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      浅谈JavaScript设计模式
+title:      你不一定知道的JavaScript设计模式
 date:       2015-06-09 21:47:29
 summary:    最近在学习Ross Harmes/Dustin Diaz写的《JavaScript设计模式》，大概将此书看了两遍，很有收获。此书适合于想深入学习JavaScript的同学，用来增加你的内功。能够帮助你增强对JavaScript面向对象的理解，同时学习各种具体的设计模式，懂得应该在什么场合使用这些设计模式，以及如何实现它们，写出更优雅的代码。这篇文章用于总结我的读书笔记。
 categories: 设计模式
@@ -214,3 +214,104 @@ Book.prototype = {
 封装保护了内部数据的完整性。通过将数据的访问限制为取值器和赋值器这两个方法，可以获得对取值和赋值的完全控制；同时封装可以使重构变得更轻松；通过只公开那些在接口中规定的方法，可以弱化模块间的耦合，这是面向对象设计最重要的原则之一。
 
 但是私用方法很难进行测试，因为它们及其内部变量都是私用的，所以在外部很难访问它们；同时封装意味着不得不与复杂的作用链打交道，而这会使错误调试更加困难；同时在JavaScript中实现封装很困难，没有对封装提供内置的支持，必须依赖一些其他的技术。
+
+####继承
+
+在JavaScript中继承是一个非常复杂的话题，比起其他任何面向对象的语言中继承都复杂得多。在太多事其他面向对象语言中，继承只需要一个关键字即可。但是在JavaScript中要想达到传承共用成员的目的，需要采取一系列措施。继承可以减少重复性的代码，并且尽量弱化对象之间的耦合。
+
+**类式继承**
+
+首先要做的是创建构造函数。按惯例，其名称就是类名，首字母应该大写。在构造函数中创建实例的属性要使用关键字this。类的方法被添加到其prototype对象中，要创建该类的实例，只需结合关键字new调用这个构造函数即可。然后你可以访问所有的实例属性，也可以调用所有的实例方法。  
+{%highlight javascript%}
+/*Class Person */
+function Person(name){
+    this.name=name;
+}
+Person.prototype.getName=function(){
+    return this.name
+}
+
+var reader=new Person('John Smith');
+reader.getName();
+{%endhighlight%}
+
+创建继承Person的类要复杂一些：
+{%highlight javascript%}
+/* Class Author */
+function Author(name,books){
+    //Call the superclass's constructor in the scope of this
+    Person.call(this.name);
+    //add an attribute to Author
+    this.books=books;
+}
+
+//set up the prototype chain
+Author.prototype=new Person();
+//set the constructor attribute to Author
+Author.prototype.constructor=Author;
+Author.prototype.getBooks=function(){
+    //add a method to Author
+    return this.books;
+}
+{%endhighlight%}
+
+为了让Author继承Person，必须手工将Author的prototype设置为Person的一个实例。最后一个步骤是将prototype的constructor属性重设为Author(定义一个构造函数时，其默认的prototype对象是一个Object类型的实例，其constructor属性会自动设置为该构造函数本身。如果手工将其prototype设置为另一对象，那么新对象自然不会具有原对象的constructor值，所以需要重新设置其constructor值)
+
+为了简化类的申明，可以将派生子类的整个过程包装在一个名为**extend**的函数中，它的作用和其他语言中的extend关键字类似，即基于一个给定的类结构创建一个新的类。
+
+{%highlight javascript%}
+/* Extend functions.*/
+function Extend(subClass,superClass){
+    var F=function(){};
+    F.prototype=superClass.prototype;
+    subClass=prototype=new F();
+    subClass.prototype.constructor=subClass;
+}
+{%endhighlight%}
+这个函数所做的事情和先前我们手工做的一样，它设置了prototype，然后将其constructor重新设为恰当的值，作为一项改进，它添加了一个空函数F，并将其创建的一个对象实例插入原型链中，这样做可以避免创建超类的新实例。
+使用extend函数后，前面那个Person/Author例子变成了这个样子：
+{%highlight javascript%}
+/*Class Person */
+function Person(name){
+    this.name=name;
+}
+Person.prototype.getName=function(){
+    return this.name
+}
+
+/* Class Author */
+function Author(name,books){
+    Person.call(this.name);
+    this.books=books;
+}
+extend(Author,Person);
+Author.prototype.getBooks=function(){
+    return this.books;
+}
+{%endhighlight%}
+
+**原型式继承**
+
+使用原型式继承时，并不需要用类的对象来定义对象的结构，只需要直接创建一个对象即可。这个对象随后可以被新的对象重用，这得意于原型链查找的工作机制。下面我们使用原型链继承来重新设计Person和Author：
+
+{%highlight javascript%}
+/*Person Prototype Object*/
+var Person={
+    name:'default name',
+    getName:function(){
+        return this.name;
+    }
+};
+
+var reader=clone(Person);
+alert(reader.getName());//default name
+reader.name='Tang Wei';
+alert(reader.getName());//Tang Wei
+
+/*Author Prototype Object*/
+var Author=clone(Person);
+Author.books=[];//default value
+Author.getBooks=function(){
+    return this.books;
+}
+{%endhighlight%}
