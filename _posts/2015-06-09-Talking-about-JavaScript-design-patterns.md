@@ -315,3 +315,5 @@ Author.getBooks=function(){
     return this.books;
 }
 {%endhighlight%}
+
+这里并没有使用一个名为Person的构造函数来定义类的结构，Person现在是一个对象字面量。它是所需要创建的各种类Person对象的原型变量。其中定义了所有类Person对象都有具备的属性和方法，并为它们提供了默认值。方法的默认值可能不会被改变，而属性的默认值一般都会被改变。
