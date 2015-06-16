@@ -317,3 +317,48 @@ Author.getBooks=function(){
 {%endhighlight%}
 
 这里并没有使用一个名为Person的构造函数来定义类的结构，Person现在是一个对象字面量。它是所需要创建的各种类Person对象的原型变量。其中定义了所有类Person对象都有具备的属性和方法，并为它们提供了默认值。方法的默认值可能不会被改变，而属性的默认值一般都会被改变。
+
+**摻元类**
+
+有一种重用代码的方法不需要用到严格的继承。如果想把一个函数用到多个类中，可以通过扩充(augmenttation)的方法让这些类共享该函数。其具体做法是：先创建一个包含各种通用方法的类，然后再扩展其他类。这种包含通用方法的类成为摻元类(mixin class)。他们通常不会被实例化或者直接调用。其存在的目的只是向其他类提供自己的方法。具体见下面实例：
+
+{%highlight javascript%}
+/* Mixin class.*/
+
+var Mixin = function() {};
+Mixin.prototype() {
+    serialize: function() {
+        var output = [];
+        for (key in this) {
+            output.push(key + ': ' + this[key]);
+        }
+        return output.path.join(', ');
+    }
+}
+//使用augment函数把这个方法添加到每一个需要它的类中
+augment(Author,Mixin);
+
+var author=new Author('Ross Harmes',['JavaScript Design Patterns']);
+var serializedString=author.serialize();
+
+/*Augment function*/
+function augment(receivingClass, givingClass) {
+    if (arguments[2]) { //Only give certain methods.
+        for (var i = 2, len = arguments.length; i < len; i++) {
+            receivingClass.prototype[arguments[i]] = givingClass.prototype[arguments[i]];
+        }
+    } else {
+        for (methodName in givingClass.prototype) {
+            if (!receivingClass.prototype[methodName]) {
+                receivingClass.prototype[methodName] = givingClass.prototype[methodName];
+            }
+        }
+    }
+}
+{%endhighlight%}
+
+各种继承范型各有优缺点：
+
+ - 在内存效率比较重要的场合原型式继承（及clone函数）是最佳选择。
+ - 如果与对象打交道的都是那种只熟悉其他对象语言中的继承机制的程序员，那么最好使用类式继承（及extend函数）。
+ - 以上两种方法都适合于类间差异较小的类层次体系。如果类之间差异比较大，那么摻元类的方法来扩充这些类往往是一种更合理的选择。
