@@ -17,3 +17,11 @@ Google, Microsoft, Mozilla和其他一群人已经在偷偷地为 [W3C WebAssemb
  - 一个编译的目标： 在整个web平台中一种方式为一个其他的语言获得一流的二进制支持。
 
 ### WebAssembly的出现对于JavaScript意味着什么？
+
+在我回答这个问题之前，让我们把时间倒退倒退，在React之前、Angular之前、Backbone之前，jQuery之前、、
+
+ >Web是由各个分散的超文本文档电子公告板组成，还没有互联起来，第一个Web服务器在欧洲核子研究中心的NEXT项目中研究出来...
+
+![NeXT-Computer-used-by-Tim-Berners-Lee-at-CERN](http://tw93.github.io/images/NeXT-Computer-used-by-Tim-Berners-Lee-at-CERN.jpeg)
+
+1991那年，我的头发还不是褐色的时候，我正在设计我十万行代码的冒险游戏。对于这个我使用了一门罕见的语言，我很厌倦使用Basic和Pascal，我想使用C语言，但是我任然在存钱去为了买一本Borland软件公司的Turbo C++的盒装图书。我甚至也还没有Turbo编译程序。
