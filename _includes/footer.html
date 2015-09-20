@@ -3,7 +3,7 @@
     <div class="measure mt1 center">
       <small>
         © 2015 Tang Wei. Powered by Jekyll using the <a href="https://github.com/johnotander/pixyll" target="_blank">Pixyll.</a>
-       
+
       </small>
     </div>
   </div>
@@ -20,20 +20,27 @@ ga('send', 'pageview');
 </script>
 {% endif %}
 <script>
+
+    var article=document.getElementsByTagName('article'),
+        aList=article.getElementsByTagName('a');
+    for(var i=0;i<aList.length;i++){
+        aList[i].target='_blank';
+    }
+
     function hereDoc(f) {　
     return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '');
 }
 var string = hereDoc(function () {/*
 
 
- _                               ___                  _____           _       _   
-| |                             |_  |                /  ___|         (_)     | |  
-| |     ___  __ _ _ __ _ __       | | __ ___   ____ _\ `--.  ___ _ __ _ _ __ | |_ 
+ _                               ___                  _____           _       _
+| |                             |_  |                /  ___|         (_)     | |
+| |     ___  __ _ _ __ _ __       | | __ ___   ____ _\ `--.  ___ _ __ _ _ __ | |_
 | |    / _ \/ _` | '__| '_ \      | |/ _` \ \ / / _` |`--. \/ __| '__| | '_ \| __|
-| |___|  __/ (_| | |  | | | | /\__/ / (_| |\ V / (_| /\__/ / (__| |  | | |_) | |_ 
+| |___|  __/ (_| | |  | | | | /\__/ / (_| |\ V / (_| /\__/ / (__| |  | | |_) | |_
 \_____/\___|\__,_|_|  |_| |_| \____/ \__,_| \_/ \__,_\____/ \___|_|  |_| .__/ \__|
-                                                                       | |        
-                                                                       |_|   
+                                                                       | |
+                                                                       |_|
 
 
                                                           Stay hungry. Stay foolish.
