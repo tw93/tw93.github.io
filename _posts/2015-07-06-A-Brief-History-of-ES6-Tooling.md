@@ -10,11 +10,19 @@ categories: es6-in-depth
 
 对于大多数，我们感谢有Browserify,Babel,还有一些已经确定的规范，但是我们并没有一些工具一产生就像现在这么成熟。
 
-![babel](./images/babel.png)
+![babel](http://tw93.github.io/images/babel.png)
 
 在**javascript-to-javascript**变成一（严肃）的事情前，这里有很多模块可以让你在你的应用中使用ES6一些特殊的功能模块，像*gnode*，通过在运行中解释你的代码可以让你在node中使用generators。
 
-> 小问题：这些年来ES6累积了多少种不同的命名？
+> Trivia question: how many different names has ES6 accrued over the years?
 
+然后接下来我们也看到一些ES6模块加载器的工具，例如[`es6-module-loader`](https://github.com/ModuleLoader/es6-module-loader){target=“_blank"}，这些库通过给开发者一些东西深入理解实现开始出现，有助于推进规范的发展。当然你也可以使用CoffeeScript或者TypeScript中一些已经实现的相当于ES6的语言特征。
 
+我不在乎CoffeeScript的语法，这一事实也会减少我为[开源](http://bevacqua.io/opensource){target=“_blank"}的能力，所以它被排除了，TypeScript是好的，但是它有很多特性在将要来临的ES6上面，还有我想尽可能学一些东西对我很长一段时间有好处的。也就是说这两种语言对于ES6的形成有很大的贡献，我们应该感谢他们，还有很长一段时间，他们似乎可以让你尝试ES6语言任何类似的特性。
+
+最终，transpilers开始出现，第一个是[Traceur](https://github.com/google/traceur-compiler){target=“_blank”} ,它出现在一个没有被规范锁定的时间，以致这是不断变化的，所以我认为这不是一个好的想法，尝试用它超过几分钟的玩具语法，当我在为我的应用程序设计书写实例代码时候，我很快就受到了挫折。大约在同一时间，[6to5](https://www.npmjs.com/package/6to5){target=“_blank”}开始兴风作浪，那时候还有[`esnext`](https://github.com/esnext/esnext){target=“_blank”},但是esnext从来没有实现ES6模块，在今年的早一些时候，这些项目被合并成我们今天所知的[Babel](http://babeljs.io/){target=“_blank”}。
+
+> Come june, the spec was finalized.
+
+[![es6](http://tw93.github.io/images/es6.png)](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf){target=“_blank”} 
 
