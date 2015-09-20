@@ -26,3 +26,11 @@ categories: es6-in-depth
 
 [![es6](http://tw93.github.io/images/es6.png)](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf){target=“_blank”} 
 
+语言特性形成规范是至关重要的，这意味着编译器现在可以在下个月内实现一些并没有过时的语法。该规范所确定和Babel成为事实上*JavaScript-to-JavaScript*构建工具让我再次对ES6感兴趣，所以我开始觉得再尝试一遍。
+
+我们现在有能力通过使用*babelify*将Browserify和Babel结合在一起，考虑到性能原因在开发过程中我们可以在服务器中使用*babel-node*将其编译成ES5，我们可以使用服务器上的巴别塔节点在发展–和编译ES5生产因为性能的原因。如果我们要使用CSS模块WebPACK，还有一堆的ES6功能我们准备使用。我们要小心不要夸大我们的手，虽然。有了如此多的东西，会很难保持我们代码的高质量，仅仅是我们认为可以不要让每一个新的特征和闪亮方法塞入我们的代码。
+
+> There’s plenty of room in front-end tooling for feature creep, unfortunately, but **we need to battle against that**now.
+> 
+> Tomorrow I’ll be publishing an article about the parts of the future of JavaScript I’m most excited about and the concerns I have about mindlessly adopting ES6 features.
+
