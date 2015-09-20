@@ -6,6 +6,7 @@ permalink: /about/
 
 About Me：  
 
+* Now working in Alibaba.  
 * The main direction is JavaScript.
 * Also using PHP and Node.
 * Recently in learning React.
