@@ -69,25 +69,29 @@ categories: Flexbox布局模式
 
 这张图可以在接下来的属性分析中用到。
 
-## Flex容器
+### Flex容器
 
-### display:flex
+#### display:flex
 当我们使用flexbox布局时候，需要先给父容器的display值定位flex（块级）或者inline-flex（行内级）。
 
 当使用了这个值以后，伸缩容器会为内容建立新的伸缩格式化上下文（FFC），它的上下文展示效果和BFC根元素相同（BFC特性：浮动不会闯入伸缩容器，且伸缩容器的边界不会与其内容边界叠加）。
 
 伸缩容器不是快容器，因此有些设计用来控制块布局的属性，在伸缩布局中不适用，特别是多栏（column)，float，clear，vertical-align这些属性。
 
-### flex-direction
+#### flex-direction
 
-flex-direction属性用来控制上图中伸缩容器中**主轴的方向**，同时也决定了伸缩项目的方向。
-flex-direction:row;也是默认值，即主轴的方向和正常的方向一样，从左到右排列。
-flex-direction:row-reverse;和row的方向相反，从右到左排列。
-flex-direction:column;从上到下排列。
-flex-direction:column-reverse;从下到上排列。
+[flex-direction]属性用来控制上图中伸缩容器中**主轴的方向**，同时也决定了伸缩项目的方向。
+
+- flex-direction:row;也是默认值，即主轴的方向和正常的方向一样，从左到右排列。
+- flex-direction:row-reverse;和row的方向相反，从右到左排列。
+- flex-direction:column;从上到下排列。
+- flex-direction:column-reverse;从下到上排列。
 以上只针对ltr书写方式，对于rtl正好相反了。
+	
 网页展示效果如下：
 
 ![flex-direction](http://tw93.github.io/images/flex-direction.png)
 
+#### flex-warp
+「flex-wrap」属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。
 
