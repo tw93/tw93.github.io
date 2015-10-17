@@ -35,7 +35,7 @@ categories: Flexbox布局模式
 {% endhighlight %}
 
 假如使用了flex后，实现起来就简单了，而且不需要自己去算，也不需要绝对定位，只需要通过对伸缩容器定义两个属性，justify-content定义伸缩项目沿着主轴线的对齐方式为center， align-items定义伸缩项目在侧轴（垂直于主轴）的对齐方式为center，具体如下：
-{% %highlight html %}
+{% highlight html %}
 <style>
 	.container{
 	    width: 600px;
