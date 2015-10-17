@@ -108,7 +108,7 @@ categories: Flexbox布局模式
 
 [flex-flow]属性为flex-direction（主轴方向）和flex-wrap（侧轴方向）的缩写，两个属性决定了伸缩容器的主轴与侧轴。
 
-- flex-flow:[flex-direction] || [flex-wrap];默认值为row  nowrap；
+- flex-flow:[flex-direction] [flex-wrap];默认值为row  nowrap；
 
 举两个栗子：
 
