@@ -76,7 +76,7 @@ categories: Flexbox布局模式
 
 当使用了这个值以后，伸缩容器会为内容建立新的伸缩格式化上下文（FFC），它的上下文展示效果和BFC根元素相同（BFC特性：浮动不会闯入伸缩容器，且伸缩容器的边界不会与其内容边界叠加）。
 
-伸缩容器不是快容器，因此有些设计用来控制块布局的属性，在伸缩布局中不适用，特别是多栏（column)，float，clear，vertical-align这些属性。
+伸缩容器不是块容器，因此有些设计用来控制块布局的属性，在伸缩布局中不适用，特别是多栏（column)，float，clear，vertical-align这些属性。
 
 #### flex-direction
 
@@ -93,5 +93,28 @@ categories: Flexbox布局模式
 ![flex-direction](http://tw93.github.io/images/flex-direction.png)
 
 #### flex-warp
+
 「flex-wrap」属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。
 
+- flex-wrap:nowrap;伸缩容器单行显示，默认值；
+- flex-wrap:wrap;伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。
+- flex-wrap:wrap-reverse;伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。
+
+网页效果见图；
+
+![flex-wrap](http://tw93.github.io/images/flex-wrap.png)
+
+#### flex-flow
+
+[flex-flow]属性为flex-direction（主轴方向）和flex-wrap（侧轴方向）的缩写，两个属性决定了伸缩容器的主轴与侧轴。
+
+- flex-flow:<「flex-direction」> || <「flex-wrap」>;默认值为row  nowrap；
+
+举两个栗子：
+
+- flex-flow:row;也是默认值；主轴是行内方向，单行显示，不换行；
+- flex-flow:row-reverse wrap;主轴和行内方向相反，从右到左，项目每一行由上到下排列（侧轴）。
+
+网页效果如下：
+
+![flex-flow](http://tw93.github.io/images/flex-flow.png)
