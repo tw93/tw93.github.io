@@ -121,7 +121,7 @@ categories: Flexbox布局模式
 
 这里大家可以多自己去试试不同的组合。
 
-### justify-content
+#### justify-content
 [justify-content]:用于定义伸缩项目在主轴上面的的对齐方式，当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。
 
 - justify-content:flex-start;伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。
@@ -136,4 +136,37 @@ categories: Flexbox布局模式
 
 ![justify-content2](http://tw93.github.io/images/justify-content2.png)
 
-### 
+#### align-items
+
+[align-items]:用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。（flex-directon和flex-wrap是一对，justify-content和align-items是一对，前者分别定义主轴和侧轴的**方向**，后者分别定义主轴和侧轴中项目的**对齐**方式）。
+
+- align-items:flex-start;伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起点的边。
+- align-items:flex-end;伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。
+- align-items:center;伸缩项目的外边距在侧轴上居中放置。
+- align-items:baseline;如果伸缩项目的行内轴与侧轴为同一条，则该值与[flex-start]等效。 其它情况下，该值将参与基线对齐。
+- align-items:stretch;伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。
+
+下面demo只展示center和stretch的栗子，其他几个可以参考flex-start和flex-end那样。
+
+![align-items](http://tw93.github.io/images/align-items.png)
+
+#### align-content
+
+[align-content]:属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的[justify-content]属性类似。只不过这里元素是以一行为单位。请注意本属性在只有一行的伸缩容器上没有效果。当使用flex-wrap:wrap时候多行效果就出来了。
+
+> align-content: flex-start | flex-end | center | space-between | space-around | stretch
+
+- align-content: stretch;默认值,各行将会伸展以占用剩余的空间。
+- 其他可以参考[justify-content]用法。
+
+具体图片来至http://www.w3.org/；
+
+![align-content](http://tw93.github.io/images/align-content.png)
+
+写不下去了，摔。
+
+### Flex项目
+
+#### order
+
+[order]:
