@@ -122,7 +122,7 @@ categories: Flexbox布局模式
 这里大家可以多自己去试试不同的组合。
 
 #### justify-content
-[justify-content]:用于定义伸缩项目在主轴上面的的对齐方式，当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。
+[justify-content]用于定义伸缩项目在主轴上面的的对齐方式，当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。
 
 - justify-content:flex-start;伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。
 - justify-content:flex-end;伸缩项目向主轴的结束位置对齐，前面的每一个元素紧挨着后一个元素对齐。
@@ -138,7 +138,7 @@ categories: Flexbox布局模式
 
 #### align-items
 
-[align-items]:用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。（flex-directon和flex-wrap是一对，justify-content和align-items是一对，前者分别定义主轴和侧轴的**方向**，后者分别定义主轴和侧轴中项目的**对齐**方式）。
+[align-items]用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。（flex-directon和flex-wrap是一对，justify-content和align-items是一对，前者分别定义主轴和侧轴的**方向**，后者分别定义主轴和侧轴中项目的**对齐**方式）。
 
 - align-items:flex-start;伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起点的边。
 - align-items:flex-end;伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。
@@ -152,9 +152,9 @@ categories: Flexbox布局模式
 
 #### align-content
 
-[align-content]:属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的[justify-content]属性类似。只不过这里元素是以一行为单位。请注意本属性在只有一行的伸缩容器上没有效果。当使用flex-wrap:wrap时候多行效果就出来了。
+[align-content]属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的[justify-content]属性类似。只不过这里元素是以一行为单位。请注意本属性在只有一行的伸缩容器上没有效果。当使用flex-wrap:wrap时候多行效果就出来了。
 {% highlight css %}
-align-content: flex-start || flex-end || center || space-between || space-around || stretch
+align-content: flex-start || flex-end || center || space-between || space-around || stretch;
 {% endhighlight %}
 
 
