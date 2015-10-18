@@ -108,7 +108,7 @@ categories: Flexbox布局模式
 
 [flex-flow]属性为flex-direction（主轴方向）和flex-wrap（侧轴方向）的缩写，两个属性决定了伸缩容器的主轴与侧轴。
 
-- flex-flow:[flex-direction] [flex-wrap];默认值为row  nowrap；
+- flex-flow:[flex-direction][flex-wrap];默认值为row  nowrap；
 
 举两个栗子：
 
@@ -118,3 +118,22 @@ categories: Flexbox布局模式
 网页效果如下：
 
 ![flex-flow](http://tw93.github.io/images/flex-flow.png)
+
+这里大家可以多自己去试试不同的组合。
+
+### justify-content
+[justify-content]:用于定义伸缩项目在主轴上面的的对齐方式，当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。
+
+- justify-content:flex-start;伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。
+- justify-content:flex-end;伸缩项目向主轴的结束位置对齐，前面的每一个元素紧挨着后一个元素对齐。
+- justify-content:center;伸缩项目相互对齐并在主轴上面处于居中，并且第一个元素到主轴起点的距离等于最后一个元素到主轴终点的位置。以上3中都是“捆绑”在一个分别靠左、靠右、居中对齐。
+- justify-content:space-between;伸缩项目平均的分配在主轴上面，并且第一个元素和主轴的起点紧挨，最后一个元素和主轴上终点紧挨，中间剩下的伸缩项目在确保两两间隔相等的情况下进行平分。
+- justify-content:space-around;伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离**相等**，且等于中间元素两两的间距的**一半**。完美的平均分配，这个布局在阿里系中很常见。
+
+还是看demo理解起来快一点：
+
+![justify-content1](http://tw93.github.io/images/justify-content1.png)
+
+![justify-content2](http://tw93.github.io/images/justify-content2.png)
+
+### 
