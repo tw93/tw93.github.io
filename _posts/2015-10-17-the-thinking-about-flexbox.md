@@ -206,5 +206,41 @@ align-content: flex-start || flex-end || center || space-between || space-around
 
 #### flex
 
+[flex]属性可以用来指定可伸缩长度的部件，是flex-grow（扩展比例）,flow-shrink（收缩比例）,flex-basis（伸缩基准值）这个三个属性的缩写写法，建议大家采用缩写的方式而不是单独来使用这3个属性。
+{% highlight html %}
+flex:none | [ <'flex-grow'> ?<'flew-shrink'> || <'flow-basis'>]
+// flex-grow是必须得flex-shrink和flow-basis是可选的
+{%endhighlight%}
+
+- flex-grow:<number>;其中number作为扩展比例，没有单位，初始值是0，主要用来决定伸缩容器剩余空间按比例应扩展多少空间。
+- flex-grow:<number>;其中number作为收缩比例，没有单位，初始值是1，也就是剩余空间是负值的时候此伸缩项目相对于伸缩容器里其他伸缩项目能收缩的空间比例，在收缩的时候收缩比率会以[flex-basis]伸缩基准值加权。
+- flex-basis:<length>|auto;默认是auto也就是根据可伸缩比率计算出剩余空间的分布之前，伸缩项目主轴长度的起始数值。若在「flex」缩写省略了此部件，则「flex-basis」的指定值是长度零。
+
+flex-basis用图来表示就是这样：
+
+![basis](http://tw93.github.io/images/rel-vs-abs-flex.svg)
+
+#### align-self
+[align-self]用来在单独的伸缩项目上覆写默认的对齐方式，这个属性是用来覆盖伸缩容器属性align-items对每一行的对齐方式。也就是说在默认的情况下这两个值是相等的。
+
+{% highlight html %}
+align-self: auto | flex-start | flex-end | center | baseline | stretch
+{%endhighlight%}
+
+### 我的看法
+
+讲了这么多他们的使用，我们来看一看flexbox布局的兼容性。
+
+具体大家可以见这个网站：[caniuse](http://caniuse.com/#search=flexbox)
+
+![img](http://tw93.github.io/images/caniuse.png)
+
+在PC端其实很乐观了，基本上主流的浏览器都已经兼容了flex的使用，但是到了移动端就不是那么好了，特别是国内浏览器，考虑到uc浏览器占了大头，但是uc从图中看到只兼容flex最老的一个版本，也就是2009年的版本，即display:box;很多现在flex的优秀特性到了它上面都不兼容了，所以建议大家在使用的时候，假如2009版本可以满足开发要求的话，还是去使用2009版本，这样风险更小。
+
+但是假如想兼容多个浏览器，可以采用优雅降级的方式来使用，这里推荐一个scss的[sass-flex-mixin](https://github.com/mastastealth/sass-flex-mixin),这样就可以使用最新的写法，并且兼容大部分浏览器了。
+
+相信flexbox布局在以后的移动端会用得越老越多的。
+
+
 
 
