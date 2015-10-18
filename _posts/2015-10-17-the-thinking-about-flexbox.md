@@ -153,8 +153,10 @@ categories: Flexbox布局模式
 #### align-content
 
 [align-content]:属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的[justify-content]属性类似。只不过这里元素是以一行为单位。请注意本属性在只有一行的伸缩容器上没有效果。当使用flex-wrap:wrap时候多行效果就出来了。
+{% highlight css %}
+align-content: flex-start || flex-end || center || space-between || space-around || stretch
+{% endhighlight %}
 
-> align-content: flex-start or flex-end or center or space-between or space-around or stretch
 
 - align-content: stretch;默认值,各行将会伸展以占用剩余的空间。
 - 其他可以参考[justify-content]用法。
@@ -167,6 +169,44 @@ categories: Flexbox布局模式
 
 ### Flex项目
 
+终于写到关于伸缩项目的相关属性了，主要是3个，order，flex（flex-grow，flex-shrink，flex-basis的组合），align-self；用来比较多的是前两个。
+
 #### order
 
-[order]:
+[order]:控制伸缩项目在伸缩容器中的显示顺序，伸缩容器中伸缩项目从序号最小的开始布局，默认值是0。
+
+有一种用法比较多，想设置一组中有两个元素一个排第一，另外一个排最后，主需要将第一个的order:-1；另一个为order:0;这样就好了。
+
+譬如我们想控制一个container中有4个box，想box4为一个显示，box1为最后一个显示。只需要
+这样
+{% highlight html %}
+.container{
+		 ...
+        display: flex;
+
+    }
+    .box1{
+    	 ...
+        order:1;
+    }
+    .box4{
+        ...
+        order:-1;
+    }
+<div class="container">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+</div>
+
+{% endhighlight %}
+
+显示效果就这样了：
+
+![order](http://tw93.github.io/images/order-flex.png)
+
+#### flex
+
+
+
