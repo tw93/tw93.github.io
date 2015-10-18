@@ -182,16 +182,12 @@ align-content: flex-start || flex-end || center || space-between || space-around
 {% highlight html %}
 <style>
 .container{
-		 ...
         display: flex;
-
     }
     .box1{
-    	 ...
         order:1;
     }
     .box4{
-        ...
         order:-1;
     }
 </style>
