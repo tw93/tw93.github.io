@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Flexbox布局模式
+title:      我对Flexbox布局模式的理解
 date:       2015-10-17 21:47:29
 summary:    上班已经将近3个月了，但是文章产出值几乎为0，这样是不行的，常常总结学习才会有收获，不然就走马观花了，以后争取每周有一篇文章的产出。进入正题，Flexbox，一种CSS3的布局模式，也叫做弹性盒子模型，用来为盒装模型提供最大的灵活性。
 categories: Flexbox布局模式
