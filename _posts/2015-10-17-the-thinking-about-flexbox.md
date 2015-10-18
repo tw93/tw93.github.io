@@ -154,16 +154,16 @@ categories: Flexbox布局模式
 
 [align-content]:属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的[justify-content]属性类似。只不过这里元素是以一行为单位。请注意本属性在只有一行的伸缩容器上没有效果。当使用flex-wrap:wrap时候多行效果就出来了。
 
-> align-content: flex-start | flex-end | center | space-between | space-around | stretch
+> align-content: flex-start or flex-end or center or space-between or space-around or stretch
 
 - align-content: stretch;默认值,各行将会伸展以占用剩余的空间。
 - 其他可以参考[justify-content]用法。
 
-具体图片来至http://www.w3.org/；
+具体图片来至w3.org官方文档；
 
 ![align-content](http://tw93.github.io/images/align-content.png)
 
-写不下去了，摔。
+太麻烦。写不下去了，摔。
 
 ### Flex项目
 
