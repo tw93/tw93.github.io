@@ -18,5 +18,4 @@ About Me：
 Follow Me:
 
 * [Github](https://github.com/{{site.github_username}}){:target="_blank"}
-* [Weibo](http://weibo.com/{{site.sina_id}}){:target="_blank"}
-* [Zhihu](http://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
+
