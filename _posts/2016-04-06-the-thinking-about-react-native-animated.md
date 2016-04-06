@@ -31,7 +31,6 @@ categories: ReactNative
   - 具体Demo:
 
 {% highlight javascript %}
-{% raw %}
 import React, {
     AppRegistry,
     Component,
@@ -66,7 +65,6 @@ export default class demo extends React.Component {
         ).start();
     }
 }
-{% endraw %}
 {% endhighlight %}
 
 
