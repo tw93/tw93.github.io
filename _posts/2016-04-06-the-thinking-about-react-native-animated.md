@@ -3,7 +3,7 @@ layout:     post
 title:      React Native动画研究和与native对比总结
 date:       2016-04-06 21:47:29
 summary:    本文主要研究React Native动画的基本使用，包括支持度、同时和native对比；包括React Native动画的基本使用，还有动画性能相关的对比。
-categories: react native
+categories: ReactNative
 ---
 
 ### 问题抛出
@@ -15,10 +15,10 @@ categories: react native
 ### 论证过程
 
 - RN动画功能总结脑图：
-![RN动画](https://img.alicdn.com/tps/TB1YZoRMXXXXXXaapXXXXXXXXXX-1061-1759.png)
+![RN动画](//img.alicdn.com/tps/TB1YZoRMXXXXXXaapXXXXXXXXXX-1061-1759.png)
 
 - native动画相关汇总
- ![Native动画](https://img.alicdn.com/tps/TB1IFRXMpXXXXcKXVXXXXXXXXXX-906-563.png)
+ ![Native动画](//img.alicdn.com/tps/TB1IFRXMpXXXXcKXVXXXXXXXXXX-906-563.png)
 
 - 应用
   - RN动画的可以按照如下步骤进行：
@@ -29,9 +29,9 @@ categories: react native
      - 调用start启动动画
   
   - 具体Demo:
-{% highlight html %}
-'use strict';
 
+{% highlight javascript %}
+{% raw %}
 import React, {
     AppRegistry,
     Component,
@@ -40,7 +40,6 @@ import React, {
     View,
     Animated
 } from 'react-native';
-
 export default class demo extends React.Component {
     constructor(props:any) {
         super(props);
@@ -67,7 +66,9 @@ export default class demo extends React.Component {
         ).start();
     }
 }
+{% endraw %}
 {% endhighlight %}
+
 
   - 从上面demo可以到达，动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可。
 
@@ -83,10 +84,10 @@ export default class demo extends React.Component {
 - 对于有些组件的动画，涉及到绘制方面，建议直接使用RN绘图库REACT NATIVE ART实现。
 
 ### 参考链接
-- https://facebook.github.io/react-native/docs/animations.html#content
-- https://facebook.github.io/react-native/docs/navigator.html#content
-- https://facebook.github.io/react-native/docs/layoutanimation.html#content
-- [ReactNative Animated动画详解 - Web前端腾讯AlloyTeamBlog](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&cad=rja&uact=8&ved=0ahUKEwjghpGciPnLAhVGkywKHQebDBwQFgg4MAQ&url=%68%74%74%70%3a%2f%2f%77%77%77%2e%61%6c%6c%6f%79%74%65%61%6d%2e%63%6f%6d%2f%32%30%31%36%2f%30%31%2f%72%65%61%63%74%6e%61%74%69%76%65%2d%61%6e%69%6d%61%74%65%64%2f&usg=AFQjCNFHs4H5NFeDSA60uU1AiwE4s3DDtA&sig2=co4jsVL_5KxI5g-Ug0eKBQ)
+- [https://facebook.github.io/react-native/docs/animations.html#content](https://facebook.github.io/react-native/docs/animations.html#content)
+- [https://facebook.github.io/react-native/docs/navigator.html#content](https://facebook.github.io/react-native/docs/navigator.html#content)
+- [https://facebook.github.io/react-native/docs/layoutanimation.html#content](https://facebook.github.io/react-native/docs/layoutanimation.html#content)
+- [ReactNative Animated动画详解 - Web前端腾讯AlloyTeamBlog](http://www.alloyteam.com/2016/01/reactnative-animated/)
 - [react-native-animation-book](http://browniefed.com/react-native-animation-book/)
 
 
