@@ -72,7 +72,24 @@ export default class demo extends React.Component {
 
 - RN动画和H5动画对比
   - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
-  - **性能对比待续..........**
+  - RN动画和H5动画对比
+  - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
+  - [CSS3动画vs ReactNative动画录制](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
+  - 上述动画css3使用animation: rotate 0.2s linear infinite;实现，
+  - RN采用如下实现：
+{% highlight javascript %}
+      startAnimation() {
+        this.state.rotateValue.setValue(0);
+        Animated.timing(this.state.rotateValue, {
+            toValue: 1,
+            duration: 200,
+            easing: Easing.linear
+        }).start(() => this.startAnimation());
+      }
+{% endhighlight %} 
+
+  - 关于性能测试都采用instruments来测试Time Profiler数据,其中红线是动画开始时候，从图中可以看出两者消耗都低，但是css3动画的性能稍微优于RN的动画。
+    ![img](https://img.alicdn.com/tfs/TB15mlYMpXXXXbnXpXXXXXXXXXX-735-235.png)
 
   
   
