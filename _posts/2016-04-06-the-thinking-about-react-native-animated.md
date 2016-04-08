@@ -15,10 +15,10 @@ categories: ReactNative
 ### 论证过程
 
 - RN动画功能总结脑图：
-![RN动画](//img.alicdn.com/tps/TB1YZoRMXXXXXXaapXXXXXXXXXX-1061-1759.png)
+![RN动画](https://img.alicdn.com/tps/TB1YZoRMXXXXXXaapXXXXXXXXXX-1061-1759.png)
 
 - native动画相关汇总
- ![Native动画](//img.alicdn.com/tps/TB1IFRXMpXXXXcKXVXXXXXXXXXX-906-563.png)
+ ![Native动画](https://img.alicdn.com/tps/TB1IFRXMpXXXXcKXVXXXXXXXXXX-906-563.png)
 
 - 应用
   - RN动画的可以按照如下步骤进行：
@@ -30,7 +30,8 @@ categories: ReactNative
   
   - 具体Demo:
 
-{% highlight javascript %}
+{% highlight text %}
+{% raw %}
 import React, {
     AppRegistry,
     Component,
@@ -65,6 +66,7 @@ export default class demo extends React.Component {
         ).start();
     }
 }
+{% endraw %}
 {% endhighlight %}
 
 
