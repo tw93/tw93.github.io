@@ -239,4 +239,4 @@ align-self: auto | flex-start | flex-end | center | baseline | stretch
 
 但是假如想兼容多个浏览器，可以采用优雅降级的方式来使用，这里推荐一个scss的[sass-flex-mixin](https://github.com/mastastealth/sass-flex-mixin),这样就可以使用最新的写法，并且兼容大部分浏览器了。
 
-相信flexbox布局在以后的移动端会用得越老越多的。
+相信flexbox布局在以后的移动端会用得越来越多的。
