@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      React Native动画研究
-date:       2016-04-05 21:47:29
+date:       2016-04-06 21:47:29
 summary:    研究React Native动画的基本使用、支持度、和native对比；包括React Native动画的基本使用，还有动画性能相关的对比。
 categories: ReactNative
 ---
@@ -70,8 +70,6 @@ export default class demo extends React.Component {
 
   - 从上面demo可以到达，动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可。
 
-- RN动画和H5动画对比
-  - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
   - RN动画和H5动画对比
     - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
     - [CSS3动画vs ReactNative动画录制](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
@@ -79,7 +77,7 @@ export default class demo extends React.Component {
     - RN采用如下实现：
 
 {% highlight javascript %}
-      startAnimation() {
+startAnimation() {
         this.state.rotateValue.setValue(0);
         Animated.timing(this.state.rotateValue, {
             toValue: 1,
