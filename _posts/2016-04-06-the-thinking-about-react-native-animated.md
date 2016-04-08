@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      React Native动画研究
+title:      React Native动画研究以及对比Native动画
 date:       2016-04-06 21:47:29
-summary:    研究React Native动画的基本使用、支持度、和native对比；包括React Native动画的基本使用，还有动画性能相关的对比。
+summary:    研究React Native动画的基本使用、支持度、和Native对比；包括React Native动画的基本使用，还有动画性能相关的对比。
 categories: ReactNative
 ---
 
