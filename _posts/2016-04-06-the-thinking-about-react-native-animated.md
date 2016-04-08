@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      React Native动画研究以及对比Native动画
+title:      React Native动画研究和对比
 date:       2016-04-06 21:47:29
 summary:    研究React Native动画的基本使用、支持度、和Native对比；包括React Native动画的基本使用，还有动画性能相关的对比。
 categories: ReactNative
@@ -90,7 +90,7 @@ startAnimation() {
 {% endhighlight %} 
 
   - 关于性能测试都采用instruments来测试Time Profiler数据,其中红线是动画开始时候，从图中可以看出两者消耗都低，但是css3动画的性能稍微优于RN的动画。
-  
+
   ![img](https://img.alicdn.com/tfs/TB15mlYMpXXXXbnXpXXXXXXXXXX-735-235.png)
 
   
