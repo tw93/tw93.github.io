@@ -7,12 +7,12 @@ categories: 我的前端总结分享
 ---
 在上面一篇文章中，我们介绍了前端的包管理器Bower，这次我们来了解前端应用开发流程工具Grunt，在JavaScript开发过程中，我们常常会遇到一些重复性的任务，譬如检查语法是否正确，压缩代码，合并文件，要是以前我们会选择不同的工具来完成不同的任务，但是这样感觉既复杂又耗时，但是现在有了Grunt，Grunt就是为了解决这些问题而发明的一个工具，可以帮助我们自动管理和运行各种JavaScript任务，简化我们的工作流程。
 
-###[Grunt](http://www.gruntjs.org/){:target="_blank"}
+### [Grunt](http://www.gruntjs.org/){:target="_blank"}
 
 ####为什么使用任务运行工具?  
 简而言之，自动化。当你处理诸如代码最小化, 代码编译, 单元测试, 代码规范校验等等重复任务时, 你必须要做的工作越少，你的工作就变得越简单。在你完成配置后，不费吹灰之力，一个任务运行工具可以替你和你的团队完成绝大部分日常工作。(官网资料)
 
-####为什么使用Grunt?  
+#### 为什么使用Grunt?  
 
 Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选择数以百计的插件以帮助你自动化的处理任务。如果你所需要的插件还被有人创建，那么你可以自己创建插件并通过npm很方便的发布以供更多人使用并一起完善。（官网资料）
 
@@ -20,7 +20,7 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
 
 ![grunt](http://tw93.github.io/images/grunt1.jpg)
 
-####如何安装Grunt？
+#### 如何安装Grunt？
  
  1. Grunt和Grunt的插件都是通过Node.js的包管理器npm来安装和管理的。Grunt 0.4.x要求Node.js的版本>=0.8.0(也就是0.8.0及以上版本的Node.js才能很好的运行Grunt)。  
 
@@ -31,7 +31,7 @@ Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选
 
 注意，安装grunt-cli并不等于安装了grunt任务运行器！Grunt CLI的工作很简单：在Gruntfile所在目录调用运行已经安装好的相应版本的Grunt。这就意味着可以在同一台机器上同时安装多个版本的Grunt。
 
-####如和使用grunt来管理项目？
+#### 如和使用grunt来管理项目？
 
  - 首先需要往项目里添加两个文件：package.json和Gruntfile.js。其中package.json是用来为npm存放项目配置的元数据的，可以通过这里来学习[npm init](https://docs.npmjs.com/cli/init){:target="_blank"}。可以通过这个命令来生成我们项目的package.json，与grunt关系最大的配置在devDependencies中。这是我的一个[Nodejs项目](https://github.com/tw93/twMovie){:target="_blank"}的package.json： 
 {% highlight json%}

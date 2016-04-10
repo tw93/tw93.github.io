@@ -12,7 +12,7 @@ categories: 我的翻译
 
 <small>注：tap也翻译为点击，tap和click都是在点击时候触发，但在手机Web端click会有200~300ms延迟，为了避免歧义，下文将” tap event“翻译成“tap点击事件“</small>
 
-###概况  
+### 概况  
 目前被用于与Web交互的3种主要的交互方式是：数字光标（鼠标）、触觉（直接触摸或者手写笔）、键盘。在JavaScript中我们可以通过[触摸事件](http://www.w3.org/TR/touch-events/){:target="_blank"},[鼠标事件](http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-mouseevents){:target="_blank"},[指针事件](http://www.w3.org/TR/pointerevents/){:target="_blank"}和[键盘事件](http://www.w3.org/TR/2014/WD-DOM-Level-3-Events-20140925/#keys){:target="_blank"}来使用它们。在这篇文章中我们主要讨论触摸和基于鼠标的交互，虽然这里有键盘事件已经形成标准，如click和submit事件。
 
 你很有可能已经实现过鼠标和触摸事件的处理程序，在过去我们推荐的做法是这样：  

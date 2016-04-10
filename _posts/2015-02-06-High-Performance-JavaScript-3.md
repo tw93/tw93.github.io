@@ -8,7 +8,7 @@ categories: JavaScript  学习笔记
 
 DOM是Document Object Model的缩写，中文叫做文档对象模型，是一个与语言无关的，用户操作XML和HTML文档的应用程序接口。在浏览器中，主要与HTML文档打交道，在Web应用中也经常需要检索XML文档，DOM API用于访问文档中的数据。John Hevatin有一次演讲说过一个贴切的比喻，把DOM和JavaScript各自想象成一个岛屿，它们直接用收费桥梁连接，ECMAScript每次访问DOM，都要经过这个桥，并交纳“过桥费”，过的桥越多交的费用也越多，因此要想减少费用就得少过桥，我们这里就来如何来优化这个问题。
 
-####最小化DOM访问次数，尽可能在JavaScript端处理####
+#### 最小化DOM访问次数，尽可能在JavaScript端处理
 
  - 访问DOM元素是有代价的--前面提到的过桥费。修改元素则更加昂贵，因为它会导致浏览器重新计算页面的集合变化。
  - 也就是说访问DOM次数越多，代码的运行速度就越慢，因此一般的经验法则是：减少DOM的访问次数，把运算尽量留在ECMAScript这一段处理。
@@ -33,7 +33,7 @@ function innerHTMLLoop() {
 //显然方法二的实现要好很多
 {% endhighlight %}
 
-####多次访问DOM节点，使用局部变量存储它的引用####
+#### 多次访问DOM节点，使用局部变量存储它的引用
 
 这些方法返回值是一个集合  
 
@@ -50,7 +50,7 @@ function innerHTMLLoop() {
 
 这些集合是一些昂贵的东西，一般来说，对于任何类型的DOM访问，当同一个DOM属性或方法需要多次访问时候，最好把一个局部变量缓存此成员。<span class="orange">当遍历一个集合时，首先优化原则是把集合存储在局部变量中，并把length缓存在循环外部，然后使局部变量访问这些需要多次访问的元素。</span>
 
-####使用速度最快的API####
+#### 使用速度最快的API
 浏览器提供了一个名为<span class="orange">querySelectorAll()的原生DOM方法</span>，这种方法自然比使用JavaScript和DOM来遍历查找元素要快很多。
 
 {% highlight javascript %}
@@ -64,7 +64,7 @@ var elements=document.querySelectAll('#menu a')；
 
 还有一个遍历方法--<span class="orange">querySelector()</span>来获取第一个匹配的节点。
 
-####留意重绘和重排####
+#### 留意重绘和重排
 
 好吧我之前一直没有听过重绘和重排，书上是这么讲的。
 浏览器下载完页面中所有组件--HTML标记、JavaScript、CSS、图片--之后会解析并生成两个内部数据结构：
