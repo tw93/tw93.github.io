@@ -30,42 +30,44 @@ categories: ReactNative
   
   - 具体Demo:
 
-{% highlight javascript %}
-import React, {
-    AppRegistry,
-    Component,
-    StyleSheet,
-    Text,
-    View,
-    Animated
-} from 'react-native';
-export default class demo extends React.Component {
-    constructor(props:any) {
-        super(props);
-        this.state = {
-            bounceValue: new Animated.Value(0)
-        };
-    }
-    render() {
-        return (
-            <Animated.Text
-                style={{fontSize: 28,flex:1,transform: [{scale: this.state.bounceValue}]}}>
-                文字抖动
-            </Animated.Text>
-        );
-    }
-    componentDidMount() {
-        this.state.bounceValue.setValue(3);
-        Animated.spring(
-            this.state.bounceValue,
-            {
-                toValue: 0.6,
-                friction: 1,
-            }
-        ).start();
-    }
-}
-{% endhighlight %}
+  {% highlight javascript %}
+  import React, {
+      AppRegistry,
+      Component,
+      StyleSheet,
+      Text,
+      View,
+      Animated
+  } from 'react-native';
+  export default class demo extends React.Component {
+      constructor(props:any) {
+          super(props);
+          this.state = {
+              bounceValue: new Animated.Value(0)
+          };
+      }
+      render() {
+          return (
+              <Animated.Text
+                  style={{fontSize: 28,flex:1,transform: [{scale: this.state.bounceValue}]}}>
+                  文字抖动
+              </Animated.Text>
+          );
+      }
+      componentDidMount() {
+          this.state.bounceValue.setValue(3);
+          Animated.spring(
+              this.state.bounceValue,
+              {
+                  toValue: 0.6,
+                  friction: 1,
+              }
+          ).start();
+      }
+  }
+  {% endhighlight %}
+
+  ![文字抖动效果gif](http://tw93.github.io/images/animateddemo.gif)
 
 
   - 从上面demo可以到达，动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可。
