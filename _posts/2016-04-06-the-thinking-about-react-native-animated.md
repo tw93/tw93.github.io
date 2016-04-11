@@ -31,7 +31,6 @@ categories: ReactNative
   - 具体Demo:
 
 {% highlight javascript %}
-{% raw %}
 import React, {
     AppRegistry,
     Component,
@@ -66,7 +65,6 @@ export default class demo extends React.Component {
         ).start();
     }
 }
-{% endraw %}
 {% endhighlight %}
 
 
@@ -74,40 +72,40 @@ export default class demo extends React.Component {
 
   - RN动画和H5动画对比
     - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
-    - [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)(http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
+    - [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
     - 上述动画css3使用animation: rotate 0.2s linear infinite;实现：
 
-{% highlight javascript %}
-.animate {
-        width: 200px;
-        height: 200px;
-        background: red;
-        animation: rotate 0.2s linear infinite;
-        -webkit-animation: rotate 0.2s linear infinite;
-    }
-    @keyframes rotate {
-        0%,
-        100% {
-            transform: rotateY(0deg);
+    {% highlight javascript %}
+    .animate {
+            width: 200px;
+            height: 200px;
+            background: red;
+            animation: rotate 0.2s linear infinite;
+            -webkit-animation: rotate 0.2s linear infinite;
         }
-        100% {
-            transform: rotateY(360deg);
+        @keyframes rotate {
+            0%,
+            100% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
         }
-    }
-{% endhighlight %} 
+    {% endhighlight %} 
 
     - RN采用如下实现：
 
-{% highlight javascript %}
-startAnimation() {
-        this.state.rotateValue.setValue(0);
-        Animated.timing(this.state.rotateValue, {
-            toValue: 1,
-            duration: 200,
-            easing: Easing.linear
-        }).start(() => this.startAnimation());
-      }
-{% endhighlight %} 
+    {% highlight javascript %}
+    startAnimation() {
+            this.state.rotateValue.setValue(0);
+            Animated.timing(this.state.rotateValue, {
+                toValue: 1,
+                duration: 200,
+                easing: Easing.linear
+            }).start(() => this.startAnimation());
+          }
+    {% endhighlight %} 
 
   - 关于性能测试都采用instruments来测试Time Profiler数据,其中红线是动画开始时候，从图中可以看出两者消耗都低，但是css3动画的性能稍微优于RN的动画。
 
@@ -118,7 +116,7 @@ startAnimation() {
 ### 结论
 - RN的动画很强大，而且性能很好
 - 客户端的大部分动画不复杂，90%可以使用RN动画实现，对于比较特殊的动画可以采用和设计师讨论，换一种动画实现，或者使用[react-native-animatable](https://github.com/oblador/react-native-animatable)补充多余的动画类型。
-- 对于有些组件的动画，涉及到绘制方面，建议直接使用RN绘图库REACT NATIVE ART实现。
+- 对于有些组件的动画，涉及到绘制方面，建议直接使用RN绘图库React Native Art实现。
 
 ### 参考链接
 - [https://facebook.github.io/react-native/docs/animations.html#content](https://facebook.github.io/react-native/docs/animations.html#content)
