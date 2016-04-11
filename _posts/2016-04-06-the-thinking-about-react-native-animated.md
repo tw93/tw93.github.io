@@ -28,7 +28,7 @@ categories: ReactNative
      - 通过Animated.spring等函数设定动画参数
      - 调用start启动动画
   
-  - 具体Demo:
+  - 具体Demo:**[文字抖动效果gif](http://tw93.github.io/images/animateddemo.gif)**
 
 {% highlight javascript %}
 {% raw %}
@@ -69,9 +69,6 @@ export default class demo extends React.Component {
 {% endraw %}
 {% endhighlight %}
              
-  ![文字抖动效果gif](http://tw93.github.io/images/animateddemo.gif)
-
-
   - 从上面demo可以到达，动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可。
 
   - RN动画和H5动画对比
@@ -98,7 +95,7 @@ export default class demo extends React.Component {
     }
 {% endhighlight %} 
                  
-    - RN采用如下实现：
+- RN采用如下实现：
                 
 {% highlight javascript %}
 startAnimation() {
