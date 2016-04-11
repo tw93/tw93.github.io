@@ -8,17 +8,17 @@ categories: ReactNative
 
 ### 问题抛出
 - RN动画支持的怎么样?
-- 看是否足以支撑我们的业务需要，实现与Native等同的交互体验，需不需要我们二次开发 ？
+- 看是否足以支撑现有的业务需要，实现与Native等同的交互体验，需不需要我们二次开发 ？
 - 动画应用上呢，使用起来方便么，需不需要二次封装 ？
 - 性能上呢？有明显性能问题吗？
 
 ### 论证过程
 
 - RN动画功能总结脑图：
-![RN动画](https://img.alicdn.com/tps/TB1YZoRMXXXXXXaapXXXXXXXXXX-1061-1759.png)
+![RN动画](http://tw93.github.io/images/React-Native-animated.png)
 
 - native动画相关汇总
- ![Native动画](https://img.alicdn.com/tps/TB1IFRXMpXXXXcKXVXXXXXXXXXX-906-563.png)
+ ![Native动画](http://tw93.github.io/images/native-animated.png)
 
 - 应用
   - RN动画的可以按照如下步骤进行：
@@ -74,8 +74,28 @@ export default class demo extends React.Component {
 
   - RN动画和H5动画对比
     - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
-    - [CSS3动画vs ReactNative动画录制](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
-    - 上述动画css3使用animation: rotate 0.2s linear infinite;实现，
+    - [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)(http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
+    - 上述动画css3使用animation: rotate 0.2s linear infinite;实现：
+
+{% highlight javascript %}
+.animate {
+        width: 200px;
+        height: 200px;
+        background: red;
+        animation: rotate 0.2s linear infinite;
+        -webkit-animation: rotate 0.2s linear infinite;
+    }
+    @keyframes rotate {
+        0%,
+        100% {
+            transform: rotateY(0deg);
+        }
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+{% endhighlight %} 
+
     - RN采用如下实现：
 
 {% highlight javascript %}
@@ -91,7 +111,7 @@ startAnimation() {
 
   - 关于性能测试都采用instruments来测试Time Profiler数据,其中红线是动画开始时候，从图中可以看出两者消耗都低，但是css3动画的性能稍微优于RN的动画。
 
-  ![img](https://img.alicdn.com/tfs/TB15mlYMpXXXXbnXpXXXXXXXXXX-735-235.png)
+  ![img](http://tw93.github.io/images/animatedopt.png)
 
   
   

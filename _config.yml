@@ -30,7 +30,7 @@ flattr_button:
 
 
 # Build settings
-highlighter: true
+highlighter: rouge
 markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
