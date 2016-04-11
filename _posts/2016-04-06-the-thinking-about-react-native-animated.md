@@ -30,43 +30,43 @@ categories: ReactNative
   
   - 具体Demo:
 
-  {% highlight javascript %}
-  import React, {
-      AppRegistry,
-      Component,
-      StyleSheet,
-      Text,
-      View,
-      Animated
-  } from 'react-native';
-  export default class demo extends React.Component {
-      constructor(props:any) {
-          super(props);
-          this.state = {
-              bounceValue: new Animated.Value(0)
-          };
-      }
-      render() {
-          return (
-              <Animated.Text
-                  style={{fontSize: 28,flex:1,transform: [{scale: this.state.bounceValue}]}}>
-                  文字抖动
-              </Animated.Text>
-          );
-      }
-      componentDidMount() {
-          this.state.bounceValue.setValue(3);
-          Animated.spring(
-              this.state.bounceValue,
-              {
-                  toValue: 0.6,
-                  friction: 1,
-              }
-          ).start();
-      }
-  }
-  {% endhighlight %}
-
+{% highlight javascript %}
+import React, {
+    AppRegistry,
+    Component,
+    StyleSheet,
+    Text,
+    View,
+    Animated
+} from 'react-native';
+export default class demo extends React.Component {
+    constructor(props:any) {
+        super(props);
+        this.state = {
+            bounceValue: new Animated.Value(0)
+        };
+    }
+    render() {
+        return (
+            <Animated.Text
+                style={{fontSize: 28,flex:1,transform: [{scale: this.state.bounceValue}]}}>
+                文字抖动
+            </Animated.Text>
+        );
+    }
+    componentDidMount() {
+        this.state.bounceValue.setValue(3);
+        Animated.spring(
+            this.state.bounceValue,
+            {
+                toValue: 0.6,
+                friction: 1,
+            }
+        ).start();
+    }
+}
+{% endhighlight %}
+             
   ![文字抖动效果gif](http://tw93.github.io/images/animateddemo.gif)
 
 
@@ -77,38 +77,38 @@ categories: ReactNative
     - [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
     - 上述动画css3使用animation: rotate 0.2s linear infinite;实现：
 
-    {% highlight javascript %}
-    .animate {
-            width: 200px;
-            height: 200px;
-            background: red;
-            animation: rotate 0.2s linear infinite;
-            -webkit-animation: rotate 0.2s linear infinite;
+{% highlight javascript %}
+.animate {
+        width: 200px;
+        height: 200px;
+        background: red;
+        animation: rotate 0.2s linear infinite;
+        -webkit-animation: rotate 0.2s linear infinite;
+    }
+    @keyframes rotate {
+        0%,
+        100% {
+            transform: rotateY(0deg);
         }
-        @keyframes rotate {
-            0%,
-            100% {
-                transform: rotateY(0deg);
-            }
-            100% {
-                transform: rotateY(360deg);
-            }
+        100% {
+            transform: rotateY(360deg);
         }
-    {% endhighlight %} 
-
+    }
+{% endhighlight %} 
+                 
     - RN采用如下实现：
-
-    {% highlight javascript %}
-    startAnimation() {
-            this.state.rotateValue.setValue(0);
-            Animated.timing(this.state.rotateValue, {
-                toValue: 1,
-                duration: 200,
-                easing: Easing.linear
-            }).start(() => this.startAnimation());
-          }
-    {% endhighlight %} 
-
+                
+{% highlight javascript %}
+startAnimation() {
+        this.state.rotateValue.setValue(0);
+        Animated.timing(this.state.rotateValue, {
+            toValue: 1,
+            duration: 200,
+            easing: Easing.linear
+        }).start(() => this.startAnimation());
+      }
+{% endhighlight %} 
+             
   - 关于性能测试都采用instruments来测试Time Profiler数据,其中红线是动画开始时候，从图中可以看出两者消耗都低，但是css3动画的性能稍微优于RN的动画。
 
   ![img](http://tw93.github.io/images/animatedopt.png)
