@@ -31,6 +31,7 @@ categories: ReactNative
   - 具体Demo:
 
 {% highlight javascript %}
+{% raw %}
 import React, {
     AppRegistry,
     Component,
@@ -65,6 +66,7 @@ export default class demo extends React.Component {
         ).start();
     }
 }
+{% endraw %}
 {% endhighlight %}
              
   ![文字抖动效果gif](http://tw93.github.io/images/animateddemo.gif)
@@ -77,7 +79,7 @@ export default class demo extends React.Component {
     - [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
     - 上述动画css3使用animation: rotate 0.2s linear infinite;实现：
 
-{% highlight javascript %}
+{% highlight css %}
 .animate {
         width: 200px;
         height: 200px;
