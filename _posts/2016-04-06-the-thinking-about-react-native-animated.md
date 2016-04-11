@@ -75,8 +75,8 @@ export default class demo extends React.Component {
     - RN中的的动画均为 JavaScript 动画，即通过 JavaScript 代码控制图像的各种参数值的变化，从而产生时间轴上的动画效果。 
     - RN通过封装一个Animated的元素，内部通过数据绑定和DOM操作变更元素，结合React的生命周期完善内存管理，解决条件竞争问题，对外表现则与原生组件相同，实现了高效流畅的动画效果。
     - CSS3动画vs ReactNative动画录制效果视频(左边CSS3，右边ReactNative Animated):
-           
-    [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
+
+        [![CSS3动画vs ReactNative动画录制](http://tw93.github.io/images/animatedvs.png)](http://cloud.video.taobao.com/play/u/737512883/p/1/e/6/t/1/36938589.mp4)
 
     - 上述动画CSS3使用animation: rotate 0.2s linear infinite;实现：
 
@@ -119,7 +119,7 @@ startAnimation() {
   
   
 ### 结论
-- RN的动画很强大，而且性能很好
+- RN的动画很强大，而且性能还不错。
 - 客户端的大部分动画不复杂，90%可以使用RN动画实现，对于比较特殊的动画可以采用和设计师讨论，换一种动画实现，或者使用[react-native-animatable](https://github.com/oblador/react-native-animatable)补充多余的动画类型。
 - 对于有些组件的动画，涉及到绘制方面，建议直接使用RN绘图库React Native Art实现。
 
