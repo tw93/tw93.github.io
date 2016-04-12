@@ -24,7 +24,7 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 微软已经负责创建了一个更好的，更有前途的“指针事件”的事件模型规范。指针事件是一个抽象的输入机制,现在是W3C推荐标准。指针事件给用户代理(UA)带来灵活性，给一个事件系统提供丰富的输入机制。鼠标、触摸、手写笔是今天很容易想到的输入方式，但实现延伸到[myo](https://www.thalmic.com/en/myo/){:target="_blank"}（肌）和[Ring](http://logbar.jp/ring/en/){:target="_blank"}（环）也是可实现的。虽然Web开发者对这些似乎很兴奋，但并不是所有的浏览器开发者也会这样以为。就像苹果和谷歌现在就没有打算来实现指针事件。  
 谷歌的这个决定并不是他们最终的决定，但是目前在指针事件上没有活跃的工作。我们通过polyfills输入和使用指针事件和替代解决方案将成为等式的一部分，可能最终起决定作用。苹果在2012年发表申明反对指针事件，我现在没有从Safari的工程师那里得到任何公众回应。
 
-###事件级联  
+### 事件级联  
 当用户在移动设备上面tap点击一个元素时，浏览器会触发一系列事件：  
  
  > touchstart → touchend → mouseover → mousemove → mousedown → mouseup → click
@@ -52,7 +52,7 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 <small>在Internet Explorer 11（在兼容的触摸事件实现）上tap点击元素两次然后松开的事件级联</small>
 
 
-###应用事件级联
+### 应用事件级联
 由于浏览器工程师的工作，大多数现在建成的桌面网站“只是可以工作而已”。尽管级联看起来有点粗糙，但建立鼠标事件是我们以前通常工作的保守做法。  
 当然，300ms的延迟问题比起在滚动和touchmove和pointermove事件相互作用，还有浏览器渲染问题这些额外的问题更加臭名昭著。避免300 ms的延迟很容易，如果：
  
@@ -72,7 +72,7 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
  - Demo：[The tap event](https://github.com/Skookum/smashing-input-events/blob/gh-pages/taps.html){:target="_blank"}
  - Code:[taps.js](https://github.com/Skookum/smashing-input-events/blob/gh-pages/taps.js#L1){:target="_blank"}
 
-###重要部分
+### 重要部分
 
 在所有开始的地方绑定你的初始事件，这下面处理多输入的模式是被认为一种保险的方式。
 {% highlight javascript%}
@@ -144,7 +144,7 @@ function tapEnd(target, event) {
 
 剩下的这些代码应该能够很好的自我解释，事实上，它有很多簿记，实现自定义手势要求你用浏览器事件系统来紧密合作。为了挽救你的受伤和心痛，不要在你自己的代码库里做事情。相反你应该建立或使用一个强大的抽象，例如[Hammer.js](http://hammerjs.github.io/){:target="_blank"},jQuery polyfill的[Pointer Events](https://github.com/jquery/PEP){:target="_blank"}或者[polymer-gestures](https://github.com/Polymer/polymer-gestures){:target="_blank"}。
 
-###总结
+### 总结
 
 一些曾经很清楚的事件现在却是有歧义的，以前click事件用来指有且只有一件事，但是现在在触摸屏上面需要辨别是双击、滚动或者其他操作系统的手势。
 
@@ -152,7 +152,7 @@ function tapEnd(target, event) {
 
 你在构建多设备的网站时，有遇到什么意想不到的问题？你采取什么样的方法来解决Web上众多的交互模式？
 
-###额外的资源
+### 参考链接
 
  - [“Pointer Events Finalized, But Apple’s Lack of Support Still a Deal Breaker,”](http://arstechnica.com/information-technology/2015/02/pointer-events-finalized-but-apples-lack-of-support-still-a-deal-breaker/){:target="_blank"}Peter Bright
  - Getting Touchy: An Introduction to Touch and Pointer Events,包括[slides](http://patrickhlauke.github.io/getting-touchy-presentation/){:target="_blank"}和[talk](https://www.youtube.com/watch?v=QYLC8o3U_XY){:target="_blank"} Patrick E. Lauke
