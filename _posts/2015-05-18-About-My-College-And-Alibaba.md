@@ -6,7 +6,7 @@ summary:    只想靠两手，向理想挥手，这是来自Beyond的《不再�
 categories: 我的生活
 ---
 
-<script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=37154395&uid=737512883&tid=1&autoplay=true7&height=450px"></script>
+<script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=37154395&uid=737512883&tid=1&autoplay=false&height=450px"></script>
 
 <small>本来想使用youtube的，但是由于大部分人在墙内，所以只好下下载再上传。</small>
 
