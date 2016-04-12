@@ -124,10 +124,10 @@ startAnimation() {
 - 对于有些组件的动画，涉及到绘制方面，建议直接使用RN绘图库React Native Art实现。
 
 ### 参考链接
-- [https://facebook.github.io/react-native/docs/animations.html#content](https://facebook.github.io/react-native/docs/animations.html#content)
-- [https://facebook.github.io/react-native/docs/navigator.html#content](https://facebook.github.io/react-native/docs/navigator.html#content)
-- [https://facebook.github.io/react-native/docs/layoutanimation.html#content](https://facebook.github.io/react-native/docs/layoutanimation.html#content)
-- [ReactNative Animated动画详解 - Web前端腾讯AlloyTeamBlog](http://www.alloyteam.com/2016/01/reactnative-animated/)
+- [React-Native animations](https://facebook.github.io/react-native/docs/animations.html#content)
+- [React-Native navigator](https://facebook.github.io/react-native/docs/navigator.html#content)
+- [React-Native layoutanimation](https://facebook.github.io/react-native/docs/layoutanimation.html#content)
+- [ReactNative Animated动画详解](http://www.alloyteam.com/2016/01/reactnative-animated/)
 - [react-native-animation-book](http://browniefed.com/react-native-animation-book/)
 
 
