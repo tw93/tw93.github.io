@@ -51,12 +51,10 @@ class ReactNativeDemo extends Component {
             rotateValue: new Animated.Value(0),
         };
     }
-
     componentDidMount() {
         //在初始化渲染执行之后立刻调用动画执行函数
         this.startAnimation();
     }
-
     startAnimation() {
         this.state.bounceValue.setValue(0);
         this.state.rotateValue.setValue(0);
@@ -75,22 +73,20 @@ class ReactNativeDemo extends Component {
             //调用start启动动画,start可以回调一个函数,从而实现动画循环
         ]).start(()=>this.startAnimation());
     }
-
     render() {
         return (
             <View style={styles.container}>
                 <Animated.Image source={require('./bsb.jpeg')}
-                                style={{width: 100,height: 100,transform: [
-                                            //将初始化值绑定到动画目标的style属性上
-                                            {scale: this.state.bounceValue},
-                                            //使用interpolate插值函数,实现了从数值单位的映射转换
-                                            {rotateZ: this.state.rotateValue.interpolate({
-                                            inputRange: [0,1],
-                                            outputRange: ['0deg', '360deg'],
-                                            })},
-                                        ]}}>
+                            style={{width: 100,height: 100,transform: [
+                            //将初始化值绑定到动画目标的style属性上
+                            {scale: this.state.bounceValue},
+                            //使用interpolate插值函数,实现了从数值单位的映射转换
+                            {rotateZ: this.state.rotateValue.interpolate({
+                            inputRange: [0,1],
+                            outputRange: ['0deg', '360deg'],
+                            })},
+                            ]}}>
                 </Animated.Image>
-
             </View>
         );
     }
