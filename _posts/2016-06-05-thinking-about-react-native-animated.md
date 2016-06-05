@@ -30,7 +30,8 @@ categories: ReactNative
 
 一个**明天不上班的**的动画实现，同时从小变大并且旋转，我们可以从注释中看到RN动画的实现步骤，代码如下：
 
-```
+{% highlight javascript %}
+{% raw %}
 import React, { Component } from 'react';
 import {
     AppRegistry,
@@ -104,7 +105,9 @@ const styles = StyleSheet.create({
 
 AppRegistry.registerComponent('ReactNativeDemo', () => ReactNativeDemo);
 
-```
+{% endraw %}
+{% endhighlight %}
+
 从上面demo可以看出，**动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可**。
 
 具体的效果是这样：
