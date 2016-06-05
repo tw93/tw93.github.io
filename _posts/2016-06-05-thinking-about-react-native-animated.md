@@ -28,9 +28,9 @@ categories: ReactNative
 
 ### RN动画的使用
 
-一个**明天不上班的**的动画实现，同时从小变大并且旋转，我们可以从注释中看到RN动画的实现步骤，代码如下：
+一个**明天不上班的**的动画实现，同时从小变大并且旋转，我们可以从注释中看到RN动画的实现步骤，代码[Tw93 Gist](https://gist.github.com/tw93/c02b2e864aa8e1c9048d17b649f7a2ea)如下：
 
-
+![//img.alicdn.com/tfs/TB1F2c5KXXXXXclXpXXXXXXXXXX-1280-3546.jpg](https://img.alicdn.com/tfs/TB1F2c5KXXXXXclXpXXXXXXXXXX-1280-3546.jpg)
 
 从上面demo可以看出，**动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可**。
 
