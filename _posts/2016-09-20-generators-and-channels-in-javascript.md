@@ -11,9 +11,9 @@ categories: javascript
 原文来自：[Generators and Channels in JavaScript](https://medium.com/javascript-inside/generators-and-channels-in-javascript-594f2cf9c16e#.pvgt62ocb)
 
 ### 简介
-以下这篇文章是对Generators和Channels的一个介绍，如果你对Promises,Generator,Coroutines和Channel有过了解，可以直接跳到**Using Generators and Channels with React**这部分，虽然接下来这些案例可能不是很适合真实的项目环境，但是它可以看成一个起点，尝试通过这种方法来实践可能出现的地方。
+以下这篇文章是对Generator和Channel的一个介绍，如果你对Promise，Generator，Coroutine和Channel有过了解，可以直接跳到Using Generators and Channels with React这部分，接下来这些代码可能不能直接用于实际生产环境，但是它应该被看成一个起点，可以尝试把这种方案用在可以用到的地方。
 
-可以稍微花点时间看看下面这个listen函数。
+稍微花点时间看看这个listen函数。
 {% highlight javascript %}
 const listen = (el, type) => {
   const ch = chan()
@@ -22,11 +22,11 @@ const listen = (el, type) => {
 }
 {% endhighlight %}
 
-它会将每个在Dom 元素上面的事件转换一个Channel，首先让我们来了解下基础部分吧。
+它会将每个在Dom元素上面的事件转换一个Channel，我们可以从这个基础点开始。
 
 ### Why Generators and Channels?
 
-在我们学习Generator,Coroutine和Channel之前，我们看下常规的Promise吧。
+在我们学习Generator，Coroutine和Channel之前，先了解下常规的Promise。
 {% highlight javascript %}
 function getUsers() {
 	return new Promise((resolve, reject) => {
@@ -42,9 +42,9 @@ function getUsers() {
 }
 {% endhighlight %}
 
-当getUsers函数成功时候会返回一个Promise对象，promise的resolves会携带着必要的数据。同时我们能很好的处理超过一个Promise的情况，或者一个promise依赖于另外一个Promise和一个操作需要所有的Promise一起才能解决问题的情况，promise标准的实现把以上几种情况都覆盖到了。第一种链式情况可以使用Promise的then实现，后一种可以使用Promise.all来实现。
+当getUsers函数成功时候会返回一个Promise对象，Promise的resolves会携带着必要的数据。同时我们能很好的处理超过一个Promise的情况，或者一个Promise依赖于另外一个Promise和一个操作需要所有的Promise一起运行才能解决问题的情况，以上这两种情况，其实标准的Promise实现就可以覆盖到。第一种链式情况可以使用Promise的then实现，后一种可以使用Promise.all来实现。
 
-Promise可以被看成是回调（也称为回调地狱）的一种更加简洁的替换方案，以防万一你想象不到这种情况，或者不清楚到底说的是什么东西，下面用一个很无聊的代码来提醒你记起。
+Promise可以被看成是回调（回调地狱）的一种更加简洁的替换方案，假如你不清楚什么是回调地狱，可以看看下面的代码。
 {% highlight javascript %}
 asyncCallOne(() => {
     asyncCallTwo(() => {
@@ -59,7 +59,7 @@ asyncCallOne(() => {
 })
 {% endhighlight %}
 
-当我们处理不是很复杂代码的时候用嵌套函数看起来还不错，但是上面的代代码其实不是很好来扩展，这里有一种更好的方式从一开始就避免这种回调方案，就是使用Promise啦，它可以有效的避免回调嵌套，同时还可以更好的处理异常。
+当我们处理不是很复杂代码的时候用嵌套函数看起来还不错，但是嵌套代码不利于扩展和维护，这里有一种更好的方式从一开始就可以避免回调地狱，就是使用Promise，它可以有效地避免回调嵌套，还可以更好的处理异常。
 {% highlight javascript %}
 asyncCallOne(() => { // do some something... } )
     .then(asyncCallTwo)
@@ -71,7 +71,7 @@ asyncCallOne(() => { // do some something... } )
     })
 {% endhighlight %}
 
-在运行所有的异步函数后继续使用Then也是可以的。
+在运行所有的异步函数后再来使用Then也是可以的。
 {% highlight javascript %}
 Promise.all([
  asyncCallOne, 
@@ -82,18 +82,18 @@ Promise.all([
 });
 {% endhighlight %}
 
-现在我们已经复习了一下Callback和Promise的基本用法，让我们看一看在ES6中介绍的Generator。
+现在我们已经复习了一下Callback和Promise的基本用法，接下来可以介绍下ES6中的Generator。
 
 ### Generator
-在我们讲是什么，为什么，怎么做之前，我们可以一起看看generators简短定义。
+在我们讲what,why,how之前，我们可以先看看Generator简短定义。
 
 > “Generators are functions that can be paused and resumed, which enables a variety of applications.”
 
 ([http://www.2ality.com/2015/03/es6-generators.html]((http://www.2ality.com/2015/03/es6-generators.html)))
 
-为了快速的总结Generator函数，他们可以让我们通过使用yield生成一个有序列的变量和在迭代器对象上调用next方法来检索对应的值。
+为了快速的总结Generator，它们可以使我们通过调用在一个迭代器对象上面调用yield和通过next获取到值生成一个值的序列。
 
-这一小段很基础的代码可以很好的演示Generator函数。
+这一小段很基础的代码可以用来示范怎么使用Generator。
 {% highlight javascript %}
 function* getNumbers() {
   yield 1
@@ -108,9 +108,41 @@ console.log(getThoseNumbers.next()) // {value:10, done:false}
 console.log(getThoseNumbers.next()) // {value:undefined, done:true}
 {% endhighlight %}
 
-我们可以通过generator函数来做迭代，使用它们用来observe数据，同时很适合lazy evaluation和control flow。
+我们可以通过Generator来做迭代，也可以用它们用来observe数据，同时也很适合lazy evaluation和control flow。
 
-这儿有一组关于如何从generator函数获取值的例子，最后一个还展示了如何通过reduce获取数据。
+这儿有一组关于如何从Generator获取值的例子，最后一个还展示了如何通过reduce获取数据。
+{% highlight javascript %}
+// iterate
+for (let i of getNumbers()) {
+  console.log(i) // 1 5 10
+}
+// destructering
+let [a, b, c] = getNumbers()
+console.log( a, b, c) // 1 5 10
+// spread operator
+let spreaded = [...getNumbers()]
+console.log(spreaded) // [1, 5, 10]
+// even works with reduce
+// Ramda reduce for example
+const reducing = reduce((xs, x) => [...xs, x], [], getNumbers())
+console.log(reducing) // [1, 5, 10]
+{% endhighlight %}
+
+此外Generator可以让我们通过next传递数据，比较奇葩的是第一个next只会开启这个迭代，第二个next才可以取到正常的值，此例子可以很好说明地上面问题。
+{% highlight javascript %}
+function* setGetNumbers() {
+  const input = yield
+    yield input
+}
+const setThoseNumbers = setGetNumbers()
+console.log(setThoseNumbers.next(1)) //{value:undefined, done:false}
+console.log(setThoseNumbers.next(2)) //{value: 2, done: false}
+console.log(setThoseNumbers.next()) //{value: undefined, done: true}
+{% endhighlight %}
+
+从上面的输出我们可以看到，第一个next是可以忽略的，仅仅从第二个next开始考虑就好。
+
+终止一个Generator是很简单的，只需要在Generator里面定义一个return就好。同时，这里还有一个很好的特性，Generator函数可以调用其他的Generator函数。
 {% highlight javascript %}
 function* callee() {
   yield 1
@@ -127,11 +159,11 @@ console.log(callerCallee.next()) // {value: 1, done: false}
 console.log(callerCallee.next()) // {value: 1, done: false}
 {% endhighlight %}
 
-现在我们应该对Generator有一个基础的理解。
+现在大家应该对Generator有一个基础的理解了。
 关于ES6中Generator更详细的的介绍，可以阅读 [Axel Rauschmayer](https://medium.com/u/7fab51e62203)这篇更全面的文章[ES6 Generators in depth](http://www.2ality.com/2015/03/es6-generators.html)。
 
 ### Generator, Promise and Coroutine
-现在我们已经对Promise和Generator有一个基本的了解，下面我们看看如何将这两者结合起来。
+现在我们已经基本了解Promise和Generator了，下面我们看看如何将这两者结合起来使用。
 {% highlight javascript %}
 function fetchUsers() {
   return new Promise((resolve, reject) => {
@@ -148,9 +180,9 @@ function* getData() {
 }
 {% endhighlight %}
 
-显而易见我们需要一些机制来确保我们不用手动来运行循环。这就是Coroutines发挥作用的地方了，它们可以使我们写能够处理异步的行为，包括Promise,Thunks或者其他的操作，[co](https://github.com/tj/co)就是处理这种情况的一个库。
+显而易见，我们需要一些机制来确保不用手动来运行循环。这就是Coroutine发挥作用的地方了，它们可以使我们写能够处理异步的行为，包括Promise,Thunk或者其它的operate，[co](https://github.com/tj/co)就是处理这种情况的一个典型的库。
 
-接下来的代码是对co的一种很粗糙简单的实现，但是我们可以看到co函数是怎么运行的。
+接下来的代码是对co的一种很简单粗糙的实现，但是我们可以从这里看到co函数是怎么运行的。
 {% highlight javascript %}
 function co(fn) {
   const obj = fn()
@@ -170,7 +202,7 @@ function co(fn) {
 }
 {% endhighlight %}
 
-接下来这个是使用简化co函数来实现之前fetch数据的例子
+接下来，我们使用简化co函数来实现之前fetch数据的那个例子。
 {% highlight javascript %}
 function fetchUsers() {
   return new Promise((resolve, reject) => {
@@ -199,7 +231,7 @@ const get = co(function* getData() {
 }).then(data => console.log(data))
 {% endhighlight %}
 
-我们可以看到Coroutines能让我们写看起来同步的代码来实现异步，如下
+我们可以看到Coroutine能让我们写那种看起来是同步的代码来实现异步，如下
 {% highlight javascript %}
 const get = co(function* getData() {
   const otherData = yield fetchOtherData()
@@ -210,7 +242,7 @@ const get = co(function* getData() {
 }).then(data => console.log(data))
 {% endhighlight %}
 
-从上面我们可以看到，通过Coroutines这种方式可以用来合并Generators和Promise。这样看起来不错，但是其实还有一种更好的方案，其实可以使用Channel来合并Generator。
+从上面我们可以看到，通过Coroutine这种方式可以用来合并Generator和Promise。这样看起来不错，其实还有一种更好的实现方案，就是使用Channel来合并Generator。
 
 ### Generator and Channel
 
@@ -218,10 +250,11 @@ const get = co(function* getData() {
 
 [(http://swannodette.github.io/2013/08/24/es6-generators-and-csp)](http://swannodette.github.io/2013/08/24/es6-generators-and-csp)
 
-在之前所以处理异步的方法是众所周知的，有趣的是Javascript中Channel看起来像马后炮一样，Clojure通过core.async、also Go和goroutines已经支持Channel很长一段时间了。
-这里有很多关于这方面的文章，其中最显著的一篇是James Longster的[Taming the Asynchronous Beast with CSP Channels in JavaScript]这篇文章。通过这篇文章可以对Channel有一个更深的理解。
+在之前所以处理异步的方法大家基本都知道（比如神奇的setTimeout），有趣的是channel像是事后才给js加上去的。Clojure 通过 core.async 以及 Go 通过 goroutines 已经对 channels 提供支持有一段时间了。
 
-以下是我直接从那篇文章中摘抄的一些话：
+这里有很多关于这方面的文章，其中最显著的一篇是James Longster的[Taming the Asynchronous Beast with CSP Channels in JavaScript](http://jlongster.com/Taming-the-Asynchronous-Beast-with-CSP-in-JavaScript)这篇文章。通过这篇文章可以对Channel有一个更深的理解。
+
+这是我直接从James Longster那篇文章中摘抄的一句话：
 
 > Typically channels are useful for coordinating truly concurrent tasks that might run at the same time on separate threads. They are actually just as useful in a single-threaded environment because they solve a more general problem of coordinating anything asynchronous, which is everything in JavaScript.--James Longster
 
@@ -231,7 +264,7 @@ const get = co(function* getData() {
 
 我们将会使用[js-csp](https://github.com/ubolonton/js-csp)这个库来演示使用Channel对我们到底有什么好处。
 
-通过Channel来进行进程通信，典型的Channel常常会提供一组函数，但是到目前为止，我们只需知道put和take的用法就好，入栈使用push，通过take有一个过程在另一边等待。很快我们将会看到更清晰的细节，首先我们需要考虑的是我们有一个channel和consumer，如下是采用从js-csp初级文档中的简化版例子：
+通过Channel来进行进程通信，典型的Channel常常会提供一组函数，但是到目前为止，我们只需知道put和take的用法就好，入栈使用push，通过take有一个过程在另一边等待。很快我们将会看到更清晰的细节，首先我们需要考虑的是我们有一个channel和consumer，如下是js-csp文档中的简化版例子：
 
 {% highlight javascript %}
 const ch = csp.chan(1);
@@ -252,9 +285,9 @@ var ch = go(function*(x) {
 console.log((yield take(ch)));
 {% endhighlight %}
 
-通过调用go这个函数我们生成了一个可以立即返回一个Channel，并准许我们通过take从Channel检索任何值的Goroutine。
+通过调用go我们生成了一个Goroutine，它会立即返回一个Channel，使我们通过take从Channel获取任何值。
 
-要了解这一切如何和UI相搭配，我们可以看看下面这个listen函数。
+为了了解这一切如何和UI相搭配，可以看看下面这个listen函数。
 {% highlight javascript %}
 const listen = (el, type) => {
   const ch = chan()
@@ -263,7 +296,7 @@ const listen = (el, type) => {
 }
 {% endhighlight %}
 
-我们可以通过使用listen将一个元素转换成channel。可以通过在channel上面使用take来监听所有的改动。现在无论我们在input框里面输入什么，我们可以通过channel获取任何改动并更新到元素上。
+我们可以通过使用listen将一个元素转换成channel。可以通过在channel上面使用take来监听所有的改动。无论我们在input框里面输入什么，我们可以通过channel获取到改动并更新到显示元素上。
 
 {% highlight javascript %}
 go(function*() {
@@ -278,13 +311,16 @@ go(function*() {
 {% endhighlight %}
 
 ### Using Generators and Channels with React
-现在我们已经介绍了一些基础，同时有一个更深的理解关于为什么channels和generators在javascript中有意义，我们可以将上面学到channels和generators用到实际中。
+到目前为止，已经将基础部分介绍完毕，同时对为什么Channel和Generator在Javascript中有意义有一个更深的理解，我们可以将学到Channel和Generator用到实际代码情景中。
 
-首先我们使用一个经典的计数器例子，虽然很基础，这个计数器只能够增加和减少数字同时将当前数字显示出来，但是通过这种方法可以帮助我们对于React渲染component获得更清晰的认识。
+一个经典的例子就是计数器组件，虽然很基础，只能够增加和减少数字并将当前数字显示出来，但是通过这个可以帮助我们对React渲染Component获得更清晰的认识。
 
 你可以从 [Stefan Oestreicher](https://medium.com/u/749b96458fd8)的[React/Elm-Architecturezh](https://github.com/steos/elmar.js/blob/master/src/examples/SimpleCounter.js)中获得完整代码。
 
-AppStart应该处理顶层React component的初始化渲染和开启一个用来等待任何在AppChannel上的更新的goroutine。AppChannel是一个没有任何缓冲或其他特殊性的函数。所以我们可以做的是一旦bian有一个event引发了一个action，我们在AppChannel使用put获取到。
+AppStart用来处理顶层React Component的初始化渲染，和开启一个用来等待任何在AppChannel上的更新的Goroutine。
+
+AppChannel是一个没有任何缓冲或其他特殊性的函数。所以我们可以做的是一旦有一个event引发了一个action变化，我们在AppChannel使用put方法都获取到。
+
 {% highlight javascript %}
 // basic example demonstrating the power of channels and generators
 import React from 'react'
@@ -316,12 +352,12 @@ const AppStart = ({ init, update, view }) => {
 AppStart(Counter)
 {% endhighlight %}
 
-现在我们有一个基础的例子已经启动运行，是时候做一些复杂的事情，例如fetch操作，我们可以创建从一个额外的资源fetch数据，并当一旦state变化发生后理解重新渲染结果的一个简单的列表，为了完成此任务，我们也会为了更好的体验传递一个加载的信息给用户。
+现在我们有一个基础的例子已经启动在运行中，还可以在上面做一些复杂的事情，例如fetch操作。我们可以创建一个简单列表，可以从其他资源地方fetch获取数据，一旦state发生变化后，重新渲染结果。为了完成此任务，同时为了更好的体验将传递一个loading信息给用户。
 
-让我们思考下第二个需求，我们可能需要单独的处理Action和Channel，同时需要在干净和良好组织下处理其副作用。
+上面这个需求，我们需要单独的处理Action和Channel，同时也需要在一个干净的、良好组织下的代码下处理其一些额外的情况。
 
 #### Building the App…
-实际上我们需要定义一个函数来处理fetch和通知loading什么时候开启和结束。
+实际上我们需要定义一个函数来处理fetch操作和通知loading什么时候开启和结束。
 
 {% highlight javascript %}
 const getItems = () => {
@@ -334,7 +370,7 @@ const getItems = () => {
 }
 {% endhighlight %}
 
- 让我们编写一个函数用来创建Channel。
+ 编写一个创建Channel的函数。
 {% highlight javascript %}
 const createChannel = (action, store) => {
   const ch = chan()
@@ -352,7 +388,7 @@ const createChannels = (actions, store) =>
   mapObjIndexed(fn => createChannel(fn, store), actions)
 {% endhighlight %}
 
-现在我们这里已经有createChannel，我们还需定义一组Action。
+现在已经有createChannel了，我们还需定义一组Action。
 {% highlight javascript %}
 const Actions = {
   isLoading: (model, isLoading) =>
@@ -367,7 +403,7 @@ const Actions = {
 }
 {% endhighlight %}
 
-接下来我们写APP的component部分，这里没什么特殊的，仅仅就是一个列表和两个button和一个input，第一个button用于获取列表数据，另外一个用于添加文本到input框里。
+接下来我们写App的Component部分，这里没什么特殊的，仅仅就是一个list和两个button和一个input，第一个button用于获取列表数据，另外一个用于添加文本到input里。
 {% highlight javascript %}
 const App = ({ items, isLoading }) => {
   if (isLoading) return (<p>loading...</p>)
@@ -389,7 +425,7 @@ const App = ({ items, isLoading }) => {
 }
 {% endhighlight %}
 
-我们现在基本上写好了其他东西，我们的AppStart函数类似于之前我们建立，除了现在它希望有一个component和一个类型的store。store仅仅是一个微不足道的object用于getter和setter的。
+现在已经基本上写好了，类似于我们之前这样，创建一个AppStart函数，同时它还希望有一个component和一个类型store。store就是一个用于存放getter和setter的简单对象。
 
 {% highlight javascript %}
 const AppStart = (Component, store) => {
@@ -410,29 +446,29 @@ const AppStart = (Component, store) => {
 const { isLoading, items, addItem } = createChannels(Actions, store)
 {% endhighlight %}
 
-我们在return中获得一个isLoading，一个items和一个addItem的channel，现在我们可以通过channel来更新我们的状态，还有需要注意的是，AppChannel被称为只有进程中最新值的滑动缓冲区。
+我们在return中获得一个isLoading，一个items和一个addItem的channel，现在我们可以通过channel来更新我们的状态，还有需要注意的是，AppChannel被称为一个只处理最新值的滑动缓冲。
 {% highlight javascript %}
 // create App channel... and render function
 const AppChannel = chan(buffers.sliding(1))
 const doRender = createRender(document.getElementById('mountNode'))
 {% endhighlight %}
 
-现在我们需要做的是调用AppStart。
+最后我们只需要调用AppStart就好了。
 {% highlight javascript %}
 AppStart(App, store)
 {% endhighlight %}
 
-以上只是一个快速的案例来解释React怎么结合Channel一起使用，我们需要更多的时间来思考和验证这种方案对于我们有什么好处。
+以上只是一个快速的案例来解释React怎么结合Channel一起使用，我们需要更多的时间来思考和验证这种方案怎么弄才对于我们有什么好处。
 
-思考关于之前那节中的listen函数和我们怎么将一个元素转换成一个channel，从而打开几个想法，包括在app中对窗口和改变结构、样式和布局。
+通过之前那节中的listen函数，我们怎么将一个元素转换成一个Channel，从而抛砖引玉，引出其他的想法，包括对window的反应，改变你的App的结构，样式或布局。
 
-以上提供的例子可以看成一个使用该新特性新的起点的可能性。
+以上提供的例子可以看成一个使用该新特性可能性的新起点。
 
 ### 总结
-这应该是一篇介绍generators和channels的文章，我们任然缺少一些重要的部分，例如：transducers，接下来的文章将会覆盖channels和transducers，包括更多好的使用React的例子也许会更有意义。
+这是一篇介绍Generator和Channel的文章，我们任然缺少一些重要的部分，比如Transducer，接下来的文章将会覆盖Channels和Transducer，包括更多使用React的例子。
 
 #### 更新
-[Introduction into Channels and Transducers in JavaScript](https://medium.com/javascript-inside/introduction-into-channels-and-transducers-in-javascript-a1dfd0a09268#.nfmcntwy7) 目前已经发布。
+目前已经发布[Introduction into Channels and Transducers in JavaScript](https://medium.com/javascript-inside/introduction-into-channels-and-transducers-in-javascript-a1dfd0a09268#.nfmcntwy7) 。
 
 ### Links
 
