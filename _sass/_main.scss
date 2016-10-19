@@ -287,6 +287,10 @@ blockquote {
   padding: 1.33em;
   font-style: italic;
   border-left: 5px solid #7a7a7a;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 20px;
+  -webkit-margin-end: 30px;
 }
 
 blockquote footer {
