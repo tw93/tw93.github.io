@@ -74,12 +74,12 @@ asyncCallOne(() => { // do some something... } )
 在运行所有的异步函数后再来使用Then也是可以的。
 {% highlight javascript %}
 Promise.all([
- asyncCallOne, 
- asyncCallTwo, 
- asyncCallThree
-]).then(values => {
-  // do something with the values...
-});
+     asyncCallOne,
+     asyncCallTwo,
+     asyncCallThree
+    ]).then(values => {
+      // do something with the values...
+    });
 {% endhighlight %}
 
 现在我们已经复习了一下Callback和Promise的基本用法，接下来可以介绍下ES6中的Generator。
