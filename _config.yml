@@ -33,7 +33,7 @@ flattr_button:
 highlighter: rouge
 markdown:     kramdown
 redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
+  extensions: ['fenced_code_block','smart', 'tables', 'with_toc_data','strikethrough','highlight','prettify']
 permalink:    /:year-:month-:day/:title.html
 paginate:     5
 sass:
