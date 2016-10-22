@@ -20,11 +20,20 @@ ga('send', 'pageview');
 </script>
 {% endif %}
 <script>
-  
+
+    var article=document.getElementById('T_content'),
+        aList=article && article.getElementsByTagName('a');
+
+    if(aList && aList.length>0) {
+     for(var i=0;i<aList.length;i++){
+        aList[i].target='_blank';
+        }
+    }
+
     function hereDoc(f) {　
     return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '');
-}
-var string = hereDoc(function () {/*
+    }
+    var string = hereDoc(function () {/*
 
 
  _                               ___                  _____           _       _
@@ -39,6 +48,6 @@ var string = hereDoc(function () {/*
 
                                                           Stay hungry. Stay foolish.
 
-*/});
-console.log(string);
+    */});
+    console.log(string);
 </script>
