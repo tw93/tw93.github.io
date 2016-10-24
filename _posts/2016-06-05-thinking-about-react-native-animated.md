@@ -30,7 +30,83 @@ categories: ReactNative
 
 一个**明天不上班的**的动画实现，同时从小变大并且旋转，我们可以从注释中看到RN动画的实现步骤，代码[Tw93 Gist](https://gist.github.com/tw93/c02b2e864aa8e1c9048d17b649f7a2ea)如下：
 
-![//img.alicdn.com/tfs/TB1F2c5KXXXXXclXpXXXXXXXXXX-1280-3546.jpg](https://img.alicdn.com/tfs/TB1F2c5KXXXXXclXpXXXXXXXXXX-1280-3546.jpg)
+{% highlight javascript %}
+    import React, { Component } from 'react';
+    import {
+        AppRegistry,
+        StyleSheet,
+        Text,
+        View,
+        Animated,   //使用Animated组件
+        Easing,     //引入Easing渐变函数
+    } from 'react-native';
+
+    class ReactNativeDemo extends Component {
+        constructor(props:any) {
+            super(props);
+            //使用Animated.Value设定初始化值（缩放度，角度等等）
+            this.state = {
+                bounceValue: new Animated.Value(0),
+                rotateValue: new Animated.Value(0),
+            };
+        }
+
+        componentDidMount() {
+            //在初始化渲染执行之后立刻调用动画执行函数
+            this.startAnimation();
+        }
+
+        startAnimation() {
+            this.state.bounceValue.setValue(0);
+            this.state.rotateValue.setValue(0);
+            Animated.parallel([
+                //通过Animated.spring等函数设定动画参数
+                //可选的基本动画类型: spring, decay, timing
+                Animated.spring(this.state.bounceValue, {
+                    toValue: 3,      //变化目标值
+                    friction: 20,    //friction 摩擦系数，默认40
+                }),
+                Animated.timing(this.state.rotateValue, {
+                    toValue: 1,
+                    duration: 800,
+                    easing: Easing.out(Easing.quad),
+                }),
+                //调用start启动动画,start可以回调一个函数,从而实现动画循环
+            ]).start(()=>this.startAnimation());
+        }
+
+        render() {
+            return (
+                <View style={styles.container}>
+                    <Animated.Image source={require('./bsb.jpeg')}
+                                    style={{width: 100,
+                                    height: 100,
+                                    transform: [
+                                    //将初始化值绑定到动画目标的style属性上
+                                    {scale: this.state.bounceValue},
+                                    //使用interpolate插值函数,实现了从数值单位的映射转换
+                                    {rotateZ: this.state.rotateValue.interpolate({
+                                    inputRange: [0,1],
+                                    outputRange: ['0deg', '360deg'],
+                                    })},
+                         ]}}>
+                    </Animated.Image>
+
+                </View>
+            );
+        }
+    }
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        }
+    });
+
+    AppRegistry.registerComponent('ReactNativeDemo', () =>ReactNativeDemo);
+{% endhighlight %}
 
 从上面demo可以看出，**动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可**。
 
@@ -56,7 +132,9 @@ categories: ReactNative
 
 
 ### 综合
+
 #### React Native的动画支持度还是很广:
+
 - CSS3可以实现的动画RN基本上可以实现，同时还包装了很多类似语法糖的东西，譬如3种动画类型（spring、decay、timing），Interpolation插值函数、4种动画组合（同时、顺序、错峰、延迟）、动画执行回调、跟踪动态值、Animated.event输入事件、响应当前的动画值、等功能;
 - 关于React Native 支持的Easing类型可以到源码中去找符合自己项目需求的动画类型，[Easing.js](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js);
 - Navigator页面切换的动画也很丰富，我们可以从上面的mindNode找到所支持的切换动画，同样也可以从源码中找到它支持的类型，[NavigatorSceneConfigs.js](https://github.com/facebook/react-native/blob/master/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js);
@@ -66,32 +144,35 @@ categories: ReactNative
 
 
 #### React Native编写使用起来也很有方便，具有逻辑性：
-- (1)使用基本的Animated组件，如Animated.View、Animated.Image、Animated.Text和其他（使用AnimatedImplementation来包装）;
-- (2)使用Animated.Value设定一个或多个初始化值,如位置属性、透明属性、角度属性等;
-- (3)将初始化值绑定到动画目标的属性上，如style;
-- (4)通过动画类型Api设定动画参数，如spring、decay、timing三种动画类型;
-- (5)调用start启动动画，同时可以在start里面回调相关功能;
+
+ 1. 使用基本的Animated组件，如Animated.View、Animated.Image、Animated.Text和其他（使用AnimatedImplementation来包装）;
+ 2. 使用Animated.Value设定一个或多个初始化值,如位置属性、透明属性、角度属性等;
+ 3. 将初始化值绑定到动画目标的属性上，如style;
+ 4. 通过动画类型Api设定动画参数，如spring、decay、timing三种动画类型;
+ 5. 调用start启动动画，同时可以在start里面回调相关功能;
 
 
 
-####React Native动画性能没有那么差，或者说比想象中要好:
+#### React Native动画性能没有那么差，或者说比想象中要好:
 
-for Animated：
+##### for Animated：
+
 - 通过封装一个Animated的元素;
 - 内部通过数据绑定和DOM操作变更元素;
 - 结合React的生命周期完善内存管理，解决条件竞争问题;
 - 对外表现则与原生组件相同，实现了高效流畅的动画效果;
 
-For Navigator页面切换动画不流畅：
+##### For Navigator页面切换动画不流畅：
+
 - 使用InteractionManager在转场动画的过程中，使新页面只渲染必要的少量的内容。
 - InteractionManager.runAfterInteractions只有一个函数类型的参数，当转场动画结束，这个回调函数就会被触发(所有基于AnimatedAPI的动画都会触发InteractionManager.runAfterInteractions)。
    
 
     
 ### 参考
-- https://facebook.github.io/react-native/docs/animations.html#content
-- https://facebook.github.io/react-native/docs/navigator.html#content
-- https://facebook.github.io/react-native/docs/layoutanimation.html#content
+- [https://facebook.github.io/react-native/docs/animations.html#content](https://facebook.github.io/react-native/docs/animations.html#content)
+- [https://facebook.github.io/react-native/docs/navigator.html#content](https://facebook.github.io/react-native/docs/navigator.html#content)
+- [https://facebook.github.io/react-native/docs/layoutanimation.html#content](https://facebook.github.io/react-native/docs/layoutanimation.html#content)
 - [ReactNative Animated动画详解 - Web前端腾讯AlloyTeamBlog](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&cad=rja&uact=8&ved=0ahUKEwjghpGciPnLAhVGkywKHQebDBwQFgg4MAQ&url=%68%74%74%70%3a%2f%2f%77%77%77%2e%61%6c%6c%6f%79%74%65%61%6d%2e%63%6f%6d%2f%32%30%31%36%2f%30%31%2f%72%65%61%63%74%6e%61%74%69%76%65%2d%61%6e%69%6d%61%74%65%64%2f&usg=AFQjCNFHs4H5NFeDSA60uU1AiwE4s3DDtA&sig2=co4jsVL_5KxI5g-Ug0eKBQ)
 - [react-native-animation-book](http://browniefed.com/react-native-animation-book/)
 
