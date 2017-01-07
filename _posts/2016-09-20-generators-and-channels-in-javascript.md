@@ -42,6 +42,7 @@ function getUsers() {
 }
 {% endhighlight %}
 
+
 当getUsers函数成功时候会返回一个Promise对象，Promise的resolves会携带着必要的数据。同时我们能很好的处理超过一个Promise的情况，或者一个Promise依赖于另外一个Promise和一个操作需要所有的Promise一起运行才能解决问题的情况，以上这两种情况，其实标准的Promise实现就可以覆盖到。第一种链式情况可以使用Promise的then实现，后一种可以使用Promise.all来实现。
 
 Promise可以被看成是回调（回调地狱）的一种更加简洁的替换方案，假如你不清楚什么是回调地狱，可以看看下面的代码。
