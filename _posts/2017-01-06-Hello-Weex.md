@@ -22,7 +22,6 @@ categories: weex
 Module和Component相信有些同学区分不清楚，通过google搜索得到如下两个解释：
 
 > Module: An implementation unit of software that provides a coherent set of responsibilities.
-
 > Component:A component is a reusable building block that can be combined with other components in the same or other computers in a distributed network to form an application.
 
 ![](http://img.alicdn.com/tfs/TB1T6zwPXXXXXa2aXXXXXXXXXXX-440-317.png)
