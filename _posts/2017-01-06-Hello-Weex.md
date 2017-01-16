@@ -17,7 +17,7 @@ categories: weex
 
 *为了确保信息保密，已经将一些其他信息去除，请谅解，*分享开始 👨‍👨‍👧‍👧 🤣。
 
-## **Module && Component **
+## **Module && Component**
 
 Module和Component相信有些同学区分不清楚，通过google搜索得到如下两个解释：
 
