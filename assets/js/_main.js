@@ -1,11 +1,5 @@
 /*! Plugin options and other jQuery stuff */
 
-// dl-menu options
-$(function() {
-  $( '#dl-menu' ).dlmenu({
-    animationClasses : { classin : 'dl-animate-in', classout : 'dl-animate-out' }
-  });
-});
 
 // FitVids options
 $(function() {
@@ -61,26 +55,3 @@ $(document).ready(function(e) {
   });
 });
 
-//mobile menu
-$(document).ready(function(){
-  $("#menu").attr('style', '');
-  $("#menu").mmenu({
-    "extensions": [
-      "border-full",
-      "effect-zoom-menu",
-      "effect-zoom-panels",
-      "pageshadow",
-      "theme-dark"
-    ],
-    "counters": false,
-  });
-});
-
-var sharing = function(){
-    $(document).ready(function(){
-      $("body").floatingSocialShare({
-        buttons: ["facebook","twitter","google-plus", "linkedin", "pinterest"],
-        text: "Share with "
-      });
-    });
-};//sharing

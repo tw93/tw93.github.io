@@ -3,7 +3,6 @@
 
 <div class="header-menu header-menu-top">
     <ul class="header-item-container">
-      <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
       <li class="header-item-title">
         <a href="{{site.url}}/">
           {% if site.logo %}
@@ -69,34 +68,6 @@
     </div><!-- /.header-title-wrap -->
   </div><!-- /.header-title -->
 </div><!-- /.entry-header -->
-
-
-<nav id="menu" style="display: none">
-  <ul>
-    {% for menu in site.menu %}
-      {% if menu.type == 'categories' %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-          <ul>
-            {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-              {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                <li><a href="{{site.url}}/categories/#{{this_word}}">{{this_word}}</a></li>
-            {% endunless %}{% endfor %}
-          </ul>
-        </li>
-      {% elsif menu.submenu %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-          <ul>
-            {% for sub in menu.submenu %}
-              <li><a href="{{site.url}}{{sub.url}}">{{sub.title}}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
 
 {% if site.owner.twitter %}
   <a href="https://twitter.com/{{site.owner.twitter}}" class="btn btn-info button-twitter" data-show-count="false" data-size="large"><i class="fa fa-twitter"></i> <span> | Follow @{{site.owner.twitter}}</span></a>

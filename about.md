@@ -22,4 +22,4 @@ permalink: /about/
 
 
 ## Avast:
-![](//img.alicdn.com/tfs/TB1UhwSPXXXXXaHXXXXXXXXXXXX-1834-1849.jpg)
+<img src="//img.alicdn.com/tfs/TB1UhwSPXXXXXaHXXXXXXXXXXXX-1834-1849.jpg" width="500" />

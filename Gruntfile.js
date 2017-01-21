@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     imagemin: {
       dist: {
         options: {
-          optimizationLevel: 7,
+          optimizationLevel: 9,
           progressive: true
         },
         files: [{
@@ -83,8 +83,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean',
     'uglify',
-    'imagemin',
-    'svgmin'
+    // 'imagemin',
+    // 'svgmin'
   ]);
   grunt.registerTask('dev', [
     'watch'
