@@ -26,6 +26,8 @@ body {
 
 .entry-content {
   @include font-size(16);
+  word-wrap: break-word;
+  word-break:break-all;
   // Dotted line underlines for links
   p > a,
   li > a {
