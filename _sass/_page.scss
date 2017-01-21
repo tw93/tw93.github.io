@@ -104,7 +104,7 @@ body {
   }
   .vcard {
     &:before {
-      content: " by ";
+      content: "bye";
     }
   }
   .tag {
@@ -259,6 +259,9 @@ header .entry-meta {
 .read-more-content {
   @include font-size(16);
   // Dotted line underlines for links
+  p{
+    text-align: left;
+  }
   p > a,
   li > a {
     border-bottom: 1px dotted lighten($link-color, 50);
