@@ -7,38 +7,13 @@ reading_time:     false # if true, shows the estimated reading time for a post
 words_per_minute: 200
 logo:              # logo visible in the topbar
 excerpt_separator: <!--more-->
-# Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
-# When testing locally leave blank or use http://localhost:4000
 
 url: http://tw93.github.io
-
-# draw your top menu here
-# each item must have a title and a url.
-#   To list post categories. use type: 'categories'
-#   To create sub categories. add a submenu item
-# See the example
 menu:
   - title: 'Categories'
     url: '/categories'
   - title: 'About'
     url: '/about'
-
-
-# Owner/author information
-owner:
-  name:           Tw93
-  site:           http://tw93.github.io
-  avatar:         images/config/me.jpg
-  bio:            "Keep calm and learn javascript."
-  email:          tangweiyuanyou@gmail.com
-  # Twitter nick for use in Twitter cards and follow button.
-  twitter:  # if no twitter in this config, the twitter follow button will be removed
-  # GitHub nick for use in follow button in author block.
-  github: tw93
-
-# Twitter account associated with the site if different from owner/author twitter account.
-# Used in Twitter cards.
-twitter:
 
 # Social networking links used in author block underneath posts. Update and remove as you like.
 social:
@@ -51,12 +26,10 @@ social:
 background:
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
+google_analytics: UA-57207999-1
 google_verify:
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Shanghai
 locale:      zh_CN
 future:      true
@@ -66,13 +39,11 @@ sass:
   sass_dir: _sass
   style: compressed
 
-# https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:year-:month-:day/:title.html
 
 # Amount of post to show on home page
 paginate: 5
 
-# if true, shows the floatting share buttons
 float_share: false
 
 # Octopress
