@@ -138,7 +138,9 @@ header .entry-meta {
 }
 
 #menu {
-  margin-bottom: 48px;
+  .mm-menu > .mm-navbar{
+    display: none;
+  }
 }
 
 #post,

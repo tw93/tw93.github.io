@@ -72,14 +72,7 @@ $(document).ready(function(){
       "pageshadow",
       "theme-dark"
     ],
-    "counters": true,
-    "navbars": [
-      {
-        "position": "bottom",
-        "content": [
-        ]
-      }
-    ]
+    "counters": false,
   });
 });
 
