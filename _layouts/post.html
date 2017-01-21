@@ -1,49 +1,48 @@
----
-layout: default
----
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include head.html %}
+</head>
 
+<body id="post" {% if page.image.feature %}class="feature"{% endif %}>
 
+{% include browser-upgrade.html %}
+{% include header.html %}
 
-<div class="post-header mb2">
-  <h1 class="h2">{{ page.title }}</h1>
-  <span class="post-meta left">category：{{ page.categories }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <span class="post-meta ">{{ page.date | date: "%Y-%m-%d" }}</span><br>
-  {% if page.update_date %}
-    <span class="post-meta ">Updated: {{ page.update_date | date: "%Y-%m-%d" }}</span><br>
-  {% endif %}
-  </span>
-</div>
+<div id="main" role="main">
+  <article class="hentry">
+    <div class="entry-content">
+        {% if page.image.feature %}
+            <div class="entry-image-index">
+              <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
+              {% if page.image.credit %}<div class="image-credit">Image source: <a target="_blank" href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
+            </div>
+        {% endif %}
+      <h1 class="post-title entry-title">{{ page.title }}</h1>
+      {{ content }}
+      <footer class="entry-meta">
+        <span class="entry-tags">{% for tag in page.tags %}<a href="{{ site.url }}/tags#{{ tag }}" title="Pages tagged {{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>{% unless forloop.last %}{% endunless %}{% endfor %}</span>
+        {% if page.modified %}<span>Updated on <span class="entry-date date updated"><time datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span>
+        {% endif %}
+        <span class="author vcard"><span class="fn">{{ site.owner.name }}</span></span>
+        {% if page.share != false %}{% include social-share.html %}{% endif %}
+      </footer>
+    </div><!-- /.entry-content -->
+    {% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
+    {% if site.related_posts.size > 0 %}{% include read-more.html %}{% endif %}
+  </article>
+</div><!-- /#main -->
 
-<article class="post-content" id="T_content">
-  {{ content }}
-</article>
-<div id="disqus_thread"></div>
-  <script type="text/javascript">
-    var disqus_shortname  = 'Tw93';
-    var disqus_identifier = '{{ page.id }}';
-    var disqus_title      = '{{ post.title }}';
+{% include scripts.html %}
 
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{% if site.show_post_footers %}
-  {% include post_footer.html %}
-{% endif %}
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
 
-
-
-{% if site.show_related_posts %}
-  <h3 class="related-post-title">Related Posts</h3>
-  {% for post in site.related_posts %}
-    <div class="post ml2">
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-        <h4 class="post-title">{{ post.title }}</h4>
-        <p class="post-summary">{{ post.summary }}</p>
-      </a>
-    </div>
-  {% endfor %}
-{% endif %}
+</body>
+</html>
