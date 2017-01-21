@@ -1,19 +1,20 @@
 ---
 layout: home
 title: "Keep calm and learn JavaScript."
-description: "Describe this nonsense."
+description: "Keep calm and learn JavaScript.."
 tags: [Jekyll, theme, themes, responsive, blog, modern]
 comments: false
 ---
 
 
 {% for post in paginator.posts %}
+<a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
 <article class="hentry">
     <header>
         {% if post.image.feature %}
         <div class="entry-image-index">
-            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}"><img
-                    src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
+            <img
+                    src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}">
             {% if post.image.credit %}
             <div class="image-credit">Image source: <a target="_blank" href="{{ post.image.creditlink }}">{{
                 post.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
@@ -38,16 +39,14 @@ comments: false
                                    title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a
                 href="{{ post.link }}">{{ post.title }}</a></h1>
         {% else %}
-        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}"
-                                   itemprop="url">{{ post.title }}</a></h1>
+        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
         {% endif %}
     </header>
     <div class="entry-content">
-        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}" rel="summary" >
-            {{ post.summary }}
-        </a>
+        {{ post.summary }}
     </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
+</a>
 {% endfor %}
 
 {% include pagination.html %}
