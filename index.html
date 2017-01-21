@@ -43,7 +43,7 @@ comments: false
         {% endif %}
     </header>
     <div class="entry-content">
-        {{ post.summary }}
+       【{{ post.date | date: "%Y-%m-%d" }}】{{ post.summary }}
     </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 </a>
