@@ -30,7 +30,7 @@ comments: false
         {% endif %}
     </header>
     <div class="entry-content">
-       【{{ post.date | date: "%Y-%m-%d" }}】{{ post.summary }}
+       【{{ post.date | date: "%Y-%m-%d" }}】{{ post.summary }}...<a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark">Continue reading</a>
     </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 </a>
