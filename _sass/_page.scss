@@ -486,6 +486,7 @@ ul.social-buttons li a:active {
   margin-top: 0;
   width: 100%;
   overflow: hidden;
+  line-height: 1;
   @include flexbox();
   @include align-items(center);
   @include justify-content(center);
