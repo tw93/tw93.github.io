@@ -3,7 +3,7 @@ layout:     post
 title:      Generators and Channels in JavaScript(译)
 date:       2016-09-20 21:47:29
 summary:    以下这篇文章是对Generator和Channel的一个介绍，如果你对Promise,Generator,Coroutine，可以直接跳到Using Generators and Channels with React这部分，虽然接下来这些案例可能不是很适合真实的项目环境，但是它可以看成一个起点，尝试通过这种方法来实践可能出现的地方。
-categories: javascript
+categories: JavaScript
 ---
 
 ![](http://7vihmc.com1.z0.glb.clouddn.com/1-smaK057Fp29kcTJPN5DdCg%20%281%29.png)
