@@ -1,10 +1,10 @@
 {
-  "name": "hpstr-theme",
-  "author": "Aron Bordin <aron.bordin@gmail.com>",
-  "homepage": "",
+  "name": "Tw93",
+  "author": "Tangwei <tangweiyuanyou@gmail.com>",
+  "homepage": "tw93.github.io",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/tw93/tw93.github.io"
   },
   "bugs": {
     "url": ""

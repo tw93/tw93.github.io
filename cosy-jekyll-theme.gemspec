@@ -1,10 +1,10 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "neo-hpstr-jekyll-theme"
+  spec.name          = "cosy-jekyll-theme"
   spec.version       = "1.0.0"
-  spec.authors       = ["Aron Bordin"]
-  spec.email         = ["aron.bordin@gmail.com"]
+  spec.authors       = ["Tw93"]
+  spec.email         = ["tangweiyuanyou@gmail.com"]
 
   spec.summary       = %q{Neo-HPSTR Jekyll is a responsive and modern blog template.}
   spec.homepage      = "https://github.com/aron-bordin/neo-hpstr-jekyll-theme"
