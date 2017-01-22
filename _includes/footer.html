@@ -1,32 +1,35 @@
-<span>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. Inspired by <a href="http://github.com/aron-bordin/neo-hpstr-jekyll-theme" rel="nofollow">neo-hpstr</a>.</span>
+<span>&copy; {{ site.time | date: '%Y' }}<a
+  href="https://rubygems.org/gems/cosy-jekyll-theme" rel="nofollow"> cosy-jekyll-theme. </a>
+  Inspired by <a href="http://github.com/aron-bordin/neo-hpstr-jekyll-theme" rel="nofollow">neo-hpstr</a>.</span>
 
 <script>
 
-    var article=document.getElementById('T_content'),
-            aList=article && article.getElementsByTagName('a');
+  var article = document.getElementById('T_content'),
+    aList = article && article.getElementsByTagName('a');
 
-    if(aList && aList.length>0) {
-        for(var i=0;i<aList.length;i++){
-            aList[i].target='_blank';
-        }
+  if (aList && aList.length > 0) {
+    for (var i = 0; i < aList.length; i++) {
+      aList[i].target = '_blank';
     }
+  }
 
-    function hereDoc(f) {
-        return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '');
-    }
-    var string = hereDoc(function () {/*
-
-
-     _                               ___                  _____           _       _
-     | |                             |_  |                /  ___|         (_)     | |
-     | |     ___  __ _ _ __ _ __       | | __ ___   ____ _\ `--.  ___ _ __ _ _ __ | |_
-     | |    / _ \/ _` | '__| '_ \      | |/ _` \ \ / / _` |`--. \/ __| '__| | '_ \| __|
-     | |___|  __/ (_| | |  | | | | /\__/ / (_| |\ V / (_| /\__/ / (__| |  | | |_) | |_
-     \_____/\___|\__,_|_|  |_| |_| \____/ \__,_| \_/ \__,_\____/ \___|_|  |_| .__/ \__|
+  function hereDoc(f) {
+    return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '');
+  }
+  var string = hereDoc(function () {/*
 
 
-                                                              Tw93 Stay hungry. Stay foolish.
+   _                               ___                  _____           _       _
+   | |                             |_  |                /  ___|         (_)     | |
+   | |     ___  __ _ _ __ _ __       | | __ ___   ____ _\ `--.  ___ _ __ _ _ __ | |_
+   | |    / _ \/ _` | '__| '_ \      | |/ _` \ \ / / _` |`--. \/ __| '__| | '_ \| __|
+   | |___|  __/ (_| | |  | | | | /\__/ / (_| |\ V / (_| /\__/ / (__| |  | | |_) | |_
+   \_____/\___|\__,_|_|  |_| |_| \____/ \__,_| \_/ \__,_\____/ \___|_|  |_| .__/ \__|
 
-     */});
-    console.log(string);
+
+   Tw93 Stay hungry. Stay foolish.
+
+   */
+  });
+  console.log(string);
 </script>

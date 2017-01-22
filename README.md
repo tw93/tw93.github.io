@@ -1,0 +1,1 @@
+[cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
