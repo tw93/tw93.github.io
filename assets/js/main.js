@@ -7,4 +7,4 @@ document.addEventListener("DOMContentLoaded", function(){
       document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-top');
     }
   }
-});
+},false);
