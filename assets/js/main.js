@@ -1,10 +1,14 @@
-
-document.addEventListener("DOMContentLoaded", function(){
-  window.onscroll = function () {
-    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-      document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-overflow');
-    } else {
-      document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-top');
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("scroll", dealHeadShow, false);
+  if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(navigator.userAgent)) {
+    document.addEventListener("touchmove", dealHeadShow, false);
   }
-},false);
+}, false);
+
+function dealHeadShow() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-overflow');
+  } else {
+    document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-top');
+  }
+}
