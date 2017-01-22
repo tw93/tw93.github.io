@@ -11,7 +11,9 @@
   },
   "scripts": {
     "dev": "bundle exec jekyll serve --watch",
-    "build": "jekyll build"
+    "build": "jekyll build",
+    "gemb": "gem build cosy-jekyll-theme.gemspec",
+    "gemp": "gem push cosy-jekyll-theme-*.gem"
   },
   "engines": {
     "node": ">= 0.10.0"
