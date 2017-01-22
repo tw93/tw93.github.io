@@ -8,10 +8,10 @@ words_per_minute: 200
 logo:              # logo visible in the topbar
 excerpt_separator: <!--more-->
 
-
-github_username: tw93
-zhihu_id: tw93
-weibo_id: tw1118
+#social
+github: tw93
+zhihu: tw93
+weibo: tw1118
 
 url: http://tw93.github.io
 menu:
@@ -19,13 +19,6 @@ menu:
     url: '/categories'
   - title: 'About'
     url: '/about'
-
-# Social networking links used in author block underneath posts. Update and remove as you like.
-social:
-  - title: "github"
-    url: "https://github.com/tw93"
-  - title: "weibo"
-    url: "http://weibo.com/2218703493/profile?topnav=1&wvr=6"
 
 # Background image to be tiled on all pages
 background:
@@ -48,8 +41,6 @@ permalink:   /:year-:month-:day/:title.html
 
 # Amount of post to show on home page
 paginate: 5
-
-float_share: false
 
 # Octopress
 # Default extensions

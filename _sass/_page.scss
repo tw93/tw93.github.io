@@ -282,22 +282,6 @@ header .entry-meta {
   }
 }
 
-ul.social-buttons li a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  font-size: 20px;
-  line-height: 40px;
-  outline: 0;
-  color: #fff;
-  background-color: #222;
-
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  transition: all .3s;
-}
-
 .list-inline {
   padding-left: 0;
   margin-left: -5px;
@@ -308,17 +292,6 @@ ul.social-buttons li a {
   display: inline-block;
   padding-right: 5px;
   padding-left: 5px;
-}
-
-ul.social-buttons li:hover a {
-  transform: scale(1.2, 1.2);;
-}
-
-ul.social-buttons li a:hover,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:active {
-  color: #222;
-  background-color: #fec503;
 }
 
 .read-more-list {
@@ -410,20 +383,6 @@ ul.social-buttons li a:active {
   color: lighten($text-color, 20);
   a {
     color: lighten($text-color, 20);
-  }
-}
-
-// Social Share
-// --------------------------------------------------
-.socialcount {
-  @include font-rem(16);
-  li {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  p > a,
-  li > a {
-    border-bottom-width: 0;
   }
 }
 
