@@ -350,7 +350,7 @@ ul.social-buttons li a:active {
 // --------------------------------------------------
 #post-index {
   #main {
-    margin: 40px 2px 20px 2px;
+    margin: 30px 2px 20px 2px;
     @media #{$medium} {
       margin-left: 20px;
       margin-right: 20px;
@@ -473,7 +473,6 @@ ul.social-buttons li a:active {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 100%;
   overflow: hidden;
   height: 50px;
   @media #{$medium} {
@@ -487,11 +486,12 @@ ul.social-buttons li a:active {
   width: 100%;
   overflow: hidden;
   line-height: 1;
-  @include flexbox();
-  @include align-items(center);
-  @include justify-content(center);
-  @include flex-direction(column);
+  display: none;
   @media #{$medium} {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
     min-height: 200px;
     margin-top: 60px;
   }
