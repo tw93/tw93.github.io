@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("scroll", dealHeadShow, false);
   if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(navigator.userAgent)) {
-    document.addEventListener("touchmove", dealHeadShow, false);
+    document.addEventListener("touchend", dealHeadShow, false);
   }
 }, false);
 
