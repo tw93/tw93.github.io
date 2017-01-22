@@ -16,10 +16,6 @@ permalink: /about/
 
 ## Follow Me:
 
-* [Github](https://github.com/{{site.github_username}}){:target="_blank"}
+* [Github](https://github.com/{{site.github_id}}){:target="_blank"}
 * [Zhihu](https://www.zhihu.com/people/{{site.zhihu_id}}){:target="_blank"}
-* [Weibo](http://weibo.com/2218703493/){:target="_blank"}
-
-
-## Avast:
-<img src="//img.alicdn.com/tfs/TB1UhwSPXXXXXaHXXXXXXXXXXXX-1834-1849.jpg" width="500" />
+* [Weibo](http://weibo.com/{{site.weibo_id}}){:target="_blank"}

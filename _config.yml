@@ -8,6 +8,11 @@ words_per_minute: 200
 logo:              # logo visible in the topbar
 excerpt_separator: <!--more-->
 
+
+github_username: tw93
+zhihu_id: tw93
+weibo_id: tw1118
+
 url: http://tw93.github.io
 menu:
   - title: 'Categories'
