@@ -99,7 +99,7 @@ body {
 // --------------------------------------------------
 .entry-meta {
   @include font-rem(12);
-  text-transform: uppercase;
+  margin-left: 10px;
   color: lighten($base-color, 60);
   a {
     color: lighten($base-color, 60);
@@ -192,6 +192,10 @@ header .entry-meta {
 .tag-heading,
 .year-heading {
   margin-top: 0;
+}
+
+.tag-list{
+  line-height: 1.5;
 }
 
 // Go to the exact location of bookmarks in tags, categories
