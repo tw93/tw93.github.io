@@ -3,6 +3,7 @@
 - [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is a responsive and better reading experience [blog template](https://jekyllrb.com/docs/themes/
 ).
 - [Tw93 Blog](http://tw93.github.io/) use this template.
+- Inspired by [neo-hpstr-jekyll-theme](http://github.com/aron-bordin/neo-hpstr-jekyll-theme), But No jQuery、More concise、Better use and Faster.
    
 ### PC Preview
 
