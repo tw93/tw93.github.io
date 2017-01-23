@@ -1,7 +1,7 @@
 ## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
 
-- cosy-jekyll-theme is a responsive and better reading experience blog template.
-- [Tw93 Blog]((http://tw93.github.io/)) use this template.
+- [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is a responsive and better reading experience blog template.
+- [Tw93 Blog](http://tw93.github.io/) use this template.
    
 ### Preview
 
@@ -15,7 +15,7 @@
 
 - QR code
 
-  ![](http://tw93.github.io/images/demo/4.jpg)
+  ![](http://tw93.github.io/images/demo/0.png)
   
 
 ### How To Use:
