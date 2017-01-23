@@ -14,12 +14,11 @@
 
 ### QR code
 
-  ![](http://tw93.github.io/images/demo/0.png)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](http://tw93.github.io/images/demo/0.png)
   
 
-### How To Use:
-- GemFile:
+### GemFile:
   > gem 'cosy-jekyll-theme', '~> 1.0', '>= 1.0.4'
   
-- Install:
+### Install:
   > gem install cosy-jekyll-theme
