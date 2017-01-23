@@ -1,19 +1,18 @@
 ## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
 
-- [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is a responsive and better reading experience blog template.
+- [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is a responsive and better reading experience [blog template](https://jekyllrb.com/docs/themes/
+).
 - [Tw93 Blog](http://tw93.github.io/) use this template.
    
-### Preview
-
-- PC Preview
+### PC Preview
 
   ![demo.png](http://tw93.github.io/images/demo/4.jpg)
 
-- H5 Preview
+### H5 Preview
 
-    <img src="http://tw93.github.io/images/demo/1.PNG" width="270"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/2.PNG" width="270"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/3.PNG" width="270"/>
+   <img src="http://tw93.github.io/images/demo/1.jpg" width="280"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/2.jpg" width="280"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/3.jpg" width="280"/>
 
-- QR code
+### QR code
 
   ![](http://tw93.github.io/images/demo/0.png)
   
@@ -24,7 +23,3 @@
   
 - Install:
   > gem install cosy-jekyll-theme
-
-- More Info:
-  - https://jekyllrb.com/docs/home/
-  - https://jekyllrb.com/docs/themes/
