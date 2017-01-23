@@ -2,7 +2,7 @@
 
 ## H5 Preview
 
-<img src="http://tw93.github.io/images/demo1.PNG" width="300"/><img src="http://tw93.github.io/images/demo3.PNG" width="300"/><img src="http://tw93.github.io/images/demo4.PNG" width="300"/>
+<img src="http://tw93.github.io/images/demo1.PNG" width="260"/><img src="http://tw93.github.io/images/demo4.PNG" width="260"/><img src="http://tw93.github.io/images/demo3.PNG" width="260"/>
 
 
 ### PC Preview
