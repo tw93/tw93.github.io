@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.addEventListener("gesturechange", dealHeadShow);
   document.addEventListener("scroll", dealHeadShow);
+  if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(navigator.userAgent)) {
+    var scrollInterval = null;
+    document.addEventListener("touchmove", function () {
+      scrollInterval = window.setInterval(dealHeadShow, 100);
+    });
+    document.addEventListener("touchend", function () {
+      clearInterval(scrollInterval);
+    });
+  }
 }, false);
 
 function dealHeadShow() {
