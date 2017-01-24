@@ -4,6 +4,7 @@
 ).
 - [Tw93 Blog](http://tw93.github.io/) use this template.
 - Inspired by [neo-hpstr-jekyll-theme](http://github.com/aron-bordin/neo-hpstr-jekyll-theme), But No jQuery、More concise、Better use and Faster.
+- Occam's Razor: Non sunt multiplicanda entia sine necessitate.
    
 ### PC Preview
 
@@ -19,7 +20,7 @@
   
 
 ### GemFile:
-  > gem 'cosy-jekyll-theme', '~> 1.0', '>= 1.0.4'
+- gem 'cosy-jekyll-theme', '~> 1.0', '>= 1.0.4'
   
 ### Install:
-  > gem install cosy-jekyll-theme
+- gem install cosy-jekyll-theme
