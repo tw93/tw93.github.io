@@ -5,11 +5,12 @@ permalink: /about/
 ---
 
 ## About Me：
-* Now working in Alibaba.
+* Now working in Alibaba [Fliggy](https://www.alitrip.com/) H5 Team.
 * The main direction is JavaScript.
 * Also using PHP and Node.
 * Recently in using React and Weex.
 * [Love reading](http://book.douban.com/people/77063977/){:target="_blank"} in my spare time.
+* Love to write clean and tidy code.
 * Every blog post in this site by Tw93 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">CC 3.0 License.</a>
 <br>
 
