@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ## About Me：
-* Now working in Alibaba [Fliggy](https://www.alitrip.com/) H5 Team.
+* Now working in Alibaba [Fliggy](https://www.alitrip.com/){:target="_blank"} H5 Team.
 * The main direction is JavaScript.
 * Also using PHP and Node.
 * Recently in using React and Weex.
