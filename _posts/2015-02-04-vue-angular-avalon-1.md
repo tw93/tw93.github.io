@@ -39,7 +39,7 @@ AngularJS最近很火，追随者也很多，[Superheroic JavaScript MVW Framewo
 之后才有稳定版，这个稳定版应该不支持很多浏览器了，稳定版一段时间内是没有任何周边的，所以，目前学1.3不能算是无效投资。
 3. 不支持IE8以下，貌似2.0变得只支持移动端了，等到出来后再看吧。
 
-### AngularJS
+### Avalon.js
 [Avalon.js](https://github.com/RubyLouvre/avalon){:target="_blank"}是司徒正美老师所写的个简单易用迷你的MVVM框架，它最早发布于2012.09.15，为解决同一业务逻辑存在各种视图呈现而开发出来的。常常可以看到老师推广他的Avalon.js，出了很多教程，无疑对国内学习Avalon.js的人提供了巨大方便。  
 
 #### 优点
