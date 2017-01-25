@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% if page.summary %}{{ page.summary }}{% endif %}">
+<meta name="description" content="{{ site.description }}{% if page.categories %}{{ page.categories }}{% endif %}{% if page.summary %}{{ page.summary }}{% endif %}">
 {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
 
 <!-- Open Graph -->
