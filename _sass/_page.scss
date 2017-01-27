@@ -655,18 +655,17 @@ footer {
 
 .entry-content{
   position: relative;
-  .page-date{
-    position: absolute;
-    left: 0px;
-    top: -16px;
-    background: #f2f3f4;
-    padding: 0px 6px;
+  .page-info{
     color: rgba(85,85,85,0.8);
-    font-size: 12px;
-    @include border-radius(0, 0, 0, 3px);
+    font-size: 14px;
     font-weight: normal;
+    margin: -13px 0 0;
+    time{
+      margin-left: 20px;
+    }
     @media #{$medium}{
-      display: none;
+      margin: -13px 2px 0;
+      font-size: 16px;
     }
   }
 }
