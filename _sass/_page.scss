@@ -659,12 +659,11 @@ footer {
     color: rgba(85,85,85,0.8);
     font-size: 14px;
     font-weight: normal;
-    margin: -13px 0 0;
+    margin: -15px 2px 0;
     time{
       margin-left: 20px;
     }
     @media #{$medium}{
-      margin: -13px 2px 0;
       font-size: 16px;
     }
   }
