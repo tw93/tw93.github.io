@@ -11,7 +11,7 @@
 
 ### H5 Preview
 
-   <img src="http://tw93.github.io/images/demo/2.jpg" width="290"/><img src="http://tw93.github.io/images/demo/1.jpg" width="290"/><img src="http://tw93.github.io/images/demo/3.jpg" width="290"/>
+   <img src="http://tw93.github.io/images/demo/1.jpg" width="290"/><img src="http://tw93.github.io/images/demo/2.jpg" width="290"/><img src="http://tw93.github.io/images/demo/3.jpg" width="290"/>
 
 ### QR code
 
