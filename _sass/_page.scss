@@ -652,3 +652,22 @@ header .entry-meta {
 footer {
   font-size: 13px;
 }
+
+.entry-content{
+  position: relative;
+  .page-date{
+    position: absolute;
+    left: 0px;
+    top: -16px;
+    background: #f2f3f4;
+    padding: 0px 6px;
+    color: rgba(85,85,85,0.8);
+    font-size: 12px;
+    @include border-radius(0, 0, 0, 3px);
+    font-weight: normal;
+    @media #{$medium}{
+      display: none;
+    }
+  }
+}
+
