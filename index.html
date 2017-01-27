@@ -7,32 +7,30 @@ comments: false
 
 
 {% for post in paginator.posts %}
-<a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
 <article class="hentry">
-    <header>
-        {% if post.image.feature %}
-        <div class="entry-image-index">
-            <img
-                    src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}">
-            {% if post.image.credit %}
-            <div class="image-credit">Image source: <a target="_blank" href="{{ post.image.creditlink }}">{{
-                post.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
-
-        </div><!-- /.entry-image -->
+  <header>
+    <h1 class="entry-title">
+      <a href="{{ site.url }}{{ post.url }}"
+         rel="bookmark"
+         title="{{ post.title }}"
+         itemprop="url">
+        {% if post.bookmark %}
+        <i class="fa fa-bookmark"></i>
         {% endif %}
-        {% if post.link %}
-        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark"
-                                   title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a
-                href="{{ post.link }}">{{ post.title }}</a></h1>
-        {% else %}
-        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
-        {% endif %}
-    </header>
-    <div class="entry-content">
-       【{{ post.date | date: "%Y-%m-%d" }}】{{ post.summary }}...<a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark">Continue reading</a>
-    </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-</a>
+        {{post.title }}
+      </a>
+    </h1>
+  </header>
+  <div class="entry-content">
+    【{{ post.date | date: "%Y-%m-%d" }}】
+    {{ post.summary }}...
+    <a href="{{ site.url }}{{ post.url }}"
+       class="permalink"
+       rel="bookmark">
+      Continue reading
+    </a>
+  </div>
+</article>
 {% endfor %}
 
 {% include pagination.html %}

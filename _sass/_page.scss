@@ -141,7 +141,7 @@ header .entry-meta {
 #post,
 #page {
   .entry-content {
-    margin: 30px 2px 20px 2px;
+    margin: 20px 2px 20px 2px;
     padding: 10px 15px;
     background-color: $white;
     box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
@@ -161,7 +161,7 @@ header .entry-meta {
     }
   }
   #disqus_thread {
-    margin: 40px 2px 20px 2px;
+    margin: 20px 2px;
     padding: 10px 15px;
     background-color: $white;
     box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
@@ -326,7 +326,7 @@ header .entry-meta {
 // --------------------------------------------------
 #post-index {
   #main {
-    margin: 30px 2px 20px 2px;
+    margin: 20px 2px 20px 2px;
     @media #{$medium} {
       margin-left: 20px;
       margin-right: 20px;
@@ -436,7 +436,7 @@ header .entry-meta {
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 50px;
+  height: 60px;
   @media #{$medium} {
     background-color: $header-color;
     min-height: 260px;
@@ -489,12 +489,18 @@ header .entry-meta {
 }
 
 .header-menu {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: $menu-height;
   z-index: 20;
+  @media #{$medium} {
+    position: fixed;
+    &.header-menu-top{
+      box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
+    }
+  }
   ul {
     margin: 0 auto;
     list-style-type: none;
@@ -508,7 +514,7 @@ header .entry-meta {
 
 .header-menu-top {
   background-color: $menu-top;
-  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
 }
 
 .header-menu-overflow {

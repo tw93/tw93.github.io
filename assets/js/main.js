@@ -1,14 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.addEventListener("scroll", _dealHeadShow);
-  if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(navigator.userAgent)) {
-    var scrollInterval = null;
-    document.addEventListener("touchmove", function () {
-      scrollInterval = window.setInterval(_dealHeadShow, 100);
-    });
-    document.addEventListener("touchend", function () {
-      clearInterval(scrollInterval);
-    });
-  }
+  isPC() && document.addEventListener("scroll", _dealHeadShow);
 }, false);
 
 function _dealHeadShow() {
@@ -17,4 +8,17 @@ function _dealHeadShow() {
   } else {
     document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-top');
   }
+}
+
+function isPC() {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = ["Android", "iPhone", "Windows Phone", "iPad", "iPod"];
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
 }
