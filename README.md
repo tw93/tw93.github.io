@@ -7,11 +7,11 @@
    
 ### PC Preview
 
-  ![demo.png](http://tw93.github.io/images/demo/4.jpg)
+  ![demo.png](http://tw93.github.io/images/demo/5.jpg)
 
 ### H5 Preview
 
-   <img src="http://tw93.github.io/images/demo/1.png" width="270"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/3.png" width="270"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/2.png" width="270"/><img src="http://tw93.github.io/images/demo/4.png" width="270"/>
+   <img src="http://tw93.github.io/images/demo/1.png" width="260"/>&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/2.png" width="260"/>&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/4.png" width="260"/>&nbsp;&nbsp;<img src="http://tw93.github.io/images/demo/3.png" width="260"/>
 
 ### QR code
 
