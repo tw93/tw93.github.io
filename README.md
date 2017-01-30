@@ -7,15 +7,15 @@
    
 ### PC Preview
 
-  ![demo.png](http://tw93.github.io/images/demo/5.jpg)
+  ![demo.png](http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8ex7f19zj31kw19l11d.jpg)
 
 ### H5 Preview
 
-   <img src="http://tw93.github.io/images/demo/1.jpg" width="290"/><img src="http://tw93.github.io/images/demo/2.jpg" width="290"/><img src="http://tw93.github.io/images/demo/3.jpg" width="290"/>
+   <img src="http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8ex6yyh3j30xp1iy0z1.jpg" width="290"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8eyalu16j30xp1iyq7g.jpg" width="290"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8ex5vn9dj30xp1iyafo.jpg" width="290"/>
 
 ### QR code
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](http://tw93.github.io/images/demo/0.png)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8eyyn0msj305k05kglf.jpg)
   
 
 ### GemFile:
