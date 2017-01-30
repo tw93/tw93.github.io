@@ -4,7 +4,8 @@
 ).
 - [Tw93 Blog](http://tw93.github.io/) use this template.
 - Inspired by [neo-hpstr-jekyll-theme](http://github.com/aron-bordin/neo-hpstr-jekyll-theme), But No jQuery、More concise、Better use and Faster.
-   
+- More suitable for China.
+  
 ### PC Preview
 
   ![demo.png](http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8ex7f19zj31kw19l11d.jpg)

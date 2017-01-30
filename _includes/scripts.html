@@ -1,8 +1,10 @@
+<script type="text/javascript" src="{{ site.url }}/assets/js/main.js"></script>
 {% if page.useVideo %}
 <script type="text/javascript" src="{{ site.url }}/assets/js/fitvids.min.js"></script>
+<script type="text/javascript">
+  fitvids();
+</script>
 {% endif %}
-<script type="text/javascript" src="{{ site.url }}/assets/js/main.js"></script>
-
 {% if site.google_analytics %}
 <!-- Asynchronous Google Analytics snippet -->
 <script type="text/javascript">
@@ -16,9 +18,6 @@
   ga('send', 'pageview');
 </script>
 {% endif %}
-<script type="text/javascript">
-  fitvids();
-</script>
 
 {% if page.comments != false %}{% include disqus_comments.html %}{% endif %}
 
