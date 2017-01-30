@@ -381,7 +381,7 @@ header .entry-meta {
 // --------------------------------------------------
 .footer-wrapper {
   @include clearfix;
-  margin: 2em auto;
+  margin: 0 auto 2em auto;
   text-align: center;
   color: lighten($text-color, 20);
   a {
