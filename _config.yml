@@ -3,10 +3,7 @@ description:      "Tw93 前端 javascript css html weex react 代码 编程 知�
 
 # put your disqus here
 disqus_shortname: tw93
-reading_time:     false # if true, shows the estimated reading time for a post
-words_per_minute: 200
 logo:              # logo visible in the topbar
-excerpt_separator: <!--more-->
 
 #social
 github: tw93
@@ -23,10 +20,9 @@ menu:
 # Background image to be tiled on all pages
 background:
 
-# Analytics and webmaster tools stuff goes here
+# Analytics
 google_analytics: UA-57207999-1
-google_verify:
-bing_verify:
+
 
 timezone:    Asia/Shanghai
 locale:      zh_CN
@@ -46,10 +42,8 @@ paginate: 5
 # Default extensions
 post_ext: md
 page_ext: md
-# Found in _templates/
 post_layout: post
 page_layout: page
-# Format titles with titlecase?
 titlecase: true
 
 include: [".htaccess"]
