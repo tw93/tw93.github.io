@@ -30,7 +30,82 @@ categories: ReactNative
 
 一个**明天不上班的**的动画实现，同时从小变大并且旋转，我们可以从注释中看到RN动画的实现步骤，代码[Tw93 Gist](https://gist.github.com/tw93/c02b2e864aa8e1c9048d17b649f7a2ea)如下：
 
-![//img.alicdn.com/tfs/TB1F2c5KXXXXXclXpXXXXXXXXXX-1280-3546.jpg](https://img.alicdn.com/tfs/TB1F2c5KXXXXXclXpXXXXXXXXXX-1280-3546.jpg)
+{% highlight javascript %}
+import React, { Component } from 'react';
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Animated,   //使用Animated组件
+    Easing,     //引入Easing渐变函数
+} from 'react-native';
+
+class ReactNativeDemo extends Component {
+    constructor(props:any) {
+        super(props);
+        //使用Animated.Value设定初始化值（缩放度，角度等等）
+        this.state = {
+            bounceValue: new Animated.Value(0),
+            rotateValue: new Animated.Value(0),
+        };
+    }
+
+    componentDidMount() {
+        //在初始化渲染执行之后立刻调用动画执行函数
+        this.startAnimation();
+    }
+
+    startAnimation() {
+        this.state.bounceValue.setValue(0);
+        this.state.rotateValue.setValue(0);
+        Animated.parallel([
+            //通过Animated.spring等函数设定动画参数
+            //可选的基本动画类型: spring, decay, timing
+            Animated.spring(this.state.bounceValue, {
+                toValue: 3,      //变化目标值
+                friction: 20,    //friction 摩擦系数，默认40
+            }),
+            Animated.timing(this.state.rotateValue, {
+                toValue: 1,
+                duration: 800,
+                easing: Easing.out(Easing.quad),
+            }),
+            //调用start启动动画,start可以回调一个函数,从而实现动画循环
+        ]).start(()=>this.startAnimation());
+    }
+    
+    render() {
+        return (
+            <View style={styles.container}>
+                <Animated.Image 
+                    source={require('./bsb.jpeg')}
+                    style={ {width: 100,
+                            height: 100,
+                            transform: [
+                            //将初始化值绑定到动画目标的style属性上
+                            {scale: this.state.bounceValue},
+                            //使用interpolate插值函数,实现了从数值单位的映射转换
+                            {rotateZ: this.state.rotateValue.interpolate({
+                                inputRange: [0,1],
+                                outputRange: ['0deg', '360deg']
+                            })}
+                           ]
+                    }}>
+                </Animated.Image>
+            </View>
+        );
+    }
+}
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+});
+AppRegistry.registerComponent('ReactNativeDemo', () =>ReactNativeDemo);
+{%endhighlight%}
 
 从上面demo可以看出，**动画的使用逻辑还算清晰，虽然比不上css3动画编写简单，同时不需要二次分装，直接向上面使用即可**。
 
