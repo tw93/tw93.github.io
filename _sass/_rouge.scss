@@ -8,8 +8,9 @@
 	pre {
 		position: relative;
 		margin: 0;
-		padding: 1em;
-	}
+		padding: 0.7em;
+    @include font-rem(14);
+  }
 	.lineno { padding-right: 24px; color: #8f908a;}
 	.hll { background-color: #49483e }
 	.c { color: #75715e } /* Comment */
