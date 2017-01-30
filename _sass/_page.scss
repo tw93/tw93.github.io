@@ -22,8 +22,20 @@ body {
 
 .entry-content {
   @include font-size(16);
+  position: relative;
   word-wrap: break-word;
-  // Dotted line underlines for links
+  .page-info {
+    color: rgba(85, 85, 85, 0.8);
+    @include font-size(14);
+    font-weight: normal;
+    margin: -10px 2px 0;
+    time {
+      margin-left: 20px;
+    }
+    @media #{$medium}{
+      @include font-size(16);
+    }
+  }
   p > a,
   li > a {
     border-bottom: 1px dotted lighten($link-color, 50);
@@ -34,7 +46,6 @@ body {
 }
 
 ///sections
-
 .content-header-title {
   text-align: center;
   margin: 30px 0 0;
@@ -99,11 +110,6 @@ body {
   a {
     color: lighten($base-color, 60);
   }
-  .vcard {
-    &:before {
-      content: "BYB";
-    }
-  }
   .tag {
     display: inline-block;
     margin: 4px;
@@ -121,16 +127,6 @@ body {
     &:hover {
       background-color: lighten($base-color, 40);
     }
-  }
-  .entry-reading-time {
-    float: right;
-  }
-}
-
-header .entry-meta {
-  display: none; // hide header meta on small screens
-  @media #{$medium} {
-    display: block;
   }
 }
 
@@ -401,7 +397,6 @@ header .entry-meta {
 }
 
 // Header
-// --------------------------------------------------
 .entry-header {
   width: 100%;
   overflow: hidden;
@@ -496,36 +491,26 @@ header .entry-meta {
   display: none;
 }
 
-.header-menu-overflow ul li a {
-  color: $white;
-}
-
-.header-menu-top .sub-item {
-  background-color: $menu-top;
-}
-
-.header-menu-overflow .sub-item {
-  background-color: $menu-overflow;
-}
-
 .header-item,
 .header-item-title {
   float: right;
   padding-left: 20px;
   padding-right: 20px;
-  &.active, &:hover {
-    a{
-      color: $header-margin;
-    }
-  }
   a {
     vertical-align: middle;
     display: table-cell;
     height: $menu-height;
-    border-bottom: 2px solid transparent;
     @include font-rem(16);
     box-sizing: border-box;
     font-weight: 600;
+    &:visited {
+      color: $text-color;
+    }
+  }
+  &.active, &:hover {
+    a {
+      color: $header-active;
+    }
   }
 }
 
@@ -563,86 +548,10 @@ header .entry-meta {
   }
 }
 
-.header-item:hover .header-submenu {
-  display: block;
-  position: absolute;
-}
-
-.header-submenu {
-  display: none;
-  border-top: 2px solid $header-margin;
-  width: 200px;
-  z-index: 100;
-  list-style-type: none;
-  transform: translateX(-25%);
-}
-
-.sub-item {
-  position: relative;
-  padding-left: 10px;
-  width: 100%;
-  border-bottom: 1px solid gray;
-  border-left: 1px solid;
-  height: 50px;
-  text-decoration: none;
-}
-
-.sub-item a {
-  vertical-align: middle;
-  display: table-cell;
-  height: 50px;
-}
-
-.sub-item:hover {
-  border-bottom-color: $header-margin;
-  border-left-color: $header-margin;
-}
-
-.button-twitter {
-  color: $white;
-  position: fixed;
-  margin-top: $menu-height / 2 - 20;
-  margin-right: 10px;
-  top: 0;
-  right: 0;
-  z-index: 10000000000;
-  @media #{$large}{
-    top: auto;
-    bottom: 0;
-  }
-
-  span {
-    display: none;
-    @media #{$medium}{
-      display: inline;
-    }
-  }
-}
-
-footer {
-  font-size: 13px;
-}
-
-.entry-content {
-  position: relative;
-  .page-info {
-    color: rgba(85, 85, 85, 0.8);
-    font-size: 14px;
-    font-weight: normal;
-    margin: -10px 2px 0;
-    time {
-      margin-left: 20px;
-    }
-    @media #{$medium}{
-      font-size: 16px;
-    }
-  }
-}
-
 .header-href {
   display: block;
 }
 
-.index-content-time{
+.index-content-time {
   margin-left: -6px;
 }

@@ -2,6 +2,7 @@
 layout: page
 title: About Tw93
 permalink: /about/
+hideHomeActive: true
 ---
 
 ## About Me：

@@ -13,11 +13,6 @@
     <article class="hentry">
         <div class="entry-content">
             {{ content }}
-            <footer class="entry-meta">
-                {% if page.modified %}<span>Updated on <span class="entry-date date published updated"><time
-                    datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span>
-                <span class="author vcard"><span class="fn">{{ site.owner.name }}</span></span>{% endif %}
-            </footer>
         </div>
         {% if page.comments != false and site.disqus_shortname %}
         <section id="disqus_thread">Disqus评论正在推倒墙......</section>

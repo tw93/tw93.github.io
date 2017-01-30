@@ -1,55 +1,28 @@
-{% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign cats_list = site_cats | split:',' | sort %}
-
-{% assign homeClass = nil %}
-{% if(page.url == '/index.html' or page.url == '/')) %}
-{% assign homeClass = 'active' %}
+{% assign homeActive = 'active' %}
+{% if page.hideHomeActive %}
+{% assign homeActive = nil %}
 {% endif %}
-
-
 <div class="header-menu header-menu-top" id="J_header">
   <ul class="header-item-container">
-    <li class="header-item-title {{homeClass}}">
-      <a href="{{site.url}}/">
-        {% if site.logo %}
-        <img class="logo" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
-        {% endif %}
-        <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
-      </a>
+    <li class="header-item-title {{homeActive}}">
+      <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
     </li>
     {% for menu in site.menu reversed %}
+
     {% assign class = nil %}
-    {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
+    {% if (page.url contains menu.url and menu.url != '/') %}
     {% assign class = 'active' %}
     {% endif %}
 
-    {% if menu.type == 'categories' %}
-    <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-      <ul class="header-submenu">
-        {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-        {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-        <li class="sub-item"><a href="{{site.url}}/categories/#{{this_word}}">{{this_word}}</a></li>
-        {% endunless %}{% endfor %}
-      </ul>
-    </li>
-    {% elsif menu.submenu %}
-    <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-      <ul class="header-submenu">
-        {% for sub in menu.submenu %}
-        <li class="sub-item"><a href="{{site.url}}{{sub.url}}">{{sub.title}}</a></li>
-        {% endfor %}
-      </ul>
-    </li>
-    {% else %}
     {% if menu.url contains 'http://' or menu.url contains 'https://' %}
     <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank">{{ menu.title }}</a></li>
     {% else %}
     <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
     {% endif %}
-    {% endif %}
     {% endfor %}
   </ul>
 </div>
+
 <div class="entry-header">
   <div class="header-title">
     <h1>{{ page.title }}</h1>
