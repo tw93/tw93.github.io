@@ -20,10 +20,6 @@ body {
   display: block;
 }
 
-.hentry-dark {
-  background-color: $header-color;
-}
-
 .entry-content {
   @include font-size(16);
   word-wrap: break-word;
@@ -530,6 +526,7 @@ header .entry-meta {
     @include font-rem(16);
     box-sizing: border-box;
     font-weight: 500;
+    
   }
 }
 
@@ -633,7 +630,7 @@ footer {
     color: rgba(85, 85, 85, 0.8);
     font-size: 14px;
     font-weight: normal;
-    margin: -15px 2px 0;
+    margin: -10px 2px 0;
     time {
       margin-left: 20px;
     }
@@ -645,4 +642,8 @@ footer {
 
 .header-href {
   display: block;
+}
+
+.index-content-time{
+  margin-left: -6px;
 }
