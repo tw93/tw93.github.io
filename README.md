@@ -20,7 +20,7 @@
   
 
 ### GemFile:
-- gem 'cosy-jekyll-theme', '~> 1.0', '>= 1.0.4'
+- gem 'cosy-jekyll-theme', '~> 1.0', '>= 1.0.5'
   
 ### Install:
 - gem install cosy-jekyll-theme

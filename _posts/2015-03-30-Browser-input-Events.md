@@ -1,10 +1,12 @@
 ---
 layout:     post
-title:      Browser Input Events:Can We Do Better Than The Click?(译)
+title:      Can We Do Better Than The Click?
 date:       2015-03-30 21:47:29
 summary:    响应用户的输入可以说是我们做界面开发的核心。为了构建可响应的Web产品，g关键是理解触摸、鼠标、指针、键盘操作和浏览器的工作原理是。你可能在手机浏览器中经历过300 ms的延迟或者通过触摸来滚动带来的不爽。在本文中，我们将介绍事件级联和使用这些知识来实现演示一个点击事件，支持许多输入方法但是又没有违反像Opera Mini这一类的代理浏览器规则。    
-categories: Translate
+categories: Interactive
 ---
+
+原文来自：[Browser Input Events: Can We Do Better Than The Click?](https://www.smashingmagazine.com/2015/03/better-browser-input-events/)
 
 响应用户的输入可以说是我们做界面开发的核心。为了构建可响应的Web产品，理解触摸、鼠标、指针、键盘操作和浏览器的工作原理是解决问题的关键。你可能在手机浏览器中经历过[300-millisecond delay](http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay/){:target="_blank"}(300 ms延迟)或者[wrestled with touchmove versus scrolling](https://docs.google.com/document/d/12k_LL_Ot9GjF8zGWP9eI_3IMbSizD72susba0frg44Y/){:target="_blank"}(触摸滚动导致页面卡顿)。  
 

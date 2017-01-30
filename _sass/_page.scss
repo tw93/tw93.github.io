@@ -194,7 +194,13 @@ header .entry-meta {
 }
 
 .tag-list {
-  line-height: 1.5;
+  line-height: 1.6;
+  .tag-time{
+    display: none;
+    @media #{$medium} {
+      display: inline-block;
+    }
+  }
 }
 
 // Go to the exact location of bookmarks in tags, categories
@@ -230,6 +236,7 @@ header .entry-meta {
 
 // Read More Module
 .read-more {
+  display: block;
   position: relative;
   margin: 40px 2px 20px 2px;
   padding: 40px 15px 25px;
@@ -255,14 +262,14 @@ header .entry-meta {
   left: 0;
   right: 0;
   height: 35px;
-  a {
+  .read-more-btn {
     @extend .btn;
   }
 }
 
 .read-more-content {
   @include font-size(16);
-  // Dotted line underlines for links
+  margin-bottom: 0;
   p {
     text-align: left;
   }
@@ -275,7 +282,10 @@ header .entry-meta {
   }
   h3 {
     margin: 0;
-    @include font-rem(28);
+    @include font-rem(20);
+    @media #{$medium} {
+      @include font-rem(28);
+    }
     a {
       color: $text-color;
     }
@@ -295,31 +305,6 @@ header .entry-meta {
   display: inline-block;
   padding-right: 5px;
   padding-left: 5px;
-}
-
-.read-more-list {
-  border-top: solid 2px lighten($base-color, 80);
-}
-
-.list-item {
-  width: 100%;
-  text-align: left;
-  h4 {
-    @include font-rem(18);
-    margin-bottom: 0;
-  }
-  span {
-    display: block;
-    @include font-rem(14);
-    color: lighten($base-color, 50);
-  }
-  @media #{$medium} {
-    width: 49%;
-    float: left;
-    &:nth-child(2) {
-      text-align: right;
-    }
-  }
 }
 
 // Post Index
