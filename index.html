@@ -7,30 +7,17 @@ comments: false
 
 
 {% for post in paginator.posts %}
-<article class="hentry">
-  <header>
-    <h1 class="entry-title">
-      <a href="{{ site.url }}{{ post.url }}"
-         rel="bookmark"
-         title="{{ post.title }}"
-         itemprop="url">
-        {% if post.bookmark %}
-        <i class="fa fa-bookmark"></i>
-        {% endif %}
-        {{post.title }}
-      </a>
-    </h1>
-  </header>
-  <div class="entry-content">
-    【{{ post.date | date: "%Y-%m-%d" }}】
-    {{ post.summary }}...
-    <a href="{{ site.url }}{{ post.url }}"
-       class="permalink"
-       rel="bookmark">
-      Continue reading
-    </a>
-  </div>
-</article>
+<a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url" class="header-href">
+  <article class="hentry">
+      <h1 class="entry-title">
+          {{post.title }}
+      </h1>
+    <div class="entry-content">
+      【{{ post.date | date: "%Y-%m-%d" }}】{{ post.summary }}
+    </div>
+  </article>
+</a>
+
 {% endfor %}
 
 {% include pagination.html %}

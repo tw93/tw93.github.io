@@ -65,7 +65,7 @@ Flexbox，一种CSS3的布局模式，也叫做弹性盒子模型，用来为盒
 
 首先我们来分析下这一张图，从第一个子节点可以看到Flexbox由Flex容器和Flex项目组成，容器即父元素，项目即子元素。他们之间的一些关系可以这样来表示：
 
-![Flex-direction-terms-new.zh-hans](http://tw93.github.io/images/Flex-direction-terms-new.zh-hans.png)
+![Flex-direction-terms-new.zh-hans](http://ww2.sinaimg.cn/large/a15b4afegy1fc8f7sp5ncj20ku07xwer.jpg)
 
 这张图可以在接下来的属性分析中用到。
 
