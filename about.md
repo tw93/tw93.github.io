@@ -19,5 +19,6 @@ hideHomeActive: true
 ## Follow Me:
 
 * [Github](https://github.com/{{site.github}}){:target="_blank"}
-* [Zhihu](https://www.zhihu.com/people/{{site.zhihu}}){:target="_blank"}
 * [Weibo](http://weibo.com/{{site.weibo}}){:target="_blank"}
+* [Zhihu](https://www.zhihu.com/people/{{site.zhihu}}){:target="_blank"}
+* [Zhuanlan](https://zhuanlan.zhihu.com/{{site.zhuanlan}}){:target="_blank"}
