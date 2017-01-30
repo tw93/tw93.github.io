@@ -240,3 +240,10 @@ align-self: auto | flex-start | flex-end | center | baseline | stretch
 但是假如想兼容多个浏览器，可以采用优雅降级的方式来使用，这里推荐一个scss的[sass-flex-mixin](https://github.com/mastastealth/sass-flex-mixin),这样就可以使用最新的写法，并且兼容大部分浏览器了。
 
 相信flexbox布局在以后的移动端会用得越来越多的。
+
+### 补充一个神奇的Flexbox playground
+
+{::nomarkdown}
+<p data-height="515" data-theme-id="27375" data-slug-hash="apEmpP" data-default-tab="css,result" data-user="tw93-1470749911" data-embed-version="2" data-pen-title="Flexbox playground" class="codepen">See the Pen <a href="http://codepen.io/tw93-1470749911/pen/apEmpP/">Flexbox playground</a> by Tang Wei (<a href="http://codepen.io/tw93-1470749911">@tw93-1470749911</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+{:/nomarkdown}
