@@ -4,13 +4,14 @@ title:      只想靠两手，向理想挥手
 date:       2015-05-18 21:47:29
 summary:    只想靠两手，向理想挥手，这是来自Beyond的《不再犹豫》里面的一句歌词。大概从初中起就喜欢听Beyond的歌，陆陆续续一直听到大学，每一次看他们以前演唱会视频都特别兴奋和激动。带给我的大部分是积极向上的力量和一种酷酷的精神。回到文章，这篇文章主要是记录自己找工作的过程，顺便总结一下大学四年的校园生活。
 categories: Life
+useVideo: true
 ---
 
 {::nomarkdown}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Cevek51rjSc" frameborder="0" allowfullscreen></iframe>
 {:/nomarkdown}
 
-<small>视频来自youtube.</small>
+<small>视频来自youtube.访问不了可以访问 [这里](http://cloud.video.taobao.com/play/u/737512883/p/1/e/1/t/1/37154395.swf){:target="_blank"}。</small>
 
 ### 关于标题
 
