@@ -1,9 +1,15 @@
 {% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
 {% assign cats_list = site_cats | split:',' | sort %}
 
+{% assign homeClass = nil %}
+{% if(page.url == '/index.html' or page.url == '/')) %}
+{% assign homeClass = 'active' %}
+{% endif %}
+
+
 <div class="header-menu header-menu-top" id="J_header">
   <ul class="header-item-container">
-    <li class="header-item-title">
+    <li class="header-item-title {{homeClass}}">
       <a href="{{site.url}}/">
         {% if site.logo %}
         <img class="logo" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
@@ -36,9 +42,9 @@
     </li>
     {% else %}
     {% if menu.url contains 'http://' or menu.url contains 'https://' %}
-    <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank"><h3>{{ menu.title }}</h3></a></li>
+    <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank">{{ menu.title }}</a></li>
     {% else %}
-    <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
+    <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
     {% endif %}
     {% endif %}
     {% endfor %}
