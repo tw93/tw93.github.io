@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Tw93
+title: About
 permalink: /about/
 hideHomeActive: true
 ---
