@@ -406,9 +406,16 @@ body {
   width: 100%;
   overflow: hidden;
   height: 60px;
+  svg{
+    display: none;
+  }
   @media #{$medium} {
-    background-color: $header-color;
-    min-height: 260px;
+    background: #000000;
+    height: 260px;
+    svg{
+      display: block;
+      margin-top: 60px;
+    }
   }
 }
 
