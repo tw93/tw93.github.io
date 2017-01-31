@@ -472,6 +472,7 @@ body {
   z-index: 20;
   overflow: hidden;
   background-color: $menu-top;
+  height: $menu-height;
   box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
   @include transition(0.3s height ease-out);
   @media #{$medium} {
@@ -489,10 +490,6 @@ body {
       max-width: 900px;
     }
   }
-}
-
-.header-menu-top {
-  height: $menu-height;
 }
 
 .header-menu-overflow {

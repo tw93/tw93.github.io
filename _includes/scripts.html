@@ -4,7 +4,7 @@
     isPC() && document.addEventListener("scroll", function () {
       var afterScrollTop = document.body.scrollTop;
       var delta = afterScrollTop - beforeScrollTop;
-      document.getElementById("J_header").setAttribute('class', (delta > 0) ? 'header-menu header-menu-overflow' : 'header-menu header-menu-top');
+      document.getElementById("J_header").setAttribute('class', (delta > 0) ? 'header-menu header-menu-overflow' : 'header-menu');
       beforeScrollTop = afterScrollTop;
     });
   }, false);
