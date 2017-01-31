@@ -34,7 +34,7 @@ sass:
 permalink:   /:year-:month-:day/:title.html
 
 # Amount of post to show on home page
-paginate: 5
+paginate: 6
 
 # Octopress
 # Default extensions

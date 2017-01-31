@@ -2,7 +2,6 @@
 layout: {{ layout }}
 title: {{ title }}
 date: {{ date }}
-modified:
 description:
 image:
   feature:

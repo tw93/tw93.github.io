@@ -1,13 +1,13 @@
 {
   "name": "Tw93",
-  "author": "Tangwei <tangweiyuanyou@gmail.com>",
+  "author": "Tangwei <tw93@qq.com>",
   "homepage": "tw93.github.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/tw93/tw93.github.io"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/tw93/tw93.github.io/issues"
   },
   "scripts": {
     "dev": "bundle exec jekyll serve --watch",
