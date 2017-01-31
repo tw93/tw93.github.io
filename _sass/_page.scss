@@ -210,7 +210,7 @@ body {
 
 // Post Pagination Module
 .pagination {
-  margin: 20px 10px;
+  margin: 20px 10px 0;
   text-align: center;
   ul {
     display: inline;
@@ -236,13 +236,13 @@ body {
   box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
   @include rounded(3px);
   @media #{$medium} {
-    margin: 50px 10px 20px 10px;
+    margin: 40px 10px 30px 10px;
     padding: 50px 40px 25px;
   }
   @media #{$large} {
     max-width: 800px;
     padding: 50px 80px;
-    margin: 60px auto;
+    margin: 50px auto 30px;
   }
   text-align: center;
   @include clearfix;
@@ -304,15 +304,13 @@ body {
 #post-index {
   #main {
     margin: 20px 2px 20px 2px;
+    overflow: hidden;
     @media #{$medium} {
-      margin-left: 20px;
-      margin-right: 20px;
+      margin: 20px;
     }
     @media #{$large} {
       max-width: 800px;
-      margin-top: 50px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 30px auto 0;
     }
   }
   article {
@@ -349,9 +347,13 @@ body {
 // --------------------------------------------------
 .footer-wrapper {
   @include clearfix;
-  margin:4px auto 20px auto;
+  margin: 14px auto 30px auto;
   text-align: center;
   color: lighten($text-color, 20);
+  @media #{$medium} {
+    margin: 8px auto 35px auto;
+  }
+  
   a {
     color: lighten($text-color, 20);
   }
@@ -565,7 +567,7 @@ body {
   iframe,
   object,
   embed,
-  video{
+  video {
     position: absolute;
     top: 0;
     left: 0;
