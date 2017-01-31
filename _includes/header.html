@@ -1,3 +1,8 @@
+<!--[if lt IE 10]>
+<div class="upgrade"><strong><a href="http://whatbrowser.org/" target="_blank">Your browser is quite old!</strong> Why
+  not upgrade to a different browser to better enjoy this site?</a></div>
+<![endif]-->
+
 {% assign homeActive = 'active' %}
 {% if page.hideHomeActive %}
 {% assign homeActive = nil %}
@@ -33,4 +38,5 @@
       <textPath xlink:href="#svg-title-path">{{ page.title }}</textPath>
     </text>
   </svg>
+  <canvas id="J_firework_canvas"></canvas>
 </div>

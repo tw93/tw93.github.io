@@ -1,3 +1,4 @@
+<head>
 <meta charset="utf-8">
 <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
 <meta name="description" content="{{ site.description }}{% if page.categories %}{{ page.categories }}{% endif %}{% if page.summary %}{{ page.summary }}{% endif %}">
@@ -41,3 +42,4 @@
 {% unless background contains 'http://' or background contains 'https://' %}{% capture background %}{{ site.url }}/images/{{ background }}{% endcapture %}{% endunless %}
 <style type="text/css">body {background-image:url({{ background }});}</style>
 {% endif %}
+</head>

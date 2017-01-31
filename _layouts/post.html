@@ -1,12 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="en">
-<head>
-  {% include head.html %}
-</head>
+{% include head.html %}
 
 <body id="post" {% if page.image.feature %}class="feature" {% endif %}>
 
-{% include browser-upgrade.html %}
 {% include header.html %}
 
 <div id="main" role="main">
@@ -41,13 +38,7 @@
   </article>
 </div>
 
-{% include scripts.html %}
-
-<div class="footer-wrapper">
-  <footer role="contentinfo">
-    {% include footer.html %}
-  </footer>
-</div>
+{% include footer.html %}
 
 </body>
 </html>
