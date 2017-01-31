@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   
     {::nomarkdown}
     <div class="video-container"> 
-    <script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=36938589&uid=737512883&tid=1&autoplay=true"></script>
+    <script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=36938589&uid=737512883&tid=1&autoplay=false"></script>
     </div>
     {:/nomarkdown}
     
