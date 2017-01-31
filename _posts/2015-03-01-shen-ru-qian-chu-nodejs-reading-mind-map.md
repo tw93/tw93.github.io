@@ -17,7 +17,7 @@ categories: Node
 
 为什么叫Node?起初，Ryan Dahl称他的项目为web.js，就是一个Web服务器，但是项目的发展超过了他当初单纯开发一个Web服务器的想法，变成构建网络应用的一个基本框架,这样可以在它的基础上构建更多的东西,诸如服务器、客户端、命令行工具等。Node发展为一个强制不共享任何资源的单线程、单进程系统，包括十分适宜网络的库，为构建大型分布式应用程序提供了基础设施，其目标也是成为一个构建快速、可伸缩的网络应用平台。它自身非常简单，通过通信协议来组织很多Node，非常容易通过扩展来达成构建大型网络应用的目的。**每一个Node进程都构成这个网络应用中的一个节点，这是它名字所含意义的真谛。** [脑图](http://naotu.baidu.com/viewshare.html?shareId=atyzcu65ssw8){:target="_blank"}
   
-![Node简介](http://tw93.github.io/images/node1.svg)
+![Node简介](http://7vihmc.com1.z0.glb.clouddn.com/Node1.png)
 
 ### 模块机制  
 这一章主要介绍Node的模块机制，从中了解到Node如何实现CommonJS模块和包规范的。在这一章中，我们详细的解释了模块在引用过程中的编译、加载规则。另外，我们还能读到更深度的关于Node自身源代码的组织架构。  
