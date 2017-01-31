@@ -1,66 +1,7 @@
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function () {
-
-    // click image overlay bigger
     isPC() && document.addEventListener("scroll", _dealHeadShow);
-
-    initPicHook();
-    onEvent();
   }, false);
-
-  function onEvent() {
-    var imgListEl = document.getElementsByTagName("img");
-    var overlayEl = document.getElementById("J_overlay");
-    var popImageEl = document.getElementById("J_pop_image");
-
-    for (var i = 0, length = imgListEl.length; i < length; i++) {
-      imgListEl[i].onclick = function (e) {
-        popImageEl.setAttribute("src", e.target.getAttribute("src"));
-        overlayEl.style.display = "block";
-        popImageEl.style.display = "block";
-      };
-    }
-
-    overlayEl && (overlayEl.onclick = function (e) {
-      e.preventDefault();
-      overlayEl.style.display = "none";
-      popImageEl.style.display = "none";
-    })
-
-    popImageEl && (popImageEl.onclick = function (e) {
-      e.preventDefault();
-      overlayEl.style.display = "none";
-      popImageEl.style.display = "none";
-    })
-
-  }
-
-  function _dealHeadShow() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-overflow');
-    } else {
-      document.getElementById("J_header").setAttribute('class', 'header-menu header-menu-top');
-    }
-  }
-
-  function initPicHook() {
-    var cssText = ".pop_image{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);z-index:100;max-width:1200px;width:100%;display: none;}.pic_overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.6;z-index:99;overflow-y:auto;display: none;}"
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.appendChild(document.createTextNode(cssText));
-    document.getElementsByTagName("head")[0].appendChild(css);
-
-    var overlay = document.createElement("div");
-    overlay.setAttribute("id", "J_overlay");
-    document.body.appendChild(overlay);
-    overlay.setAttribute("class", "pic_overlay");
-
-    var popImage = document.createElement("img");
-    popImage.setAttribute("id", "J_pop_image");
-    popImage.setAttribute("class", "pop_image");
-    document.body.appendChild(popImage);
-  }
-
 
   function _dealHeadShow() {
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -87,17 +28,10 @@
 {% if site.google_analytics %}
 <!-- Asynchronous Google Analytics snippet -->
 <script type="text/javascript">
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '{{ site.google_analytics }}', 'auto');
   ga('require', 'linkid', 'linkid.js');
