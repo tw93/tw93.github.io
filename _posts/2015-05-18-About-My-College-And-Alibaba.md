@@ -9,11 +9,7 @@ useVideo: true
 
 {::nomarkdown}
 <div class="video-container"> 
-<object>
-<param name='allowFullScreen' value='true'>
-<param name='movie' value='http://player.letvcdn.com/lc06_p/201701/24/11/26/11/newplayer/LetvPlayerSDK.swf'/>
-<embed src='http://player.letvcdn.com/lc06_p/201701/24/11/26/11/newplayer/LetvPlayerSDK.swf' allowFullScreen='true' type='application/x-shockwave-flash'/>
-</object>
+<script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=37154395&uid=737512883&tid=1&autoplay=false"></script>
 </div>
 {:/nomarkdown}
 

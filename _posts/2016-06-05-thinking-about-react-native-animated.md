@@ -121,7 +121,9 @@ const styles = StyleSheet.create({
   
   - CSS3动画vs ReactNative动画录制:
     {::nomarkdown}
+    <div class="video-container"> 
     <script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=36938589&uid=737512883&tid=1&autoplay=true"></script>
+    </div>
     {:/nomarkdown}
   - 上述动画css3使用animation: rotate 0.2s linear infinite;实现:
     ![img](https://img.alicdn.com/tfs/TB1vwKwMpXXXXXdXVXXXXXXXXXX-707-487.png)
