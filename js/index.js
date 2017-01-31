@@ -4,14 +4,14 @@
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 document.addEventListener("DOMContentLoaded", function () {
-  if(!isPC()){
+  if (!isPC()) {
     return;
   }
   var beforeScrollTop = document.body.scrollTop;
   document.addEventListener("scroll", function () {
     var afterScrollTop = document.body.scrollTop;
     var delta = afterScrollTop - beforeScrollTop;
-    document.getElementById("J_header").setAttribute('class', (delta > 0) ? 'header-menu header-menu-overflow' : 'header-menu');
+    document.getElementById("J_header").setAttribute('class', (delta > 0 && afterScrollTop > 0) ? 'header-menu header-menu-overflow' : 'header-menu');
     beforeScrollTop = afterScrollTop;
   });
 
@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var points = [];
 
   var mouse = {
-    x:-100,
-    y:0,
+    x: -100,
+    y: 0,
   };
 
   function Point(x, y, speed, width, color) {
