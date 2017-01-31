@@ -2,7 +2,7 @@
 layout:     post
 title:      Vue.js，AngularJS，Avalon.js框架比较
 date:       2015-02-04 10:21:29
-summary:    前端开发已经不是前几年的那种前端开发了，已经有农业时代进入工业时代了，这几年出现了很多优秀的JavaScript方面的MVVM框架，今天我来比较下Vuejs，AngularJS，Avalon.js这些框架优缺点。
+summary:    前端开发已经不是前几年的那种前端开发了，已经有农业时代进入工业时代了，这几年出现了很多优秀的JavaScript方面的MVVM框架，今天我来比较下Vuejs，AngularJS，Avalon.js这些框架优缺点......
 categories: JavaScript
 ---
 

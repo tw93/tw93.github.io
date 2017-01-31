@@ -58,9 +58,13 @@ useVideo: true
 
 3月12日，在杭州玩了一天，骑行西湖。并在绿茶吃了有名的杭帮菜，完全和湖南、西安不一样的口味，有一种吃零食随便吃吃的感觉，很甜很清淡。杭帮菜做得特别精美漂亮，让人很喜欢。下面图片中依次是：绿茶饼、菠萝油条虾、面包诱惑（超级推荐）、烤鱼。
 ![杭帮菜1](http://7vihmc.com1.z0.glb.clouddn.com/hbc1.jpg)
+     
 ![杭帮菜2](http://7vihmc.com1.z0.glb.clouddn.com/hbc2.jpg)
+    
 ![杭帮菜3](http://7vihmc.com1.z0.glb.clouddn.com/hbc3.jpg)
+    
 ![杭帮菜4](http://7vihmc.com1.z0.glb.clouddn.com/hbc4.jpg)
+     
 
 远处是雷峰塔，想起白素贞。
 ![西湖](http://7vihmc.com1.z0.glb.clouddn.com/xh1.jpg)
