@@ -31,23 +31,22 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 //兼容IE和高级浏览器的，侦听获取脚本加载完成时的状态
 function loadScript(url, callback) {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    if (script.readyState) { //IE
-        script.onreadystatechange = function() {
-            if (script.readyState === "load" ||
-                     script.readyState === "complete") {
-                script.onreadystatechange = null;
-                callback();
-            }
-        };
-    } else {
-        script.onload = function() {
-            callback();
-        };
-    }
-    script.src = url;
-    document.getElementsByTagName("head")[0].appendChild(script);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  if (script.readyState) { //IE
+    script.onreadystatechange = function() {
+      if (script.readyState === "load" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        callback();
+      }
+    };
+  } else {
+    script.onload = function() {
+      callback();
+    };
+  }
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
 }
 {% endhighlight %}  
 3.动态脚本元素
@@ -55,18 +54,16 @@ function loadScript(url, callback) {
 var xhr = new XMLHttpRequest();
 xhr.open("get", "file.js", true);
 xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-        if (xhr.status >= 200 && xhr.status < 300 || 
-                xhr.status == 304) {
-            //2XX表示有效响应，304表示从缓存读取
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.text = xhr.responseText;
-            document.body.appendChild(script);
-        }
+  if (xhr.readyState == 4) {
+    if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+      //2XX表示有效响应，304表示从缓存读取
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.text = xhr.responseText;
+      document.body.appendChild(script);
     }
+  }
 };
-xhr.send(null);
 //优点：下载后可以先不执行，同样的代码支持全部主流浏览器
 //缺点：javascript文件和所请求的页面必须在同一个域中，因此不适合CDN下载。
 //故一般大型的web应用都不会采用XHR脚本注入技术。
@@ -78,11 +75,11 @@ xhr.send(null);
 //因为第一部的尽量精简，甚至可能只包含loadScript()函数，
 //它的下载执行速度都很快，所以不会对于页面造成太多影响。
 一旦初始化代码就位，就用它来加载剩余的javascript。
-<script type = "text/javascript"src = "loader.js"> </script>
- <script type = "text/javascript">
-    loadScript("the-rest.js", function() {
-        Application.init(); //参考动态加载脚本
-    }); 
+<script type="text/javascript" src="loader.js"></script>
+<script type="text/javascript">
+  loadScript("the-rest.js", function() {
+    Application.init(); //参考动态加载脚本
+  }); 
 </script>
 //还有一种方式直接将loadScript()函数嵌入页面，避免多一次请求
 //初始化代码压缩到最小尺寸的一些库  YUI Compressor,

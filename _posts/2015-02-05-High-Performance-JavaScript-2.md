@@ -54,31 +54,30 @@ try {
 //JavaScript的命名空间，比如YUI中使用的技术，
 //是导致频繁访问嵌套属性的起因之一。
 function toggle(element) {
-        if (YAHOO.util.Dom.hasClass(element, "slected")) {
-            YAHOO.util.Dom.removeClass(element, "selected");
-            return false;
-        } else {
-            YAHOO.util.Dom.addClass(element, "selected");
-            return true;
-        }
-    }
-    //上面代码中重复读取YAHOO.util.Dom3次来访问3个不同的方法。
-    //每个方法又有3此成员查找,一共就9此，导师代码十分低效。
-
+  if (YAHOO.util.Dom.hasClass(element, "slected")) {
+    YAHOO.util.Dom.removeClass(element, "selected");
+    return false;
+  } else {
+    YAHOO.util.Dom.addClass(element, "selected");
+    return true;
+  }
+}
+//上面代码中重复读取YAHOO.util.Dom3次来访问3个不同的方法。
+//每个方法又有3此成员查找,一共就9此，导师代码十分低效。
 //更好的方法是将YAHOO.util.Dom保存在局部变量中，再访问局部变量。
 function toggle(element) {
-        var Dom = YAHOO.util.Dom;
-        if (Dom.hasClass(element, "slected")) {
-            Dom.removeClass(element, "selected");
-            return false;
-        } else {
-            Dom.addClass(element, "selected");
-            return true;
-        }
-    }
-    //这个改变，代码中对象成员访问次数右9次减少到5次
-    //所以，不要在同一个函数中多次查找同一个对象成员，
-    //除非它的值改变了.
+  var Dom = YAHOO.util.Dom;
+  if (Dom.hasClass(element, "slected")) {
+    Dom.removeClass(element, "selected");
+    return false;
+  } else {
+    Dom.addClass(element, "selected");
+    return true;
+  }
+}
+//这个改变，代码中对象成员访问次数右9次减少到5次
+//所以，不要在同一个函数中多次查找同一个对象成员，
+//除非它的值改变了.
 {% endhighlight %} 
 
 
