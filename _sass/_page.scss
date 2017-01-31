@@ -469,8 +469,11 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: $menu-height;
   z-index: 20;
+  overflow: hidden;
+  background-color: $menu-top;
+  box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
+  @include transition(0.3s height ease-out);
   @media #{$medium} {
     position: fixed;
     &.header-menu-top {
@@ -489,15 +492,11 @@ body {
 }
 
 .header-menu-top {
-  background-color: $menu-top;
-  box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
+  height: $menu-height;
 }
 
 .header-menu-overflow {
-  background-color: $menu-overflow;
-  z-index: 100;
-  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
-  display: none;
+  height: 0;
 }
 
 .header-item,
@@ -582,3 +581,4 @@ body {
     height: 100%;
   }
 }
+
