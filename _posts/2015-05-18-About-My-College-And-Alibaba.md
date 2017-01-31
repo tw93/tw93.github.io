@@ -8,13 +8,9 @@ useVideo: true
 ---
 
 {::nomarkdown}
-<div class="video-container"> 
-<object>
-<param name='allowFullScreen' value='true'><param name='movie' value='http://player.letvcdn.com/lc06_p/201701/24/11/26/11/newplayer/LetvPlayerSDK.swf'/><embed src='http://player.letvcdn.com/lc06_p/201701/24/11/26/11/newplayer/LetvPlayerSDK.swf' allowFullScreen='true' type='application/x-shockwave-flash'/></object>
-</div>
+<script src="http://api.video.taobao.com//video/getPlayerJS"></script><script src="http://api.video.taobao.com//video/embedVideo?vid=37154395&uid=737512883&tid=1&autoplay=true"></script>
 {:/nomarkdown}
 
-<small>视频访问不了可以点击 [这里](http://cloud.video.taobao.com/play/u/737512883/p/1/e/1/t/1/37154395.swf){:target="_blank"}。</small>
 
 ### 关于标题
 
