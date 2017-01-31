@@ -46,5 +46,5 @@ titlecase: true
 
 include: [".htaccess"]
 exclude: ["demo/*", "lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "package.json", "node_modules"]
-gems: [jekyll-paginate]
+gems: [jekyll-paginate,jekyll-sitemap]
 theme: cosy-jekyll-theme
