@@ -598,6 +598,12 @@ body {
     word-wrap: break-word;
     cursor: pointer;
     @include user-select(none);
+    background-color: #222;
+    color: #fff;
+    &.active{
+      background-color: #fff;
+      color: #222;
+    }
     &::after{
       content: "";
       position: absolute;
@@ -614,11 +620,11 @@ body {
     display: block;
     overflow: hidden;
     height: 0;
-    @include transition(0.3s all ease-in-out);
+    @include transition(0.4s all ease-in-out);
     @include transform(scale(0) perspective(300px) rotateX(50deg));
     opacity: 0;
     &.active{
-      height: 500px;
+      height: 489px;
       @include transform(none);
       opacity: 1;
     }
