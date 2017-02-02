@@ -20,7 +20,7 @@
   
 #### How To Use
 1. [Fork the repo](https://github.com/tw93/tw93.github.io)
-2. Clone down the repo with $ git clone git@github.com:username/reponame.git
+2. Clone down the repo with `$ git clone git@github.com:username/reponame.git`
 3. Install bundler with `$ gem install bundler`
 4. Install gems with `$ bundle install`
 5. Run Jekyll with `$ npm run dev`
