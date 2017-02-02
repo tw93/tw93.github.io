@@ -1,5 +1,5 @@
-## [tw93.github.io]((http://tw93.github.io/))
-- This is Tw93 Front-End Blog. The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by Tw93.
+## [tw93.github.io](http://tw93.github.io/)
+- This is Tw93`s Front-End Blog. The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by Tw93.
 
 ## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
 - Modern and minimal design. **No jQuery**, More concise、More geeks and Faster than other jekyll theme.
@@ -21,9 +21,9 @@
 #### How To Use
 1. [Fork the repo](https://github.com/tw93/tw93.github.io)
 2. Clone down the repo with $ git clone git@github.com:username/reponame.git
-3. Install bundler with $ gem install bundler
-4. Install gems with $ bundle install
-5. Run Jekyll with $ npm run dev
+3. Install bundler with `$ gem install bundler`
+4. Install gems with `$ bundle install`
+5. Run Jekyll with `$ npm run dev`
 6. Begin hacking for your project
 7. For more details, read [documentation](http://jekyllrb.com/)
 
