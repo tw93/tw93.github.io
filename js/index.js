@@ -89,6 +89,18 @@ document.addEventListener("DOMContentLoaded", function () {
     mouse.y = e.pageY;
   }
 
+  var qrTextEl = document.getElementById('J_qr_text');
+  var isShowQr = qrTextEl && qrTextEl.offsetParent;
+  //load js
+  isShowQr && loadScript('http://7vihmc.com1.z0.glb.clouddn.com/qrcode.min.js', function () {
+    new QRCode(document.getElementById("J_qr_code"), {
+      width: 128,
+      height: 128,
+      useSVG: true,
+      text: window.location.href,
+    });
+  });
+
 }, false);
 
 
@@ -103,4 +115,24 @@ function isPC() {
     }
   }
   return flag;
+}
+
+function loadScript(url, callback) {
+  var script = document.createElement("script")
+  script.type = "text/javascript";
+  if (script.readyState) {  //IE
+    script.onreadystatechange = function () {
+      if (script.readyState == "loaded" ||
+        script.readyState == "complete") {
+        script.onreadystatechange = null;
+        callback();
+      }
+    };
+  } else {  //Others
+    script.onload = function () {
+      callback();
+    };
+  }
+  script.src = url;
+  document.body.appendChild(script);
 }
