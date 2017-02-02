@@ -389,10 +389,10 @@ body {
   margin: 14px auto 30px auto;
   text-align: center;
   color: lighten($text-color, 20);
+  @include font-size(14px);
   @media #{$medium} {
     margin: 8px auto 35px auto;
   }
-
   a {
     color: lighten($text-color, 20);
   }
