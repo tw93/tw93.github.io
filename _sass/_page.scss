@@ -624,7 +624,7 @@ body {
     box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
     margin: 0 auto;
     position: absolute;
-    top:36px;
+    top: 34px;
     left: 0;
     right: 0;
     z-index: 101;
@@ -632,6 +632,7 @@ body {
     @include transform(scale(0) perspective(600px) rotateX(45deg));
     &.active {
       height: 407px;
+      top: 38px;
       @include transform(none);
     }
   }
