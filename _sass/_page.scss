@@ -581,6 +581,7 @@ body {
   @include flex-direction(column);
   @include align-items(center);
   margin: 40px 0 10px;
+  position: relative;
   @media #{$large} {
     margin-bottom: -20px;
   }
@@ -620,8 +621,12 @@ body {
     display: block;
     overflow: hidden;
     height: 0;
-    @include transition(0.5s all ease-in-out);
+    @include transition(0.4s all ease-in-out);
     @include transform(scale(0) perspective(360px) rotateX(60deg));
+    z-index: 101;
+    position: absolute;
+    top:38px;
+    box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
     &.active {
       height: 407px;
       @include transform(none);
