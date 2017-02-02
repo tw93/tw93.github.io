@@ -25,9 +25,14 @@
       <h4 class="page-info">
         <span>Categories:&nbsp;&nbsp;{{page.categories}}</span>
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-        <div class="qr-text" id="J_qr_text"><div id="J_qr_code" class="qr-code" onmouseover="this.title='';"></div></div>
+        <div class="qr-text" id="J_qr_text">
+          <div id="J_qr_code" class="qr-code" onmouseover="this.title='';"></div>
+        </div>
       </h4>
       {{ content }}
+
+      {% include buy-me-coffee.html %}
+
     </div>
     {% if page.comments != false and site.disqus_shortname %}
     <section id="disqus_thread">Disqus评论正在推倒墙......</section>
