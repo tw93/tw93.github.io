@@ -3,8 +3,8 @@
 - [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is a responsive and easy to read [blog template](https://jekyllrb.com/docs/themes/
 ).
 - [Tw93 Blog](http://tw93.github.io/) use this template.
-- More suitable for China.
-- Inspired by neo-hpstr-jekyll-theme, But More geeks、No jQuery、More concise、Better use and Faster.
+- Inspired by neo-hpstr, And No jQuery, More concise、More geeks、Better use and Faster than other jekyll theme.
+- More suitable for China (You Know。。。
   
 ### PC Preview
 
