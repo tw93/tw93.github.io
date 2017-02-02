@@ -597,8 +597,10 @@ body {
     @include text-overflow(clip);
     cursor: pointer;
     @include user-select(none);
-    background-color: #222;
-    color: #fff;
+    &:hover{
+      background-color: #222;
+      color: #fff;
+    }
     &.active{
       background-color: #fff;
       color: #222;
