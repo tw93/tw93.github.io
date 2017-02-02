@@ -65,9 +65,9 @@
   line-height: 0 + round($doc-line-height / $size*10000) / 10000;
 }
 
-@mixin text-overflow() {
+@mixin text-overflow($type: ellipsis) {
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: $type;
   white-space: nowrap;
 }
 

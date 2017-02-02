@@ -589,13 +589,12 @@ body {
     margin: 0 auto;
     position: relative;
     height: 36px;
-    width: 168px;
+    width: 174px;
     padding-left: 38px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 18px;
     text-align: center;
-    word-break: break-all;
-    overflow: hidden;
-    word-wrap: break-word;
+    @include text-overflow(clip);
     cursor: pointer;
     @include user-select(none);
     background-color: #222;
