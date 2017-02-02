@@ -617,14 +617,14 @@ body {
     }
   }
   .my-pay-img{
-    width: 360px;
+    width: 300px;
     display: block;
     overflow: hidden;
     height: 0;
-    @include transition(0.5s all ease-in-out);
-    @include transform(scale(0) perspective(360px) rotateX(60deg));
+    @include transition(0.4s all ease-in-out);
+    @include transform(scale(0) perspective(300px) rotateX(60deg));
     &.active{
-      height: 489px;
+      height: 407px;
       @include transform(none);
     }
   }
