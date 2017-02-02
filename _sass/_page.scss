@@ -629,7 +629,7 @@ body {
     right: 0;
     z-index: 101;
     @include transition(0.4s all ease-in-out);
-    @include transform(scale(0) perspective(360px) rotateX(60deg));
+    @include transform(scale(0) perspective(600px) rotateX(45deg));
     &.active {
       height: 407px;
       @include transform(none);
