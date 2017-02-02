@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var points = [];
 
   var mouse = {
-    x: -100,
-    y: 0,
+    x: 0,
+    y: 9999,
   };
 
   function Point(x, y, speed, width, color) {
@@ -88,6 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
     mouse.x = e.pageX;
     mouse.y = e.pageY;
   }
+  document.onmouseout = function (e) {
+    mouse.x = 0;
+    mouse.y = 9999;
+  }
+
 
   var qrTextEl = document.getElementById('J_qr_text');
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
