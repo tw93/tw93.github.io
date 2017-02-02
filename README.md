@@ -1,10 +1,10 @@
+## [tw93.github.io]((http://tw93.github.io/))
+- This is Tw93 Front-End Blog. The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by Tw93.
+
 ## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
-- **Occam's Razor: Non sunt multiplicanda entia sine necessitate.**
-- [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is a responsive and easy to read [blog template](https://jekyllrb.com/docs/themes/
-).
-- [Tw93 Blog](http://tw93.github.io/) use this template.
-- Inspired by neo-hpstr, And No jQuery, More concise、More geeks、Better use and Faster than other jekyll theme.
-- More suitable for China (You Know。。。
+- Modern and minimal design. **No jQuery**, More concise、More geeks and Faster than other jekyll theme.
+- Responsive templates for post, page, and post index _layouts. Looks great on mobile, tablet, and desktop devices; also has a better reading experience.
+- More suitable for China. (You Know。。。
   
 ### PC Preview
 
@@ -18,9 +18,15 @@
 
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8eyyn0msj305k05kglf.jpg)
   
+#### How To Use
+1. [Fork the repo](https://github.com/tw93/tw93.github.io)
+2. Clone down the repo with $ git clone git@github.com:username/reponame.git
+3. Install bundler with $ gem install bundler
+4. Install gems with $ bundle install
+5. Run Jekyll with $ npm run dev
+6. Begin hacking for your project
+7. For more details, read [documentation](http://jekyllrb.com/)
 
-### GemFile:
-- gem 'cosy-jekyll-theme', '~> 1.0', '>= 1.0.5'
-  
-### Install:
-- gem install cosy-jekyll-theme
+### License
+- The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+- Last but not least,[cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is inspired by [neo-hpstr-jekyll-theme(MIT License)](http://github.com/aron-bordin/neo-hpstr-jekyll-theme).
