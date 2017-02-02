@@ -62,10 +62,10 @@ body {
       @include transition(0.3s all ease-in-out);
       @include transform(scale(0) perspective(60px) rotateX(50deg));
       width: 0;
-      left:-4px;
-      top:-4px;
+      left: -4px;
+      top: -4px;
       z-index: 10;
-      >img{
+      > img {
         box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
         padding: 4px;
         background-color: #fff;
@@ -400,7 +400,6 @@ body {
   }
 }
 
-
 // Browser Upgrade
 // --------------------------------------------------
 .upgrade {
@@ -430,8 +429,8 @@ body {
   @include font-rem(14);
   background-color: $white;
   color: $text-color;
-  border-width: 2px ;
-  border-style: solid ;
+  border-width: 2px;
+  border-style: solid;
   border-color: lighten($primary, 50);
   @include rounded(3px);
 }
@@ -575,40 +574,39 @@ body {
   }
 }
 
-.coffee{
+.coffee {
   width: 100%;
   @include flexbox();
   @include flex-direction(column);
   @include align-items(center);
-  margin:20px 0 15px;
-  @media #{$medium} {
-    margin: 40px 0 -20px;
+  margin: 40px 0 10px;
+  @media #{$large} {
+    margin-bottom: -20px;
   }
-  .buy-me-coffee{
+  .buy-me-coffee {
     @extend .btn;
     margin: 0 auto;
     position: relative;
     height: 36px;
-    width: 174px;
-    padding-left: 38px;
-    font-size: 16px;
-    line-height: 18px;
+    width: 158px;
+    padding-left: 36px;
+    line-height: 17px;
     text-align: center;
     @include text-overflow(clip);
     cursor: pointer;
     @include user-select(none);
-    &:hover{
+    &:hover {
       background-color: #222;
       color: #fff;
     }
-    &.active{
+    &.active {
       background-color: #fff;
       color: #222;
     }
-    &::after{
+    &::after {
       content: "";
       position: absolute;
-      top: 12px;
+      top: 11px;
       left: 10px;
       width: 20px;
       height: 13px;
@@ -616,14 +614,14 @@ body {
       background-size: 20px 13px;
     }
   }
-  .my-pay-img{
+  .my-pay-img {
     width: 300px;
     display: block;
     overflow: hidden;
     height: 0;
-    @include transition(0.4s all ease-in-out);
-    @include transform(scale(0) perspective(300px) rotateX(60deg));
-    &.active{
+    @include transition(0.5s all ease-in-out);
+    @include transform(scale(0) perspective(360px) rotateX(60deg));
+    &.active {
       height: 407px;
       @include transform(none);
     }
