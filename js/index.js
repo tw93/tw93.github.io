@@ -93,11 +93,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
   //load js
   isShowQr && loadScript('http://7vihmc.com1.z0.glb.clouddn.com/qrcode.min.js', function () {
-    new QRCode(document.getElementById("J_qr_code"), {
+    QRCode && new QRCode(document.getElementById("J_qr_code"), {
       width: 128,
       height: 128,
       useSVG: true,
       text: window.location.href,
+      correctLevel: QRCode.CorrectLevel.L
     });
   });
 

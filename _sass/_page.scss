@@ -31,10 +31,10 @@ body {
     margin: -5px 2px 0;
     position: relative;
     time {
-      margin:0 20px;
+      margin: 0 20px;
     }
-    .qr-text{
-      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABq0lEQVRYR+WXi03DQBBEJx3QAVABUAHQAR1AB4QKIBVACaESSAVABYEKgApAL9qVNsaf29iRrLDSSYl9ezee/dzcRNKBpHtJe8rZTNKzuVxIus6560vSzUTSnaTbpDPTF5LOzA8gpxusMRsdgPNAa9MH/diLOgbisyZ/WHuyl38YGB0A0L7b8C/KMECC70t6k1ZJhxUz8CrpyBxPAohSAGz+YtXFWqxRDICS/AxBpOSoFqwUQLW6SPhiAEx0Bvh9uAEDkWpCcJwFAAssAhDyYJMcYFNCQZ9I58D/LMNMN92dVkyiUDLZ03AuiYFd2cgwSFJOvTYzjoPOHQUAQoAgydpjJQSXHQtw0GG+HyEYTA/QqDh02qyoFWdYiGXo50NvAH31wG4BoC+gBz4Sh1EbAy5gScIHm9goydh8ac2JbC0VJID15sSGXUq5EUA8ywE7hCCpY6dVlLog+bbadU1QqohK2vO8ei+IVUAYiFcfUdpZ1m0AtiVI1tbdJgCkmLdnmpbfI2NyLoa+msXuGFVxTOK156MAAFU0hqwg4UsirfyncqY1IqVOvKwEyS8j0d5RKO/T9wAAAABJRU5ErkJggg==) no-repeat;
+    .qr-text {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVRYR9VXWw7DIAwbN+Yo3HjTJqUfqSI/FNaWvwpIjeOYMOac75cw1lrjuzz2xXeEUOMNdcM2APkkmRR0YgSsincwcBsAOSXVyVRGgoEc78TAYwBk1SOm2hnYBqCyhJxzVgMonl0F7QBYM6ycL2uAjWc7IdIADYBdyDqjGu93sTij0oAaqzQiVNeVdaNqyfPXA6jEhHKunrRaf2gA5bTrh6fLSBWNygxab1cB8gFWpLYRdaXkPgB2tWSIKfs2ZDUgA3BbMreM23rCvwNwU5B9wWZgGwDUw7EvICS+mLerwM15+TBh7wS2J2T7CdsJXQ1k5j7FF35r3ynsoAAAAABJRU5ErkJggg==) no-repeat;
       background-size: 16px 16px;
       width: 16px;
       height: 16px;
@@ -48,26 +48,26 @@ body {
         bottom: -20px;
         left: -20px;
       }
-      &:hover{
-        .qr-code{
+      &:hover {
+        .qr-code {
           width: 128px;
           opacity: 1;
         }
       }
     }
-    .qr-code{
+    .qr-code {
       position: absolute;
       opacity: 0;
       @include transition(0.3s all ease-out);
       width: 0;
       left:0;
       >img{
-        box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
+        box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
       }
     }
     @media #{$medium}{
       @include font-size(16);
-      .qr-text{
+      .qr-text {
         display: inline-block;
       }
     }
