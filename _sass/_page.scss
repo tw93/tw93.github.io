@@ -60,9 +60,12 @@ body {
       opacity: 0;
       @include transition(0.3s all ease-out);
       width: 0;
-      left:0;
+      left:-4px;
+      top:-4px;
       >img{
         box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
+        padding: 4px;
+        background-color: #fff;
       }
     }
     @media #{$medium}{
