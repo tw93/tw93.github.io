@@ -52,7 +52,6 @@ payImage: WechatIMG1.jpeg?imageslim
 
 baidu_verify: kxGpkpWG7G
 google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
-bing_verify:
 
 
 include: [".htaccess"]
