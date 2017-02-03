@@ -9,7 +9,7 @@ weibo: tw1118
 zhihu: tw93
 zhuanlan: tw1993
 
-url: http://tw93.github.io
+url: //tw93.github.io
 menu:
   - title: 'Categories'
     url: '/categories'
