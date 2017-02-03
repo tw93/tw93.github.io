@@ -24,6 +24,7 @@ google_analytics: UA-57207999-1
 
 timezone:    Asia/Shanghai
 locale:      zh_CN
+lang:      zh-cmn-Hans
 future:      true
 highlighter: rouge
 markdown:    kramdown
@@ -49,6 +50,9 @@ assetUrl: http://7vihmc.com1.z0.glb.clouddn.com/
 showBuyCoffee: true
 payImage: WechatIMG1.jpeg?imageslim
 
+baidu_verify: kxGpkpWG7G
+google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
+bing_verify:
 
 
 include: [".htaccess"]
