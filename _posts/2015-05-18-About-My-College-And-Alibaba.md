@@ -57,20 +57,20 @@ useVideo: true
 ![西湖晚上]({{ site.assetUrl }}hznight.jpg)
 
 3月12日，在杭州玩了一天，骑行西湖。并在绿茶吃了有名的杭帮菜，完全和湖南、西安不一样的口味，有一种吃零食随便吃吃的感觉，很甜很清淡。杭帮菜做得特别精美漂亮，让人很喜欢。下面图片中依次是：绿茶饼、菠萝油条虾、面包诱惑（超级推荐）、烤鱼。
-![杭帮菜1]({{ site.assetUrl }}hbc1.jpg)
+![杭帮菜1]({{ site.assetUrl }}hbc1.jpg){:class="img-zoom"}
      
-![杭帮菜2]({{ site.assetUrl }}hbc2.jpg)
+![杭帮菜2]({{ site.assetUrl }}hbc2.jpg){:class="img-zoom"}
     
-![杭帮菜3]({{ site.assetUrl }}hbc3.jpg)
+![杭帮菜3]({{ site.assetUrl }}hbc3.jpg){:class="img-zoom"}
     
-![杭帮菜4]({{ site.assetUrl }}hbc4.jpg)
+![杭帮菜4]({{ site.assetUrl }}hbc4.jpg){:class="img-zoom"}
      
 
 远处是雷峰塔，想起白素贞。
-![西湖]({{ site.assetUrl }}xh1.jpg)
+![西湖]({{ site.assetUrl }}xh1.jpg){:class="img-zoom"}
 
 下图仿佛有一种西湖悬玉钩的感觉。
-![西湖]({{ site.assetUrl }}xh3.jpg)
+![西湖]({{ site.assetUrl }}xh3.jpg){:class="img-zoom"}
 
 晚上坐机场大巴来到机场，并在那边酒店住了下来。
 

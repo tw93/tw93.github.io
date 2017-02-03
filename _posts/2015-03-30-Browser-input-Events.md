@@ -2,7 +2,7 @@
 layout:     post
 title:      Can We Do Better Than The Click?
 date:       2015-03-30 21:47:29
-summary:    响应用户的输入可以说是我们做界面开发的核心。为了构建可响应的Web产品，g关键是理解触摸、鼠标、指针、键盘操作和浏览器的工作原理是。你可能在手机浏览器中经历过300 ms的延迟或者通过触摸来滚动带来的不爽。在本文中，我们将介绍事件级联和使用这些知识来实现演示一个点击事件，支持许多输入方法但是又没有违反像Opera Mini这一类的代理浏览器规则 ...
+summary:    响应用户的输入可以说是我们做界面开发的核心。为了构建可响应的Web产品，g关键是理解触摸、鼠标、指针、键盘操作和浏览器的工作原理是。你可能在手机浏览器中经历过300 ms的延迟或者通过触摸来滚动带来的不爽。在本文中，我们将介绍事件级联和使用这些知识来实现演示一个点击事件，支持许多输入方法但是又没有违反像Opera Mini这一类的代理浏览器规则...
 categories: Interactive
 ---
 
@@ -44,13 +44,13 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 
 请注意：为了适应这个栈这个事件栈故意忽略了focus和blur事件。
 
-![IOS Touch Events](http://tw93.github.io/images/01-ios-opt-small.png)     
+![IOS Touch Events](http://tw93.github.io/images/01-ios-opt-small.png){:class="img-zoom"}    
 <small>在IOS设备上的tap点击一个元素两次和松开的事件级联</small>
 <br><br>
-![Android4.4 Touch Events](http://tw93.github.io/images/02-android-opt-small.png)   
+![Android4.4 Touch Events](http://tw93.github.io/images/02-android-opt-small.png){:class="img-zoom"}   
 <small>在 Android 4.4 设备上的tap点击一个元素两次和松开的事件级联</small>
 <br><br>
-![Android4.4 Touch Events](http://tw93.github.io/images/03-pointer-opt-small.png)    
+![Android4.4 Touch Events](http://tw93.github.io/images/03-pointer-opt-small.png){:class="img-zoom"}    
 <small>在Internet Explorer 11（在兼容的触摸事件实现）上tap点击元素两次然后松开的事件级联</small>
 
 

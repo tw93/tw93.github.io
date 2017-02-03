@@ -16,7 +16,7 @@ categories: Native-JS
 
 ###  RN动画支持：
 
-![RN动画](https://img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png)
+![RN动画](https://img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png){:class="img-zoom"}
 
 从上面的MineNode我们可以看出RN中有3个地方可以使用动画：
 

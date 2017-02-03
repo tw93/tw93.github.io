@@ -107,6 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  var zoomImgs = document.querySelectorAll('.img-zoom');
+  (zoomImgs && zoomImgs.length > 0) && loadScript("http://7vihmc.com1.z0.glb.clouddn.com/intense.min.js", function () {
+    Intense && Intense(zoomImgs);
+  });
+
 }, false);
 
 

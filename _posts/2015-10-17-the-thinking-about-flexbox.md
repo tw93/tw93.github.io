@@ -61,7 +61,7 @@ Flexbox，一种CSS3的布局模式，也叫做弹性盒子模型，用来为盒
 
 其实Flexbox的优秀特性并不是这一些，首先来一张它的属性图吧~
 
-![flexbox](http://tw93.github.io/images/flexbox.png)
+![flexbox](http://tw93.github.io/images/flexbox.png){:class="img-zoom"}
 
 首先我们来分析下这一张图，从第一个子节点可以看到Flexbox由Flex容器和Flex项目组成，容器即父元素，项目即子元素。他们之间的一些关系可以这样来表示：
 
@@ -233,7 +233,7 @@ align-self: auto | flex-start | flex-end | center | baseline | stretch
 
 具体大家可以见这个网站：[caniuse](http://caniuse.com/#search=flexbox)
 
-![img](http://tw93.github.io/images/caniuse.png)
+![img](http://tw93.github.io/images/caniuse.png){:class="img-zoom"}
 
 在PC端其实很乐观了，基本上主流的浏览器都已经兼容了flex的使用，但是到了移动端就不是那么好了，特别是国内浏览器，考虑到uc浏览器占了大头，但是uc从图中看到只兼容flex最老的一个版本，也就是2009年的版本，即display:box;很多现在flex的优秀特性到了它上面都不兼容了，所以建议大家在使用的时候，假如2009版本可以满足开发要求的话，还是去使用2009版本，这样风险更小。
 

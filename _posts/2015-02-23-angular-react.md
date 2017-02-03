@@ -302,14 +302,15 @@ ReactJs当中的那个V很容易和现存的框架中那个V做比较，backbone
 
  - 使用AngularJs渲染1500行大概用了1.35秒，然而使用ReactJs渲染仅仅用了320ms，详细见下面两张从chrome开发者工具的截图：
 
- ![Rendering with ReactJs, 320ms](http://tw93.github.io/images/with-react-chromedev.png)
  ***使用ReactJs渲染320ms***
+ ![Rendering with ReactJs, 320ms](http://tw93.github.io/images/with-react-chromedev.png)
+ 
 
- ![Native AngularJs rendering 1200ms](http://tw93.github.io/images/native-angularjs-chromedev.png)
  ***使用原生AngularJs渲染1200ms***
+ ![Native AngularJs rendering 1200ms](http://tw93.github.io/images/native-angularjs-chromedev.png)
 
 
-####总结   
+#### 总结   
 
 这仅仅是关于使用使用react提高angular的渲染性能一个简短的介绍，在我接下来的一些项目中，毫无疑问我会使用ReactJs来渲染我认为性能不足的部分。正如 Pete Hunt所说，ReactJs是完全改变游戏规则的，背后的意图是希望改变人们对于内部运作的一般想法，我确信不久所有主流的框架将会有一个类似的想法来使用ReactJs思维，或者设计成很容易和ReactJs集成,我喜欢ReactJs,使用虚拟DOM这种想法让我觉得它意义非凡。
 
