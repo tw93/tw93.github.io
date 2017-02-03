@@ -1,12 +1,12 @@
-## [tw93.github.io](http://tw93.github.io/)
+## [Tw93.github.io](http://tw93.github.io/)
 - This is Tw93's front-end technology blog. 
 - Commonly used to record learning and research front-end technology.
 - Concerned about the front-end new technology and new thinking.
-- The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by Tw93.
+- The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](http://tw93.github.io/about/).
 
 
-## Features About [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
-- cosy-jekyll-theme is a responsive and better reading experience blog template.
+## Features about [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
+- cosy-jekyll-theme is a responsive blog template providing a good reading experience.
 - **No jQuery**, No other redundant resources.
 - Modern and minimal design, **More concise and Faster than other jekyll theme.**
 - Responsive templates for post, page,Looks great on mobile, tablet, and desktop devices.
