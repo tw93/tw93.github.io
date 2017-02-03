@@ -80,11 +80,12 @@ body {
   }
   p > a,
   li > a {
-    border-bottom: 1px dotted lighten($link-color, 50);
-    &:hover {
-      border-bottom-style: solid;
-    }
+    @include need-dotted();
   }
+}
+
+.need_dotted {
+  @include need-dotted();
 }
 
 ///sections
@@ -308,10 +309,7 @@ body {
   }
   p > a,
   li > a {
-    border-bottom: 1px dotted lighten($link-color, 50);
-    &:hover {
-      border-bottom-style: solid;
-    }
+    @include need-dotted();
   }
   h3 {
     margin: 0;

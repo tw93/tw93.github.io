@@ -19,6 +19,13 @@
   }
 }
 
+
+@mixin need-dotted{
+  border-bottom: 1px dotted lighten($link-color, 50);
+  &:hover {
+    border-bottom-style: solid;
+  }
+}
 // Webkit-style focus
 // --------------------
 @mixin tab-focus() {
