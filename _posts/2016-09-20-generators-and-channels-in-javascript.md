@@ -6,7 +6,7 @@ summary:    以下这篇文章是对Generator和Channel的一个介绍，如果�
 categories: JavaScript
 ---
 
-![](http://7vihmc.com1.z0.glb.clouddn.com/1-smaK057Fp29kcTJPN5DdCg%20%281%29.png)
+![]({{ site.assetUrl }}1-smaK057Fp29kcTJPN5DdCg%20%281%29.png)
 
 原文来自：[Generators and Channels in JavaScript](https://medium.com/javascript-inside/generators-and-channels-in-javascript-594f2cf9c16e#.pvgt62ocb)
 

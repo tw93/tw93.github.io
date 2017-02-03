@@ -54,28 +54,28 @@ useVideo: true
 #### 游西湖
 
 之后去西湖看了会儿夜间，放松了一下心情。
-![西湖晚上](http://7vihmc.com1.z0.glb.clouddn.com/hznight.jpg)
+![西湖晚上]({{ site.assetUrl }}hznight.jpg)
 
 3月12日，在杭州玩了一天，骑行西湖。并在绿茶吃了有名的杭帮菜，完全和湖南、西安不一样的口味，有一种吃零食随便吃吃的感觉，很甜很清淡。杭帮菜做得特别精美漂亮，让人很喜欢。下面图片中依次是：绿茶饼、菠萝油条虾、面包诱惑（超级推荐）、烤鱼。
-![杭帮菜1](http://7vihmc.com1.z0.glb.clouddn.com/hbc1.jpg)
+![杭帮菜1]({{ site.assetUrl }}hbc1.jpg)
      
-![杭帮菜2](http://7vihmc.com1.z0.glb.clouddn.com/hbc2.jpg)
+![杭帮菜2]({{ site.assetUrl }}hbc2.jpg)
     
-![杭帮菜3](http://7vihmc.com1.z0.glb.clouddn.com/hbc3.jpg)
+![杭帮菜3]({{ site.assetUrl }}hbc3.jpg)
     
-![杭帮菜4](http://7vihmc.com1.z0.glb.clouddn.com/hbc4.jpg)
+![杭帮菜4]({{ site.assetUrl }}hbc4.jpg)
      
 
 远处是雷峰塔，想起白素贞。
-![西湖](http://7vihmc.com1.z0.glb.clouddn.com/xh1.jpg)
+![西湖]({{ site.assetUrl }}xh1.jpg)
 
 下图仿佛有一种西湖悬玉钩的感觉。
-![西湖](http://7vihmc.com1.z0.glb.clouddn.com/xh3.jpg)
+![西湖]({{ site.assetUrl }}xh3.jpg)
 
 晚上坐机场大巴来到机场，并在那边酒店住了下来。
 
 3月13日，早上8点多飞机，大概11点样子到的西安，饿得不行，去机场那里买了一个大肉夹馍和一瓶冰峰。吃完很爽，之后就坐机场大巴回学校了。
-![肉夹馍和冰峰](http://7vihmc.com1.z0.glb.clouddn.com/rjm.jpg)
+![肉夹馍和冰峰]({{ site.assetUrl }}rjm.jpg)
 
 3月20日，收到HR的电话，超级高兴，或者说超级激动，那一刻，真的感觉我这件事情做得很值很值。当你方向正确的时候，付出了就会收到回报的。
 

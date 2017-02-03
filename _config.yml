@@ -44,8 +44,11 @@ post_layout: post
 page_layout: page
 titlecase: true
 
+assetUrl: http://7vihmc.com1.z0.glb.clouddn.com/
+
 showBuyCoffee: true
-payImage: http://7vihmc.com1.z0.glb.clouddn.com/WechatIMG1.jpeg?imageslim
+payImage: WechatIMG1.jpeg?imageslim
+
 
 
 include: [".htaccess"]
