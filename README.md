@@ -29,4 +29,3 @@
 
 ### License
 - The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-- Last but not least,[cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is inspired by [neo-hpstr-jekyll-theme(MIT License)](http://github.com/aron-bordin/neo-hpstr-jekyll-theme).

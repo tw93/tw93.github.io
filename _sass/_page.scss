@@ -148,7 +148,7 @@ body {
 // --------------------------------------------------
 .entry-meta {
   @include font-rem(12);
-  margin-left: 10px;
+  margin-top: 0;
   color: lighten($base-color, 60);
   a {
     color: lighten($base-color, 60);
