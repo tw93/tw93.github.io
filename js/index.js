@@ -4,10 +4,6 @@
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 document.addEventListener("DOMContentLoaded", function () {
-  var zoomImgs = document.querySelectorAll('.img-zoom');
-  (zoomImgs && zoomImgs.length > 0) && loadScript("http://7vihmc.com1.z0.glb.clouddn.com/intense.js", function () {
-    Intense && Intense(zoomImgs);
-  });
   if (!isPC()) {
     return;
   }
@@ -111,7 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
+  var zoomImgs = document.querySelectorAll('.img-zoom');
+  (zoomImgs && zoomImgs.length > 0) && loadScript("http://7vihmc.com1.z0.glb.clouddn.com/intense.js", function () {
+    Intense && Intense(zoomImgs);
+  });
 
 }, false);
 
