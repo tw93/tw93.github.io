@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ctx.fillStyle = this.color;
       ctx.lineWidth = this.width;
 
-      // fade out
       ctx.save();
       ctx.globalAlpha = this.alpha;
       ctx.fill();
@@ -96,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var qrTextEl = document.getElementById('J_qr_text');
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
-  //load js
   isShowQr && loadScript('http://7vihmc.com1.z0.glb.clouddn.com/qrcode.min.js', function () {
     QRCode && new QRCode(document.getElementById("J_qr_code"), {
       width: 128,
@@ -131,7 +129,7 @@ function isPC() {
 function loadScript(url, callback) {
   var script = document.createElement("script")
   script.type = "text/javascript";
-  if (script.readyState) {  //IE
+  if (script.readyState) {
     script.onreadystatechange = function () {
       if (script.readyState == "loaded" ||
         script.readyState == "complete") {
@@ -139,7 +137,7 @@ function loadScript(url, callback) {
         callback();
       }
     };
-  } else {  //Others
+  } else {
     script.onload = function () {
       callback();
     };

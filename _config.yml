@@ -49,6 +49,5 @@ exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json"]
 gems:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-minifier
 
 theme: cosy-jekyll-theme
