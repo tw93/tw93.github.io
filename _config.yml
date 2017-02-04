@@ -45,7 +45,7 @@ showBuyCoffee: true
 payImage: WechatIMG1.jpeg?imageslim
 
 include: [".htaccess"]
-exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json"]
+exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json"，"node_modules"]
 gems:
   - jekyll-paginate
   - jekyll-sitemap

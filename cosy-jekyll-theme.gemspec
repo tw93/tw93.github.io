@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "cosy-jekyll-theme"
-  spec.version       = "1.0.8"
+  spec.version       = "1.1.0"
   spec.authors       = ["Tw93"]
   spec.email         = ["tangweiyuanyou@gmail.com"]
 
@@ -16,4 +16,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.post_install_message = "Thanks for installing! You can view the live demo on http://tw93.github.io"
+
 end
