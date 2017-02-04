@@ -3,5 +3,6 @@ _site
 .DS_Store
 .bower_components
 .idea
+node_modules
 # Ignore the config file that's used for gh-pages.
 _config.gh-pages.yml
