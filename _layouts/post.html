@@ -2,7 +2,7 @@
 <html class="no-js" lang="{{site.lang}}">
 {% include head.html %}
 
-<body id="post" {% if page.image.feature %}class="feature" {% endif %}>
+<body id="post">
 
 {% include header.html %}
 
@@ -20,6 +20,7 @@
         {% endif %}
       </div>
       {% endif %}
+
       <h1 class="post-title entry-title">{{ page.title }}</h1>
 
       <h4 class="page-info">
@@ -29,18 +30,22 @@
           <div id="J_qr_code" class="qr-code" onmouseover="this.title='';"></div>
         </div>
       </h4>
+
       {{ content }}
 
       {% include buy-me-coffee.html %}
 
     </div>
+
     {% if page.comments != false and site.disqus_shortname %}
-    <section id="disqus_thread">Disqus is climbing the Great Fire Wall of China, Maybe She needs <a href="https://sodatea.github.io/2015/12/23/all-i-know-about-the-wall/" target="_blank" class="need_dotted">a ladder.</a>&nbsp;&nbsp;  🤦🏼‍️ 🤷🏼‍️ </section>
+    <section id="disqus_thread">
+      Disqus is climbing the Great Fire Wall of China, Maybe She needs <a
+      href="https://sodatea.github.io/2015/12/23/all-i-know-about-the-wall/" target="_blank" class="need_dotted">a ladder.</a>&nbsp;&nbsp; 🤦🏼‍️ 🤷🏼‍️
+    </section>
     {% endif %}
 
-    {% if site.related_posts.size > 0 %}
     {% include read-more.html %}
-    {% endif %}
+
   </article>
 </div>
 

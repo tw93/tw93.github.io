@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "cosy-jekyll-theme"
-  spec.version       = "1.0.7"
+  spec.version       = "1.0.8"
   spec.authors       = ["Tw93"]
   spec.email         = ["tangweiyuanyou@gmail.com"]
 
-  spec.summary       = %q{cosy-jekyll-theme is a responsive and better reading experience blog template. No jQuery,And More concise,More geeks and Faster than other jekyll theme.}
+  spec.summary       = %q{cosy-jekyll-theme is a responsive blog template providing a good reading experience. No jQuery,And More concise,More geeks and Faster than other jekyll theme.}
   spec.homepage      = "https://github.com/tw93/tw93.github.io"
   spec.license       = "MIT"
 

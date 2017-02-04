@@ -4,7 +4,7 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     colorator (1.1.0)
-    cosy-jekyll-theme (1.0.1)
+    cosy-jekyll-theme (1.0.8)
       jekyll (~> 3.3)
     cssminify2 (2.0.1)
     execjs (2.7.0)
