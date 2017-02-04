@@ -57,7 +57,7 @@
     background-image: url({{ background }});
   }</style>
   {% endif %}
-  {% if page.lazyload %}
+  {% if page.layout == "post" %}
   <script src="{{site.assetUrl}}lazysizes.min.js" async></script>
   {% endif %}
 </head>
