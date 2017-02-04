@@ -12,9 +12,10 @@
 - **Responsive templates for post, page**,Looks great on mobile, tablet, and desktop devices.
 - **Loading resources selectively on different platforms.**
 - **Support Lazyload.**
+- Compress JavaScript and CSS.
 - By using SVG and Canvas Makes this blog more geeks.
 - When running in PC,It will show a QRcode that you can read on mobile.
-- when the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.** . 
+- When the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.** . 
 - **More suitable for China**:
     - Dropping Google webfont, using proxy webfont.
     - Delay loading of resources that are not immediately required.
