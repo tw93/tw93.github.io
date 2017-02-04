@@ -58,5 +58,5 @@ google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
 
 include: [".htaccess"]
 exclude: ["demo/*", "lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "package.json", "node_modules"]
-gems: [jekyll-paginate,jekyll-sitemap]
+gems: [jekyll-paginate,jekyll-sitemap,jekyll-minifier]
 theme: cosy-jekyll-theme

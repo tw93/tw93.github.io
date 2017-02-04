@@ -6,8 +6,11 @@ GEM
     colorator (1.1.0)
     cosy-jekyll-theme (1.0.1)
       jekyll (~> 3.3)
+    cssminify2 (2.0.1)
+    execjs (2.7.0)
     ffi (1.9.17)
     forwardable-extended (2.6.0)
+    htmlcompressor (0.3.1)
     jekyll (3.3.1)
       addressable (~> 2.4)
       colorator (~> 1.0)
@@ -19,12 +22,18 @@ GEM
       pathutil (~> 0.9)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
+    jekyll-minifier (0.1.0)
+      cssminify2 (~> 2.0)
+      htmlcompressor (~> 0.3)
+      jekyll (~> 3.0)
+      uglifier (~> 2.7)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-sitemap (0.10.0)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
+    json (1.8.3)
     kramdown (1.13.2)
     liquid (3.0.6)
     listen (3.0.8)
@@ -56,12 +65,16 @@ GEM
     safe_yaml (1.0.4)
     sass (3.4.23)
     titlecase (0.1.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cosy-jekyll-theme
+  jekyll-minifier
   jekyll-paginate
   jekyll-sitemap
   octopress
