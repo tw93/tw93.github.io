@@ -50,3 +50,5 @@ gems:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-minifier
+
+theme: jekyll-theme-cayman
