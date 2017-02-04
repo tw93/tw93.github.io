@@ -641,3 +641,10 @@ body {
   cursor: -moz-zoom-in;
   cursor: zoom-in;
 }
+
+.lazyload {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}

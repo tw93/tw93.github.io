@@ -4,6 +4,7 @@ title:      React Native动画研究
 date:       2016-06-05 21:47:29
 summary:    本次专题文章的题目为《ReactNative动画研究》，既然叫研究，那我们就争取一次将RN动画相关的内容都说清楚，提出问题-论证问题-解决问题的方式来研究 ...
 categories: Native-JS
+lazyload: true
 ---
 
 本次专题文章的题目为《ReactNative动画研究》，既然叫**研究**，那我们就争取一次将RN动画相关的内容都说清楚，提出问题-论证问题-解决问题的方式来研究。
@@ -16,7 +17,8 @@ categories: Native-JS
 
 ###  RN动画支持：
 
-![RN动画](https://img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png){:class="img-zoom"}
+<img data-src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="lazyload img-zoom" />
+
 
 从上面的MineNode我们可以看出RN中有3个地方可以使用动画：
 
