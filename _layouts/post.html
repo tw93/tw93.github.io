@@ -10,17 +10,6 @@
   <article class="hentry">
     <div class="entry-content">
 
-      {% if page.image.feature %}
-      <div class="entry-image-index">
-        <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
-        {% if page.image.credit %}
-        <div class="image-credit">Image source:
-          <a target="_blank" href="{{ page.image.creditlink }}">{{page.image.credit }}</a>
-        </div>
-        {% endif %}
-      </div>
-      {% endif %}
-
       <h1 class="post-title entry-title">{{ page.title }}</h1>
 
       <h4 class="page-info">
@@ -37,12 +26,7 @@
 
     </div>
 
-    {% if page.comments != false and site.disqus_shortname %}
-    <section id="disqus_thread">
-      Disqus is climbing the Great Fire Wall of China, Maybe She needs <a
-      href="https://sodatea.github.io/2015/12/23/all-i-know-about-the-wall/" target="_blank" class="need_dotted">a ladder.</a>&nbsp;&nbsp; 🤦🏼‍️ 🤷🏼‍️
-    </section>
-    {% endif %}
+    {% include disqus.html %}
 
     {% include read-more.html %}
 

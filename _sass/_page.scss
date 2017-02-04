@@ -118,32 +118,6 @@ body {
   }
 }
 
-// Feature Image Caption
-.image-credit {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 auto;
-  max-width: 440px;
-  padding: 10px 15px;
-  background-color: rgba($base-color, 0.5);
-  color: $white;
-  @include font-rem(12);
-  text-align: right;
-  @include border-radius(3px, 0, 0, 3px);
-  z-index: 10;
-  @media #{$medium} {
-    max-width: 760px;
-  }
-  @media #{$large} {
-    max-width: 960px;
-  }
-  a {
-    color: $white;
-    text-decoration: none;
-  }
-}
-
 // Single Post and Page
 // --------------------------------------------------
 .entry-meta {
@@ -365,20 +339,6 @@ body {
       margin-bottom: 30px;
       padding: 30px 80px;
     }
-  }
-}
-
-.entry-image-index {
-  margin: -25px -15px 10px -15px;
-  position: relative;
-  @media #{$medium} {
-    margin: -30px -30px 15px -30px;
-  }
-  @media #{$large} {
-    margin: -50px -80px 20px -80px;
-  }
-  img {
-    @include border-radius(3px, 0, 0, 3px); // round image corners
   }
 }
 

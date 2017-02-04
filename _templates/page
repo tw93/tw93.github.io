@@ -3,8 +3,4 @@ layout: {{ layout }}
 title: {{ title }}
 date: {{ date }}
 description:
-image:
-  feature:
-  credit:
-  creditlink:
 ---
