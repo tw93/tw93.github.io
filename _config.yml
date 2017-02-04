@@ -45,6 +45,9 @@ showBuyCoffee: true
 payImage: WechatIMG1.jpeg?imageslim
 
 include: [".htaccess"]
-exclude: ["demo/*", "lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "package.json", "node_modules"]
-gems: [jekyll-paginate,jekyll-sitemap,jekyll-minifier]
+exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json"]
 theme: cosy-jekyll-theme
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-minifier
