@@ -46,7 +46,6 @@ payImage: WechatIMG1.jpeg?imageslim
 
 include: [".htaccess"]
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json"]
-theme: cosy-jekyll-theme
 gems:
   - jekyll-paginate
   - jekyll-sitemap
