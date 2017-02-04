@@ -1,11 +1,11 @@
-## [Tw93.github.io](http://tw93.github.io/)
+## [tw93.github.io](http://tw93.github.io/)
 - This is Tw93's front-end technology blog. 
 - Commonly used to record learning and research front-end technology.
 - Concerned about the front-end new technology and new thinking.
 - The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](http://tw93.github.io/about/).
 
 
-## Features about [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
+## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
 - cosy-jekyll-theme is a responsive blog template providing a good reading experience.
 - **No jQuery**, No other redundant resources.
 - Modern and minimal design, **More concise and Faster than other jekyll theme.**
@@ -21,7 +21,7 @@
     - When Discus failed to load, It will be a good suggestion.
     - Add Buy Me A Coffee by using WeChat payment.
   
-## PC Preview
+## [PC Preview]((http://tw93.github.io/))
 
   ![demo.png](http://7vihmc.com1.z0.glb.clouddn.com/Jietu20170203-222805.jpg)
 

@@ -62,7 +62,7 @@ Component指功能单元，其意义偏向运行时的结构，并有更复杂�
 
 **Transform所做的工作**其实是将DSL转成类JSON树形结构，并汇总结合成一JavaScript AMD 模块，便于后续过程中JS Framework的处理，可以从如下图看到transform所做的工作：
 
-<img data-src="//img.alicdn.com/tfs/TB1_hLfPXXXXXbgaVXXXXXXXXXX-2880-1800.jpg" class="lazyload img-zoom" />
+<img data-src="//img.alicdn.com/tfs/TB1_hLfPXXXXXbgaVXXXXXXXXXX-2880-1800.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom" />
 
 以上的左边部分其实就是一个DSL，一种领域特定语言，可以直接使用其对象领域中的概念，集中描述“想要做到什么”（What）的部分，而不必对“如何做到”（How）进行描述。
 

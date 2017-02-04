@@ -16,7 +16,7 @@ categories: Native-JS
 
 ###  RN动画支持：
 
-<img data-src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="lazyload img-zoom" />
+<img data-src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="lazyload img-zoom" src="{{site.defaultImage}}"/>
 
 
 从上面的MineNode我们可以看出RN中有3个地方可以使用动画：

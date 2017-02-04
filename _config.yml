@@ -50,6 +50,8 @@ assetUrl: http://7vihmc.com1.z0.glb.clouddn.com/
 showBuyCoffee: true
 payImage: WechatIMG1.jpeg?imageslim
 
+defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+
 baidu_verify: kxGpkpWG7G
 google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
 
