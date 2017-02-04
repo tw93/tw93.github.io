@@ -51,4 +51,4 @@ gems:
   - jekyll-sitemap
   - jekyll-minifier
 
-theme: jekyll-theme-cayman
+theme: cosy-jekyll-theme
