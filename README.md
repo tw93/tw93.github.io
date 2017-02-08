@@ -16,6 +16,7 @@
 - By using SVG and Canvas Makes this blog more geeks.
 - When running in PC,It will show a QRcode that you can read on mobile.
 - When the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.** . 
+- Funny [custom 404 page](http://tw93.github.io/err),You will like it.
 - **More suitable for China**:
     - Dropping Google webfont, using proxy webfont.
     - Delay loading of resources that are not immediately required.

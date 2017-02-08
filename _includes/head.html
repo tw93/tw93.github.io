@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.layout =='post' or page.hideHomeActive %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <title>{% if page.layout =='post' or page.hideHomeActive or page.is404 %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <meta name="description"
         content="{{ site.description }}{% if page.categories %}{{ page.categories }}{% endif %}{% if page.summary %}{{ page.summary }}{% endif %}">
   {% if page.tags %}
