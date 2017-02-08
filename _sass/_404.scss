@@ -207,9 +207,9 @@ h1.error-not-found {
   color: #f54f59;
   font-size: 6em;
   font-weight: 700;
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
+  margin-top: 0;
   @media #{$medium} {
     margin-bottom: 0.4em;
-    margin-top: 0;
   }
 }
