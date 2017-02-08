@@ -2,11 +2,14 @@
 svg#robot {
   display: block;
   position: relative;
-  margin: 3em auto 2em auto;
+  margin: 3em auto 0em auto;
   padding: 10px;
   transform-origin: bottom;
   transform: rotate(0deg) translate3d(0px, 0px, 0px);
   animation: move 2s ease infinite;
+  @media #{$medium} {
+    margin: 2.4em auto 0 auto;
+  }
 }
 
 @keyframes move {
@@ -204,6 +207,9 @@ h1.error-not-found {
   color: #f54f59;
   font-size: 6em;
   font-weight: 700;
-  line-height: 0.6em;
-  margin-bottom: 1.6em;
+  margin-bottom: 1em;
+  @media #{$medium} {
+    margin-bottom: 0.4em;
+    margin-top: 0;
+  }
 }
