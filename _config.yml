@@ -27,6 +27,7 @@ sass:
 permalink:   /:year-:month-:day/:title.html
 assetUrl: http://7vihmc.com1.z0.glb.clouddn.com/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+logo: http://7vihmc.com1.z0.glb.clouddn.com/logo.svg
 
 
 
