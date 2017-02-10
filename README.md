@@ -8,7 +8,7 @@
 ## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
 - cosy-jekyll-theme is a responsive blog template providing a good reading experience.
 - **No jQuery**, No other redundant resources.
-- Modern and minimal design, **More concise and Faster than other jekyll theme.**
+- Modern and minimal design, **More concise and [**Faster**](http://7vihmc.com1.z0.glb.clouddn.com/Jietu20170210-221626.jpg) than other jekyll theme.**
 - **Responsive templates for post, page**,Looks great on mobile, tablet, and desktop devices.
 - **Loading resources selectively on different platforms.**
 - **Support Lazyload.**
