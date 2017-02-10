@@ -247,6 +247,6 @@ align-self: auto | flex-start | flex-end | center | baseline | stretch
 ### 补充一个神奇的Flexbox playground
 
 {::nomarkdown}
-<p data-height="300" data-theme-id="27375" data-slug-hash="apEmpP" data-default-tab="css,result" data-user="tw93" data-embed-version="2" data-pen-title="Flexbox playground" class="codepen">See the Pen <a href="http://codepen.io/tw93/pen/apEmpP/">Flexbox playground</a> by Tw93 (<a href="http://codepen.io/tw93">@tw93</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="27375" data-slug-hash="apEmpP" data-default-tab="css,result" data-user="tw93" data-embed-version="2" data-pen-title="Flexbox playground" class="codepen" data-preview="true">See the Pen <a href="http://codepen.io/tw93/pen/apEmpP/">Flexbox playground</a> by Tw93 (<a href="http://codepen.io/tw93">@tw93</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 {:/nomarkdown}
