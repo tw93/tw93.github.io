@@ -6,7 +6,6 @@
   {% if page.tags %}
   <meta name="keywords" content="{{ page.tags | join: ', ' }}">
   {% endif %}
-
   <!-- Open Graph -->
   <meta property="og:locale" content="{{ site.locale }}">
   <meta property="og:type" content="article">
@@ -19,6 +18,7 @@
   {% if site.baidu_verify %}
   <meta name="baidu-site-verification" content="{{site.baidu_verify}}"/>
   {% endif %}
+
   {% if site.google_verify %}
   <meta name="google-site-verification" content="{{ site.google_verify }}">
   {% endif %}
