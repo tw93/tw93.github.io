@@ -49,13 +49,5 @@ exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","nod
 gems:
   - jekyll-paginate
   - jekyll-sitemap
-  - octopress-minify-html
-
-
-html_press:
-  unquoted_attributes: false
-  drop_empty_values: false
-  strip_crlf: false
-  js_minifier_options: false
 
 theme: cosy-jekyll-theme
