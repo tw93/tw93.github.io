@@ -25,7 +25,7 @@
   
 ## [PC Preview](http://tw93.github.io/)
 
-  ![demo.png](http://7vihmc.com1.z0.glb.clouddn.com/Jietu20170203-222805.jpg)
+  ![demo.png](http://gtms02.alicdn.com/tfs/TB1W3NFQVXXXXaUXpXXXXXXXXXX-2316-1537.jpg)
 
 ## H5 Preview
 
