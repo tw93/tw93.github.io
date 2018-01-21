@@ -8,7 +8,7 @@ categories: Native-JS
 
 本文是2018年 Weex Conf 中议题《Weex + Ui》的内容文档整理，主要给大家介绍飞猪 Weex 技术体系从无到有的过程，包括 Weex Ui 组件库的开发和发展，重点分享在 Weex Ui 层建设的一些经验。
 
-文章较长，首先放上 Weex Ui 的开源地址，欢迎大家提PR，如果你喜欢可以Star一下。
+文章较长，首先放上 Weex Ui 的开源地址，欢迎大家提PR，同时也可以通过 Star 来表示你的喜欢。
 
 > <https://github.com/alibaba/weex-ui>
 
