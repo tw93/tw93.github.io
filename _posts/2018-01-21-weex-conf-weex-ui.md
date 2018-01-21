@@ -150,6 +150,15 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 
 <img src="https://img.alicdn.com/tfs/TB1gvFFn2DH8KJjy1XcXXcpdXXa-1556-924.png" width="800"/>
 
+#### Weex 无障碍优化
+Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过最快的方式找到自己想要的信息。
+同时当盲人访问我们Weex页面时候，让他们对 Weex 是可感知的、可操作的、可理解的、同时页面也是鲁棒的。譬如如下这个[演示>>>](http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov)：
+<img src="https://img.alicdn.com/tfs/TB1QlDSlyqAXuNjy1XdXXaYcVXa-510-906.png" width="240"/>
+
+无障碍在Weex实现起来是很简单的，譬如如下实现：
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/RmDWBkEtfKDVZLXLgHEp.png" width="400"/>
+
 #### 飞猪 Weex 双十一性能优化
 每年的双十一也就是我们Weex的一个战场，几乎所有会场页面均由Weex实现，如何让用户丝滑的逛我们的页面呢？期间我们也将之前很多经验包括优化技巧放到了双十一的会场页面，包括一些经验的整理。
 
