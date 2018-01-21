@@ -153,6 +153,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 #### Weex 无障碍优化
 Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过最快的方式找到自己想要的信息。
 同时当盲人访问我们Weex页面时候，让他们对 Weex 是可感知的、可操作的、可理解的、同时页面也是鲁棒的。譬如如下这个[演示>>>](http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov)：
+
 <img src="https://img.alicdn.com/tfs/TB1QlDSlyqAXuNjy1XdXXaYcVXa-510-906.png" width="240"/>
 
 无障碍在Weex实现起来是很简单的，譬如如下实现：
