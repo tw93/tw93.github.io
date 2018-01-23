@@ -24,7 +24,7 @@ categories: Native-JS
 包括最开始的 Hybrid 开发，通过 Bridge 提供部分 Native
 能⼒来提升 H5 体验，譬如我们在H5里面可以直接获取App的定位信息、使用相机、播放视频、导航跳转等能力，业界也有Cordova、Ionic、Meteor这些成熟的方案。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/YKtilLIfWxAyFhSrFzBi.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/YKtilLIfWxAyFhSrFzBi.jpeg" class="lazyload img-zoom"/>
 
 还有利用离线包体系通过提前将资源⽂件下载，访问时路由拦截加载本地资源，让我们的H5页面可以达到秒出、动态更新、弱网可用效果，内部有手淘Zcache、飞猪信鸽、支付宝九州这些成熟的系统。
 
@@ -35,7 +35,7 @@ categories: Native-JS
 
 飞猪**业务迭代速度快**，也需要快速上线；同时很多时候**景点和海外弱网使用**，同时要体验良好；其中最重要的一点是**多容器接入，适配飞猪、手淘、天猫、支付宝**，也即我们一次重要业务的开发需要一个iOS、一个Android同学来开发两端，同时由一个H5同学来开发兼容手淘、支付宝、UC的 Web 版本，也即一次业务发布涉及到多端同时开发、上线。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/tTdJRPRQpdIPkIVvmUyU.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/tTdJRPRQpdIPkIVvmUyU.jpeg" class="lazyload img-zoom"/>
 
 Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、天猫 Weex环境下完全 **Native体验**，同时Bundle 资源大小**较 H5 小很多**，加上富交互体验、长列表性能好非常适合商品列表页面和双十一场景，最重要的是真正让我们从3个人的开发减少到了1个人，其他2个人可以去做更多有意义的事情。
 
@@ -53,7 +53,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 
 #### 架构图
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/adNiyVpYLLOwVXUbrHFV.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/adNiyVpYLLOwVXUbrHFV.jpeg" class="lazyload img-zoom"/>
 
 可以从底层一直往上看，底层由我们APP的Framework / Libraries / OS Kernel等组成，我们在Weex的上下层和手淘、天猫一起设计出一套统一的Api设计，包括接口请求、数据埋点、路由跳转、网络状态、支付功能、导航栏定制等这一系列的通用服务，在 Weex 上面我们封装了Weex Ui组件库、业务组件库、UPX搭建营销模块、还有抹平多端差异的 Util 函数库，这样在我们上层可以长出我们众多的业务。
 
@@ -66,7 +66,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 那你可能会问 Weex 页面如何在飞猪、手淘、支付宝进行多端投放呢 ?
 这里有两种方式，第一种为**通过前端 URL 参数决定渲染为 Weex 还是 H5**
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/UAdGXDERTrhPuWCdUKyu.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/UAdGXDERTrhPuWCdUKyu.jpeg" class="lazyload img-zoom"/>
 
 `xxxx.html?_wx_tpl=xxxx.js`：前面为降级时的 H5 地址， 后面 `_wx_tpl` 带的参数代表 Weex JS 地址， 当容器发现 URL 带有 `_wx_tpl` 参数时, 会下载后面的 JS 地址然后用 Weex 容器渲染。
 
@@ -77,7 +77,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 
 ####  飞猪 Weex 业务大盘
 
- <img src="https://gw.alipayobjects.com/zos/rmsportal/xodsBNArvXGQaMMOJyMu.jpeg" width="800"/>
+ <img data-src="https://gw.alipayobjects.com/zos/rmsportal/xodsBNArvXGQaMMOJyMu.jpeg" class="lazyload img-zoom"/>
  
  Weex 并不是像外界某些人传言说没有什么公司在使用Weex的，反而是超过你的想象，以上是我们这边17年12月份前的一个相关weex页面的一览，大家可以在飞猪、手淘、支付宝里面找到这些页面，均是一份页面同时投放到多端的。
  
@@ -108,11 +108,11 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 
 经过一年多的建设，我们一步一步将 [Weex Ui](https://github.com/alibaba/weex-ui) 优化，整理，最终于20170930进行了开源，通过下图可以看到 Weex Ui 是怎么来的
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/HbThsElNGBLMMRbbTxyx.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/HbThsElNGBLMMRbbTxyx.jpeg" class="lazyload img-zoom"/>
 
 目前 Weex Ui 组件库包括7大类31个成熟的组件，同时并不是直接开源给大家使用，而是在内部已经使用了1年多后稳定后开源给大家使用，大家可以通过手淘、飞猪、任何浏览器扫码进行预览
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/MNIgWQQFnsXFVDgmXLrr.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/MNIgWQQFnsXFVDgmXLrr.jpeg" class="lazyload img-zoom"/>
 
 同时一个开源库的文档其实是后续发展中用户是否能快速上手的一个很大因素，Weex UI
 包括组件说明、使用规则、Demo展示、详细使用API、升级文档等等，可以让你快速使用。
@@ -121,25 +121,25 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 
 近期我们队 Weex Ui的使用者做过一次[问卷调查](https://render.alipay.com/p/f/weex-ui/questionnaire.html)，结果让我们很惊喜，并不是只有电商在使用，还很很多其他的体系在使用，包括工具类、企业应用、文娱、自媒体、新闻这些其实都是有使用的。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/AEJVShlmkpZAtlondEMv.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/AEJVShlmkpZAtlondEMv.jpeg" class="lazyload img-zoom"/>
 
 #### 组件化搭建你的 Weex 页面
 很多时候基础建设，其实为了给业务开发来加速，譬如接下来这个飞猪专线的页面就是通过我们的Weex Ui组件库来搭建起来的
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/IXRdWHrLXhhKOcZSPIEu.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/IXRdWHrLXhhKOcZSPIEu.jpeg" class="lazyload img-zoom"/>
 
 然而基础基础只能够解决通用组件的问题，其实还包括业务组件这一块，也即上图中的`your-item`组件,也即我们下面要说的 Weex 业务组件化
 
 ## 除了基础库，在 Weex Ui 层还可以做什么 ？
 #### Weex 业务组件化
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/dJgZKjtUqyJczzIbeUQJ.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/dJgZKjtUqyJczzIbeUQJ.jpeg" class="lazyload img-zoom"/>
 
 业务组件库更多是前端、后端、设计师之间的一个“约定”，通过一定规范共同让业务组件变得可复用。也即Weex代码中直接引入此组件，直接插入后端返回的原始数据，就可以生成设计师所设计出的商品卡片，最终可以做到**支撑任意 Weex 业务模块 投放到 任意 Weex 页面 中 任意位置 的能力**。
 
 那么应该怎么做呢？
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/JvdNJSPoMrpojagZAtut.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/JvdNJSPoMrpojagZAtut.jpeg" class="lazyload img-zoom"/>
 
 #### 可以自动化测试 Weex 吗 ？
 答案是可以的，之前通过[macacajs](https://macacajs.github.io)测试框架和Weex结合来弄，通过自定义一连串的手势、事件，最后通过用json来表明执行的顺序，可以做到，详细可见[视频地址>>>](http://p.tb.cn/rmsportal_7819_2026c3a73abfb162-1.mov)
@@ -164,11 +164,10 @@ Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/RmDWBkEtfKDVZLXLgHEp.png" width="400"/>
 
-
 #### 飞猪 Weex 双十一性能优化
 每年的双十一也就是我们Weex的一个战场，几乎所有会场页面均由Weex实现，如何让用户丝滑的逛我们的页面呢？期间我们也将之前很多经验包括优化技巧放到了双十一的会场页面，包括一些经验的整理。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/xzxwfrgmwGKMaVRcTMXF.png" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/xzxwfrgmwGKMaVRcTMXF.png" class="lazyload img-zoom"/>
 
 
 ## 回到开源
@@ -184,7 +183,7 @@ Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过
 
 说到共同促进，那么你可以做什么呢？ 其实可以做很多很多事情
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/WrZhBcWwQnEHuorIASWC.jpeg" width="800"/>
+<img data-src="https://gw.alipayobjects.com/zos/rmsportal/WrZhBcWwQnEHuorIASWC.jpeg" class="lazyload img-zoom"/>
 
 ## 晚上圆桌会议关于 Weex 组件方向讨论总结
 
