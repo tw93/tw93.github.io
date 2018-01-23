@@ -6,6 +6,8 @@ summary:    本文是2018年 Weex Conf 中议题《Weex + Ui》的内容文档�
 categories: Native-JS
 ---
 
+## Weex + Ui - Weex Conf 2018
+
 本文是2018年 Weex Conf 中议题《Weex + Ui》的内容文档整理，主要给大家介绍飞猪 Weex 技术体系从无到有的过程，包括 Weex Ui 组件库的开发和发展，重点分享在 Weex Ui 层建设的一些经验。
 
 文章较长，首先放上 Weex Ui 的开源地址，欢迎大家提PR，同时也可以通过 Star 来表示你的喜欢。
@@ -24,6 +26,8 @@ categories: Native-JS
 包括最开始的 Hybrid 开发，通过 Bridge 提供部分 Native
 能⼒来提升 H5 体验，譬如我们在H5里面可以直接获取App的定位信息、使用相机、播放视频、导航跳转等能力，业界也有Cordova、Ionic、Meteor这些成熟的方案。
 
+<img src="https://gw.alipayobjects.com/zos/rmsportal/YKtilLIfWxAyFhSrFzBi.jpeg" width="800"/>
+
 还有利用离线包体系通过提前将资源⽂件下载，访问时路由拦截加载本地资源，让我们的H5页面可以达到秒出、动态更新、弱网可用效果，内部有手淘Zcache、飞猪信鸽、支付宝九州这些成熟的系统。
 
 等到了16年左右，跨平台开发技术逐渐火起来后，一种全新的开发思路吸引这我们，也即用JS来写Native，⽤ Web 的开发体验构建⾼性能、可扩展的 Native 应⽤，同时真正获取上述所说的**快**和**体验**。
@@ -31,16 +35,16 @@ categories: Native-JS
 #### 业务对比分析
 那么为什么会选择 Weex 呢？其实和飞猪业务特点很有关系，同时又可以很好解决这些痛点。
 
-<img src="https://img.alicdn.com/tfs/TB1E899lyqAXuNjy1XdXXaYcVXa-1254-1152.png" width="400"/>
-
 飞猪**业务迭代速度快**，也需要快速上线；同时很多时候**景点和海外弱网使用**，同时要体验良好；其中最重要的一点是**多容器接入，适配飞猪、手淘、天猫、支付宝**，也即我们一次重要业务的开发需要一个iOS、一个Android同学来开发两端，同时由一个H5同学来开发兼容手淘、支付宝、UC的 Web 版本，也即一次业务发布涉及到多端同时开发、上线。
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/tTdJRPRQpdIPkIVvmUyU.jpeg" width="800"/>
 
 Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、天猫 Weex环境下完全 **Native体验**，同时Bundle 资源大小**较 H5 小很多**，加上富交互体验、长列表性能好非常适合商品列表页面和双十一场景，最重要的是真正让我们从3个人的开发减少到了1个人，其他2个人可以去做更多有意义的事情。
 
 
 接下来我们可以从下面这个展示来看Weex和H5业务的一个展示、数据对比，详细可看此[录制视频>>>](https://gw.alipayobjects.com/os/rmsportal/FptvGkFpdBXRPtuNGMdk.mp4)
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/gfihsXbEHKZozOEHddaw.jpeg" width="800"/>
+<video width="800" controls autoplay muted><source src="https://gw.alipayobjects.com/os/rmsportal/FptvGkFpdBXRPtuNGMdk.mp4" type="video/mp4"></video>
 
 这是一个业务逻辑复杂的页面，包括筛选、排序、日历选择、收藏、长列表、业务逻辑也很复杂的页面，重构成Weex以后，我们**首屏可用时间降级68%**、**Bundle大小直接减少了73%**，由于体验变好变快、让我们**页面转化率居然提升了14.5%**。
 
@@ -50,6 +54,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 ## 飞猪 Weex 技术体系
 
 #### 架构图
+
 <img src="https://gw.alipayobjects.com/zos/rmsportal/adNiyVpYLLOwVXUbrHFV.jpeg" width="800"/>
 
 可以从底层一直往上看，底层由我们APP的Framework / Libraries / OS Kernel等组成，我们在Weex的上下层和手淘、天猫一起设计出一套统一的Api设计，包括接口请求、数据埋点、路由跳转、网络状态、支付功能、导航栏定制等这一系列的通用服务，在 Weex 上面我们封装了Weex Ui组件库、业务组件库、UPX搭建营销模块、还有抹平多端差异的 Util 函数库，这样在我们上层可以长出我们众多的业务。
@@ -85,7 +90,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 #### Weex 不适合复杂场景 ？
 大家可以看下如下这几个场景的[视频展示>>>](https://gw.alipayobjects.com/os/rmsportal/SZwliPeMLRmyCyVvLYIp.mp4)
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/ZQUVdpTNRBUIFuEnyUzA.jpeg" width="600"/>
+<video width="800" controls autoplay muted><source src="https://gw.alipayobjects.com/os/rmsportal/SZwliPeMLRmyCyVvLYIp.mp4" type="video/mp4"></video>
 
 大家可能会觉得Weex不适合复杂的场景，其实也不一定，通过很多方式是可以做到复杂场景的支持，包括**双11**超长列表滚动，30多屏数据，快速滚动很顺滑。
 
@@ -135,6 +140,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 业务组件库更多是前端、后端、设计师之间的一个“约定”，通过一定规范共同让业务组件变得可复用。也即Weex代码中直接引入此组件，直接插入后端返回的原始数据，就可以生成设计师所设计出的商品卡片，最终可以做到**支撑任意 Weex 业务模块 投放到 任意 Weex 页面 中 任意位置 的能力**。
 
 那么应该怎么做呢？
+
 <img src="https://gw.alipayobjects.com/zos/rmsportal/JvdNJSPoMrpojagZAtut.jpeg" width="800"/>
 
 #### 可以自动化测试 Weex 吗 ？
@@ -148,17 +154,18 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 6、自动测试Weex Ui，包括打开组件、点击交互逻辑
 7、自动各个页面运行截图，并将测试情况邮件给测试方
 
-<img src="https://img.alicdn.com/tfs/TB1gvFFn2DH8KJjy1XcXXcpdXXa-1556-924.png" width="800"/>
+<video width="800" controls autoplay muted><source src="http://p.tb.cn/rmsportal_7819_2026c3a73abfb162-1.mov" type="video/mp4"></video>
 
 #### Weex 无障碍优化
 Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过最快的方式找到自己想要的信息。
 同时当盲人访问我们Weex页面时候，让他们对 Weex 是可感知的、可操作的、可理解的、同时页面也是鲁棒的。譬如如下这个[演示>>>](http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov)：
 
-<img src="https://img.alicdn.com/tfs/TB1QlDSlyqAXuNjy1XdXXaYcVXa-510-906.png" width="240"/>
+<video width="240" controls><source src="http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov" type="video/mp4"></video>
 
 无障碍在Weex实现起来是很简单的，譬如如下实现：
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/RmDWBkEtfKDVZLXLgHEp.png" width="400"/>
+
 
 #### 飞猪 Weex 双十一性能优化
 每年的双十一也就是我们Weex的一个战场，几乎所有会场页面均由Weex实现，如何让用户丝滑的逛我们的页面呢？期间我们也将之前很多经验包括优化技巧放到了双十一的会场页面，包括一些经验的整理。
@@ -178,6 +185,7 @@ Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过
 其实更多的是想大家一起参与进来，共同促进我们 Weex 的发展。
 
 说到共同促进，那么你可以做什么呢？ 其实可以做很多很多事情
+
 <img src="https://gw.alipayobjects.com/zos/rmsportal/WrZhBcWwQnEHuorIASWC.jpeg" width="800"/>
 
 ## 晚上圆桌会议关于 Weex 组件方向讨论总结
@@ -187,7 +195,7 @@ Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过
 - 稳定性，Native 组件不像 weex 上层的组件可调节性大，所以需要注意好 Native 组件一定需要没有Bug，防止修复和更新麻烦，同时 Native 组件一开始应该将大部分情况做成可配置化，防止频繁更新，导致需要适配很多版本
 - 原子性，不建议一个组件同时做很多事情，应该是单一的功能，然后通过搭配的方式来得到更多功能
 
-#### 2.Weex 组件开发和实践过程中的一些经验？
+#### 2.weex 组件开发和实践过程中的一些经验？
 - 811原则，默认80%的功能应该是不需要用户配置很多参数，10%的地方用户可以通过配置一些参数来达到目的，10%的稀有情况可以暂时不考虑，可能这里会花费很多时间开发，所以可以等到有业务需要使用时候，再更新上去
 - 统一收口原则，为了避免后续组件变成一个大杂烩，后续迭代视觉交互、新功能的增加需要将通用性考虑进去，这里需要一个人统一来收口、开发维护此组件，可以避免很多“业务特性”来干扰组件的可用性
 - 性能体验的优化，Weex 组件比页面的编写更应该保证他的性能体验
@@ -201,6 +209,7 @@ Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过
 - Native的布局方式需要向H5的开发灵活性学习，逐步使用自动布局来实现，同时引入弹性思路开发，避免绝对计算
 - 数据绑定方面会越来越便捷，譬如和MVVM思路一样，数据变化后，视图立马修改，而不是手动去触发
 
+
 ## More
 
 大家可以通过用钉钉扫一扫如下二维码，大家一起来讨论交流：
@@ -211,3 +220,4 @@ Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过
 - 官网地址：<https://alibaba.github.io/weex-ui>
 - Github地址：<https://github.com/alibaba/weex-ui>
 - 云相册直播地址：<http://v.alltuu.com/album?id=1004641019>
+
