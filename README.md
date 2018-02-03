@@ -25,7 +25,7 @@
   * When Discus failed to load, It will be a good suggestion.
   * Add Buy Me A Coffee by using WeChat payment.
 
-## [PC Preview](http://tw93.github.io/){:target="_blank"}
+## [PC Preview](http://tw93.github.io/)
 
 ![demo.png](http://gtms02.alicdn.com/tfs/TB1W3NFQVXXXXaUXpXXXXXXXXXX-2316-1537.jpg)
 
