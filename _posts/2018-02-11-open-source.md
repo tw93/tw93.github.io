@@ -28,13 +28,13 @@ categories: Life
 
 <video width="600" controls preload="metadata" src="https://gw.alipayobjects.com/os/rmsportal/OgUYNGxBSsvKLCFeLRXE.mp4"></video>
 
-#### 开源的东西对开发者是有用的
+#### 1：开源的东西对开发者是有用的
 
 很多时候开源并不是为了开源而去开源，更多是这个东西真正对于开发者是有用处， **可提高开发效率、更多的实现输入、最佳实践的汇总**，对于使用者是可以写出更好的代码，早点下班。想起在开源那一周，无广泛推广下上了 Github trending，安静很激动。
 
 ![](https://gw.alipayobjects.com/zos/rmsportal/uCCNieRPMCzohonSFGGI.jpg)
 
-#### 由衷喜欢的心态
+#### 2：由衷喜欢的心态
 
 自己由衷的喜欢和热情，将其当做自己的**作品**来弄比 任务安排 效果会好很多。
 
@@ -42,7 +42,7 @@ categories: Life
 
 后面开源发展主要是共建 weex-toolkit 让其更好支持 Weex Ui、欠缺组件的补全 + 现有组件的增强、继续扩展边界、引入更多富交互体验 + 组件的无障碍优化、简易的使用方式 + 详细的中英文档等等工作。
 
-#### 开放分享的心态
+#### 3：开放分享的心态
 
 很多时候只有东西被用大家使用起来后，有人吐槽建议，吸引更多有兴趣的同学一起参考进来弄，更多好的思路的输入，才能更好促进其发展，目前已经吸引网易、腾讯、仟和网络科技、博瑞立方网络等公司的同学一起参考进来弄，希望变成一个大家的 Weex Ui 库，而不是阿里的。
 
