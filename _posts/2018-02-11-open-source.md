@@ -50,4 +50,6 @@ categories: Life
 
 **Please feel free to use and contribute to the development.**
 
+> Only the combination of Great Vision and Bad Code creates Great Communities !
+
 以上，是我对开源的一些理解，可能没有说太清楚，欢迎一起讨论。
