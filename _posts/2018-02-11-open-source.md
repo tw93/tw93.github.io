@@ -6,7 +6,7 @@ summary:    知乎的一个问答记录，`该以怎样的心态对待开源`?
 categories: Life
 ---
 
-知乎的一个问答记录，[该以怎样的心态对待开源](https://www.zhihu.com/question/266954088)?
+知乎的一个问答记录，[该以怎样的心态对待开源](https://www.zhihu.com/question/266954088){:target="_blank"}?
 
 题中有两个问题，第一个是用别人的开源项目应该保持什么心态？第二个是自己开源一个产品是应该保持什么心态？
 
@@ -24,7 +24,7 @@ categories: Life
 
 ## 自己开源一个产品应该保持什么心态 ？
 
-这里打算和大家分享一下 [Weex Ui](https://github.com/alibaba/weex-ui) 开源的一些事情和心态。
+这里打算和大家分享一下 [Weex Ui](https://github.com/alibaba/weex-ui){:target="_blank"} 开源的一些事情和心态。
 
 <video width="600" controls preload="metadata" src="https://gw.alipayobjects.com/os/rmsportal/OgUYNGxBSsvKLCFeLRXE.mp4"></video>
 
@@ -32,13 +32,13 @@ categories: Life
 
 很多时候开源并不是为了开源而去开源，更多是这个东西真正对于开发者是有用处， **可提高开发效率、更多的实现输入、最佳实践的汇总**，对于使用者是可以写出更好的代码，早点下班。想起在开源那一周，无广泛推广下上了 Github trending，安静很激动。
 
-![](https://gw.alipayobjects.com/zos/rmsportal/uCCNieRPMCzohonSFGGI.jpg)
+![](https://gw.alipayobjects.com/zos/rmsportal/uCCNieRPMCzohonSFGGI.jpg){:class="img-zoom"}
 
 #### 2：由衷喜欢的心态
 
 自己由衷的喜欢和热情，将其当做自己的**作品**来弄比 任务安排 效果会好很多。
 
-![](https://img.alicdn.com/tfs/TB1zUTTX1SSBuNjy0FlXXbBpVXa-1920-1080.png)
+![](https://img.alicdn.com/tfs/TB1zUTTX1SSBuNjy0FlXXbBpVXa-1920-1080.png){:class="img-zoom"}
 
 后面开源发展主要是共建 weex-toolkit 让其更好支持 Weex Ui、欠缺组件的补全 + 现有组件的增强、继续扩展边界、引入更多富交互体验 + 组件的无障碍优化、简易的使用方式 + 详细的中英文档等等工作。
 
