@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      该以怎样的心态对待开源 ?
+title:      该以怎样的心态对待开源？
 date:       2018-02-11 16:00:00
 summary:    知乎的一个问答记录，`该以怎样的心态对待开源`?
 categories: Life
