@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!isPC()) {
     return;
   }
-  var beforeScrollTop = document.body.scrollTop;
+  var beforeScrollTop = document.documentElement.scrollTop;
   document.addEventListener("scroll", function () {
-    var afterScrollTop = document.body.scrollTop;
+    var afterScrollTop = document.documentElement.scrollTop;
     var delta = afterScrollTop - beforeScrollTop;
     document.getElementById("J_header").setAttribute('class', (delta > 0 && afterScrollTop > 0) ? 'header-menu header-menu-overflow' : 'header-menu');
     beforeScrollTop = afterScrollTop;
