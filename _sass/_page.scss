@@ -170,6 +170,7 @@ body {
   }
   #gitalk-container {
     margin: 20px 2px;
+    padding: 15px;
     background-color: $white;
     box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
     @include rounded(3px);
