@@ -31,7 +31,7 @@
 {% if page.comments != false %}
 <script type="text/javascript">
   setTimeout(function(){
-    var gitalk = new Gitalk({
+    new Gitalk({
         clientID: 'b1ca675a6fc7acdfe081',
         clientSecret: '3b06ee6ea5d53f356c67c58ce5ec8b7d373bfabf',
         repo: 'tw93.github.io',
@@ -40,7 +40,7 @@
         id: md5(location.pathname),
         distractionFreeMode: false
       }).render('gitalk-container');
-  },100)
+  },300)
 </script>
 {% endif %}
 
