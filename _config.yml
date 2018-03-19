@@ -42,7 +42,7 @@ page_layout: page
 titlecase: true
 
 showBuyCoffee: true
-payImage: WechatIMG1.jpeg?imageslim
+payImage: //gw.alipayobjects.com/zos/rmsportal/uRpNPOjMBkFoStRoMxee.JPG
 
 include: [".htaccess"]
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","node_modules"]
