@@ -24,7 +24,7 @@ hideHomeActive: true
 - [无障碍的航旅](http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D_E7_9A_84_E8_88_AA_E6_97_85.pdf){:target="_blank"} &nbsp;&nbsp;(201604)
 - [国内机票邂逅 React](https://gw.alipayobjects.com/os/rmsportal/fWsyMpANekuMnOSIOYRK.pdf){:target="_blank"} &nbsp;&nbsp;(201603)
 
-## Follow Me
+## Follow
 
 * [Github](https://github.com/{{site.github}}){:target="_blank"}
 * [微博](http://weibo.com/{{site.weibo}}){:target="_blank"}
