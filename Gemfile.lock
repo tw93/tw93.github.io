@@ -6,7 +6,7 @@ GEM
     colorator (1.1.0)
     cosy-jekyll-theme (1.0.8)
       jekyll (~> 3.3)
-    ffi (1.9.17)
+    ffi (1.11.2)
     forwardable-extended (2.6.0)
     jekyll (3.3.1)
       addressable (~> 2.4)
