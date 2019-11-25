@@ -6,4 +6,4 @@ summary:    给内部同学分享的关于如何做小的技术产品以及应�
 categories: Interactive
 ---
 
-<object data="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" width="1000" height="1000" type='application/pdf'/>
+<object data="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" width="100%" height="1000" type='application/pdf'/>
