@@ -601,7 +601,7 @@ iframe {
     @include transition(0.4s all ease-in-out);
     @include transform(scale(0) perspective(600px) rotateX(45deg));
     &.active {
-      height: 450px;
+      height: 300px;
       top: 38px;
       @include transform(none);
     }
