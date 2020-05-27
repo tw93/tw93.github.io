@@ -25,7 +25,7 @@ sass:
   style: compressed
 
 permalink:   /:year-:month-:day/:title.html
-assetUrl: http://7vihmc.com1.z0.glb.clouddn.com/
+assetUrl: //tw93.github.io/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 
 
