@@ -42,7 +42,7 @@ page_layout: page
 titlecase: true
 
 showBuyCoffee: true
-payImage: //gw.alipayobjects.com/zos/rmsportal/uRpNPOjMBkFoStRoMxee.JPG
+payImage: //qpluspicture.oss-cn-beijing.aliyuncs.com/ruosWu/r1KYBg.jpg
 
 include: [".htaccess"]
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","node_modules"]
