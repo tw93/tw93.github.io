@@ -39,7 +39,7 @@ Weex Ui 的定位为 **一套轻量、富交互、高性能的 Weex 上层  Ui �
 - 国内公司使用不完全统计
 
   <img src="https://img.alicdn.com/tfs/TB1Rz9dhCtYBeNjSspaXXaOOFXa-1576-318.png" width="500"/>
- 
+
 - 给 Weex Ui 贡献代码的同学
 
   <img src="https://img.alicdn.com/tfs/TB1U8sghgmTBuNjy1XbXXaMrVXa-1800-196.png" width="600"/>
@@ -70,4 +70,4 @@ Weex Ui 的定位为 **一套轻量、富交互、高性能的 Weex 上层  Ui �
 
 ### 其他链接
 - [Weex Ui 官网](https://alibaba.github.io/weex-ui/#/)
-- [Weex + Ui - Weex Conf 2018](http://tw93.com/2018-01-21/weex-conf-weex-ui.html)
+- [Weex + Ui - Weex Conf 2018](http://tw93.github.io/2018-01-21/weex-conf-weex-ui.html)
