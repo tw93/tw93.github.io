@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var qrTextEl = document.getElementById('J_qr_text');
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
-  isShowQr && loadScript('http://7vihmc.com1.z0.glb.clouddn.com/qrcode.min.js', function () {
+  isShowQr && loadScript('https://qpluspicture.oss-cn-beijing.aliyuncs.com/XIa3FV/qrcode.min.js', function () {
     QRCode && new QRCode(document.getElementById("J_qr_code"), {
       width: 128,
       height: 128,
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var zoomImgs = document.querySelectorAll('.img-zoom');
-  (zoomImgs && zoomImgs.length > 0) && loadScript("http://7vihmc.com1.z0.glb.clouddn.com/intense.js", function () {
+  (zoomImgs && zoomImgs.length > 0) && loadScript("https://qpluspicture.oss-cn-beijing.aliyuncs.com/Jl790T/intense.min.js", function () {
     Intense && Intense(zoomImgs);
   });
 
