@@ -13,6 +13,8 @@ menu:
     url: '/categories'
   - title: 'About'
     url: '/about'
+  - title: 'Github'
+    url: 'https://github.com/tw93'
 
 timezone:    Africa/El_Aaiun
 locale:      zh_CN
