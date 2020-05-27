@@ -6,12 +6,22 @@ body {
   overflow-x: hidden;
 }
 
+iframe {
+  border: 0;
+}
 // Main
 // --------------------------------------------------
 .entry,
 .hentry {
   @include clearfix;
-  h1, h2, h3, h4, h5, h6, p, li {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
     word-wrap: break-word;
   }
 }
@@ -34,14 +44,15 @@ body {
       margin: 0 20px;
     }
     .qr-text {
-      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVRYR9VXWw7DIAwbN+Yo3HjTJqUfqSI/FNaWvwpIjeOYMOac75cw1lrjuzz2xXeEUOMNdcM2APkkmRR0YgSsincwcBsAOSXVyVRGgoEc78TAYwBk1SOm2hnYBqCyhJxzVgMonl0F7QBYM6ycL2uAjWc7IdIADYBdyDqjGu93sTij0oAaqzQiVNeVdaNqyfPXA6jEhHKunrRaf2gA5bTrh6fLSBWNygxab1cB8gFWpLYRdaXkPgB2tWSIKfs2ZDUgA3BbMreM23rCvwNwU5B9wWZgGwDUw7EvICS+mLerwM15+TBh7wS2J2T7CdsJXQ1k5j7FF35r3ynsoAAAAABJRU5ErkJggg==) no-repeat;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVRYR9VXWw7DIAwbN+Yo3HjTJqUfqSI/FNaWvwpIjeOYMOac75cw1lrjuzz2xXeEUOMNdcM2APkkmRR0YgSsincwcBsAOSXVyVRGgoEc78TAYwBk1SOm2hnYBqCyhJxzVgMonl0F7QBYM6ycL2uAjWc7IdIADYBdyDqjGu93sTij0oAaqzQiVNeVdaNqyfPXA6jEhHKunrRaf2gA5bTrh6fLSBWNygxab1cB8gFWpLYRdaXkPgB2tWSIKfs2ZDUgA3BbMreM23rCvwNwU5B9wWZgGwDUw7EvICS+mLerwM15+TBh7wS2J2T7CdsJXQ1k5j7FF35r3ynsoAAAAABJRU5ErkJggg==)
+        no-repeat;
       background-size: 16px 16px;
       width: 16px;
       height: 16px;
       display: none;
       position: relative;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -20px;
         right: -20px;
@@ -52,7 +63,7 @@ body {
         .qr-code {
           width: 128px;
           opacity: 1;
-          @include transform(none)
+          @include transform(none);
         }
       }
     }
@@ -71,7 +82,7 @@ body {
         background-color: #fff;
       }
     }
-    @media #{$medium}{
+    @media #{$medium} {
       @include font-size(16);
       .qr-text {
         display: inline-block;
@@ -466,7 +477,8 @@ body {
       color: $text-color;
     }
   }
-  &.active, &:hover {
+  &.active,
+  &:hover {
     a {
       color: $header-active;
     }
@@ -501,7 +513,7 @@ body {
     padding-left: 5px;
     vertical-align: middle;
     height: $menu-height;
-    @media #{$medium}{
+    @media #{$medium} {
       display: table-cell;
     }
   }
