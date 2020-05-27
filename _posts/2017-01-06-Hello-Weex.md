@@ -3,7 +3,7 @@ layout:     post
 title:      Hello Weex
 date:       2017-01-06 16:00:00
 summary:    本周给部门同学分享了《Hello Weex》这个Topic，现整理成文字版本，分享给关注Weex的同学，主要涉及:Module && Component、Weex Architecture、 Weex Others ...
-categories: Native-JS
+categories: Share
 ---
 
 <img data-src="http://img.alicdn.com/tfs/TB1qlHxPXXXXXaFaXXXXXXXXXXX-2880-1800.jpg" class="lazyload" />

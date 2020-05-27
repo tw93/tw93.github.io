@@ -3,7 +3,7 @@ layout:     post
 title:       Weex + Ui - Weex Conf 2018
 date:       2018-01-21 16:00:00
 summary:    本文是2018年 Weex Conf 中议题《Weex + Ui》的内容文档整理，主要给大家介绍飞猪 Weex 技术体系从无到有的过程，包括 Weex Ui 组件库的开发和发展，重点分享在 Weex Ui 层建设的一些经验。
-categories: Native-JS
+categories: Share
 ---
 
 本文是 2018 年 Weex Conf 中议题《Weex + Ui》的内容文档整理，主要给大家介绍飞猪 Weex 技术体系从无到有的过程，包括 Weex Ui 组件库的开发和发展，重点分享在 Weex Ui 层建设的一些经验。
@@ -77,13 +77,13 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 #### 飞猪 Weex 业务大盘
 
  <img data-src="https://gw.alipayobjects.com/zos/rmsportal/xodsBNArvXGQaMMOJyMu.jpeg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
- 
+
  Weex 并不是像外界某些人传言说没有什么公司在使用Weex的，反而是超过你的想象，以上是我们这边17年12月份前的一个相关weex页面的一览，大家可以在飞猪、手淘、支付宝里面找到这些页面，均是一份页面同时投放到多端的。
- 
+
 #### 什么业务适合用 Weex ？
  包括众多的营销业务、首页、频道、搜索列表、正向流程、简单详情、富交互页面都是很适合使用Weex来开发的，同时在我们这边也有一个对应的原则包括 **展示类项目优先使用 Weex**、**重构/新项目优先使用 Weex**、深度垂直类目尝试使用 Weex。
- 
- 
+
+
 #### Weex 不适合复杂场景 ？
 大家可以看下如下这几个场景的[视频展示>>>](https://gw.alipayobjects.com/os/rmsportal/SZwliPeMLRmyCyVvLYIp.mp4)
 
