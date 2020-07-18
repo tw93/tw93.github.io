@@ -51,5 +51,6 @@ exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","nod
 gems:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-feed
 
 theme: cosy-jekyll-theme
