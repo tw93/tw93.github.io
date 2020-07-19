@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      运营后台的交互设计【分享】
+title:      运营后台的交互设计分享
 date:       2020-03-18 16:00:00
 summary:    给内部同学分享的中后台交互设计的思考
 categories: Share

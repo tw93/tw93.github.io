@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 产品和开源【分享】
+title: 产品和开源分享
 date: 2019-11-25 16:00:00
 summary: 给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？
 categories: Share
