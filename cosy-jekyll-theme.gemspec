@@ -1,8 +1,8 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "cosy"
-  spec.version       = "1.0.0"
+  spec.name          = "cosy-jekyll-theme"
+  spec.version       = "2.0.0"
   spec.authors       = ["Tw93"]
   spec.email         = ["tangweiyuanyou@gmail.com"]
 

@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
 gem 'jekyll-paginate'
-gem 'cosy'
+gem 'cosy-jekyll-theme'
 gem 'jekyll-sitemap'
