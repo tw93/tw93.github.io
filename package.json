@@ -12,7 +12,9 @@
   "scripts": {
     "dev": "bundle exec jekyll serve --watch",
     "build": "jekyll build",
-    "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all"
+    "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all",
+    "gemb": "gem build cosy-jekyll-theme.gemspec",
+    "gemp": "gem push cosy-jekyll-theme-*.gem"
   },
   "engines": {
     "node": ">= 0.10.0"
