@@ -5,7 +5,7 @@
 - Concerned about the front-end new technology and new thinking.
 - The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](http://tw93.github.io/about/).
 
-## [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme)
+## Feature
 
 - cosy-jekyll-theme is a responsive blog template providing a good reading experience.
 - **No jQuery**, No other redundant resources.
