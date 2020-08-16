@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.6)
-    cosy-jekyll (1.0.8)
+    cosy (1.0.8)
       jekyll (~> 3.3)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -61,7 +61,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cosy-jekyll
+  cosy
   jekyll-paginate
   jekyll-sitemap
 

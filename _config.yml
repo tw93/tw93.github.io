@@ -53,4 +53,4 @@ gems:
   - jekyll-sitemap
   - jekyll-feed
 
-theme: cosy-jekyll
+theme: cosy
