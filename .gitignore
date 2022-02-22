@@ -6,3 +6,4 @@ _site
 node_modules
 # Ignore the config file that's used for gh-pages.
 _config.gh-pages.yml
+.jekyll-cache
