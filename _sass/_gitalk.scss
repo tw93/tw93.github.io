@@ -763,7 +763,7 @@
   height: 100%;
 }
 .gt-container .gt-header-controls  .gt-btn-preview{
-  margin-right: 16px;
+  margin-left: 16px;
 }
 .gt-container .gt-ico-github svg {
   fill: inherit;
@@ -1050,6 +1050,8 @@
   .gt-container .gt-header-controls .gt-btn {
     float: none;
     width: 100%;
+    margin-bottom: 10px;
+    margin-left: 0;
   }
 }
 .gt-container:after {
