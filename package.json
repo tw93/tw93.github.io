@@ -14,9 +14,6 @@
     "build": "jekyll build",
     "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all"
   },
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "devDependencies": {
     "uglify-js": "^2.7.5"
   }
