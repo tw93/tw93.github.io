@@ -1,9 +1,9 @@
-# [tw93.github.io](http://tw93.github.io/)
+# [tw93.fun](http://tw93.fun/)
 
 - This is Tw93's front-end technology blog.
 - Commonly used to record learning and research front-end technology.
 - Concerned about the front-end new technology and new thinking.
-- The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](http://tw93.github.io/about/).
+- The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](http://tw93.fun/about/).
 
 ## Features
 
@@ -25,7 +25,7 @@
   - When Discus failed to load, It will be a good suggestion.
   - Add Buy Me A Coffee by using WeChat payment.
 
-## [PC Preview](http://tw93.github.io/)
+## [PC Preview](https://tw93.fun)
 
 ![demo.png](http://gtms02.alicdn.com/tfs/TB1W3NFQVXXXXaUXpXXXXXXXXXX-2316-1537.jpg)
 
