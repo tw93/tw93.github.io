@@ -3,8 +3,6 @@ GEM
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    bundle (0.0.1)
-      bundler
     colorator (1.1.0)
     concurrent-ruby (1.1.10)
     em-websocket (0.5.3)
@@ -66,9 +64,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundle
+  jekyll
   jekyll-paginate
   jekyll-sitemap
 
 BUNDLED WITH
-   1.17.2
+   2.3.15
