@@ -10,6 +10,3 @@ PLATFORMS
 DEPENDENCIES
   jekyll-paginate
   jekyll-sitemap
-
-BUNDLED WITH
-   1.17.2
