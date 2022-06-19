@@ -1,9 +1,9 @@
-# [tw93.fun](http://tw93.fun/)
+# [tw93.fun](https://tw93.fun)
 
 - This is Tw93's front-end technology blog.
 - Commonly used to record learning and research front-end technology.
 - Concerned about the front-end new technology and new thinking.
-- The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](http://tw93.fun/about/).
+- The blog theme named [cosy-jekyll-theme](https://rubygems.org/gems/cosy-jekyll-theme) is created by [Tw93](https://tw93.fun/about/).
 
 ## Features
 
