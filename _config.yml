@@ -10,7 +10,7 @@ disqus_shortname: tw93
 url: https://tw93.fun
 menu:
   - title: 'Categories'
-    url: '/categories'
+    url: '/categories.html'
   - title: 'About'
     url: '/about'
   - title: 'Github'
