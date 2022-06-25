@@ -30,10 +30,6 @@ Bear 是真的漂亮，但是很多 Markdown 格式都不兼容，最后还是�
 
 刚好周末做了一个官网用纯 HTML 搞的，比较快，同时软件也支持了英文，如下，顿时觉得我是一个野生设计师的感觉了。
 
-## <https://miaoyan.vercel.app/>
+## <https://miaoyan.app/>
 
 ![png](https://gw.alipayobjects.com/zos/k/s8/SCR-20220613-my4.png)
-
-## 最后
-
-假如你觉得好用，可以帮忙提提建议，比如说你觉得哪些好用的功能的功能可以加上去，或者去 [Product Hunt](https://www.producthunt.com/posts/miaoyan) 点个赞，让老外也来试试效果。
