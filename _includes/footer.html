@@ -1,6 +1,14 @@
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    &copy; 2015~{{ site.time | date: '%Y' }} Using <a href="https://github.com/tw93/tw93.github.io" rel="nofollow" target="_blank" class="need_dotted">cosy-jekyll-theme</a> by Tw93.
+    &copy; 2015~{{ site.time | date: '%Y' }} Using
+    <a
+      href="https://github.com/tw93/tw93.github.io"
+      rel="nofollow"
+      target="_blank"
+      class="need_dotted"
+      >cosy-jekyll-theme</a
+    >
+    by Tw93.
   </footer>
 </div>
 
@@ -11,45 +19,53 @@
   setTimeout(function () {
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
       a.async = 1;
       a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      'script',
+      '//www.google-analytics.com/analytics.js',
+      'ga',
+    );
 
     ga('create', '{{ site.google_analytics }}', 'auto');
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
   }, 3000);
 </script>
-{% endif %}
-
-{% if page.comments != false %}
+{% endif %} {% if page.comments != false %}
 <script type="text/javascript">
-  setTimeout(function(){
+  setTimeout(function () {
     new Gitalk({
-        clientID: 'ca11229a5275e8e1c2fd',
-        clientSecret: '61557a125b1b9c0db677239575f816f64114845f',
-        repo: 'tw93.github.io',
-        owner: 'tw93',
-        admin: ['tw93'],
-        id: location.pathname,
-        distractionFreeMode: false
-      }).render('gitalk-container');
-  },300)
+      clientID: 'ca11229a5275e8e1c2fd',
+      clientSecret: '61557a125b1b9c0db677239575f816f64114845f',
+      repo: 'tw93.github.io',
+      owner: 'tw93',
+      admin: ['tw93'],
+      id: location.pathname,
+      distractionFreeMode: false,
+    }).render('gitalk-container');
+  }, 300);
 </script>
-{% endif %}
-
-{% if page.url=="/" %}
+{% endif %} {% if page.url=="/" %}
 <script>
   function hereDoc(f) {
-    return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '');
+    return f
+      .toString()
+      .replace(/^[^\/]+\/\*!?\s?/, '')
+      .replace(/\*\/[^\/]+$/, '');
   }
-  var string = hereDoc(function () {/*
+  var string = hereDoc(function () {
+    /*
 
 
     _                               ___                  _____           _       _
@@ -66,3 +82,12 @@
   console.log(string);
 </script>
 {% endif %}
+
+<script>
+  var links = document.links;
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].hostname != window.location.hostname) {
+      links[i].target = '_blank';
+    }
+  }
+</script>
