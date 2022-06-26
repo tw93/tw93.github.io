@@ -16,7 +16,7 @@ menu:
   - title: 'Github'
     url: 'https://github.com/tw93'
 
-timezone:    Africa/El_Aaiun
+timezone:    Asia/Shanghai
 locale:      zh_CN
 lang:      zh-cmn-Hans
 future:      true
