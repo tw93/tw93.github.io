@@ -6,15 +6,6 @@
   {% if page.tags %}
   <meta name="keywords" content="{{ page.tags | join: ', ' }}">
   {% endif %}
-  <!-- Open Graph -->
-  <meta property="og:locale" content="{{ site.locale }}">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description"
-        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:site_name" content="{{ site.title }}">
-
 
 {% if page.layout == "post" %}
 <meta name="twitter:card" content="summary_large_image" />
@@ -27,6 +18,15 @@
 <meta name="twitter:image" content="https://qpluspicture.oss-cn-beijing.aliyuncs.com/dnTxkU/1.png" />
 {% endif %}
 {% endif %}
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="{{ site.locale }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
 
   {% if site.baidu_verify %}
   <meta name="baidu-site-verification" content="{{site.baidu_verify}}"/>
