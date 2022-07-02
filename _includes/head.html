@@ -18,14 +18,15 @@
 
 {% if page.layout == "post" %}
 <meta name="twitter:creator" content="@hiTw93">
-<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="{{ site.url }}" />
 <meta name="twitter:url" content="{{ site.url }}{{page.url}}" />
 <meta name="twitter:title" content="{{ page.title }} - Tw93" />
 <meta name="twitter:description" content="{{page.summary}}" />
 {% if page.feature %}
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="{{ page.feature }}" />
 {% else %}
+<meta name="twitter:card" content="summary" />
 <meta name="twitter:image" content="https://qpluspicture.oss-cn-beijing.aliyuncs.com/vblofT/1.png" />
 {% endif %}
 {% endif %}
