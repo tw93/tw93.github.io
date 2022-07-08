@@ -8,8 +8,8 @@ hideHomeActive: true
 ## About Me
 
 * Now working in Alibaba [Fliggy](https://www.fliggy.com/){:target="_blank"} FE Team.
-* The main direction is JavaScript and iOS.
-* Also using Node、PHP、Python.
+* The main direction is JavaScript and Swift.
+* Also using Node、PHP、Python、Rust.
 * Recently in using Serverless and Micro frontends.
 * [Love reading](http://book.douban.com/people/77063977/){:target="_blank"} in my spare time.
 * Love writing clean and tidy code.
