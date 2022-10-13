@@ -9,12 +9,12 @@ disqus_shortname: tw93
 
 url: https://tw93.fun
 menu:
-  - title: 'Weekly'
-    url: 'https://weekly.tw93.fun/'
   - title: 'Categories'
     url: '/categories.html'
   - title: 'About'
     url: '/about'
+  - title: 'Weekly'
+    url: 'https://weekly.tw93.fun/'
   - title: 'Github'
     url: 'https://github.com/tw93'
   - title: 'RSS'
