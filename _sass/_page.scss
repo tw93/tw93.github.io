@@ -359,14 +359,10 @@ iframe {
   @include clearfix;
   margin: 14px auto 30px auto;
   text-align: center;
-  color: lighten($text-color, 20);
   @include font-rem(14);
   @media #{$medium} {
     margin: 8px auto 35px auto;
     @include font-rem(16);
-  }
-  a {
-    color: lighten($text-color, 20);
   }
 }
 
