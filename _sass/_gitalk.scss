@@ -731,8 +731,8 @@
   color: #222;
 }
 .gt-container a:hover {
-  color: #81a6ed;
-  border-color: #81a6ed;
+  color: #000;
+  border-color: #000;
 }
 .gt-container a.is--active {
   color: #333;
@@ -754,6 +754,9 @@
   width: 100%;
   height: 100%;
   fill: #222;
+}
+.gt-container .gt-header-controls  .gt-btn-preview{
+  margin-left: 12px;
 }
 .gt-container .gt-ico {
   display: inline-block;
@@ -844,18 +847,23 @@
   }
 }
 .gt-container .gt-btn {
-  padding: 0.75em 1.25em;
+  padding: 0.75em 1em;
   display: inline-block;
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  border: 1px solid #222;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #222;
+  border: 2px solid #222;
   color: #fff;
   outline: none;
   font-size: 0.75em;
+}
+.gt-container .gt-btn:hover {
+  background-color: #fff;
+  border: 2px solid #222;
+  color: #222222;
 }
 .gt-container .gt-btn-text {
   font-weight: 400;
@@ -881,11 +889,11 @@
 }
 .gt-container .gt-btn-preview:hover {
   background-color: #f2f2f2;
-  border-color: #81a6ed;
+  border-color: #000;
 }
 .gt-container .gt-btn-public:hover {
-  background-color: #81a6ed;
-  border-color: #81a6ed;
+  background-color: #000;
+  border-color: #000;
 }
 .gt-container .gt-error {
   text-align: center;
@@ -960,6 +968,7 @@
   margin-left: 0.375em;
 }
 .gt-container .gt-copyright {
+  display: none;
   margin: 0 0.9375em 0.5em;
   border-top: 1px solid #e9e9e9;
   padding-top: 0.5em;
