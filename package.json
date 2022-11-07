@@ -1,5 +1,5 @@
 {
-  "name": "Tw93",
+  "name": "tw93",
   "author": "侑夕<tw93@qq.com>",
   "homepage": "https://tw93.fun",
   "repository": {
@@ -11,6 +11,7 @@
   },
   "scripts": {
     "dev": "bundle exec jekyll serve --watch",
+    "start": "npm run dev",
     "build": "jekyll build",
     "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all"
   },
