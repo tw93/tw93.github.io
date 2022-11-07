@@ -13,6 +13,7 @@
 </div>
 
 <script type="text/javascript" src="{{ site.url }}/js/index.min.js"></script>
+<script type="text/javascript" src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"></script>
 
 {% if site.google_analytics %}
 <script type="text/javascript">
@@ -94,5 +95,8 @@
         links[i].target = '_blank';
       }
     }
+    //字距优化
+    const heti = new Heti('.heti');
+    heti.autoSpacing();
   });
 </script>

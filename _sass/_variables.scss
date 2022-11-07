@@ -13,6 +13,8 @@ $doc-line-height: 26;
 // set-up the body font-size / line-height
 body {
   font-size: 0px + $doc-font-size;
+  font-display: block;
+  -webkit-font-smoothing: antialiased;
 }
 
 // Colors
