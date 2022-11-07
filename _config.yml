@@ -11,14 +11,14 @@ url: https://tw93.fun
 menu:
   - title: 'Categories'
     url: '/categories.html'
-  - title: 'RSS'
-    url: '/feed.xml'
   - title: 'About'
     url: '/about'
   - title: 'Weekly'
     url: 'https://weekly.tw93.fun/'
   - title: 'Github'
     url: 'https://github.com/tw93'
+  - title: 'RSS'
+    url: '/feed.xml'
 
 timezone:    Africa/El_Aaiun
 locale:      zh_CN
