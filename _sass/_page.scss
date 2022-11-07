@@ -464,15 +464,19 @@ iframe {
 .header-item,
 .header-item-title {
   float: right;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  @media #{$medium} {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   a {
     vertical-align: middle;
     display: table-cell;
     height: $menu-height;
     @include font-rem(16);
     box-sizing: border-box;
-    font-weight: 600;
+    font-weight: bold;
     &:visited {
       color: $text-color;
     }
@@ -484,6 +488,7 @@ iframe {
     }
   }
 }
+
 
 ///sections
 .logo {

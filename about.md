@@ -10,7 +10,6 @@ hideHomeActive: true
 * Now working in Alibaba [Fliggy](https://www.fliggy.com/){:target="_blank"} FE Team.
 * The main direction is JavaScript and Swift.
 * Also using Node、PHP、Python、Rust.
-* Recently in using Serverless and Micro frontends.
 * [Love reading](http://book.douban.com/people/77063977/){:target="_blank"} in my spare time.
 * Love writing clean and tidy code.
 * Every blog post in this site by Tw93 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">CC 3.0 License.</a>
