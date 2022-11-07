@@ -14,7 +14,7 @@
         content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.title }}">
-    <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/webfont/style.css" async>
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/webfont/style.css" async rel="preload">
 
 
 {% if page.layout == "post" %}
