@@ -48,7 +48,7 @@ page_layout: page
 titlecase: true
 
 showBuyCoffee: true
-payImage: //gw.alicdn.com/imgextra/i2/O1CN01KuF4gz1jjWL0l4V0P_!!6000000004584-0-tps-1152-1152.jpg
+payImage: //gw.alipayobjects.com/zos/k/vb/1.png
 
 include: [".htaccess"]
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","node_modules"]
