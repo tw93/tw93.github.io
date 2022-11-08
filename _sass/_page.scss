@@ -173,7 +173,7 @@ iframe {
     @media #{$large} {
       max-width: 900px;
       margin: 30px auto 30px auto;
-      padding: 50px 80px;
+      padding: 50px 80px 70px;
       > p:first-child {
         @include font-size(20);
       }
