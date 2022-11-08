@@ -436,8 +436,10 @@ iframe {
   background-color: $menu-top;
   height: $menu-height;
   box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
+  padding:0 6px;
   @media #{$medium} {
     position: fixed;
+    padding: 0;
     @include transition(0.3s height ease-out);
   }
   ul {

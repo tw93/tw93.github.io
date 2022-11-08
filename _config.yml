@@ -40,7 +40,7 @@ google_analytics: UA-57207999-1
 baidu_verify: kxGpkpWG7G
 google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
 
-paginate: 8
+paginate: 10
 post_ext: md
 page_ext: md
 post_layout: post
