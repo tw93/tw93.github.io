@@ -12,7 +12,7 @@
 - Modern and minimal design, **More concise and Faster** than other jekyll theme.
 - **Responsive templates for post, page**,Looks great on mobile, tablet, and desktop devices.
 - **Loading resources selectively on different platforms.**
-- **Support Lazyload.**
+- **Support lazyload.**
 - Compress JavaScript and CSS.
 - By using SVG and Canvas Makes this blog more geeks.
 - When running in PC,It will show a QRcode that you can read on mobile.
@@ -25,17 +25,17 @@
   - When Discus failed to load, It will be a good suggestion.
   - Add Buy Me A Coffee by using WeChat payment.
 
-## [PC Preview](https://tw93.fun)
+## PC Preview
 
 ![demo.png](http://gtms02.alicdn.com/tfs/TB1W3NFQVXXXXaUXpXXXXXXXXXX-2316-1537.jpg)
 
 ## H5 Preview
 
-<img src="http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8ex6yyh3j30xp1iy0z1.jpg" width="270"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8eyalu16j30xp1iyq7g.jpg" width="270"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8ex5vn9dj30xp1iyafo.jpg" width="270"/>
+<img src="https://gw.alipayobjects.com/zos/k/w5/1.jpg" width="270"/><img src="https://gw.alipayobjects.com/zos/k/2d/2.jpg" width="270"/><img src="https://gw.alipayobjects.com/zos/k/ki/3.jpg" width="270"/>
 
 ## QR code
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8eyyn0msj305k05kglf.jpg)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://gw.alipayobjects.com/zos/k/lu/3.png" width="200"/>
 
 ## How To Use
 
