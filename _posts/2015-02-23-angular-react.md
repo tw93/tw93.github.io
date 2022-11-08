@@ -3,7 +3,7 @@ layout:     post
 title:      使用React提高Angular的渲染性能
 date:       2015-02-23 21:47:29
 summary:    当你使用AngularJs的时候你遇到过性能问题吗？使用ReactJs可以使页面渲染得更快。下面通过几个案例来对比用React来渲染AngularJs和直接使用Angular来渲染之间的性能差异 ...
-categories: JavaScript
+categories: Technology
 ---
 
 原文来自：[Faster AngularJS Rendering (AngularJS and ReactJS)](http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/){:target="_blank"}

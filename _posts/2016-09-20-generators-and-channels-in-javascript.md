@@ -3,7 +3,7 @@ layout:     post
 title:      Generators and Channels in JavaScript
 date:       2016-09-20 21:47:29
 summary:    以下这篇文章是对Generator和Channel的一个介绍，如果你对Promise，Generator，Coroutine和Channel有过了解，可以直接跳到Using Generators and Channels with React这部分，虽然接下来这些案例可能不是很适合真实的项目环境，但是它可以看成一个起点，尝试通过这种方法来实践可能出现的地方 ...
-categories: JavaScript
+categories: Technology
 ---
 
 ![]({{ site.assetUrl }}1-smaK057Fp29kcTJPN5DdCg%20%281%29.png)
@@ -11,6 +11,7 @@ categories: JavaScript
 原文来自：[Generators and Channels in JavaScript](https://medium.com/javascript-inside/generators-and-channels-in-javascript-594f2cf9c16e#.pvgt62ocb)
 
 ### 简介
+
 以下这篇文章是对Generator和Channel的一个介绍，如果你对Promise，Generator，Coroutine和Channel有过了解，可以直接跳到Using Generators and Channels with React这部分，接下来这些代码可能不能直接用于实际生产环境，但是它应该被看成一个起点，可以尝试把这种方案用在可以用到的地方。
 
 稍微花点时间看看这个listen函数。
@@ -29,19 +30,18 @@ const listen = (el, type) => {
 在我们学习Generator，Coroutine和Channel之前，先了解下常规的Promise。
 {% highlight javascript %}
 function getUsers() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve({
-				users: [{
-					id: 1,
-					name: 'test'
-				}]
-			})
-		}, 1000)
-	})
+ return new Promise((resolve, reject) => {
+  setTimeout(() => {
+   resolve({
+    users: [{
+     id: 1,
+     name: 'test'
+    }]
+   })
+  }, 1000)
+ })
 }
 {% endhighlight %}
-
 
 当getUsers函数成功时候会返回一个Promise对象，Promise的resolves会携带着必要的数据。同时我们能很好的处理超过一个Promise的情况，或者一个Promise依赖于另外一个Promise和一个操作需要所有的Promise一起运行才能解决问题的情况，以上这两种情况，其实标准的Promise实现就可以覆盖到。第一种链式情况可以使用Promise的then实现，后一种可以使用Promise.all来实现。
 
@@ -86,6 +86,7 @@ Promise.all([
 现在我们已经复习了一下Callback和Promise的基本用法，接下来可以介绍下ES6中的Generator。
 
 ### Generator
+
 在我们讲what,why,how之前，我们可以先看看Generator简短定义。
 
 > “Generators are functions that can be paused and resumed, which enables a variety of applications.”
@@ -145,7 +146,7 @@ console.log(setThoseNumbers.next()) //{value: undefined, done: true}
 
 终止一个Generator是很简单的，只需要在Generator里面定义一个return就好。同时，这里还有一个很好的特性，Generator函数可以调用其他的Generator函数。
 {% highlight javascript %}
-function* callee() {
+function*callee() {
   yield 1
 }
 function* caller() {
@@ -164,6 +165,7 @@ console.log(callerCallee.next()) // {value: 1, done: false}
 关于ES6中Generator更详细的的介绍，可以阅读 [Axel Rauschmayer](https://medium.com/u/7fab51e62203)这篇更全面的文章[ES6 Generators in depth](http://www.2ality.com/2015/03/es6-generators.html)。
 
 ### Generator, Promise and Coroutine
+
 现在我们已经基本了解Promise和Generator了，下面我们看看如何将这两者结合起来使用。
 {% highlight javascript %}
 function fetchUsers() {
@@ -312,6 +314,7 @@ go(function*() {
 {% endhighlight %}
 
 ### Using Generators and Channels with React
+
 到目前为止，已经将基础部分介绍完毕，同时对为什么Channel和Generator在Javascript中有意义有一个更深的理解，我们可以将学到Channel和Generator用到实际代码情景中。
 
 一个经典的例子就是计数器组件，虽然很基础，只能够增加和减少数字并将当前数字显示出来，但是通过这个可以帮助我们对React渲染Component获得更清晰的认识。
@@ -358,11 +361,12 @@ AppStart(Counter)
 上面这个需求，我们需要单独的处理Action和Channel，同时也需要在一个干净的、良好组织下的代码下处理其一些额外的情况。
 
 #### Building the App…
+
 实际上我们需要定义一个函数来处理fetch操作和通知loading什么时候开启和结束。
 
 {% highlight javascript %}
 const getItems = () => {
-  go(function* () {
+  go(function*() {
     yield put(isLoading, true)
     const fetchedItems = yield* fetchItems()
     yield put(items, fetchedItems)
@@ -466,9 +470,11 @@ AppStart(App, store)
 以上提供的例子可以看成一个使用该新特性可能性的新起点。
 
 ### 总结
+
 这是一篇介绍Generator和Channel的文章，我们任然缺少一些重要的部分，比如Transducer，接下来的文章将会覆盖Channels和Transducer，包括更多使用React的例子。
 
 #### 更新
+
 目前已经发布[Introduction into Channels and Transducers in JavaScript](https://medium.com/javascript-inside/introduction-into-channels-and-transducers-in-javascript-a1dfd0a09268#.nfmcntwy7) 。
 
 ### Links

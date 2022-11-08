@@ -3,21 +3,24 @@ layout:     post
 title:      JavaScript的加载和执行性能优化
 date:       2015-02-03 11:21:29
 summary:    管理浏览器中的JavaScript代码是一个棘手的问题，因为代码在执行过程中会阻塞浏览器的其他进程，比如用户界面的绘制。每次遇到script标签，页面都必须停下来等待代码下载（如果是外链文件）并执行，然后继续处理其他部分。尽管如此，还是有一些方法减少JavaScript对性能的影响 ...
-categories: JavaScript
+categories: Technology
 ---
 
-管理浏览器中的JavaScript代码是一个棘手的问题，因为代码在执行过程中会阻塞浏览器的其他进程，比如用户界面的绘制。每次遇到script标签，页面都必须停下来等待代码下载（如果是外链文件）并执行，然后继续处理其他部分。    
+管理浏览器中的JavaScript代码是一个棘手的问题，因为代码在执行过程中会阻塞浏览器的其他进程，比如用户界面的绘制。每次遇到script标签，页面都必须停下来等待代码下载（如果是外链文件）并执行，然后继续处理其他部分。
 尽管如此，还是有一些方法减少JavaScript对性能的影响。  
 
 ### 脚本位置
+
 大多数浏览器都使用单一进程来处理用户界面（UI）更新和JavaScript脚本执行，所以同一时刻只能进行其中一件事情。IE8，firefox，safari，chrome都允许并行下载JavaScript文件，遗憾的是，JavaScript的下载仍会阻塞其他资源的下载，所以推荐所有的script标签都尽可能放到/body标签的底部。  
- 
+
 ### 组织脚本
-由于每个script标签的初始下载时候都会阻塞页面渲染，所以减少页面包含的script标签数量有助于减少这一情况，无论是外链文件还是内嵌脚本都是如此。    
+
+由于每个script标签的初始下载时候都会阻塞页面渲染，所以减少页面包含的script标签数量有助于减少这一情况，无论是外链文件还是内嵌脚本都是如此。
 这里可以使用[Grunt](http://www.gruntjs.org/){:target="_blank"}的内置concat工具来合并我们的脚本，通过min工具来压缩我们的脚本。  
 那么什么是Grunt呢？Grunt 是一个基于任务的 JavaScript 项目命令行构建工具，运行于Node.js 平台。Grunt能够从模板快速创建项目，合并、压缩和校验 CSS & JS 文件，运行单元测试以及启动静态服务器。
 
 ### 无阻塞的脚本
+
 由于尽管下载一个较大的javascript文件只产生一次HTTP请求，却会锁死浏览器一大段时间，为了避免，需要逐步加载javascript文件，我们可以在页面加载完成后才加载javascript代码，也就是说window对象的load触发后再下载脚本。  
 1.defer:  
 Defer属性指明本元素所含脚本不会修改DOM，因此代码能够安全地延迟执行。（只有E4+和火狐3.5+支持，还有defer属性的script是在onload事件处理执行之前被调用）。  
@@ -27,7 +30,7 @@ Defer属性指明本元素所含脚本不会修改DOM，因此代码能够安全
 var script = document.createElement("script");
 script.type = "text/javascript";
 script.src = "file.js";
-document.getElementsByTagName("head")[0].appendChild(script);
+document.getElementsByTagName["head"](0).appendChild(script);
 
 //兼容IE和高级浏览器的，侦听获取脚本加载完成时的状态
 function loadScript(url, callback) {
@@ -46,7 +49,7 @@ function loadScript(url, callback) {
     };
   }
   script.src = url;
-  document.getElementsByTagName("head")[0].appendChild(script);
+  document.getElementsByTagName["head"](0).appendChild(script);
 }
 {% endhighlight %}  
 3.动态脚本元素
@@ -79,7 +82,7 @@ xhr.onreadystatechange = function() {
 <script type="text/javascript">
   loadScript("the-rest.js", function() {
     Application.init(); //参考动态加载脚本
-  }); 
+  });
 </script>
 //还有一种方式直接将loadScript()函数嵌入页面，避免多一次请求
 //初始化代码压缩到最小尺寸的一些库  YUI Compressor,
@@ -88,9 +91,3 @@ xhr.onreadystatechange = function() {
 {% endhighlight %}
   
 以上这些方法可以提高一些JavaScript的加载和执行的性能，下一篇文章想总结下关于数据访问方面的性能优化。
-
-    
-
-
-
-

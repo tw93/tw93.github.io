@@ -53,7 +53,6 @@ Component指功能单元，其意义偏向运行时的结构，并有更复杂�
 
 <img data-src="//img.alicdn.com/tfs/TB1EITwPXXXXXaCaXXXXXXXXXXX-852-566.png" class="lazyload" />
 
-
 看图说话是这样的：
 
 1. weex-toolkit中的transform工具将我们所编写的.we文件转换成JS Bundle，然后将JS Bundle部署到Server。
@@ -71,7 +70,6 @@ Component指功能单元，其意义偏向运行时的结构，并有更复杂�
 **JS Framework** 初始化一个实例涉及如下过程，详细见[**vanilla/index.js**](https://link.zhihu.com/?target=https%3A//github.com/alibaba/weex/blob/master/html5/vanilla/index.js)
 
 <img data-src="//img.alicdn.com/tfs/TB1CjTtPXXXXXa0apXXXXXXXXXX-1268-630.png" class="lazyload" />
-
 
 看到这里的人一定是爱学习的.....
 
@@ -97,7 +95,6 @@ Component指功能单元，其意义偏向运行时的结构，并有更复杂�
 
 <img data-src="//img.alicdn.com/tfs/TB1eSL4PXXXXXaPXXXXXXXXXXXX-1914-1485.jpg" class="lazyload" />
 
-
 **UItableView控件使用cell来展示数据。一个cell对应一个row，但是cell和row不完全相同。首先cell是一个view，cell的数量是由在某一刻可以看到的row（行）的数量决定的。当一行数据被往上移动移出屏幕不可见后，cell会被重复利用，接着用来展示新出现在屏幕中的那些行数据。**
 
 list只适合垂直长列表的滚动场景，但是假如需要使用横向滚动就必须使用scroller了。
@@ -107,7 +104,6 @@ list只适合垂直长列表的滚动场景，但是假如需要使用横向滚�
 Weex现在也可以像RN那样生成APP了，详细可以见[**weexteam/weex-hackernews**](https:/github.com/weexteam/weex-hackernews)，以下是我的运行结果，真正做到了一份代码多处运行。
 
 <img data-src="//img.alicdn.com/tfs/TB1cpfCPXXXXXbWaXXXXXXXXXXX-2822-1708.jpg" class="lazyload" />
-
 
 **4. Weex-x**
 

@@ -3,17 +3,17 @@ layout:     post
 title:      JavaScript的DOM编程性能优化
 date:       2015-02-06 21:47:29
 summary:    DOM是Document Object Model的缩写，中文叫做文档对象模型，是一个与语言无关的，用户操作XML和HTML文档的应用程序接口。在浏览器中，主要与HTML文档打交道，在Web应用中也经常需要检索XML文档，DOM API用于访问文档中的数据。John Hevatin有一次演讲说过一个贴切的比喻，把DOM和JavaScript各自想象成一个岛屿，它们直接用收费桥梁连接，ECMAScript每次访问DOM，都要经过这个桥，并交纳“过桥费”，过的桥越多交的费用也越多，因此要想减少费用就得少过桥，我们这里就来学习如何来优化这个问题 ...
-categories: JavaScript
+categories: Technology
 ---
 
 DOM是Document Object Model的缩写，中文叫做文档对象模型，是一个与语言无关的，用户操作XML和HTML文档的应用程序接口。在浏览器中，主要与HTML文档打交道，在Web应用中也经常需要检索XML文档，DOM API用于访问文档中的数据。John Hevatin有一次演讲说过一个贴切的比喻，把DOM和JavaScript各自想象成一个岛屿，它们直接用收费桥梁连接，ECMAScript每次访问DOM，都要经过这个桥，并交纳“过桥费”，过的桥越多交的费用也越多，因此要想减少费用就得少过桥，我们这里就来如何来优化这个问题。
 
 #### 最小化DOM访问次数，尽可能在JavaScript端处理
 
- - 访问DOM元素是有代价的--前面提到的过桥费。修改元素则更加昂贵，因为它会导致浏览器重新计算页面的集合变化。
- - 也就是说访问DOM次数越多，代码的运行速度就越慢，因此一般的经验法则是：减少DOM的访问次数，把运算尽量留在ECMAScript这一段处理。
+- 访问DOM元素是有代价的--前面提到的过桥费。修改元素则更加昂贵，因为它会导致浏览器重新计算页面的集合变化。
+- 也就是说访问DOM次数越多，代码的运行速度就越慢，因此一般的经验法则是：减少DOM的访问次数，把运算尽量留在ECMAScript这一段处理。
 
-{% highlight javascript %} 
+{% highlight javascript %}
  //最坏的情况是在循环中访问和修改元素
  //尤其是对HTML元素集合循环操作。
  //方法一
@@ -37,20 +37,21 @@ function innerHTMLLoop() {
 
 这些方法返回值是一个集合  
 
- - document.getElementByName()
- - document.getElementByClassName()
- - document.getElementByTagName()
+- document.getElementByName()
+- document.getElementByClassName()
+- document.getElementByTagName()
 
 下面属性也同样返回HTML集合  
 
- - document.images 
- - document.links 
- - document.forms 
- - document.forms[0].elements 
+- document.images
+- document.links
+- document.forms
+- document.forms[0].elements
 
 这些集合是一些昂贵的东西，一般来说，对于任何类型的DOM访问，当同一个DOM属性或方法需要多次访问时候，最好把一个局部变量缓存此成员。<span class="orange">当遍历一个集合时，首先优化原则是把集合存储在局部变量中，并把length缓存在循环外部，然后使局部变量访问这些需要多次访问的元素。</span>
 
 #### 使用速度最快的API
+
 浏览器提供了一个名为<span class="orange">querySelectorAll()的原生DOM方法</span>，这种方法自然比使用JavaScript和DOM来遍历查找元素要快很多。
 
 {% highlight javascript %}
@@ -69,13 +70,9 @@ var elements=document.querySelectAll('#menu a')；
 好吧我之前一直没有听过重绘和重排，书上是这么讲的。
 浏览器下载完页面中所有组件--HTML标记、JavaScript、CSS、图片--之后会解析并生成两个内部数据结构：
 
- - DOM树：表示页面结构
- - 渲染树：表示DOM节点如何显示
+- DOM树：表示页面结构
+- 渲染树：表示DOM节点如何显示
 
 一旦DOM和渲染树构建完成，浏览器就开始显示（绘制）页面元素了，当DOM的变化影响的元素的<span class="orange">几何属性（宽或高）</span>，比如修改边框宽度或给段落增加元素，导致行数增加--浏览器需要重新计算元素的集合属性，同样其他元素的几何属性和位置也会因此受到影响，浏览器会使渲染树中受到影响的部分失效，并重新构造渲染树。这个过程就称为“<span class="orange">重排(reflow)</span>”。完成重排后，浏览器重新绘制受影响的部分到屏幕中，这个过程就叫做<span class="orange">重绘(repaint)</span>
 
 重排和重绘操作都是代缴昂贵的操作，应当减少发生，为了减少发生次数，应当合并DOM和样式的修改，然后一次性处理掉。还可以通过缓存布局信息的方法：尽量减少布局信息的获取次数，获取后把它赋值给局部变量，然后再操作局部变量。
-
-
-
-

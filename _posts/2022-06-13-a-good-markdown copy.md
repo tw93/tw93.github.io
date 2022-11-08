@@ -3,7 +3,7 @@ layout: post
 title: 妙言 Markdown 编辑器介绍
 date: 2022-06-13 16:00:00
 summary: 最近将自己两年前做的一个 macOS 的 Markdown 笔记应用给完善了一下，放出来给大伙试试。
-categories: Tool
+categories: Share
 ---
 
 ## 缘由

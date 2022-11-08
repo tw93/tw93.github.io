@@ -3,22 +3,21 @@ layout:     post
 title:      浅谈面向对象的JavaScript
 date:       2015-06-09 21:47:29
 summary:    最近在学习Ross Harmes/Dustin Diaz写的《JavaScript设计模式》，大概将此书看了两遍，很有收获。此书适合于想深入学习JavaScript的同学，用来增加你的内功。能够帮助你增强对JavaScript面向对象的理解，同时学习各种具体的设计模式，懂得应该在什么场合使用这些设计模式，以及如何实现它们，写出更优雅的代码。这篇文章用于总结我的读书笔记 ...
-categories: JavaScript
+categories: Technology
 ---
 
 最近在学习Ross Harmes/Dustin Diaz写的[《JavaScript设计模式》](http://book.douban.com/subject/3329540/){:target="_blank"}，大概将此书看了两遍，很有收获。此书适合于想深入学习JavaScript的同学，用来增加你的内功。能够帮助你增强对JavaScript面向对象的理解，同时学习各种具体的设计模式，懂得应该在什么场合使用这些设计模式，以及如何实现它们，写出更优雅的代码。这篇文章用于总结我的读书笔记。
 
-
-#### 富有表现力的JavaScript   
+#### 富有表现力的JavaScript
 
 为什么说JavaScript是富有表现力的呢？
 
- - JavaScript的灵活性：它允许你模仿其他语言的编程模式和惯用法，同时也具备自己独特的编程模式和惯用法。这样你可以根据自己的技术背景和喜好选择编写代码的方式。  
- - 弱语言类型：定义变量的时候不需要申明其类型，其类型取决于其包含的数据；同时JavaScript变量可以根据所赋值改变类型。  
- - 函数是一等对象：它们可以存储在变量中，可以作为参数传递给其他函数，可以作为返回值从其他函数传出，还可以在运行时进行构造。同时JavaScript中使用匿名函数来创建闭包，保护变量空间。  
- - 对象的易变性：JavaScript中所有对象都是易变的，可以使用一些在大多数语言中不允许的技术，例如为函数增加属性；同时还具备内省的概念，可以在运行时检查对象的属性和方法；而已在JavaScript中，任何东西都可以在运行时候修改。  
- - 继承：JavaScript使用的是基于对象的（原型式（prototypal））继承，它可以用了模仿类的继承。  
- - JavaScript中的设计模式：使用原因：1）可维护性，降低模块间的耦合。2）沟通，可以在较高层面上对其进行讨论，而不必涉及过多的细节。3）性能：合适的设计模式可以大幅提高程序的运行速度，并减少传送到客户端的代码量。  
+- JavaScript的灵活性：它允许你模仿其他语言的编程模式和惯用法，同时也具备自己独特的编程模式和惯用法。这样你可以根据自己的技术背景和喜好选择编写代码的方式。  
+- 弱语言类型：定义变量的时候不需要申明其类型，其类型取决于其包含的数据；同时JavaScript变量可以根据所赋值改变类型。  
+- 函数是一等对象：它们可以存储在变量中，可以作为参数传递给其他函数，可以作为返回值从其他函数传出，还可以在运行时进行构造。同时JavaScript中使用匿名函数来创建闭包，保护变量空间。  
+- 对象的易变性：JavaScript中所有对象都是易变的，可以使用一些在大多数语言中不允许的技术，例如为函数增加属性；同时还具备内省的概念，可以在运行时检查对象的属性和方法；而已在JavaScript中，任何东西都可以在运行时候修改。  
+- 继承：JavaScript使用的是基于对象的（原型式（prototypal））继承，它可以用了模仿类的继承。  
+- JavaScript中的设计模式：使用原因：1）可维护性，降低模块间的耦合。2）沟通，可以在较高层面上对其进行讨论，而不必涉及过多的细节。3）性能：合适的设计模式可以大幅提高程序的运行速度，并减少传送到客户端的代码量。  
 
 #### 接口
 
@@ -30,9 +29,9 @@ categories: JavaScript
 
 **接口的好处是啥呢？**
 
- - 既定的一批对象具有自我描述性，并能促进代码的重用。接口可以告诉一个程序员一个类实现了哪些方法，从而帮助其使用这个类。
- - 接口有助于稳定不同类之间的通信方式，事先知道了接口，就能减少在集成两个对象过程中出现的问题。
- - 使测试和调试变得更加轻松，用于检测类型不匹配，同时还能使代码变得更加稳固。
+- 既定的一批对象具有自我描述性，并能促进代码的重用。接口可以告诉一个程序员一个类实现了哪些方法，从而帮助其使用这个类。
+- 接口有助于稳定不同类之间的通信方式，事先知道了接口，就能减少在集成两个对象过程中出现的问题。
+- 使测试和调试变得更加轻松，用于检测类型不匹配，同时还能使代码变得更加稳固。
 
 但是接口并非没有缺点，使用接口在一定程度上面强化了类型的作用，降低了语言的灵活性。由于接口带来额外的方法调用开销，对性能造成一定影响。而且JavaScript没有提供对接口的内置支持（JavaScript中没有interface和implements关键字），需要去模仿一些其他语言的接口，导致无法强迫其他程序员遵循你定义的接口，这也是我认为接口在使用中存在的最大问题。
 
@@ -77,7 +76,7 @@ function addForm(formInstance){
 **创建对象的基本模式**
 JavaScript中创建对象的基本模式有3中：
 
- - 门户大开型：按照传统类型创建一个类，用一个函数来做其构造器，所有属性和方法都是公开的，可访问的。以下示例是为每个属性增加了取值器和赋值器方法。
+- 门户大开型：按照传统类型创建一个类，用一个函数来做其构造器，所有属性和方法都是公开的，可访问的。以下示例是为每个属性增加了取值器和赋值器方法。
     {% highlight javascript %}
          var Book = function(isbn, title, author) {
         this.setIsbn(isbn);
@@ -115,8 +114,7 @@ JavaScript中创建对象的基本模式有3中：
     };
     {%endhighlight%}
 
- 
- - 用命名规范区别私用成员：和本质上面此模式和门户大开型对象创建如出一辙，只不过在一些方法和属性的名称的前面加了下划线表示其私用性而已。
+- 用命名规范区别私用成员：和本质上面此模式和门户大开型对象创建如出一辙，只不过在一些方法和属性的名称的前面加了下划线表示其私用性而已。
      {% highlight javascript %}
          var Book = function(isbn, title, author) {
         this.setIsbn(isbn);
@@ -156,7 +154,7 @@ JavaScript中创建对象的基本模式有3中：
 
 下划线的这种用法表示一个属性（或方法）仅对对象内部使用，直接访问它或者设置它可能会导致意想不到的后果。但是这只是一种约定，只有在遵循时候才有效果。主要适合于非敏感性的内部方法和属性。
 
- - 用闭包实现私用成员：使用闭包可以创建只允许特定函数访问的变量，而且这些变量在这些函数中的各次调用关系依然存在。我么使用var来申明这些变量，意味着它们只存在那个构造器中。
+- 用闭包实现私用成员：使用闭包可以创建只允许特定函数访问的变量，而且这些变量在这些函数中的各次调用关系依然存在。我么使用var来申明这些变量，意味着它们只存在那个构造器中。
 {% highlight javascript %}
 var Book = function(newIsbn, newTitle, newAuthor) {
     //implements Publication
@@ -220,7 +218,7 @@ Book.prototype = {
 
 首先要做的是创建构造函数。按惯例，其名称就是类名，首字母应该大写。在构造函数中创建实例的属性要使用关键字this。类的方法被添加到其prototype对象中，要创建该类的实例，只需结合关键字new调用这个构造函数即可。然后你可以访问所有的实例属性，也可以调用所有的实例方法。  
 {%highlight javascript%}
-/*Class Person */
+/*Class Person*/
 function Person(name){
     this.name=name;
 }
@@ -234,7 +232,7 @@ reader.getName();
 
 创建继承Person的类要复杂一些：
 {%highlight javascript%}
-/* Class Author */
+/*Class Author*/
 function Author(name,books){
     //Call the superclass's constructor in the scope of this
     Person.call(this.name);
@@ -257,7 +255,7 @@ Author.prototype.getBooks=function(){
 为了简化类的申明，可以将派生子类的整个过程包装在一个名为**extend**的函数中，它的作用和其他语言中的extend关键字类似，即基于一个给定的类结构创建一个新的类。
 
 {%highlight javascript%}
-/* Extend functions.*/
+/*Extend functions.*/
 function Extend(subClass,superClass){
     var F=function(){};
     F.prototype=superClass.prototype;
@@ -268,7 +266,7 @@ function Extend(subClass,superClass){
 这个函数所做的事情和先前我们手工做的一样，它设置了prototype，然后将其constructor重新设为恰当的值，作为一项改进，它添加了一个空函数F，并将其创建的一个对象实例插入原型链中，这样做可以避免创建超类的新实例。
 使用extend函数后，前面那个Person/Author例子变成了这个样子：
 {%highlight javascript%}
-/*Class Person */
+/*Class Person*/
 function Person(name){
     this.name=name;
 }
@@ -276,7 +274,7 @@ Person.prototype.getName=function(){
     return this.name
 }
 
-/* Class Author */
+/*Class Author*/
 function Author(name,books){
     Person.call(this.name);
     this.books=books;
@@ -320,7 +318,7 @@ Author.getBooks=function(){
 有一种重用代码的方法不需要用到严格的继承。如果想把一个函数用到多个类中，可以通过扩充(augmenttation)的方法让这些类共享该函数。其具体做法是：先创建一个包含各种通用方法的类，然后再扩展其他类。这种包含通用方法的类成为摻元类(mixin class)。他们通常不会被实例化或者直接调用。其存在的目的只是向其他类提供自己的方法。具体见下面实例：
 
 {%highlight javascript%}
-/* Mixin class.*/
+/*Mixin class.*/
 
 var Mixin = function() {};
 Mixin.prototype() {
@@ -356,6 +354,6 @@ function augment(receivingClass, givingClass) {
 
 各种继承范型各有优缺点：
 
- - 在内存效率比较重要的场合原型式继承（及clone函数）是最佳选择。
- - 如果与对象打交道的都是那种只熟悉其他对象语言中的继承机制的程序员，那么最好使用类式继承（及extend函数）。
- - 以上两种方法都适合于类间差异较小的类层次体系。如果类之间差异比较大，那么摻元类的方法来扩充这些类往往是一种更合理的选择。
+- 在内存效率比较重要的场合原型式继承（及clone函数）是最佳选择。
+- 如果与对象打交道的都是那种只熟悉其他对象语言中的继承机制的程序员，那么最好使用类式继承（及extend函数）。
+- 以上两种方法都适合于类间差异较小的类层次体系。如果类之间差异比较大，那么摻元类的方法来扩充这些类往往是一种更合理的选择。

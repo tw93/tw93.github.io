@@ -3,7 +3,7 @@ layout:     post
 title:      Weex Ui 半年开源之路
 date:       2018-03-31 16:00:00
 summary:    Weex Ui 于去年9月30日开源后，距离今天刚好半年时间，本文打算从起源、定位、现状、发展、展望这5部分来给大家分享 Weex Ui 半年的开源之路。
-categories: Native-JS
+categories: Technology
 ---
 
 <p align="center">
@@ -13,8 +13,6 @@ categories: Native-JS
 > GitHub 地址：[github.com/alibaba/weex-ui](https://github.com/alibaba/weex-ui)
 
 Weex Ui 于去年9月30日开源后，距离今天刚好半年时间，本文打算从 **起源、定位、现状、发展、展望**这5部分来给大家分享 Weex Ui 半年的开源之路。
-
-
 
 ### Weex Ui 的起源
 
@@ -27,11 +25,10 @@ Weex Ui 的定位为 **一套轻量、富交互、高性能的 Weex 上层  Ui �
 
 [二维码图片在这里>>>](https://gw.alipayobjects.com/zos/rmsportal/MNIgWQQFnsXFVDgmXLrr.jpeg)
 
-
 <img src="https://img.alicdn.com/tfs/TB1T.M5h7OWBuNjSsppXXXPgpXa-1708-1218.png" width="800"/>
 
-
 ### Weex Ui 的现状
+
 - 7大类组件、共32个成熟组件
 - Github **Star 2552**、Fork 333、Watch 127
 - 月下载量 **9K/月**，累计使用 **47K** 次 (包括 CNPM 2.8K/月和 20K 总量)
@@ -51,6 +48,7 @@ Weex Ui 的定位为 **一套轻量、富交互、高性能的 Weex 上层  Ui �
 更多版本迭代可见 [Weex Ui 升级日志](https://alibaba.github.io/weex-ui/#/cn/CHANGELOG)
 
 ### Weex Ui 的展望
+
 - 引入更多的**富交互**组件，让 Weex 应用 More Native
 - 继续**轻量化、简单化** Weex Ui 的使用，降级非前端同学上手成本
 - 组件**性能的持续优化**，尤其是低端机器性能提高
@@ -59,6 +57,7 @@ Weex Ui 的定位为 **一套轻量、富交互、高性能的 Weex 上层  Ui �
 - 生态化的探索，更多 Weex 周边的建设
 
 ### 最后
+
 **Weex Ui 的发展离不开社区的贡献，从开源以后也是慢慢除去阿里的特色，向社区化发展。**
 
 感谢每一个为 Weex Ui 提出建议和代码贡献的同学，尤其感谢社区[@zwwill](https://github.com/zwwill)、[@GJJDD](https://github.com/GJJDD)、[@Yanjiie](https://github.com/Yanjiie)、[@zweipix](https://github.com/zweipix) 等同学的付出。
@@ -67,7 +66,7 @@ Weex Ui 的定位为 **一套轻量、富交互、高性能的 Weex 上层  Ui �
 
 > **Please feel free to use and contribute to the development.**
 
-
 ### 其他链接
+
 - [Weex Ui 官网](https://alibaba.github.io/weex-ui/#/)
 - [Weex + Ui - Weex Conf 2018](http://tw93.github.io/2018-01-21/weex-conf-weex-ui.html)
