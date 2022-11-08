@@ -16,7 +16,7 @@
 - Compress JavaScript and CSS.
 - By using SVG and Canvas makes this blog more geeks.
 - When running in PC,It will show a QRcode that you can read on mobile.
-- When the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.** .
+- When the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.** 
 - Funny [custom 404 page](https://tw93.fun/err),You will like it.
 - **More suitable for China**:
 
