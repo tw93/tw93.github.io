@@ -77,8 +77,8 @@ function addForm(formInstance){
 JavaScript 中创建对象的基本模式有 3 中：
 
 - 门户大开型：按照传统类型创建一个类，用一个函数来做其构造器，所有属性和方法都是公开的，可访问的。以下示例是为每个属性增加了取值器和赋值器方法。
-    {% highlight javascript %}
-         var Book = function(isbn, title, author) {
+{% highlight javascript %}
+    var Book = function(isbn, title, author) {
         this.setIsbn(isbn);
         this.setTitle(title);
         this.setAuthor(author);
@@ -115,8 +115,8 @@ JavaScript 中创建对象的基本模式有 3 中：
     {%endhighlight%}
 
 - 用命名规范区别私用成员：和本质上面此模式和门户大开型对象创建如出一辙，只不过在一些方法和属性的名称的前面加了下划线表示其私用性而已。
-     {% highlight javascript %}
-         var Book = function(isbn, title, author) {
+{% highlight javascript %}
+    var Book = function(isbn, title, author) {
         this.setIsbn(isbn);
         this.setTitle(title);
         this.setAuthor(author);

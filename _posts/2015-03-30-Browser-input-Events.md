@@ -47,12 +47,15 @@ $('a', ('ontouchstart' in window)?'touchend':'click',handler);
 请注意：为了适应这个栈这个事件栈故意忽略了 focus 和 blur 事件。
 
 ![iOS Touch Events](http://tw93.github.io/images/01-ios-opt-small.png)
+
 <small>在 iOS 设备上的 tap 点击一个元素两次和松开的事件级联</small>
 <br><br>
 ![Android4.4 Touch Events](http://tw93.github.io/images/02-android-opt-small.png)
+
 <small>在 Android 4.4 设备上的 tap 点击一个元素两次和松开的事件级联</small>
 <br><br>
 ![Android4.4 Touch Events](http://tw93.github.io/images/03-pointer-opt-small.png)
+
 <small>在 Internet Explorer 11（在兼容的触摸事件实现）上 tap 点击元素两次然后松开的事件级联</small>
 
 ### 应用事件级联
