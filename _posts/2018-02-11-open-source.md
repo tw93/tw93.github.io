@@ -26,7 +26,7 @@ categories: Share
 
 这里打算和大家分享一下 [Weex Ui](https://github.com/alibaba/weex-ui){:target="_blank"} 开源的一些事情和心态。
 
-<video width="600" controls preload="metadata" src="https://gw.alipayobjects.com/os/rmsportal/OgUYNGxBSsvKLCFeLRXE.mp4"></video>
+<video width="900" controls preload="metadata" src="https://gw.alipayobjects.com/os/rmsportal/OgUYNGxBSsvKLCFeLRXE.mp4"></video>
 
 #### 1：开源的东西对开发者是有用的
 
