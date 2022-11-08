@@ -52,7 +52,7 @@ iframe {
       display: none;
       position: relative;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: -20px;
         right: -20px;
@@ -436,7 +436,7 @@ iframe {
   background-color: $menu-top;
   height: $menu-height;
   box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
-  padding:0 7px 0 5px;
+  padding: 0 8px;
   @media #{$medium} {
     position: fixed;
     padding: 0;
@@ -487,7 +487,6 @@ iframe {
   }
 }
 
-
 ///sections
 .logo {
   width: $menu-height;
@@ -502,8 +501,16 @@ iframe {
 
 .header-item {
   height: 100%;
+  &:nth-child(2),
+  &:nth-child(3) {
+    display: none;
+  }
   @media #{$large} {
     display: block;
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: block;
+    }
   }
 }
 
@@ -579,7 +586,7 @@ iframe {
       color: #222;
     }
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 11px;
       left: 10px;

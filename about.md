@@ -7,12 +7,10 @@ hideHomeActive: true
 
 ## About Me
 
-* Now working in Alibaba [Fliggy](https://www.fliggy.com/){:target="_blank"} FE Team.
-* The main direction is JavaScript and Swift.
-* Also using Node、PHP、Python、Rust.
-* [Love reading](http://book.douban.com/people/77063977/){:target="_blank"} in my spare time.
-* Love writing clean and tidy code.
-* Every blog post in this site by Tw93 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">CC 3.0 License.</a>
+- A front-end engineer from China, Like to toss around with various software.
+- Creator of [MiaoYan](https://miaoyan.app/) / [Pake](https://github.com/tw93/pake) / [XRender](http://xrender.fun/) / [WeexUi](https://apache.github.io/incubator-weex-ui/) / [cz-emoji-chinese](https://github.com/tw93/cz-emoji-chinese) and a few others.
+- I often write Chinese blog in [tw93.fun](http://tw93.fun/), also documenting the interesting things in life through the [trend weekly](http://weekly.tw93.fun/).
+- I know a little accessibility, interactive games, iOS/macOS, serverless, micro front end, know some technical productization, team management, you can ask me any question.
 
 ## Follow
 
