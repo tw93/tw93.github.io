@@ -31,7 +31,7 @@
 
 ## H5 Preview
 
-<img src="http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8ex6yyh3j30xp1iy0z1.jpg" width="280"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8eyalu16j30xp1iyq7g.jpg" width="280"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8ex5vn9dj30xp1iyafo.jpg" width="280"/>
+<img src="http://ww1.sinaimg.cn/large/0060lm7Tgy1fc8ex6yyh3j30xp1iy0z1.jpg" width="270"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8eyalu16j30xp1iyq7g.jpg" width="270"/><img src="http://ww3.sinaimg.cn/large/0060lm7Tgy1fc8ex5vn9dj30xp1iyafo.jpg" width="270"/>
 
 ## QR code
 
