@@ -25,21 +25,7 @@
 </script>
 {% endif %}
 
-{% if page.comments != false %}
-<script type="text/javascript">
-  setTimeout(function () {
-    new Gitalk({
-      clientID: '9c83575aac3f254e0ef2',
-      clientSecret: 'bff35ccdec2d2a7052b0558e61861619ef6098db',
-      repo: 'tw93.github.io',
-      owner: 'tw93',
-      admin: ['tw93'],
-      id: location.pathname,
-      distractionFreeMode: false,
-    }).render('gitalk-container');
-  }, 100);
-</script>
-{% endif %} {% if page.url=="/" %}
+{% if page.url=="/" %}
 <script>
   function hereDoc(f) {
     return f

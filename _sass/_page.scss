@@ -179,9 +179,9 @@ iframe {
       }
     }
   }
-  #gitalk-container {
+  .giscus-container {
     margin: 20px 2px;
-    padding: 15px;
+    padding: 20px 15px;
     background-color: $white;
     box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
     @include rounded(3px);
@@ -604,7 +604,7 @@ iframe {
     @include transition(0.4s all ease-in-out);
     @include transform(scale(0) perspective(600px) rotateX(45deg));
     &.active {
-      height: 300px;
+      height: 336px;
       top: 38px;
       @include transform(none);
     }
