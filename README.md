@@ -35,7 +35,7 @@
 
 ## QR code
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://gw.alipayobjects.com/zos/k/lu/3.png" width="200"/>
+<img src="https://gw.alipayobjects.com/zos/k/lu/3.png" width="200"/>
 
 ## How To Use
 
