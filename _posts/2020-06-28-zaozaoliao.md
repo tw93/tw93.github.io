@@ -145,10 +145,6 @@ categories: Share
 
 ![](https://qpluspicture.oss-cn-beijing.aliyuncs.com/wuu3Ff/微前端一体化运营工作台_侑夕.030.jpeg)
 
-在技术上，目前我们在新颖技术、中台技术、基础技术上均有团队规划发展，如果你比较感兴趣，可以直接来聊，同时有能力过来带一个方向也是很欢迎的！
-
-![](https://qpluspicture.oss-cn-beijing.aliyuncs.com/FH55CU/微前端一体化运营工作台_侑夕.031.jpeg)
-
-最后也很欢迎，关注飞猪前端公众号，里面有不少体系化建设的文章干货，值得一读！
+在技术上，目前我们在新颖技术、中台技术、基础技术上均有团队规划发展，如果你比较感兴趣，可以直接来聊，同时有能力过来带一个方向也是很欢迎的，最后也很欢迎，关注飞猪前端公众号，里面有不少体系化建设的文章干货，值得一读！
 
 ![](https://qpluspicture.oss-cn-beijing.aliyuncs.com/guQCh7/微前端一体化运营工作台_侑夕.033.jpeg)

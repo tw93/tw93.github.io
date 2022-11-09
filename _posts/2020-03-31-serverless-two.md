@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 飞猪 Serverless 体系建设（S2）
+title: 飞猪 Serverless 体系建设 S2
 date: 2020-03-30 16:00:00
 summary: 上半年完成了系列的基础设施建设，经历过集团基设施调研和多 BU 沟通，围绕飞猪前后端合作开发以及业务的痛点制定解决目标，到空岛研发平台和网关的建设，和集团深度共建统一 FaaS 研发平台，以及围绕各种开发体验、稳定性的建设，让整体 Serverless 达到**可用**状态，再来看看下半年做了啥?
 categories: Share

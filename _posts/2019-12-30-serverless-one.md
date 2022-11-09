@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 飞猪 Serverless 体系建设（S1）
+title: 飞猪 Serverless 体系建设 S1
 date: 2020-03-15 16:00:00
 summary: 飞猪 Serverless 技术体系建设从去年 4 月份立项到现在已经快 1 年，期间经历过集团基设施调研和多 BU 沟通，围绕飞猪前后端合作开发的痛点制定解决目标，到空岛研发平台和网关的建设，试点业务的上线跑通，再到空岛、Lander、DEF 合并共建统一 FaaS 研发平台，以及围绕各种开发体验、稳定性的建设，再到现在 14 个业务场景 Serverless 化，完成现在的一个初步阶段
 categories: Share
