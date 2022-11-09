@@ -8,22 +8,22 @@
 ## Features
 
 - cosy-jekyll-theme is a responsive blog template providing a good reading experience.
-- **No jQuery**, No other redundant resources.
+- **No jQuery**, no other redundant resources.
 - Modern and minimal design, **more concise and faster** than other jekyll theme.
 - **Responsive templates for post, page**, looks great on mobile, tablet, and desktop devices.
 - **Loading resources selectively on different platforms.**
 - **Support lazyload.**
 - Compress JavaScript and CSS.
 - By using SVG and Canvas makes this blog more geeks.
-- When running in PC,It will show a QRcode that you can read on mobile.
-- When the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.** 
+- When running in pc,It will show a qrCode that you can read on mobile.
+- When the picture in articles is **too complicated to see it clearly，you can zoom it in full-screen.**
 - Funny [custom 404 page](https://tw93.fun/err),You will like it.
 - **More suitable for China**:
 
-  - Dropping Google webfont, using proxy webfont.
+  - Dropping google webfont, using proxy webfont.
   - Delay loading of resources that are not immediately required.
   - When Discus failed to load, It will be a good suggestion.
-  - Add buy me a coffee by using WeChat payment.
+  - Add buy me a coffee by using weChat payment.
 
 ## PC Preview
 
