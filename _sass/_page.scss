@@ -578,8 +578,8 @@ iframe {
     cursor: pointer;
     @include user-select(none);
     &:hover {
-      background-color: #222;
-      color: #fff;
+      background-color: #fff;
+      color: #222;
     }
     &.active {
       background-color: #fff;
