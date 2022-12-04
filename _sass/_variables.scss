@@ -19,21 +19,21 @@ body {
 
 // Colors
 // --------------------------------------------------
-$base-color: rgba(#222, 0.8);
+$base-color: rgba(#111, 0.8);
 $header-color: #000;
 $header-active: #000;
 $menu-top: white;
 $menu-height: 60px;
 $menu-overflow: #000;
 $body-color: #e8e8e8;
-$text-color: rgba(#222, 0.9);
-$comp-color: complement(#222);
-$border-color: lighten(#222, 60);
+$text-color: rgba(#111, 0.9);
+$comp-color: complement(#111);
+$border-color: lighten(#111, 60);
 $white: #fff;
 $black: #000;
-$link-color: rgba(#222, 0.8);
+$link-color: rgba(#111, 0.8);
 
-$primary: #222;
+$primary: #111;
 $success: #5cb85c;
 $warning: #dd8338;
 $danger: #C64537;
