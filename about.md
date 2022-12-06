@@ -16,5 +16,5 @@ hideHomeActive: true
 
 * [Github](https://github.com/{{site.github}}){:target="_blank"}
 * [Twitter](https://twitter.com/{{site.twitter}}){:target="_blank"}
-* [知乎](https://www.zhihu.com/people/tw93/{{site.zhihu}}){:target="_blank"}
-* [V2EX](https://www.v2ex.com/member/tw93{{site.v2ex}}){:target="_blank"}
+* [知乎](https://www.zhihu.com/people/{{site.zhihu}}){:target="_blank"}
+* [V2EX](https://www.v2ex.com/member{{site.v2ex}}){:target="_blank"}
