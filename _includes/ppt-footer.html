@@ -17,7 +17,38 @@
       13: 'toggleOverview', // go to the next slide when the ENTER key is pressed
     },
   });
+
+  function changeAspect() {
+    //缩放控制
+    const defaultAspect = 1536 / 960;
+    const innerHeight = window.innerHeight;
+    const innerWidth = window.innerWidth;
+    const innerAspect = innerWidth / innerHeight;
+    const writeDom = document.getElementById('write');
+    if (innerAspect > defaultAspect) {
+      writeDom.style.zoom = innerHeight / window.screen.height;
+    } else {
+      writeDom.style.zoom = innerWidth / window.screen.width;
+    }
+    if (window.orientation === 180 || window.orientation === 0) {
+      writeDom.style.zoom = innerWidth / 1536;
+      alert('横屏显示效果更好');
+    }
+    if (window.orientation === 90 || window.orientation === -90) {
+      writeDom.style.zoom = innerWidth / 1536;
+    }
+  }
+
+  window.addEventListener(
+    'onorientationchange' in window ? 'orientationchange' : 'resize',
+    function () {
+      changeAspect();
+    },
+    false,
+  );
+
   document.addEventListener('DOMContentLoaded', function () {
+    changeAspect();
     const sections = document.getElementsByTagName('section');
     if (sections.length < 1) {
       return;
