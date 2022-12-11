@@ -25,17 +25,19 @@
     const innerWidth = window.innerWidth;
     const innerAspect = innerWidth / innerHeight;
     const writeDom = document.getElementById('write');
+    let zoom = 1;
     if (innerAspect > defaultAspect) {
-      writeDom.style.zoom = innerHeight / window.screen.height;
+      zoom = innerHeight / window.screen.height;
     } else {
-      writeDom.style.zoom = innerWidth / window.screen.width;
+      zoom = innerWidth / window.screen.width;
     }
     if (window.orientation === 180 || window.orientation === 0) {
-      writeDom.style.zoom = 0.625 * (innerWidth / 960);
+      zoom = 0.625 * (innerWidth / 960);
     }
     if (window.orientation === 90 || window.orientation === -90) {
-      writeDom.style.zoom = 0.625 * (innerWidth / 1536);
+      zoom = 0.625 * (innerWidth / 1536);
     }
+    writeDom.style.zoom = zoom;
   }
 
   window.addEventListener(

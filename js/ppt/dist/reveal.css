@@ -5,6 +5,10 @@
 *
 * Copyright (C) 2011-2022 Hakim El Hattab, https://hakim.se
 */
+
+body{
+    -webkit-text-size-adjust: auto;
+}
 .reveal .r-stretch,
 .reveal .stretch {
     max-width: none;
