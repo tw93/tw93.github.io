@@ -40,10 +40,15 @@
     writeDom.style.zoom = zoom;
   }
 
+  const isMobile = 'onorientationchange' in window;
   window.addEventListener(
-    'onorientationchange' in window ? 'orientationchange' : 'resize',
+    isMobile ? 'orientationchange' : 'resize',
     function () {
-      changeAspect();
+      if (isMobile) {
+        location.reload();
+      } else {
+        changeAspect();
+      }
     },
   );
 
