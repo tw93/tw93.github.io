@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
 }
 h1 {
-	@include font-rem(22);
+	@include font-rem(21);
   margin: 16px 0;
 	@media #{$medium} {
 		@include font-rem(30);
