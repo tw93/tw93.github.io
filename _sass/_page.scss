@@ -106,13 +106,10 @@ iframe {
   h1 {
     margin: 10px 20px;
     font-weight: 700;
-    @include font-rem(32);
+    @include font-rem(24);
     color: lighten($base-color, 20);
     @media #{$medium} {
-      @include font-rem(48);
-    }
-    @media #{$large} {
-      @include font-rem(60);
+      @include font-rem(30);
     }
   }
   h2 {
@@ -239,6 +236,7 @@ iframe {
 .pagination {
   margin: 36px 10px 0;
   text-align: center;
+  @include font-rem(16);
   ul {
     display: inline;
     margin-left: 10px;
@@ -298,15 +296,12 @@ iframe {
   }
   h3 {
     margin: 0;
-    @include font-rem(20);
+    @include font-rem(22);
     @media #{$medium} {
-      @include font-rem(28);
+      @include font-rem(30);
     }
     a {
       color: $text-color;
-    }
-    @media #{$medium} {
-      @include font-rem(36);
     }
   }
 }
@@ -344,11 +339,11 @@ iframe {
     margin-bottom: 20px;
     padding: 15px;
     @media #{$medium} {
-      padding: 30px;
+      padding: 30px 30px 10px;
     }
     @media #{$large} {
       margin-bottom: 30px;
-      padding: 30px 50px;
+      padding: 30px 50px 10px;
     }
   }
 }

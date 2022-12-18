@@ -1,13 +1,13 @@
 // Typography
 // --------------------------------------------------
 
-$base-font: 'LXGW WenKai Lite', Calibri, Arial, sans-serif;
+$base-font: 'LXGW WenKai Screen R', Calibri, Arial, sans-serif;
 $heading-font: $base-font;
 $caption-font: $base-font;
 $code-font: monospace;
 $alt-font: serif;
 
-$doc-font-size: 16;
+$doc-font-size: 15;
 $doc-line-height: 26;
 
 // set-up the body font-size / line-height
@@ -19,21 +19,21 @@ body {
 
 // Colors
 // --------------------------------------------------
-$base-color: rgba(#111, 0.8);
-$header-color: #000;
-$header-active: #000;
+$base-color: #24292F;
+$header-color: #15141A;
+$header-active: #15141A;
 $menu-top: white;
 $menu-height: 60px;
-$menu-overflow: #000;
+$menu-overflow: #24292F;
 $body-color: #e8e8e8;
-$text-color: rgba(#111, 0.9);
-$comp-color: complement(#111);
-$border-color: lighten(#111, 60);
+$text-color: rgba(#24292F, 0.9);
+$comp-color: complement(#24292F);
+$border-color: lighten(#24292F, 60);
 $white: #fff;
 $black: #000;
-$link-color: rgba(#111, 0.8);
+$link-color: rgba(#24292F, 0.8);
 
-$primary: #111;
+$primary: #24292F;
 $success: #5cb85c;
 $warning: #dd8338;
 $danger: #C64537;
