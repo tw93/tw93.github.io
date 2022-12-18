@@ -109,7 +109,7 @@ iframe {
     @include font-rem(24);
     color: lighten($base-color, 20);
     @media #{$medium} {
-      @include font-rem(30);
+      @include font-rem(31);
     }
   }
   h2 {
@@ -298,7 +298,7 @@ iframe {
     margin: 0;
     @include font-rem(22);
     @media #{$medium} {
-      @include font-rem(30);
+      @include font-rem(31);
     }
     a {
       color: $text-color;
