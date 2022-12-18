@@ -14,7 +14,7 @@ h1 {
 	@include font-rem(22);
   margin: 12px 0;
 	@media #{$medium} {
-		@include font-rem(31);
+		@include font-rem(30);
 	}
 }
 

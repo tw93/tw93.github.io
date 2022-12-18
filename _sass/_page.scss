@@ -109,7 +109,7 @@ iframe {
     @include font-rem(24);
     color: lighten($base-color, 20);
     @media #{$medium} {
-      @include font-rem(31);
+      @include font-rem(30);
     }
   }
   h2 {
@@ -210,6 +210,7 @@ iframe {
 }
 
 .tag-list {
+  @include font-size(16);
   line-height: 1.7;
   .tag-time {
     display: none;
@@ -298,7 +299,7 @@ iframe {
     margin: 0;
     @include font-rem(22);
     @media #{$medium} {
-      @include font-rem(31);
+      @include font-rem(30);
     }
     a {
       color: $text-color;
