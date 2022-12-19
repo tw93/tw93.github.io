@@ -105,7 +105,7 @@ main .gsc-comment-box-textarea {
 .form-control {
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 main .gsc-comment-box-textarea:focus,
 #__next .form-control:focus {
@@ -124,7 +124,7 @@ main .gsc-comment-box-textarea:focus,
 }
 
 .gsc-comment {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.8;
 }
 
