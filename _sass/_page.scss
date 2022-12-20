@@ -496,12 +496,14 @@ iframe {
 }
 
 .header-item {
+  letter-spacing: 0;
   height: 100%;
   &:nth-child(2),
   &:nth-child(3) {
     display: none;
   }
   @media #{$large} {
+    letter-spacing: 0.5px;
     display: block;
     &:nth-child(2),
     &:nth-child(3) {
