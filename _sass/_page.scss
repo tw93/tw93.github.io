@@ -34,6 +34,10 @@ iframe {
   @include font-size(16);
   position: relative;
   word-wrap: break-word;
+  margin-bottom: 15px;
+  @media #{$medium} {
+    @include font-size(16);
+  }
   .page-info {
     color: rgba(85, 85, 85, 0.8);
     @include font-size(14);
