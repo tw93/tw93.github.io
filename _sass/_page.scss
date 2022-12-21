@@ -103,6 +103,10 @@ iframe {
   @include need-dotted();
 }
 
+.github-icon{
+  margin-top: -6px;
+}
+
 ///sections
 .content-header-title {
   text-align: center;
@@ -239,7 +243,7 @@ iframe {
 
 // Post Pagination Module
 .pagination {
-  margin: 36px 10px 0;
+  margin: 48px 10px 16px;
   text-align: center;
   @include font-rem(16);
   ul {
@@ -254,13 +258,19 @@ iframe {
   .current-page {
     font-weight: 700;
   }
+  .btn {
+    padding: 8px 10px;
+    @media #{$medium} {
+      padding: 8px 20px;
+    }
+  }
 }
 
 // Read More Module
 .read-more {
   display: block;
   position: relative;
-  margin: 40px 2px 20px 2px;
+  margin: 40px 2px 48px 2px;
   padding: 40px 15px 25px;
   background-color: $white;
   box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
@@ -327,7 +337,7 @@ iframe {
 // --------------------------------------------------
 #post-index {
   #main {
-    margin: 80px 2px 20px 2px;
+    margin: 80px 2px 30px 2px;
     overflow: hidden;
     @media #{$medium} {
       margin: 20px;
@@ -570,7 +580,7 @@ iframe {
     margin: 0 auto;
     position: relative;
     height: 36px;
-    width: 178px;
+    width: 184px;
     line-height: 17px;
     text-align: center;
     @include text-overflow(clip);
