@@ -6,14 +6,70 @@ summary: 给内部同学分享的关于如何做小的技术产品以及应该�
 categories: Share
 ---
 
-给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？
+在开源 [Weex Ui](https://github.com/apache/incubator-weex-ui) 的过程中有一些感触，伴随着 新产品 [XRender](https://github.com/alibaba/x-render) 的开源，给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？详细 [PDF](https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf)。
 
-## 文档
+## 分享内容
 
-{% pdf "https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" %}
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00001.jpeg)
 
-## 有趣的提交记录
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00002.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00003.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00004.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00005.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00006.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00007.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00008.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00009.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00010.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00011.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00012.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00013.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00014.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00015.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00016.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00017.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00018.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00019.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00020.jpeg)
 
 <video width="100%" controls>
   <source src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/tfUCLw/code-commit.mp4" type="video/mp4">
 </video>
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00022.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00023.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00024.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00025.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00026.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00027.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00028.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00029.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00030.jpeg)
+
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00031.jpeg)
