@@ -6,9 +6,11 @@ summary: 给内部同学分享的关于如何做小的技术产品以及应该�
 categories: Share
 ---
 
+给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？
+
 ## 文档
 
-<iframe src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" width="100%" height="600px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" type="application/pdf"></iframe>
+{% pdf "https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" %}
 
 ## 有趣的提交记录
 
