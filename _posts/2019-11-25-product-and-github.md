@@ -8,7 +8,7 @@ categories: Share
 
 ## 文档
 
-<iframe src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" width="100%" height="600px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+<iframe src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf" width="100%" height="600px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" type="application/pdf"></iframe>
 
 ## 有趣的提交记录
 

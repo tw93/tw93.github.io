@@ -104,7 +104,7 @@ iframe {
 }
 
 .github-icon{
-  margin-top: -6px;
+  margin-top: -5px;
 }
 
 ///sections
@@ -218,7 +218,7 @@ iframe {
 }
 
 .tag-list {
-  @include font-size(16);
+  @include font-size(15);
   line-height: 1.7;
   .tag-time {
     display: none;
@@ -246,6 +246,9 @@ iframe {
   margin: 48px 10px 16px;
   text-align: center;
   @include font-rem(16);
+  @media #{$medium} {
+    margin: 48px 10px 48px;
+  }
   ul {
     display: inline;
     margin-left: 10px;
@@ -276,13 +279,13 @@ iframe {
   box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
   @include rounded(3px);
   @media #{$medium} {
-    margin: 40px 10px 30px 10px;
+    margin: 40px 10px 48px 10px;
     padding: 50px 40px 25px;
   }
   @media #{$large} {
     max-width: 900px;
     padding: 50px 80px;
-    margin: 50px auto 30px;
+    margin: 50px auto 48px;
   }
   text-align: center;
   @include clearfix;
@@ -371,7 +374,7 @@ iframe {
   text-align: center;
   @include font-rem(14);
   @media #{$medium} {
-    margin: 8px auto 35px auto;
+    margin: 8px auto 20px auto;
     @include font-rem(16);
   }
 }
@@ -598,20 +601,16 @@ iframe {
 }
 
 .img-zoom {
-  cursor: -webkit-zoom-in;
-  cursor: -moz-zoom-in;
   cursor: zoom-in;
 }
 
 .lazyload,
 .lazyloading {
-  -webkit-filter: blur(5px);
   filter: blur(5px);
-  transition: filter 400ms, -webkit-filter 400ms;
+  transition: filter 400ms;
 }
 
 .lazyloaded {
-  -webkit-filter: blur(0);
   filter: blur(0);
 }
 

@@ -1,7 +1,7 @@
 ---
 layout: ppt
 title: 如何做一个产品工程师？
-date: 2022-07-29 07:00:00
+date: 1993-07-29 07:00:00
 feature: https://gw.alicdn.com/imgextra/i4/O1CN0170apqO1j6afnI6xEX_!!6000000004499-0-tps-2000-1064.jpg
 summary: 最近给团队同学的一个分享，从前端工程师的视角来看如何做成一个产品开发工程师。
 categories: Share
