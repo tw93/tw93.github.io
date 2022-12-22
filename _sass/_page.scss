@@ -217,6 +217,9 @@ iframe {
 .tag-list {
   @include font-size(15);
   line-height: 1.7;
+  @media #{$medium} {
+    @include font-rem(16);
+  }
   .tag-time {
     display: none;
     @media #{$medium} {
