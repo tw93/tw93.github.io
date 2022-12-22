@@ -1,12 +1,10 @@
 ---
 layout: post
-title: 早早聊微前端专题分享
+title: 早早聊-微前端专题分享
 date: 2020-06-28 16:00:00
 summary: 早早聊大会上代表飞猪分享话题<如何落地微前端一体化运营工作台>，本文为文字稿
 categories: Share
 ---
-
-<iframe src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/vXJQN9/%E5%A6%82%E4%BD%95%E8%90%BD%E5%9C%B0%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B8%80%E4%BD%93%E5%8C%96%E8%BF%90%E8%90%A5%E5%B7%A5%E4%BD%9C%E5%8F%B0_%E4%BE%91%E5%A4%95.pdf" width="100%" height="420px" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" type="application/pdf"></iframe>
 
 ## 前言
 
