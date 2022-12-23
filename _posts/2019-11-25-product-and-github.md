@@ -50,11 +50,11 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00020.jpeg)
 
+![1](https://gw.alipayobjects.com/zos/k/open/IMG_00021.jpeg)
+
 <video width="100%" controls>
   <source src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/tfUCLw/code-commit.mp4" type="video/mp4">
 </video>
-
-![1](https://gw.alipayobjects.com/zos/k/open/IMG_00022.jpeg)
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00023.jpeg)
 
