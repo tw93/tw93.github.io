@@ -58,7 +58,7 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00023.jpeg)
 
-![1](https://gw.alipayobjects.com/zos/k/open/IMG_00024.jpeg)
+![1](https://cdn.fliggy.com/upic/IR8sfD.png)
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00025.jpeg)
 
