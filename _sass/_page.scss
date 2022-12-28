@@ -55,6 +55,7 @@ iframe {
       height: 16px;
       display: none;
       position: relative;
+      margin-bottom: -2px;
       &::before {
         content: '';
         position: absolute;
