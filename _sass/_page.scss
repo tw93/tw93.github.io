@@ -94,6 +94,9 @@ iframe {
       }
     }
   }
+  h2 > a,
+  h3 > a,
+  h4 > a,
   p > a,
   li > a {
     @include need-dotted();
