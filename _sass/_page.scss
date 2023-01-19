@@ -28,6 +28,7 @@ iframe {
 
 .hentry h1.entry-title{
   letter-spacing: 0.6px;
+  @include font-rem(28);
   @media #{$medium} {
     letter-spacing: 0.8px;
   }
@@ -370,11 +371,11 @@ iframe {
     margin-bottom: 20px;
     padding: 15px;
     @media #{$medium} {
-      padding: 34px 36px 16px;
+      padding: 28px 36px 12px;
     }
     @media #{$large} {
       margin-bottom: 30px;
-      padding: 34px 50px 16px;
+      padding: 30px 50px 16px;
     }
   }
 }
@@ -545,7 +546,7 @@ iframe {
   border-top-width: 0px;
   height: 100%;
   a.title {
-    font-size: 1.5rem;
+    @include font-rem(24);
     padding-left: 5px;
     vertical-align: middle;
     height: $menu-height;
