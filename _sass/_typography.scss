@@ -3,10 +3,7 @@
 body {
   font-family: $base-font;
   color: $text-color;
-  letter-spacing: 0.7px;
-  @media #{$medium} {
-    letter-spacing: 0.8px;
-  }
+  letter-spacing: 0.8px;
 }
 
 // Headings

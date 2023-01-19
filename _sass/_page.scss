@@ -26,6 +26,13 @@ iframe {
   }
 }
 
+.hentry h1.entry-title{
+  letter-spacing: 0.6px;
+  @media #{$medium} {
+    letter-spacing: 0.8px;
+  }
+}
+
 .body-title {
   display: block;
 }
