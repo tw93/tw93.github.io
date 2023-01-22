@@ -27,10 +27,8 @@ iframe {
 }
 
 .hentry h1.entry-title{
-  letter-spacing: 0.6px;
-  @include font-rem(28);
   @media #{$medium} {
-    letter-spacing: 0.8px;
+    @include font-rem(28);
   }
 }
 
