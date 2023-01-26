@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var qrTextEl = document.getElementById('J_qr_text');
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
-  isShowQr && loadScript('https://qpluspicture.oss-cn-beijing.aliyuncs.com/XIa3FV/qrcode.min.js', function () {
+  isShowQr && loadScript('https://gw.alipayobjects.com/os/k/qa/qrcode.min.js', function () {
     QRCode && new QRCode(document.getElementById("J_qr_code"), {
       width: 128,
       height: 128,
@@ -106,8 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var zoomImgs = document.querySelectorAll('.img-zoom');
-  (zoomImgs && zoomImgs.length > 0) && loadScript("https://qpluspicture.oss-cn-beijing.aliyuncs.com/Jl790T/intense.min.js", function () {
-    Intense && Intense(zoomImgs);
+  (zoomImgs && zoomImgs.length > 0) && loadScript("https://gw.alipayobjects.com/os/k/3m/intense.min.js", function () {
+    Intense && Intense(zoomImgs,{invertInteractionDirection: true});
   });
 
 }, false);
