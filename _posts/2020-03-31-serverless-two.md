@@ -14,7 +14,7 @@ categories: Share
 
 到 14、15 年 All in 无线的过程中，为了解决从 PC 时代复杂行业数据到无线网关的快速转换，飞猪成立了无线服务端团队来完成数据到端侧的胶水层工作，可很好解决系列问题，但是持续重复的包接口也让无线服务端面临的成长和沉淀问题，不太可持续的。
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/UZA8i0/44.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/3c/sTXzCN.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 16、17 年无线服务端技术建设稳定后，也由于上述问题，接口封装的工作逐步由下放到行业后端同学，随着 H5/Weex/iOS/Android 多端发展，各自对接口的诉求难以一致，出现通过 Node BFF 层来承接胶水问题，但前端运维能力不强、长尾机器的浪费导致很难全量 BFF 化。
 
@@ -37,7 +37,7 @@ categories: Share
 
 在这个情况下，我们下半年【**启动飞猪 Serverless 体系二期**】，在夯实 Serverless 技术体系建设上，寻找到前端研发体系升级和 Serverless 结合的突破口，**围绕推进 Serverless 基础设施升级、监控稳定性增强、研发体验和工程化升级、前后端一体化业务最佳实践 4 方面进行**。
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/xkSS4w/21.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/iu/O5JLxV.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 
 **现阶段完成多业务场景试点探索，同时 Serverless 技术建设满足业务的使用，完成试探期 -> 可用期阶段，下一个主要目标为业务场景的范围铺开，用于产生更大的价值。**
@@ -50,7 +50,7 @@ categories: Share
 
 首先给大伙同步 Serverless 在飞猪业务场景的落地效果，**目前一年飞猪 Serverless 累计在高铁游、交通搜索、飞猪发布评论器、资源位管理平台、签证、WIFI、周边游、旅行任意门、旅行购、超级新发现、门票、POI、发现视频、新人专区、找相似、泰坦、小程序 URL 管理、收藏/行程、船票、德铁、PC 内容详情全切 FaaS SSR、直播、统一目的地、投放平台发券/圈人/发布活动等** 25 个场景使用探通，其中 S2 上线 10 个函数组，主要聚集在新业务新类型场景上面的落地工作，包括飞猪侧各前端团队也均使用中，同时也有**不少“特别代表性”的场景业务**：
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/1pOLMe/36.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/zy/6j9UtM.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 - **Rax 一体化场景**：我们完成了出境购 Rax + FaaS 一体化项目落地，中间有不少地方拉上集团同学一起支持完善，也是集团第一个 Weex 一体化业务的上线；
 
@@ -64,7 +64,7 @@ categories: Share
 
 可以通过如下一图近半年我们的一些建设事项，通过一体化开发模式来让前端同学逐步具备产品化的开发思想，BaaS 能力的扩充将可做的事情向下再 down 一层，监控一体化建设让 serverless 全链路得到可视保障，带着业务诉求参与到集团 Serverless 共建更好促进整体的发展。
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/qWpQcC/38.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/2i/l0uZj5.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 
 ### 一体化研发模式升级
@@ -73,7 +73,7 @@ categories: Share
 
 - **Ant Design Pro + FaaS 一体化中后台开发**：由于目前不少飞猪小二平台不少是通过在 Aone 申请 1+3 台机器的方式来完成 Node 应用的部署，存在申请麻烦、机器浪费、上线复杂的问题，基于此我们**跑通 Ant Design Pro 体系下的 FaaS 一体化的本地调试、编译、部署上线全流程，目前已沉淀到脚手架和研发平台**，我们可以像开发一个普通前端页面一样上线中后台应用，无需申请机器和域名，目前飞猪渠道管理平台跑完串通数据库使用流程上线
 
-  <img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/Rqff4d/39.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+  <img data-src="https://gw.alipayobjects.com/zos/k/p1/2W1NjX.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 - **FaaS Rax SSR 一体化跑通**：之前开发 SSR 的时候，需要让一个前端变成一个全栈，同时需要考虑到 Node 选型，申请、搭建、部署、保障这些过程，这也导致其很难在内部大范围使用的一原因，水澜这边 SSR 共建组同学产出通用能力，后续基于 nginx+lua+缓存 的动态代理策略，完成了飞猪侧的全链路上线跑通，目前也可投入生产使用了，可很好的用于后续飞猪 SEO 和页面性能提升场景，可见[旅游攻略>>](https://fl-content-d.fl.fliggy.com/detail?id=221333293146)
 
@@ -85,11 +85,11 @@ categories: Share
 
 基于此，我们完成了 Clam 和 FaaS 开发体系的打通，现在飞猪开发者无需去研发平台申请对应的应用，一步一步点击迭代，**直接通过`clam init faas`创建纯 faas 项目、`clam init rax --faas`创建 RAX+FaaS 一体化项目，后续流程即可保持可以之前页面开发体验一致**，可降低大伙的使用成本。
 
-<img data-src="https://gw.alipayobjects.com/zos/r/s9w1ir/Jietu20200401-194159.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/65/YWmBaO.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 同时为了减少初步使用 FaaS 同学的上手成本，完成飞猪侧 Serverless 使用文档整理归纳，包含**新手教程、框架介绍、常用服务调用、BaaS 能力、一体化开发、运维排查开发全流程的使用文档>>>**
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/raykdW/37.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/y9/RRFRRn.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 ### BaaS 能力建设
 
@@ -99,7 +99,7 @@ categories: Share
 
 **FaaS 直连数据库**(推荐方案，较安全)：加上 C 端业务侧有强诉求，需要使用数据库能力，我们和 midway runtime 的同学**跑通了在 FaaS 函数 LifeCycle 生命周期启动的时候，实现了对数据库的直连，让每个函数可以读取到 Configuration 配置，同时也沉淀了一套我们认为的最佳的 FaaS 数据库增删改查建表的使方式，填补了集团在 FaaS 使用数据库这一块的空白**，目前此类使用已在飞猪 C 端城市目的地统一以及内部中后台渠道管理中使用跑通。
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/zH8BnB/34.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/6z/uqIghi.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 **内网登录能力调用**：我们中后台体系的第一个中间件的能力，使用方式和原有 midway 的方式很像，可以借助此插件快速实现内网登录能力的接入，可以让我们快速上手使用。
 
@@ -107,7 +107,7 @@ categories: Share
 
 稳定性一直在 Serverless 体系中最需要关注的一趴，由于属于新兴事物，更需要尽可能保障稳定性，让新同学觉得这个体系是靠谱的，他的业务可以来生产使用，这样方可促进其更好融合发展。
 
-**Serverless 监控一体化平台**：为了更好发现和排查问题，我们拉上原来 Node 监控同学一起弄了一个 Serverless 监控一体化的平台，目前 1.0 版本已经发布发布，**加上函数监控信息，引入健康分的概念，也加入重要功能全链路监控，通过流程图的方式可一眼看到问题所在，加上了快速止血的入口**，同时**整体能力已经接入到统一 FaaS 研发平台 **。目前我们正在弄函数监控关注部分，同时在着手弄自定义日志统计的能力，期待后续在监控侧给大家带来更大的价值
+**Serverless 监控一体化平台**：为了更好发现和排查问题，我们拉上原来 Node 监控同学一起弄了一个 Serverless 监控一体化的平台，目前 1.0 版本已经发布发布，**加上函数监控信息，引入健康分的概念，也加入重要功能全链路监控，通过流程图的方式可一眼看到问题所在，加上了快速止血的入口**，同时**整体能力已经接入到统一 FaaS 研发平台**。目前我们正在弄函数监控关注部分，同时在着手弄自定义日志统计的能力，期待后续在监控侧给大家带来更大的价值
 
 除了监控部分，让函数如何在低运维成本下也是需要重点考虑的地方，基于此 Serverless 共建组推动 Serverless 机器同学一起上线了**函数动态缩扩容**的能力，同时也建立起 **函数租户管控平台**，便于后续函数容量、租户、上线等管控工作。
 

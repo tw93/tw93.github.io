@@ -6,7 +6,7 @@ summary: 给内部同学分享的关于如何做小的技术产品以及应该�
 categories: Share
 ---
 
-在开源 [Weex Ui](https://github.com/apache/incubator-weex-ui) 的过程中有一些感触，伴随着 新产品 [XRender](https://github.com/alibaba/x-render) 的开源，给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？详细 [PDF](https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/oN9nbH.pdf)。
+在开源 [Weex Ui](https://github.com/apache/incubator-weex-ui) 的过程中有一些感触，伴随着 新产品 [XRender](https://github.com/alibaba/x-render) 的开源，给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？详细 [PDF](https://gw.alipayobjects.com/os/k/wh/oN9nbH.pdf)。
 
 ## 分享内容
 
@@ -53,7 +53,7 @@ categories: Share
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00021.jpeg)
 
 <video width="100%" controls poster="https://cdn.fliggy.com/upic/gBMYM5.png">
-  <source src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/tfUCLw/code-commit.mp4" type="video/mp4">
+  <source src="https://cdn.fliggy.com/upic/Ao2oFh.mp4" type="video/mp4">
 </video>
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00023.jpeg)

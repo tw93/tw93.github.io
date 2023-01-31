@@ -18,7 +18,7 @@ categories: Share
 
 到 14、15 年 All in 无线的过程中，为了解决从 PC 时代复杂行业数据到无线网关 Mtop 的快速转换，飞猪成立了无线服务端团队来完成数据到端侧的胶水层工作，可很好解决系列问题，但是持续重复的包接口也让无线服务端面临的成长和沉淀问题，不太可持续的。
 
-![](https://qpluspicture.oss-cn-beijing.aliyuncs.com/PlwtRO/5p5kQT.png)
+![](https://gw.alipayobjects.com/zos/k/q9/LohYRl.jpg)
 
 16、17 年无线服务端技术建设稳定后，也由于上述问题，Mtop 接口封装的工作逐步由下放到行业后端同学，随着 H5/Weex/iOS/Android 多端发展，各自对接口的诉求难以一致，出现通过 Node BFF 层来承接胶水问题，但前端运维能力不强、长尾机器的浪费导致很难全量 BFF 化。
 
@@ -48,22 +48,22 @@ categories: Share
 
 与此同时，Lancer 平台也开始赋能淘宝导购业务的使用，人工智能的 YaaS 平台在满足中后台场景的使用，但缺少一个阿里前端统一的 Serverless 研发平台，经过和阿里不少团队多次讨论和对焦，有了接来下的共建研发平台的规划落地。
 
-<a href="https://qpluspicture.oss-cn-beijing.aliyuncs.com/upload/1571583458-3wDxL3.mp4" target="_blank"><img src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/upload/1571583324-2QDTCY.gif" width="960"/></a>
+<a href="https://cdn.fliggy.com/upic/0kvqxm.mp4" target="_blank"><img src="https://cdn.fliggy.com/upic/KkSMk4.gif" width="960"/></a>
 
 **二期 参与集团共建完成多方合并，支持飞猪、手淘可跑通**：主要是前期合并和产品方案的梳理，一起制定解决方案，完成飞猪空岛、手淘 Lancer、Def 的三方融合，同时在底层数据库结构上和 Api 上面的统一打通，功能上支持非覆盖发布和灰度切流方案，这个阶段基本完成 FaaS 函数的可跑通，但是在易用性上还需改善；
 
 **三期 统一平台功能丰富，支持飞猪侧好用可迁移**：此期工作覆盖现有空岛能力，也即现在上图看到的 DEF 2.0，在之前基础上支持 BU、产品场景的聚合能力、研发闭环测试监控体验、Http 通用网关支持中后台场景；完成统一对外 Open-Api 的梳理规范制定工作，提供轻量级的 Pipeline 发布流程给服务编排系统的使用；让 Sandbox 以及服务市场对飞猪侧的良好支持，共建产出 Rax + FaaS 一体化解决方案，满足飞猪侧在统一研发平台的使用
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/AOGxwf.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/pc/J9WUGP.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 **四期 使用痛点优化，满足 930 前可切流工作**：在上期功能满足使用后，此阶段建设重点解决手淘、飞猪侧用户使用过程中的痛点，补充操作手册，pipeline 发布管控流程增强；同时支持了中后台 FaaS 一体化场景的使用，以及在**函数详情页新增了函数测试、快速调用、Debug 3 合一功能让大家方便使用**；
-<img src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/ts-upload/调试功能.gif" width="720"/>
+<img src="https://cdn.fliggy.com/upic/EK10Uu.gif" width="720"/>
 
 ### 空岛网关建设
 
 在 FaaS 函数被端侧使用起来前，还需要网关来将下层 HSF 服务访问转成通用 Mtop/HTTP 来可访问，并通过统一网关入口来为飞猪侧所有 FaaS 函数提供鉴权、限流、容灾、日志、监控的作用，目前建设进行到了第三期，后续重点以能力增强为主。
 
-<img data-src="https://qpluspicture.oss-cn-beijing.aliyuncs.com/upload/1571639953-rCaTOW.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/sg/Q6wnhO.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 **第一期**：主要是用于和空岛平台的对接，通过规范约定，**提供基础能力满足业务侧试点的使用**，当时是通过访问空岛数据库方式获取到函数对应的 FaaS 触发信息的方式来进行连接
 
@@ -71,7 +71,7 @@ categories: Share
 
 **第三期**：更多聚焦在**可适配性参数规范、稳定性、能力扩充**3 方面，目前规范、稳定性全完成，全链路日志、网关监控报警、防爬、钉钉定制报警接入，后续重心放到能力扩充上，解决部分由于地层 BaaS 能力不足的问题
 
-<img data-src="https://gw.alipayobjects.com/zos/r/iinkot/20200228213650.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/uo/mqjiBj.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 ### 基础支持
 
@@ -85,7 +85,7 @@ categories: Share
 
 - **Rax + FaaS 一体化研发**：属于未来云端一体化中比较重要的一环，目前多方制定了 client、cloud 的目录结构，完成飞猪网关模拟 SDK、前端请求 SDK 打通网关开发和合并到主干，在脚手架中加入对飞猪 Rax+Faas 一体创建支持，满足全流程可跑通本地调试调用和统一研发平台的发布工作；目前正在和飞猪侧工程体系 Clam 打通对应流程，期待可让业务侧真正可友好上线一体化项目
 
-  <img data-src="https://gw.alipayobjects.com/zos/r/1hkyt6/20200228213627.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+  <img data-src="https://gw.alipayobjects.com/zos/k/fs/GAXnwT.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 ## 业务场景 Serverless 化支持
 
@@ -99,7 +99,7 @@ categories: Share
 
 ## 后续规划
 
-<img data-src="https://gw.alipayobjects.com/zos/r/zhtpal/20191231113508.png" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
+<img data-src="https://gw.alipayobjects.com/zos/k/v6/r8RIhT.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom"/>
 
 ## 展望
 

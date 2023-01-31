@@ -30,9 +30,9 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00010.jpeg)
 
-[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00011.jpeg)](https://qpluspicture.oss-cn-beijing.aliyuncs.com/2021-06-27/qE7k1D.mp4)
+[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00011.jpeg)](https://cdn.fliggy.com/upic/f6HMZ1.mp4)
 
-[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00012.jpeg)](https://qpluspicture.oss-cn-beijing.aliyuncs.com/2021-06-27/eu42ec.mp4)
+[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00012.jpeg)](https://cdn.fliggy.com/upic/JP5Rwn.mp4)
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00013.jpeg)
 
@@ -40,7 +40,7 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00015.jpeg)
 
-[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00016.jpeg)](https://qpluspicture.oss-cn-beijing.aliyuncs.com/2021-06-27/QxkiTp.mp4)
+[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00016.jpeg)](https://cdn.fliggy.com/upic/FOIf4B.mp4)
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00017.jpeg)
 
@@ -48,13 +48,13 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00019.jpeg)
 
-[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00020.jpeg)](https://qpluspicture.oss-cn-beijing.aliyuncs.com/2021-06-27/wqt9hI.mp4)
+[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00020.jpeg)](https://cdn.fliggy.com/upic/b9S8Jn.mp4)
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00021.jpeg)
 
-[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00022.jpeg)](https://qpluspicture.oss-cn-beijing.aliyuncs.com/2021-06-28/ZYZ5bU.mp4)
+[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00022.jpeg)](https://cdn.fliggy.com/upic/DephJF.mp4)
 
-[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00023.jpeg)](https://qpluspicture.oss-cn-beijing.aliyuncs.com/2021-06-27/4rO1AV.mp4)
+[![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00023.jpeg)](https://cdn.fliggy.com/upic/zrhlMH.mp4)
 
 ![1](https://gw.alipayobjects.com/zos/k/gmtc/IMG_00024.jpeg)
 

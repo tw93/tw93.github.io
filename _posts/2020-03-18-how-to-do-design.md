@@ -6,7 +6,7 @@ summary: 给内部同学分享的中后台交互设计的思考
 categories: Share
 ---
 
-2020 年我这边团队负责部门内 B 端系统的前端，当时给团队分享的中后台交互设计的一些思考，详细可见 [PDF](https://qpluspicture.oss-cn-beijing.aliyuncs.com/lGKaS8/%E8%BF%90%E8%90%A5%E5%B9%B3%E5%8F%B0%E8%A7%86%E8%A7%89%E4%BA%A4%E4%BA%92.pdf)。
+2020 年我这边团队负责部门内 B 端系统的前端，当时给团队分享的中后台交互设计的一些思考，详细可见 [PDF](https://gw.alipayobjects.com/os/k/2b/%25E8%25BF%2590%25E8%2590%25A5%25E5%25B9%25B3%25E5%258F%25B0%25E8%25A7%2586%25E8%25A7%2589%25E4%25BA%25A4%25E4%25BA%2592.pdf)。
 
 ![1](https://gw.alipayobjects.com/zos/k/design/IMG_00001.jpeg)
 
