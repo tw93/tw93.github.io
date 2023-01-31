@@ -18,7 +18,7 @@ categories: Share
 
 将从「**为什么要做飞猪一体化运营工作台、要做成什么样子、怎么做的、后面想怎么做**」这 4 块来给大家讲述。
 
-![](https://gw.alipayobjects.com/zos/k/3d/RhYD6D.jpg)
+![](https://cdn.fliggy.com/upic/ZMSRU0.jpg)
 
 ## 为什么要做飞猪一体化运营工作台
 
@@ -32,7 +32,7 @@ categories: Share
 
 随着业务逐步丰富发展，内部的各种小二运营平台也在从「可用提效」往「精耕细作」发展，随着运营一体化工作台的建设，目前正处在下图箭头处
 
-![](https://gw.alipayobjects.com/zos/k/hk/oAdAH7.jpg)
+![](https://cdn.fliggy.com/upic/K6nedx.jpg)
 
 ### 发展过程中的痛点
 
@@ -56,7 +56,7 @@ categories: Share
 
 底层借助 Ant Design 体系加上 qiankun 的能力，中间层辅助一体化工作台里面涉及的贴合现有业务场景的规范；更上一层沉淀组件化 widget 的能力，用于各种功能的互通，同时成为现有子应用的组合来源；在最上层即飞猪运营工作台的上层主应用，包括整体框架、快捷导航、权限登录控制、运营场景的汇集，包括后续要做的业务运营 SOP 解决方案。
 
-<a href=https://cdn.fliggy.com/upic/KjhvJ0.mp4 target="_blank"><img src=https://cdn.fliggy.com/upic/dKnYHV.gif width=800/></a>
+<a href="https://cdn.fliggy.com/upic/KjhvJ0.mp4" target="_blank"><img src="https://cdn.fliggy.com/upic/dKnYHV.gif" width=800/></a>
 
 ## 怎么做的
 
@@ -74,13 +74,13 @@ categories: Share
 
 前端侧除了微前端还有路由这一块，其实还包括可以做的更多的事情，包括我们整合了公共资源如 antd、loadsh、router 等等统一大版本，通过写了 umi-externals-url 进行处理，借此可以减少将近 1/3 的资源；包括在体验度量方面我们借助内部的能力，可以将使用用户进行分层分析包括错误性能监控；同时产出具备可以录屏、截图的在线反馈系统，便于用于在使用过程中直接反馈通知直接 issue 提交给对应的负责同学；
 
-![](https://gw.alipayobjects.com/zos/k/32/SaJje6.jpg)
+![](https://cdn.fliggy.com/upic/wPiC1r.jpg)
 
 ### 后端侧自建统一网关串通主子应用
 
 **在后端侧，我们在运营工作台 Node 侧自建了 Gateway 网关 middleware**，底层依赖[http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)能力实现，借用服务端 proxy 转发接口同时在请求上加上 token 来**解决接口登录权限以及跨域**的问题，同时对于主子应用直接接入会出现内网登录登录权限不通的问题，此处我们使用的 **免登授权** 的能力，让子应用的登录让主应用本身来提供，这样通过中间网关层配合我们给 **[qiankun pr](https://cdn.fliggy.com/upic/oxVRq7.jpg) 的 Fetch 自定义能力和 Slave Namebase** 可解决请求和路由跳转的兼容问题。
 
-![](https://gw.alipayobjects.com/zos/k/c9/t7qkZQ.jpg)
+![](https://cdn.fliggy.com/upic/2rdzLW.jpg)
 
 ### Widget 业务组件化
 
@@ -90,7 +90,7 @@ categories: Share
 - 借此解携抽离原有通用招造投搭能力,减少维护压力；
 - 逐步丰富现有 widget 能力,满足后续更多场景的接入使用,以及系统打通
 
-![](https://gw.alipayobjects.com/zos/k/53/OTD5Co.jpg)
+![](https://cdn.fliggy.com/upic/WJ3lrn.jpg)
 
 基于此我们通过类 widget npm 组件包的方式来实现业务组件，包括制定对应的协议来驱动对应的 widget 渲染和展示，便于后端同学对其更加可控，同时在视觉规范上，我们收拢各种场景下的使用展示，便于一个 widget 可以更加无缝的嵌入到已有系统
 
@@ -113,11 +113,11 @@ categories: Share
 
 比如说如下的展示：
 
-![](https://gw.alipayobjects.com/zos/k/ed/5nYtMx.jpg)
+![](https://cdn.fliggy.com/upic/RR1XDh.jpg)
 
 通过将现有的原子类展示统一后，再往后走，我们将现有的开箱即用进行统一交互，然后沉淀出对应的能力，包括搜索列表、场景卡片组、表单预览的能力，有了这些能力的沉淀，后续新页面的产生较之前可上升一个大的阶段
 
-![](https://cdn.fliggy.com/upic/NbK2QS.gif)
+![](https://cdn.fliggy.com/upic/9g1mA6.gif)
 
 **如 FormRender 的表单的沉淀，我们可以借此此能力可以生产大量的表单页面，同时展示完全让后端侧来控制展示，这样可以做到协议驱动展示，更多详细可见 [alibaba/form-render](https://github.com/alibaba/form-render)**
 
@@ -127,11 +127,11 @@ categories: Share
 
 以上即我们第一个阶段做的事情，对于下一期重点会放在场景 SOP 能力的开发，同时在中间层进行开箱即用的疯狂提效，底层进行更多的抽象以及规范化，最底层在工程上形成统一的初始化、发布的能力
 
-![](https://cdn.fliggy.com/upic/WWfWOY.gif)
+![](https://cdn.fliggy.com/upic/dJljfc.jpg)
 
 对于运营配置的场景，最终目的是为了提升运营配置的效率以及可以不断通过数据来优化业务的使用效果，后续我们将以 SOP 的形式逐步来优化运营侧的配置，最终形成一体化的配置能力;
 
-![](https://cdn.fliggy.com/upic/RRTkRH.jpg)
+![](https://cdn.fliggy.com/upic/URx6zj.jpg)
 
 对于技术侧，将尝试更多的新技术探索，特别在微前端规范统一方面，如何让现有系统可以接入目前主流的微前端的子应用能力，包括上层子应用的管控平台；同时目前的新打包体系或许可以给我们很多新的思路来扩充现有的打包的能力；以及上述的开箱即用协议驱动的搭建如何通过低代码的搭建的方式来更多提升我们的快速生成的能力！
 
