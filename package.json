@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "bundle exec jekyll serve --watch",
     "start": "npm run dev",
-    "build": "jekyll build",
+    "build": "bundle exec jekyll build",
     "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all"
   },
   "devDependencies": {
