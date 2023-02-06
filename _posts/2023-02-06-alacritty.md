@@ -28,7 +28,8 @@ categories: Technology
 个人比较习惯软件使用沉浸式头，同时字体喜欢用 [JetBrains Mono](https://www.jetbrains.com/lp/mono/)，本地没有可以直接下载安装，最后按照喜好配置颜色，好在这里设置全部可以放到 `~/.config/alacritty/alacritty.yml`，我的是 [alacritty.yml](https://gw.alipayobjects.com/os/k/s0/alacritty.yml)，运行如下命令，可以直接下载并放到对应的位置。
 
 ```bash
-curl -fLo ~/.config/alacritty/alacritty.yml --create-dir https://gw.alipayobjects.com/os/k/s0/alacritty.yml
+curl -fLo ~/.config/alacritty/alacritty.yml --create-dir \
+     https://gw.alipayobjects.com/os/k/s0/alacritty.yml
 ```
 
 执行完，重新打开下试试，效果差不多会变成上面图片中的右图效果了。此外除了样式的配置，还添加了一些常用的快捷键（哎，居然快捷键都要配置），包括如下：
