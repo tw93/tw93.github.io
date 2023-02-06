@@ -43,7 +43,7 @@ command+f：搜索关键字
 ```
 
 配置完成后，UI 颜色和字体展示大概是这样，基本上比较舒服的高亮。
-<img src=https://gw.alipayobjects.com/zos/k/k1/Lb8iKn.png width=700 />
+<img src="https://gw.alipayobjects.com/zos/k/k1/Lb8iKn.png" width=700 />
 
 ### 四、要不要试试 fish shell
 
@@ -73,7 +73,8 @@ fisher install pure-fish/pure
 ```
 
 最后安装好以后的效果如下：
-<img src=https://gw.alipayobjects.com/zos/k/zp/12.gif width=700/>
+
+<img src="https://gw.alipayobjects.com/zos/k/zp/12.gif" width=700 />
 
 对于 pure 主题而言，可以稍微配置下，直接命令行输入即可，如下所示
 
@@ -86,7 +87,8 @@ set --universal pure_enable_single_line_prompt true
 ```
 
 全部配置完成后，使用正常时间一致的录屏，没有任何加速的情况下，基本上可以看到秒开。
-<img src=https://gw.alipayobjects.com/zos/k/7i/ala.gif width=700/>
+
+<img src="https://gw.alipayobjects.com/zos/k/7i/ala.gif" width=700 />
 
 ### 五、可能的问题
 
