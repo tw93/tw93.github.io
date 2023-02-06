@@ -64,10 +64,8 @@ brew install fish
 ```shell
 # 安装fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
 # 安装z
 fisher install jethrokuan/z
-
 # 安装pure主题
 fisher install pure-fish/pure
 ```
@@ -81,7 +79,6 @@ fisher install pure-fish/pure
 ```bash
 # 可以将原来的>修改成你喜欢的表情图案，比如我设置的是🏂
 set --universal  pure_symbol_prompt 🏂
-
 # 假如不喜欢上下行的方式，可以将命令行输入和当前文件夹放一行
 set --universal pure_enable_single_line_prompt true
 ```
