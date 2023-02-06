@@ -90,6 +90,7 @@ set --universal pure_enable_single_line_prompt true
 
 ### 五、可能的问题
 
-1. npm 全局安装的命令行执行无效？基本是没有将全局安装目录设置成 PATH,可以参考[NPM global commands not working with fish](https://github.com/fish-shell/fish-shell/issues/3023#issuecomment-387944920)。
-2. 如何设置 Alacritty 可以全局快捷键打开？推荐试试[Thor](https://github.com/gbammc/Thor)，设置他的快捷键为`option+空格`或者你喜欢的，这样及时在没有打开的情况下也可以快速打开。
-3. Alacritty 不支持多 Tab 的模式，如何支持？有两个办法，第一个是使用[zellij](https://github.com/zellij-org/zellij)插件，可以去搜索对应文档。另外一个可以自己打包，参考这个[issue](https://github.com/alacritty/alacritty/issues/1544)，不过假如你习惯了，其实不用 tab 我觉得也还行。
+1. npm 全局安装的命令行执行无效？基本是没有将全局安装目录设置成 PATH,可以参考 [NPM global commands not working with fish](https://github.com/fish-shell/fish-shell/issues/3023#issuecomment-387944920)。
+2. 如何设置 Alacritty 可以全局快捷键打开？推荐试试 [Thor](https://github.com/gbammc/Thor)，设置他的快捷键为`option+空格`或者你喜欢的，这样及时在没有打开的情况下也可以快速打开。
+3. 如何设置 VS Code 默认的命令行工具为 Fish？ 打开设置，搜索 `shellArgs.osx`，修改选项为 fish 即可。
+4. Alacritty 不支持多 Tab 的模式，如何支持？有两个办法，第一个是使用 [zellij](https://github.com/zellij-org/zellij)插件，可以去搜索对应文档。另外一个可以自己打包，参考这个 [issue](https://github.com/alacritty/alacritty/issues/1544)，不过假如你习惯了，其实不用 tab 我觉得也还行。
