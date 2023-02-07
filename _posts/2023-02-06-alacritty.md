@@ -56,7 +56,7 @@ command+f：搜索关键字
 brew install fish
 ```
 
-安装完成 fish 以后，其实基本上够用了，也可以执行 `fish-config` 打开 web 可视化设置，此外我一般不会使用太多插件，但是这两个很有必要一装，步骤可见下面安装命令。
+安装完成 fish 以后，其实基本上够用了，也可以执行 `fish_config` 打开 web 可视化设置，此外我一般不会使用太多插件，但是这两个很有必要一装，步骤可见下面安装命令。
 
 第一个是`z`，他的作用是帮你记住你之前的历史打开，可以在任何路径，一键打开对应的地址，安装地址在[jethrokuan/z](https://github.com/jethrokuan/z)，使用前需要先安装 [fisher](https://github.com/jorgebucaran/fisher)用于下载插件。
 
