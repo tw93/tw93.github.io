@@ -4,7 +4,7 @@
 $base-font: 'LXGW WenKai Screen R', Calibri, Arial, sans-serif;
 $heading-font: $base-font;
 $caption-font: $base-font;
-$code-font: monospace;
+$code-font: $base-font;
 $alt-font: serif;
 
 $doc-font-size: 15;
