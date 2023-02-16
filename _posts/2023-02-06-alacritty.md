@@ -66,7 +66,7 @@ brew install fish
 
 ```shell
 # 安装 fisher
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/HEAD/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 # 安装 z
 fisher install jethrokuan/z
 # 安装 pure 主题
