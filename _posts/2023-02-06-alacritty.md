@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 改良了下传说中最快的终端
-date: 2023-01-25 21:00:00
+date: 2023-02-06 21:00:00
 feature: https://static.tw93.fun/img/0AscUe.png
 summary: 最近发现了 Alacritty，一个基于 Rust 使用 OpenGL 加速的跨平台终端仿真器，只有 5M 的样子，传说中最快的终端，不过是真的丑，想着要不要改造一下，看能否当做我的默认终端，最终成品还不错。
 categories: Technology
