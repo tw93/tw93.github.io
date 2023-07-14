@@ -497,7 +497,7 @@ iframe {
     vertical-align: middle;
     display: table-cell;
     height: $menu-height;
-    @include font-rem(14);
+    @include font-rem(15);
     box-sizing: border-box;
     font-weight: bold;
     &:visited {
@@ -533,11 +533,17 @@ iframe {
   &:nth-child(3) {
     display: none;
   }
+  &:nth-child(4) {
+    padding-right: 0;
+  }
   @media #{$large} {
     display: block;
     &:nth-child(2),
     &:nth-child(3) {
       display: block;
+    }
+    &:nth-child(4) {
+      padding-right: 8px;
     }
   }
 }
