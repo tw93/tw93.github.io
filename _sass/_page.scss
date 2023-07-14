@@ -497,11 +497,14 @@ iframe {
     vertical-align: middle;
     display: table-cell;
     height: $menu-height;
-    @include font-rem(16);
+    @include font-rem(14);
     box-sizing: border-box;
     font-weight: bold;
     &:visited {
       color: $text-color;
+    }
+    @media #{$medium} {
+      @include font-rem(16);
     }
   }
   &.active,
