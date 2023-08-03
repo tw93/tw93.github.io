@@ -1,37 +1,48 @@
 <div class="footer-wrapper">
   <footer role="contentinfo">
     &copy; 2015~{{ site.time | date: '%Y' }}&nbsp;
-    <img src="https://cdn.fliggy.com/upic/a1THPC.png" class="github-icon" alt="github"/>
+    <img
+      src="https://cdn.fliggy.com/upic/a1THPC.png"
+      class="github-icon"
+      alt="github"
+    />
     <a
       href="https://github.com/tw93/tw93.github.io"
       rel="nofollow"
       target="_blank"
       class="need_dotted"
-      > tw93/tw93.github.io </a
     >
+      tw93/tw93.github.io
+    </a>
   </footer>
 </div>
 
 <script type="text/javascript" src="{{ site.url }}/js/index.min.js"></script>
-<script type="text/javascript" src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"
+></script>
 
 {% if site.google_analytics %}
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57207999-1"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-57207999-1"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-57207999-1');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-57207999-1");
 </script>
-{% endif %}
-
-{% if page.url=="/" %}
+{% endif %} {% if page.url=="/" %}
 <script>
   function hereDoc(f) {
     return f
       .toString()
-      .replace(/^[^\/]+\/\*!?\s?/, '')
-      .replace(/\*\/[^\/]+$/, '');
+      .replace(/^[^\/]+\/\*!?\s?/, "")
+      .replace(/\*\/[^\/]+$/, "");
   }
   var string = hereDoc(function () {
     /*
@@ -53,18 +64,34 @@
 {% endif %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener("DOMContentLoaded", function () {
     var links = document.links;
     for (var i = 0; i < links.length; i++) {
       if (
         links[i].hostname != window.location.hostname ||
-        (links[i].href && links[i].href.indexOf('feed.xml') != -1)
+        (links[i].href && links[i].href.indexOf("feed.xml") != -1)
       ) {
-        links[i].target = '_blank';
+        links[i].target = "_blank";
       }
     }
     //字距优化
-    const heti = new Heti('.heti');
+    const heti = new Heti(".heti");
     heti.autoSpacing();
+
+    document
+      .getElementById("fullscreenBtn")
+      .addEventListener("click", function () {
+        var elem = document.getElementById("postIframe");
+
+        if (!document.fullscreenElement) {
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          }
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      });
   });
 </script>

@@ -26,7 +26,7 @@ iframe {
   }
 }
 
-.hentry h1.entry-title{
+.hentry h1.entry-title {
   @media #{$medium} {
     @include font-rem(28);
   }
@@ -63,7 +63,7 @@ iframe {
       position: relative;
       margin-bottom: -2px;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -20px;
         right: -20px;
@@ -113,7 +113,7 @@ iframe {
   @include need-dotted();
 }
 
-.github-icon{
+.github-icon {
   width: 20px;
   height: 20px;
   margin-top: -5px;
@@ -571,7 +571,8 @@ iframe {
   margin-left: -6px;
 }
 
-.video-container {
+.video-container,
+.keynote-container {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 24px;
@@ -586,6 +587,28 @@ iframe {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+.keynote-container {
+  padding-bottom: 50.4%;
+  background-color: #fff;
+  @media #{$medium} {
+    padding-bottom: 53.2%;
+  }
+  .fullscreen-btn {
+    @extend .btn;
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+    bottom: -20px;
+    height: 32px;
+    width: 60px;
+    line-height: 32px;
+    padding: 0 8px;
+    opacity: 0.3;
+    border-width: 0;
   }
 }
 
