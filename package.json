@@ -10,7 +10,8 @@
     "url": "https://github.com/tw93/tw93.github.io/issues"
   },
   "scripts": {
-    "dev": "bundle exec jekyll serve --watch",
+    "prep": "gem install bundler && bundle install",
+    "dev": "bundle exec jekyll serve --watch --trace",
     "start": "npm run dev",
     "build": "bundle exec jekyll build",
     "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all"
