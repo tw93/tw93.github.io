@@ -593,10 +593,8 @@ iframe {
 .keynote-container {
   padding-bottom: 50.4%;
   background-color: #fff;
-  @media #{$medium} {
-    padding-bottom: 53.2%;
-  }
   .fullscreen-btn {
+    display: none;
     @extend .btn;
     position: absolute;
     right: 0;
@@ -609,6 +607,12 @@ iframe {
     padding: 0 8px;
     opacity: 0.3;
     border-width: 0;
+  }
+  @media #{$medium} {
+    padding-bottom: 53.2%;
+    .fullscreen-btn {
+      display: block;
+    }
   }
 }
 
