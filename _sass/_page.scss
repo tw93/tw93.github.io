@@ -36,6 +36,13 @@ iframe {
   display: block;
 }
 
+br {
+  content: "";
+  margin: 3em;
+  display: block;
+  font-size: 24%;
+}
+
 .entry-content {
   @include font-size(16);
   position: relative;
