@@ -4,4 +4,6 @@ gem 'jekyll'
 gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
 gem "jekyll-pdf-embed"
-gem 'sass-embedded', '1.66.0'
+gem 'jekyll-feed'
+gem 'jekyll-sass-converter', '3.0.0'
+gem 'sass-embedded', '1.60.0'
