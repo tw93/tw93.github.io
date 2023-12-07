@@ -83,9 +83,7 @@ DEPENDENCIES
   jekyll-feed
   jekyll-paginate
   jekyll-pdf-embed
-  jekyll-sass-converter (= 3.0.0)
   jekyll-sitemap
-  sass-embedded (= 1.60.0)
 
 BUNDLED WITH
    2.3.15
