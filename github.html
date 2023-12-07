@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#FFF" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>Easter egg for GitHub</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://gw.alipayobjects.com/zos/k/vx/favicon.svg" />
+
+    <style>
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('https://gw.alipayobjects.com/os/k/app/JetBrainsMono-Regular.ttf') format('truetype');
+      }
+
+      * {
+        font-family: JetBrains Mono, SF Mono, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        color: #fff;
+        background: #15141a;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+    </style>
+
+  </head>
+  <body>
+    <script>
+      let styles = `\
+/*
+* Open source is a fascinating endeavor.
+* It's a treasure trove of learning and intriguing ideas.
+* Let's draw a Github Octocat to honor open source contributors.
+*/
+
+/* Starting with a 'pre' tag for coding */
+pre {
+  color: #61ffca;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  margin-top: 0;
+  overflow-y: auto;
+  transition: all 500ms;
+}
+
+/* Not a fan of italics, let's straighten them out. */
+pre em {
+  font-style: normal;
+}
+
+/* Time to highlight our code. */
+.selector,
+.selector .key {
+  color: #f694ff;
+}
+.key,
+.comment {
+  color: #edecee;
+}
+.value {
+  color: #ffca85;
+}
+
+/* To better draw the Octocat, let's move the code down. */
+pre {
+  top: 42%;
+  height: 58%;
+}
+
+/* Having set up the container, let's get started. */
+.github-box {
+  width: 100%;
+  height: 42%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Phew, drawing isn't easy, maybe start with a circle. */
+.github {
+  width: 200px;
+  height: 200px;
+  background: #15141a;
+  border-radius: 50%;
+  margin: auto;
+  display: block;
+  position: relative;
+}
+
+/* Ha, because I fiddled with the styles, it might look a bit long~ */
+.github::before,
+.github::after,
+.github > i::before,
+.github > i::after,
+.github > i > i::before,
+.github > i > i::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #fff;
+}
+
+/* he face seems to go like this. */
+.github::before {
+  width: 120px;
+  height: 108px;
+  top: 41px;
+  left: 40px;
+  border-radius: 50%;
+  box-shadow: 16px 0px 0 -6px #fff, -16px 0px 0 -6px #fff;
+}
+
+/* Let's sketch a simple neck. */
+.github::after {
+  width: 46px;
+  height: 62px;
+  border-radius: 14px 14px 0 0;
+  top: 140px;
+  left: 77px;
+}
+
+/* Ears seem to work like this. */
+.github > i::before {
+  width: 40px;
+  height: 40px;
+  border-radius: 15% 70% 15% 70%;
+  top: 35px;
+  left: 40px;
+  transform: rotate(11deg);
+}
+
+/* Another ear coming up. */
+.github > i::after {
+  width: 40px;
+  height: 40px;
+  border-radius: 15% 70% 15% 70%;
+  top: 35px;
+  right: 40px;
+  transform: rotate(79deg);
+}
+
+/* Ha ha, the tail is a bit tricky, isn't it? */
+.github > i > i::before {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% 50%;
+  top: 121px;
+  left: 40px;
+  background: transparent;
+  border-bottom: 14px solid #fff;
+  border-left: 6px solid transparent;
+  border-right: 12px solid transparent;
+  transform: rotate(15deg);
+}
+
+/* Let's try another one and see how it goes. */
+.github > i > i::after {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50%;
+  top: 140px;
+  left: 12px;
+  background: transparent;
+  border-top: 9px solid #fff;
+  border-left: 1px solid transparent;
+  border-right: 12px solid transparent;
+  transform: rotate(39deg);
+}
+/* All right, that's it, we've got it！*/
+
+
+/*
+ * You never win by quantity, creativity is your lifeblood.
+ * With just a computer, you're ready to create.
+ * Reigning far and wide, you slay from afar.
+ * Hidden in the bustle, you wander among the many.
+ * Not just a coder, you are an engineer with limitless potential.
+ * May you always write the code you love~
+ */
+`;
+
+      const getStyleHtml = function () {
+        return document.getElementById('style-text').innerHTML;
+      };
+
+      let openComment = false;
+
+      const writeStyleChar = function (which) {
+        if (which === '/' && !openComment) {
+          openComment = true;
+          styles = getStyleHtml() + which;
+        } else if (which === '/' && openComment) {
+          openComment = false;
+          styles = getStyleHtml().replace(
+            /(\/[^\/]*\*)$/,
+            '<em class="comment">$1/</em>',
+          );
+        } else if (which === ':') {
+          styles = getStyleHtml().replace(
+            /([a-zA-Z- ^\n]*)$/,
+            '<em class="key">$1</em>:',
+          );
+        } else if (which === ';') {
+          styles = getStyleHtml().replace(
+            /([^:]*)$/,
+            '<em class="value">$1</em>;',
+          );
+        } else if (which === '{') {
+          styles = getStyleHtml().replace(
+            /(.*)$/,
+            '<em class="selector">$1</em>{',
+          );
+        } else {
+          styles = getStyleHtml() + which;
+        }
+        document.getElementById('style-text').innerHTML = styles;
+        return document
+          .getElementById('style-tag')
+          .insertAdjacentHTML('beforeend', which);
+      };
+
+      const writeStyles = function (message, index, interval) {
+        if (index < message.length) {
+          const pre = document.getElementById('style-text');
+          pre.scrollTop = pre.scrollHeight;
+          writeStyleChar(message[index++]);
+          return setTimeout(
+            () => writeStyles(message, index, interval),
+            interval,
+          );
+        }
+      };
+
+      document.body.insertAdjacentHTML(
+        'beforeend',
+        `\<style id="style-tag"></style>
+          <div class="github-box">
+            <span class="github"><i><i></i></i></span>
+         </div>
+         <pre id="style-text"></pre>\
+`,
+      );
+      writeStyles(styles, 0, 20);
+    </script>
+  </body>
+</html>
