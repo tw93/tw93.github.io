@@ -38,9 +38,12 @@ iframe {
 
 br {
   content: "";
-  margin: 3em;
+  margin: 2em;
   display: block;
   font-size: 24%;
+  @media #{$medium} {
+    margin: 3em;
+  }
 }
 
 .entry-content {
