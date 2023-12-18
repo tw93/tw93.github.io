@@ -43,7 +43,7 @@ Weex 其实很好的解决了上述的一些问题，包括在飞猪、手淘、
 
 接下来我们可以从下面这个展示来看 Weex 和 H5 业务的一个展示、数据对比，详细可看此[录制视频>>>](https://gw.alipayobjects.com/os/rmsportal/FptvGkFpdBXRPtuNGMdk.mp4)
 
-<video width="800" controls  muted preload="metadata"><source src="https://gw.alipayobjects.com/os/rmsportal/FptvGkFpdBXRPtuNGMdk.mp4" type="video/mp4"></video>
+<video width="800" muted  muted preload="metadata"><source src="https://gw.alipayobjects.com/os/rmsportal/FptvGkFpdBXRPtuNGMdk.mp4" type="video/mp4"></video>
 
 这是一个业务逻辑复杂的页面，包括筛选、排序、日历选择、收藏、长列表、业务逻辑也很复杂的页面，重构成 Weex 以后，我们**首屏可用时间降级 68%**、**Bundle 大小直接减少了 73%**，由于体验变好变快、让我们**页面转化率居然提升了 14.5%**。
 
@@ -88,7 +88,7 @@ Weex 并不是像外界某些人传言说没有什么公司在使用 Weex 的，
 
 大家可以看下如下这几个场景的[视频展示>>>](https://gw.alipayobjects.com/os/rmsportal/SZwliPeMLRmyCyVvLYIp.mp4)
 
-<video width="800" controls  muted preload="metadata"><source src="https://gw.alipayobjects.com/os/rmsportal/SZwliPeMLRmyCyVvLYIp.mp4" type="video/mp4"></video>
+<video width="800"  muted preload="metadata"><source src="https://gw.alipayobjects.com/os/rmsportal/SZwliPeMLRmyCyVvLYIp.mp4" type="video/mp4"></video>
 
 大家可能会觉得 Weex 不适合复杂的场景，其实也不一定，通过很多方式是可以做到复杂场景的支持，包括**双 11**超长列表滚动，30 多屏数据，快速滚动很顺滑。
 
@@ -156,13 +156,13 @@ Weex 并不是像外界某些人传言说没有什么公司在使用 Weex 的，
 6、自动测试 Weex Ui，包括打开组件、点击交互逻辑
 7、自动各个页面运行截图，并将测试情况邮件给测试方
 
-<video width="800" controls  muted preload="metadata"><source src="http://p.tb.cn/rmsportal_7819_2026c3a73abfb162-1.mov" type="video/mp4"></video>
+<video width="800" muted preload autoplay loop><source src="http://p.tb.cn/rmsportal_7819_2026c3a73abfb162-1.mov" type="video/mp4"></video>
 
 #### Weex 无障碍优化
 
 Weex 其实也是支持无障碍的，也即让盲人在最短的时间内通过最快的方式找到自己想要的信息。同时当盲人访问我们 Weex 页面时候，让他们对 Weex 是可感知的、可操作的、可理解的、同时页面也是鲁棒的。譬如如下这个[演示>>>](http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov)：
 
-<video width="240" controls preload="metadata"><source src="http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov" type="video/mp4"></video>
+<video width="240" muted preload autoplay loop><source src="http://p.tb.cn/rmsportal_7819__E6_97_A0_E9_9A_9C_E7_A2_8D.mov" type="video/mp4"></video>
 
 无障碍在 Weex 实现起来是很简单的，譬如如下实现：
 

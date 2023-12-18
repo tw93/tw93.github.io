@@ -52,7 +52,7 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00021.jpeg)
 
-<video width="100%" controls poster="https://cdn.fliggy.com/upic/gBMYM5.png">
+<video width="100%" muted preload autoplay loop poster="https://cdn.fliggy.com/upic/gBMYM5.png">
   <source src="https://cdn.fliggy.com/upic/Ao2oFh.mp4" type="video/mp4">
 </video>
 

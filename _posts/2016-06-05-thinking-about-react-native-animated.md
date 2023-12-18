@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
 - CSS3动画vs ReactNative动画录制:
   
     {::nomarkdown}
-      <video width="600" controls  muted preload="metadata"><source src="https://gw.alipayobjects.com/os/k/hf/video.mp4" type="video/mp4"></video>
+      <video width="600" muted preload autoplay loop><source src="https://gw.alipayobjects.com/os/k/hf/video.mp4" type="video/mp4"></video>
     {:/nomarkdown}
 
 - 上述动画css3使用animation: rotate 0.2s linear infinite;实现:
