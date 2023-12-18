@@ -78,20 +78,20 @@
     const heti = new Heti(".heti");
     heti.autoSpacing();
 
-    document
-      .getElementById("fullscreenBtn")
-      .addEventListener("click", function () {
-        var elem = document.getElementById("postIframe");
+    // 全屏按钮
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    fullscreenBtn && fullscreenBtn.addEventListener("click", function () {
+      var elem = document.getElementById("postIframe");
 
-        if (!document.fullscreenElement) {
-          if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-          }
-        } else {
-          if (document.exitFullscreen) {
-            document.exitFullscreen();
-          }
+      if (!document.fullscreenElement) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
         }
-      });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
   });
 </script>
