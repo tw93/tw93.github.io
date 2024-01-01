@@ -3,7 +3,7 @@ layout: post
 title: JavaScript 的算法和流程控制性能优化
 date: 2015-02-07 21:47:29
 summary: 如同其他编程语言，代码的写法和算法会影响 JavaScript 的运行时间，与其他语言的不同的是，JavaScript 的可用资源有限，因此优化技术更为重要，这个学习笔记主要是从 JavaScript 的循环、条件语句、递归这三个方面的一些奇淫技巧来优化 JavaScript 的性能 ...
-categories: Technology
+categories: Study
 ---
 
 如同其他编程语言，代码的写法和算法会影响 JavaScript 的运行时间，与其他语言的不同的是，JavaScript 的可用资源有限，因此优化技术更为重要，这个学习笔记主要是从 JavaScript 的循环、条件语句、递归这三个方面的一些奇淫技巧来优化 JavaScript 的性能。

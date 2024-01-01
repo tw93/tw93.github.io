@@ -3,7 +3,7 @@ layout:     post
 title:      Weex Ui 半年开源之路
 date:       2018-03-31 16:00:00
 summary:    Weex Ui 于去年9月30日开源后，距离今天刚好半年时间，本文打算从起源、定位、现状、发展、展望这5部分来给大家分享 Weex Ui 半年的开源之路。
-categories: Technology
+categories: Share
 ---
 
 <p align="center">

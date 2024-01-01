@@ -3,7 +3,7 @@ layout: post
 title: JavaScript 的数据访问性能优化
 date: 2015-02-05 11:21:29
 summary: JavaScript 中有四种基本的数据存取位置：直接量、变量、数组元素和对象成员。和其他语言一样，数据的存储位置会很大的影响其读取速度 ...
-categories: Technology
+categories: Study
 ---
 
 JavaScript 中有四种基本的数据存取位置：直接量、变量、数组元素和对象成员，和其他语言一样，数据的存储位置会很大的影响其读取速度，那么该如何确定数据的存储位置来提高性能呢？我们一个一个来理解这个问题。

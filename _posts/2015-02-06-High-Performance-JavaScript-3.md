@@ -3,7 +3,7 @@ layout: post
 title: JavaScript 的 DOM 编程性能优化
 date: 2015-02-06 21:47:29
 summary: DOM 是 Document Object Model 的缩写，中文叫做文档对象模型，是一个与语言无关的，用户操作 XML 和 HTML 文档的应用程序接口。在浏览器中，主要与HTML文档打交道，在 Web 应用中也经常需要检索XML文档，DOM API用于访问文档中的数据。John Hevatin有一次演讲说过一个贴切的比喻，把 DOM 和 JavaScript 各自想象成一个岛屿，它们直接用收费桥梁连接，ECMAScript 每次访问DOM，都要经过这个桥，并交纳“过桥费”，过的桥越多交的费用也越多，因此要想减少费用就得少过桥，我们这里就来学习如何来优化这个问题 ...
-categories: Technology
+categories: Study
 ---
 
 DOM 是 Document Object Model 的缩写，中文叫做文档对象模型，是一个与语言无关的，用户操作 XML 和 HTML 文档的应用程序接口。在浏览器中，主要与 HTML 文档打交道，在 Web 应用中也经常需要检索 XML 文档，DOM API 用于访问文档中的数据。John Hevatin 有一次演讲说过一个贴切的比喻，把 DOM 和 JavaScript 各自想象成一个岛屿，它们直接用收费桥梁连接，ECMAScript 每次访问 DOM，都要经过这个桥，并交纳“过桥费”，过的桥越多交的费用也越多，因此要想减少费用就得少过桥，我们这里就来如何来优化这个问题。
