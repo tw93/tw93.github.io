@@ -255,11 +255,12 @@ iframe {
 
 // Post Pagination Module
 .pagination {
-  margin: 48px 10px 16px;
+  margin: 36px 10px;
   text-align: center;
-  @include font-rem(16);
+  @include font-rem(18);
   @media #{$medium} {
-    margin: 48px 10px 48px;
+    margin: 48px 10px 78px;
+    @include font-rem(20);
   }
   ul {
     display: inline;
@@ -684,4 +685,8 @@ iframe {
 
 video.bg-img{
   margin-block-start: -1em;
+}
+
+.btn-arrow{
+  @include font-rem(24);
 }

@@ -4,9 +4,9 @@
     {% comment %} Link for previous page {% endcomment %}
     {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <li><a href="{{ site.url }}/" class="btn">Previous</a></li>
+    <li><a href="{{ site.url }}/" class="btn-arrow">&lt;</a></li>
     {% else %}
-    <li><a href="{{ site.url }}/page{{ paginator.previous_page }}/" class="btn">Previous</a></li>
+    <li><a href="{{ site.url }}/page{{ paginator.previous_page }}/" class="btn-arrow">&lt;</a></li>
     {% endif %}
     {% endif %}
 
@@ -18,7 +18,7 @@
     {% endif %}
 
     {% assign page_start = 2 %}
-    {% if paginator.page > 4 %}
+    {% if paginator.page > 5 %}
     {% assign page_start = paginator.page | minus: 2 %}
     {% comment %} Ellipsis for truncated links {% endcomment %}
     <li>…</li>
@@ -45,7 +45,7 @@
     {% endfor %}
 
     {% comment %} Ellipsis for truncated links {% endcomment %}
-    {% if pages_to_end > 3 %}
+    {% if pages_to_end > 4 %}
     <li>…</li>
     {% endif %}
 
@@ -59,7 +59,7 @@
     Link next page
     {% endcomment %}
     {% if paginator.next_page %}
-    <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn">Next</a></li>
+    <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn-arrow">&gt;</a></li>
     {% endif %}
   </ul>
 </div>
