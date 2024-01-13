@@ -461,7 +461,7 @@ iframe {
   background-color: $menu-top;
   height: $menu-height;
   box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
-  padding: 0 8px;
+  padding: 0 15px 0 8px;
   @media #{$medium} {
     position: fixed;
     padding: 0;
