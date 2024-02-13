@@ -104,6 +104,7 @@ iframe {
   h3 > a,
   h4 > a,
   p > a,
+  strong > a,
   li > a {
     @include need-dotted();
   }
