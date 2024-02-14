@@ -691,3 +691,8 @@ video.bg-img{
 .btn-arrow{
   @include font-rem(24);
 }
+
+.video-border {
+  padding: 24px;
+  background: url(https://cdn.fliggy.com/upic/ysOpA0.jpg) no-repeat center;
+}
