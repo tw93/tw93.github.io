@@ -1,12 +1,16 @@
+# Site Information
 title: Tw93
-description: "Hi，我是 Tw93，是一个前端工程师，会一点 Swift / Rust / Python，喜欢折腾各种新技术。"
+description: "Hi, I'm Tw93, a Frontend Engineer from China, also dabbling a bit in Swift, Rust, Python, and Sketch. I'm the creator of MiaoYan, Pake, Trendy Weekly, XRender, and WeexUi. Believing in long-termism, I am passionate about open source and enjoy experimenting with new ideas."
+url: https://tw93.fun
+locale: zh_CN
+lang: zh-cmn-Hans
+timezone: Africa/El_Aaiun
 
+# Social Media and External URLs
 github: tw93
 zhihu: tw93
 twitter: HiTw93
 v2ex: tw93
-
-url: https://tw93.fun
 menu:
   - title: "Categories"
     url: "/categories.html"
@@ -19,34 +23,23 @@ menu:
   - title: "RSS"
     url: "/feed.xml"
 
-timezone: Africa/El_Aaiun
-locale: zh_CN
-lang: zh-cmn-Hans
-future: true
-highlighter: rouge
-markdown: kramdown
-sass:
-  sass_dir: _sass
-  style: compressed
+# SEO and Analytics
+google_analytics: G-KS7EDB6BRM
 
-permalink: /:year-:month-:day/:title.html
-assetUrl: //tw93.fun/images/
-defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-
-google_analytics: UA-57207999-1
-baidu_verify: kxGpkpWG7G
-google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
-
+# Build Settings
 paginate: 10
 post_ext: md
 page_ext: md
 post_layout: post
 page_layout: page
 titlecase: true
-
-showBuyCoffee: true
-payImage: //gw.alipayobjects.com/zos/k/vb/1.png
-
+future: true
+highlighter: rouge
+markdown: kramdown
+permalink: /:year-:month-:day/:title.html
+sass:
+  sass_dir: _sass
+  style: compressed
 include: [".htaccess"]
 exclude:
   [
@@ -58,9 +51,15 @@ exclude:
     "node_modules",
   ]
 
+# Plugins
 plugins:
   - jekyll-paginate
   - jekyll-pdf-embed
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
+
+# Custom Site Settings
+showBuyCoffee: true
+payImage: //gw.alipayobjects.com/zos/k/vb/1.png
+assetUrl: //tw93.fun/images/
+defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==

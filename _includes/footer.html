@@ -26,7 +26,7 @@
 {% if site.google_analytics %}
 <script
   async
-  src="https://www.googletagmanager.com/gtag/js?id=UA-57207999-1"
+  src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"
 ></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -34,7 +34,7 @@
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", "UA-57207999-1");
+  gtag("config", "{{ site.google_analytics }}");
 </script>
 {% endif %} {% if page.url=="/" %}
 <script>
@@ -55,8 +55,7 @@
    | |___|  __/ (_| | |  | | | | /\__/ / (_| |\ V / (_| /\__/ / (__| |  | | |_) | |_
    \_____/\___|\__,_|_|  |_| |_| \____/ \__,_| \_/ \__,_\____/ \___|_|  |_| .__/ \__|
 
-
-   This is Tw93's front-end technology blog, Commonly used to record learning and research front-end technology, Concerned about new technology and new thinking.
+   Hi, I'm Tw93, a Frontend Engineer from China, also dabbling a bit in Swift, Rust, Python, and Sketch. I'm the creator of MiaoYan, Pake, Trendy Weekly, XRender, and WeexUi. Believing in long-termism, I am passionate about open source and enjoy experimenting with new ideas.
    */
   });
   console.log(string);
