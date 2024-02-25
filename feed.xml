@@ -5,7 +5,7 @@ layout: none
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tw93 的博客</title>
+    <title>Tw93 Blog</title>
     <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
     <image>
       <url>https://gw.alipayobjects.com/zos/k/hj/sLnZnY.jpg</url>

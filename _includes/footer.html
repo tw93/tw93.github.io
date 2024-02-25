@@ -1,36 +1,21 @@
 <div class="footer-wrapper">
   <footer role="contentinfo">
     &copy; 2015~{{ site.time | date: '%Y' }}&nbsp;
-    <img
-      src="https://cdn.fliggy.com/upic/a1THPC.png"
-      class="github-icon"
-      alt="github"
-    />
-    <a
-      href="https://github.com/tw93/tw93.github.io"
-      rel="nofollow"
-      target="_blank"
-      class="need_dotted"
-    >
-      tw93/tw93.github.io
+    <img src="https://cdn.fliggy.com/upic/a1THPC.png" class="github-icon" alt="github" />
+    <a href="https://github.com/{{site.repo}}" rel="nofollow" target="_blank" class="need_dotted">
+      {{site.repo}}
     </a>
   </footer>
 </div>
 
 <script type="text/javascript" src="{{ site.url }}/js/index.min.js"></script>
-<script
-  type="text/javascript"
-  src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"
-></script>
+<script type="text/javascript" src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"></script>
 
 {% if site.google_analytics %}
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"
-></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
+  function gtag () {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
@@ -38,7 +23,7 @@
 </script>
 {% endif %} {% if page.url=="/" %}
 <script>
-  function hereDoc(f) {
+  function hereDoc (f) {
     return f
       .toString()
       .replace(/^[^\/]+\/\*!?\s?/, "")
@@ -46,8 +31,6 @@
   }
   var string = hereDoc(function () {
     /*
-
-
     _                               ___                  _____           _       _
    | |                             |_  |                /  ___|         (_)     | |
    | |     ___  __ _ _ __ _ __       | | __ ___   ____ _\ `--.  ___ _ __ _ _ __ | |_

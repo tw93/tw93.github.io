@@ -1,67 +1,55 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.layout =='post' or page.hideHomeActive or page.is404 %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-  <meta name="description"
-        content="{{ site.description }}{% if page.categories %}{{ page.categories }}{% endif %}{% if page.summary %}{{ page.summary }}{% endif %}">
+  <title>{% if page.layout == 'post' or page.hideHomeActive or page.is404 %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}{% if page.categories %}{{ page.categories }}{% endif %}{% if page.summary %}{{ page.summary }}{% endif %}">
   {% if page.tags %}
   <meta name="keywords" content="{{ page.tags | join: ', ' }}">
   {% endif %}
 
-  <meta name="viewport" content="width=device-width">
+  <!-- Viewport and Theme Color -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#FFFFFF">
 
-  <!-- Open Graph -->
+  <!-- Open Graph Metadata -->
   <meta property="og:locale" content="{{ site.locale }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} - Tw93{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description"
-        content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.title }}">
-  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" async rel="preload" as="font">
-
-
-{% if page.layout == "post" %}
-<meta name="twitter:creator" content="@hiTw93">
-<meta name="twitter:site" content="{{ site.url }}" />
-<meta name="twitter:url" content="{{ site.url }}{{page.url}}" />
-<meta name="twitter:title" content="{{ page.title }} - Tw93" />
-<meta name="twitter:description" content="{{page.summary}}" />
-{% if page.feature %}
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="{{ page.feature }}" />
-{% else %}
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png" />
-{% endif %}
-{% endif %}
-
   {% if page.feature %}
   <meta property="og:image" content="{{ page.feature }}">
   {% else %}
-  <meta
-  property="og:image"
-  content="https://gw.alicdn.com/imgextra/i1/O1CN016ppOn21DVGJ1mVHho_!!6000000000221-0-tps-420-420.jpg"
- />
+  <meta property="og:image" content="https://gw.alicdn.com/imgextra/i1/O1CN016ppOn21DVGJ1mVHho_!!6000000000221-0-tps-420-420.jpg">
   {% endif %}
 
+  <!-- Twitter Metadata -->
+  {% if page.layout == "post" %}
+  <meta name="twitter:card" content="{% if page.feature %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:creator" content="@{{ site.twitter }}">
+  <meta name="twitter:site" content="{{ site.url }}">
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:title" content="{{ page.title }} - Tw93">
+  <meta name="twitter:description" content="{{ page.summary }}">
+  <meta name="twitter:image" content="{% if page.feature %}{{ page.feature }}{% else %}https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png{% endif %}">
+  {% endif %}
 
-  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url |
-  remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+  <!-- Canonical URL -->
+  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
-  <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-
+  <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.url }}/css/index.css">
-
-  <meta http-equiv="cleartype" content="on">
-
-  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/k/h9/1.png">
-
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" async rel="preload" as="font">
   {% if page.layout == "post" %}
   <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>
   {% endif %}
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/k/h9/1.png">
+
+  <!-- Additional Meta Tags -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta http-equiv="cleartype" content="on">
+  <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 </head>

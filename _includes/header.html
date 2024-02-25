@@ -1,40 +1,26 @@
-<!--[if lt IE 10]>
-<div class="upgrade"><strong><a href="http://whatbrowser.org/" target="_blank">Your browser is quite old!</strong> Why
-  not upgrade to a different browser to better enjoy this site?</a></div>
-<![endif]-->
-
-{% assign homeActive = 'active' %}
-{% if page.hideHomeActive %}
-{% assign homeActive = nil %}
-{% endif %}
+{% assign homeActive = page.hideHomeActive | default: false | bool ? nil : 'active' %}
 <div class="header-menu" id="J_header">
   <ul class="header-item-container">
-    <li class="header-item-title {{homeActive}}">
-      <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
+    <li class="header-item-title {{ homeActive }}">
+      <a href="{{ site.url }}/" class="title">{{ site.title }}</a>
     </li>
     {% for menu in site.menu reversed %}
-
-    {% assign class = nil %}
-    {% if (page.url contains menu.url and menu.url != '/') %}
-    {% assign class = 'active' %}
-    {% endif %}
-
+    {% assign class = page.url contains menu.url and menu.url != '/' ? 'active' : nil %}
     {% if menu.url contains 'http://' or menu.url contains 'https://' %}
-    <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank">{{ menu.title }}</a></li>
+    <li class="header-item {{ class }}"><a href="{{ menu.url }}" target="_blank">{{ menu.title }}</a></li>
     {% else %}
-    <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
+    <li class="header-item {{ class }}"><a href="{{ site.url }}{{ menu.url }}">{{ menu.title }}</a></li>
     {% endif %}
     {% endfor %}
   </ul>
 </div>
 
 <div class="entry-header">
-  <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg"
-       xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
     <path id="svg-title-path">
       <animate attributeName="d" from="m0,110 h0" to="m0,110 h1600" dur="2s" repeatCount="1" fill="freeze" begin="0s" />
     </path>
-    <text font-size="34" font-weight="bold" fill='#ffffff' x="50%" y="50%" text-anchor="middle" word-spacing="2.0" letter-spacing="0.9">
+    <text font-size="34" font-weight="bold" fill="#ffffff" x="50%" y="50%" text-anchor="middle" word-spacing="2.0" letter-spacing="0.9">
       <textPath xlink:href="#svg-title-path">{{ page.title }}</textPath>
     </text>
   </svg>

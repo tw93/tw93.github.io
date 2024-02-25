@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{site.lang}}">
-  {% include head.html %} {% include ppt-head.html %}
-  <body id="post">
-    <div class="reveal" id="write">
-      <div class="slides">
-        <section data-markdown>
-          <script type="text/template">
+{% include head.html %} {% include ppt-head.html %}
+
+<body id="post">
+  <div class="reveal" id="write">
+    <div class="slides">
+      <section data-markdown>
+        <script type="text/template">
             {{ content | replace: "<hr />", "---" }}
           </script>
-        </section>
-      </div>
+      </section>
     </div>
-    {% include ppt-footer.html %}
-  </body>
+  </div>
+  {% include ppt-footer.html %}
+</body>
+
 </html>

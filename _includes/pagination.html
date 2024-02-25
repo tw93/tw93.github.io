@@ -32,15 +32,9 @@
 
     {% for index in (page_start..page_end) %}
     {% if index == paginator.page %}
-    <li><strong class="current-page">{{index}}</strong></li>
+    <li><strong class="current-page">{{ index }}</strong></li>
     {% else %}
-    {% comment %} Distance from current page and this link {% endcomment %}
-    {% assign dist = paginator.page | minus: index %}
-    {% if dist < 0 %}
-    {% comment %} Distance must be a positive value {% endcomment %}
-    {% assign dist = 0 | minus: dist %}
-    {% endif %}
-    <li><a href="{{ site.url }}/page{{ index }}/">{{index}}</a></li>
+    <li><a href="{{ site.url }}/page{{ index }}/">{{ index }}</a></li>
     {% endif %}
     {% endfor %}
 
@@ -50,14 +44,12 @@
     {% endif %}
 
     {% if paginator.page == paginator.total_pages %}
-    <li><strong class="current-page">{{ paginator.page }}</strong></li>
+    <li><strong class="current-page">{{ paginator.total_pages }}</strong></li>
     {% else %}
     <li><a href="{{ site.url }}/page{{ paginator.total_pages }}/">{{ paginator.total_pages }}</a></li>
     {% endif %}
 
-    {% comment %}
-    Link next page
-    {% endcomment %}
+    {% comment %} Link for next page {% endcomment %}
     {% if paginator.next_page %}
     <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn-arrow">&gt;</a></li>
     {% endif %}
