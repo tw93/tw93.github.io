@@ -3,8 +3,7 @@ title: Tw93
 description: "Hi, I'm Tw93, a Frontend Engineer from China, also dabbling a bit in Swift, Rust, Python, and Sketch. I'm the creator of MiaoYan, Pake, Trendy Weekly, XRender, and WeexUi. Believing in long-termism, I am passionate about open source and enjoy experimenting with new ideas."
 url: https://tw93.fun
 repo: tw93/tw93.github.io
-locale: zh_CN
-lang: zh-cmn-Hans
+lang: zh-CN
 timezone: Africa/El_Aaiun
 
 # Social Media and External URLs
@@ -41,6 +40,15 @@ permalink: /:year-:month-:day/:title.html
 sass:
   sass_dir: _sass
   style: compressed
+
+collections:
+  posts:
+    output: true
+    permalink: /:year-:month-:day/:title.html
+  posts_en:
+    output: true
+    permalink: /en/:year-:month-:day/:title.html
+
 include: [".htaccess"]
 exclude:
   [

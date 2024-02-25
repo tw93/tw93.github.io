@@ -1,10 +1,18 @@
 <!doctype html>
-<html class="no-js" lang="{{site.lang}}">
+<html lang="{{ page.lang | default: site.lang }}">
 {% include head.html %}
 
 <body id="post-index">
   {% include header.html %}
   <div id="main" role="main">
+    {% if page.url contains '/en/' %}
+    <!-- 英文文章，简单列出所有文章，不分页 -->
+    {% include post-item.html posts=site.posts_en %}
+    {% else %}
+    <!-- 中文文章保持原有逻辑，包括分页 -->
+    {% include post-item.html posts=paginator.posts %}
+    {% include pagination.html %}
+    {% endif %}
     {{ content }}
   </div>
   {% include footer.html %}

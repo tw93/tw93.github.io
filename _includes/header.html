@@ -12,6 +12,12 @@
     <li class="header-item {{ class }}"><a href="{{ site.url }}{{ menu.url }}">{{ menu.title }}</a></li>
     {% endif %}
     {% endfor %}
+    <!-- 语言切换链接 -->
+    {% if page.url contains '/en/' %}
+    <li class="header-item language-switch"><a href="{{ site.url }}/">&#127468;&#127463; <span>EN</span></a></li>
+    {% else %}
+    <li class="header-item language-switch"><a href="{{ site.url }}/en/">&#127464;&#127475; <span>CN</span></a></li>
+    {% endif %}
   </ul>
 </div>
 

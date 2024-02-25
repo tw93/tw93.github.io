@@ -11,7 +11,7 @@
   <meta name="theme-color" content="#FFFFFF">
 
   <!-- Open Graph Metadata -->
-  <meta property="og:locale" content="{{ site.locale }}">
+  <meta property="og:locale" content="{{ site.lang }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} - Tw93{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
@@ -40,6 +40,11 @@
   <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.url }}/css/index.css">
   <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" async rel="preload" as="font">
+
+  {% if page.lang == 'en-US' %}
+ <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700&display=swap" rel="stylesheet">
+  {% endif %}
+
   {% if page.layout == "post" %}
   <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>
   {% endif %}

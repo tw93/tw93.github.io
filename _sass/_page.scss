@@ -463,7 +463,7 @@ iframe {
   background-color: $menu-top;
   height: $menu-height;
   box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
-  padding: 0 15px 0 8px;
+  padding: 0 8px;
   @media #{$medium} {
     position: fixed;
     padding: 0;
@@ -492,8 +492,23 @@ iframe {
   padding-left: 8px;
   padding-right: 8px;
   @media #{$medium} {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    &:nth-child(2) {
+      padding-right: 14px;
+    }
+    &:nth-child(4) {
+      padding-right: 22px;
+    }
+  }
+
+  @media #{$large} {
+    &:nth-child(2) {
+      padding-right: 26px;
+    }
+    &:nth-child(4) {
+      padding-right: 14px;
+    }
   }
   a {
     vertical-align: middle;
@@ -517,6 +532,24 @@ iframe {
   }
 }
 
+.header-item-title {
+  @media #{$medium} {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.language-switch {
+  a,
+  a:visited {
+    color: #68494c;
+  }
+  span {
+    @include font-rem(14);
+    margin-left: -3px;
+  }
+}
+
 ///sections
 .logo {
   width: $menu-height;
@@ -535,17 +568,11 @@ iframe {
   &:nth-child(3) {
     display: none;
   }
-  &:nth-child(4) {
-    padding-right: 0;
-  }
   @media #{$large} {
     display: block;
     &:nth-child(2),
     &:nth-child(3) {
       display: block;
-    }
-    &:nth-child(4) {
-      padding-right: 8px;
     }
   }
 }
@@ -567,6 +594,27 @@ iframe {
 
 .header-href {
   display: block;
+}
+
+html[lang="en-US"] {
+  body,
+  .header-href,
+  .hentry,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Source Serif Pro, Georgia, Cambria, "Times New Roman", Times,
+      serif;
+    letter-spacing: 0.3px;
+  }
+  .header-item:nth-child(6),
+  .header-item:nth-child(5),
+  .header-item:nth-child(2){
+    display: none;
+  }
 }
 
 .index-content-time {
@@ -675,20 +723,20 @@ iframe {
   margin-block-end: 1em;
 }
 
-.bg-img{
+.bg-img {
   padding: 10px 15px 15px;
-  background: #171F32;
+  background: #171f32;
   margin-top: -2px;
   @media #{$medium} {
     padding: 10px 30px 30px;
   }
 }
 
-video.bg-img{
+video.bg-img {
   margin-block-start: -1em;
 }
 
-.btn-arrow{
+.btn-arrow {
   @include font-rem(24);
 }
 
