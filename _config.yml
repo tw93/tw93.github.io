@@ -19,7 +19,7 @@ menu:
   - title: "RSS"
     url: "/feed.xml"
 
-timezone: Asia/Shanghai
+timezone: Africa/El_Aaiun
 locale: zh_CN
 lang: zh-cmn-Hans
 future: true
