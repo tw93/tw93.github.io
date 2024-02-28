@@ -1,9 +1,21 @@
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    &copy; 2015~{{ site.time | date: '%Y' }}&nbsp;
-    <img src="https://cdn.fliggy.com/upic/a1THPC.png" class="github-icon" alt="github" />
-    <a href="https://github.com/{{site.repo}}" rel="nofollow" target="_blank" class="need_dotted">
-      {{site.repo}}
+
+    <a href="https://github.com/{{site.github}}" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/gp/02.png" class="social-icon github-icon" alt="github" />
+    </a>
+
+    <a href="https://twitter.com/{{site.twitter}}" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/9k/03.png" class="social-icon" alt="Twitter" />
+    </a>
+
+    <a href="{{ site.url }}/feed.xml" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/38/01.png" class="social-icon" alt="RSS" />
+    </a>
+
+    <a href="https://github.com/{{site.repo}}" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/j4/06.png" class="social-icon time-icon" alt="github" />
+      <span class="repo-time">2015~{{ site.time | date: '%Y' }}</span>
     </a>
   </footer>
 </div>

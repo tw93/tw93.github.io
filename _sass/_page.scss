@@ -110,14 +110,23 @@ iframe {
   }
 }
 
-.need_dotted {
-  @include need-dotted();
+.social-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 16px;
+  margin-top: -4px;
 }
 
 .github-icon {
-  width: 20px;
-  height: 20px;
-  margin-top: -5px;
+  margin-left: 0;
+}
+
+.time-icon {
+  margin-left: 11px;
+}
+
+.repo-time {
+  @include font-rem(16);
 }
 
 ///sections
@@ -497,7 +506,7 @@ iframe {
     &:nth-child(2) {
       padding-right: 14px;
     }
-    &:nth-child(4) {
+    &:nth-child(2) {
       padding-right: 22px;
     }
   }
@@ -542,11 +551,11 @@ iframe {
 .language-switch {
   a,
   a:visited {
-    color: #68494c;
+    color: #36563c;
   }
   span {
     @include font-rem(14);
-    margin-left: -3px;
+    margin-right: -3px;
   }
 }
 
@@ -564,17 +573,7 @@ iframe {
 
 .header-item {
   height: 100%;
-  &:nth-child(2),
-  &:nth-child(3) {
-    display: none;
-  }
-  @media #{$large} {
-    display: block;
-    &:nth-child(2),
-    &:nth-child(3) {
-      display: block;
-    }
-  }
+  display: block;
 }
 
 .header-item-title {
@@ -610,9 +609,22 @@ html[lang="en-US"] {
       serif;
     letter-spacing: 0.3px;
   }
-  .header-item:nth-child(6),
-  .header-item:nth-child(5),
-  .header-item:nth-child(2){
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  .header-item a,
+  .header-item-title a {
+    font-weight: 600;
+  }
+  .language-switch span {
+    margin-right: 0px;
+  }
+  .header-item:nth-child(1),
+  .header-item:nth-child(5) {
     display: none;
   }
 }
@@ -742,5 +754,6 @@ video.bg-img {
 
 .video-border {
   padding: 24px;
-  background: url(https://cdn.fliggy.com/upic/ysOpA0.jpg) no-repeat center;
+  background: url(https://gw.alipayobjects.com/zos/k/0d/UpT4s7.png) no-repeat
+    center;
 }

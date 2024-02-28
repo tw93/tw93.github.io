@@ -1,18 +1,18 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about.html
 hideHomeActive: true
 ---
 
-## About Me
+## 关于我
 
-- I'm a front-end engineer hailing from China, with a passion for experimenting with diverse software.
-- I'm the creator of several projects, including [MiaoYan](https://miaoyan.app/), [Pake](https://github.com/tw93/pake), [XRender](https://xrender.fun/), [WeexUi](https://apache.github.io/incubator-weex-ui/), and [cz-emoji-chinese](https://github.com/tw93/cz-emoji-chinese), among others.
-- My personal blog at [tw93.fun](https://tw93.fun/) is where I frequently express my thoughts and share interesting experiences from my life. Additionally, I document life's fascinating occurrences through my [trend weekly](https://weekly.tw93.fun/) column.
-- My skill set encompasses a wide range of areas, including accessibility, interactive games, iOS/macOS, serverless technology, micro front-end development, technical productization, and team management. Feel free to ask me any questions you may have.
+- 我是一名来自杭州的工程师，主职前端，会一点 Swift、Rust、Python，也会点设计。
+- 喜欢开源，不喜欢技术网红环境，会去折腾一些新技术，很相信长期主义这个事情。
+- 喜欢做简洁美观易用的产品，开发了 [**MiaoYan**](https://github.com/tw93/MiaoYan)、[**Pake**](https://github.com/tw93/pake)、[**Maple**](https://github.com/tw93/Maple)、[**XRender**](https://xrender.fun/)、[**WeexUi**](https://apache.github.io/incubator-weex-ui/)。
+- 在 [**Tw93**](https://tw93.fun/) 博客沉淀我的技术/生活/思考方式，用 [**潮流周刊**](https://weekly.tw93.fun/) 每周发一些看到的好东西。
 
-## Follow Me
+## 关注我
 
 - [Github](https://github.com/{{site.github}})
 - [Twitter](https://twitter.com/{{site.twitter}})

@@ -15,13 +15,9 @@ menu:
   - title: "Categories"
     url: "/categories.html"
   - title: "About"
-    url: "/about"
+    url: "/about.html"
   - title: "Weekly"
     url: "https://weekly.tw93.fun/"
-  - title: "Github"
-    url: "https://github.com/tw93"
-  - title: "RSS"
-    url: "/feed.xml"
 
 # SEO and Analytics
 google_analytics: G-KS7EDB6BRM
