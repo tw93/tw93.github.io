@@ -607,7 +607,10 @@ html[lang="en-US"] {
   h6 {
     font-family: Source Serif Pro, Georgia, Cambria, "Times New Roman", Times,
       serif;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
+    @media #{$medium} {
+      letter-spacing: 0.3px;
+    }
   }
   h1,
   h2,
@@ -626,6 +629,12 @@ html[lang="en-US"] {
   .header-item:nth-child(1),
   .header-item:nth-child(5) {
     display: none;
+  }
+  .hentry h1.entry-title {
+    @include font-rem(20);
+    @media #{$medium} {
+      @include font-rem(28);
+    }
   }
 }
 
