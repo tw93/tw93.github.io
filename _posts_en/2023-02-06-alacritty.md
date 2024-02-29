@@ -14,7 +14,6 @@ It's been a while since I tinkered with command-line terminal tools on my comput
 
 I recently stumbled upon Alacritty, a cross-platform terminal emulator powered by Rust and accelerated with OpenGL, merely around 5MB in size, reputed to be the fastest terminal. Regarding its claim to fame as the fastest, the official documentation [here](https://github.com/alacritty/alacritty#faq) explains it. After giving it a try, I found it indeed fast, but also incredibly unattractive. The default appearance was so bad it turned many people away. I thought about giving it a makeover, had some free time over the weekend, and ended up quite pleased with the result. So, I've documented the configuration steps for those interested in tinkering. It takes roughly 10 minutes to set up, **and additionally, on 20230211, by fiddling with Tmux, I enabled Alacritty to support multi-tab switching**, which is detailed at the end of the article.
 
-````markdown
 ### 1. Download Installation Package
 
 Before starting, you can go to [Alacritty](https://github.com/alacritty/alacritty) on Github to download the corresponding package. For Mac users, the package is [Alacritty-v0.11.0.dmg](https://github.com/alacritty/alacritty/releases/download/v0.11.0/Alacritty-v0.11.0.dmg). After downloading, you will see the effect on the left side of the image below, and finally, we will change it to the optimized effect on the right side.
@@ -33,7 +32,6 @@ I personally prefer software to use an immersive header, and I like to use the [
 curl -fLo ~/.config/alacritty/alacritty.yml --create-dir \
      https://gw.alipayobjects.com/os/k/j2/alacritty.yml
 ```
-````
 
 After executing, reopen to try, and the effect will almost change to the right image effect above. In addition to the style configuration, some common shortcuts are also added (ah, even shortcuts have to be configured), including the following:
 
@@ -61,7 +59,6 @@ First, you can install the fish shell via brew. During the installation process,
 brew install fish
 ```
 
-````markdown
 After installing fish, it's basically good enough to use. You can also run `fish_config` to open the web visualization settings. Besides, I generally don't use too many plugins, but these two are essential to install. The steps can be seen in the installation commands below.
 
 The first one is `z`, which helps you remember your previous history of opened directories, allowing you to open a corresponding address from any path with just one key. The installation address is at [jethrokuan/z](https://github.com/jethrokuan/z). Before using it, you need to install [fisher](https://github.com/jorgebucaran/fisher) to download plugins.
@@ -76,7 +73,6 @@ fisher install jethrokuan/z
 # Install pure theme
 fisher install pure-fish/pure
 ```
-````
 
 The effect after the final installation is as follows:
 
@@ -102,7 +98,6 @@ After all configurations are complete, using a normal time-consistent screen rec
 3. How to set Fish as the default command line tool for VS Code? Open settings, search for `shellArgs.osx`, and change the option to fish.
 4. Alacritty does not support multiple tabs. How can this be supported? There are two ways, the first is to use [zellij](https://github.com/zellij-org/zellij) or [Tmux](https://github.com/tmux/tmux) plugins, you can search for the corresponding documentation. Another way is to package it yourself, refer to this [issue](https://github.com/alacritty/alacritty/issues/1544), but if you're used to it, I think not using tabs is also fine.
 
-````markdown
 ### 6. Adding Multi-Tab Capability
 
 Some users have feedback that Alacritty is not easy to use without the Tab function. Here, I played with [Tmux](https://github.com/tmux/tmux) to customize this capability. However, to be honest, this plugin's functionality is too complex and abundant. My ideal product should be a plug-and-play one with just one command to get everything done. I tried to package it towards a minimalist direction, making the user experience consistent with Chrome's shortcuts. The final effect can be seen below:
@@ -121,7 +116,6 @@ curl -fLo ~/.tmux.conf \
 curl -fLo ~/.config/alacritty/alacritty.yml --create-dir \
      https://gw.alipayobjects.com/os/k/l9/alacritty.yml
 ```
-````
 
 After the installation is complete, you can restart Alacritty, and it should by default load tmux. The following shortcuts are added on top of the previous setup:
 
