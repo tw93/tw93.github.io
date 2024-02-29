@@ -44,6 +44,7 @@ collections:
   posts_en:
     output: true
     permalink: /en/:year-:month-:day/:title.html
+    sort_by: date
 
 include: [".htaccess"]
 exclude:
