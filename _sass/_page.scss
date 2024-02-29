@@ -555,8 +555,11 @@ iframe {
   }
   span {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
-    @include font-rem(14);
+    @include font-rem(13);
     margin-right: -3px;
+    @media #{$medium} {
+      @include font-rem(14);
+    }
   }
 }
 
