@@ -636,6 +636,14 @@ html[lang="en-US"] {
       @include font-rem(28);
     }
   }
+
+  .header-href .entry-content {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .index-content-time {
