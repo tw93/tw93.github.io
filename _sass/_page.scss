@@ -555,8 +555,8 @@ iframe {
   }
   span {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
-    @include font-rem(13);
-    margin-right: -3px;
+    @include font-rem(12);
+    margin-right: -4px;
     @media #{$medium} {
       @include font-rem(14);
     }
@@ -628,7 +628,7 @@ html[lang="en-US"] {
     font-weight: 600;
   }
   .language-switch span {
-    margin-right: 0px;
+    margin-right: -1px;
   }
   .header-item:nth-child(1),
   .header-item:nth-child(5) {
