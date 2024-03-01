@@ -633,7 +633,10 @@ html[lang="en-US"] {
     letter-spacing: 0.2px;
   }
   .language-switch span {
-    margin-right: -2px;
+    margin-right: -1px;
+    @media #{$medium} {
+      margin-right: -2px;
+    }
   }
   .header-item:nth-child(1),
   .header-item:nth-child(5) {
