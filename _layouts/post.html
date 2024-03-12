@@ -15,7 +15,7 @@
             <div id="J_qr_code" class="qr-code" onmouseover="this.title='';"></div>
           </div>
         </h4>
-        {{ content }}
+        {{ content | cdn_image_filter }}
         {% include buy-me-coffee.html %}
       </div>
       {% include giscus.html %}
