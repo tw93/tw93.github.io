@@ -96,5 +96,19 @@
         }
       }
     });
+
+    // Select all the links that need to be preloaded
+    const linksToPrefetch = document.querySelectorAll('.read-more, .header-href, .pagination a, .header-item a');
+    linksToPrefetch.forEach(function (link) {
+      link.addEventListener('mouseover', function () {
+        if (!document.querySelector(`link[rel="prefetch"][href="${link.href}"]`)) {
+          var prefetchLink = document.createElement('link');
+          prefetchLink.rel = 'prefetch';
+          prefetchLink.href = link.href;
+          prefetchLink.as = 'document';
+          document.head.appendChild(prefetchLink);
+        }
+      });
+    });
   });
 </script>
