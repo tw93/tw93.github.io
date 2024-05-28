@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var zoomImgs = document.querySelectorAll('.entry-content img');
-  (zoomImgs && zoomImgs.length > 0) && loadScript("https://gw.alipayobjects.com/os/k/y4/intense.min.js", function () {
+  (zoomImgs && zoomImgs.length > 0) && loadScript("https://gw.alipayobjects.com/os/k/x5/intense.min.js", function () {
     Intense && Intense(zoomImgs);
   });
 }, false);
