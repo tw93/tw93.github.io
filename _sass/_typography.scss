@@ -32,6 +32,14 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.text-table td, .text-table th{
+  padding-left: 16px;
+}
+
+.text-table, th{
+  text-align: left;
+}
+
 // Links
 // --------------------------------------------------
 a {
