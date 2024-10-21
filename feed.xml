@@ -10,6 +10,10 @@ layout: none
     <image>
       <url>https://gw.alipayobjects.com/zos/k/hj/sLnZnY.jpg</url>
     </image>
+    <follow_challenge>
+      <feedId>41147805272531976</feedId>
+      <userId>42909600318350336</userId>
+    </follow_challenge>
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
 		{% for post in site.posts limit:10 %}
