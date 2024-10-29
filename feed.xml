@@ -8,7 +8,7 @@ layout: none
     <title>Tw93 Blog</title>
     <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
     <image>
-      <url>https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png</url>
+      <url>https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png</url>
     </image>
     <follow_challenge>
       <feedId>41147805272531976</feedId>
