@@ -65,31 +65,31 @@ GEM
     rexml (3.2.6)
     rouge (4.2.0)
     safe_yaml (1.0.5)
-    sass-embedded (1.70.0-aarch64-linux-android)
+    sass-embedded (1.70.0-aarch64-linux)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-aarch64-linux-gnu)
+    sass-embedded (1.70.0-aarch64-linux-android)
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-aarch64-linux-musl)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-arm-linux-androideabi)
+    sass-embedded (1.70.0-arm-linux)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-arm-linux-gnueabihf)
+    sass-embedded (1.70.0-arm-linux-androideabi)
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-arm-linux-musleabihf)
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-arm64-darwin)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-x86-linux-android)
+    sass-embedded (1.70.0-x86-linux)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-x86-linux-gnu)
+    sass-embedded (1.70.0-x86-linux-android)
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-x86-linux-musl)
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-x86_64-darwin)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-x86_64-linux-android)
+    sass-embedded (1.70.0-x86_64-linux)
       google-protobuf (~> 3.25)
-    sass-embedded (1.70.0-x86_64-linux-gnu)
+    sass-embedded (1.70.0-x86_64-linux-android)
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-x86_64-linux-musl)
       google-protobuf (~> 3.25)
@@ -100,21 +100,21 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  aarch64-linux
   aarch64-linux-android
-  aarch64-linux-gnu
   aarch64-linux-musl
+  arm-linux
   arm-linux-androideabi
-  arm-linux-gnueabihf
   arm-linux-musleabihf
   arm64-darwin
   x86-linux
+  x86-linux
   x86-linux-android
-  x86-linux-gnu
   x86-linux-musl
   x86_64-darwin
   x86_64-linux
+  x86_64-linux
   x86_64-linux-android
-  x86_64-linux-gnu
   x86_64-linux-musl
 
 DEPENDENCIES
