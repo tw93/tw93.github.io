@@ -1,7 +1,7 @@
 // Typography
 // --------------------------------------------------
 
-$base-font: 'LXGW WenKai Screen R', Calibri, Arial, sans-serif;
+$base-font: "TsangerJinKai02", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 $heading-font: $base-font;
 $caption-font: $base-font;
 $code-font: $base-font;
@@ -14,7 +14,7 @@ $doc-line-height: 27.2;
 body {
   font-size: 0px + $doc-font-size;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 // Colors
