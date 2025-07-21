@@ -1,4 +1,4 @@
-@import url('https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css');
+@import url('https://gw.alipayobjects.com/os/k/jinkai/style.css');
 @import url('https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap');
 
 main {
@@ -86,8 +86,8 @@ main {
 }
 
 main {
-  font-family: 'LXGW WenKai Screen R', sans-serif;
-  letter-spacing: 0.5px;
+  font-family: "TsangerJinKai02", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  letter-spacing: 0.4px;
 }
 
 main .pagination-loader-container {
