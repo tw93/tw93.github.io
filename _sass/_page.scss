@@ -127,6 +127,7 @@ iframe {
 
 .repo-time {
   @include font-rem(16);
+  display: inline-block;
 }
 
 ///sections
@@ -719,6 +720,7 @@ html[lang="en-US"] {
     position: relative;
     height: 36px;
     width: 184px;
+    padding: 8px 12px;
     line-height: 17px;
     text-align: center;
     @include text-overflow(clip);

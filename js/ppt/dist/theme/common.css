@@ -11,7 +11,7 @@
   --r-heading2-size: 1.8em;
   --r-heading3-size: 1.2em;
   --r-heading4-size: 1em;
-  --r-main-font: "TsangerJinKai02", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --r-main-font: "TsangerJinKai02", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --r-code-font: monospace;
   --markmap-height: 480px;
 }
