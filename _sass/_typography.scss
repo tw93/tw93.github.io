@@ -25,8 +25,14 @@ h1 {
 }
 
 table, th, td {
-  border: none;
   border-collapse: collapse;
+  border: 1px solid #f2f3f4;
+}
+
+td,
+th {
+  padding: 6px;
+  text-align: left;
 }
 
 .text-table td, .text-table th{
