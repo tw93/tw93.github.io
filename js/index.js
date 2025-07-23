@@ -107,7 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var zoomImgs = document.querySelectorAll('.entry-content img');
   (zoomImgs && zoomImgs.length > 0) && loadScript("https://gw.alipayobjects.com/os/k/s3/lightense.min.js", function () {
-    Lightense && Lightense(zoomImgs);
+    Lightense && Lightense(zoomImgs,{
+      background: 'rgba(255, 255, 255, .8)',
+    });
   });
 }, false);
 
