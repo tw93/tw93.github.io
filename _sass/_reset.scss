@@ -146,3 +146,10 @@ textarea {
   overflow: auto; // Remove vertical scrollbar in IE6-9
   vertical-align: top; // Readability and alignment cross-browser
 }
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
