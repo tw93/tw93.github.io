@@ -110,24 +110,17 @@ iframe {
   }
 }
 
-.social-icon {
+.social-icon svg {
   width: 20px;
   height: 20px;
-  margin-left: 16px;
-  margin-top: -4px;
-}
-
-.github-icon {
-  margin-left: 0;
-}
-
-.time-icon {
-  margin-left: 11px;
+  margin-left: 12px;
+  display: inline-block;
 }
 
 .repo-time {
   @include font-rem(16);
   display: inline-block;
+  vertical-align: top;
 }
 
 ///sections
@@ -493,6 +486,17 @@ iframe {
 .header-menu-overflow {
   @media #{$medium} {
     height: 0;
+  }
+}
+
+.header-item.language-icon svg {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+  margin-right: 4px;
+  @media #{$medium} {
+    margin-top: 10px;
   }
 }
 
