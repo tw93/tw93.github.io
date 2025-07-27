@@ -1,4 +1,4 @@
-@import url('https://gw.alipayobjects.com/os/k/jinkai/style.css');
+@import url("https://gw.alipayobjects.com/os/k/jinkai/style.css");
 
 main {
   --color-prettylights-syntax-comment: #6e7781;
@@ -85,16 +85,18 @@ main {
 }
 
 main {
-  font-family: "TsangerJinKai02", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "TsangerJinKai02", "STKaiti", "KaiTi", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
   letter-spacing: 0.5px;
 }
 
 main .pagination-loader-container {
-  background-image: url('https://github.com/images/modules/pulls/progressive-disclosure-line.svg');
+  background-image: url("https://gw.alipayobjects.com/zos/k/7c/progressive-disclosure-line.svg");
 }
 
 main .gsc-loading-image {
-  background-image: url('https://github.githubassets.com/images/mona-loading-default.gif');
+  background-image: url("https://gw.alipayobjects.com/zos/k/xi/mona-loading-default.gif");
 }
 
 main .gsc-left-header .color-text-secondary,
@@ -128,7 +130,7 @@ main .gsc-comment-box-textarea:focus,
   line-height: 1.8;
 }
 
-.gsc-comment-content{
+.gsc-comment-content {
   font-size: 1rem;
 }
 
@@ -137,7 +139,7 @@ main .gsc-comment-box-textarea:focus,
 }
 
 .gsc-reactions-count:after {
-  content: '欢迎一起交流~';
+  content: "欢迎一起交流~";
   visibility: visible;
   font-size: 1.4rem;
   display: inline-block;
@@ -146,7 +148,7 @@ main .gsc-comment-box-textarea:focus,
 }
 
 html[lang="en"] .gsc-reactions-count:after {
-  content: 'Feel free to discuss~';
+  content: "Feel free to discuss~";
 }
 
 .gsc-reply-content {
