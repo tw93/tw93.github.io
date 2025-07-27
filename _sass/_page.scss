@@ -602,63 +602,6 @@ iframe {
   display: block;
 }
 
-html[lang="en-US"] {
-  body,
-  .header-href,
-  .hentry,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: Source Serif Pro, Georgia, Cambria, "Times New Roman", Times,
-      serif;
-    letter-spacing: 0.2px;
-    @media #{$medium} {
-      letter-spacing: 0.3px;
-    }
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  .header-item a,
-  .header-item-title a {
-    font-weight: 600;
-  }
-  .language-switch {
-    letter-spacing: 0.2px;
-  }
-  .language-switch span {
-    margin-right: -1px;
-    @media #{$medium} {
-      margin-right: -2px;
-    }
-  }
-  .header-item:nth-child(1),
-  .header-item:nth-child(5) {
-    display: none;
-  }
-  .hentry h1.entry-title {
-    @include font-rem(20);
-    @media #{$medium} {
-      @include font-rem(28);
-    }
-  }
-
-  .header-href .entry-content {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
 .video-container,
 .keynote-container {
   position: relative;
@@ -709,7 +652,7 @@ html[lang="en-US"] {
   @include flexbox();
   @include flex-direction(column);
   @include align-items(center);
-  margin: 40px 0 10px;
+  margin: 40px 0 20px;
   position: relative;
   @media #{$large} {
     margin-bottom: -20px;
@@ -777,6 +720,9 @@ video.bg-img {
 
 .btn-arrow {
   @include font-rem(24);
+  display: inline-block;
+  vertical-align: middle;
+  height: 35px;
 }
 
 .video-border {
