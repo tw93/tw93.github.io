@@ -2,21 +2,12 @@
 // --------------------------------------------------
 
 // Clearfix
-// --------------------
-// For clearing floats like a boss h5bp.com/q
 @use "sass:math";
 
 @mixin clearfix {
-  zoom: 1;
-  &:before,
   &:after {
-    display: table;
     content: "";
-    // Fixes Opera/contenteditable bug:
-    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-    line-height: 0;
-  }
-  &:after {
+    display: table;
     clear: both;
   }
 }
@@ -28,15 +19,6 @@
     border-bottom-style: solid;
   }
 }
-// Webkit-style focus
-// --------------------
-@mixin tab-focus() {
-  // Default
-  outline: thin dotted #333;
-  // Webkit
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
 
 // Center-align a block level element
 // ----------------------------------
@@ -46,33 +28,8 @@
   margin-right: auto;
 }
 
-// TYPOGRAPHY
-// --------------------------------------------------
 
-// Full-fat vertical rhythm
-// ------------------------
-@mixin font-size($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
-  line-height: 0 + math.div(round(math.div($doc-line-height, $size)*10000), 10000);
-  margin-bottom: 0px + $doc-line-height;
-  margin-bottom: 0rem + math.div($doc-line-height, $doc-font-size);
-}
 
-// Just the REMs
-// -------------
-@mixin font-rem($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
-}
-
-// Just font-size and line-height
-// ------------------------------
-@mixin font($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
-  line-height: 0 + math.div(round(math.div($doc-line-height, $size)*10000), 10000);
-}
 
 @mixin text-overflow($type: ellipsis) {
   overflow: hidden;
@@ -83,22 +40,16 @@
 // GRADIENTS
 // --------------------------------------------------
 
-@mixin horizontal($startColor : $white, $endColor : $lightergrey) {
-  background-color: $endColor;
-  background-image: linear-gradient(left, $startColor, $endColor); // W3C
-  background-repeat: repeat-x;
+@mixin horizontal($startColor: $white, $endColor: $lightergrey) {
+  background: linear-gradient(to right, $startColor, $endColor);
 }
 
-@mixin vertical($startColor : $white, $endColor:  $lightergrey) {
-  background-color: $endColor;
-  background-image: linear-gradient(top, $startColor, $endColor); // W3C
-  background-repeat: repeat-x;
+@mixin vertical($startColor: $white, $endColor: $lightergrey) {
+  background: linear-gradient(to bottom, $startColor, $endColor);
 }
 
-@mixin directional($startColor : $white, $endColor : $lightergrey, $deg : 45deg) {
-  background-color: $endColor;
-  background-image: linear-gradient($deg, $startColor, $endColor); // W3C
-  background-repeat: repeat-x;
+@mixin directional($startColor: $white, $endColor: $lightergrey, $deg: 45deg) {
+  background: linear-gradient($deg, $startColor, $endColor);
 }
 
 // .bordered(COLOR, COLOR, COLOR, COLOR);
@@ -112,12 +63,6 @@
 // ROUND CORNERS
 // --------------------------------------------------
 
-// .rounded(VALUE);
-@mixin rounded($radius:4px) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
-}
 
 // .border-radius(VALUE,VALUE,VALUE,VALUE);
 @mixin border-radius($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
@@ -128,55 +73,28 @@
   background-clip: padding-box;
 }
 
-// .box-shadow(HORIZONTAL VERTICAL BLUR COLOR))
-@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
-  box-shadow: $shadow;
-}
 
 // .drop-shadow(HORIZONTAL, VERTICAL, BLUR, ALPHA);
 @mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
   box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
 }
 
-// .text-shadow();
-@mixin text-shadow($shadow: 0 2px 3px rgba(0,0,0,.25)) {
-  text-shadow: $shadow;
-}
 
 // TRANSFORMATIONS
 // --------------------------------------------------
 
-// .rotate(VALUEdeg);
-@mixin rotate($deg) {
-  transform: rotate($deg);
-}
 
-// .scale(VALUE);
-@mixin scale($ratio) {
-  transform: scale($ratio);
-}
 
-@mixin transform($value) {
-  transform: $value;
-}
 
 // .skew(VALUE, VALUE);
 @mixin skew($x: 0, $y: 0) {
   transform: skew($x, $y);
 }
 
-// .transition(PROPERTY DURATION DELAY(OPTIONAL) TIMING-FINCTION);
-@mixin transition($transition) {
-  transition: $transition;
-}
 
-// .translate(VALUE, VALUE)
-@mixin translate($x: 0, $y: 0) {
-  transform: translate($x, $y);
-}
 
 @mixin translate3d($x: 0, $y: 0, $z: 0) {
-  transform: translate($x, $y, $z);
+  transform: translate3d($x, $y, $z);
 }
 
 @mixin animation($name, $duration: 300ms, $delay: 0, $ease: ease) {
@@ -191,20 +109,8 @@
   background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
 }
 
-// .background-size(VALUE VALUE);
-@mixin background-size($size) {
-  background-size: $size;
-}
 
-// .background-clip(VALUE); (border-box, padding-box, content-box)
-@mixin background-clip($clip) {
-  background-clip: $clip;
-}
 
-// .box-sizing(VALUE); (border-box, padding-box, content-box)
-@mixin box-sizing($boxsize: border-box) {
-  box-sizing: $boxsize;
-}
 
 // For image replacement
 @mixin hide-text() {
@@ -224,10 +130,6 @@
   visibility: hidden;
 }
 
-// Hide but maintain layout
-@mixin invisible() {
-  visibility: hidden;
-}
 
 // .resize(VALUE) (none, both, horizontal, vertical, inherit)
 @mixin resize($direction: both) {
@@ -235,10 +137,6 @@
   overflow: auto;
 }
 
-// .userselect(VALUE) (all, element, none, text)
-@mixin user-select($select) {
-  user-select: $select;
-}
 
 // Hidden but available to speaking browsers
 @mixin visuallyhidden() {
@@ -263,18 +161,6 @@
   overflow: visible;
 }
 
-@mixin flexbox {
-  display: flex;
-}
 
-@mixin justify-content($value: flex-start) {
-  justify-content: $value;
-}
 
-@mixin align-items($value: stretch) {
-  align-items: $value;
-}
 
-@mixin flex-direction($value: row) {
-  flex-direction: $value;
-}

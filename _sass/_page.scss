@@ -13,7 +13,11 @@ iframe {
 // --------------------------------------------------
 .entry,
 .hentry {
-  @include clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
   h1,
   h2,
   h3,
@@ -28,7 +32,7 @@ iframe {
 
 .hentry h1.entry-title {
   @media #{$medium} {
-    @include font-rem(28);
+    font-size: 28px;
   }
 }
 
@@ -37,16 +41,16 @@ iframe {
 }
 
 .entry-content {
-  @include font-size(16);
+  font-size: 17px;
   position: relative;
   word-wrap: break-word;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   @media #{$medium} {
-    @include font-size(16);
+    font-size: 18px;
   }
   .page-info {
     color: rgba(85, 85, 85, 0.8);
-    @include font-size(14);
+    font-size: 15px;
     font-weight: normal;
     margin: -5px 2px 0;
     position: relative;
@@ -74,15 +78,15 @@ iframe {
         .qr-code {
           width: 128px;
           opacity: 1;
-          @include transform(none);
+          transform: none;
         }
       }
     }
     .qr-code {
       position: absolute;
       opacity: 0;
-      @include transition(0.3s all ease-in-out);
-      @include transform(scale(0) perspective(60px) rotateX(50deg));
+      transition: 0.3s all ease-in-out;
+      transform: scale(0) perspective(60px) rotateX(50deg);
       width: 0;
       left: -4px;
       top: -4px;
@@ -94,7 +98,7 @@ iframe {
       }
     }
     @media #{$medium} {
-      @include font-size(16);
+      font-size: 17px;
       .qr-text {
         display: inline-block;
       }
@@ -115,10 +119,11 @@ iframe {
   height: 20px;
   margin-left: 12px;
   display: inline-block;
+  margin-top: 3px;
 }
 
 .repo-time {
-  @include font-rem(16);
+  font-size: 17px;
   display: inline-block;
   vertical-align: top;
 }
@@ -130,19 +135,19 @@ iframe {
   h1 {
     margin: 10px 20px;
     font-weight: 700;
-    @include font-rem(21);
+    font-size: 22px;
     color: lighten($base-color, 20);
     @media #{$medium} {
-      @include font-rem(30);
+      font-size: 30px;
     }
   }
   h2 {
     margin: 0;
-    @include font-rem(18);
+    font-size: 18px;
     text-transform: uppercase;
     color: lighten($base-color, 40);
     @media #{$medium} {
-      @include font-rem(24);
+      font-size: 25px;
     }
   }
   p {
@@ -153,7 +158,7 @@ iframe {
 // Single Post and Page
 // --------------------------------------------------
 .entry-meta {
-  @include font-rem(12);
+  font-size: 13px;
   margin-top: 0;
   color: lighten($base-color, 60);
   a {
@@ -163,15 +168,19 @@ iframe {
     display: inline-block;
     margin: 4px;
     color: $white;
-    @include rounded(3px);
-    background-color: lighten($header-color, 30);
+    border-radius: 3px;
+    background-color: $header-color;
     span {
       float: left;
       padding: 2px 6px;
     }
     .count {
-      background-color: $header-color;
-      @include border-radius(3px, 3px, 0, 0);
+      background-color: #fff;
+      color: $header-color;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 0px;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 0;
     }
   }
 }
@@ -183,7 +192,7 @@ iframe {
     padding: 10px 15px;
     background-color: $white;
     box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
-    @include rounded(3px);
+    border-radius: 3px;
     @media #{$medium} {
       margin: 30px 10px;
       padding: 20px 30px;
@@ -193,7 +202,7 @@ iframe {
       margin: 30px auto 30px auto;
       padding: 32px 80px 70px;
       > p:first-child {
-        @include font-size(20);
+        font-size: 20px;
       }
     }
   }
@@ -202,7 +211,7 @@ iframe {
     padding: 20px 15px;
     background-color: $white;
     box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
-    @include rounded(3px);
+    border-radius: 3px;
     @media #{$medium} {
       margin-left: 10px;
       margin-right: 10px;
@@ -231,10 +240,10 @@ iframe {
 }
 
 .tag-list {
-  @include font-size(15);
+  font-size: 16px;
   line-height: 1.7;
   @media #{$medium} {
-    @include font-rem(16);
+    font-size: 17px;
   }
   .tag-time {
     display: none;
@@ -261,10 +270,10 @@ iframe {
 .pagination {
   margin: 36px 10px;
   text-align: center;
-  @include font-rem(18);
+  font-size: 18px;
   @media #{$medium} {
     margin: 48px 10px 78px;
-    @include font-rem(20);
+    font-size: 20px;
   }
   ul {
     display: inline;
@@ -294,7 +303,7 @@ iframe {
   padding: 40px 15px 25px;
   background-color: $white;
   box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
-  @include rounded(3px);
+  border-radius: 3px;
   @media #{$medium} {
     margin: 40px 10px 48px 10px;
     padding: 50px 40px 25px;
@@ -305,7 +314,11 @@ iframe {
     margin: 50px auto 48px;
   }
   text-align: center;
-  @include clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 .read-more-header {
@@ -320,7 +333,7 @@ iframe {
 }
 
 .read-more-content {
-  @include font-size(16);
+  font-size: 17px;
   margin-bottom: 0;
   p {
     text-align: left;
@@ -331,9 +344,9 @@ iframe {
   }
   h3 {
     margin: 0;
-    @include font-rem(21);
+    font-size: 22px;
     @media #{$medium} {
-      @include font-rem(30);
+      font-size: 30px;
     }
     a {
       color: $text-color;
@@ -370,15 +383,15 @@ iframe {
   article {
     background-color: $white;
     box-shadow: 0 0 0 0, 0 6px 12px rgba($base-color, 0.1);
-    @include rounded(3px);
+    border-radius: 3px;
     margin-bottom: 20px;
     padding: 15px;
     @media #{$medium} {
-      padding: 28px 36px 12px;
+      padding: 20px 36px 20px;
     }
     @media #{$large} {
       margin-bottom: 30px;
-      padding: 30px 50px 16px;
+      padding: 30px 50px 20px;
     }
   }
 }
@@ -386,13 +399,17 @@ iframe {
 // Footer
 // --------------------------------------------------
 .footer-wrapper {
-  @include clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
   margin: 14px auto 30px auto;
   text-align: center;
-  @include font-rem(14);
+  font-size: 15px;
   @media #{$medium} {
     margin: 8px auto 20px auto;
-    @include font-rem(16);
+    font-size: 17px;
   }
 }
 
@@ -422,13 +439,13 @@ iframe {
   margin-bottom: 20px;
   padding: 8px 20px;
   display: inline-block;
-  @include font-rem(14);
+  font-size: 15px;
   background-color: $white;
   color: $text-color;
   border-width: 2px;
   border-style: solid;
   border-color: lighten($primary, 50);
-  @include rounded(3px);
+  border-radius: 3px;
 }
 
 #goog-wm-sb {
@@ -470,7 +487,7 @@ iframe {
   @media #{$medium} {
     position: fixed;
     padding: 0;
-    @include transition(0.3s height ease-out);
+    transition: 0.3s height ease-out;
   }
   ul {
     margin: 0 auto;
@@ -493,10 +510,10 @@ iframe {
   display: inline-block;
   width: 18px;
   height: 18px;
-  margin-top: 6px;
+  margin-top: 9px;
   margin-right: 4px;
   @media #{$medium} {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 }
 
@@ -528,14 +545,14 @@ iframe {
     vertical-align: middle;
     display: table-cell;
     height: $menu-height;
-    @include font-rem(15);
+    font-size: 16px;
     box-sizing: border-box;
     font-weight: bold;
     &:visited {
       color: $text-color;
     }
     @media #{$medium} {
-      @include font-rem(16);
+      font-size: 17px;
     }
   }
   &.active,
@@ -575,7 +592,7 @@ iframe {
   border-top-width: 0px;
   height: 100%;
   a.title {
-    @include font-rem(24);
+    font-size: 25px;
     padding-left: 5px;
     vertical-align: middle;
     height: $menu-height;
@@ -636,9 +653,9 @@ iframe {
 
 .coffee {
   width: 100%;
-  @include flexbox();
-  @include flex-direction(column);
-  @include align-items(center);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 40px 0 20px;
   position: relative;
   @media #{$large} {
@@ -653,9 +670,11 @@ iframe {
     padding: 8px 12px;
     line-height: 17px;
     text-align: center;
-    @include text-overflow(clip);
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
     cursor: pointer;
-    @include user-select(none);
+    user-select: none;
     &:hover {
       background-color: #fff;
       color: #222;
@@ -706,10 +725,10 @@ video.bg-img {
 }
 
 .btn-arrow {
-  @include font-rem(24);
+  font-size: 24px;
   display: inline-block;
   vertical-align: middle;
-  height: 35px;
+  height: 42px;
 }
 
 .video-border {

@@ -1,9 +1,9 @@
 .CodeRay {
   font-family: $code-font;
-  @include font(12);
+  font-size: 13px;
   color: #d0d0d0;
   margin-bottom: 1.5em;
-  @include rounded(3px);
+  border-radius: 3px;
 }
 
 .CodeRay .code pre {

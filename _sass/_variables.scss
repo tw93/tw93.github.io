@@ -1,8 +1,9 @@
 // Typography
 // --------------------------------------------------
 
-
-$base-font: "TsangerJinKai02", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+$base-font: "TsangerJinKai02", "STKaiti", "KaiTi", -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji";
 $heading-font: $base-font;
 $caption-font: $base-font;
 $code-font: $base-font;
@@ -13,31 +14,30 @@ $doc-line-height: 27.2;
 
 // set-up the body font-size / line-height
 body {
-  font-size: 0px + $doc-font-size;
+  font-size: #{$doc-font-size}px;
   font-display: swap;
-  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 // Colors
 // --------------------------------------------------
-$base-color: #24292F;
-$header-color: #15141A;
-$header-active: #15141A;
+$base-color: #24292f;
+$header-color: #15141a;
+$header-active: #15141a;
 $menu-top: white;
 $menu-height: 60px;
-$menu-overflow: #24292F;
+$menu-overflow: #24292f;
 $body-color: #e8e8e8;
-$text-color: rgba(#24292F, 0.9);
-$comp-color: complement(#24292F);
-$border-color: lighten(#24292F, 60);
+$text-color: rgba(#24292f, 0.9);
+$comp-color: complement(#24292f);
+$border-color: lighten(#24292f, 60);
 $white: #fff;
 $black: #000;
-$link-color: rgba(#24292F, 0.8);
+$link-color: rgba(#24292f, 0.8);
 
-$primary: #24292F;
+$primary: #24292f;
 $success: #5cb85c;
 $warning: #dd8338;
-$danger: #C64537;
+$danger: #c64537;
 $info: #308cbc;
 
 // Screen Size
