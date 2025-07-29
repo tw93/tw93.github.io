@@ -1,11 +1,11 @@
 hr {
-    display: block;
-    margin: 1em 0;
-    padding: 0;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #fff;
+  display: block;
+  margin: 1em 0;
+  padding: 0;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
 }
 
 // Figures and images
@@ -55,11 +55,11 @@ figure {
 svg:not(:root) {
   overflow: hidden;
 }
-figure.center{
+figure.center {
   text-align: center;
 }
 
-figure.center img{
+figure.center img {
   float: none;
 }
 // Buttons

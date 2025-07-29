@@ -6,44 +6,44 @@ $width: 100%;
 $def_grid: 12;
 $margin: 0;
 
-@mixin container(){
-  margin:0 auto;
-  width:$width;
+@mixin container() {
+  margin: 0 auto;
+  width: $width;
 }
-                                      
+
 // Works out the width of elements based
 // on total number of columns and width
 // number of columns being displayed.
 // Removes 20px for margins
-@mixin grid($grid:$def_grid,$cols:'',$float:left,$display:inline){
-  display:$display;
-  float:$float;
-  width:(math.div(100%, $grid) * $cols) - ($margin * 2);
-}  
+@mixin grid($grid: $def_grid, $cols: "", $float: left, $display: inline) {
+  display: $display;
+  float: $float;
+  width: (math.div(100%, $grid) * $cols) - ($margin * 2);
+}
 
 // Allows for padding before element
-@mixin prefix($grid:$def_grid,$cols:''){
-  margin-left:(math.div(100%, $grid) * $cols);
+@mixin prefix($grid: $def_grid, $cols: "") {
+  margin-left: (math.div(100%, $grid) * $cols);
 }
 // Allows for padding after element
-@mixin suffix($grid:$def_grid,$cols:''){  
-  margin-right:(math.div(100%, $grid) * $cols);    
+@mixin suffix($grid: $def_grid, $cols: "") {
+  margin-right: (math.div(100%, $grid) * $cols);
 }
 // Removes left margin
-@mixin first(){
-  margin-left:0;
+@mixin first() {
+  margin-left: 0;
 }
 // Removes right margin
-@mixin last(){
-  margin-right:0;
+@mixin last() {
+  margin-right: 0;
 }
 
-@mixin push($grid:$def_grid,$move:'') {
-  position:relative;
-  left:(math.div(100%, $grid) * $move);
-} 
+@mixin push($grid: $def_grid, $move: "") {
+  position: relative;
+  left: (math.div(100%, $grid) * $move);
+}
 
-@mixin pull($grid:$def_grid,$move:''){
-  position:relative;
-  left:(math.div(100%, $grid) * $move) * -1;
+@mixin pull($grid: $def_grid, $move: "") {
+  position: relative;
+  left: (math.div(100%, $grid) * $move) * -1;
 }

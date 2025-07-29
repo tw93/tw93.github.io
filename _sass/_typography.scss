@@ -24,7 +24,9 @@ h1 {
   }
 }
 
-table, th, td {
+table,
+th,
+td {
   border-collapse: collapse;
   border: 1px solid #f2f3f4;
 }
@@ -35,11 +37,13 @@ th {
   text-align: left;
 }
 
-.text-table td, .text-table th{
+.text-table td,
+.text-table th {
   padding: 6px 16px;
 }
 
-.text-table, th{
+.text-table,
+th {
   text-align: left;
 }
 

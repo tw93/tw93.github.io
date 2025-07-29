@@ -120,6 +120,9 @@ iframe {
   margin-left: 12px;
   display: inline-block;
   margin-top: 3px;
+  @media #{$medium} {
+    margin-top: 4px;
+  }
 }
 
 .repo-time {
@@ -513,7 +516,7 @@ iframe {
   margin-top: 9px;
   margin-right: 4px;
   @media #{$medium} {
-    margin-top: 12px;
+    margin-top: 11px;
   }
 }
 

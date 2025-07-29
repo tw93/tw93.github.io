@@ -117,14 +117,14 @@ input[type="submit"] {
 label,
 select,
 button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'],
-input[type='radio'],
-input[type='checkbox'] {
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
   cursor: pointer;
 }
-input[type='search'] {
+input[type="search"] {
   box-sizing: content-box;
 }
 
