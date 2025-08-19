@@ -10,7 +10,7 @@
 }
 
 @mixin need-dotted {
-  border-bottom: 1px dotted lighten($link-color, 50);
+  border-bottom: 1px dotted #c0c0c0;
   &:hover {
     border-bottom-style: solid;
   }

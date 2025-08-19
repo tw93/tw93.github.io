@@ -139,7 +139,7 @@ iframe {
     margin: 10px 20px;
     font-weight: 700;
     font-size: 22px;
-    color: lighten($base-color, 20);
+    color: #5c6469;
     @media #{$medium} {
       font-size: 30px;
     }
@@ -148,13 +148,13 @@ iframe {
     margin: 0;
     font-size: 18px;
     text-transform: uppercase;
-    color: lighten($base-color, 40);
+    color: #8b9299;
     @media #{$medium} {
       font-size: 25px;
     }
   }
   p {
-    color: lighten($base-color, 20);
+    color: #5c6469;
   }
 }
 
@@ -163,9 +163,9 @@ iframe {
 .entry-meta {
   font-size: 13px;
   margin-top: 0;
-  color: lighten($base-color, 60);
+  color: #c9ced4;
   a {
-    color: lighten($base-color, 60);
+    color: #c9ced4;
   }
   .tag {
     display: inline-block;
@@ -447,7 +447,7 @@ iframe {
   color: $text-color;
   border-width: 2px;
   border-style: solid;
-  border-color: lighten($primary, 50);
+  border-color: #91979f;
   border-radius: 3px;
 }
 
