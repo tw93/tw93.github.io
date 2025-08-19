@@ -307,6 +307,7 @@ iframe {
   background-color: $white;
   box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
   border-radius: 3px;
+  text-align: center;
   @media #{$medium} {
     margin: 40px 10px 48px 10px;
     padding: 50px 40px 25px;
@@ -316,7 +317,6 @@ iframe {
     padding: 50px 80px;
     margin: 50px auto 48px;
   }
-  text-align: center;
   &:after {
     content: "";
     display: table;
