@@ -30,69 +30,7 @@
   white-space: nowrap;
 }
 
-// GRADIENTS
-// --------------------------------------------------
-@mixin horizontal($startColor: $white, $endColor: $lightergrey) {
-  background: linear-gradient(to right, $startColor, $endColor);
-}
-
-@mixin vertical($startColor: $white, $endColor: $lightergrey) {
-  background: linear-gradient(to bottom, $startColor, $endColor);
-}
-
-@mixin directional($startColor: $white, $endColor: $lightergrey, $deg: 45deg) {
-  background: linear-gradient($deg, $startColor, $endColor);
-}
-
-// .bordered(COLOR, COLOR, COLOR, COLOR);
-@mixin bordered(
-  $top-color: #eee,
-  $right-color: #eee,
-  $bottom-color: #eee,
-  $left-color: #eee
-) {
-  border-top: solid 1px $top-color;
-  border-left: solid 1px $left-color;
-  border-right: solid 1px $right-color;
-  border-bottom: solid 1px $bottom-color;
-}
-
-// ROUND CORNERS
-// --------------------------------------------------
-
-// .border-radius(VALUE,VALUE,VALUE,VALUE);
-@mixin border-radius(
-  $topright: 0,
-  $bottomright: 0,
-  $bottomleft: 0,
-  $topleft: 0
-) {
-  border-top-right-radius: $topright;
-  border-bottom-right-radius: $bottomright;
-  border-bottom-left-radius: $bottomleft;
-  border-top-left-radius: $topleft;
-  background-clip: padding-box;
-}
-
-// .drop-shadow(HORIZONTAL, VERTICAL, BLUR, ALPHA);
-@mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
-  box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
-}
-
-// .skew(VALUE, VALUE);
-@mixin skew($x: 0, $y: 0) {
-  transform: skew($x, $y);
-}
-
-@mixin translate3d($x: 0, $y: 0, $z: 0) {
-  transform: translate3d($x, $y, $z);
-}
-
-@mixin animation($name, $duration: 300ms, $delay: 0, $ease: ease) {
-  animation: $name $duration $delay $ease;
-}
-
-// For image replacement
+// For image replacement (if needed in future)
 @mixin hide-text() {
   text-indent: 100%;
   white-space: nowrap;
@@ -114,4 +52,28 @@
 @mixin resize($direction: both) {
   resize: $direction;
   overflow: auto;
+}
+
+// Button base styles
+@mixin btn-base() {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  background-color: #24292f;
+  color: #fff;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #24292f;
+  border-radius: 3px;
+  text-decoration: none;
+  
+  &:visited {
+    color: #fff;
+  }
+  
+  &:hover {
+    background-color: #fff;
+    color: #24292f;
+  }
 }

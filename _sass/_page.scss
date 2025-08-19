@@ -333,7 +333,7 @@ iframe {
   right: 0;
   height: 35px;
   .read-more-btn {
-    @extend .btn;
+    @include btn-base();
   }
 }
 
@@ -454,7 +454,7 @@ iframe {
 }
 
 #goog-wm-sb {
-  @extend .btn;
+  @include btn-base();
 }
 
 // Header
@@ -635,7 +635,7 @@ iframe {
   background-color: #fff;
   .fullscreen-btn {
     display: none;
-    @extend .btn;
+    @include btn-base();
     position: absolute;
     right: 0;
     font-size: 13px;
@@ -667,7 +667,7 @@ iframe {
     margin-bottom: -20px;
   }
   .buy-me-coffee {
-    @extend .btn;
+    @include btn-base();
     margin: 0 auto;
     position: relative;
     height: 36px;
@@ -680,10 +680,6 @@ iframe {
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
-    &:hover {
-      background-color: #fff;
-      color: #222;
-    }
     &.active {
       background-color: #fff;
       color: #222;
@@ -730,6 +726,7 @@ video.bg-img {
 }
 
 .btn-arrow {
+  @include btn-base();
   font-size: 24px;
   display: inline-block;
   vertical-align: middle;
