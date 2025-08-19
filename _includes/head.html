@@ -11,26 +11,27 @@
   <meta name="theme-color" content="#FFFFFF">
 
   <!-- Open Graph Metadata -->
+  {% assign og_title = page.title | default: site.title %}
+  {% assign og_description = page.summary | default: site.description %}
+  {% assign og_image = page.feature | default: "https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png" %}
+  
   <meta property="og:locale" content="{{ site.lang }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} - Tw93{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:description" content="{{ og_description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.title }}">
-  {% if page.feature %}
-  <meta property="og:image" content="{{ page.feature }}">
-  {% else %}
-  <meta property="og:image" content="https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png">
-  {% endif %}
+  <meta property="og:image" content="{{ og_image }}">
 
   <!-- Twitter Metadata -->
   {% if page.layout == "post" %}
+  {% assign twitter_image = page.feature | default: "https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png" %}
   <meta name="twitter:card" content="{% if page.feature %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:creator" content="@{{ site.twitter }}">
   <meta name="twitter:site" content="{{ site.url }}">
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
   <meta name="twitter:title" content="{{ page.title }} - Tw93">
   <meta name="twitter:description" content="{{ page.summary }}">
-  <meta name="twitter:image" content="{% if page.feature %}{{ page.feature }}{% else %}https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png{% endif %}">
+  <meta name="twitter:image" content="{{ twitter_image }}">
   {% endif %}
 
   <!-- Canonical URL -->

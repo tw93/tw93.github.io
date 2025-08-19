@@ -1,18 +1,11 @@
-<!doctype html>
-<html lang="{{ page.lang | default: site.lang }}">
-{% include head.html %}
+---
+layout: base
+body_id: page
+---
 
-<body id="page">
-  {% include header.html %}
-  <div id="main" role="main">
-    <article class="hentry">
-      <div class="entry-content">
-        {{ content }}
-      </div>
-      {% include giscus.html %}
-    </article>
+<article class="hentry">
+  <div class="entry-content">
+    {{ content }}
   </div>
-  {% include footer.html %}
-</body>
-
-</html>
+  {% include giscus.html %}
+</article>

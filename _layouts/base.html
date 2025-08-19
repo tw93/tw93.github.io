@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+{% include head.html %}
+
+{% assign body_id = page.body_id | default: layout.body_id | default: page.layout %}
+<body id="{{ body_id }}">
+  {% include header.html %}
+  
+  <div id="main" role="main">
+    {{ content }}
+  </div>
+  
+  {% include footer.html %}
+</body>
+</html>

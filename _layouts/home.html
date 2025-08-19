@@ -1,22 +1,14 @@
-<!doctype html>
-<html lang="{{ page.lang | default: site.lang }}">
-{% include head.html %}
+---
+layout: base
+---
 
-<body id="post-index">
-  {% include header.html %}
-  <div id="main" role="main">
-    {% if page.url contains '/en/' %}
-    <!-- 英文文章，简单列出所有文章，不分页 -->
-    {% assign current_posts = site.posts_en | sort: 'date' | reverse %}
-    {% include post-item.html posts=current_posts %}
-    {% else %}
-    <!-- 中文文章保持原有逻辑，包括分页 -->
-    {% include post-item.html posts=paginator.posts %}
-    {% include pagination.html %}
-    {% endif %}
-    {{ content }}
-  </div>
-  {% include footer.html %}
-</body>
-
-</html>
+{% if page.url contains '/en/' %}
+<!-- 英文文章，简单列出所有文章，不分页 -->
+{% assign current_posts = site.posts_en | sort: 'date' | reverse %}
+{% include post-item.html posts=current_posts %}
+{% else %}
+<!-- 中文文章保持原有逻辑，包括分页 -->
+{% include post-item.html posts=paginator.posts %}
+{% include pagination.html %}
+{% endif %}
+{{ content }}
