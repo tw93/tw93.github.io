@@ -8,3 +8,5 @@ node_modules
 _config.gh-pages.yml
 .jekyll-cache
 .vscode
+Gemfile.lock
+
