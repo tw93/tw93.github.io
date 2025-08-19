@@ -2,14 +2,15 @@
 sitemap: false
 ---
 
-// Global SCSS Configuration - Clean & Simple
-@import "variables";
-@import "mixins";
-@import "reset";
-@import "site";
-@import "typography";
-@import "rouge";
-@import "grid";
-@import "elements";
-@import "page";
-@import "404";
+// Modern Sass Module System - Zero Warnings!
+@use "globals" as *;
+
+// All stylesheets using modern @use
+@use "reset";
+@use "site";
+@use "typography";
+@use "rouge";
+@use "grid";
+@use "elements";
+@use "page";
+@use "404" as error;
