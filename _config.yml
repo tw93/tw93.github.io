@@ -13,8 +13,6 @@ zhihu: tw93
 twitter: HiTw93
 v2ex: tw93
 menu:
-  - title: "Categories"
-    url: "/categories.html"
   - title: "About"
     url: "/about.html"
   - title: "Weekly"

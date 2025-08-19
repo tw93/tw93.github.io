@@ -238,31 +238,8 @@ iframe {
   margin-bottom: 6px;
 }
 
-.tag-heading,
 .year-heading {
   margin-top: 0;
-}
-
-.tag-list {
-  font-size: 16px;
-  line-height: 1.7;
-  @media #{$medium} {
-    font-size: 17px;
-  }
-  .tag-time {
-    display: none;
-    @media #{$medium} {
-      display: inline-block;
-    }
-  }
-}
-
-// Go to the exact location of bookmarks in tags, categories
-.anchor-bookmark {
-  display: block;
-  height: $menu-height; /*same height as header*/
-  margin-top: -$menu-height; /*same height as header*/
-  visibility: hidden;
 }
 
 // Permalink icon for link post
@@ -725,7 +702,6 @@ video.bg-img {
 }
 
 .btn-arrow {
-  @include btn-base();
   font-size: 24px;
   display: inline-block;
   vertical-align: middle;
