@@ -1,12 +1,10 @@
 {
-  "functions": {
-    "api/**/*.rb": {
-      "runtime": "@vercel/ruby@3.0.0"
-    }
-  },
-  "buildCommand": "bundle exec jekyll build",
+  "buildCommand": "bundle exec jekyll build --verbose",
   "outputDirectory": "_site",
   "installCommand": "gem install bundler && bundle install",
   "framework": null,
-  "nodeVersion": "18.x"
+  "nodeVersion": "18.x",
+  "env": {
+    "BUNDLE_WITHOUT": "development:test"
+  }
 }
