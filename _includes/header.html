@@ -21,7 +21,7 @@
     {% endif %}
 
     {% if menu.url contains 'http://' or menu.url contains 'https://' %}
-    <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank">{{ menu.title }}</a></li>
+    <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank" rel="noopener noreferrer">{{ menu.title }}</a></li>
     {% else %}
     {% if page.url contains '/en/' %}
     <li class="header-item {{class}}"><a href="{{site.url}}/en/{{menu.url}}">{{ menu.title }}</a></li>
