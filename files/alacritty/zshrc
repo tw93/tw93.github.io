@@ -1,0 +1,169 @@
+# Tw93's Zsh Configuration
+
+# === Performance ===
+skip_global_compinit=1
+DISABLE_AUTO_TITLE="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_AUTO_UPDATE="true"
+
+# === Environment ===
+export LANG=en_US.UTF-8
+export ZSH="$HOME/.oh-my-zsh"
+export PYENV_ROOT="$HOME/.pyenv"
+export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
+export PYTHONDONTWRITEBYTECODE=1
+export NODE_OPTIONS="--max-old-space-size=4096"
+export DOCKER_BUILDKIT=1
+
+# === PATH ===
+typeset -U path
+path=(
+    $HOME/{bin,.local/bin,.cargo/bin,.bun/bin,.npm-global/bin}
+    $HOME/Library/pnpm
+    $PYENV_ROOT/bin
+    $JAVA_HOME/bin
+    /opt/homebrew/{bin,sbin}
+    /usr/local/{bin,go/bin}
+    /usr/{bin,sbin}
+    /{bin,sbin}
+    $path
+)
+
+# Conditional PATH additions
+command -v go &>/dev/null && path+=("$(go env GOPATH)/bin")
+
+# === Oh-My-Zsh ===
+ZSH_THEME=""
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_DUPS HIST_IGNORE_SPACE INC_APPEND_HISTORY SHARE_HISTORY
+setopt AUTO_CD AUTO_PUSHD PUSHD_IGNORE_DUPS
+
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+
+# === Proxy ===
+nc -z 127.0.0.1 7890 2>/dev/null && {
+    export http_proxy=http://127.0.0.1:7890
+    export https_proxy=http://127.0.0.1:7890
+    export no_proxy="localhost,127.0.0.1,.local"
+}
+
+# === Command Statistics ===
+[[ -f ~/.config/cmd_stats.sh ]] && {
+    source ~/.config/cmd_stats.sh
+    preexec() { log_command "$1" }
+}
+
+# === Functions ===
+cs() {
+    [[ -f "$HOME/.config/claude/cs.sh" ]] && source "$HOME/.config/claude/cs.sh" "$@"
+}
+
+spush() {
+    (cd ~/.config && git add . && git commit -m "Update config $(date +%Y-%m-%d\ %H:%M)" && git push) &&
+    source ~/.zshrc && echo "✅ Config pushed and reloaded"
+}
+
+spull() {
+    if [[ ! -d ~/.config/.git ]]; then
+        echo "📥 First time setup - cloning config..."
+        [[ -d ~/.config ]] && mv ~/.config ~/.config.backup.$(date +%Y%m%d_%H%M%S)
+        git clone https://github.com/tw93/.config.git ~/.config
+        ln -sf ~/.config/zshrc ~/.zshrc
+    else
+        (cd ~/.config && git pull --rebase)
+    fi && source ~/.zshrc && echo "✅ Config synced and reloaded"
+}
+
+app() {
+    [[ -z "$1" ]] && { echo "Usage: app <filename>"; return 1 }
+    ~/Library/Developer/Xcode/DerivedData/MiaoYan-*/SourcePackages/artifacts/sparkle/Sparkle/bin/sign_update ~/www/MiaoYan/Release/"$1"
+}
+
+dmg() {
+    local app_file=$(find . -name "*.app" -type d | head -1)
+    [[ -z "$app_file" ]] && { echo "No .app file found"; return 1 }
+    echo "Creating DMG for: $app_file" && create-dmg "$app_file"
+}
+
+gitno() {
+    gh api --method PUT /notifications -f last_read_at="$(date --utc +%Y-%m-%dT%H:%M:%SZ)"
+}
+
+co() {
+    copilot --allow-all-tools --deny-tool 'shell(rm)' --deny-tool 'shell(git push)'
+}
+
+# === Aliases ===
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Git
+alias gs="git status --short"
+alias gd="git diff"
+alias gp="git push"
+alias gl="git pull --rebase"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+
+# Development
+alias py="python3"
+alias pip="pip3"
+alias p="pyenv"
+alias d="docker"
+alias dc="docker-compose"
+alias nr="npm run"
+alias ni="npm install"
+alias nid="npm install --save-dev"
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nrt="npm run test"
+
+# System
+alias code="code-insiders"
+alias ports="lsof -PiTCP -sTCP:LISTEN"
+alias myip="curl -s ifconfig.me && echo"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias df="df -h"
+alias du="du -h"
+alias alacritty="/Applications/Alacritty.app/Contents/MacOS/alacritty"
+
+# Claude & Tools
+alias c="ccusage"
+alias cc="ccusage monthly"
+alias x="ccusage-codex"
+alias cx="ccusage-codex monthly"
+alias ccc="claude-monitor"
+alias st="stats"
+alias sta="stats all"
+alias claude="~/.claude/local/claude"
+alias sf="swift build --build-tests --enable-build-manifest-caching 2>/tmp/swift-build.log && swift-format format . --recursive --in-place --configuration .swift-format && swiftlint --fix && swiftlint"
+
+# === Completion ===
+export KEYTIMEOUT=1
+autoload -Uz compinit
+[[ -n $HOME/.zcompdump(#qN.mh+24) ]] && compinit || compinit -C
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+
+# === Lazy Loading ===
+[[ -d "$PYENV_ROOT" ]] && {
+    pyenv() {
+        unfunction pyenv
+        eval "$(command pyenv init -)"
+        pyenv "$@"
+    }
+}
+
+# === Prompt & Extras ===
+command -v starship &>/dev/null && eval "$(starship init zsh)"
+command -v rbenv &>/dev/null && eval "$(rbenv init - zsh)"
+
+# === Local Config ===
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
