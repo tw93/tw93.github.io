@@ -33,7 +33,6 @@
 </div>
 
 <script type="text/javascript" src="{{ site.url }}/js/index.min.js"></script>
-<script type="text/javascript" src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"></script>
 
 {% if site.google_analytics %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
@@ -71,10 +70,6 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    //Optimize letter spacing
-    const heti = new Heti(".heti");
-    heti.autoSpacing();
-
     // Jump out
     const links = document.links;
     for (let i = 0; i < links.length; i++) {

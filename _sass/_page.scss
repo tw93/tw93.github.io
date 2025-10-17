@@ -51,6 +51,7 @@ iframe {
   position: relative;
   word-wrap: break-word;
   margin-bottom: 12px;
+  text-autospace: normal;
   @media #{$medium} {
     font-size: 18px;
   }
