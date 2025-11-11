@@ -133,7 +133,7 @@ title: "Presentation Title"
 date: 1993-07-01 16:00:00 # Use past dates to hide from main listing
 summary: "Presentation description"
 comments: false
-hide: true
+hidden: true
 ---
 # Slide 1
 Content
@@ -267,4 +267,3 @@ bundle exec jekyll build
 ## License
 
 MIT License - Feel free to fork and modify while keeping attribution to the original author.
-
