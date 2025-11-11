@@ -10,7 +10,7 @@ body_id: post
       <span>Categories: {{page.categories}}</span>
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
       <div class="qr-text" id="J_qr_text">
-        <div id="J_qr_code" class="qr-code" onmouseover="this.title='';"></div>
+        <div id="J_qr_code" class="qr-code" aria-label="QR code for this page" role="img"></div>
       </div>
     </h4>
     {{ content | cdn_image_filter }}

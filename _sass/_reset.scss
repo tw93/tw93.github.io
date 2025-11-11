@@ -9,6 +9,18 @@
   box-sizing: border-box;
 }
 
+// Respect user's motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 article,
 aside,
 details,
@@ -38,9 +50,34 @@ html {
   font-size: 100%;
 }
 // Focus states
+// Modern focus-visible support - only show focus ring for keyboard navigation
 a:focus {
-  outline: 2px solid;
-  outline-offset: 2px;
+  outline: none;
+}
+
+a:focus-visible {
+  box-shadow: 0 0 0 2px currentColor;
+  outline: none;
+}
+
+// Fallback for browsers without focus-visible support
+a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0 2px currentColor;
+  outline: none;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 // Hover & Active
 a:hover,
@@ -113,6 +150,7 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
+  user-select: none;
 }
 label,
 select,
@@ -124,8 +162,17 @@ input[type="radio"],
 input[type="checkbox"] {
   cursor: pointer;
 }
-input[type="search"] {
-  box-sizing: content-box;
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  box-sizing: border-box;
+  font-size: 16px; // Prevent iOS zoom on focus
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 textarea {
@@ -134,8 +181,14 @@ textarea {
 }
 
 a {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
+}
+
+// Only disable user-select for button-like links
+a.btn,
+button,
+[role="button"] {
   -webkit-user-select: none;
   user-select: none;
 }

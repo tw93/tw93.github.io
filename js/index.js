@@ -27,16 +27,29 @@ document.addEventListener("DOMContentLoaded", function () {
   var height = 260;
 
   var canvas = document.getElementById('J_firework_canvas');
+  if (!canvas) return; // Guard against missing canvas
+
   canvas.width = width;
   canvas.height = height;
-  var ctx = canvas.getContext('2d');
+  var ctx = canvas.getContext('2d', { alpha: true });
 
   var points = [];
+  var isAnimating = true;
 
   var mouse = {
     x: 0,
     y: 9999,
   };
+
+  // Pause animation when canvas is not visible
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        isAnimating = entry.isIntersecting;
+      });
+    }, { threshold: 0 });
+    observer.observe(canvas);
+  }
 
   function Point(x, y, speed, width, color) {
     this.x = x;
@@ -72,12 +85,20 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   function drawFirework() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < 5; i++) {
-      var posX = mouse.x + Math.random() * 10;
-      var posY = mouse.y + Math.random() * 10;
+    if (!isAnimating) {
+      requestAnimationFrame(drawFirework);
+      return;
+    }
 
-      points.push(new Point(posX, posY, 1 + Math.random() * 2, 5, 'white'));
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Only create new points if mouse is in active area
+    if (mouse.y < height) {
+      for (var i = 0; i < 5; i++) {
+        var posX = mouse.x + Math.random() * 10;
+        var posY = mouse.y + Math.random() * 10;
+        points.push(new Point(posX, posY, 1 + Math.random() * 2, 5, 'white'));
+      }
     }
 
     for (var i in points) {
@@ -89,7 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(drawFirework);
   }
 
-  drawFirework();
+  // Check for prefers-reduced-motion
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    drawFirework();
+  }
 
   document.onmousemove = function (e) {
     mouse.x = e.pageX;

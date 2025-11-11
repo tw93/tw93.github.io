@@ -1,5 +1,12 @@
 @use "globals" as *;
 
+// Text Selection
+// --------------------------------------------------
+::selection {
+  background-color: rgba(36, 41, 47, 0.15);
+  color: inherit;
+}
+
 // Body
 // --------------------------------------------------
 body {
@@ -7,6 +14,7 @@ body {
   color: $text-color;
   letter-spacing: 0.5px;
   line-height: 1.7;
+  -webkit-text-size-adjust: 100%; // Prevent iOS text resize
 }
 
 // Headings
@@ -31,6 +39,7 @@ th,
 td {
   border-collapse: collapse;
   border: 1px solid #f2f3f4;
+  font-variant-numeric: tabular-nums;
 }
 
 td,
@@ -54,11 +63,13 @@ th {
 a {
   text-decoration: none;
   color: $link-color;
+  border-radius: 2px;
   &:hover {
     color: #404040;
   }
   &:focus {
-    outline: 2px solid;
+    outline: none;
+    box-shadow: 0 0 0 2px $link-color;
     color: #404040;
   }
   &:hover,
@@ -68,7 +79,7 @@ a {
 }
 
 .link-arrow {
-  font-weight: 100;
+  font-weight: 400;
   text-decoration: underline;
   font-style: normal;
 }

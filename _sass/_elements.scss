@@ -20,10 +20,18 @@ figure {
   a {
     img {
       transform: translate(0, 0);
-      transition: transform 0.25s;
-      &:hover {
-        transform: translate(0, -5px);
-        box-shadow: 0 0 10px rgba($base-color, 0.2);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      @media (hover: hover) {
+        &:hover {
+          transform: translate(0, -5px);
+          box-shadow: 0 0 10px rgba($base-color, 0.2);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        &:hover {
+          transform: none;
+        }
       }
     }
   }
@@ -67,7 +75,9 @@ figure.center img {
 .btn {
   display: inline-block;
   margin-bottom: 20px;
-  padding: 8px 20px;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 38px; // height - border (2px)
   font-size: 14px;
   background-color: $primary;
   color: $white;
@@ -75,12 +85,25 @@ figure.center img {
   border-style: solid !important;
   border-color: $primary;
   border-radius: 3px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: background-color 150ms ease, color 150ms ease, transform 100ms ease;
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $primary;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $primary;
+    }
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 .btn-inverse {
@@ -90,9 +113,11 @@ figure.center img {
   &:visited {
     color: $primary;
   }
-  &:hover {
-    background-color: $primary;
-    color: $white;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
   }
 }
 .btn-success {
@@ -102,9 +127,11 @@ figure.center img {
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $success;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $success;
+    }
   }
 }
 .btn-warning {
@@ -114,9 +141,11 @@ figure.center img {
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $warning;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $warning;
+    }
   }
 }
 .btn-danger {
@@ -126,9 +155,11 @@ figure.center img {
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $danger;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $danger;
+    }
   }
 }
 .btn-info {
@@ -138,9 +169,11 @@ figure.center img {
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $info;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $info;
+    }
   }
 }
 

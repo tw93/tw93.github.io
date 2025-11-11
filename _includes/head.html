@@ -9,6 +9,7 @@
   <!-- Viewport and Theme Color -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#15141a" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph Metadata -->
   {% assign og_title = page.title | default: site.title %}
@@ -38,9 +39,16 @@
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
 
+  <!-- DNS Prefetch & Preconnect for Performance -->
+  <link rel="dns-prefetch" href="https://gw.alipayobjects.com">
+  <link rel="dns-prefetch" href="https://gw.alicdn.com">
+  <link rel="preconnect" href="https://gw.alipayobjects.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
   <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.url }}/css/index.css">
-  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/jinkai/style.css" as="font" crossorigin="anonymous">
+  <link rel="preload" href="https://gw.alipayobjects.com/os/k/jinkai/style.css" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/jinkai/style.css" crossorigin="anonymous">
 
   {% if page.layout == "post" %}
   <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>
@@ -53,5 +61,46 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta http-equiv="cleartype" content="on">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="author" content="Tw93">
+  <meta name="robots" content="index, follow">
+
+  <!-- Feed -->
   <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+  <!-- Performance: Reduce render blocking -->
+  <link rel="preconnect" href="https://giscus.app">
+  <link rel="dns-prefetch" href="https://giscus.app">
+
+  <!-- Structured Data for SEO -->
+  {% if page.layout == "post" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "Tw93",
+      "url": "{{ site.url }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png"
+      }
+    },
+    "description": "{{ page.summary | default: site.description }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    }{% if page.feature %},
+    "image": "{{ page.feature }}"{% endif %}
+  }
+  </script>
+  {% endif %}
 </head>

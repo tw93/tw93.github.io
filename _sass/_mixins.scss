@@ -58,7 +58,9 @@
 @mixin btn-base() {
   display: inline-block;
   margin-bottom: 20px;
-  padding: 8px 20px;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 38px; // height - border (2px)
   font-size: 14px;
   background-color: #24292f;
   color: #fff;
@@ -67,11 +69,12 @@
   border-color: #24292f;
   border-radius: 3px;
   text-decoration: none;
-  
+  box-sizing: border-box;
+
   &:visited {
     color: #fff;
   }
-  
+
   &:hover {
     background-color: #fff;
     color: #24292f;

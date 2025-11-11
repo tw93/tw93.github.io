@@ -1,17 +1,7 @@
 @use "globals" as *;
 
-// Selection
+// Selection (removed - now handled in _typography.scss)
 // --------------------------------------------------
-::-moz-selection {
-	background-color: #d9dde1;
-	color: $base-color;
-	text-shadow: none;
-}
-::selection {
-	background-color: #d9dde1;
-	color: $base-color;
-	text-shadow: none;
-}
 
 // Global Classes
 // --------------------------------------------------
@@ -54,6 +44,18 @@
 
 // Global Transition
 // ---------------------------------------------------
+// Reduced from "all" to specific properties for better performance
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a {
-	transition: all .2s ease;
+	transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+// Smooth scrolling for in-page anchors
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }
