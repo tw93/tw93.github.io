@@ -1,0 +1,309 @@
+@use "globals" as *;
+
+// Search Button in Header
+// --------------------------------------------------
+.search-btn-container {
+  display: block;
+  line-height: 1;
+}
+
+.search-btn {
+  display: table-cell;
+  vertical-align: middle;
+  height: $menu-height;
+  padding: 0 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: $text-color;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+// Search Modal
+// --------------------------------------------------
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 20px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+
+  @media #{$medium} {
+    padding: 120px 20px 20px;
+  }
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// Search Container
+// --------------------------------------------------
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 100px);
+  transform: translateY(-20px);
+  transition: transform 0.2s ease;
+
+  .search-modal.active & {
+    transform: translateY(0);
+  }
+
+  @media #{$medium} {
+    max-height: calc(100vh - 140px);
+  }
+}
+
+// Search Header
+// --------------------------------------------------
+.search-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 12px;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: $text-color;
+  font-family: $base-font;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  // 移除浏览器默认的清除按钮
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+.search-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+// Search Results
+// --------------------------------------------------
+.search-results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+
+    &:hover {
+      background: #9ca3af;
+    }
+  }
+}
+
+.search-result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: $text-color;
+  transition: background 0.15s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: #f9fafb;
+  }
+
+  &.selected {
+    background: #f0f9ff;
+    border-color: #e0f2fe;
+  }
+
+  @media #{$medium} {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.search-result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: $text-color;
+  margin-bottom: 4px;
+  line-height: 1.4;
+
+  mark {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 1px 2px;
+    border-radius: 2px;
+  }
+}
+
+.search-result-summary {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  mark {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 1px 2px;
+    border-radius: 2px;
+  }
+}
+
+.search-result-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #9ca3af;
+  flex-shrink: 0;
+  margin-top: 4px;
+
+  @media #{$medium} {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.search-result-category {
+  padding: 2px 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.search-result-date {
+  white-space: nowrap;
+}
+
+// Search States
+// --------------------------------------------------
+.search-loading,
+.search-no-results,
+.search-error,
+.search-empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.search-empty-state {
+  padding: 80px 20px;
+  font-size: 15px;
+}
+
+.search-error {
+  color: $danger;
+}
+
+// Search Footer
+// --------------------------------------------------
+.search-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  background: #f9fafb;
+  border-radius: 0 0 12px 12px;
+}
+
+.search-tips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #6b7280;
+  flex-wrap: wrap;
+
+  kbd {
+    padding: 2px 6px;
+    background: $white;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-family: $code-font;
+    font-size: 11px;
+    font-weight: 600;
+    color: #374151;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}
