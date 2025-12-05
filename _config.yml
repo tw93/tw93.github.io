@@ -7,6 +7,14 @@ lang: zh-CN
 encoding: utf-8
 timezone: Africa/El_Aaiun
 
+# Author Information (for SEO and AI crawlers)
+author:
+  name: Tw93
+  email: tw93@qq.com
+  url: https://tw93.fun
+  twitter: HiTw93
+  github: tw93
+
 # Social Media and External URLs
 github: tw93
 zhihu: tw93
@@ -45,7 +53,7 @@ collections:
     permalink: /en/:year-:month-:day/:title.html
     sort_by: date
 
-include: [".htaccess"]
+include: [".htaccess", "robots.txt"]
 exclude:
   [
     "Gemfile",
@@ -54,6 +62,8 @@ exclude:
     "LICENSE",
     "package.json",
     "node_modules",
+    "SEO_GUIDE.md",
+    "CLAUDE.md",
   ]
 
 # Plugins
@@ -62,6 +72,46 @@ plugins:
   - jekyll-pdf-embed
   - jekyll-sitemap
   - jekyll-feed
+
+# Sitemap Settings
+defaults:
+  - scope:
+      path: "images/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: "js/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: "css/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: "_sass/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      sitemap:
+        priority: 0.8
+        changefreq: weekly
+  - scope:
+      path: ""
+      type: "posts_en"
+    values:
+      sitemap:
+        priority: 0.8
+        changefreq: weekly
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      sitemap:
+        priority: 0.6
+        changefreq: monthly
 
 # Custom Site Settings
 showBuyCoffee: true

@@ -1,0 +1,30 @@
+---
+layout: null
+---
+[
+  {% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": "{{ post.url }}",
+    "date": "{{ post.date | date: '%Y-%m-%d' }}",
+    "categories": {{ post.categories | jsonify }},
+    "summary": {{ post.summary | default: "" | jsonify }},
+    "content": {{ post.content | strip_html | truncatewords: 50 | jsonify }},
+    "lang": "zh-CN"
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  {% if site.posts_en %}
+  ,
+  {% for post in site.posts_en %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": "{{ post.url }}",
+    "date": "{{ post.date | date: '%Y-%m-%d' }}",
+    "categories": {{ post.categories | jsonify }},
+    "summary": {{ post.summary | default: "" | jsonify }},
+    "content": {{ post.content | strip_html | truncatewords: 50 | jsonify }},
+    "lang": "en-US"
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  {% endif %}
+]

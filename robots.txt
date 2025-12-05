@@ -1,0 +1,40 @@
+# robots.txt for tw93.fun
+# Allow all search engines and AI crawlers
+
+User-agent: *
+Allow: /
+Disallow: /_site/
+Disallow: /css/
+Disallow: /js/
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://tw93.fun/sitemap.xml
+
+# AI Crawlers - Explicitly allow for better indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Crawl-delay to be respectful
+Crawl-delay: 1
