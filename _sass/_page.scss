@@ -104,7 +104,7 @@ iframe {
         box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
         padding: 4px;
         background-color: #fff;
-        border-radius: 4px;
+        border-radius: calc($border-radius / 2);
       }
     }
     @media #{$medium} {
@@ -181,7 +181,7 @@ iframe {
     display: inline-block;
     margin: 4px;
     color: $white;
-    border-radius: 3px;
+    border-radius: calc($border-radius / 2);
     background-color: $header-color;
     span {
       float: left;
@@ -190,9 +190,9 @@ iframe {
     .count {
       background-color: #fff;
       color: $header-color;
-      border-top-right-radius: 3px;
+      border-top-right-radius: calc($border-radius / 2);
       border-top-left-radius: 0px;
-      border-bottom-right-radius: 3px;
+      border-bottom-right-radius: calc($border-radius / 2);
       border-bottom-left-radius: 0;
     }
   }
@@ -205,7 +205,7 @@ iframe {
     padding: 10px 15px;
     background-color: $white;
     box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
-    border-radius: 3px;
+    border-radius: $border-radius;
     @media #{$medium} {
       margin: 30px 10px;
       padding: 20px 30px;
@@ -224,7 +224,7 @@ iframe {
     padding: 20px 15px;
     background-color: $white;
     box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
-    border-radius: 3px;
+    border-radius: $border-radius;
     @media #{$medium} {
       margin-left: 10px;
       margin-right: 10px;
@@ -294,7 +294,7 @@ iframe {
   padding: 40px 15px 25px;
   background-color: $white;
   box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
-  border-radius: 3px;
+  border-radius: $border-radius;
   text-align: center;
   @media #{$medium} {
     margin: 40px 10px 48px 10px;
@@ -374,7 +374,7 @@ iframe {
   article {
     background-color: $white;
     box-shadow: 0 0 0 0, 0 6px 12px rgba($base-color, 0.1);
-    border-radius: 3px;
+    border-radius: $border-radius;
     margin-bottom: 20px;
     padding: 15px;
     @media #{$medium} {
@@ -436,7 +436,7 @@ iframe {
   border-width: 2px;
   border-style: solid;
   border-color: #91979f;
-  border-radius: 3px;
+  border-radius: calc($border-radius / 2);
 }
 
 #goog-wm-sb {
@@ -656,14 +656,8 @@ iframe {
     @include btn-base();
     margin: 0 auto;
     position: relative;
-    height: 40px;
-    width: 184px;
-    padding: 0 12px;
-    line-height: 38px;
+    padding: 0 18px;
     text-align: center;
-    overflow: hidden;
-    text-overflow: clip;
-    white-space: nowrap;
     cursor: pointer;
     user-select: none;
     &.active {

@@ -82,7 +82,7 @@ figure.center img {
   border-width: 2px !important;
   border-style: solid !important;
   border-color: $primary;
-  border-radius: 3px;
+  border-radius: $border-radius;
   box-sizing: border-box;
   user-select: none;
   transition: background-color 150ms ease, color 150ms ease, transform 100ms ease;
@@ -178,5 +178,5 @@ figure.center img {
 .well {
   padding: 20px;
   border: 1px solid $comp-color;
-  border-radius: 4px;
+  border-radius: $border-radius;
 }

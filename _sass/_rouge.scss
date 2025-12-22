@@ -1,9 +1,11 @@
+@use "globals" as *;
+
 .highlight {
   margin-bottom: 1.5em;
   font-size: 12px;
   color: #d0d0d0;
   background-color: #272822;
-  border-radius: 3px;
+  border-radius: $border-radius;
   pre {
     position: relative;
     margin: 0;
@@ -50,7 +52,7 @@
   }
   .cs {
     color: #75715e;
-  } 
+  }
   .ge {
     font-style: italic;
   }

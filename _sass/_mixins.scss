@@ -1,5 +1,6 @@
 // Clearfix
 @use "sass:math";
+@use "variables" as *;
 
 @mixin clearfix {
   &:after {
@@ -67,7 +68,7 @@
   border-width: 2px !important;
   border-style: solid !important;
   border-color: #24292f;
-  border-radius: 3px;
+  border-radius: $border-radius;
   text-decoration: none;
   box-sizing: border-box;
 

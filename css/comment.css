@@ -156,7 +156,7 @@ html[lang="en"] .gsc-reactions-count:after {
   padding-bottom: 12px;
 }
 #__next .rounded-md {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 textarea:focus,
 input:focus {

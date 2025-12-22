@@ -1,3 +1,4 @@
+@use "globals" as *;
 //
 // Reset CSS
 // Adapted from http://github.com/necolas/normalize.css
@@ -115,7 +116,7 @@ video {
   height: auto;
   vertical-align: middle;
   border: 0;
-  border-radius: 6px;
+  border-radius: calc($border-radius / 1.33);
 }
 
 // Full width tables
