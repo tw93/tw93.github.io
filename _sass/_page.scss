@@ -10,8 +10,15 @@ body {
   width: 100%;
   min-height: 100vh;
   display: flow-root;
-  background-color: $body-color;
   overflow-x: hidden;
+
+  // Mobile: white background for Safari status bar
+  background-color: $white;
+
+  // Desktop: gray background
+  @media #{$medium} {
+    background-color: $body-color;
+  }
 }
 
 iframe {
@@ -19,6 +26,10 @@ iframe {
 }
 // Main
 // --------------------------------------------------
+#main {
+  min-height: calc(100vh - $menu-height);
+}
+
 .entry,
 .hentry {
   &:after {
@@ -208,8 +219,11 @@ iframe {
 #page {
   #main {
     margin: 75px 0 0 0;
+    // Mobile: gray background for content area
+    background-color: $body-color;
     @media #{$medium} {
       margin: 0;
+      background-color: transparent;
     }
   }
   .entry-content {
@@ -462,25 +476,13 @@ iframe {
   left: 0;
   width: 100%;
   z-index: 20;
-  overflow: visible;
+  overflow: hidden;
   background-color: $menu-top;
   height: $menu-height;
   box-shadow: none;
   padding: 0;
   padding-top: env(safe-area-inset-top);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
-  // Fill top safe area with white background
-  &::before {
-    content: '';
-    position: absolute;
-    top: calc(-1 * env(safe-area-inset-top));
-    left: 0;
-    right: 0;
-    height: env(safe-area-inset-top);
-    background-color: $menu-top;
-    z-index: -1;
-  }
 
   @media #{$medium} {
     position: fixed;

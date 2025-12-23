@@ -87,6 +87,11 @@
 
   // Close search
   function closeSearch() {
+    // Remove focus before setting aria-hidden to avoid accessibility warning
+    if (document.activeElement === searchInput) {
+      searchInput.blur();
+    }
+
     searchModal.classList.remove('active');
     searchModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
