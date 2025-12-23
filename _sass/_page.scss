@@ -14,10 +14,13 @@ body {
 
   // Mobile: white background for Safari status bar
   background-color: $white;
+  background-image: linear-gradient(to bottom, $white 0%, $white calc(100% - 120px), $body-color calc(100% - 120px), $body-color 100%);
+  background-attachment: fixed;
 
   // Desktop: gray background
   @media #{$medium} {
     background-color: $body-color;
+    background-image: none;
   }
 }
 
