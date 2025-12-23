@@ -311,15 +311,25 @@ iframe {
 }
 
 .read-more-content {
+  font-size: 17px;
   margin-bottom: 0;
-  .entry-title {
-    color: $text-color;
-    margin-top: 0;
+  p {
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
-  .entry-content {
-    margin-bottom: 0;
-    p {
-      text-align: left;
+  p > a,
+  li > a {
+    @include need-dotted();
+  }
+  h3 {
+    margin: 0;
+    font-size: 22px;
+    @media #{$medium} {
+      font-size: 30px;
+    }
+    a {
+      color: $text-color;
     }
   }
 }
@@ -340,7 +350,7 @@ iframe {
 // --------------------------------------------------
 #post-index {
   #main {
-    margin: 75px 0 30px 0;
+    margin: 74px 0 30px 0;
     overflow: hidden;
     @media #{$medium} {
       margin: 20px;

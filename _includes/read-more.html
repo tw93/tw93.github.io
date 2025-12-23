@@ -5,13 +5,11 @@
   <div class="read-more-header">
     <div class="read-more-btn">Read More</div>
   </div>
-  <article class="hentry read-more-content">
-    <h2 class="entry-title">{{ page.previous.title}}</h2>
-    <div class="entry-content">
-      <span>【{{ page.previous.date | date: "%Y-%m-%d" }}】</span>{% if page.previous.summary %}{{ page.previous.summary
-      }}{% endif %}
-    </div>
-  </article>
+  <div class="read-more-content">
+    <h3>{{ page.previous.title}}</h3>
+    <p>【{{ page.previous.date | date: "%Y-%m-%d" }}】{% if page.previous.summary %}{{ page.previous.summary }}{% endif %}
+    </p>
+  </div>
 </a>
 {% endif %}
 {% endif %}
