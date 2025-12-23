@@ -7,7 +7,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  padding-bottom: env(safe-area-inset-bottom);
   width: 100%;
   min-height: 100vh;
   display: flow-root;
@@ -20,17 +19,6 @@ body {
   @media #{$medium} {
     background-color: $body-color;
   }
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: env(safe-area-inset-bottom);
-  background-color: $body-color;
-  pointer-events: none;
 }
 
 iframe {
@@ -306,7 +294,7 @@ iframe {
   text-align: center;
   font-size: 18px;
   @media #{$medium} {
-    margin: 34px 10px 78px;
+    margin: 40px 10px 30px;
     font-size: 20px;
   }
 }
@@ -424,12 +412,12 @@ iframe {
     clear: both;
   }
   margin: 0 auto;
-  padding: 14px 0 30px;
+  padding: 14px 0 calc(30px + env(safe-area-inset-bottom));
   text-align: center;
   font-size: 15px;
   background-color: $body-color;
   @media #{$medium} {
-    padding: 8px 0 20px;
+    padding: 8px 0 calc(20px + env(safe-area-inset-bottom));
     font-size: 17px;
   }
 }
