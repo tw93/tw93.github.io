@@ -25,6 +25,18 @@ body {
   @media #{$medium} {
     background-color: $body-color;
   }
+
+  // Paint the iOS safe-area gutter to match the page background
+  &::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: env(safe-area-inset-bottom);
+    background-color: $body-color;
+    pointer-events: none;
+  }
 }
 
 iframe {
