@@ -1,6 +1,7 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.layout == 'post' or page.hideHomeActive or page.is404 %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <title>{% if page.layout == 'post' or page.hideHomeActive or page.is404 %}{{ page.title }} - {% endif %}{{ site.title
+    }}</title>
   {% if page.summary %}
   <meta name="description" content="{{ page.summary | strip_html | truncate: 160 }}">
   {% else %}
@@ -12,14 +13,16 @@
 
   <!-- Viewport and Theme Color -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <!-- Open Graph Metadata -->
   {% assign og_title = page.title | default: site.title %}
   {% assign og_description = page.summary | default: site.description %}
-  {% assign og_image = page.feature | default: "https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png" %}
-  
+  {% assign og_image = page.feature | default:
+  "https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png" %}
+
   <meta property="og:locale" content="{{ site.lang }}">
   {% if page.layout == "post" %}
   <meta property="og:type" content="article">
@@ -39,7 +42,8 @@
 
   <!-- Twitter Metadata -->
   {% if page.layout == "post" %}
-  {% assign twitter_image = page.feature | default: "https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png" %}
+  {% assign twitter_image = page.feature | default:
+  "https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png" %}
   <meta name="twitter:card" content="{% if page.feature %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:creator" content="@{{ site.twitter }}">
   <meta name="twitter:site" content="{{ site.url }}">
@@ -50,7 +54,8 @@
   {% endif %}
 
   <!-- Canonical URL -->
-  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
+  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url |
+  remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
 
   <!-- Hreflang for multilingual content -->
@@ -80,7 +85,8 @@
   {% endif %}
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png">
+  <link rel="shortcut icon" type="image/png"
+    href="https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png">
 
   <!-- Additional Meta Tags -->
   <meta name="HandheldFriendly" content="True">
