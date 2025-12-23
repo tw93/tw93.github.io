@@ -218,16 +218,23 @@ iframe {
 #post,
 #page {
   #main {
-    margin: 75px 0 0 0;
-    // Mobile: gray background for content area
+    margin: 60px 0 0 0;
     background-color: $body-color;
     @media #{$medium} {
       margin: 0;
       background-color: transparent;
     }
   }
+  .hentry {
+    background-color: $body-color;
+    padding-top: 15px;
+    @media #{$medium} {
+      background-color: transparent;
+      padding-top: 0;
+    }
+  }
   .entry-content {
-    margin: 0 0 15px 0;
+    margin-bottom: 15px;
     padding: 10px 15px;
     background-color: $white;
     box-shadow: none;
@@ -259,7 +266,7 @@ iframe {
     @media #{$large} {
       max-width: 900px;
       padding: 50px 80px;
-      margin: 0 auto 0 auto;
+      margin: 0 auto;
     }
   }
   .entry-meta {
@@ -283,7 +290,7 @@ iframe {
 
 // Post Pagination Module
 .pagination {
-  margin: 15px 0;
+  margin: 30px 0 30px 0;
   text-align: center;
   font-size: 18px;
   @media #{$medium} {
@@ -364,10 +371,12 @@ iframe {
 // --------------------------------------------------
 #post-index {
   #main {
-    margin: 74px 0 30px 0;
+    margin: 60px 0 0 0;
     overflow: hidden;
+    background-color: $body-color;
     @media #{$medium} {
       margin: 20px;
+      background-color: transparent;
     }
     @media #{$large} {
       max-width: 900px;
@@ -377,9 +386,11 @@ iframe {
   article {
     background-color: $white;
     box-shadow: none;
+    margin-top: 15px;
     margin-bottom: 15px;
     padding: 15px;
     @media #{$medium} {
+      margin-top: 0;
       margin-bottom: 30px;
       box-shadow: 0 0 0 0, 0 6px 12px rgba($base-color, 0.1);
       border-radius: $border-radius;
@@ -404,6 +415,7 @@ iframe {
   padding: 14px 0 30px;
   text-align: center;
   font-size: 15px;
+  background-color: $body-color;
   @media #{$medium} {
     padding: 8px 0 20px;
     font-size: 17px;
