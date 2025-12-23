@@ -1,14 +1,17 @@
 {% if page.previous and page.previous.url and site.related_posts.size > 0 %}
-  {% assign prev_hidden = page.previous.hidden | default: page.previous.hide %}
-  {% if prev_hidden != true %}
+{% assign prev_hidden = page.previous.hidden | default: page.previous.hide %}
+{% if prev_hidden != true %}
 <a class="read-more" href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.url.title }}">
   <div class="read-more-header">
     <div class="read-more-btn">Read More</div>
   </div>
-  <div class="read-more-content">
-    <h3>{{ page.previous.title}}</h3>
-    <p>【{{ page.previous.date | date: "%Y-%m-%d" }}】{% if page.previous.summary %}{{ page.previous.summary }}{% endif %}</p>
-  </div>
+  <article class="hentry read-more-content">
+    <h2 class="entry-title">{{ page.previous.title}}</h2>
+    <div class="entry-content">
+      <span>【{{ page.previous.date | date: "%Y-%m-%d" }}】</span>{% if page.previous.summary %}{{ page.previous.summary
+      }}{% endif %}
+    </div>
+  </article>
 </a>
-  {% endif %}
+{% endif %}
 {% endif %}

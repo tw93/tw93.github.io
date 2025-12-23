@@ -1,13 +1,15 @@
 @use "globals" as *;
 
 html {
-  background-color: $body-color;
+  background-color: $white;
 }
 
 body {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100vh;
+  display: flow-root;
   background-color: $body-color;
   overflow-x: hidden;
 }
@@ -309,23 +311,15 @@ iframe {
 }
 
 .read-more-content {
-  font-size: 17px;
   margin-bottom: 0;
-  p {
-    text-align: left;
+  .entry-title {
+    color: $text-color;
+    margin-top: 0;
   }
-  p > a,
-  li > a {
-    @include need-dotted();
-  }
-  h3 {
-    margin: 0;
-    font-size: 22px;
-    @media #{$medium} {
-      font-size: 30px;
-    }
-    a {
-      color: $text-color;
+  .entry-content {
+    margin-bottom: 0;
+    p {
+      text-align: left;
     }
   }
 }
@@ -382,11 +376,12 @@ iframe {
     display: table;
     clear: both;
   }
-  margin: 14px auto 30px auto;
+  margin: 0 auto;
+  padding: 14px 0 30px;
   text-align: center;
   font-size: 15px;
   @media #{$medium} {
-    margin: 8px auto 20px auto;
+    padding: 8px 0 20px;
     font-size: 17px;
   }
 }
