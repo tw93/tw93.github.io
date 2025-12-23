@@ -6,7 +6,7 @@
   let selectedIndex = -1;
   let isDataLoaded = false;
 
-  // 初始化
+  // Initialize
   function init() {
     searchModal = document.getElementById('search-modal');
     searchInput = document.getElementById('search-input');
@@ -19,27 +19,27 @@
     bindEvents();
   }
 
-  // 绑定事件
+  // Bind events
   function bindEvents() {
-    // 打开搜索
+    // Open search
     searchBtn.addEventListener('click', openSearch);
 
-    // 关闭搜索
+    // Close search
     searchClose.addEventListener('click', closeSearch);
     searchModal.addEventListener('click', function(e) {
       if (e.target === searchModal) closeSearch();
     });
 
-    // 键盘快捷键
+    // Keyboard shortcuts
     document.addEventListener('keydown', function(e) {
-      // '/' 打开搜索
+      // '/' to open search
       if (e.key === '/' && !isSearchOpen()) {
         e.preventDefault();
         openSearch();
         return;
       }
 
-      // ESC 关闭搜索
+      // ESC to close search
       if (e.key === 'Escape' && isSearchOpen()) {
         closeSearch();
         return;
@@ -47,7 +47,7 @@
 
       if (!isSearchOpen()) return;
 
-      // 上下键导航
+      // Arrow keys navigation
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         navigateResults(1);
@@ -63,29 +63,29 @@
       }
     });
 
-    // 搜索输入
+    // Search input
     searchInput.addEventListener('input', debounce(performSearch, 200));
   }
 
-  // 打开搜索
+  // Open search
   function openSearch() {
     searchModal.classList.add('active');
     searchModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // 显示空状态提示
+    // Show empty state
     showEmptyState();
 
-    // 延迟聚焦以确保动画流畅
+    // Delay focus to ensure smooth animation
     setTimeout(() => searchInput.focus(), 100);
 
-    // 懒加载搜索数据
+    // Lazy load search data
     if (!isDataLoaded) {
       loadSearchData();
     }
   }
 
-  // 关闭搜索
+  // Close search
   function closeSearch() {
     searchModal.classList.remove('active');
     searchModal.setAttribute('aria-hidden', 'true');
@@ -95,12 +95,12 @@
     selectedIndex = -1;
   }
 
-  // 判断搜索是否打开
+  // Check if search is open
   function isSearchOpen() {
     return searchModal.classList.contains('active');
   }
 
-  // 加载搜索数据
+  // Load search data
   function loadSearchData() {
     fetch('/search.json')
       .then(response => response.json())
@@ -114,7 +114,7 @@
       });
   }
 
-  // 执行搜索
+  // Perform search
   function performSearch() {
     const query = searchInput.value.trim().toLowerCase();
 
@@ -128,10 +128,10 @@
       return;
     }
 
-    // 检测当前页面语言
+    // Detect current page language
     const isEnglishPage = window.location.pathname.includes('/en/');
 
-    // 根据语言过滤文章
+    // Filter articles by language
     const filteredData = isEnglishPage
       ? searchData.filter(post => post.lang === 'en-US')
       : searchData.filter(post => post.lang === 'zh-CN');
@@ -146,12 +146,12 @@
     displayResults(results, query);
   }
 
-  // 显示空状态
+  // Show empty state
   function showEmptyState() {
     searchResults.innerHTML = '<div class="search-empty-state">Type to search articles...</div>';
   }
 
-  // 显示搜索结果
+  // Display search results
   function displayResults(results, query) {
     selectedIndex = -1;
 
@@ -181,7 +181,7 @@
 
     searchResults.innerHTML = html;
 
-    // 为每个结果绑定点击事件
+    // Bind click events for each result
     searchResults.querySelectorAll('.search-result-item').forEach((item, index) => {
       item.addEventListener('mouseenter', () => {
         selectedIndex = index;
@@ -190,19 +190,19 @@
     });
   }
 
-  // 高亮文本
+  // Highlight text
   function highlightText(text, query) {
     if (!text) return '';
     const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
   }
 
-  // 转义正则表达式特殊字符
+  // Escape regex special characters
   function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  // 导航结果
+  // Navigate results
   function navigateResults(direction) {
     const items = searchResults.querySelectorAll('.search-result-item');
     if (items.length === 0) return;
@@ -217,14 +217,14 @@
 
     updateSelection();
 
-    // 滚动到可见区域
+    // Scroll to visible area
     items[selectedIndex].scrollIntoView({
       block: 'nearest',
       behavior: 'smooth'
     });
   }
 
-  // 更新选中状态
+  // Update selection state
   function updateSelection() {
     const items = searchResults.querySelectorAll('.search-result-item');
     items.forEach((item, index) => {
@@ -238,12 +238,12 @@
     });
   }
 
-  // 显示错误
+  // Show error
   function showError() {
     searchResults.innerHTML = '<div class="search-error">Failed to load search data</div>';
   }
 
-  // 防抖
+  // Debounce
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -256,7 +256,7 @@
     };
   }
 
-  // 当 DOM 加载完成后初始化
+  // Initialize when DOM is loaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

@@ -3,11 +3,11 @@ layout: base
 ---
 
 {% if page.url contains '/en/' %}
-<!-- 英文文章，简单列出所有文章，不分页 -->
+<!-- English articles: list all articles without pagination -->
 {% assign current_posts = site.posts_en | sort: 'date' | reverse %}
 {% include post-item.html posts=current_posts %}
 {% else %}
-<!-- 中文文章保持原有逻辑，包括分页 -->
+<!-- Chinese articles: maintain original logic including pagination -->
 {% include post-item.html posts=paginator.posts %}
 {% include pagination.html %}
 {% endif %}

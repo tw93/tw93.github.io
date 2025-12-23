@@ -462,15 +462,30 @@ iframe {
   left: 0;
   width: 100%;
   z-index: 20;
-  overflow: hidden;
+  overflow: visible;
   background-color: $menu-top;
   height: $menu-height;
   box-shadow: none;
   padding: 0;
+  padding-top: env(safe-area-inset-top);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  // Fill top safe area with white background
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * env(safe-area-inset-top));
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top);
+    background-color: $menu-top;
+    z-index: -1;
+  }
+
   @media #{$medium} {
     position: fixed;
     padding: 0;
+    padding-top: env(safe-area-inset-top);
     box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
     transition: 0.3s height ease-out;
     border-bottom: none;
