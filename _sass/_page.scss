@@ -7,6 +7,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  padding-bottom: env(safe-area-inset-bottom);
   width: 100%;
   min-height: 100vh;
   display: flow-root;
@@ -19,6 +20,17 @@ body {
   @media #{$medium} {
     background-color: $body-color;
   }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: env(safe-area-inset-bottom);
+  background-color: $body-color;
+  pointer-events: none;
 }
 
 iframe {
