@@ -1,12 +1,18 @@
 @use "globals" as *;
 
 html {
-  background-color: $white;
+  background-color: $body-color;
+  background-image: linear-gradient(to bottom, $white 0%, $white 80%, $body-color 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 body {
   margin: 0;
   padding: 0;
+  // Ensure the body content background doesn't paint over the bottom safe area
+  padding-bottom: env(safe-area-inset-bottom);
+  background-clip: content-box;
   width: 100%;
   min-height: 100vh;
   display: flow-root;
@@ -14,13 +20,10 @@ body {
 
   // Mobile: white background for Safari status bar
   background-color: $white;
-  background-image: linear-gradient(to bottom, $white 0%, $white calc(100% - 120px), $body-color calc(100% - 120px), $body-color 100%);
-  background-attachment: fixed;
 
   // Desktop: gray background
   @media #{$medium} {
     background-color: $body-color;
-    background-image: none;
   }
 }
 
@@ -415,12 +418,12 @@ iframe {
     clear: both;
   }
   margin: 0 auto;
-  padding: 14px 0 calc(30px + env(safe-area-inset-bottom));
+  padding: 14px 0 30px;
   text-align: center;
   font-size: 15px;
   background-color: $body-color;
   @media #{$medium} {
-    padding: 8px 0 calc(20px + env(safe-area-inset-bottom));
+    padding: 8px 0 20px;
     font-size: 17px;
   }
 }
