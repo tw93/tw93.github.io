@@ -13,25 +13,12 @@ body {
   display: flow-root;
   overflow-x: hidden;
 
-  // Mobile: pure white background for Safari status bar
+  // Mobile: white background for Safari status bar
   background-color: $white;
 
   // Desktop: gray background
   @media #{$medium} {
     background-color: $body-color;
-  }
-
-  // Paint the iOS safe-area bottom gutter gray for Safari bottom bar
-  &::after {
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: env(safe-area-inset-bottom, 0px);
-    background-color: $body-color;
-    pointer-events: none;
-    z-index: 9999;
   }
 }
 
@@ -82,7 +69,7 @@ iframe {
   position: relative;
   word-wrap: break-word;
   margin-bottom: 12px;
-  text-autospace: normal;
+  text-autospace: ideograph-alpha ideograph-numeric;
   @media #{$medium} {
     font-size: 18px;
   }
@@ -430,6 +417,7 @@ iframe {
   text-align: center;
   font-size: 15px;
   background-color: $body-color;
+
   @media #{$medium} {
     padding: 8px 0 20px;
     font-size: 17px;
@@ -554,9 +542,6 @@ iframe {
   @media #{$medium} {
     padding-left: 14px;
     padding-right: 14px;
-    &:nth-child(2) {
-      padding-right: 14px;
-    }
     &:nth-child(2) {
       padding-right: 22px;
     }
