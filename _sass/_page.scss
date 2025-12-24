@@ -2,9 +2,7 @@
 
 html {
   background-color: $body-color;
-  background-image: linear-gradient(to bottom, $white 0%, $white 80%, $body-color 100%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  min-height: 100%;
 }
 
 body {
@@ -15,25 +13,12 @@ body {
   display: flow-root;
   overflow-x: hidden;
 
-  // Mobile: white background for content
-  background-color: $white;
+  // Mobile: white background for content, with gray for safe area
+  background: linear-gradient(to bottom, $white 0%, $white calc(100% - env(safe-area-inset-bottom, 0px)), $body-color calc(100% - env(safe-area-inset-bottom, 0px)));
 
   // Desktop: gray background
   @media #{$medium} {
-    background-color: $body-color;
-  }
-
-  // Paint the iOS safe-area bottom gutter gray for Safari bottom bar
-  &::after {
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: calc(env(safe-area-inset-bottom, 0px) + 1px);
-    background-color: $body-color;
-    pointer-events: none;
-    z-index: 9999;
+    background: $body-color;
   }
 }
 
