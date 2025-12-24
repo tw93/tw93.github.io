@@ -10,15 +10,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  // Ensure the body content background doesn't paint over the bottom safe area
-  padding-bottom: env(safe-area-inset-bottom);
-  background-clip: content-box;
   width: 100%;
   min-height: 100vh;
   display: flow-root;
   overflow-x: hidden;
 
-  // Mobile: white background for Safari status bar
+  // Mobile: white background for content
   background-color: $white;
 
   // Desktop: gray background
@@ -26,16 +23,17 @@ body {
     background-color: $body-color;
   }
 
-  // Paint the iOS safe-area gutter to match the page background
+  // Paint the iOS safe-area bottom gutter gray for Safari bottom bar
   &::after {
     content: "";
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    height: env(safe-area-inset-bottom);
+    height: calc(env(safe-area-inset-bottom, 0px) + 1px);
     background-color: $body-color;
     pointer-events: none;
+    z-index: 9999;
   }
 }
 
