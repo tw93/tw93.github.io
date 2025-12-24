@@ -119,7 +119,7 @@ iframe {
       will-change: opacity, transform;
       pointer-events: none;
       > img {
-        box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
+        box-shadow: 0 4px 12px rgba($black, 0.12), 0 2px 4px rgba($black, 0.08);
         padding: 4px;
         background-color: #fff;
         border-radius: calc($border-radius / 2);
@@ -243,7 +243,6 @@ iframe {
       margin: 30px 10px;
       padding: 20px 30px;
       border-radius: $border-radius;
-      box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
     }
     @media #{$large} {
       max-width: 900px;
@@ -258,7 +257,6 @@ iframe {
     margin: 0 0 15px 0;
     padding: 20px 15px;
     background-color: $white;
-    box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
     @media #{$medium} {
       margin: 20px 10px;
       padding: 20px 30px;
@@ -311,7 +309,6 @@ iframe {
     margin: 40px 10px 48px;
     padding: 40px 30px 25px;
     border-radius: $border-radius;
-    box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
   }
   @media #{$large} {
     max-width: 900px;
@@ -393,7 +390,6 @@ iframe {
     @media #{$medium} {
       margin-top: 0;
       margin-bottom: 30px;
-      box-shadow: 0 0 0 0, 0 6px 12px rgba($base-color, 0.1);
       border-radius: $border-radius;
       padding: 20px 36px 20px;
     }
@@ -502,7 +498,6 @@ iframe {
     position: fixed;
     padding: 0;
     padding-top: env(safe-area-inset-top);
-    box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
     transition: 0.3s height ease-out;
     border-bottom: none;
   }
