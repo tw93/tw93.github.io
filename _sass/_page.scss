@@ -1,11 +1,25 @@
 @use "globals" as *;
 
+html {
+  background-color: $body-color;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: $body-color;
+  min-height: 100vh;
+  display: flow-root;
   overflow-x: hidden;
+
+  // Mobile: white background for Safari status bar
+  background-color: $white;
+
+  // Desktop: gray background
+  @media #{$medium} {
+    background-color: $body-color;
+  }
 }
 
 iframe {
@@ -13,6 +27,10 @@ iframe {
 }
 // Main
 // --------------------------------------------------
+#main {
+  min-height: calc(100vh - $menu-height);
+}
+
 .entry,
 .hentry {
   &:after {
@@ -51,7 +69,7 @@ iframe {
   position: relative;
   word-wrap: break-word;
   margin-bottom: 12px;
-  text-autospace: normal;
+  text-autospace: ideograph-alpha ideograph-numeric;
   @media #{$medium} {
     font-size: 18px;
   }
@@ -101,7 +119,7 @@ iframe {
       will-change: opacity, transform;
       pointer-events: none;
       > img {
-        box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.5);
+        box-shadow: 0 4px 12px rgba($black, 0.12), 0 2px 4px rgba($black, 0.08);
         padding: 4px;
         background-color: #fff;
         border-radius: calc($border-radius / 2);
@@ -200,19 +218,35 @@ iframe {
 
 #post,
 #page {
+  #main {
+    margin: 60px 0 0 0;
+    background-color: $body-color;
+    @media #{$medium} {
+      margin: 0;
+      background-color: transparent;
+    }
+  }
+  .hentry {
+    background-color: $body-color;
+    padding-top: 15px;
+    @media #{$medium} {
+      background-color: transparent;
+      padding-top: 0;
+    }
+  }
   .entry-content {
-    margin: 80px 2px 20px 2px;
+    margin-bottom: 15px;
     padding: 10px 15px;
     background-color: $white;
-    box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
-    border-radius: $border-radius;
+    box-shadow: none;
     @media #{$medium} {
       margin: 30px 10px;
       padding: 20px 30px;
+      border-radius: $border-radius;
     }
     @media #{$large} {
       max-width: 900px;
-      margin: 30px auto 30px auto;
+      margin: 34px auto 34px auto;
       padding: 32px 80px 70px;
       > p:first-child {
         font-size: 20px;
@@ -220,20 +254,18 @@ iframe {
     }
   }
   .giscus-container {
-    margin: 20px 2px;
+    margin: 0 0 15px 0;
     padding: 20px 15px;
     background-color: $white;
-    box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
-    border-radius: $border-radius;
     @media #{$medium} {
-      margin-left: 10px;
-      margin-right: 10px;
+      margin: 20px 10px;
       padding: 20px 30px;
+      border-radius: $border-radius;
     }
     @media #{$large} {
       max-width: 900px;
       padding: 50px 80px;
-      margin: 0 auto 30px auto;
+      margin: 0 auto;
     }
   }
   .entry-meta {
@@ -257,11 +289,11 @@ iframe {
 
 // Post Pagination Module
 .pagination {
-  margin: 36px 10px;
+  margin: 30px 0 30px 0;
   text-align: center;
   font-size: 18px;
   @media #{$medium} {
-    margin: 48px 10px 78px;
+    margin: 40px 10px 30px;
     font-size: 20px;
   }
   ul {
@@ -290,20 +322,18 @@ iframe {
 .read-more {
   display: block;
   position: relative;
-  margin: 40px 2px 48px 2px;
+  margin: 40px 0 48px 0;
   padding: 40px 15px 25px;
   background-color: $white;
-  box-shadow: 0 0 0 1px rgba($border-color, 0.1), 0 6px 12px rgba($black, 0.1);
-  border-radius: $border-radius;
-  text-align: center;
   @media #{$medium} {
-    margin: 40px 10px 48px 10px;
-    padding: 50px 40px 25px;
+    margin: 40px 10px 48px;
+    padding: 40px 30px 25px;
+    border-radius: $border-radius;
   }
   @media #{$large} {
     max-width: 900px;
     padding: 50px 80px;
-    margin: 50px auto 48px;
+    margin: 34px auto 48px;
   }
   &:after {
     content: "";
@@ -318,6 +348,7 @@ iframe {
   left: 0;
   right: 0;
   height: 35px;
+  text-align: center;
   .read-more-btn {
     @include btn-base();
   }
@@ -328,6 +359,8 @@ iframe {
   margin-bottom: 0;
   p {
     text-align: left;
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
   p > a,
   li > a {
@@ -361,27 +394,32 @@ iframe {
 // --------------------------------------------------
 #post-index {
   #main {
-    margin: 80px 2px 30px 2px;
+    margin: 60px 0 0 0;
     overflow: hidden;
+    background-color: $body-color;
     @media #{$medium} {
       margin: 20px;
+      background-color: transparent;
     }
     @media #{$large} {
       max-width: 900px;
-      margin: 30px auto 0;
+      margin: 34px auto 0;
     }
   }
   article {
     background-color: $white;
-    box-shadow: 0 0 0 0, 0 6px 12px rgba($base-color, 0.1);
-    border-radius: $border-radius;
-    margin-bottom: 20px;
+    box-shadow: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 15px;
     @media #{$medium} {
+      margin-top: 0;
+      margin-bottom: 30px;
+      border-radius: $border-radius;
       padding: 20px 36px 20px;
     }
     @media #{$large} {
-      margin-bottom: 30px;
+      margin-bottom: 34px;
       padding: 30px 50px 20px;
     }
   }
@@ -395,11 +433,14 @@ iframe {
     display: table;
     clear: both;
   }
-  margin: 14px auto 30px auto;
+  margin: 0 auto;
+  padding: 14px 0 30px;
   text-align: center;
   font-size: 15px;
+  background-color: $body-color;
+
   @media #{$medium} {
-    margin: 8px auto 20px auto;
+    padding: 8px 0 20px;
     font-size: 17px;
   }
 }
@@ -668,7 +709,9 @@ iframe {
 }
 
 .img-zoom {
-  cursor: zoom-in;
+  @media #{$medium} {
+    cursor: zoom-in;
+  }
 }
 
 .lazyload,
@@ -706,11 +749,11 @@ video.bg-img {
 }
 
 .btn-arrow {
-  font-size: 24px;
+  font-size: 20px;
   display: inline-block;
   vertical-align: middle;
-  height: 40px;
-  line-height: 40px;
+  height: 42px;
+  line-height: 42px;
 }
 
 .video-border {
@@ -720,5 +763,7 @@ video.bg-img {
 }
 
 .entry-content img {
-  cursor: zoom-in;
+  @media #{$medium} {
+    cursor: zoom-in;
+  }
 }
