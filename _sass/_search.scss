@@ -15,8 +15,13 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: $text-color;
   transition: opacity 0.2s ease;
+
+  &,
+  &:link,
+  &:visited {
+    color: $text-color;
+  }
 
   &:hover {
     opacity: 0.7;

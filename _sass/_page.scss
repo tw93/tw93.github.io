@@ -522,14 +522,17 @@ iframe {
   }
 }
 
-.header-item.language-icon svg {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-top: 9px;
-  margin-right: 4px;
-  @media #{$medium} {
-    margin-top: 11px;
+.header-item.language-icon {
+  a:link svg,
+  a:visited svg {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-top: 9px;
+    margin-right: 4px;
+    @media #{$medium} {
+      margin-top: 11px;
+    }
   }
 }
 
@@ -561,7 +564,7 @@ iframe {
     font-size: 16px;
     box-sizing: border-box;
     font-weight: bold;
-    color: $text-color;
+    &:link,
     &:visited {
       color: $text-color;
     }
@@ -572,7 +575,10 @@ iframe {
   &.active,
   &:hover {
     a {
-      color: $header-active;
+      &:link,
+      &:visited {
+        color: $header-active;
+      }
     }
   }
 }
@@ -610,6 +616,10 @@ iframe {
     padding-left: 5px;
     vertical-align: middle;
     height: $menu-height;
+    &:link,
+    &:visited {
+      color: $text-color;
+    }
     @media #{$medium} {
       display: table-cell;
     }
