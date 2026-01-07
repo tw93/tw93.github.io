@@ -23,6 +23,10 @@
   {% assign og_image = page.feature | default:
   "https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png" %}
 
+  {% if page.feature %}
+  <link rel="preload" as="image" href="{{ page.feature | cdn_image_url }}" fetchpriority="high">
+  {% endif %}
+
   <meta property="og:locale" content="{{ site.lang }}">
   {% if page.layout == "post" %}
   <meta property="og:type" content="article">
@@ -77,11 +81,10 @@
 
   <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.url }}/css/index.css">
-  <link rel="preload" href="https://gw.alipayobjects.com/os/k/jinkai/style.css" as="style" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/jinkai/style.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ site.url }}/css/jinkai.css">
 
   {% if page.layout == "post" %}
-  <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>
+  <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async defer></script>
   {% endif %}
 
   <!-- Favicon -->
