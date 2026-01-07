@@ -572,8 +572,7 @@ iframe {
   }
   a {
     vertical-align: middle;
-    display: table-cell;
-    height: $menu-height;
+    display: block; // Changed from table-cell
     font-size: 15px; // Increased from 14px
     box-sizing: border-box;
     font-weight: bold;
@@ -603,7 +602,8 @@ iframe {
 
 // Left-side navigation items (About, Weekly)
 .header-item-left {
-  // Removed float: left in favor of flexbox in container
+  display: flex;
+  align-items: center;
   padding-left: 10px; // Standardized for breathing room
   padding-right: 10px;
 
@@ -631,16 +631,12 @@ iframe {
 
   a {
     vertical-align: middle;
-    display: table-cell;
-    height: $menu-height;
+    display: block; // Changed from table-cell
     font-size: 15px; // Increased from 14px
     box-sizing: border-box;
     font-weight: bold;
     position: relative;
     top: 0; // Better vertical centering
-    @media #{$medium} {
-      top: 0; // Removed 2px shift
-    }
     &:visited {
       color: $text-color;
     }
@@ -684,7 +680,8 @@ iframe {
 
 .header-item {
   height: 100%;
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .header-item-title {
