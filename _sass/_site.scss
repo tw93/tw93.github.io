@@ -59,3 +59,37 @@ html {
 		scroll-behavior: auto;
 	}
 }
+
+// Language Toggle (Weekly Style)
+// --------------------------------------------------
+.language-switch {
+  display: flex !important; // Override header link styles
+  align-items: center;
+  justify-content: center;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important; // Fix oval shape by removing inherited padding
+  border-radius: 50%;
+  background-color: #f3f4f6; // gray-100
+  color: #4b5563 !important; // gray-600
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: colors 150ms ease;
+
+  &:hover {
+    color: #111827 !important; // gray-900
+    background-color: #e5e7eb; // gray-200 hover
+  }
+
+  // Dark mode support (if applicable via body class or media query)
+  @media (prefers-color-scheme: dark) {
+    background-color: #1f2937; // gray-800
+    color: #9ca3af !important; // gray-400
+
+    &:hover {
+      color: #e5e7eb !important; // gray-200
+      background-color: #374151; // gray-700
+    }
+  }
+}

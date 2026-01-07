@@ -296,6 +296,26 @@ iframe {
     margin: 40px 10px 30px;
     font-size: 20px;
   }
+  ul {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  li {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .current-page {
+    font-weight: 700;
+  }
+  .btn {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 38px;
+    @media #{$medium} {
+      padding: 0 20px;
+    }
+  }
 }
 
 // Read More Module
@@ -314,6 +334,11 @@ iframe {
     max-width: 900px;
     padding: 50px 80px;
     margin: 34px auto 48px;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 }
 
@@ -489,17 +514,12 @@ iframe {
   overflow: hidden;
   background-color: $menu-top;
   height: $menu-height;
-  box-shadow: none;
-  padding: 0;
-  padding-top: env(safe-area-inset-top);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
+  box-shadow: 0 0 0 0, 0 6px 12px rgba($black, 0.1);
+  padding: 0 15px; // Harmonized mobile padding
   @media #{$medium} {
     position: fixed;
     padding: 0;
-    padding-top: env(safe-area-inset-top);
     transition: 0.3s height ease-out;
-    border-bottom: none;
   }
   ul {
     margin: 0 auto;
@@ -507,7 +527,8 @@ iframe {
     height: 100%;
     padding: 0;
     @media #{$large} {
-      max-width: 950px;
+      max-width: 900px; // Match content width
+      padding: 0; // Reset padding for large screens to allow flush alignment
     }
   }
 }
@@ -529,39 +550,38 @@ iframe {
   }
 }
 
-.header-item,
-.header-item-title {
-  float: right;
+.header-item {
+  // Removed float: right in favor of flexbox in container
   padding-left: 8px;
   padding-right: 8px;
   @media #{$medium} {
-    padding-left: 14px;
-    padding-right: 14px;
-    &:nth-child(2) {
-      padding-right: 22px;
-    }
+    padding-left: 8px; // Specific padding for icons (Search, Language)
+    padding-right: 8px;
   }
 
   @media #{$large} {
-    &:nth-child(2) {
-      padding-right: 26px;
+    // Only the now-rightmost language button should be flush
+    &.language-item {
+      margin-right: 0; // Remove margin
+      padding-right: 0 !important; // Force remove padding to touch edge
     }
-    &:nth-child(4) {
-      padding-right: 14px;
-    }
+  }
+  // Language button remains flush on all screens
+  &.language-item {
+    padding-right: 0 !important;
   }
   a {
     vertical-align: middle;
     display: table-cell;
     height: $menu-height;
-    font-size: 16px;
+    font-size: 15px; // Increased from 14px
     box-sizing: border-box;
     font-weight: bold;
     &:visited {
       color: $text-color;
     }
     @media #{$medium} {
-      font-size: 17px;
+      font-size: 16px; // Increased from 15px
     }
   }
   &.active,
@@ -573,9 +593,74 @@ iframe {
 }
 
 .header-item-title {
+  // Container uses flexbox for alignment
+  border-top-width: 0px;
   @media #{$medium} {
-    padding-left: 20px;
+    padding-left: 0;
     padding-right: 20px;
+  }
+}
+
+// Left-side navigation items (About, Weekly)
+.header-item-left {
+  // Removed float: left in favor of flexbox in container
+  padding-left: 10px; // Standardized for breathing room
+  padding-right: 10px;
+
+  // Pushes navigation and subsequent items to the far right on all devices
+  &:first-of-type,
+  .header-item-title + & {
+    margin-left: auto !important;
+    padding-left: 15px; // Mobile decorative gap
+    @media #{$medium} {
+      padding-left: 40px; // Desktop decorative gap
+    }
+  }
+
+  @media #{$medium} {
+    padding-left: 10px; // Unified desktop breathing room
+    padding-right: 10px;
+  }
+
+  // Large gap between text links group and functional group on desktop
+  &.header-item-social:last-of-type {
+    @media #{$medium} {
+      margin-right: 20px;
+    }
+  }
+
+  a {
+    vertical-align: middle;
+    display: table-cell;
+    height: $menu-height;
+    font-size: 15px; // Increased from 14px
+    box-sizing: border-box;
+    font-weight: bold;
+    position: relative;
+    top: 0; // Better vertical centering
+    @media #{$medium} {
+      top: 0; // Removed 2px shift
+    }
+    &:visited {
+      color: $text-color;
+    }
+    @media #{$medium} {
+      font-size: 16px; // Increased from 15px
+    }
+  }
+  &.active,
+  &:hover {
+    a {
+      color: $header-active;
+    }
+  }
+}
+
+// Hide social links on mobile
+.header-item-social {
+  display: none;
+  @media #{$medium} {
+    display: block;
   }
 }
 
@@ -589,6 +674,12 @@ iframe {
 
 .header-item-container {
   height: 100%;
+  display: flex; // Flex for modern layout control
+  align-items: center;
+  @media #{$large} {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 
 .header-item {
@@ -601,12 +692,25 @@ iframe {
   border-top-width: 0px;
   height: 100%;
   a.title {
-    font-size: 25px;
-    padding-left: 5px;
-    vertical-align: middle;
+    font-size: 24px; // Slightly smaller for mobile
+    font-weight: 800; // Bolder
+    color: $base-color; // Normal Black
+    padding-left: 0;
+    display: flex; // Flex for perfect centering on all devices
+    align-items: center;
     height: $menu-height;
     @media #{$medium} {
-      display: table-cell;
+      font-size: 30px;
+      padding-left: 0;
+    }
+
+    .logo-img {
+      display: block; // Ensure image is displayed
+      border-radius: 50%;
+      margin-top: -2px;
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
     }
   }
 }

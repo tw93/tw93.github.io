@@ -8,18 +8,28 @@
 }
 
 .search-btn {
-  display: table-cell;
-  vertical-align: middle;
-  height: $menu-height;
-  padding: 0 8px;
-  background: transparent;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 6px !important; // Consistent padding for icon
+  border-radius: 50%;
   border: none;
+  background-color: #f3f4f6; // gray-100
   cursor: pointer;
-  color: $text-color;
-  transition: opacity 0.2s ease;
+  transition: colors 150ms ease;
+
+  &,
+  &:link,
+  &:visited {
+    color: #4b5563 !important; // gray-600
+  }
 
   &:hover {
-    opacity: 0.7;
+    color: #111827 !important; // gray-900
+    background-color: #e5e7eb; // gray-200 hover
+    opacity: 1;
   }
 
   &:active {
@@ -28,6 +38,23 @@
 
   svg {
     display: block;
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #1f2937; // gray-800
+
+    &,
+    &:link,
+    &:visited {
+      color: #9ca3af !important; // gray-400
+    }
+
+    &:hover {
+      color: #e5e7eb !important; // gray-200
+      background-color: #374151; // gray-700
+    }
   }
 }
 

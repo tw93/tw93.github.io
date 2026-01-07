@@ -6,39 +6,49 @@
   <ul class="header-item-container">
     <li class="header-item-title {{homeActive}}">
       {% if page.url contains '/en/' %}
-      <a href="{{site.url}}/en" class="title"> {{ site.title }}</a>
+      <a href="{{site.url}}/en" class="title">{{ site.title }}</a>
       {% else %}
-      <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
+      <a href="{{site.url}}/" class="title">{{ site.title }}</a>
       {% endif %}
     </li>
 
-    {% include flags.html %}
-
-    <li class="header-item search-btn-container">
-      <button id="search-btn" class="search-btn" aria-label="Search" title="Search (Press /)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-          <path d="M20 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </li>
-
-    {% for menu in site.menu reversed %}
+    {% for menu in site.menu %}
     {% assign class = nil %}
     {% if (page.url contains menu.url and menu.url != '/') %}
     {% assign class = 'active' %}
     {% endif %}
 
     {% if menu.url contains 'http://' or menu.url contains 'https://' %}
-    <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank" rel="noopener noreferrer">{{ menu.title }}</a></li>
+    <li class="header-item-left {{class}}"><a href="{{menu.url}}" target="_blank" rel="noopener noreferrer">{{
+        menu.title
+        }}</a></li>
     {% else %}
     {% if page.url contains '/en/' %}
-    <li class="header-item {{class}}"><a href="{{site.url}}/en/{{menu.url}}">{{ menu.title }}</a></li>
+    <li class="header-item-left {{class}}"><a href="{{site.url}}/en/{{menu.url}}">{{ menu.title }}</a></li>
     {% else %}
-    <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
+    <li class="header-item-left {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
     {% endif %}
     {% endif %}
     {% endfor %}
+
+    <li class="header-item-left header-item-social">
+      <a href="https://github.com/{{site.github}}" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </li>
+    <li class="header-item-left header-item-social">
+      <a href="https://twitter.com/{{site.twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>
+    </li>
+
+    <li class="header-item search-btn-container">
+      <button id="search-btn" class="search-btn" aria-label="Search" title="Search (Press /)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+          <path d="M20 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </li>
+
+    {% include flags.html %}
+
   </ul>
 </div>
 
@@ -47,11 +57,13 @@
 {% assign fontSize = 34 %}
 {% endif %}
 <div class="entry-header">
-  <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" role="img" aria-label="{{ page.title }}">
+  <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="1.1" role="img" aria-label="{{ page.title }}">
     <path id="svg-title-path">
       <animate attributeName="d" from="m0,110 h0" to="m0,110 h1600" dur="2s" repeatCount="1" fill="freeze" begin="0s" />
     </path>
-    <text font-size="{{fontSize}}" font-weight="600" fill="#ffffff" x="50%" y="50%" text-anchor="middle" word-spacing="2.0" letter-spacing="1.2">
+    <text font-size="{{fontSize}}" font-weight="600" fill="#ffffff" x="50%" y="50%" text-anchor="middle"
+      word-spacing="2.0" letter-spacing="1.2">
       <textPath xlink:href="#svg-title-path">{{ page.title }}</textPath>
     </text>
   </svg>
