@@ -519,7 +519,7 @@ iframe {
   @media #{$medium} {
     position: fixed;
     padding: 0;
-    transition: 0.3s height ease-out;
+    transition: transform 0.3s ease-out; // Use transform instead of height
   }
   ul {
     margin: 0 auto;
@@ -535,7 +535,7 @@ iframe {
 
 .header-menu-overflow {
   @media #{$medium} {
-    height: 0;
+    transform: translateY(-100%); // Slide up out of view
   }
 }
 
@@ -607,13 +607,23 @@ iframe {
   padding-left: 10px; // Standardized for breathing room
   padding-right: 10px;
 
-  // Pushes navigation and subsequent items to the far right on all devices
-  &:first-of-type,
+
+
+
+  // Hide "About" (First Item) on mobile
   .header-item-title + & {
-    margin-left: auto !important;
-    padding-left: 15px; // Mobile decorative gap
+    display: none;
     @media #{$medium} {
-      padding-left: 40px; // Desktop decorative gap
+      display: flex; // Show on desktop
+      padding-left: 10px; // Reset padding
+    }
+  }
+
+  // Add spacing to "Weekly" (Second Item) on mobile
+  .header-item-title + & + & {
+    padding-left: 30px;
+    @media #{$medium} {
+      padding-left: 10px; // Reset to standard on desktop
     }
   }
 
@@ -654,9 +664,19 @@ iframe {
 
 // Hide social links on mobile
 .header-item-social {
-  display: none;
+  display: flex; // Show GitHub on mobile (First Social Item)
+
+  // Hide subsequent social items (Twitter) on mobile
+  & + & {
+    display: none;
+  }
+
   @media #{$medium} {
     display: block;
+    // Show all social items on desktop
+    & + & {
+      display: block;
+    }
   }
 }
 

@@ -4,6 +4,7 @@
 // --------------------------------------------------
 .search-btn-container {
   line-height: 1;
+  margin-left: auto; // Push search and language toggle to the right
 }
 
 .search-btn {
@@ -15,19 +16,19 @@
   padding: 6px !important; // Consistent padding for icon
   border-radius: 50%;
   border: none;
-  background-color: #f3f4f6; // gray-100
+  background-color: transparent; // minimalist
   cursor: pointer;
   transition: colors 150ms ease;
 
   &,
   &:link,
   &:visited {
-    color: #4b5563 !important; // gray-600
+    color: #9ca3af !important; // gray-400
   }
 
   &:hover {
     color: #111827 !important; // gray-900
-    background-color: #e5e7eb; // gray-200 hover
+    background-color: transparent; // keep transparent or subtle
     opacity: 1;
   }
 
@@ -41,20 +42,7 @@
     height: 18px;
   }
 
-  @media (prefers-color-scheme: dark) {
-    background-color: #1f2937; // gray-800
 
-    &,
-    &:link,
-    &:visited {
-      color: #9ca3af !important; // gray-400
-    }
-
-    &:hover {
-      color: #e5e7eb !important; // gray-200
-      background-color: #374151; // gray-700
-    }
-  }
 }
 
 // Search Modal
