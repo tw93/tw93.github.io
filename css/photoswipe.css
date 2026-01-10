@@ -420,40 +420,12 @@ div.pswp__img--placeholder,
 }
 
 /* Minimalist mode - hide UI buttons and counter, but keep top-bar for close button */
+/* Minimalist mode - hide all UI buttons and counter */
+.pswp--minimal .pswp__top-bar,
+.pswp--minimal .pswp__button--close,
 .pswp--minimal .pswp__button--zoom,
 .pswp--minimal .pswp__button--arrow,
 .pswp--minimal .pswp__counter,
 .pswp--minimal .pswp__preloader {
   display: none !important;
-}
-
-/* Make top-bar transparent but functional */
-.pswp--minimal .pswp__top-bar {
-  background: transparent !important;
-  pointer-events: none !important;
-}
-
-/* Close button: show initially, fade out after 2s, reveal on hover */
-.pswp--minimal .pswp__button--close {
-  pointer-events: auto !important;
-  opacity: 0.7;
-  animation: pswp-close-fade 1.5s ease-in-out forwards;
-  animation-delay: 1s;
-  transition: opacity 0.3s ease;
-}
-
-.pswp--minimal .pswp__button--close:hover {
-  opacity: 1 !important;
-  animation: none;
-}
-
-/* Reveal close button when hovering top-right area */
-.pswp--minimal .pswp__top-bar:hover .pswp__button--close {
-  opacity: 0.7 !important;
-  animation: none;
-}
-
-@keyframes pswp-close-fade {
-  0% { opacity: 0.7; }
-  100% { opacity: 0; pointer-events: none; }
 }
