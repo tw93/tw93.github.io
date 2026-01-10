@@ -6,15 +6,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 document.addEventListener("DOMContentLoaded", function () {
 
   var zoomImgs = Array.prototype.slice.call(document.querySelectorAll('.entry-content img'));
-  if (zoomImgs.length > 0 && isPC()) {
-    loadScript("https://gw.alipayobjects.com/os/k/s3/lightense.min.js", function () {
-      if (typeof Lightense === 'undefined') return;
-
-      var activeIndex = -1;
-      var activeTarget = null;
-      var activeBase = null;
-      var isNavigating = false;
-      var queuedIndex = null;
+  if (zoomImgs.length > 0) {
 
       var stripOssProcess = function (url) {
         if (!url || typeof url !== 'string' || url.indexOf('x-oss-process=') === -1) return url;
@@ -35,305 +27,83 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       var getOriginalSrc = function (img) {
-        var dataSrc = img.getAttribute('data-lightense-src');
-        var candidate = dataSrc || img.currentSrc || img.src;
-        return stripOssProcess(candidate);
+        var dataSrc = img.getAttribute('data-pswp-src');
+        if (dataSrc) return dataSrc;
+        var src = img.getAttribute('data-src') || img.currentSrc || img.src;
+        return stripOssProcess(src);
       };
 
-      var swapToOriginal = function (target) {
-        var zoomSrc = getOriginalSrc(target);
-        if (!zoomSrc || target.src === zoomSrc) return;
-        target.setAttribute('data-lightense-src-current', target.src);
-        target.src = zoomSrc;
+      var loadCSS = function (href) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        document.head.appendChild(link);
       };
 
-      var restoreCompressed = function (target) {
-        var compressedSrc = target.getAttribute('data-lightense-src-current');
-        if (!compressedSrc) return;
-        target.src = compressedSrc;
-        target.removeAttribute('data-lightense-src-current');
-      };
+      loadCSS("/css/photoswipe.css");
 
-      var getZoomSrc = function (img) {
-        return getOriginalSrc(img);
-      };
+      loadScript("/js/photoswipe.umd.min.js", function () {
+        loadScript("/js/photoswipe-lightbox.umd.min.js", function () {
+          if (typeof PhotoSwipeLightbox === 'undefined' || typeof PhotoSwipe === 'undefined') return;
 
-      var getScrollOffsets = function () {
-        return {
-          x: window.pageXOffset || document.documentElement.scrollLeft || 0,
-          y: window.pageYOffset || document.documentElement.scrollTop || 0
-        };
-      };
+          var lightbox = new PhotoSwipeLightbox({
+            gallery: '.entry-content',
+            children: 'img',
+            pswpModule: PhotoSwipe,
+            bgOpacity: 0.9,
+            padding: { top: 20, bottom: 20, left: 20, right: 20 },
+            mainClass: 'pswp--custom-bg pswp--minimal',
+          });
 
-      var getCurrentScale = function (img) {
-        var transform = img.style.transform || '';
-        var match = transform.match(/scale\(([^)]+)\)/);
-        var value = match ? parseFloat(match[1]) : NaN;
-        return isFinite(value) ? value : 1;
-      };
+          lightbox.addFilter('domItemData', function (itemData, element) {
+            if (!element) return itemData;
 
-      var getLayoutSize = function (img) {
-        var width = img.width || img.clientWidth;
-        var height = img.height || img.clientHeight;
-        if (width && height) return { width: width, height: height };
+            // Exclude small icons or specific excluded classes
+            if (element.classList.contains('emoji') || element.classList.contains('no-zoom')) return null;
 
-        var rect = img.getBoundingClientRect();
-        var scale = getCurrentScale(img);
-        return {
-          width: scale ? rect.width / scale : rect.width,
-          height: scale ? rect.height / scale : rect.height
-        };
-      };
+            var src = getOriginalSrc(element);
 
-      var disableTransition = function (el) {
-        if (!el) return null;
-        var previous = el.style.transition;
-        el.style.transition = 'none';
-        return previous;
-      };
-
-      var restoreTransition = function (el, previous) {
-        if (!el) return;
-        el.style.transition = previous || '';
-      };
-
-      var waitForImage = function (img, callback) {
-        if (img.complete && img.naturalWidth) {
-          callback();
-          return;
-        }
-        var loaded = function () {
-          img.removeEventListener('load', loaded);
-          img.removeEventListener('error', loaded);
-          callback();
-        };
-        img.addEventListener('load', loaded);
-        img.addEventListener('error', loaded);
-      };
-
-      var computeScale = function (img) {
-        var size = getLayoutSize(img);
-        var rectWidth = size.width;
-        var rectHeight = size.height;
-        var naturalWidth = img.naturalWidth;
-        var naturalHeight = img.naturalHeight;
-
-        if (!rectWidth || !rectHeight || !naturalWidth || !naturalHeight) return 1;
-
-        var paddingAttr = img.getAttribute('data-lightense-padding') || img.getAttribute('data-padding');
-        var padding = parseFloat(paddingAttr);
-        var effectivePadding = isFinite(padding) ? padding : 40;
-        var viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
-        var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-        var availableWidth = viewportWidth > effectivePadding ? viewportWidth - effectivePadding : viewportWidth;
-        var availableHeight = viewportHeight > effectivePadding ? viewportHeight - effectivePadding : viewportHeight;
-        var scaleToNatural = naturalWidth / rectWidth;
-
-        if (naturalWidth < availableWidth && naturalHeight < availableHeight) {
-          return scaleToNatural;
-        }
-
-        var imgRatio = naturalWidth / naturalHeight;
-        var viewportRatio = availableWidth / availableHeight;
-
-        return imgRatio < viewportRatio ? availableHeight / rectHeight : availableWidth / rectWidth;
-      };
-
-      var updateWrapTransform = function (img) {
-        if (!activeBase || !activeTarget) return;
-        var wrap = activeTarget.parentElement;
-        if (!wrap || wrap.className.indexOf('lightense-wrap') === -1) return;
-
-        var size = getLayoutSize(img);
-        var width = size.width;
-        var height = size.height;
-        if (!width || !height) return;
-
-        var offsets = getScrollOffsets();
-        var viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
-        var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-        var centerX = offsets.x + viewportWidth / 2;
-        var centerY = offsets.y + viewportHeight / 2;
-        var translateX = Math.round(centerX - (activeBase.left + width / 2));
-        var translateY = Math.round(centerY - (activeBase.top + height / 2));
-        wrap.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0)';
-      };
-
-      var updateActiveImage = function (nextIndex, callback) {
-        if (!activeTarget) return;
-        var nextImg = zoomImgs[nextIndex];
-        if (!nextImg) return;
-
-        var nextSrc = getZoomSrc(nextImg);
-        if (!nextSrc) return;
-
-        var wrap = activeTarget.parentElement && activeTarget.parentElement.className.indexOf('lightense-wrap') !== -1 ? activeTarget.parentElement : null;
-        var targetTransition = disableTransition(activeTarget);
-        var wrapTransition = disableTransition(wrap);
-
-        activeTarget.src = nextSrc;
-        waitForImage(activeTarget, function () {
-          var scale = computeScale(activeTarget);
-          activeTarget.style.transform = 'scale(' + scale + ')';
-          updateWrapTransform(activeTarget);
-          void activeTarget.offsetHeight;
-          restoreTransition(activeTarget, targetTransition);
-          restoreTransition(wrap, wrapTransition);
-          activeIndex = nextIndex;
-          if (callback) callback();
-        });
-      };
-
-      var navigateTo = function (nextIndex) {
-        if (isNavigating) {
-          queuedIndex = nextIndex;
-          return;
-        }
-        isNavigating = true;
-        updateActiveImage(nextIndex, function () {
-          isNavigating = false;
-          if (queuedIndex !== null && queuedIndex !== nextIndex) {
-            var targetIndex = queuedIndex;
-            queuedIndex = null;
-            navigateTo(targetIndex);
-          } else {
-            queuedIndex = null;
-          }
-        });
-      };
-
-      Lightense(zoomImgs, {
-        background: 'rgba(230, 230, 230, 0.85)',
-        beforeShow: function (data) {
-          var target = data.target;
-          activeTarget = target;
-          activeIndex = zoomImgs.indexOf(target);
-          initialIndex = activeIndex;
-          var rect = target.getBoundingClientRect();
-          var offsets = getScrollOffsets();
-          activeBase = {
-            left: rect.left + offsets.x,
-            top: rect.top + offsets.y,
-            width: rect.width,
-            height: rect.height,
-            borderRadius: getComputedStyle(target).borderRadius
-          };
-          swapToOriginal(target);
-        },
-        beforeHide: function (data) {
-          if (activeIndex !== initialIndex && activeTarget) {
-            // 1. Hide the default animation (which flies back to A)
-            activeTarget.style.transition = 'none';
-            activeTarget.style.opacity = '0';
-            
-            var wrap = activeTarget.parentElement;
-            if (wrap && wrap.className.indexOf('lightense-wrap') !== -1) {
-              wrap.style.transition = 'none';
-              wrap.style.opacity = '0';
+            // Filter out SVGs or other unwanted types if strictly needed (weekly does it)
+            if (src && (src.indexOf('.svg') > -1 || src.indexOf('.gif') > -1)) {
+                 // return null; // Removed strict filter to allow zooming gifs/svgs if desired, or keep to match weekly
             }
 
-            // 2. Filler: Restore Image A at original position
-            var filler = document.createElement('img');
-            filler.src = activeTarget.getAttribute('data-lightense-src-current') || activeTarget.src;
-            filler.style.position = 'absolute';
-            filler.style.left = activeBase.left + 'px';
-            filler.style.top = activeBase.top + 'px';
-            filler.style.width = activeBase.width + 'px';
-            filler.style.height = activeBase.height + 'px';
-            filler.style.borderRadius = activeBase.borderRadius;
-            filler.style.objectFit = 'cover';
-            filler.style.margin = '0';
-            filler.style.padding = '0';
-            filler.style.zIndex = '1'; // Ensure visible
-            filler.id = 'lightense-filler';
-            document.body.appendChild(filler);
+            // If we can't determine dimensions, PhotoSwipe v5 might struggle or just show it.
+            // We can try to get natural dimensions if loaded, or simple attributes.
+            // Ideally we need actual width/height.
+            // Weekly uses naturalWidth || 1000.
 
-            // 3. Ghost: Animate using Transform for performance
-            var ghost = activeTarget.cloneNode(true);
-            var rectZ = activeTarget.getBoundingClientRect(); // Current Zoomed Rect
-            
-            ghost.className = ''; // Clear Lightense classes
-            ghost.style.position = 'fixed';
-            ghost.style.left = rectZ.left + 'px';
-            ghost.style.top = rectZ.top + 'px';
-            ghost.style.width = rectZ.width + 'px';
-            ghost.style.height = rectZ.height + 'px';
-            ghost.style.transformOrigin = '0 0'; // Important for scale
-            ghost.style.transform = ''; 
-            ghost.style.zIndex = '2147483647'; // Max Z
-            ghost.style.transition = 'transform 300ms cubic-bezier(0.2, 0, 0.2, 1), border-radius 300ms cubic-bezier(0.2, 0, 0.2, 1)';
-            ghost.style.borderRadius = activeBase.borderRadius;
-            ghost.id = 'lightense-ghost';
-            document.body.appendChild(ghost);
+            itemData.src = src;
+            itemData.w = Number(element.getAttribute('data-width')) || element.naturalWidth || window.innerWidth;
+            itemData.h = Number(element.getAttribute('data-height')) || element.naturalHeight || window.innerHeight;
+            itemData.msrc = element.src;
 
-            // Calculate Destination & Deltas
-            var currentImg = zoomImgs[activeIndex];
-            var rectB = currentImg.getBoundingClientRect();
-            var scaleX = rectB.width / rectZ.width;
-            var scaleY = rectB.height / rectZ.height;
-            var tx = rectB.left - rectZ.left;
-            var ty = rectB.top - rectZ.top;
-            
-            // Force reflow
-            void ghost.offsetWidth;
+            return itemData;
+          });
 
-            // Apply Transform Animation
-            ghost.style.transform = 'translate3d(' + tx + 'px, ' + ty + 'px, 0) scale(' + scaleX + ', ' + scaleY + ')';
-            ghost.style.borderRadius = getComputedStyle(currentImg).borderRadius;
-            
-            // Auto-cleanup Ghost
-            setTimeout(function() {
-               if (ghost.parentNode) ghost.parentNode.removeChild(ghost);
-            }, 300); // Match transition time
-          }
-        },
-        afterHide: function (data) {
-          var target = data.target;
-          
-          // Cleanup Filler
-          var filler = document.getElementById('lightense-filler');
-          if (filler) filler.parentNode.removeChild(filler);
-          
-          // Cleanup Ghost (just in case)
-          var ghost = document.getElementById('lightense-ghost');
-          if (ghost) ghost.parentNode.removeChild(ghost);
+          lightbox.on('uiRegister', function () {
+            lightbox.pswp.ui.registerElement({
+              name: 'custom-caption',
+              order: 9,
+              isButton: false,
+              appendTo: 'root',
+              html: 'Caption text',
+              onInit: (el, pswp) => {
+                pswp.on('change', () => {
+                  const currSlideElement = pswp.currSlide.data.element;
+                  let captionText = '';
+                  if (currSlideElement) {
+                    captionText = currSlideElement.getAttribute('alt') || '';
+                  }
+                  el.innerHTML = captionText ? '<div class="pswp-caption-content">' + captionText + '</div>' : '';
+                });
+              },
+            });
+          });
 
-          if (activeIndex !== initialIndex) {
-             // Reset styles for next use
-            target.style.transition = '';
-            target.style.opacity = '';
-            var wrap = target.parentElement;
-            if (wrap && wrap.className.indexOf('lightense-wrap') !== -1) {
-              wrap.style.transition = '';
-              wrap.style.opacity = '';
-            }
-          }
-          restoreCompressed(target);
-          activeTarget = null;
-          activeIndex = -1;
-          initialIndex = -1;
-          activeBase = null;
-          isNavigating = false;
-          queuedIndex = null;
-        }
+          lightbox.init();
+        });
       });
-
-      document.addEventListener('keydown', function (event) {
-        var keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
-        if (keys.indexOf(event.key) === -1) return;
-        if (!activeTarget || activeTarget.className.indexOf('lightense-open') === -1) return;
-
-        event.preventDefault();
-        if (activeIndex === -1) return;
-
-        var isPrev = event.key === 'ArrowLeft' || event.key === 'ArrowUp';
-        var nextIndex = isPrev
-          ? (activeIndex - 1 + zoomImgs.length) % zoomImgs.length
-          : (activeIndex + 1) % zoomImgs.length;
-
-        navigateTo(nextIndex);
-      });
-    });
   }
 
   if (!isPC()) {
