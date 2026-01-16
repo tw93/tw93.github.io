@@ -8,22 +8,26 @@
 {% assign target_post = site.posts_en | where_exp: "item", "item.path contains current_filename" | first %}
 {% if target_post %}
 {% assign switch_url = target_post.url %}
+{% assign en_title = "View English version" %}
 {% else %}
 {% assign switch_url = '/en/' %}
+{% assign en_title = "No translation available, go to English homepage" %}
 {% endif %}
 <li class="header-item language-item">
-  <a href="{{ switch_url }}" class="language-switch" aria-label="Switch to English">En</a>
+  <a href="{{ switch_url }}" class="language-switch" aria-label="Switch to English" title="{{ en_title }}">En</a>
 </li>
 {% else %}
 {% comment %} Currently viewing English post, find Chinese version {% endcomment %}
 {% assign target_post = site.posts | where_exp: "item", "item.path contains current_filename" | first %}
 {% if target_post %}
 {% assign switch_url = target_post.url %}
+{% assign zh_title = "查看中文版本" %}
 {% else %}
 {% assign switch_url = '/' %}
+{% assign zh_title = "暂无翻译，跳转到中文首页" %}
 {% endif %}
 <li class="header-item language-item">
-  <a href="{{ switch_url }}" class="language-switch" aria-label="Switch to Chinese">中</a>
+  <a href="{{ switch_url }}" class="language-switch" aria-label="Switch to Chinese" title="{{ zh_title }}">中</a>
 </li>
 {% endif %}
 {% else %}

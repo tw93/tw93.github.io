@@ -232,6 +232,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  addCodeCopy();
+
 }, false);
 
 function isPC() {
@@ -265,4 +267,35 @@ function loadScript(url, callback) {
   }
   script.src = url;
   document.body.appendChild(script);
+}
+
+function addCodeCopy() {
+  var highlights = document.querySelectorAll('.highlight');
+  highlights.forEach(function (highlight) {
+    if (highlight.querySelector('.highlight-header')) return;
+
+    var header = document.createElement('div');
+    header.className = 'highlight-header';
+    header.innerHTML = '<div class="highlight-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="copy-btn">Copy</div>';
+    highlight.insertBefore(header, highlight.firstChild);
+
+    var copyBtn = header.querySelector('.copy-btn');
+    copyBtn.addEventListener('click', function () {
+      var code = highlight.querySelector('pre').innerText;
+      navigator.clipboard.writeText(code).then(function () {
+        copyBtn.textContent = '✓ Copied';
+        copyBtn.style.color = '#27c93f';
+        setTimeout(function () {
+          copyBtn.textContent = 'Copy';
+          copyBtn.style.color = '';
+        }, 2000);
+      })["catch"](function (err) {
+        console.error('Failed to copy: ', err);
+        copyBtn.textContent = '✗ Failed';
+        setTimeout(function () {
+          copyBtn.textContent = 'Copy';
+        }, 2000);
+      });
+    });
+  });
 }
