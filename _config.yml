@@ -21,10 +21,14 @@ zhihu: tw93
 twitter: HiTw93
 v2ex: tw93
 menu:
-  - title: "About"
-    url: "/about.html"
   - title: "Weekly"
     url: "https://weekly.tw93.fun/"
+  - title: "GitHub"
+    url: "https://github.com/tw93"
+  - title: "Twitter"
+    url: "https://twitter.com/HiTw93"
+  - title: "About"
+    url: "/about.html"
 
 # SEO and Analytics
 google_analytics: G-KS7EDB6BRM
