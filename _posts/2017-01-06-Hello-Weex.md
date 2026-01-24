@@ -14,7 +14,7 @@ categories: Share
 2. Weex Architecture
 3. Weex Others
 
-*为了确保信息保密，已经将一些其他信息去除，请谅解，*分享开始 👨‍👨‍👧‍👧 🤣。
+*为了确保信息保密，已经将一些其他信息去除，请谅解，*分享开始。
 
 ## **Module && Component**
 
@@ -47,7 +47,7 @@ Component 指功能单元，其意义偏向运行时的结构，并有更复杂�
 
 ## **Weex Architecture**
 
-官网是这样描述 Weex 为*"A framework for building Mobile cross-platform UI"，*一款轻量级的移动端跨平台动态性技术解决方案，其实说的通俗点就是 Vue-Native 。🤔🤒
+官网是这样描述 Weex 为*"A framework for building Mobile cross-platform UI"，*一款轻量级的移动端跨平台动态性技术解决方案，其实说的通俗点就是 Vue-Native。
 
 相信对 Weex 有过关注的同学应该都见过下面这个 Weex 架构图。
 
@@ -57,7 +57,7 @@ Component 指功能单元，其意义偏向运行时的结构，并有更复杂�
 
 1. weex-toolkit 中的 transform 工具将我们所编写的.we 文件转换成 JS Bundle，然后将 JS Bundle 部署到 Server。
 2. Weex SDK 中的 JS Framework 获取到 JS Bundle 并执行，对其进行实例初始化工作，同时进行数据绑定、模板编译，同时提供 callNative 和 callJS 方法。
-3. JS Framework 和 native 通过 callNative 和 callJS 这两个方法进行通信，共同依赖于一份相同的 JSON 配置表（此次可以联想到 RN 的实现原理 😉😉）
+3. JS Framework 和 native 通过 callNative 和 callJS 这两个方法进行通信，共同依赖于一份相同的 JSON 配置表（此次可以联想到 RN 的实现原理）
 
 **Transform 所做的工作**其实是将 DSL 转成类 JSON 树形结构，并汇总结合成一 JavaScript AMD 模块，便于后续过程中 JS Framework 的处理，可以从如下图看到 transform 所做的工作：
 

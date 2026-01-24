@@ -14,7 +14,7 @@ This week, I shared the Topic "Hello Weex" with my department colleagues. Now I 
 2. Weex Architecture
 3. Weex Others
 
-*To ensure information confidentiality, some other information has been removed. Please understand.* Sharing begins 👨‍👨‍👧‍👧 🤣.
+*To ensure information confidentiality, some other information has been removed. Please understand.* Sharing begins.
 
 ## **Module && Component**
 
@@ -47,7 +47,7 @@ So in Weex, what exactly are Module and Component? You can first look at what Mo
 
 ## **Weex Architecture**
 
-The official website describes Weex as *"A framework for building Mobile cross-platform UI"*, a lightweight mobile cross-platform dynamic technical solution. Actually, to put it plainly, it is Vue-Native. 🤔🤒
+The official website describes Weex as *"A framework for building Mobile cross-platform UI"*, a lightweight mobile cross-platform dynamic technical solution. Actually, to put it plainly, it is Vue-Native.
 
 I believe students who have paid attention to Weex should have seen the following Weex architecture diagram.
 
@@ -57,7 +57,7 @@ Looking at the picture and speaking is like this:
 
 1. The transform tool in weex-toolkit converts the .we file we wrote into JS Bundle, and then deploys the JS Bundle to Server.
 2. JS Framework in Weex SDK gets JS Bundle and executes it, performs instance initialization work on it, and simultaneously performs data binding, template compilation, and provides callNative and callJS methods.
-3. JS Framework and native communicate through these two methods callNative and callJS, jointly relying on the same JSON configuration table (this time you can associate with the implementation principle of RN 😉😉)
+3. JS Framework and native communicate through these two methods callNative and callJS, jointly relying on the same JSON configuration table (this time you can associate with the implementation principle of RN)
 
 **The work done by Transform** is actually converting DSL into a JSON-like tree structure, and aggregating and combining it into a JavaScript AMD module, facilitating subsequent processing by JS Framework. Can see the work done by transform from the figure below:
 

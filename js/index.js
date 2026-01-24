@@ -106,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  addCodeCopy();
+
   if (!isPC()) {
     return;
   }
@@ -232,8 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  addCodeCopy();
-
 }, false);
 
 function isPC() {
@@ -270,13 +270,13 @@ function loadScript(url, callback) {
 }
 
 function addCodeCopy() {
-  var highlights = document.querySelectorAll('.highlight');
+  var highlights = document.querySelectorAll('.highlighter-rouge > div.highlight');
   highlights.forEach(function (highlight) {
     if (highlight.querySelector('.highlight-header')) return;
 
     var header = document.createElement('div');
     header.className = 'highlight-header';
-    header.innerHTML = '<div class="highlight-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="copy-btn">Copy</div>';
+    header.innerHTML = '<div class="highlight-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><span class="copy-btn">Copy</span>';
     highlight.insertBefore(header, highlight.firstChild);
 
     var copyBtn = header.querySelector('.copy-btn');
