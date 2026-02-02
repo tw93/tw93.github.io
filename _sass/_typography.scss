@@ -15,6 +15,9 @@ body {
   letter-spacing: 0.5px;
   line-height: 1.7;
   -webkit-text-size-adjust: 100%; // Prevent iOS text resize
+  @media #{$medium} {
+    letter-spacing: 0.6px;
+  }
 }
 
 // Headings
