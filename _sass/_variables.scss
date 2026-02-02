@@ -15,6 +15,7 @@ $doc-line-height: 27.2;
 body {
   font-size: #{$doc-font-size}px;
   font-display: swap;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 // Colors
