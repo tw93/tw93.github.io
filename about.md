@@ -8,7 +8,7 @@ hideHomeActive: true
 ## 关于我
 
 - 关于我，我都不了解我，等我更了解我，再来写关于我。
-- 在 [**imahuan**](https://imahuan.ccwu.cc/) 博客沉淀我的技术/生活/思考方式。
+- 在 [**imahuan**](https://imahuan.github.io/) 博客沉淀我的技术/生活/思考方式。
 
 ## 关注我
 
