@@ -9,7 +9,7 @@ lang: en-US
 ## About Me
 
 - About me: I don’t even understand myself yet. I’ll write about myself once I know me better.
-- My blog [**imahuan**](https://imahuan.ccwu.cc), is where I share my insights on technology, life, and thought processes.
+- My blog [**imahuan**](https://imahuan.github.io), is where I share my insights on technology, life, and thought processes.
 
 ## Follow Me
 
