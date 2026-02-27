@@ -1,7 +1,7 @@
 # Site Information
 title: imahuan
 description: "一个喜欢折腾的工程师"
-url: https://imahuan.ccwu.cc
+url: https://imahuan.github.io
 repo: imahuan/imahuan.github.io
 lang: zh-CN
 encoding: utf-8
@@ -11,7 +11,7 @@ timezone: Asia/Shanghai
 author:
   name: imahuan
   email: imahuan0127@gmail.com
-  url: https://imahuan.ccwu.cc
+  url: https://imahuan.github.io
   twitter: imahuan
   github: imahuan
 
@@ -22,7 +22,7 @@ twitter: imahuan
 v2ex: imahuan
 menu:
   #- title: "Weekly"
-  #  url: "https://weekly.imahuan.ccwu.cc/"
+  #  url: "https://weekly.imahuan.github.io/"
   #- title: "GitHub"
   #  url: "https://github.com/imahuan"
   #- title: "Twitter"
@@ -126,6 +126,6 @@ defaults:
 # Custom Site Settings
 showBuyCoffee: false
 payImage: //gw.alipayobjects.com/zos/k/vb/1.png
-assetUrl: //imahuan.ccwu.cc/images/
+assetUrl: //imahuan.github.io/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 
