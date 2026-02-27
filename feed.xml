@@ -5,7 +5,7 @@ layout: none
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tw93 Blog</title>
+    <title>imahuan Blog</title>
     <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
     <image>
       <url>https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png</url>

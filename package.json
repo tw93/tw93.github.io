@@ -1,13 +1,13 @@
 {
-  "name": "tw93",
-  "author": "Tw93<tw93@qq.com>",
-  "homepage": "https://tw93.fun",
+  "name": "imahuan",
+  "author": "imahuan<imahuan0127@gmail.com>",
+  "homepage": "https://imahuan.github.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tw93/tw93.github.io"
+    "url": "https://github.com/imahuan/imahuan.github.io"
   },
   "bugs": {
-    "url": "https://github.com/tw93/tw93.github.io/issues"
+    "url": "https://github.com/imahuan/imahuan.github.io/issues"
   },
   "scripts": {
     "prep": "gem install bundler && bundle install",
