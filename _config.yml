@@ -5,7 +5,7 @@ url: https://imahuan.ccwu.cc
 repo: imahuan/imahuan.github.io
 lang: zh-CN
 encoding: utf-8
-timezone: Africa/El_Aaiun
+timezone: Asia/Shanghai
 
 # Author Information (for SEO and AI crawlers)
 author:
@@ -124,8 +124,8 @@ defaults:
         changefreq: monthly
 
 # Custom Site Settings
-# showBuyCoffee: true
-# payImage: //gw.alipayobjects.com/zos/k/vb/1.png
-# assetUrl: //imahuan.ccwu.cc/images/
-# defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+showBuyCoffee: false
+payImage: //gw.alipayobjects.com/zos/k/vb/1.png
+assetUrl: //imahuan.ccwu.cc/images/
+defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 
