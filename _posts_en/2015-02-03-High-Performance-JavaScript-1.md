@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Loading and Execution Performance Optimization of JavaScript
+title: JavaScript Loading Performance
 date: 2015-02-03 11:21:29
 summary: Managing JavaScript code in browsers is a tricky problem because code execution blocks other browser processes, such as user interface painting. Every time a script tag is encountered, the page must stop and wait for the code to download (if it is an external file) and execute, and then continue to process other parts. Despite this, there are still some ways to reduce the impact of JavaScript on performance ...
 categories: Study
