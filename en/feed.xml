@@ -1,0 +1,31 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tw93 Blog (English)</title>
+    <description>English posts from Tw93.</description>
+    <image>
+      <url>https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png</url>
+    </image>
+    <follow_challenge>
+      <feedId>41147805272531976</feedId>
+      <userId>42909600318350336</userId>
+    </follow_challenge>
+    <link>{{ site.url }}/en</link>
+    <atom:link href="{{ site.url }}/en/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    {% assign sorted_posts = site.posts_en | where_exp: "post", "post.hidden != true and post.hide != true" | sort: 'date' | reverse %}
+    {% for post in sorted_posts limit:10 %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <description>{{ post.content | xml_escape }}</description>
+      <pubDate>{{ post.date | date: "%Y-%m-%d" }}</pubDate>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

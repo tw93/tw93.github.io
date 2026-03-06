@@ -3,11 +3,21 @@ layout: base
 ---
 
 {% if page.url contains '/en/' %}
-<!-- English articles: list all articles without pagination -->
-{% assign current_posts = site.posts_en | sort: 'date' | reverse %}
+{% assign per_page = site.paginate | default: 10 %}
+{% assign current_page = page.en_page_number | default: 1 %}
+{% assign visible_posts = site.posts_en | where_exp: "post", "post.hidden != true and post.hide != true" | sort: 'date' | reverse %}
+{% assign offset = current_page | minus: 1 | times: per_page %}
+{% assign current_posts = visible_posts | slice: offset, per_page %}
+
+{% assign total_pages = visible_posts.size | divided_by: per_page %}
+{% assign remainder = visible_posts.size | modulo: per_page %}
+{% if remainder > 0 %}
+{% assign total_pages = total_pages | plus: 1 %}
+{% endif %}
+
 {% include post-item.html posts=current_posts %}
+{% include pagination-en.html current_page=current_page total_pages=total_pages %}
 {% else %}
-<!-- Chinese articles: maintain original logic including pagination -->
 {% include post-item.html posts=paginator.posts %}
 {% include pagination.html %}
 {% endif %}
