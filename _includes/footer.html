@@ -19,7 +19,7 @@
       </svg>
     </a>
 
-    <a href="{{ site.url }}/feed.xml" rel="nofollow" target="_blank" class="social-icon"
+    <a href="{% if page.url contains '/en/' %}{{ site.url }}/en/feed.xml{% else %}{{ site.url }}/feed.xml{% endif %}" rel="nofollow" target="_blank" class="social-icon"
       aria-label="Subscribe to RSS feed">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path

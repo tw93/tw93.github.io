@@ -100,7 +100,7 @@
   <meta name="robots" content="index, follow">
 
   <!-- Feed -->
-  <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+  <link href="{% if page.url contains '/en/' %}{{ site.url }}/en/feed.xml{% else %}{{ site.url }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
   <!-- Performance: Reduce render blocking -->
   <link rel="preconnect" href="https://giscus.app">
