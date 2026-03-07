@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Don't Trust Your Gut" - Book Notes
+title: "\"Don't Trust Your Gut\" - Book Notes"
 date: 2024-10-13 16:00:00
-summary: I recently finished reading "Don't Trust Your Gut: Use Data to Get the Life You Want." It's a relatively simple and easy read—you can finish it in an afternoon. It covers topics you might encounter in life, such as love and marriage, parenting, wealth, entrepreneurship, luck, appearance, happiness, and pain.
+summary: "I recently finished reading \"Don't Trust Your Gut: Use Data to Get the Life You Want.\" It's a relatively simple and easy read—you can finish it in an afternoon. It covers topics you might encounter in life, such as love and marriage, parenting, wealth, entrepreneurship, luck, appearance, happiness, and pain."
 categories: Share
 ---
 
