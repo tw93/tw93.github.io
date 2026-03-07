@@ -1,7 +1,7 @@
 ---
 layout: post
 title: High Performance JavaScript - Rapidly Responding User Interface
-date: 2015-02-12 21:47:29
+date: 2015-02-11 21:47:29
 summary: 'There is a saying that makes sense: "If JavaScript runs for whole seconds, then it is very likely that you have done something wrong...", if the interface responds to user input within 100 milliseconds, users will think they are "directly manipulating objects in the interface". More than 100 milliseconds means users feel they have lost contact with the interface. JavaScript and user interface updates run in the same process, so only one thing can be handled at a time. This means that when JavaScript code is running, the user interface cannot respond to input, and vice versa. Efficiently managing the UI thread is to ensure that JavaScript cannot run for too long, lest it affect the user experience. Managing the running time of JavaScript is very important for the performance of Web applications ...'
 categories: Study
 ---
