@@ -5,7 +5,7 @@ layout: base
 {% if page.url contains '/en/' %}
 {% assign per_page = site.paginate | default: 10 %}
 {% assign current_page = page.en_page_number | default: 1 %}
-{% assign visible_posts = site.posts_en | where_exp: "post", "post.hidden != true and post.hide != true" | sort: 'date' | reverse %}
+{% assign visible_posts = site.posts_en | where: "hidden", nil | where: "hide", nil | sort: 'date' | reverse %}
 {% assign offset = current_page | minus: 1 | times: per_page %}
 {% assign current_posts = visible_posts | slice: offset, per_page %}
 
