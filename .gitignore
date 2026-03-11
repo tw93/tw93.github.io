@@ -10,3 +10,8 @@ _config.gh-pages.yml
 .vscode
 Gemfile.lock
 
+# AI Assistant files
+AGENTS.md
+CLAUDE.md
+journal/
+
