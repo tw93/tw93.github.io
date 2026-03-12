@@ -13,6 +13,6 @@ Gemfile.lock
 # AI Assistant files
 AGENTS.md
 CLAUDE.md
+.agents/
 journal/
 .claude/settings.local.json
-
