@@ -10,7 +10,7 @@
     "url": "https://github.com/tw93/tw93.github.io/issues"
   },
   "scripts": {
-    "prep": "gem install bundler && bundle install",
+    "prep": "bundle install",
     "dev": "bundle exec jekyll serve --watch --trace",
     "start": "npm run dev",
     "build": "bundle exec jekyll build"
