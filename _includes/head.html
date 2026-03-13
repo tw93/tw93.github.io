@@ -80,8 +80,8 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
 
   <!-- Styles and Scripts -->
-  <link rel="stylesheet" href="{{ site.url }}/css/index.css">
-  <link rel="stylesheet" href="{{ site.url }}/css/jinkai.css">
+  <link rel="stylesheet" href="{{ site.url }}/css/index.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
+  <link rel="stylesheet" href="{{ site.url }}/css/jinkai.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
 
   {% if page.layout == "post" %}
   <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async defer></script>

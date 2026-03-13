@@ -40,8 +40,8 @@
   </footer>
 </div>
 
-<script type="text/javascript" src="{{ site.url }}/js/index.js" defer></script>
-<script type="text/javascript" src="{{ site.url }}/js/search.js" defer></script>
+<script type="text/javascript" src="{{ site.url }}/js/index.js?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+<script type="text/javascript" src="{{ site.url }}/js/search.js?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
 
 {% if site.google_analytics %}
 <script>

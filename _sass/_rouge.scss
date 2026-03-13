@@ -15,16 +15,17 @@ $code-red: #ff6767;
   position: relative;
   margin-bottom: 1.5em;
   overflow: hidden;
-  border: 1px solid rgba(162, 119, 255, 0.18);
+  box-shadow: none !important;
   border-radius: 8px;
   background-color: $code-bg;
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   .highlight-header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 12px;
+    padding: 5px 12px;
     background-color: $code-bg;
     border-bottom: 0.5px solid rgba(237, 236, 238, 0.06);
 
@@ -56,8 +57,26 @@ $code-red: #ff6767;
       }
     }
 
+    .highlight-lang {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      color: rgba(237, 236, 238, 0.64);
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      user-select: none;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
     .copy-btn {
-      padding: 1px 7px;
+      padding: 0 6px;
       border-radius: 4px;
       color: rgba(237, 236, 238, 0.62);
       font-size: 11px;

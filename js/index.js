@@ -274,15 +274,46 @@ function addCodeCopy() {
   highlights.forEach(function (highlight) {
     if (highlight.querySelector('.highlight-header')) return;
 
+    var code = highlight.querySelector('code');
+    var parent = highlight.parentElement;
+    var container = highlight.closest('.highlighter-rouge');
+    var language = '';
+
+    if (code) {
+      language = code.getAttribute('data-lang') || '';
+      if (!language && code.className) {
+        var codeMatch = code.className.match(/language-([a-z0-9_+.-]+)/i);
+        language = codeMatch ? codeMatch[1] : '';
+      }
+    }
+
+    if (!language && parent && parent.className) {
+      var parentMatch = parent.className.match(/language-([a-z0-9_+.-]+)/i);
+      language = parentMatch ? parentMatch[1] : '';
+    }
+
+    if (!language && container && container.className) {
+      var containerMatch = container.className.match(/language-([a-z0-9_+.-]+)/i);
+      language = containerMatch ? containerMatch[1] : '';
+    }
+
     var header = document.createElement('div');
     header.className = 'highlight-header';
-    header.innerHTML = '<div class="highlight-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><span class="copy-btn">Copy</span>';
+    header.innerHTML = '<div class="highlight-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><span class="highlight-lang"></span><span class="copy-btn">Copy</span>';
     highlight.insertBefore(header, highlight.firstChild);
+
+    var languageLabel = header.querySelector('.highlight-lang');
+    if (language) {
+      languageLabel.textContent = language.toUpperCase();
+    } else {
+      languageLabel.textContent = '';
+      languageLabel.style.display = 'none';
+    }
 
     var copyBtn = header.querySelector('.copy-btn');
     copyBtn.addEventListener('click', function () {
-      var code = highlight.querySelector('pre').innerText;
-      navigator.clipboard.writeText(code).then(function () {
+      var codeText = highlight.querySelector('pre').innerText;
+      navigator.clipboard.writeText(codeText).then(function () {
         copyBtn.textContent = '✓ Copied';
         copyBtn.style.color = '#27c93f';
         setTimeout(function () {
