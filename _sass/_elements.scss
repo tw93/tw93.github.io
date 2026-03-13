@@ -18,11 +18,10 @@ figure {
   a {
     img {
       transform: translate(0, 0);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      transition: transform 180ms ease;
       @media (hover: hover) {
         &:hover {
           transform: translate(0, -2px);
-          box-shadow: 0 4px 12px rgba($base-color, 0.1), 0 2px 4px rgba($base-color, 0.07);
         }
       }
       @media (prefers-reduced-motion: reduce) {

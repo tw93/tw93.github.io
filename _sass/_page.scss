@@ -119,7 +119,6 @@ iframe {
       will-change: opacity, transform;
       pointer-events: none;
       > img {
-        box-shadow: 0 4px 12px rgba($black, 0.12), 0 2px 4px rgba($black, 0.08);
         padding: 4px;
         background-color: #fff;
         border-radius: calc($border-radius / 2);
