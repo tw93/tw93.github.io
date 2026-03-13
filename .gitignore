@@ -16,3 +16,4 @@ CLAUDE.md
 .agents/
 journal/
 .claude/settings.local.json
+.mcp.json
