@@ -1,6 +1,7 @@
 ---
 layout: ppt
 title: How to be a Product Engineer?
+poem: 知之非艱，行之惟艱
 date: 1993-07-29 07:00:00
 feature: https://gw.alicdn.com/imgextra/i4/O1CN0170apqO1j6afnI6xEX_!!6000000004499-0-tps-2000-1064.jpg
 summary: A recent sharing with the team, from the perspective of a front-end engineer, how to become a product development engineer.

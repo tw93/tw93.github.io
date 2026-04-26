@@ -1,6 +1,7 @@
 ---
 layout: post
 title: DOM Programming Performance Optimization of JavaScript
+poem: 牽一髮而動全身
 date: 2015-02-06 21:47:29
 summary: DOM is an abbreviation for Document Object Model. It is a language-independent application program interface for users to manipulate XML and HTML documents. In browsers, it mainly deals with HTML documents. In web applications, XML documents also often need to be retrieved. DOM API is used to access data in documents. John Hevatin once gave a pertinent metaphor in a speech, imagining DOM and JavaScript as islands respectively, they are directly connected by a toll bridge. Every time ECMAScript accesses DOM, it has to pass through this bridge and pay a "bridge fee". The more bridges passed, the more fees paid. Therefore, if you want to reduce costs, you have to cross the bridge less. Here we come to learn how to optimize this problem ...
 categories: Study

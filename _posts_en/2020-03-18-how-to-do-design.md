@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Operation Backend Interaction Design Sharing
+poem: 刪繁就簡三秋樹，領異標新二月花
 date: 2020-03-18 16:00:00
 summary: Thoughts on Mid-backend Interaction Design Shared with Internal Colleagues
 categories: Share

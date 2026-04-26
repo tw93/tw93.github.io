@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Introduction to MiaoYan Markdown Editor
+poem: 言有盡而意無窮
 date: 2022-06-13 16:00:00
 summary: Recently I refined a macOS Markdown note application I made two years ago and released it for everyone to try.
 categories: Creation

@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      Front-end Development Workflow Tool Yeoman
+poem: 取法乎上，僅得其中
 date:       2015-02-21 21:47:29
 summary:    In the previous article, we introduced Grunt, which can help us automatically manage and run various JavaScript tasks. In the article before that, we introduced the front-end package manager Bower. In this article, we come to introduce Yeoman, a magical scaffold. Yeoman is developed by the Google team and a team of external contributors. Its goal is to create an easy-to-use workflow for developers through the packaging of Grunt (a command line tool for development task automation) and Bower (a package manager for front-end resources such as HTML, CSS, JavaScript, and images). Below I will briefly introduce this magical tool to everyone ...
 categories: Study

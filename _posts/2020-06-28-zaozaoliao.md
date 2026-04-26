@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 早早聊-微前端专题分享
+poem: 與君一席話，勝讀十年書
 date: 2020-06-28 16:00:00
 summary: 早早聊大会上代表飞猪分享话题<如何落地微前端一体化运营工作台>，本文为文字稿
 categories: Share

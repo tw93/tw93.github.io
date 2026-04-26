@@ -6,9 +6,9 @@
   <ul class="header-item-container">
     <li class="header-item-title {{homeActive}}">
       {% if page.url contains '/en/' %}
-      <a href="{{site.url}}/en" class="title">{{ site.title }}</a>
+      <a href="{{ '/en/' | relative_url }}" class="title">{{ site.title }}</a>
       {% else %}
-      <a href="{{site.url}}/" class="title">{{ site.title }}</a>
+      <a href="{{ '/' | relative_url }}" class="title">{{ site.title }}</a>
       {% endif %}
     </li>
 
@@ -24,9 +24,9 @@
         }}</a></li>
     {% else %}
     {% if page.url contains '/en/' %}
-    <li class="header-item-left {{class}}"><a href="{{site.url}}/en/{{menu.url}}">{{ menu.title }}</a></li>
+    <li class="header-item-left {{class}}"><a href="{{ '/en/' | append: menu.url | replace: '//', '/' | relative_url }}">{{ menu.title }}</a></li>
     {% else %}
-    <li class="header-item-left {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
+    <li class="header-item-left {{class}}"><a href="{{ '/' | append: menu.url | replace: '//', '/' | relative_url }}">{{ menu.title }}</a></li>
     {% endif %}
     {% endif %}
     {% endfor %}
@@ -60,15 +60,14 @@
   {% assign letterSpacing = 1.2 %}
 {% endif %}
 <div class="entry-header">
-  <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg"
     version="1.1" role="img" aria-label="{{ headerText }}">
-    <path id="svg-title-path">
-      <animate attributeName="d" from="m0,110 h0" to="m0,110 h1600" dur="2s" repeatCount="1" fill="freeze" begin="0s" />
-    </path>
-    <text font-size="{{fontSize}}" font-weight="{{fontWeight}}" fill="#ffffff" x="50%" y="50%" text-anchor="middle"
-      word-spacing="2.0" letter-spacing="{{letterSpacing}}">
-      <textPath xlink:href="#svg-title-path">{{ headerText }}</textPath>
-    </text>
+    <g class="entry-header-copy">
+      <text font-size="{{fontSize}}" font-weight="{{fontWeight}}" fill="#ffffff" x="50%" y="50%" text-anchor="middle"
+        dominant-baseline="middle" word-spacing="2.0" letter-spacing="{{letterSpacing}}">
+        {{ headerText }}
+      </text>
+    </g>
   </svg>
   <canvas id="J_firework_canvas" aria-hidden="true" role="presentation"></canvas>
 </div>

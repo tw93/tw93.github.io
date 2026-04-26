@@ -1,6 +1,7 @@
 ---
 layout: post
 title: University Summary - Waving to Ideal
+poem: 鵬北海，鳳朝陽
 date: 2015-05-18 21:47:29
 summary: Only want to rely on both hands, waving to the ideal, this is a lyric from Beyond's "No Longer Hesitate". Probably since middle school I liked listening to Beyond's songs, intermittently all the way to university. Every time I watch their previous concert videos, I am especially excited and moved. Most of what they bring me is positive energy and a cool spirit. Returning to the article, this article mainly records the process of finding a job myself, and summarizes the campus life of four years of university by the way ...
 categories: Life

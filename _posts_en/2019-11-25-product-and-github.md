@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Product and Open Source Sharing
+poem: 同聲相應，同氣相求
 date: 2019-11-25 16:00:00
 summary: Sharing with internal colleagues about how to make small technical products and what mentality should be used to view open source?
 categories: Share

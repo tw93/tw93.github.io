@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Improvements to the Legendary Fastest Terminal
+poem: 快馬加鞭未下鞍
 date: 2023-02-06 21:00:00
 feature: https://static.tw93.fun/img/0AscUe.png
 summary: Recently, I discovered Alacritty, a cross-platform terminal emulator powered by Rust and accelerated with OpenGL, merely around 5MB in size, touted as the fastest terminal. However, it's truly unattractive. I contemplated whether to revamp it to possibly make it my default terminal. The final product turned out quite well.

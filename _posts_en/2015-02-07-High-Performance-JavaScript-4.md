@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Algorithm and Flow Control Performance Optimization of JavaScript
+poem: 事者生於慮，成於務
 date: 2015-02-07 21:47:29
 summary: Like other programming languages, code writing and algorithms will affect the running time of JavaScript. Unlike other languages, JavaScript has limited available resources, so optimization techniques are more important. this study note mainly optimizes JavaScript performance from three aspects of JavaScript loops, conditional statements, and recursion ...
 categories: Study

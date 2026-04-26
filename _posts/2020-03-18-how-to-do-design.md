@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 运营后台的交互设计分享
+poem: 刪繁就簡三秋樹，領異標新二月花
 date: 2020-03-18 16:00:00
 summary: 给内部同学分享的中后台交互设计的思考
 categories: Share

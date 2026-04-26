@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello Weex
+poem: 海闊憑魚躍，天高任鳥飛
 date: 2017-01-06 16:00:00
 summary: 本周给部门同学分享了《Hello Weex》这个 Topic，现整理成文字版本，分享给关注 Weex 的同学，主要涉及 Module && Component、Weex Architecture、 Weex Others ...
 categories: Share

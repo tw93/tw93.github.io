@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello Weex
+poem: 海闊憑魚躍，天高任鳥飛
 date: 2017-01-06 16:00:00
 summary: This week, I shared the Topic "Hello Weex" with my department colleagues. Now I have organized it into a text version to share with students who follow Weex. It mainly involves Module && Component, Weex Architecture, Weex Others ...
 categories: Share

@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      React Native Animation Research
+poem: 動中有靜，靜中有動
 date:       2016-06-05 21:47:29
 summary:    The title of this special article is "ReactNative Animation Research". Since it is called research, we strive to clarify the content related to RN animation at once, researching in the way of posing questions - proving questions - solving questions ...
 categories: Study

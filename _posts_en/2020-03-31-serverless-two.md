@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fliggy Serverless System Construction S2
+poem: 行遠自邇，登高自卑
 date: 2020-03-31 16:00:00
 summary: In the first half of the year, a series of infrastructure construction was completed. Experienced group infrastructure research and multi-BU communication, formulated solution goals around Fliggy front and back end cooperative development and business pain points, to the construction of Sky Island R&D platform and gateway, and deep co-construction of unified FaaS R&D platform with the group, as well as construction around various development experiences and stability, making the overall Serverless reach a usable state. Let's look at what was done in the second half of the year?
 categories: Share

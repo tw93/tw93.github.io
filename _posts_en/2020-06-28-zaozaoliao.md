@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Zaozaoliao - Micro Front-end Topic Sharing
+poem: 與君一席話，勝讀十年書
 date: 2020-06-28 16:00:00
 summary: Sharing the topic <How to implement Micro Front-end Integrated Operation Workbench> on behalf of Fliggy at the Zaozaoliao Conference. This article is the transcript.
 categories: Share

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Reading Notes on "Pro Node.js"
+poem: 博學之，審問之，慎思之，明辨之，篤行之
 date: 2015-03-01 08:47:29
 summary: "Today I finally finished learning \"Pro Node.js\" (深入浅出 Node.js) written by Mr. Pu Ling. This book is not a simple Node introductory book. It does not stay at the level of Node introduction or usage of frameworks and libraries, but reveals Node's own internal characteristics and structure from different perspectives. It is recommended for students who have a certain Node foundation or have done small projects in Node. After reading it, your thinking will have very peculiar collisions. When I read it, I often had such thoughts: \"Oh, so this function is implemented like this\". The following article is some learning records of my second reading of \"Pro Node.js\", and draw mind maps through the Baidu mind map tool, writing my learning summary under this article every day ..."
 categories: Study

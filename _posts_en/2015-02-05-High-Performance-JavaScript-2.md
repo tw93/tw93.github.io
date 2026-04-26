@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Data Access Performance Optimization of JavaScript
+poem: 臨淵羨魚，不如退而結網
 date: 2015-02-05 11:21:29
 summary: "There are four basic data storage locations in JavaScript: literals, variables, array elements, and object members. Like other languages, the storage location of data will greatly affect its reading speed ..."
 categories: Study

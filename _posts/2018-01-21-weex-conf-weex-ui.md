@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weex + Ui - Weex Conf 2018
+poem: 長風破浪會有時，直掛雲帆濟滄海
 date: 2018-01-21 16:00:00
 summary: 本文是2018年 Weex Conf 中议题《Weex + Ui》的内容文档整理，主要给大家介绍飞猪 Weex 技术体系从无到有的过程，包括 Weex Ui 组件库的开发和发展，重点分享在 Weex Ui 层建设的一些经验。
 categories: Share

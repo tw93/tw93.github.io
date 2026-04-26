@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ajax Performance Optimization
+poem: 以逸待勞
 date: 2015-02-14 21:47:29
 summary: Ajax is the foundation of high-performance JavaScript. It can make page loads faster by delaying the download of larger resource files. It passes data between the client and the server asynchronously, thereby avoiding batch downloading of page resources. it can even get resources for the entire page with just one HTTP request. Choosing appropriate transmission methods and most effective data formats can significantly improve the interaction experience between users and websites ...
 categories: Study

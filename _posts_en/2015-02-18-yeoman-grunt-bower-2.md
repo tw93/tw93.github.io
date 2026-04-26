@@ -1,6 +1,7 @@
---- 
+---
 layout: post
 title: Front-end Development Workflow Tool Grunt
+poem: 磨刀不誤砍柴工
 date: 2015-02-18 21:47:29
 summary: In the previous article, we introduced the front-end package manager Bower. This time, we come to understand the front-end application development workflow tool Grunt. In the process of JavaScript development, we often encounter some repetitive tasks, such as checking if syntax is correct, compressing code, and merging files. In the past, we would choose different tools to complete different tasks, but this felt both complex and time-consuming. But now with Grunt, Grunt was invented precisely to solve these problems. It can help us automatically manage and run various JavaScript tasks, simplifying our workflow ...
 categories: Study

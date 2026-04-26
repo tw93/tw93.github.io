@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using React to Improve Angular's Rendering Performance
+poem: 青出於藍，而勝於藍
 date: 2015-02-23 21:47:29
 summary: Have you ever encountered performance problems when using Angular? Using React can make pages render faster. Below, through several cases, compare the performance differences between using React to render Angular and directly using Angular to render ...
 categories: Study

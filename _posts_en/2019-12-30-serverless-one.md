@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fliggy Serverless System Construction S1
+poem: 萬事開頭難
 date: 2019-12-30 16:00:00
 summary: It has been almost 1 year since the Fliggy Serverless technology system construction project was initiated last April. During this period, experienced group infrastructure research and multi-BU communication, formulated solution goals around the pain points of Fliggy front and back end cooperative development, to the construction of Sky Island R&D platform and gateway, the launch of pilot business, and then to the merger of Sky Island, Lander, and DEF to build a unified FaaS R&D platform, as well as construction around various development experiences and stability, and now to the Serverless transformation of 14 business scenarios, completing a preliminary stage.
 categories: Share

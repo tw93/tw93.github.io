@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 我对 Flexbox 布局模式的理解
+poem: 橫看成嶺側成峰
 date: 2015-10-17 21:47:29
 summary: Flexbox，一种 CSS3 的布局模式，也叫做弹性盒子模型，用来为盒装模型提供最大的灵活性 ...
 categories: Study

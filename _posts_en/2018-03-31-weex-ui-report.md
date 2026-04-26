@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      Weex Ui Half-Year Open Source Road
+poem: 不積跬步，無以至千里
 date:       2018-03-31 16:00:00
 summary: "Weex Ui was open sourced on September 30 last year. It has been exactly half a year since today. This article intends to share the Weex Ui half-year open source road from 5 parts: origin, positioning, status quo, development, and outlook."
 categories: Share

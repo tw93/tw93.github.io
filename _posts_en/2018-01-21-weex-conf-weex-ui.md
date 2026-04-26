@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weex + Ui - Weex Conf 2018
+poem: 長風破浪會有時，直掛雲帆濟滄海
 date: 2018-01-21 16:00:00
 summary: This article is the organized content document of the topic "Weex + Ui" in Weex Conf 2018. Mainly introduces the process of Fliggy Weex technology system from scratch, including the development and growth of Weex Ui component library, focusing on sharing some experiences in Weex Ui layer construction.
 categories: Share

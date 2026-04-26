@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fliggy Serverless at GMTC
+poem: 為者常成，行者常至
 date: 2021-07-05 16:00:00
 summary: A sharing of the department's Serverless construction at the 2021 Beijing GMTC Global Frontend Developer Conference. I won the "Star Lecturer" on the spot and also met many friends. A very good experience.
 categories: Share

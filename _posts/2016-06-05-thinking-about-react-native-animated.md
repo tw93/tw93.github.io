@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      React Native 动画研究
+poem: 動中有靜，靜中有動
 date:       2016-06-05 21:47:29
 summary:    本次专题文章的题目为《ReactNative 动画研究》，既然叫研究，那我们就争取一次将 RN 动画相关的内容都说清楚，提出问题-论证问题-解决问题的方式来研究 ...
 categories: Study

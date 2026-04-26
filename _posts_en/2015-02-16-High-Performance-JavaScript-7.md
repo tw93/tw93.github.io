@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      Performance Optimization in JavaScript Programming Practices
+poem: 熟讀唐詩三百首，不會作詩也會吟
 date:       2015-02-16 21:47:29
 summary:    Every programming language has its "pain points," and over time, its existing inefficient patterns also continue to develop. JavaScript presents some unique performance challenges, which are related to the way your code is organized. As web applications become more advanced and contain more and more JavaScript code, various patterns and anti-patterns gradually appear. To write more efficient code, please keep these programming practices in mind ...
 categories: Study 

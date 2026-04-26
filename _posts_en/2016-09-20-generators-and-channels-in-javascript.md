@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Generators and Channels in JavaScript
+poem: 山窮水復疑無路，柳暗花明又一村
 date: 2016-09-20 21:47:29
 summary: The following article is an introduction to Generator and Channel. If you have learned about Promise, Generator, Coroutine and Channel, you can skip directly to the Using Generators and Channels with React part. Although these cases may not be very suitable for real project environments, it can be seen as a starting point, try to practice possible places through this method ...
 categories: Study

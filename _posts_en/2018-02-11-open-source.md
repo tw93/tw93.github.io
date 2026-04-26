@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      What Mentality Should Be Used to Treat Open Source?
+poem: 上善若水，水利萬物而不爭
 date:       2018-02-11 16:00:00
 summary:    A Q&A record on Zhihu, `What mentality should be used to treat open source?`
 categories: Thought

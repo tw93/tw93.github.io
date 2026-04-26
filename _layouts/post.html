@@ -3,19 +3,50 @@ layout: base
 body_id: post
 ---
 
-<article class="hentry">
-  <div class="entry-content {% if page.url contains '/en/' %}{% else %}heti{% endif %}">
-    <h1 class="post-title entry-title">{{ page.title }}</h1>
-    <h4 class="page-info">
-      <span>Categories: {{page.categories}}</span>
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      <div class="qr-text" id="J_qr_text">
-        <div id="J_qr_code" class="qr-code" aria-label="QR code for this page" role="img"></div>
-      </div>
-    </h4>
-    {{ content | cdn_image_filter }}
-    {% include buy-me-coffee.html %}
+<div class="post-shell">
+  <article class="hentry">
+    <div class="entry-content {% if page.url contains '/en/' %}{% else %}heti{% endif %}">
+      <h1 class="post-title entry-title">{{ page.title }}</h1>
+      <h4 class="page-info">
+        <span>Categories: {{page.categories}}</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+        <div class="qr-text" id="J_qr_text">
+          <div id="J_qr_code" class="qr-code" aria-label="QR code for this page" role="img"></div>
+        </div>
+      </h4>
+      {{ content | cdn_image_filter }}
+      {% include buy-me-coffee.html %}
+    </div>
+  </article>
+
+  <aside class="post-toc" id="J_post_toc" hidden aria-label="On this page">
+    <div class="post-toc-inner">
+      <button class="post-toc-desktop-toggle" id="J_post_toc_desktop_toggle" type="button" aria-label="Hide contents" title="Hide contents" aria-expanded="true" aria-controls="J_post_toc_nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 3h6l-1 5 3 3v2h-4l-1 8-1-8H7v-2l3-3-1-5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path>
+        </svg>
+      </button>
+      <nav class="post-toc-nav" id="J_post_toc_nav"></nav>
+    </div>
+  </aside>
+</div>
+
+<button class="post-toc-toggle" id="J_post_toc_toggle" type="button" hidden aria-expanded="false" aria-controls="J_post_toc_drawer">
+  Contents
+</button>
+
+<div class="post-toc-drawer" id="J_post_toc_drawer" hidden>
+  <div class="post-toc-backdrop" data-toc-close></div>
+  <div class="post-toc-panel" role="dialog" aria-modal="true" aria-labelledby="J_post_toc_drawer_title">
+    <div class="post-toc-panel-header">
+      <div class="post-toc-title" id="J_post_toc_drawer_title">On this page</div>
+      <button class="post-toc-close" type="button" aria-label="Close contents" data-toc-close>Close</button>
+    </div>
+    <nav class="post-toc-nav" id="J_post_toc_drawer_nav"></nav>
   </div>
+</div>
+
+<div class="post-followup">
   {% include giscus.html %}
   {% include read-more.html %}
-</article>
+</div>

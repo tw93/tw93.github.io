@@ -7,16 +7,16 @@
     {% if current_page > 1 %}
     {% assign previous_page = current_page | minus: 1 %}
     {% if previous_page == 1 %}
-    <li><a href="{{ site.url }}/en/" class="btn-arrow">&lt;</a></li>
+    <li><a href="{{ '/en/' | relative_url }}" class="btn-arrow">&lt;</a></li>
     {% else %}
-    <li><a href="{{ site.url }}/en/page{{ previous_page }}/" class="btn-arrow">&lt;</a></li>
+    <li><a href="{{ '/en/page' | append: previous_page | append: '/' | relative_url }}" class="btn-arrow">&lt;</a></li>
     {% endif %}
     {% endif %}
 
     {% if current_page == 1 %}
     <li><strong class="current-page">1</strong></li>
     {% else %}
-    <li><a href="{{ site.url }}/en/">1</a></li>
+    <li><a href="{{ '/en/' | relative_url }}">1</a></li>
     {% endif %}
 
     {% assign page_start = 2 %}
@@ -35,7 +35,7 @@
     {% if index == current_page %}
     <li><strong class="current-page">{{ index }}</strong></li>
     {% else %}
-    <li><a href="{{ site.url }}/en/page{{ index }}/">{{ index }}</a></li>
+    <li><a href="{{ '/en/page' | append: index | append: '/' | relative_url }}">{{ index }}</a></li>
     {% endif %}
     {% endfor %}
 
@@ -46,12 +46,12 @@
     {% if current_page == total_pages %}
     <li><strong class="current-page">{{ total_pages }}</strong></li>
     {% else %}
-    <li><a href="{{ site.url }}/en/page{{ total_pages }}/">{{ total_pages }}</a></li>
+    <li><a href="{{ '/en/page' | append: total_pages | append: '/' | relative_url }}">{{ total_pages }}</a></li>
     {% endif %}
 
     {% if current_page < total_pages %}
     {% assign next_page = current_page | plus: 1 %}
-    <li><a href="{{ site.url }}/en/page{{ next_page }}/" class="btn-arrow">&gt;</a></li>
+    <li><a href="{{ '/en/page' | append: next_page | append: '/' | relative_url }}" class="btn-arrow">&gt;</a></li>
     {% endif %}
   </ul>
 </div>

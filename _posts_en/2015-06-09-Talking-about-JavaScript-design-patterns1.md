@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Brief Talk on Object-Oriented JavaScript
+poem: 繩鋸木斷，水滴石穿
 date: 2015-06-09 21:47:29
 summary: Recently I have been learning "JavaScript Design Patterns" written by Ross Harmes/Dustin Diaz. I read this book about twice and gained a lot. This book is suitable for students who want to study JavaScript deeply to increase your internal strength. It can help you enhance your understanding of JavaScript object-oriented, while learning various specific design patterns, knowing what occasions these design patterns should be used in, and how to implement them, to write more elegant code. This article is used to summarize my reading notes ...
 categories: Study

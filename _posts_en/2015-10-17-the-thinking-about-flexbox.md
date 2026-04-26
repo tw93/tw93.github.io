@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My Understanding of Flexbox Layout Mode
+poem: 橫看成嶺側成峰
 date: 2015-10-17 21:47:29
 summary: Flexbox, a CSS3 layout mode, also known as the flexible box model, is used to provide maximum flexibility for the box model ...
 categories: Study

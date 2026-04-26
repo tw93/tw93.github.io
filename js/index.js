@@ -5,6 +5,8 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  initPostToc();
+
   var zoomImgs = Array.prototype.slice.call(document.querySelectorAll('.entry-content img'));
   if (zoomImgs.length > 0) {
 
@@ -329,4 +331,192 @@ function addCodeCopy() {
       });
     });
   });
+}
+
+function initPostToc() {
+  if (!document.body || document.body.id !== 'post') return;
+
+  var MAX_TOC_ITEMS = 14;
+
+  var content = document.querySelector('.entry-content');
+  var toc = document.getElementById('J_post_toc');
+  var tocNav = document.getElementById('J_post_toc_nav');
+  var desktopToggle = document.getElementById('J_post_toc_desktop_toggle');
+  var drawer = document.getElementById('J_post_toc_drawer');
+  var drawerNav = document.getElementById('J_post_toc_drawer_nav');
+  var toggle = document.getElementById('J_post_toc_toggle');
+  var desktopCollapsed = false;
+
+  if (!content || !toc || !tocNav || !desktopToggle || !drawer || !drawerNav || !toggle) return;
+
+  var headings = Array.prototype.slice.call(content.querySelectorAll('h2, h3')).filter(function (heading) {
+    return heading.textContent && heading.textContent.trim();
+  });
+
+  if (headings.length < 5) return;
+
+  var slugCounts = Object.create(null);
+
+  var slugify = function (text, index) {
+    var base = text
+      .trim()
+      .toLowerCase()
+      .replace(/[^\w\u00C0-\u024F\u4E00-\u9FFF\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    if (!base) {
+      base = 'section-' + (index + 1);
+    }
+
+    var nextCount = (slugCounts[base] || 0) + 1;
+    slugCounts[base] = nextCount;
+    return nextCount > 1 ? base + '-' + nextCount : base;
+  };
+
+  var tocItems = headings.map(function (heading, index) {
+    var id = heading.id || slugify(heading.textContent, index);
+    if (!heading.id) {
+      heading.id = id;
+    }
+
+    return {
+      element: heading,
+      id: id,
+      text: heading.textContent.trim(),
+      level: heading.tagName.toLowerCase()
+    };
+  });
+
+  var tocVisibleItems = tocItems;
+  var hasChildHeadings = tocItems.some(function (item) {
+    return item.level === 'h3';
+  });
+
+  if (hasChildHeadings && tocItems.length > MAX_TOC_ITEMS) {
+    tocVisibleItems = tocItems.filter(function (item) {
+      return item.level === 'h2';
+    });
+  }
+
+  var buildNav = function (target) {
+    target.innerHTML = '';
+
+    tocVisibleItems.forEach(function (item) {
+      var link = document.createElement('a');
+      link.className = 'post-toc-link' + (item.level === 'h3' ? ' is-child' : '');
+      link.href = '#' + item.id;
+      link.textContent = item.text;
+      link.setAttribute('data-toc-id', item.id);
+      target.appendChild(link);
+    });
+  };
+
+  buildNav(tocNav);
+  buildNav(drawerNav);
+
+  function syncDesktopState() {
+    toc.classList.toggle('is-collapsed', desktopCollapsed);
+    desktopToggle.setAttribute('aria-expanded', desktopCollapsed ? 'false' : 'true');
+    desktopToggle.classList.toggle('is-collapsed', desktopCollapsed);
+    desktopToggle.setAttribute('aria-label', desktopCollapsed ? 'Show contents' : 'Hide contents');
+    desktopToggle.setAttribute('title', desktopCollapsed ? 'Show contents' : 'Hide contents');
+  }
+
+  toc.hidden = false;
+  toggle.hidden = false;
+  drawer.hidden = false;
+
+  document.body.classList.add('has-post-toc');
+  syncDesktopState();
+
+  var mobileQuery = window.matchMedia('(max-width: 87.9375em)');
+
+  var syncTocMode = function () {
+    document.body.classList.toggle('has-post-toc-mobile', mobileQuery.matches);
+    if (!mobileQuery.matches) {
+      closeDrawer();
+    }
+  };
+
+  var setActive = function (id) {
+    var links = document.querySelectorAll('.post-toc-link');
+    links.forEach(function (link) {
+      link.classList.toggle('is-active', link.getAttribute('data-toc-id') === id);
+    });
+  };
+
+  var computeActiveHeading = function () {
+    var pivot = window.innerHeight * 0.22;
+    var activeId = tocVisibleItems[0].id;
+
+    tocVisibleItems.forEach(function (item) {
+      if (item.element.getBoundingClientRect().top <= pivot) {
+        activeId = item.id;
+      }
+    });
+
+    setActive(activeId);
+  };
+
+  var ticking = false;
+  var onScroll = function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      computeActiveHeading();
+      ticking = false;
+    });
+  };
+
+  function openDrawer() {
+    drawer.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('is-toc-open');
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('is-toc-open');
+  }
+
+  toggle.addEventListener('click', function () {
+    if (drawer.classList.contains('is-open')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
+  drawer.querySelectorAll('[data-toc-close]').forEach(function (element) {
+    element.addEventListener('click', closeDrawer);
+  });
+
+  drawer.querySelectorAll('.post-toc-link').forEach(function (link) {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  desktopToggle.addEventListener('click', function () {
+    desktopCollapsed = !desktopCollapsed;
+    syncDesktopState();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
+      closeDrawer();
+    }
+  });
+
+  if (typeof mobileQuery.addEventListener === 'function') {
+    mobileQuery.addEventListener('change', syncTocMode);
+  } else if (typeof mobileQuery.addListener === 'function') {
+    mobileQuery.addListener(syncTocMode);
+  }
+
+  syncTocMode();
+  computeActiveHeading();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
 }

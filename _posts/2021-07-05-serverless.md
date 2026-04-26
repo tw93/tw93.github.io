@@ -1,6 +1,7 @@
 ---
 layout: post
 title: GMTC 飞猪 Serverless 技术探索和落地
+poem: 為者常成，行者常至
 date: 2020-07-05 16:00:00
 summary: 2021 年北京 GMTC 全球前端开发者大会上，我这边对于部门 Serverless 建设的一个分享，当场还拿到了 「明星讲师」，同时也认识了不少朋友，一次很好的经历。
 categories: Share

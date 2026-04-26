@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Front-end Development Workflow Tools Cmder and Bower
+poem: 不積小流，無以成江海
 date: 2015-02-17 21:21:29
 summary: "Front-end development is indeed not the same as before. If we say that our past front-end development was in the \"slash-and-burn\" era, then current front-end development has undoubtedly entered the era of \"factory production\". In recent years, with the emergence of Node.js, many excellent front-end development management tools have appeared, which greatly facilitates our front-end development. Indeed Node.js is the best gift from God to our front-end development engineers. In the following articles, I will introduce some excellent tools needed in the front-end development process: Cmder, Bower, Grunt, Yeoman ..."
 categories: Study

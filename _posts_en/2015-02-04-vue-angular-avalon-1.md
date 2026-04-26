@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Comparison of Vue, Angular, Avalon Frameworks
+poem: 殊途同歸
 date: 2015-02-04 10:21:29
 summary: Front-end development is no longer the front-end development of a few years ago. It has entered the industrial era from the agricultural era. In recent years, many excellent MVVM frameworks in JavaScript have appeared. Today I compare the advantages and disadvantages of frameworks like Vue, Angular, Avalon ...
 categories: Study

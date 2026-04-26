@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Can We Do Better Than The Click?
+poem: 見微知著
 date: 2015-03-30 21:47:29
 summary: Responding to user input is the core of our interface development. To build responsive Web products, the key is to understand how touch, mouse, pointer, keyboard operations and browsers work. You may have experienced a 300 ms delay in mobile browsers or discomfort caused by scrolling through touch. In this article, we will introduce event cascading and use this knowledge to implement a demo of a tap click event, which supports many input methods without violating the proxy browser rules like Opera Mini ...
 categories: Study
