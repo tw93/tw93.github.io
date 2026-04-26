@@ -368,6 +368,7 @@ iframe {
   h3 {
     margin: 0;
     font-size: 22px;
+    line-height: 1.35;
     @media #{$medium} {
       font-size: 30px;
     }
