@@ -85,7 +85,7 @@ main {
 }
 
 main {
-  font-family: "TsangerJinKai02", Charter, "Source Serif Pro", Georgia,
+  font-family: Charter, "Source Serif Pro", Georgia, "TsangerJinKai02",
     "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   letter-spacing: 0.5px;
