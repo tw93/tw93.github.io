@@ -342,12 +342,9 @@ function initPostToc() {
   var toc = document.getElementById('J_post_toc');
   var tocNav = document.getElementById('J_post_toc_nav');
   var desktopToggle = document.getElementById('J_post_toc_desktop_toggle');
-  var drawer = document.getElementById('J_post_toc_drawer');
-  var drawerNav = document.getElementById('J_post_toc_drawer_nav');
-  var toggle = document.getElementById('J_post_toc_toggle');
-  var desktopCollapsed = false;
+  var desktopCollapsed = localStorage.getItem('toc-collapsed') === '1';
 
-  if (!content || !toc || !tocNav || !desktopToggle || !drawer || !drawerNav || !toggle) return;
+  if (!content || !toc || !tocNav || !desktopToggle) return;
 
   var headings = Array.prototype.slice.call(content.querySelectorAll('h2, h3')).filter(function (heading) {
     return heading.textContent && heading.textContent.trim();
@@ -414,7 +411,6 @@ function initPostToc() {
   };
 
   buildNav(tocNav);
-  buildNav(drawerNav);
 
   function syncDesktopState() {
     toc.classList.toggle('is-collapsed', desktopCollapsed);
@@ -425,24 +421,12 @@ function initPostToc() {
   }
 
   toc.hidden = false;
-  toggle.hidden = false;
-  drawer.hidden = false;
 
   document.body.classList.add('has-post-toc');
   syncDesktopState();
 
-  var mobileQuery = window.matchMedia('(max-width: 87.9375em)');
-
-  var syncTocMode = function () {
-    document.body.classList.toggle('has-post-toc-mobile', mobileQuery.matches);
-    if (!mobileQuery.matches) {
-      closeDrawer();
-    }
-  };
-
   var setActive = function (id) {
-    var links = document.querySelectorAll('.post-toc-link');
-    links.forEach(function (link) {
+    tocNav.querySelectorAll('.post-toc-link').forEach(function (link) {
       link.classList.toggle('is-active', link.getAttribute('data-toc-id') === id);
     });
   };
@@ -470,52 +454,33 @@ function initPostToc() {
     });
   };
 
-  function openDrawer() {
-    drawer.classList.add('is-open');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('is-toc-open');
-  }
+  var pinTimer = null;
 
-  function closeDrawer() {
-    drawer.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('is-toc-open');
-  }
-
-  toggle.addEventListener('click', function () {
-    if (drawer.classList.contains('is-open')) {
-      closeDrawer();
-    } else {
-      openDrawer();
+  desktopToggle.addEventListener('mouseenter', function () {
+    if (desktopCollapsed) {
+      clearTimeout(pinTimer);
+      toc.classList.add('show-pin');
     }
   });
 
-  drawer.querySelectorAll('[data-toc-close]').forEach(function (element) {
-    element.addEventListener('click', closeDrawer);
-  });
-
-  drawer.querySelectorAll('.post-toc-link').forEach(function (link) {
-    link.addEventListener('click', closeDrawer);
+  desktopToggle.addEventListener('mouseleave', function () {
+    if (desktopCollapsed) {
+      clearTimeout(pinTimer);
+      pinTimer = setTimeout(function () { toc.classList.remove('show-pin'); }, 2000);
+    }
   });
 
   desktopToggle.addEventListener('click', function () {
     desktopCollapsed = !desktopCollapsed;
+    localStorage.setItem('toc-collapsed', desktopCollapsed ? '1' : '0');
     syncDesktopState();
-  });
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
-      closeDrawer();
+    clearTimeout(pinTimer);
+    toc.classList.remove('show-pin');
+    if (desktopCollapsed) {
+      toc.classList.add('show-pin');
     }
   });
 
-  if (typeof mobileQuery.addEventListener === 'function') {
-    mobileQuery.addEventListener('change', syncTocMode);
-  } else if (typeof mobileQuery.addListener === 'function') {
-    mobileQuery.addListener(syncTocMode);
-  }
-
-  syncTocMode();
   computeActiveHeading();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
