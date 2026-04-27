@@ -341,10 +341,7 @@ function initPostToc() {
   var content = document.querySelector('.entry-content');
   var toc = document.getElementById('J_post_toc');
   var tocNav = document.getElementById('J_post_toc_nav');
-  var desktopToggle = document.getElementById('J_post_toc_desktop_toggle');
-  var desktopCollapsed = localStorage.getItem('toc-collapsed') === '1';
-
-  if (!content || !toc || !tocNav || !desktopToggle) return;
+  if (!content || !toc || !tocNav) return;
 
   var headings = Array.prototype.slice.call(content.querySelectorAll('h2, h3')).filter(function (heading) {
     return heading.textContent && heading.textContent.trim();
@@ -397,12 +394,14 @@ function initPostToc() {
     });
   }
 
+  var allH3 = tocVisibleItems.every(function (item) { return item.level === 'h3'; });
+
   var buildNav = function (target) {
     target.innerHTML = '';
 
     tocVisibleItems.forEach(function (item) {
       var link = document.createElement('a');
-      link.className = 'post-toc-link' + (item.level === 'h3' ? ' is-child' : '');
+      link.className = 'post-toc-link' + (!allH3 && item.level === 'h3' ? ' is-child' : '');
       link.href = '#' + item.id;
       link.textContent = item.text;
       link.setAttribute('data-toc-id', item.id);
@@ -412,18 +411,9 @@ function initPostToc() {
 
   buildNav(tocNav);
 
-  function syncDesktopState() {
-    toc.classList.toggle('is-collapsed', desktopCollapsed);
-    desktopToggle.setAttribute('aria-expanded', desktopCollapsed ? 'false' : 'true');
-    desktopToggle.classList.toggle('is-collapsed', desktopCollapsed);
-    desktopToggle.setAttribute('aria-label', desktopCollapsed ? 'Show contents' : 'Hide contents');
-    desktopToggle.setAttribute('title', desktopCollapsed ? 'Show contents' : 'Hide contents');
-  }
-
   toc.hidden = false;
 
   document.body.classList.add('has-post-toc');
-  syncDesktopState();
 
   var setActive = function (id) {
     tocNav.querySelectorAll('.post-toc-link').forEach(function (link) {
@@ -453,33 +443,6 @@ function initPostToc() {
       ticking = false;
     });
   };
-
-  var pinTimer = null;
-
-  desktopToggle.addEventListener('mouseenter', function () {
-    if (desktopCollapsed) {
-      clearTimeout(pinTimer);
-      toc.classList.add('show-pin');
-    }
-  });
-
-  desktopToggle.addEventListener('mouseleave', function () {
-    if (desktopCollapsed) {
-      clearTimeout(pinTimer);
-      pinTimer = setTimeout(function () { toc.classList.remove('show-pin'); }, 2000);
-    }
-  });
-
-  desktopToggle.addEventListener('click', function () {
-    desktopCollapsed = !desktopCollapsed;
-    localStorage.setItem('toc-collapsed', desktopCollapsed ? '1' : '0');
-    syncDesktopState();
-    clearTimeout(pinTimer);
-    toc.classList.remove('show-pin');
-    if (desktopCollapsed) {
-      toc.classList.add('show-pin');
-    }
-  });
 
   computeActiveHeading();
   window.addEventListener('scroll', onScroll, { passive: true });

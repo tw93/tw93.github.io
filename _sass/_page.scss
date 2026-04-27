@@ -297,47 +297,7 @@ iframe {
     padding: 4px 0 0;
   }
 
-  .post-toc-desktop-toggle {
-    position: absolute;
-    top: -20px;
-    left: -4px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    padding: 4px;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    color: rgba($text-color, 0.58);
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: auto;
-    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-
-    &:hover {
-      color: $header-color;
-    }
-
-    &:focus-visible {
-      opacity: 1;
-      pointer-events: auto;
-      color: $header-color;
-      outline: none;
-    }
-
-    svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    &.is-collapsed {
-      transform: rotate(45deg);
-    }
-  }
-
-  .post-toc-nav {
+.post-toc-nav {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -350,9 +310,9 @@ iframe {
     padding: 6px 6px;
     border-radius: 10px;
     color: rgba($text-color, 0.7);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.28;
     text-decoration: none;
     transition: color 0.2s ease, background-color 0.2s ease;
 
@@ -363,7 +323,7 @@ iframe {
     &.is-child {
       padding-left: 16px;
       color: rgba($text-color, 0.52);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
     }
 
@@ -374,25 +334,10 @@ iframe {
   }
 
   .post-toc {
-    &:not(.is-collapsed):hover .post-toc-desktop-toggle,
-    &:not(.is-collapsed):focus-within .post-toc-desktop-toggle {
-      opacity: 1;
-    }
-
-    &.show-pin .post-toc-desktop-toggle {
-      opacity: 1;
-    }
-
     .post-toc-link {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-    }
-
-    &.is-collapsed {
-      .post-toc-nav {
-        display: none;
-      }
     }
   }
 
@@ -417,8 +362,8 @@ iframe {
     .post-toc {
       display: block;
       position: absolute;
-      top: -10px;
-      left: calc(100% + 28px);
+      top: -4px;
+      left: calc(100% + 24px);
       width: 260px;
       height: 100%;
       min-height: 32px;
@@ -427,14 +372,6 @@ iframe {
     .post-toc-inner {
       position: sticky;
       top: 88px;
-    }
-
-    .post-shell:hover .post-toc.is-collapsed,
-    .post-shell:focus-within .post-toc.is-collapsed {
-      .post-toc-desktop-toggle {
-        opacity: 1;
-        pointer-events: auto;
-      }
     }
 
     .post-followup {
