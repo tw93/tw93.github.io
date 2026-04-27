@@ -761,10 +761,6 @@ body#post.is-toc-open {
   svg {
     margin-top: 60px;
   }
-  .entry-header-copy {
-    opacity: 0;
-    animation: entry-header-copy-in 560ms ease-out 60ms forwards;
-  }
   canvas {
     position: absolute;
     left: 0;
@@ -772,17 +768,6 @@ body#post.is-toc-open {
   }
   @media #{$medium} {
     display: block;
-  }
-}
-
-@keyframes entry-header-copy-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
