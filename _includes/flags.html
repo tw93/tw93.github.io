@@ -34,11 +34,11 @@
 {% comment %} Not on a post page, use simple homepage links {% endcomment %}
 {% if page.url contains '/en/' %}
 <li class="header-item language-item">
-  <a href="/" class="language-switch" aria-label="Switch to Chinese">中</a>
+  <a href="{% if page.lang_equivalent %}{{ page.lang_equivalent }}{% else %}/{% endif %}" class="language-switch" aria-label="Switch to Chinese">中</a>
 </li>
 {% else %}
 <li class="header-item language-item">
-  <a href="/en/" class="language-switch" aria-label="Switch to English">En</a>
+  <a href="{% if page.lang_equivalent %}{{ page.lang_equivalent }}{% else %}/en/{% endif %}" class="language-switch" aria-label="Switch to English">En</a>
 </li>
 {% endif %}
 {% endif %}

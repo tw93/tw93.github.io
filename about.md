@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: /about.html
 hideHomeActive: true
+lang_equivalent: /en/about.html
 ---
 
 ## 关于我

@@ -4,6 +4,7 @@ title: About
 permalink: /en/about.html
 hideHomeActive: true
 lang: en-US
+lang_equivalent: /about.html
 ---
 
 ## About Me
