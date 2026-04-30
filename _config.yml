@@ -63,7 +63,7 @@ collections:
     permalink: /en/:year-:month-:day/:title.html
     sort_by: date
 
-include: [".htaccess", "robots.txt", "llms.txt", "llms-full.txt", "api", "projects"]
+include: [".htaccess", "robots.txt", "llms.txt", "llms-full.txt", "api", "projects", "ai.md"]
 exclude:
   [
     "Gemfile",
