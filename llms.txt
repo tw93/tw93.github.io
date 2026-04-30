@@ -1,0 +1,20 @@
+# Tw93 Blog
+
+> Personal blog by Tw93 (Tang), a product engineer from Hangzhou. Posts on product engineering, AI-assisted coding, macOS development, and design.
+
+## Author
+
+Tw93 is a product engineer who builds open source developer tools. 130K+ GitHub stars across projects including Pake, MiaoYan, Kaku, Mole, Waza, and Kami.
+
+## Content
+
+- ~188 blog posts in Chinese and English
+- Topics: product engineering, AI coding workflows, Rust/Swift/TypeScript, design thinking
+- RSS: https://tw93.fun/feed.xml
+
+## Links
+
+- GitHub: https://github.com/tw93
+- Twitter: https://twitter.com/HiTw93
+- Weekly Newsletter: https://weekly.tw93.fun
+- AI Profile: https://yobi.tw93.fun/llms-full.txt
