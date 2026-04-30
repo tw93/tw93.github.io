@@ -45,5 +45,21 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+# AI Search Bots (retrieval-only, not training)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
 # Crawl-delay to be respectful
 Crawl-delay: 1
