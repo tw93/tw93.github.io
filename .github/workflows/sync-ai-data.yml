@@ -16,18 +16,21 @@ jobs:
 
       - name: Fetch data from Yobi
         run: |
-          mkdir -p api
+          mkdir -p api projects
           curl -sf https://yobi.tw93.fun/llms-full.txt -o llms-full.txt
           curl -sf https://yobi.tw93.fun/api/profile -o api/profile.json
           curl -sf https://yobi.tw93.fun/api/projects -o api/projects.json
           curl -sf https://yobi.tw93.fun/api/blog -o api/blog.json
           curl -sf https://yobi.tw93.fun/api/weekly -o api/weekly.json
+          for slug in pake kaku miaoyan mole waza kami; do
+            curl -sf "https://yobi.tw93.fun/projects/${slug}" -o "projects/${slug}.md"
+          done
 
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add llms-full.txt api/
+          git add llms-full.txt api/ projects/
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
