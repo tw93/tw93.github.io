@@ -19,9 +19,9 @@ I hate SEO companies that flood the internet with garbage content, so the bottom
 
 Why were my projects showing up without any effort? I looked into it and found that AI search works on entirely different logic from traditional search. Traditional SEO is about fighting into the top 10, but 83% of AI Overview citations come from pages outside the traditional top 10. AI rewards clear structure and reliable sourcing, with little connection to PageRank.
 
-That's actually good news for someone who builds small tools. My projects aren't big, but the READMEs and docs are fairly well-written. AI picks them up where bigger sites have thin content. That's probably why friends were seeing Pake and MiaoYan when they asked AI.
+My projects aren't big, but the READMEs and docs are fairly well-written. AI picks them up where bigger sites have thin content. That's probably why friends were seeing Pake and MiaoYan when they asked AI.
 
-Don't get too excited, though. AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But AI search still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week.
+AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But it still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week.
 
 <img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
 
@@ -226,13 +226,13 @@ My friend [@yaojingang](https://github.com/yaojingang) has been doing serious re
 
 **AI favors specificity.** Pages with real data, clear definitions, and side-by-side comparisons see over 50% higher impact than vague, general pages. Step-by-step structure also helps noticeably. Pure FAQ format actually hurts. Those GEO tools that tell you "add FAQ to boost your score" are giving advice the data contradicts, which also validates my decision to drop FAQ sections from my own pages.
 
-**Write deep enough to be worth citing.** AI doesn't favor short summaries. It favors long content it can slice into reusable segments. High-impact pages average nearly 2,000 words with 10+ headings. Low-impact pages average just 170 words, over a 10x gap. The sweet spot is 1,000 to 3,000 words.
+**Content depth.** AI doesn't favor short summaries. It favors long content it can slice into reusable segments. High-impact pages average nearly 2,000 words with 10+ headings. Low-impact pages average just 170 words, over a 10x gap. The sweet spot is 1,000 to 3,000 words.
 
-**Relevance beats everything.** All mechanical SEO metrics (heading hierarchy, meta descriptions, keyword density) predict less than one single variable: whether your page content actually answers the question the user asked.
+**Relevance.** All mechanical SEO metrics (heading hierarchy, meta descriptions, keyword density) predict less than one single variable: whether your page content actually answers the question the user asked.
 
 **ChatGPT and Perplexity want different things.** ChatGPT cites fewer sources but uses each deeply; its per-citation impact is over 5x that of Google. Perplexity casts a wider net, citing more than twice as many sources. To get cited by ChatGPT, go deep on individual pages. To get cited by Perplexity, go wide.
 
-**News gets you into the pool; explainer pages get you absorbed.** Official websites, news, and industry verticals account for roughly 80% of citation sources. But encyclopedia-style and explainer pages have 3x the impact of news pages. English content accounts for over 83% of global citation samples, so projects targeting an international audience need English versions.
+**Content type.** Official websites, news, and industry verticals account for roughly 80% of citation sources. But encyclopedia-style and explainer pages have 3x the impact of news pages. English content accounts for over 83% of global citation samples, so projects targeting an international audience need English versions.
 
 ### Retrieved Doesn't Mean Cited
 
@@ -245,8 +245,6 @@ Brands get cited 6.5x more often through third-party sources than through their 
 One more pitfall I ran into: there are AI SEO audit tools that score your site and tell you to add FAQ sections, trust pages, or more text. I once added a FAQ to Yobi that just restated what the About section already said, purely to push the score up. That's padding, not improving. The test is simple: does every paragraph you add contain information that isn't already on the page? If not, don't add it.
 
 ---
-
-## Wrapping Up
 
 I believe in proactively structuring the content you already have so AI can understand it better, rather than chasing short-term tricks or manufacturing garbage to game citations. Everything here is about helping AI understand your content accurately, giving it a good working environment, not gaming rankings. That approach lasts longer than any shortcut.
 
