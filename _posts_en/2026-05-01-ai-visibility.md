@@ -7,6 +7,8 @@ feature: https://gw.alipayobjects.com/zos/k/w5/ai.png
 categories: Share
 ---
 
+<img src="https://gw.alipayobjects.com/zos/k/w5/ai.png" alt="AI visibility cover" width="1000" />
+
 ## One Hour to Make AI Find Your Content
 
 A few friends pinged me recently saying my open source tools were showing up when they asked AI questions. I hadn't done anything deliberate, so I figured: why not spend an hour structuring things properly? After doing it, I fired off a quick tweet, but the notes were messy. People seemed genuinely interested, so I decided to write it up as a proper article for reference.

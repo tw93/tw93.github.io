@@ -7,6 +7,8 @@ feature: https://gw.alipayobjects.com/zos/k/w5/ai.png
 categories: Share
 ---
 
+<img src="https://gw.alipayobjects.com/zos/k/w5/ai.png" alt="AI 可见性封面图" width="1000" />
+
 ## 花一小时让 AI 找到你的内容
 
 这几天有好几个小伙伴@我说，我的开源工具在他们问 AI 的时候被主动推荐了，啥也没做居然可以被收录，想着要不花一个小时把内容结构化整一整，应该会更好，于是整好以后，快速发了一个速记推，但是内容结构不清晰，想着大家很感兴趣，那要不就整一个结构清晰的文章便于沉淀和查找。
