@@ -224,13 +224,13 @@ The GEO paper from Princeton and IIT Delhi, published at KDD 2024, found that ad
 
 My friend [@yaojingang](https://github.com/yaojingang) has been doing serious research on GEO. His [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) ran 602 prompts across three platforms and scraped tens of thousands of pages for feature analysis. His [full report](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md) is worth reading. Here are the patterns most useful for content creators.
 
-**AI favors specificity.** Pages with real data, clear definitions, and side-by-side comparisons see over 50% higher impact than vague, general pages. Step-by-step structure also helps noticeably. Pure FAQ format actually hurts. Those GEO tools that tell you "add FAQ to boost your score" are giving advice the data contradicts, which also validates my decision to drop FAQ sections from my own pages.
+**Specificity.** Pages with real data, clear definitions, and side-by-side comparisons see over 50% higher impact than vague, general pages. Step-by-step structure also helps noticeably. Pure FAQ format actually hurts. Those GEO tools that tell you "add FAQ to boost your score" are giving advice the data contradicts, which also validates my decision to drop FAQ sections from my own pages.
 
 **Content depth.** AI doesn't favor short summaries. It favors long content it can slice into reusable segments. High-impact pages average nearly 2,000 words with 10+ headings. Low-impact pages average just 170 words, over a 10x gap. The sweet spot is 1,000 to 3,000 words.
 
 **Relevance.** All mechanical SEO metrics (heading hierarchy, meta descriptions, keyword density) predict less than one single variable: whether your page content actually answers the question the user asked.
 
-**ChatGPT and Perplexity want different things.** ChatGPT cites fewer sources but uses each deeply; its per-citation impact is over 5x that of Google. Perplexity casts a wider net, citing more than twice as many sources. To get cited by ChatGPT, go deep on individual pages. To get cited by Perplexity, go wide.
+**Platform differences.** ChatGPT cites fewer sources but uses each deeply; its per-citation impact is over 5x that of Google. Perplexity casts a wider net, citing more than twice as many sources. To get cited by ChatGPT, go deep on individual pages. To get cited by Perplexity, go wide.
 
 **Content type.** Official websites, news, and industry verticals account for roughly 80% of citation sources. But encyclopedia-style and explainer pages have 3x the impact of news pages. English content accounts for over 83% of global citation samples, so projects targeting an international audience need English versions.
 
@@ -246,7 +246,7 @@ One more pitfall I ran into: there are AI SEO audit tools that score your site a
 
 ---
 
-I believe in proactively structuring the content you already have so AI can understand it better, rather than chasing short-term tricks or manufacturing garbage to game citations. Everything here is about helping AI understand your content accurately, giving it a good working environment, not gaming rankings. That approach lasts longer than any shortcut.
+I believe in structuring the content you already have so AI can understand it better, not manufacturing garbage to game citations. Everything here is about helping AI understand what you have accurately, giving it a clean working environment, not gaming rankings. That lasts longer than any shortcut.
 
 The basic configuration takes about an hour. The knowledge endpoint and per-project pages take longer, but once the data structure is in place, maintenance is easy. The daily sync runs on its own.
 
