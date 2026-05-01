@@ -62,3 +62,48 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Notify search engines of updated content
+  indexnow:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Ping IndexNow with changed URLs
+        run: |
+          KEY="6ff2b87724ac930114bf05c74db50bb5"
+          HOST="tw93.fun"
+
+          URLS=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' '_posts_en/*.md' '*.html' 'projects/*.md' | while read f; do
+            case "$f" in
+              _posts/*.md)
+                slug=$(basename "$f" .md)
+                echo "https://$HOST/$(echo $slug | sed 's/^\([0-9]*-[0-9]*-[0-9]*\)-/\1\//')".html
+                ;;
+              _posts_en/*.md)
+                slug=$(basename "$f" .md)
+                echo "https://$HOST/en/$(echo $slug | sed 's/^\([0-9]*-[0-9]*-[0-9]*\)-/\1\//')".html
+                ;;
+              *.html)
+                echo "https://$HOST/$f"
+                ;;
+              projects/*.md)
+                echo "https://$HOST/$f"
+                ;;
+            esac
+          done)
+
+          if [ -z "$URLS" ]; then
+            echo "No content URLs changed, skipping IndexNow"
+            exit 0
+          fi
+
+          URL_LIST=$(echo "$URLS" | jq -R -s 'split("\n") | map(select(length > 0))')
+          echo "Submitting to IndexNow: $URL_LIST"
+
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{\"host\":\"$HOST\",\"key\":\"$KEY\",\"keyLocation\":\"https://$HOST/$KEY.txt\",\"urlList\":$URL_LIST}"
