@@ -1,0 +1,277 @@
+---
+layout: post
+title: "You Didn't Know GEO: Principles, Practices, and Trade-offs"
+date: 2026-05-01 16:00:00
+summary: Friends told me AI was recommending my projects unprompted. I hadn't done anything special, so I spent an hour structuring my content for AI readability. What I did, what works, and what to skip.
+feature: https://gw.alipayobjects.com/zos/k/lq/6.png
+categories: Share
+---
+
+<img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
+
+## TL;DR
+
+A few friends pinged me recently saying my projects were showing up when they asked AI questions. Kind of cool. I hadn't done anything deliberate to get indexed, so I figured: if it's already working on its own, what happens if I spend an hour actually structuring things?
+
+I hate SEO companies that flood the internet with garbage content, so the bottom line was simple: no junk. I'm not trying to game rankings. I want AI systems to learn about and find my work more accurately. The approach is making content AI-visible: proactively giving AI crawlers structured, machine-readable descriptions that say "here's what I have."
+
+---
+
+## Why This Matters
+
+AI search traffic grew 527% year-over-year in the first half of 2025. ChatGPT hit 900 million weekly active users by February 2026. AI platforms generated 1.13 billion referral visits in June 2025 alone. ChatGPT referral traffic converts at roughly 5x the rate of traditional search.
+
+One number stands out: 83% of AI Overview citations come from pages outside the traditional top 10. Traditional SEO is about fighting into that top 10. AI visibility rewards clear structure and reliable sourcing, with little connection to PageRank. A small project with good documentation can show up where a big site with thin content won't.
+
+That said, AI search still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy.
+
+---
+
+## Make Your Content Readable to AI
+
+This isn't about creating content for AI. It's about reorganizing what you already have so AI doesn't have to dig through noise to find it. A typical HTML page, once you count navigation, scripts, ads, and footers, burns about 15,000 tokens. The actual content might only be 3,000. That's 80% wasted on noise.
+
+<img src="https://gw.alipayobjects.com/zos/k/z5/1.png" width="900" alt="How structured content reaches users through AI indexing, user sharing, and developer tools">
+
+### robots.txt: Know Who's Who
+
+Most people treat robots.txt as a switch: either block AI crawlers or allow them all. But AI crawlers come in several types, and they do different things.
+
+**Training crawlers** (GPTBot, ClaudeBot, Meta-ExternalAgent, CCBot) take your content to train models. Blocking them keeps your content out of training data but doesn't affect current AI search results.
+
+**Search and retrieval crawlers** (OAI-SearchBot, Claude-SearchBot, PerplexityBot) fetch content in real time to answer user queries. Block these and you vanish from AI search.
+
+**User-triggered fetchers** (ChatGPT-User, Claude-User, Perplexity-User, Google-Agent) only fire when someone pastes your URL into a chat window. Block them and users asking "summarize this page" get nothing.
+
+**Opt-out tokens** (Google-Extended, Applebot-Extended) aren't real crawlers. They're signals you declare in robots.txt to opt out of AI training.
+
+**Undeclared crawlers** (Bytespider, xAI's Grok bot) don't identify themselves and don't necessarily follow the rules.
+
+<img src="https://gw.alipayobjects.com/zos/k/kq/GjgBCz.png" width="900" alt="Five categories of AI crawlers: training, search and retrieval, user-triggered, opt-out tokens, and undeclared">
+
+My approach: allow search/retrieval and user-triggered crawlers, block training and undeclared ones.
+
+```
+# Search & retrieval: allow
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# User-triggered: allow
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Training: block
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Opt-out tokens
+User-agent: Google-Extended
+Disallow: /
+
+# Undeclared: block
+User-agent: Bytespider
+Disallow: /
+```
+
+Adjust to your comfort level.
+
+### llms.txt and Cross-Linking
+
+llms.txt is a new standard, similar to robots.txt but designed for AI consumption. You place a Markdown file at your site root describing what your site does, its key pages, and who's behind it. AI systems prioritize this file when they crawl your content.
+
+BuiltWith tracks over 840,000 websites that have deployed llms.txt, including Anthropic, Cloudflare, Stripe, and Vercel. But in SE Ranking's survey of 300,000 domains, adoption is only 10%. It's still early, and being early is an advantage.
+
+The format is simple:
+
+```markdown
+# Your Project Name
+
+> One-line description of what this is.
+
+## Links
+
+- [Documentation](https://yoursite.com/docs)
+- [GitHub](https://github.com/you/project)
+- [Blog](https://yoursite.com/blog)
+
+## About
+
+Short paragraph explaining the project, its purpose, 
+key features, and what makes it different.
+```
+
+<img src="https://gw.alipayobjects.com/zos/k/3f/4WQmuF.png" width="900" alt="Example llms.txt file with project overview, links, and content sections">
+
+After creating yours, submit it to directory.llmstxt.cloud, llmstxt.site, and the llms-txt-hub repository on GitHub via PR.
+
+I also did something interesting: I made each site's llms.txt reference the others. I maintain tw93.fun, weekly.tw93.fun, and yobi.tw93.fun. Each site's llms.txt links to the rest, forming a mesh. An AI crawler entering through any one site can follow the links and discover everything else.
+
+<img src="https://gw.alipayobjects.com/zos/k/x4/Rt8NoI.png" width="900" alt="Four websites cross-linking their llms.txt files, forming a discovery mesh for AI crawlers">
+
+Once you've set this up, try searching for your project name in ChatGPT. The citation sources and description accuracy should improve.
+
+![](https://gw.alipayobjects.com/zos/k/ci/3bugwW.png)
+
+### llms-full.txt and Markdown Routes
+
+llms.txt is the summary. llms-full.txt is the complete version, typically 30-60KB, containing project descriptions, FAQs, usage scenarios, competitive comparisons, and README excerpts. Mintlify's CDN analysis shows llms-full.txt gets 3-4x more traffic than llms.txt. AI systems that find the summary want the full version.
+
+**Markdown routes** go further. Evil Martians recommend providing a `.md` version of every page on your site. A 15,000-token HTML page becomes a 3,000-token Markdown document, 80% less noise.
+
+<img src="https://gw.alipayobjects.com/zos/k/st/AFayJg.png" width="900" alt="HTML page at 15,000 tokens versus Markdown at 3,000 tokens, 80% reduction in noise">
+
+The simplest way to tell AI you have a Markdown version is adding this to your page's `<head>`:
+
+```html
+<link rel="alternate" type="text/markdown" href="/page.md" />
+```
+
+Claude Code and Cursor already send `Accept: text/markdown` headers when fetching docs. This is standard HTTP/1.1 content negotiation, around since 1997.
+
+---
+
+## Register on Platforms
+
+Beyond structuring your own site, it's worth registering on a few platforms directly.
+
+You might think Bing doesn't matter, but Copilot, DuckDuckGo, and Yahoo all run on Bing's index underneath. Register with Bing Webmaster Tools, submit your sitemap, and check the AI Performance panel to see how often AI cites your content. While you're there, set up IndexNow so Bing gets notified immediately when you publish new content instead of waiting for a crawler to find it.
+
+<img src="https://gw.alipayobjects.com/zos/k/x3/7.png" width="900" alt="Bing Index powering Copilot, DuckDuckGo, Yahoo, and ChatGPT, with IndexNow for instant updates">
+
+Google Search Console doesn't have an AI-specific panel yet, but submitting your sitemap and monitoring indexing status is still worth doing. Google's AI Overviews pull from a wider range than traditional results, so even pages that don't rank in the top 10 can appear in AI-generated answers.
+
+Perplexity has more users than you'd expect. They run a publisher program at pplx.ai/publisher-program. Once approved, you get an 80/20 revenue share and access to citation analytics data.
+
+---
+
+## Build a Knowledge Endpoint
+
+Instead of waiting for AI to scrape information from scattered sources, give it a single entry point with everything organized.
+
+I built a small tool for this called Yobi (from the Japanese 呼び / よび, meaning "to call" or "to summon"). It provides:
+
+1. A concise `llms.txt` overview
+2. A full `llms-full.txt` (about 50KB) with descriptions, FAQs, usage scenarios, competitive comparisons, and README excerpts
+3. Per-project knowledge pages at `/projects/pake`, `/projects/kaku`, etc.
+
+<img src="https://gw.alipayobjects.com/zos/k/e9/ndHtSI.png" width="900" alt="Yobi knowledge endpoint homepage showing project catalog and API endpoints">
+
+It also offers a JSON API: `/api/profile` for personal info, `/api/projects` for the project catalog, `/api/blog` for blog posts, `/api/weekly` for newsletter content. The data is live, pulling stars, forks, and latest releases from the GitHub API with ISR caching that refreshes every hour.
+
+<img src="https://gw.alipayobjects.com/zos/k/an/2RQyzN.png" width="900" alt="JSON API response from yobi.tw93.fun showing structured project data with live GitHub stats">
+
+I also added an "open source family" narrative structure, so when AI answers "Who is Tw93?" it has a coherent story instead of piecing together fragments from different projects. Stack: Next.js + TypeScript, deployed on Vercel.
+
+### Per-Project Knowledge Pages
+
+After building the data service, I realized there was a missing layer: each project needs its own standalone page for AI to cite. Ahrefs found that cited pages tend to have titles with high semantic similarity to user queries, and natural-language URL slugs get cited more than opaque IDs. So I added pages like `/projects/pake` and `/projects/kaku`, each a self-contained Markdown document with a citable summary, core features, competitive comparisons, use cases, FAQ, and install commands.
+
+<img src="https://gw.alipayobjects.com/zos/k/dj/EqrRKi.png" width="900" alt="Per-project knowledge page for Pake with citable summary, features, alternatives comparison, and install command">
+
+URL structure matters. `/projects/pake` tells the model what the page is about before it reads a single line. `/page?id=47` tells it nothing.
+
+### Mirror to Your Main Domain
+
+Yobi lives on a subdomain. Subdomains carry less weight than root domains, and AI crawlers that discover tw93.fun (the blog) don't automatically know about yobi.tw93.fun.
+
+I use a GitHub Action to mirror Yobi's data to the main domain daily. It runs at 2 AM, pulls the latest data, and commits static files to the blog repo. Now `tw93.fun/llms.txt` links to `tw93.fun/llms-full.txt`, `tw93.fun/projects/pake.md`, and `tw93.fun/api/projects.json`, all on the same domain. AI crawlers discover the blog through normal search indexing and find everything they need without leaving.
+
+<img src="https://gw.alipayobjects.com/zos/k/ds/5.png" width="900" alt="GitHub Action syncing data daily from Yobi subdomain to tw93.fun main domain">
+
+When I launch a new site, I don't start from scratch. I wrote a configuration spec as a checklist: robots.txt, llms.txt, sitemap, Bing Webmaster Tools, Google Search Console. Each site's llms.txt cross-links to the others, forming a mesh.
+
+---
+
+## Trade-offs
+
+The easiest trap when doing this work is getting carried away with every GEO technique you come across and trying to add them all.
+
+### What Didn't Work
+
+**`<meta name="ai-content-url">` and `<meta name="llms">`**: no spec, no adoption by any major AI system.
+
+**`/.well-known/ai.txt`**: multiple competing proposals, no real adoption. Wait for a winner.
+
+**HTML comments with AI hints**: parsers strip comments before AI sees the content.
+
+**User-Agent sniffing to serve Markdown**: returning different content to bots versus humans is cloaking. Google will penalize you.
+
+**Unofficial AI meta tags**: unless a major AI provider explicitly documents support, it's just noise.
+
+### JSON-LD
+
+I initially thought JSON-LD would be powerful for AI visibility. Deeper research showed a more complicated picture. SearchVIU ran an experiment where they put data only in JSON-LD without showing it on the page. All five AI systems they tested failed to find it. Mark Williams-Cook's follow-up experiment showed that LLMs treat `<script type="application/ld+json">` as plain text, reading whatever words are inside without understanding the structured semantics.
+
+The one confirmed exception is Bing/Copilot, which uses JSON-LD to enrich its search index. Keep existing JSON-LD (it helps Bing/Copilot and traditional rich results), but don't add it expecting ChatGPT or Claude to cite you more.
+
+### What the Data Shows
+
+The GEO paper from Princeton and IIT Delhi, published at KDD 2024, found that adding **authoritative citations** improves AI visibility by 115%, **relevant statistics** by 33%, and **direct quotations** from credible sources by 43%.
+
+<img src="https://gw.alipayobjects.com/zos/k/g5/8.png" width="900" alt="GEO research: authoritative citations +115%, direct quotations +43%, relevant statistics +33%">
+
+My friend [@yaojingang](https://github.com/yaojingang) has been doing serious research on GEO. His [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) ran 602 prompts across three platforms, scraped 18,151 pages, and performed 72-dimensional feature analysis. His [full report](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md) is worth reading. Here are the findings most useful for content creators.
+
+Pages with numbers and statistics see a **+61.6%** impact boost. Pages with definitions: **+57.3%**. With comparisons: **+55.3%**. With step-by-step structure: **+41.2%**. Pure Q&A/FAQ format actually hurts, at **-5.7%**. Those GEO tools that tell you "add FAQ to boost your score" are wrong. The data says FAQ doesn't help, which also validates my decision to drop FAQ sections from my own pages.
+
+High-impact pages average 1,943 words, 10.59 headings, and 47.49 paragraphs. Low-impact pages average just 170 words and 0.85 headings, an 11x gap. AI doesn't favor short summary pages. It favors information-dense, well-structured long content that it can slice into reusable segments. The sweet spot is 1,000 to 3,000 words.
+
+Semantic relevance is the strongest single predictor at r=0.432, more powerful than any mechanical SEO metric. Whether your page content actually matches what users are asking matters more than heading hierarchy or meta descriptions.
+
+The three platforms also differ in strategy. ChatGPT cites fewer sources, averaging 6.88, but uses each one deeply; its per-citation impact is 5.64x that of Google. Perplexity casts a wider net, averaging 16.35 citations. If you want ChatGPT to cite you, write individual pages with depth. If you want Perplexity to cite you, cover more ground.
+
+Official websites, news sites, and industry verticals account for 79-88% of citation sources. The top three high-frequency domains are YouTube, Wikipedia, and Reddit. But frequent appearance doesn't equal high impact: encyclopedia-style pages average 3x the impact of news pages. Getting published on a news site puts you in the candidate pool; writing a well-structured explanatory page is what gets you deeply absorbed. Among identifiable samples, English-language sources account for 83-95% and US-based sources 83-87%. If your project targets a global audience, English content matters a lot.
+
+### Retrieved Doesn't Mean Cited
+
+Of all the pages ChatGPT retrieves during a session, only 15% end up in the final answer. The other 85% are never cited. Getting into the retrieval pool is just the first hurdle. The model still has to decide which pages are worth citing.
+
+Ahrefs found that cited pages have titles with noticeably higher semantic similarity to user queries, and pages with descriptive natural-language URL slugs get cited more than those with opaque IDs. This is why llms.txt and Markdown routes help: they give the model a clean, unambiguous signal about what your page covers.
+
+Brands get cited 6.5x more often through third-party sources than through their own domains. Someone praising your project on Reddit or Hacker News carries more weight than your own marketing copy. That's exactly why having a well-structured llms.txt matters: it gives the model a citable anchor to point to, even when the conversation that triggered the query happened somewhere else.
+
+One more pitfall I ran into: there are AI SEO audit tools that score your site and tell you to add FAQ sections, trust pages, or more text. I once added a FAQ to Yobi that just restated what the About section already said, purely to push the score up. That's padding, not improving. The test is simple: does every paragraph you add contain information that isn't already on the page? If not, don't add it.
+
+---
+
+## Wrapping Up
+
+I believe in proactively structuring the content you already have so AI can understand it better, rather than chasing short-term tricks or manufacturing garbage to game citations. Everything here is about helping AI understand your content accurately, giving it a good working environment, not gaming rankings. That approach lasts longer than any shortcut.
+
+The basic configuration takes about an hour. The knowledge endpoint and per-project pages take longer, but once the data structure is in place, maintenance is easy. The daily sync runs on its own.
+
+After setting this up, try searching for your name or project in ChatGPT, Perplexity, or Claude. The citations should be more accurate.
+
+<img src="https://gw.alipayobjects.com/zos/k/b4/Ejryss.png" width="900" alt="ChatGPT accurately describing an open source project with correct version, features, and latest release">
+
+AI citation attribution is still unreliable. CJR and Tow Center tested 200 AI-generated citations and found 153 with partial or complete errors. Do the structural work because it makes your content easier to access accurately, but don't treat an AI citation as proof that users saw your exact words. The mechanism is still improving.
+
+If you have projects or a blog of your own, give it a try.
+
+---
+
+## Further Reading
+
+1. [GEO: Generative Engine Optimization - Princeton & IIT Delhi, KDD 2024](https://arxiv.org/abs/2311.09735)
+2. [Overseas GEO Research - geo-citation-lab](https://github.com/yaojingang/geo-citation-lab)
+3. [llms.txt standard specification](https://llmstxt.org/)
+4. [Why ChatGPT Cites One Page Over Another - Ahrefs](https://ahrefs.com/blog/why-chatgpt-cites-pages/)
+5. [GEO Benchmark Study 2026 - ConvertMate](https://www.convertmate.io/research/geo-benchmark-2026)
+6. [Optimizing Content for AI Discovery - Evil Martians](https://evilmartians.com/chronicles/optimizing-content-for-ai-discovery)
+7. [How LLMs Actually Use Schema Markup - SearchVIU](https://searchviu.com/en/how-llms-actually-use-schema-markup/)
+8. [You Didn't Know Claude Code: Architecture, Governance, and Engineering Practice](https://tw93.fun/2026-03-12/claude.html)
+9. [You Didn't Know Agents: Principles, Architecture, and Engineering Practice](https://tw93.fun/2026-03-21/agent.html)
+10. [You Didn't Know LLM Training: Principles, Paths, and New Practices](https://tw93.fun/2026-04-03/llm.html)
+11. [You Didn't Know AI Coding: Getting Started, Scenarios, and Practice for Non-Engineers](https://tw93.fun/2026-04-26/ai-coding.html)
