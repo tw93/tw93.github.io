@@ -7,8 +7,6 @@ feature: https://gw.alipayobjects.com/zos/k/lq/6.png
 categories: Share
 ---
 
-<img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
-
 ## TL;DR
 
 A few friends pinged me recently saying my projects were showing up when they asked AI questions. Kind of cool. I hadn't done anything deliberate to get indexed, so I figured: if it's already working on its own, what happens if I spend an hour actually structuring things?
@@ -24,6 +22,8 @@ AI search traffic grew 527% year-over-year in the first half of 2025. ChatGPT hi
 One number stands out: 83% of AI Overview citations come from pages outside the traditional top 10. Traditional SEO is about fighting into that top 10. AI visibility rewards clear structure and reliable sourcing, with little connection to PageRank. A small project with good documentation can show up where a big site with thin content won't.
 
 That said, AI search still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy.
+
+<img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
 
 ---
 
@@ -222,17 +222,17 @@ The GEO paper from Princeton and IIT Delhi, published at KDD 2024, found that ad
 
 <img src="https://gw.alipayobjects.com/zos/k/g5/8.png" width="900" alt="GEO research: authoritative citations +115%, direct quotations +43%, relevant statistics +33%">
 
-My friend [@yaojingang](https://github.com/yaojingang) has been doing serious research on GEO. His [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) ran 602 prompts across three platforms, scraped 18,151 pages, and performed 72-dimensional feature analysis. His [full report](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md) is worth reading. Here are the findings most useful for content creators.
+My friend [@yaojingang](https://github.com/yaojingang) has been doing serious research on GEO. His [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) ran 602 prompts across three platforms and scraped tens of thousands of pages for feature analysis. His [full report](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md) is worth reading. Here are the patterns most useful for content creators.
 
-Pages with numbers and statistics see a **+61.6%** impact boost. Pages with definitions: **+57.3%**. With comparisons: **+55.3%**. With step-by-step structure: **+41.2%**. Pure Q&A/FAQ format actually hurts, at **-5.7%**. Those GEO tools that tell you "add FAQ to boost your score" are wrong. The data says FAQ doesn't help, which also validates my decision to drop FAQ sections from my own pages.
+**AI favors specificity.** Pages with real data, clear definitions, and side-by-side comparisons see over 50% higher impact than vague, general pages. Step-by-step structure also helps noticeably. Pure FAQ format actually hurts. Those GEO tools that tell you "add FAQ to boost your score" are giving advice the data contradicts, which also validates my decision to drop FAQ sections from my own pages.
 
-High-impact pages average 1,943 words, 10.59 headings, and 47.49 paragraphs. Low-impact pages average just 170 words and 0.85 headings, an 11x gap. AI doesn't favor short summary pages. It favors information-dense, well-structured long content that it can slice into reusable segments. The sweet spot is 1,000 to 3,000 words.
+**Write deep enough to be worth citing.** AI doesn't favor short summaries. It favors long content it can slice into reusable segments. High-impact pages average nearly 2,000 words with 10+ headings. Low-impact pages average just 170 words, over a 10x gap. The sweet spot is 1,000 to 3,000 words.
 
-Semantic relevance is the strongest single predictor at r=0.432, more powerful than any mechanical SEO metric. Whether your page content actually matches what users are asking matters more than heading hierarchy or meta descriptions.
+**Relevance beats everything.** All mechanical SEO metrics (heading hierarchy, meta descriptions, keyword density) predict less than one single variable: whether your page content actually answers the question the user asked.
 
-The three platforms also differ in strategy. ChatGPT cites fewer sources, averaging 6.88, but uses each one deeply; its per-citation impact is 5.64x that of Google. Perplexity casts a wider net, averaging 16.35 citations. If you want ChatGPT to cite you, write individual pages with depth. If you want Perplexity to cite you, cover more ground.
+**ChatGPT and Perplexity want different things.** ChatGPT cites fewer sources but uses each deeply; its per-citation impact is over 5x that of Google. Perplexity casts a wider net, citing more than twice as many sources. To get cited by ChatGPT, go deep on individual pages. To get cited by Perplexity, go wide.
 
-Official websites, news sites, and industry verticals account for 79-88% of citation sources. The top three high-frequency domains are YouTube, Wikipedia, and Reddit. But frequent appearance doesn't equal high impact: encyclopedia-style pages average 3x the impact of news pages. Getting published on a news site puts you in the candidate pool; writing a well-structured explanatory page is what gets you deeply absorbed. Among identifiable samples, English-language sources account for 83-95% and US-based sources 83-87%. If your project targets a global audience, English content matters a lot.
+**News gets you into the pool; explainer pages get you absorbed.** Official websites, news, and industry verticals account for roughly 80% of citation sources. But encyclopedia-style and explainer pages have 3x the impact of news pages. English content accounts for over 83% of global citation samples, so projects targeting an international audience need English versions.
 
 ### Retrieved Doesn't Mean Cited
 

@@ -7,8 +7,6 @@ feature: https://gw.alipayobjects.com/zos/k/lq/6.png
 categories: Share
 ---
 
-<img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI 可见性路线图：从 robots.txt 到主域名镜像的完整配置">
-
 ## 太长也要读
 
 这几天有好几个小伙伴@我说，我的一些作品在他们问 AI 的时候被主动推荐了，挺神奇的。想了想感觉啥也没有做居然可以被收录，那要不要做点更体系化的事情来整一整，让现在所有的主流 AI 能够更好地知晓我的内容、产品、想法。
@@ -24,6 +22,8 @@ categories: Share
 有一个数字很有意思：83% 的 AI Overview 引用来自传统排名前 10 之外的页面。传统 SEO 拼的是进前 10，AI 可见性看的是结构清晰、来源可靠，跟 PageRank 关系不大。一个小项目只要文档写得好，就能出现在大站内容单薄的地方。
 
 不过 AI 搜索目前仍然只占总引荐流量不到 1%，更像是品牌可见性策略，不是流量策略。
+
+<img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI 可见性路线图：从 robots.txt 到主域名镜像的完整配置">
 
 ---
 
@@ -222,17 +222,17 @@ Princeton 和 IIT Delhi 的 GEO 论文在 KDD 2024 上发表，发现加入**权
 
 <img src="https://gw.alipayobjects.com/zos/k/g5/8.png" width="900" alt="GEO 研究：权威引用 +115%，直接引用 +43%，相关统计 +33%">
 
-朋友 [@yaojingang](https://github.com/yaojingang) 在非常专业地做 GEO 方向的研究，他的 [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) 拿 602 条 prompt 跑了三个平台，抓了 18151 个页面做 72 维特征分析，有兴趣的可以去看他的[完整报告](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md)，这里借用一下他的数据说几个对做内容比较有用的发现。
+朋友 [@yaojingang](https://github.com/yaojingang) 在非常专业地做 GEO 方向的研究，他的 [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) 拿 602 条 prompt 跑了三个平台，抓了上万个页面做特征分析，有兴趣的可以去看他的[完整报告](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md)，这里从他的数据里提几个对做内容最有用的规律。
 
-含数字/统计的页面影响力提升 **+61.6%**，含定义 **+57.3%**，含对比 **+55.3%**，含步骤 **+41.2%**。而纯粹的 Q&A/FAQ 格式反而有害，影响力 **-5.7%**。那些 GEO 工具告诉你"加 FAQ 提分"，数据说它没用，这也验证了我前面删掉 FAQ 的判断。
+**AI 喜欢具体的内容。** 写有真实数据、清晰定义、横向对比的页面，影响力比泛泛而谈的页面高出 50% 以上。有步骤结构的页面也明显更好。而纯 FAQ 格式反而有害，那些 GEO 工具让你"加 FAQ 提分"的建议，数据说它是反效果，这也验证了我前面删掉 FAQ 的判断。
 
-高影响力页面平均 1943 词、10.59 个标题、47.49 个段落，低影响力页面只有 170 词、0.85 个标题，差距 11 倍。AI 不偏爱短小摘要页，它偏爱信息充分、可以切出多个可复用片段的长内容页，1000-3000 词是最稳妥的区间。
+**写得够厚才会被引用。** AI 不偏爱短摘要，它偏爱可以切出多个可复用片段的长内容。被高频引用的页面平均近 2000 词、10 个以上标题，低影响力页面只有 170 词，差距超过 10 倍。最稳妥的区间是 1000-3000 词。
 
-语义相关性是最强的单一预测因子 r=0.432，比任何机械 SEO 指标都强，页面内容跟用户问的问题对不对题，比 H 标签层级、meta description 都管用。
+**对不对题比什么都重要。** 所有机械 SEO 指标（H 标签层级、meta description、关键词密度）的预测力都不如一个变量：你的页面内容跟用户问的问题是不是同一件事。
 
-三个平台策略也不一样，ChatGPT 引用少，平均 6.88 条，但每条用得深，单条引用影响力是 Google 的 5.64 倍；Perplexity 最激进，平均 16.35 条引用，更像广撒网。想被 ChatGPT 引用要把单个页面写深写透，想被 Perplexity 引用要覆盖面广。
+**ChatGPT 和 Perplexity 要不同的东西。** ChatGPT 引用少但用得深，单条引用影响力是 Google 的 5 倍多；Perplexity 广撒网，引用量是 ChatGPT 的两倍多。想被 ChatGPT 引用就把单页写深写透，想被 Perplexity 引用就覆盖面广。
 
-官网 + 新闻 + 行业垂类占了引用来源的 79-88%，Top 3 高频域名是 YouTube、Wikipedia、Reddit。但高频出现不等于高影响力，百科型页面的平均影响力是新闻页面的 3 倍。发到新闻站能进候选池，把页面写成结构清晰的解释页才会被深度吸收。在可识别样本里英文来源占 83-95%，美国来源占 83-87%，项目面向全球用户的话做英文版内容很重要。
+**新闻能进池子，解释页才能被吸收。** 官网 + 新闻 + 行业垂类占了引用来源的八成。但百科型/解释型页面的影响力是新闻页面的 3 倍。英文内容在全球引用样本里占 83% 以上，面向国际用户的项目必须做英文版。
 
 ### 检索到了不一定引用
 
