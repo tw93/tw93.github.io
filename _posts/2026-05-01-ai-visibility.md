@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 你不知道的 GEO：原理、实践与取舍
+title: 你不知道的 GEO：AI 可见性的原理、实践与取舍
 date: 2026-05-01 16:00:00
 summary: 有小伙伴说我的作品被 AI 主动推荐了，想了想居然啥也没做就被收录了，于是花了一个小时把内容结构化做了一遍。做了什么、哪些有效、哪些别碰。
-feature: https://gw.alipayobjects.com/zos/k/hl/ai.png
+feature: https://gw.alipayobjects.com/zos/k/4s/ai.png
 categories: Share
 ---
 
@@ -147,7 +147,7 @@ Perplexity 在海外的用户量比大伙想的要大，他们有一个出版者
 
 ---
 
-## 做一个专门给 AI 看的知识网页
+## 我做了一个专门给 AI 看的知识网页
 
 与其等 AI 去各个站点零散地抓信息，不如给它一个集中的入口，把你希望它记住的东西整理好放在那里。
 

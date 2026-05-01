@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "You Didn't Know GEO: Principles, Practices, and Trade-offs"
+title: "You Didn't Know GEO: AI Visibility Principles, Practices, and Trade-offs"
 date: 2026-05-01 16:00:00
 summary: Friends told me AI was recommending my projects unprompted. I hadn't done anything special, so I spent an hour structuring my content for AI readability. What I did, what works, and what to skip.
-feature: https://gw.alipayobjects.com/zos/k/hl/ai.png
+feature: https://gw.alipayobjects.com/zos/k/4s/ai.png
 categories: Share
 ---
 
@@ -147,7 +147,7 @@ Perplexity has more users than you'd expect. They run a publisher program at ppl
 
 ---
 
-## Build a Dedicated Knowledge Site for AI
+## I Built a Dedicated Knowledge Site for AI
 
 Instead of waiting for AI to scrape information from scattered sources, give it a single entry point with everything organized.
 
