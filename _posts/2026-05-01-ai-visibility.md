@@ -3,7 +3,7 @@ layout: post
 title: 你不知道的 GEO：AI 可见性的原理、实践与取舍
 date: 2026-05-01 16:00:00
 summary: 有小伙伴说我的作品被 AI 主动推荐了，想了想居然啥也没做就被收录了，于是花了一个小时把内容结构化做了一遍。做了什么、哪些有效、哪些别碰。
-feature: https://gw.alipayobjects.com/zos/k/ka/ai.png
+feature: https://gw.alipayobjects.com/zos/k/w5/ai.png
 categories: Share
 ---
 
