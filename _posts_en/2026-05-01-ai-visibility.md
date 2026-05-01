@@ -3,37 +3,25 @@ layout: post
 title: "You Didn't Know GEO: Principles, Practices, and Trade-offs"
 date: 2026-05-01 16:00:00
 summary: Friends told me AI was recommending my projects unprompted. I hadn't done anything special, so I spent an hour structuring my content for AI readability. What I did, what works, and what to skip.
-feature: https://gw.alipayobjects.com/zos/k/lq/6.png
+feature: https://gw.alipayobjects.com/zos/k/hl/ai.png
 categories: Share
 ---
 
-## TL;DR
+## One Hour to Make AI Find Your Content
 
-A few friends pinged me recently saying my projects were showing up when they asked AI questions. Kind of cool. I hadn't done anything deliberate to get indexed, so I figured: if it's already working on its own, what happens if I spend an hour actually structuring things?
+A few friends pinged me recently saying my open source tools were showing up when they asked AI questions. I hadn't done anything deliberate, so I figured: why not spend an hour structuring things properly? After doing it, I fired off a quick tweet, but the notes were messy. People seemed genuinely interested, so I decided to write it up as a proper article for reference.
 
-I hate SEO companies that flood the internet with garbage content, so the bottom line was simple: no junk. I'm not trying to game rankings. I want AI systems to learn about and find my work more accurately. The approach is making content AI-visible: proactively giving AI crawlers structured, machine-readable descriptions that say "here's what I have."
+I hate gaming rankings or generating junk content. This article won't teach you shortcuts. It's about helping AI better understand the content you already have.
 
----
+I looked into why it happened and found that AI search runs on entirely different logic. Traditional SEO is about fighting into the top 10, but 83% of AI Overview citations come from pages outside the top 10. AI rewards clear structure and reliable sourcing, not PageRank. My projects aren't big, but the READMEs and docs are well-written enough that AI picks them up where bigger sites have thin content. That's probably why friends were seeing Pake and MiaoYan in their AI results.
 
-## Why This Matters
-
-Why were my projects showing up without any effort? I looked into it and found that AI search works on entirely different logic from traditional search. Traditional SEO is about fighting into the top 10, but 83% of AI Overview citations come from pages outside the traditional top 10. AI rewards clear structure and reliable sourcing, with little connection to PageRank.
-
-My projects aren't big, but the READMEs and docs are fairly well-written. AI picks them up where bigger sites have thin content. That's probably why friends were seeing Pake and MiaoYan when they asked AI.
-
-AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But it still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week.
+AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But it still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week, because your product is your real competitive advantage, not this.
 
 <img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
 
 ---
 
-## Make Your Content Readable to AI
-
-This isn't about creating content for AI. It's about reorganizing what you already have so AI doesn't have to dig through noise to find it. A typical HTML page, once you count navigation, scripts, ads, and footers, burns about 15,000 tokens. The actual content might only be 3,000. That's 80% wasted on noise.
-
-<img src="https://gw.alipayobjects.com/zos/k/z5/1.png" width="900" alt="How structured content reaches users through AI indexing, user sharing, and developer tools">
-
-### robots.txt: Know Who's Who
+## Use robots.txt to Sort Out Crawler Types
 
 Most people treat robots.txt as a switch: either block AI crawlers or allow them all. But AI crawlers come in several types, and they do different things.
 
@@ -85,9 +73,8 @@ User-agent: Bytespider
 Disallow: /
 ```
 
-Adjust to your comfort level.
 
-### llms.txt and Cross-Linking
+## Write Your llms.txt and Cross-Link Your Sites
 
 llms.txt is a new standard, similar to robots.txt but designed for AI consumption. You place a Markdown file at your site root describing what your site does, its key pages, and who's behind it. AI systems prioritize this file when they crawl your content.
 
@@ -124,7 +111,7 @@ These changes take effect after crawlers revisit your site, usually within a few
 
 ![](https://gw.alipayobjects.com/zos/k/ci/3bugwW.png)
 
-### llms-full.txt and Markdown Routes
+## Provide Full Content and Markdown Routes
 
 llms.txt is the summary. llms-full.txt is the complete version, typically 30-60KB, containing project descriptions, FAQs, usage scenarios, competitive comparisons, and README excerpts. Mintlify's CDN analysis shows llms-full.txt gets 3-4x more traffic than llms.txt. AI systems that find the summary want the full version.
 
@@ -142,11 +129,15 @@ Claude Code and Cursor already send `Accept: text/markdown` headers when fetchin
 
 ---
 
-## Register on Platforms
+## Register Your Site with Search Platforms
 
 The robots.txt and llms.txt work from the previous sections makes your content readable to AI, but AI has to find you first. ChatGPT's search runs on Bing, Google AI Overview uses Google's own index, and Perplexity also relies on search APIs. If your pages aren't indexed by search engines, none of the structuring work above matters. So the first step is making sure Google and Bing have indexed your site.
 
+The setup is straightforward: go to [Google Search Console](https://search.google.com/search-console), verify your domain via DNS or HTML file upload, then submit your sitemap URL (usually `yoursite.com/sitemap.xml`). Check the "Pages" indexing report to see which pages are indexed and which have issues. If an important page isn't indexed, use the URL Inspection tool to manually request indexing.
+
 You might think Bing doesn't matter, but Copilot, DuckDuckGo, and Yahoo all run on Bing's index underneath. Register with Bing Webmaster Tools, submit your sitemap, and check the AI Performance panel to see how often AI cites your content. While you're there, set up IndexNow so Bing gets notified immediately when you publish new content instead of waiting for a crawler to find it.
+
+Setting up IndexNow means placing an API key file at your site root, then sending a POST request to `api.indexnow.org/indexnow` with the list of changed URLs whenever you publish. Bing picks them up within minutes. Many static site generators and CMS platforms have IndexNow plugins available.
 
 <img src="https://gw.alipayobjects.com/zos/k/x3/7.png" width="900" alt="Bing Index powering Copilot, DuckDuckGo, Yahoo, and ChatGPT, with IndexNow for instant updates">
 
@@ -156,49 +147,45 @@ Perplexity has more users than you'd expect. They run a publisher program at ppl
 
 ---
 
-## Build a Knowledge Endpoint
+## Build a Dedicated Knowledge Site for AI
 
 Instead of waiting for AI to scrape information from scattered sources, give it a single entry point with everything organized.
 
-I built a small tool for this called Yobi (from the Japanese 呼び / よび, meaning "to call" or "to summon"). It provides:
+A knowledge site should provide three layers: an overview (llms.txt), a full version (llms-full.txt, 30-60KB), and standalone knowledge pages for each core project. Add structured JSON APIs so AI tools can fetch data programmatically. Pull data live from upstream sources like the GitHub API with caching that refreshes periodically, keeping maintenance cost near zero.
 
-1. A concise `llms.txt` overview
-2. A full `llms-full.txt` (about 50KB) with descriptions, FAQs, usage scenarios, competitive comparisons, and README excerpts
-3. Per-project knowledge pages at `/projects/pake`, `/projects/kaku`, etc.
+One thing that's easy to miss: give AI a narrative structure, not just a list of projects. If you have multiple projects, write a description that connects them, how they relate, your technical direction, the overall picture. When AI answers "who is this person" or "what does this team do," a coherent narrative works much better than a flat list.
+
+My implementation is called Yobi (from the Japanese 呼び / よび, meaning "to call" or "to summon"). It serves an llms.txt overview, a 50KB llms-full.txt, per-project pages, and four JSON endpoints (`/api/profile`, `/api/projects`, `/api/blog`, `/api/weekly`) that pull live data from the GitHub API with ISR caching that refreshes hourly. Stack: Next.js + TypeScript on Vercel.
 
 <img src="https://gw.alipayobjects.com/zos/k/e9/ndHtSI.png" width="900" alt="Yobi knowledge endpoint homepage showing project catalog and API endpoints">
 
-It also offers a JSON API: `/api/profile` for personal info, `/api/projects` for the project catalog, `/api/blog` for blog posts, `/api/weekly` for newsletter content. The data is live, pulling stars, forks, and latest releases from the GitHub API with ISR caching that refreshes every hour.
+The JSON API returns structured project data with live GitHub stats:
 
 <img src="https://gw.alipayobjects.com/zos/k/an/2RQyzN.png" width="900" alt="JSON API response from yobi.tw93.fun showing structured project data with live GitHub stats">
 
-I also added an "open source family" narrative structure, so when AI answers "Who is Tw93?" it has a coherent story instead of piecing together fragments from different projects. Stack: Next.js + TypeScript, deployed on Vercel.
+## Give Each Project Its Own Page
 
-### Per-Project Knowledge Pages
-
-After building the data service, I realized there was a missing layer: each project needs its own standalone page for AI to cite. Ahrefs found that cited pages tend to have titles with high semantic similarity to user queries, and natural-language URL slugs get cited more than opaque IDs. So I added pages like `/projects/pake` and `/projects/kaku`, each a self-contained Markdown document with a citable summary, core features, competitive comparisons, use cases, FAQ, and install commands.
+Each project needs its own standalone page, not a row in a list, but a self-contained Markdown document with a citable summary, core features, competitive comparisons, use cases, and install commands. Ahrefs found that cited pages have titles with higher semantic similarity to user queries, and natural-language URL slugs (like /projects/pake) get cited more than opaque IDs (like /page?id=47).
 
 <img src="https://gw.alipayobjects.com/zos/k/dj/EqrRKi.png" width="900" alt="Per-project knowledge page for Pake with citable summary, features, alternatives comparison, and install command">
 
 URL structure matters. `/projects/pake` tells the model what the page is about before it reads a single line. `/page?id=47` tells it nothing.
 
-### Mirror to Your Main Domain
+## Sync Structured Data to Your Main Domain
 
-Yobi lives on a subdomain. Subdomains carry less weight than root domains, and AI crawlers that discover tw93.fun (the blog) don't automatically know about yobi.tw93.fun.
+Subdomains carry less authority than root domains. AI crawlers that discover example.com won't automatically find docs.example.com or api.example.com. If your llms.txt, project pages, and API data are spread across subdomains, AI may only see part of the picture.
 
-I use a GitHub Action to mirror Yobi's data to the main domain daily. It runs at 2 AM, pulls the latest data, and commits static files to the blog repo. Now `tw93.fun/llms.txt` links to `tw93.fun/llms-full.txt`, `tw93.fun/projects/pake.md`, and `tw93.fun/api/projects.json`, all on the same domain. AI crawlers discover the blog through normal search indexing and find everything they need without leaving.
+The fix is to mirror key structured data onto your main domain so that `example.com/llms.txt`, `example.com/projects/xxx.md`, and `example.com/api/projects.json` all live under one roof. AI crawlers discover your main site through search indexing and find everything without leaving. Implementation options include scheduled CI sync, build-time fetching, or reverse proxying. I use a GitHub Action that syncs subdomain data to the blog repo nightly.
 
 <img src="https://gw.alipayobjects.com/zos/k/ds/5.png" width="900" alt="GitHub Action syncing data daily from Yobi subdomain to tw93.fun main domain">
 
-When I launch a new site, I don't start from scratch. I wrote a configuration spec as a checklist: robots.txt, llms.txt, sitemap, Bing Webmaster Tools, Google Search Console. Each site's llms.txt cross-links to the others, forming a mesh.
+When launching a new site, use a checklist to avoid gaps. Core items: robots.txt (categorized crawler permissions), llms.txt (site summary with cross-references), sitemap (submitted to search engines), Bing Webmaster Tools (enable IndexNow), Google Search Console (monitor indexing). Each site's llms.txt should reference the others, forming a discovery mesh.
 
 ---
 
-## Trade-offs
+The easiest trap when doing this work is getting carried away with every GEO technique you come across and trying to add them all, creating a mess and losing sight of what matters.
 
-The easiest trap when doing this work is getting carried away with every GEO technique you come across and trying to add them all.
-
-### What Didn't Work
+## These Didn't Work
 
 **`<meta name="ai-content-url">` and `<meta name="llms">`**: no spec, no adoption by any major AI system.
 
@@ -210,13 +197,13 @@ The easiest trap when doing this work is getting carried away with every GEO tec
 
 **Unofficial AI meta tags**: unless a major AI provider explicitly documents support, it's just noise.
 
-### JSON-LD
+## JSON-LD Isn't as Useful as You'd Think
 
 I initially thought JSON-LD would be powerful for AI visibility. Deeper research showed a more complicated picture. SearchVIU ran an experiment where they put data only in JSON-LD without showing it on the page. All five AI systems they tested failed to find it. Mark Williams-Cook's follow-up experiment showed that LLMs treat `<script type="application/ld+json">` as plain text, reading whatever words are inside without understanding the structured semantics.
 
 The one confirmed exception is Bing/Copilot, which uses JSON-LD to enrich its search index. Keep existing JSON-LD (it helps Bing/Copilot and traditional rich results), but don't add it expecting ChatGPT or Claude to cite you more.
 
-### What the Data Shows
+## What the Research Data Says
 
 The GEO paper from Princeton and IIT Delhi, published at KDD 2024, found that adding **authoritative citations** improves AI visibility by 115%, **relevant statistics** by 33%, and **direct quotations** from credible sources by 43%.
 
@@ -234,7 +221,7 @@ My friend [@yaojingang](https://github.com/yaojingang) has been doing serious re
 
 **Content type.** Official websites, news, and industry verticals account for roughly 80% of citation sources. But encyclopedia-style and explainer pages have 3x the impact of news pages. English content accounts for over 83% of global citation samples, so projects targeting an international audience need English versions.
 
-### Retrieved Doesn't Mean Cited
+## Retrieved Doesn't Mean Cited
 
 Of all the pages ChatGPT retrieves during a session, only 15% end up in the final answer. The other 85% are never cited. Getting into the retrieval pool is just the first hurdle. The model still has to decide which pages are worth citing.
 
@@ -242,11 +229,11 @@ Ahrefs found that cited pages have titles with noticeably higher semantic simila
 
 Brands get cited 6.5x more often through third-party sources than through their own domains. Someone praising your project on Reddit or Hacker News carries more weight than your own marketing copy. That's exactly why having a well-structured llms.txt matters: it gives the model a citable anchor to point to, even when the conversation that triggered the query happened somewhere else.
 
-One more pitfall I ran into: there are AI SEO audit tools that score your site and tell you to add FAQ sections, trust pages, or more text. I once added a FAQ to Yobi that just restated what the About section already said, purely to push the score up. That's padding, not improving. The test is simple: does every paragraph you add contain information that isn't already on the page? If not, don't add it.
+There are AI SEO audit tools that score your site and tell you to add FAQ sections, trust pages, or more text. Don't let scores drive your decisions. The test is simple: does every paragraph you add contain information that isn't already on the page? If not, don't add it. I once added a FAQ to Yobi that just restated what the About section already said, purely to push the score up. That's padding. I removed it.
 
 ---
 
-I believe in structuring the content you already have so AI can understand it better, not manufacturing garbage to game citations. Everything here is about helping AI understand what you have accurately, giving it a clean working environment, not gaming rankings. That lasts longer than any shortcut.
+Everything here is about helping AI understand what you have accurately, giving it a clean working environment. That lasts longer than any shortcut.
 
 The basic configuration takes about an hour. The knowledge endpoint and per-project pages take longer, but once the data structure is in place, maintenance is easy. The daily sync runs on its own.
 
@@ -256,7 +243,7 @@ Give it a few days for crawlers to pick up the changes, then try searching for y
 
 AI citation attribution is still unreliable. CJR and Tow Center tested 200 AI-generated citations and found 153 with partial or complete errors. Do the structural work because it makes your content easier to access accurately, but don't treat an AI citation as proof that users saw your exact words. The mechanism is still improving.
 
-If you have projects or a blog of your own, give it a try.
+If you have your own products, blog, or website, give it a try. You can also hand this article to Claude Code and let it handle most of the setup.
 
 ---
 
