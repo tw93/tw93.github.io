@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 121K+ GitHub stars, 12K+ forks, 9,818 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 121K+ GitHub stars, 12K+ forks, 9,827 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 121K+ stars, 12K+ forks, 9,818 followers
+- **GitHub**: 121K+ stars, 12K+ forks, 9,827 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,8 +32,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 48,247
-- Forks: 9,657
+- Stars: 48,255
+- Forks: 9,661
 - Stack: Rust, Tauri v2, TypeScript
 - Latest Release: V3.11.0 "Evolve 👻" (2026-03-27)
 - Install: `npm install -g pake-cli`
@@ -119,7 +119,7 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 4,794
+- Stars: 4,799
 - Forks: 236
 - Stack: Rust, Lua, Metal/GPU
 - Latest Release: V0.9.0 "Spark ✨" (2026-04-04)
@@ -211,7 +211,7 @@ MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. 
 
 - GitHub: https://github.com/tw93/MiaoYan
 - Stars: 8,204
-- Forks: 477
+- Forks: 478
 - Stack: Swift, AppKit
 - Latest Release: V3.4.0 "Mizutsune 🌊" (2026-04-28)
 - Homepage: https://apps.apple.com/cn/app/miaoyan/id6759252269
@@ -301,10 +301,10 @@ miao open <title|path>    # Open note
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 49,644
-- Forks: 1,533
+- Stars: 49,673
+- Forks: 1,534
 - Stack: Shell, Rust
-- Latest Release: V1.36.3 (2026-04-29)
+- Latest Release: V1.36.3 "Falcon 🦅" (2026-04-29)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
 - Homepage: https://x.com/HiTw93/status/2048546667071431063
 
@@ -403,7 +403,7 @@ mo --help                    # Show help
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 4,236
+- Stars: 4,252
 - Forks: 257
 - Stack: Markdown, Shell
 - Latest Release: v3.11.0 "V3.11.0 Lean 🍃" (2026-04-27)
@@ -477,8 +477,8 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 3,902
-- Forks: 195
+- Stars: 3,942
+- Forks: 196
 - Stack: HTML, CSS, Python
 - Latest Release: V1.3.0 "Cleaner Edges" (2026-04-27)
 - Homepage: https://kami.tw93.fun
