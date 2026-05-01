@@ -17,11 +17,11 @@ I hate SEO companies that flood the internet with garbage content, so the bottom
 
 ## Why This Matters
 
-AI search traffic grew 527% year-over-year in the first half of 2025. ChatGPT hit 900 million weekly active users by February 2026. AI platforms generated 1.13 billion referral visits in June 2025 alone. ChatGPT referral traffic converts at roughly 5x the rate of traditional search.
+Why were my projects showing up without any effort? I looked into it and found that AI search works on entirely different logic from traditional search. Traditional SEO is about fighting into the top 10, but 83% of AI Overview citations come from pages outside the traditional top 10. AI rewards clear structure and reliable sourcing, with little connection to PageRank.
 
-One number stands out: 83% of AI Overview citations come from pages outside the traditional top 10. Traditional SEO is about fighting into that top 10. AI visibility rewards clear structure and reliable sourcing, with little connection to PageRank. A small project with good documentation can show up where a big site with thin content won't.
+That's actually good news for someone who builds small tools. My projects aren't big, but the READMEs and docs are fairly well-written. AI picks them up where bigger sites have thin content. That's probably why friends were seeing Pake and MiaoYan when they asked AI.
 
-That said, AI search still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy.
+Don't get too excited, though. AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But AI search still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week.
 
 <img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
 
@@ -271,7 +271,7 @@ If you have projects or a blog of your own, give it a try.
 5. [GEO Benchmark Study 2026 - ConvertMate](https://www.convertmate.io/research/geo-benchmark-2026)
 6. [Optimizing Content for AI Discovery - Evil Martians](https://evilmartians.com/chronicles/optimizing-content-for-ai-discovery)
 7. [How LLMs Actually Use Schema Markup - SearchVIU](https://searchviu.com/en/how-llms-actually-use-schema-markup/)
-8. [You Didn't Know Claude Code: Architecture, Governance, and Engineering Practice](https://tw93.fun/2026-03-12/claude.html)
-9. [You Didn't Know Agents: Principles, Architecture, and Engineering Practice](https://tw93.fun/2026-03-21/agent.html)
-10. [You Didn't Know LLM Training: Principles, Paths, and New Practices](https://tw93.fun/2026-04-03/llm.html)
-11. [You Didn't Know AI Coding: Getting Started, Scenarios, and Practice for Non-Engineers](https://tw93.fun/2026-04-26/ai-coding.html)
+8. [AI Search Has a Citation Problem - CJR / Tow Center](https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php)
+9. [LLMs.txt: Why Brands Rely On It and Why It Doesn't Work - SE Ranking](https://seranking.com/blog/llms-txt/)
+10. [How Often Do LLMs Visit llms.txt? - Mintlify](https://www.mintlify.com/blog/how-often-do-llms-visit-llms-txt)
+11. [IndexNow Protocol Documentation](https://www.indexnow.org/documentation)
