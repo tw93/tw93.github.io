@@ -120,7 +120,7 @@ I also did something interesting: I made each site's llms.txt reference the othe
 
 <img src="https://gw.alipayobjects.com/zos/k/x4/Rt8NoI.png" width="900" alt="Four websites cross-linking their llms.txt files, forming a discovery mesh for AI crawlers">
 
-Once you've set this up, try searching for your project name in ChatGPT. The citation sources and description accuracy should improve.
+These changes take effect after crawlers revisit your site, usually within a few days. After that, try searching for your project name in ChatGPT. The citation sources and description accuracy should improve.
 
 ![](https://gw.alipayobjects.com/zos/k/ci/3bugwW.png)
 
@@ -144,7 +144,7 @@ Claude Code and Cursor already send `Accept: text/markdown` headers when fetchin
 
 ## Register on Platforms
 
-Beyond structuring your own site, it's worth registering on a few platforms directly.
+The robots.txt and llms.txt work from the previous sections makes your content readable to AI, but AI has to find you first. ChatGPT's search runs on Bing, Google AI Overview uses Google's own index, and Perplexity also relies on search APIs. If your pages aren't indexed by search engines, none of the structuring work above matters. So the first step is making sure Google and Bing have indexed your site.
 
 You might think Bing doesn't matter, but Copilot, DuckDuckGo, and Yahoo all run on Bing's index underneath. Register with Bing Webmaster Tools, submit your sitemap, and check the AI Performance panel to see how often AI cites your content. While you're there, set up IndexNow so Bing gets notified immediately when you publish new content instead of waiting for a crawler to find it.
 
@@ -250,7 +250,7 @@ I believe in structuring the content you already have so AI can understand it be
 
 The basic configuration takes about an hour. The knowledge endpoint and per-project pages take longer, but once the data structure is in place, maintenance is easy. The daily sync runs on its own.
 
-After setting this up, try searching for your name or project in ChatGPT, Perplexity, or Claude. The citations should be more accurate.
+Give it a few days for crawlers to pick up the changes, then try searching for your name or project in ChatGPT, Perplexity, or Claude. The citations should be more accurate.
 
 <img src="https://gw.alipayobjects.com/zos/k/b4/Ejryss.png" width="900" alt="ChatGPT accurately describing an open source project with correct version, features, and latest release">
 
