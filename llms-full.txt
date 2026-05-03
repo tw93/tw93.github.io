@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 121K+ GitHub stars, 12K+ forks, 9,837 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 121K+ GitHub stars, 12K+ forks, 9,858 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 121K+ stars, 12K+ forks, 9,837 followers
+- **GitHub**: 121K+ stars, 12K+ forks, 9,858 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,8 +32,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 48,281
-- Forks: 9,665
+- Stars: 48,322
+- Forks: 9,673
 - Stack: Rust, Tauri v2, TypeScript
 - Latest Release: V3.11.0 "Evolve 👻" (2026-03-27)
 - Install: `npm install -g pake-cli`
@@ -119,8 +119,8 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 4,808
-- Forks: 236
+- Stars: 4,821
+- Forks: 237
 - Stack: Rust, Lua, Metal/GPU
 - Latest Release: V0.9.0 "Spark ✨" (2026-04-04)
 - Homepage: https://x.com/hitw93/status/2040587400582443362?s=46
@@ -211,7 +211,7 @@ MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. 
 
 - GitHub: https://github.com/tw93/MiaoYan
 - Stars: 8,203
-- Forks: 478
+- Forks: 477
 - Stack: Swift, AppKit
 - Latest Release: V3.4.0 "Mizutsune 🌊" (2026-04-28)
 - Homepage: https://apps.apple.com/cn/app/miaoyan/id6759252269
@@ -266,22 +266,25 @@ A: Yes. MiaoYan supports fenced code blocks with syntax highlighting for 100+ la
 
 ## Features
 
-- **Fantastic**: Local-first, no data collection, split editor & preview, LaTeX, Mermaid
-- **Beautiful**: Minimalist design, three-column layout, dark mode, distraction-free
+- **Fantastic**: Local-first, no data collection, split editor & preview, wikilink backlinks, LaTeX, Mermaid
+- **Beautiful**: Minimalist design, three-column layout, dark mode, macOS 26 glass, distraction-free
 - **Fast**: Swift 6 native, better performance than Electron-based apps
-- **Simple**: Lightweight, keyboard shortcuts, auto-formatting
+- **Simple**: Lightweight, version history, keyboard shortcuts, auto-formatting
 
 ## Installation
 
-Download from the **Mac App Store**; all future updates ship there. A paid download is the best way to support ongoing development; the open-source build offers the same experience.
+1. **Mac App Store** (paid, automatic updates):
 
-<a href="https://apps.apple.com/cn/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
+   <a href="https://apps.apple.com/cn/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
 
-After installing, create a `MiaoYan` folder in iCloud Drive or your preferred location, open Preferences (⌘,), set the storage path, and start writing. Existing sponsors can DM me directly for an App Store redemption code.
+2. **Homebrew**:
+   ```bash
+   brew install --cask miaoyan
+   ```
 
-### Build from source / older versions
+3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 11.5+)
 
-From **4.0** onward MiaoYan is distributed through the App Store. You can still build from the MIT-licensed source, or grab a pre-4.0 DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases).
+All three options share the same codebase and receive the same updates. After installing, create a `MiaoYan` folder in iCloud Drive or your preferred location, open Preferences (⌘,), and set the storage path.
 
 ## CLI
 
@@ -293,6 +296,8 @@ curl -fsSL https://raw.githubusercontent.com/tw93/MiaoYan/main/scripts/install.s
 
 # Usage
 miao open <title|path>    # Open note
+miao new <title> [text]   # Create new note
+miao search <query>       # Search notes in terminal
 
 [...truncated]
 
@@ -301,8 +306,8 @@ miao open <title|path>    # Open note
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 49,713
-- Forks: 1,537
+- Stars: 49,824
+- Forks: 1,542
 - Stack: Shell, Rust
 - Latest Release: V1.36.3 "Falcon 🦅" (2026-04-29)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
@@ -403,8 +408,8 @@ mo --help                    # Show help
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 4,260
-- Forks: 257
+- Stars: 4,274
+- Forks: 259
 - Stack: Markdown, Shell
 - Latest Release: v3.11.0 "V3.11.0 Lean 🍃" (2026-04-27)
 - Install: `npx skills add tw93/Waza -a claude-code -g -y`
@@ -477,8 +482,8 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 3,987
-- Forks: 198
+- Stars: 4,068
+- Forks: 200
 - Stack: HTML, CSS, Python
 - Latest Release: V1.3.0 "Cleaner Edges" (2026-04-27)
 - Homepage: https://kami.tw93.fun
