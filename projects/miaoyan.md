@@ -4,7 +4,7 @@
 
 MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.2K GitHub stars. MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
-Latest release: V3.4.0 (2026-04-28)
+Latest release: V3.5.1 (2026-05-03)
 
 ## Key Features
 
