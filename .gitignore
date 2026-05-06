@@ -10,10 +10,10 @@ _config.gh-pages.yml
 .vscode
 Gemfile.lock
 
-# AI Assistant files
-AGENTS.md
-CLAUDE.md
-.agents/
+# Local AI Assistant files
+AGENTS.override.md
+CLAUDE.local.md
+.agents/settings.local.json
 journal/
 .claude/settings.local.json
 .mcp.json
