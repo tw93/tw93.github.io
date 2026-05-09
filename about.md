@@ -27,12 +27,6 @@ lang_equivalent: /en/about.html
 - [**Kami**](https://github.com/tw93/Kami) 是妹妹，2026 年一个春天的周末出生，家里最年轻的小可爱，轻快，爱笑，明亮的小女孩，爱把家里收拾得整整齐齐，喜欢画漂亮的画，虽然小，但很能给人温暖。
 - [**Mole**](https://github.com/tw93/Mole) 是家里的宠物鼹鼠，2025 年国庆前在三亚泳池边游泳带回家的，圆滚滚的，带着小头灯拿着小铲子，喜欢翻箱倒柜钻角落，找到不需要的东西帮忙扔掉，很爱干净，一直陪伴着我们。
 
-## 赞助支持
-
-如果我的开源工具帮助了你，欢迎[赞助支持一下](https://github.com/sponsors/tw93)，你的支持是我持续开源最大的动力。
-
-<a href="https://cats.tw93.fun"><img src="https://cdn.jsdelivr.net/gh/tw93/sponsors@main/assets/sponsors.svg" width="100%" loading="lazy" /></a>
-
 ## 关注我
 
 - [Github](https://github.com/{{site.github}})
@@ -40,3 +34,5 @@ lang_equivalent: /en/about.html
 - [YouTube](https://www.youtube.com/@HiTw93)
 - [知乎](https://www.zhihu.com/people/{{site.zhihu}})
 - [V2EX](https://www.v2ex.com/member/{{site.v2ex}})
+
+{% include buy-me-coffee.html %}
