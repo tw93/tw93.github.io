@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 124K+ GitHub stars, 12K+ forks, 10,051 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 124K+ GitHub stars, 13K+ forks, 10,079 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 124K+ stars, 12K+ forks, 10,051 followers
+- **GitHub**: 124K+ stars, 13K+ forks, 10,079 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,8 +32,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 48,589
-- Forks: 9,751
+- Stars: 48,616
+- Forks: 9,766
 - Stack: Rust, Tauri v2, TypeScript
 - Latest Release: V3.11.0 "Evolve 👻" (2026-03-27)
 - Install: `npm install -g pake-cli`
@@ -119,8 +119,8 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 4,931
-- Forks: 240
+- Stars: 4,974
+- Forks: 243
 - Stack: Rust, Lua, Metal/GPU
 - Latest Release: V0.10.0 "Chat 🪄" (2026-05-10)
 - Homepage: https://x.com/hitw93/status/2040587400582443362?s=46
@@ -210,8 +210,8 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - GitHub: https://github.com/tw93/MiaoYan
-- Stars: 8,235
-- Forks: 483
+- Stars: 8,241
+- Forks: 485
 - Stack: Swift, AppKit
 - Latest Release: V3.5.1 (2026-05-03)
 - Homepage: https://apps.apple.com/cn/app/miaoyan/id6759252269
@@ -306,10 +306,10 @@ miao search <query>       # Search notes in terminal
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 50,590
-- Forks: 1,578
+- Stars: 50,707
+- Forks: 1,579
 - Stack: Shell, Rust
-- Latest Release: V1.37.0 "Cheetah 🐆" (2026-05-04)
+- Latest Release: V1.38.0 "Owl 🦉" (2026-05-10)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
 - Homepage: https://x.com/HiTw93/status/2048546667071431063
 
@@ -391,7 +391,6 @@ mo uninstall                 # Remove installed apps + their leftovers
 mo optimize                  # Refresh caches & services
 mo analyze                   # Visual disk explorer (or 'mo analyse')
 mo status                    # Live system health dashboard
-mo check                     # Run system diagnostics (alias: mo doctor)
 mo purge                     # Clean project build artifacts
 mo installer                 # Find and remove installer files
 
@@ -400,6 +399,7 @@ mo completion                # Set up shell tab completion
 mo update                    # Update Mole
 mo update --nightly          # Update to latest unreleased main build, script install only
 mo remove                    # Remove Mole from system
+mo --help                    # Show help
 
 [...truncated]
 
@@ -408,10 +408,10 @@ mo remove                    # Remove Mole from system
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 4,602
-- Forks: 282
+- Stars: 4,642
+- Forks: 284
 - Stack: Markdown, Shell
-- Latest Release: v3.20.0 "V3.20.0 Plug In" (2026-05-06)
+- Latest Release: v3.23.0 "V3.23.0 Context" (2026-05-10)
 - Install: `npx skills add tw93/Waza -a claude-code -g -y`
 - Homepage: https://x.com/HiTw93/status/2041312649510822103
 
@@ -481,10 +481,10 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 4,914
-- Forks: 251
+- Stars: 4,998
+- Forks: 259
 - Stack: HTML, CSS, Python
-- Latest Release: V1.4.1 "Steadier Hand" (2026-05-06)
+- Latest Release: V1.4.2 "Quiet Rails" (2026-05-10)
 - Homepage: https://kami.tw93.fun
 
 **Features:**
@@ -588,7 +588,7 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 - Covers front-end, tools, AI, and lifestyle
 - Published as a static site via GitHub Pages
 
-### Maple (496 stars)
+### Maple (497 stars)
 
 Maple is a Chrome browser extension that replaces the default new tab page with a clean, organized view of your bookmarks. It turns your bookmark bar into a visually appealing, fast-access dashboard.
 
@@ -607,7 +607,7 @@ Tw93's GitHub profile repository. Uses automated workflows to keep the README up
 - Auto-updating project stats
 - Dynamic blog post feed
 
-### tw93 Blog (211 stars)
+### tw93 Blog (212 stars)
 
 Source code for tw93.fun, Tw93's personal blog. Posts cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool-building methodology.
 
@@ -838,6 +838,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第267期 - 西湖拍字](https://weekly.tw93.fun/posts/267/) (2026-05-11)
 - [第266期 - 口罩雕塑](https://weekly.tw93.fun/posts/266/) (2026-04-27)
 - [第265期 - 西溪窗外](https://weekly.tw93.fun/posts/265/) (2026-04-20)
 - [第264期 - 终于完工](https://weekly.tw93.fun/posts/264/) (2026-04-12)
@@ -849,12 +850,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第258期 - 赛博充电](https://weekly.tw93.fun/posts/258/) (2026-03-02)
 - [第257期 - 春节快乐](https://weekly.tw93.fun/posts/257/) (2026-02-19)
 - [第256期 - 上野天空](https://weekly.tw93.fun/posts/256/) (2026-02-02)
-- [第255期 - 好吃鸡翅](https://weekly.tw93.fun/posts/255/) (2026-01-26)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [267. Westlake Stone Characters](https://weekly.tw93.fun/en/posts/267/) (2026-05-11)
 - [266. Masked Sculpture](https://weekly.tw93.fun/en/posts/266/) (2026-04-27)
 - [265. Xixi Window View](https://weekly.tw93.fun/en/posts/265/) (2026-04-20)
 - [264. Finally Done](https://weekly.tw93.fun/en/posts/264/) (2026-04-06)
@@ -866,7 +867,6 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [258. Cyber Charging](https://weekly.tw93.fun/en/posts/258/) (2026-03-02)
 - [257. Happy Chinese New Year](https://weekly.tw93.fun/en/posts/257/) (2026-02-19)
 - [256. Ueno Sky](https://weekly.tw93.fun/en/posts/256/) (2026-02-02)
-- [255. Delicious Chicken Wings](https://weekly.tw93.fun/en/posts/255/) (2026-01-26)
 
 ## Frequently Asked Questions
 
