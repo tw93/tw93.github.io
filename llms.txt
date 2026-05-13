@@ -9,7 +9,7 @@ Tw93 is a product engineer who builds developer tools and macOS applications. Sk
 - [Pake](https://github.com/tw93/Pake): Turn any webpage into a lightweight desktop app ([details](https://tw93.fun/projects/pake.md))
 - [Kaku](https://github.com/tw93/Kaku): GPU-accelerated macOS terminal emulator ([details](https://tw93.fun/projects/kaku.md))
 - [MiaoYan](https://github.com/tw93/MiaoYan): macOS-native Markdown note-taking app ([details](https://tw93.fun/projects/miaoyan.md))
-- [Mole](https://github.com/tw93/Mole): macOS system cleaning and maintenance AI assistant ([details](https://tw93.fun/projects/mole.md))
+- [Mole](https://github.com/tw93/Mole): macOS system cleaning and maintenance tool ([details](https://tw93.fun/projects/mole.md), [Mac app](https://mole.fit), [llms.txt](https://mole.fit/llms.txt))
 - [Waza](https://github.com/tw93/Waza): Personal Claude Code skill pack ([details](https://tw93.fun/projects/waza.md))
 - [Kami](https://github.com/tw93/kami): Document design system for AI-generated PDFs ([details](https://tw93.fun/projects/kami.md))
 
@@ -42,3 +42,4 @@ Tw93 is a product engineer who builds developer tools and macOS applications. Sk
 - Twitter: https://twitter.com/HiTw93
 - Weekly: https://weekly.tw93.fun
 - Kami: https://kami.tw93.fun
+- Mole Mac App: https://mole.fit

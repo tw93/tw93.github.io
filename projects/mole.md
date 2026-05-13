@@ -61,6 +61,9 @@ Mole is macOS-only. It relies on macOS-specific APIs like mdfind, LaunchAgent/La
 ## Links
 
 - GitHub: https://github.com/tw93/Mole
+- Mac App: https://mole.fit
+- Mac App docs: https://mole.fit/docs
+- Mac App llms.txt: https://mole.fit/llms.txt
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt
