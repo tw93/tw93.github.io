@@ -2,9 +2,9 @@
 
 > All-in-one macOS system cleaning and maintenance AI assistant.
 
-Mole is an open source project by [Tw93](https://tw93.fun) with 51.4K GitHub stars. Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
+Mole is an open source project by [Tw93](https://tw93.fun) with 51.5K GitHub stars. Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
-Latest release: V1.38.1 (2026-05-11)
+Latest release: V1.39.0 (2026-05-15)
 
 ## Key Features
 
