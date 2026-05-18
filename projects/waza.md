@@ -4,7 +4,7 @@
 
 Waza is an open source project by [Tw93](https://tw93.fun) with 4.8K GitHub stars. Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
-Latest release: v3.23.0 (2026-05-10)
+Latest release: v3.24.0 (2026-05-16)
 
 ## Key Features
 
