@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 127K+ GitHub stars, 13K+ forks, 10,417 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 128K+ GitHub stars, 13K+ forks, 10,530 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 127K+ stars, 13K+ forks, 10,417 followers
+- **GitHub**: 128K+ stars, 13K+ forks, 10,530 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,10 +32,10 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 48,899
-- Forks: 9,893
+- Stars: 48,969
+- Forks: 9,907
 - Stack: Rust, Tauri v2, TypeScript
-- Latest Release: V3.11.5 "Pake  Ironclad" (2026-05-13)
+- Latest Release: V3.11.7 "Pake  Steady" (2026-05-25)
 - Install: `npm install -g pake-cli`
 - Homepage: https://x.com/HiTw93/status/2037724342755504612
 
@@ -119,11 +119,11 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 5,145
+- Stars: 5,162
 - Forks: 252
 - Stack: Rust, Lua, Metal/GPU
 - Latest Release: V0.11.0 "Steady 🧭" (2026-05-17)
-- Homepage: https://x.com/hitw93/status/2040587400582443362?s=46
+- Homepage: https://kaku.fun
 
 **Features:**
 - GPU-accelerated rendering via Metal
@@ -210,7 +210,7 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - GitHub: https://github.com/tw93/MiaoYan
-- Stars: 8,267
+- Stars: 8,279
 - Forks: 486
 - Stack: Swift, AppKit
 - Latest Release: V3.5.1 (2026-05-03)
@@ -306,8 +306,8 @@ miao search <query>       # Search notes in terminal
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 52,529
-- Forks: 1,664
+- Stars: 52,817
+- Forks: 1,681
 - Stack: Shell, Rust
 - Latest Release: V1.39.1 "Fox 🦊" (2026-05-23)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
@@ -407,10 +407,10 @@ mo update                    # Update Mole
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 5,011
-- Forks: 301
+- Stars: 5,055
+- Forks: 303
 - Stack: Markdown, Shell
-- Latest Release: v3.24.0 "V3.24.0 Pulse 🩺" (2026-05-16)
+- Latest Release: v3.25.0 "V3.25.0 Bridge 🌉" (2026-05-25)
 - Install: `npx skills add tw93/Waza -a claude-code -g -y`
 - Homepage: https://x.com/HiTw93/status/2041312649510822103
 
@@ -480,8 +480,8 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 5,572
-- Forks: 278
+- Stars: 5,626
+- Forks: 282
 - Stack: HTML, CSS, Python
 - Latest Release: V1.5.0 "Live Paper" (2026-05-15)
 - Homepage: https://kami.tw93.fun
@@ -575,7 +575,7 @@ The landing-page template in action: three products, one constraint set.
 
 ## Secondary Projects
 
-### Weekly (856 stars)
+### Weekly (858 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021.
 
@@ -585,7 +585,7 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 - Covers front-end, tools, AI, and lifestyle
 - Published as a static site via GitHub Pages
 
-### Maple (497 stars)
+### Maple (499 stars)
 
 Maple is a Chrome browser extension that replaces the default new tab page with a clean, organized view of your bookmarks. It turns your bookmark bar into a visually appealing, fast-access dashboard.
 
@@ -624,7 +624,7 @@ A commitizen adapter that enables standardized git commit messages with emoji pr
 - Chinese localization
 - Commitizen integration
 
-### MiaoYan NetNewsWire Theme (115 stars)
+### MiaoYan NetNewsWire Theme (116 stars)
 
 A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
 
@@ -835,6 +835,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第268期 - 小河公园](https://weekly.tw93.fun/posts/268/) (2026-05-25)
 - [第267期 - 西湖拍字](https://weekly.tw93.fun/posts/267/) (2026-05-11)
 - [第266期 - 口罩雕塑](https://weekly.tw93.fun/posts/266/) (2026-04-27)
 - [第265期 - 西溪窗外](https://weekly.tw93.fun/posts/265/) (2026-04-20)
@@ -846,12 +847,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第259期 - 空中径山](https://weekly.tw93.fun/posts/259/) (2026-03-09)
 - [第258期 - 赛博充电](https://weekly.tw93.fun/posts/258/) (2026-03-02)
 - [第257期 - 春节快乐](https://weekly.tw93.fun/posts/257/) (2026-02-19)
-- [第256期 - 上野天空](https://weekly.tw93.fun/posts/256/) (2026-02-02)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [268. Xiaohe Park](https://weekly.tw93.fun/en/posts/268/) (2026-05-25)
 - [267. Westlake Stone Characters](https://weekly.tw93.fun/en/posts/267/) (2026-05-11)
 - [266. Masked Sculpture](https://weekly.tw93.fun/en/posts/266/) (2026-04-27)
 - [265. Xixi Window View](https://weekly.tw93.fun/en/posts/265/) (2026-04-20)
@@ -863,12 +864,11 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [259. Jingshan from Above](https://weekly.tw93.fun/en/posts/259/) (2026-03-09)
 - [258. Cyber Charging](https://weekly.tw93.fun/en/posts/258/) (2026-03-02)
 - [257. Happy Chinese New Year](https://weekly.tw93.fun/en/posts/257/) (2026-02-19)
-- [256. Ueno Sky](https://weekly.tw93.fun/en/posts/256/) (2026-02-02)
 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the Father of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 127K+ GitHub stars across 20 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the Father of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 128K+ GitHub stars across 20 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.
