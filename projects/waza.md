@@ -2,9 +2,9 @@
 
 > Reusable Claude Code skill pack for engineering workflows.
 
-Waza is an open source project by [Tw93](https://tw93.fun) with 5.0K GitHub stars. Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
+Waza is an open source project by [Tw93](https://tw93.fun) with 5.1K GitHub stars. Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
-Latest release: v3.24.0 (2026-05-16)
+Latest release: v3.25.0 (2026-05-25)
 
 ## Key Features
 
