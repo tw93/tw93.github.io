@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 130K+ GitHub stars, 13K+ forks, 10,725 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 130K+ GitHub stars, 13K+ forks, 10,761 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 130K+ stars, 13K+ forks, 10,725 followers
+- **GitHub**: 130K+ stars, 13K+ forks, 10,761 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,8 +32,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 49,456
-- Forks: 9,993
+- Stars: 49,499
+- Forks: 10,007
 - Stack: Rust, Tauri v2, TypeScript
 - Latest Release: V3.11.7 "Pake  Steady" (2026-05-25)
 - Install: `npm install -g pake-cli`
@@ -119,8 +119,8 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 5,197
-- Forks: 258
+- Stars: 5,209
+- Forks: 259
 - Stack: Rust, Lua, Metal/GPU
 - Latest Release: V0.11.0 "Steady 🧭" (2026-05-17)
 - Homepage: https://kaku.fun
@@ -210,7 +210,7 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - GitHub: https://github.com/tw93/MiaoYan
-- Stars: 8,296
+- Stars: 8,300
 - Forks: 488
 - Stack: Swift, AppKit
 - Latest Release: V3.5.1 (2026-05-03)
@@ -306,8 +306,8 @@ miao search <query>       # Search notes in terminal
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 53,638
-- Forks: 1,711
+- Stars: 53,809
+- Forks: 1,720
 - Stack: Shell, Rust
 - Latest Release: V1.39.1 "Fox 🦊" (2026-05-23)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
@@ -405,8 +405,8 @@ mo touchid                   # Configure Touch ID for sudo
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 5,391
-- Forks: 316
+- Stars: 5,422
+- Forks: 317
 - Stack: Markdown, Shell
 - Latest Release: v3.26.0 "V3.26.0 Contract 🧭" (2026-05-26)
 - Install: `npx skills add tw93/Waza -a claude-code -g -y`
@@ -478,10 +478,10 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 6,117
-- Forks: 303
+- Stars: 6,435
+- Forks: 307
 - Stack: HTML, CSS, Python
-- Latest Release: V1.5.0 "Live Paper" (2026-05-15)
+- Latest Release: V1.6.0 "Kami  Markdown Stage" (2026-05-29)
 - Homepage: https://kami.tw93.fun
 
 **Features:**
@@ -521,7 +521,7 @@ A: Chinese, English, and Japanese. Each language has carefully selected fonts, l
 
 Kami (紙, かみ) means paper in Japanese: the surface where a finished idea lands. AI can produce documents better than most humans do manually. The missing piece is not capability but constraint: without a design system, every session drifts into generic gray and inconsistent layouts.
 
-Kami fills that gap: one constraint language, ten templates, simple enough for agents to run reliably, strict enough that every output is something you actually want to ship. English and Chinese are first-class; Japanese works via a best-effort CJK path with visual QA before delivery.
+Kami fills that gap: one constraint language, ten templates, simple enough for agents to run reliably, strict enough that every output is something you actually want to ship. English and Chinese are first-class; Japanese and Korean work via best-effort CJK paths with visual QA before delivery.
 
 Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [Waza](https://github.com/tw93/Waza) (技) drills habits, [Kami](https://github.com/tw93/Kami) (紙) delivers documents.
 
@@ -540,9 +540,9 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
     <br><sub>Agent keynote, 6 slides</sub>
   </td>
   <td align="center" width="25%">
-    <a href="assets/demos/demo-musk-resume.pdf"><img src="assets/demos/demo-musk-resume.png" alt="Elon Musk resume"></a>
-    <br><b>Resume</b> · English
-    <br><sub>Founder CV, 2 pages</sub>
+    <a href="assets/demos/demo-resume-ko.pdf"><img src="assets/demos/demo-resume-ko.png" alt="Korean resume"></a>
+    <br><b>Resume</b> · 한국어
+    <br><sub>개발자 이력서, 2페이지</sub>
   </td>
   <td align="center" width="25%">
     <a href="assets/demos/demo-kaku.pdf"><img src="assets/demos/demo-kaku.png" alt="Kaku portfolio"></a>
@@ -554,7 +554,7 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 
 ## Landing Pages
 
-The landing-page template in action: three products, one constraint set.
+The landing-page template in action: three products, one constraint set. Five `.example` companions (vercel, sitemap, robots, llms, llms-full) ship alongside for multilingual deployment.
 
 <table>
 <tr>
@@ -564,8 +564,6 @@ The landing-page template in action: three products, one constraint set.
     <br><sub>Design system homepage</sub>
   </td>
   <td align="center" width="33%">
-    <a href="https://luo.tw93.fun"><img src="assets/showcase/luo-landing.png" alt="Luo landing page"></a>
-    <br><b>Luo</b> · 中文
 
 [...truncated]
 
