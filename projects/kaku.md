@@ -4,7 +4,7 @@
 
 Kaku is an open source project by [Tw93](https://tw93.fun) with 5.3K GitHub stars. Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
-Latest release: V0.12.0 (2026-06-05)
+Latest release: V0.12.1 (2026-06-08)
 
 ## Key Features
 
