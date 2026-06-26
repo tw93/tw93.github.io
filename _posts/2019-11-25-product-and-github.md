@@ -53,13 +53,13 @@ categories: Share
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00021.jpeg)
 
-<video width="100%" muted preload autoplay loop poster="https://cdn.fliggy.com/upic/gBMYM5.png">
-  <source src="https://cdn.fliggy.com/upic/Ao2oFh.mp4" type="video/mp4">
+<video width="100%" muted preload autoplay loop poster="https://cdn.tw93.fun/blog/upic/gBMYM5.png">
+  <source src="https://cdn.tw93.fun/blog/upic/Ao2oFh.mp4" type="video/mp4">
 </video>
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00023.jpeg)
 
-![1](https://cdn.fliggy.com/upic/IR8sfD.png)
+![1](https://cdn.tw93.fun/blog/upic/IR8sfD.png)
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00025.jpeg)
 

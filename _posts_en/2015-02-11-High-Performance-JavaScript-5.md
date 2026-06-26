@@ -80,7 +80,7 @@ var worker = new Worker("code.js");
 worker.onmessage = function(event) {
     alert(event.data);
 };
-worker.postMessage("Tangwei");
+worker.postMessage("Lucy");
 
 //Worker can pass messages back to the page through its own postMessage() method
 self.onmessage = function(event) {

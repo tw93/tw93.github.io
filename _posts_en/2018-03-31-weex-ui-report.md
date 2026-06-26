@@ -17,7 +17,7 @@ Weex Ui was open sourced on September 30 last year. It has been exactly half a y
 
 ### Origin of Weex Ui
 
-Weex Ui originated from a Weex upper-layer Ui component library within Alibaba. After running for nearly a year, it was organized, optimized, enriched and qualified then open sourced, hoping to leverage the community to let it develop better and serve more developers.
+Weex Ui originated from an internal Weex upper-layer Ui component library. After running for nearly a year, it was organized, optimized, enriched and qualified then open sourced, hoping to leverage the community to let it develop better and serve more developers.
 <img src="https://gw.alipayobjects.com/zos/rmsportal/HbThsElNGBLMMRbbTxyx.jpeg" width="800"/>
 
 ### Positioning of Weex Ui
@@ -59,7 +59,7 @@ For more version iterations, see [Weex Ui Upgrade Log](https://alibaba.github.io
 
 ### Finally
 
-**The development of Weex Ui cannot be separated from the contribution of the community. Since open source, it has slowly removed Alibaba's characteristics and developed towards community.**
+**The development of Weex Ui cannot be separated from the contribution of the community. Since open source, it has slowly removed internal-specific characteristics and developed towards community.**
 
 Thank every student who made suggestions and code contributions to Weex Ui, especially thank community [@zwwill](https://github.com/zwwill), [@GJJDD](https://github.com/GJJDD), [@Yanjiie](https://github.com/Yanjiie), [@zweipix](https://github.com/zweipix) and other students for their dedication.
 
@@ -70,4 +70,3 @@ Hope that in the future, more students can join the development of Weex Ui, so t
 ### Other Links
 
 - [Weex Ui Official Website](https://alibaba.github.io/weex-ui/#/)
-- [Weex + Ui - Weex Conf 2018](http://tw93.github.io/2018-01-21/weex-conf-weex-ui.html)

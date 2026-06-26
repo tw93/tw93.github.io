@@ -301,8 +301,8 @@ var Person={
 
 var reader=clone(Person);
 alert(reader.getName());//default name
-reader.name='Tang Wei';
-alert(reader.getName());//Tang Wei
+reader.name='Lucy';
+alert(reader.getName());//Lucy
 
 /*Author Prototype Object*/
 var Author=clone(Person);

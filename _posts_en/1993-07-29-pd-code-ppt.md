@@ -119,7 +119,7 @@ hidden: true
 
 ---
 
-![1](https://cdn.fliggy.com/upic/star-history-2022727.png)
+![1](https://cdn.tw93.fun/blog/upic/star-history-2022727.png)
 <small style="margin-top:24px">Whispering: Why does MiaoYan's Star history look like "cheating"? 🐶</small>
 
 ---
@@ -190,7 +190,7 @@ hidden: true
 
 <!-- .slide: data-background="#261B1C" -->
 
-![fit](https://cdn.fliggy.com/upic/4d790c5d-4a74-4fe6-bc81-d459a32ad5c8.jpg)
+![fit](https://cdn.tw93.fun/blog/upic/4d790c5d-4a74-4fe6-bc81-d459a32ad5c8.jpg)
 
 ---
 
@@ -200,7 +200,7 @@ hidden: true
 
 <!-- .slide: data-background="#FFF" -->
 
-![fit](https://cdn.fliggy.com/upic/abd8fa7c-b2dc-4360-8fde-7e3fcbfcee35.jpg)
+![fit](https://cdn.tw93.fun/blog/upic/abd8fa7c-b2dc-4360-8fde-7e3fcbfcee35.jpg)
 
 ---
 

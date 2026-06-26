@@ -19,7 +19,7 @@ I recently stumbled upon Alacritty, a cross-platform terminal emulator powered b
 
 Before starting, you can go to [Alacritty](https://github.com/alacritty/alacritty) on Github to download the corresponding package. For Mac users, the package is [Alacritty-v0.11.0.dmg](https://github.com/alacritty/alacritty/releases/download/v0.11.0/Alacritty-v0.11.0.dmg). After downloading, you will see the effect on the left side of the image below, and finally, we will change it to the optimized effect on the right side.
 
-![Comparison](https://cdn.fliggy.com/upic/OKZX5C.png)
+![Comparison](https://cdn.tw93.fun/blog/upic/OKZX5C.png)
 
 ### 2. Replace the Default Application Icon
 

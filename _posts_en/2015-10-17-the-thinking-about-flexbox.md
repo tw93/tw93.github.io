@@ -130,7 +130,7 @@ Here you can try different combinations yourself.
 - justify-content:flex-end; flex items are aligned to the end position of the main axis, and each preceding element is aligned next to the latter element.
 - justify-content:center; flex items are aligned with each other and centered on the main axis, and the distance from the first element to the start point of the main axis is equal to the position of the last element to the end point of the main axis. The above 3 are "bundled" in a left, right, and center alignment respectively.
 - justify-content:space-between; flex items are evenly distributed on the main axis, and the first element is close to the start point of the main axis, the last element is close to the end point of the main axis, and the remaining flex items in the middle are evenly divided ensuring equal intervals between two items.
-- justify-content:space-around; flex items are evenly distributed on the main axis, and the distance from the first element to the start point of the main axis and the distance from the last element to the end point of the main axis are **equal**, and equal to **half** of the distance between two intermediate elements. Perfect even distribution, this layout is very common in Alibaba series.
+- justify-content:space-around; flex items are evenly distributed on the main axis, and the distance from the first element to the start point of the main axis and the distance from the last element to the end point of the main axis are **equal**, and equal to **half** of the distance between two intermediate elements. Perfect even distribution, this layout is very common in large-scale applications.
 
 Let's look at the demo to understand faster:
 

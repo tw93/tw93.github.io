@@ -18,13 +18,13 @@ There are many ways to create objects and arrays in JavaScript, but using object
 {% highlight JavaScript%}
 //Create an object
 var myObject = {
-    name: "Tangwei",
+    name: "Lucy",
     age: 21,
     count: 50
 };
 
 //Create an array
-var myArray = ["Tangwei", 21, 50];
+var myArray = ["Lucy", 21, 50];
 {%endhighlight%}
 
 ### Don't Repeat Work

@@ -18,13 +18,13 @@ categories: Study
 {% highlight JavaScript%}
 //创建一个对象
 var myObject = {
-    name: "Tangwei",
+    name: "Lucy",
     age: 21,
     count: 50
 };
 
 //创建一个数组
-var myArray = ["Tangwei", 21, 50];
+var myArray = ["Lucy", 21, 50];
 {%endhighlight%}
 
 ### 不要重复工作

@@ -45,7 +45,7 @@ Later open source development is mainly co-constructing weex-toolkit to make it 
 
 #### 3: Open Sharing Mentality
 
-Many times only after things are used by everyone, someone complains and suggests, attracting more interested students to refer in together, more good ideas input, can better promote its development. Currently attracted students from Netease, Tencent, Qianhe Network Technology, Borui Cube Network and other companies to refer in together. Hope to become everyone's Weex Ui library, not Alibaba's.
+Many times only after things are used by everyone, someone complains and suggests, attracting more interested students to refer in together, more good ideas input, can better promote its development. Currently attracted students from Netease, Tencent, Qianhe Network Technology, Borui Cube Network and other companies to refer in together. Hope to become everyone's Weex Ui library, not any single company's.
 
 For an open source work, there are many things can be done, including component bugfix, function enhancement and new addition, document correction, translation and organization, and any suggestion, idea exchange, including maintenance of community, group questions, issue answers etc. things can all be done. Happily using while promoting its development is the best.
 

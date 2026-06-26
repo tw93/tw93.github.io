@@ -7,7 +7,7 @@
 
 <!-- .slide: data-background="#151113" -->
 
-![fit](https://cdn.fliggy.com/upic/1h2HrE.png)
+![fit](https://cdn.tw93.fun/blog/upic/1h2HrE.png)
 
 ---
 
@@ -268,4 +268,4 @@ Request for Comments，一种指导制定互联网标准的文档格式
 
 <!-- .slide: data-background="#151113" -->
 
-![fit](https://cdn.fliggy.com/upic/l7VXSd.png)
+![fit](https://cdn.tw93.fun/blog/upic/l7VXSd.png)

@@ -2,7 +2,6 @@ module Jekyll
   module CDNImageFilter
     # List of domains that support OSS processing
     CDN_DOMAINS = [
-      'cdn.fliggy.com',
       'gw.alipayobjects.com',
       'gw.alicdn.com',
       'img.alicdn.com'
