@@ -81,7 +81,7 @@ var worker = new Worker("code.js");
 worker.onmessage = function(event) {
     alert(event.data);
 };
-worker.postMessage("Tangwei");
+worker.postMessage("Lucy");
 
 //Worker 可以通过它自己的 postMessage()方法把消息传回页面
 self.onmessage = function(event) {

@@ -26,7 +26,7 @@ brew install --cask alacritty
 
 下载好后，你会看到下图左侧的默认效果，我们将改造成右侧的优化效果。
 
-![对比](https://cdn.fliggy.com/upic/OKZX5C.png)
+![对比](https://cdn.tw93.fun/blog/upic/OKZX5C.png)
 
 ### 二、替换默认的应用图标
 

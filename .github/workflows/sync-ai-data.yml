@@ -26,6 +26,18 @@ jobs:
             curl -sf "https://yobi.tw93.fun/projects/${slug}" -o "projects/${slug}.md"
           done
 
+      - name: Rewrite legacy CDN to R2
+        run: |
+          for f in llms-full.txt api/profile.json api/projects.json api/blog.json api/weekly.json projects/*.md; do
+            [ -f "$f" ] || continue
+            perl -i -pe '
+              s{cdn\.fliggy\.com/uPic/}{cdn.tw93.fun/blog/upic/}g;
+              s{cdn\.fliggy\.com/upic/}{cdn.tw93.fun/blog/upic/}g;
+              s{cdn\.fliggy\.com/pic/}{cdn.tw93.fun/blog/pic/}g;
+              s{(cdn\.tw93\.fun/blog/[^\s"?\\]+)\?x-oss-process=[^"\\ ]*}{$1}g;
+            ' "$f"
+          done
+
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
