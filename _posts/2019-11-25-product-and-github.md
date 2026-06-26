@@ -3,11 +3,11 @@ layout: post
 title: 产品和开源分享
 poem: 同聲相應，同氣相求
 date: 2019-11-25 16:00:00
-summary: 给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？
+summary: 关于如何做小的技术产品以及应该以什么心态看待开源的一次分享。
 categories: Share
 ---
 
-> 给内部同学分享的关于如何做小的技术产品以及应该以什么心态看待开源？。
+> 关于如何做小的技术产品以及应该以什么心态看待开源的一次分享。
 
 ## 分享内容
 
@@ -36,6 +36,7 @@ categories: Share
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00013.jpeg)
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00014.jpeg)
+
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00016.jpeg)
 

@@ -3,11 +3,11 @@ layout: post
 title: Product and Open Source Sharing
 poem: 同聲相應，同氣相求
 date: 2019-11-25 16:00:00
-summary: Sharing with internal colleagues about how to make small technical products and what mentality should be used to view open source?
+summary: A sharing about how to make small technical products and what mindset to have toward open source.
 categories: Share
 ---
 
-In the process of open sourcing [Weex Ui](https://github.com/apache/incubator-weex-ui), I had some feelings. Accompanied by the open source of the new product [XRender](https://github.com/alibaba/x-render), I shared with internal colleagues about how to make small technical products and what mentality should be used to view open source? Detailed [PDF](https://gw.alipayobjects.com/os/k/wh/oN9nbH.pdf).
+> A sharing about how to make small technical products and what mindset to have toward open source.
 
 ## Sharing Content
 
@@ -39,7 +39,6 @@ In the process of open sourcing [Weex Ui](https://github.com/apache/incubator-we
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00014.jpeg)
 
-![1](https://gw.alipayobjects.com/zos/k/open/IMG_00015.jpeg)
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00016.jpeg)
 
