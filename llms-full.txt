@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 146K+ GitHub stars, 15K+ forks, 11,884 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 146K+ GitHub stars, 15K+ forks, 11,898 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 146K+ stars, 15K+ forks, 11,884 followers
+- **GitHub**: 146K+ stars, 15K+ forks, 11,898 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,8 +32,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 57,761
-- Forks: 11,536
+- Stars: 57,972
+- Forks: 11,590
 - Stack: Rust, Tauri v2, TypeScript
 - Latest Release: V3.12.0 "Gateway" (2026-06-21)
 - Install: `npm install -g pake-cli`
@@ -118,7 +118,7 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 5,470
+- Stars: 5,474
 - Forks: 277
 - Stack: Rust, Lua, Metal/GPU
 - Latest Release: V0.12.3 "Cleaner" (2026-06-21)
@@ -209,7 +209,7 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - GitHub: https://github.com/tw93/MiaoYan
-- Stars: 8,397
+- Stars: 8,399
 - Forks: 495
 - Stack: Swift, AppKit
 - Latest Release: V4.0.0 "Valstrax 🚀" (2026-06-19)
@@ -283,20 +283,12 @@ A: Yes. MiaoYan supports fenced code blocks with syntax highlighting for 100+ la
 
 3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 11.5+)
 
-All three options share the same codebase and receive the same updates. After installing, create a `MiaoYan` folder in iCloud Drive or your preferred location, open Preferences (⌘,), and set the storage path.
+All three options share the same codebase and receive the same updates. After installing, create a `MiaoYan` folder in iCloud Drive, a desktop cloud-drive folder, or your preferred location, open Preferences (⌘,), and set the storage path.
 
-## CLI
+## Sync with Nutstore or Other Cloud Drives
 
-MiaoYan provides a command-line interface for quick note operations.
+MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. It reads and writes the Markdown folder you choose. iCloud Drive, Nutstore, Dropbox, or another cloud-drive client handles cross-device sync.
 
-```bash
-# Install
-curl -fsSL https://raw.githubusercontent.com/tw93/MiaoYan/main/scripts/install.sh | bash
-
-# Usage
-miao open <title|path>    # Open note or folder
-miao new <title> [text]   # Create new note
-miao search <query>       # Search notes in terminal
 
 [...truncated]
 
@@ -305,8 +297,8 @@ miao search <query>       # Search notes in terminal
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 57,229
-- Forks: 2,013
+- Stars: 57,296
+- Forks: 2,014
 - Stack: Shell, Rust
 - Latest Release: V1.44.0 "Signal 📡" (2026-06-21)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
@@ -402,10 +394,10 @@ mo status                    # Live system health dashboard
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 6,057
+- Stars: 6,079
 - Forks: 366
 - Stack: Markdown, Shell
-- Latest Release: v3.29.0 "V3.29.0 Bridge 🌉" (2026-06-19)
+- Latest Release: v3.30.0 "V3.30.0 Prism 🔷" (2026-06-27)
 - Install: `npx skills add tw93/Waza -a claude-code -g -y`
 - Homepage: https://x.com/HiTw93/status/2041312649510822103
 
@@ -444,18 +436,8 @@ A: Waza is built specifically for Claude Code's skill system. The prompt templat
 
 <br/>
 
-## Why
-
-Waza (技, わざ) is a Japanese martial arts term for technique: a move practiced until it becomes instinct.
-
-A good engineer does not just write code. They think through requirements, review their own work, debug systematically, design interfaces that feel intentional, and read primary sources. They write clearly, and learn new domains by producing output, not consuming content.
-
-AI is more capable than most engineers at raw output. But without structure, that capability drifts into generic, imprecise work. Waza channels it into precision: eight skills that set clear goals and constraints, then let the model do what it does best.
-
-Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [Waza](https://github.com/tw93/Waza) (技) drills habits, [Kami](https://github.com/tw93/Kami) (紙) ships documents. Think of them as a family: Kaku is the dad, Waza the big sister, Kami the little sister.
-
 <div align="center">
-  <img src="https://gw.alipayobjects.com/zos/k/qa/waza_repaired_v4.svg" width="1000" />
+  <img src="assets/waza_skills.svg" width="1000" />
 </div>
 
 ## Skills
@@ -465,8 +447,18 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 | Skill | When | What it does |
 | :--- | :--- | :--- |
 | [`/think`](skills/think/SKILL.md) | Before building anything new | Challenges the problem, pressure-tests the design, and produces a decision-complete plan another agent can implement. |
-| [`/design`](skills/design/SKILL.md) | Building frontend interfaces | Produces distinctive UI, including screenshot-driven aesthetic iteration, with a committed direction rather than generic defaults. |
+| [`/ui`](skills/ui/SKILL.md) | Building frontend interfaces | Produces distinctive UI, including screenshot-driven aesthetic iteration, with a committed direction rather than generic defaults. |
 | [`/check`](skills/check/SKILL.md) | After a task, before merging or release | Reviews the diff, extracts project-specific constraints, handles approved release/publish/push/reaction follow-through, and verifies with evidence. |
+| [`/hunt`](skills/hunt/SKILL.md) | Any bug, regression, or unexpected behavior | Systematic debugging. Root cause confirmed before any fix is applied, especially when something used to work. |
+| [`/write`](skills/write/SKILL.md) | Writing or editing prose | Rewrites prose to sound natural in Chinese and English. Cuts stiff, formulaic phrasing. |
+| [`/learn`](skills/learn/SKILL.md) | Diving into an unfamiliar domain | Six-phase research workflow: collect, digest, outline, fill in, refine, then self-review and publish. |
+| [`/read`](skills/read/SKILL.md) | Any URL or PDF | Reads URLs and PDFs with platform-specific routing. Plain reads return a concise summary; Markdown output is used when asked to convert, quote, cite, save, or feed downstream work. |
+| [`/health`](skills/health/SKILL.md) | Auditing Agent Health | Checks Codex, Claude Code, project instructions, verifier output, and AI maintainability with a budget-aware summary pass before deep inspection. |
+
+Each skill is a folder with reference docs, helper scripts, and gotchas from real failures.
+
+## Install
+
 
 [...truncated]
 
@@ -475,8 +467,8 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 9,214
-- Forks: 433
+- Stars: 9,234
+- Forks: 434
 - Stack: HTML, CSS, Python
 - Latest Release: V1.9.0 "Mermaid Diagrams" (2026-06-22)
 - Homepage: https://kami.tw93.fun
@@ -522,47 +514,45 @@ Kami fills that gap: one constraint language, nine templates, simple enough for 
 
 Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [Waza](https://github.com/tw93/Waza) (技) drills habits, [Kami](https://github.com/tw93/Kami) (紙) delivers documents.
 
-## See it
+## Showcase
 
-Nine real PDFs across templates and languages. Click any preview to open it.
+Real PDFs from one constraint set, across templates and languages. Click any preview to open it.
 
 <table>
 <tr>
-  <td align="center" width="33%">
+  <td align="center" width="25%">
     <a href="assets/demos/demo-musk-resume.pdf"><img src="assets/demos/demo-musk-resume.png" alt="Founder resume"></a>
     <br><b>Resume</b> · English
     <br><sub>Founder resume, 2 pages</sub>
   </td>
-  <td align="center" width="33%">
+  <td align="center" width="25%">
     <a href="assets/demos/demo-resume-ko.pdf"><img src="assets/demos/demo-resume-ko.png" alt="Korean resume"></a>
     <br><b>Resume</b> · 한국어
     <br><sub>개발자 이력서, 2페이지</sub>
   </td>
-  <td align="center" width="33%">
+  <td align="center" width="25%">
     <a href="assets/demos/demo-tesla.pdf"><img src="assets/demos/demo-tesla.png" alt="Tesla equity report"></a>
     <br><b>Equity Report</b> · 中文
     <br><sub>Tesla Q1 2026 财报点评</sub>
   </td>
-</tr>
-<tr>
-  <td align="center" width="33%">
+  <td align="center" width="25%">
     <a href="assets/demos/demo-agent-slides.pdf"><img src="assets/demos/demo-agent-slides.png" alt="Agent keynote slides" /></a>
     <br><b>Slides</b> · English
     <br><sub>Agent keynote, 8 slides</sub>
   </td>
-  <td align="center" width="33%">
+</tr>
+<tr>
+  <td align="center" width="25%">
     <a href="assets/demos/demo-mole.pdf"><img src="assets/demos/demo-mole.png" alt="Mole product brief"></a>
     <br><b>One-Pager</b> · English
     <br><sub>Mole product brief, 1 page</sub>
   </td>
-  <td align="center" width="33%">
-    <a href="assets/demos/demo-waza.pdf"><img src="assets/demos/demo-waza.png" alt="Waza skills one-pager"></a>
-    <br><b>One-Pager</b> · English
-    <br><sub>Waza skills intro, 1 page</sub>
+  <td align="center" width="25%">
+    <a href="assets/demos/demo-letter.pdf"><img src="assets/demos/demo-letter.png" alt="Recommendation letter"></a>
+    <br><b>Letter</b> · 中文
+    <br><sub>推荐信, 1 页</sub>
   </td>
-</tr>
-<tr>
-  <td align="center" width="33%">
+  <td align="center" width="25%">
 
 [...truncated]
 
@@ -588,7 +578,7 @@ Maple is a Chrome browser extension that replaces the default new tab page with 
 - Fast access to frequently used bookmarks
 - Clean, minimal interface
 
-### tw93 Profile (236 stars)
+### tw93 Profile (239 stars)
 
 Tw93's GitHub profile repository. Uses automated workflows to keep the README updated with latest project stats, blog posts, and activity.
 
@@ -597,7 +587,7 @@ Tw93's GitHub profile repository. Uses automated workflows to keep the README up
 - Auto-updating project stats
 - Dynamic blog post feed
 
-### tw93 Blog
+### tw93 Blog (3 stars)
 
 Source code for tw93.fun, Tw93's personal blog. Posts cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool-building methodology.
 
