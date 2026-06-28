@@ -1,22 +1,33 @@
 module Jekyll
   module CDNImageFilter
-    # List of domains that support OSS processing
-    CDN_DOMAINS = [
+    # Live Aliyun OSS CDNs that support ?x-oss-process= image params.
+    OSS_DOMAINS = [
       'gw.alipayobjects.com',
       'gw.alicdn.com',
       'img.alicdn.com'
     ]
 
-    # Helper to append OSS params to a URL
-    def self.append_oss_params(url)
-      return url if url.nil? || url.empty?
+    # Cloudflare R2 custom domain. R2 does NOT support ?x-oss-process=; it uses
+    # Cloudflare's /cdn-cgi/image/ URL transformations instead (auto webp/avif).
+    CF_DOMAIN = 'cdn.tw93.fun'
+    CF_PREFIX = "https://#{CF_DOMAIN}/".freeze
+    CF_TRANSFORM = 'width=2000,quality=80,format=auto,fit=scale-down'.freeze
 
-      # Skip if already processed or is an SVG/GIF
-      return url if url.include?('x-oss-process')
+    # Build an optimized image URL based on the source host.
+    def self.optimize(url)
+      return url if url.nil? || url.empty?
       return url if url =~ /\.(svg|gif)$/i
 
-      # Check if domain matches
-      domain_match = CDN_DOMAINS.any? { |domain| url.include?(domain) }
+      # cdn.tw93.fun (Cloudflare R2) -> /cdn-cgi/image/ transformation.
+      if url.start_with?(CF_PREFIX)
+        return url if url.include?('/cdn-cgi/image/')
+        rest = url[CF_PREFIX.length..-1]
+        return "#{CF_PREFIX}cdn-cgi/image/#{CF_TRANSFORM}/#{rest}"
+      end
+
+      # Live Aliyun OSS CDNs -> ?x-oss-process= params.
+      return url if url.include?('x-oss-process')
+      domain_match = OSS_DOMAINS.any? { |domain| url.include?(domain) }
       return url unless domain_match
 
       separator = url.include?('?') ? '&' : '?'
@@ -28,7 +39,7 @@ module Jekyll
     def cdn_image_filter(input)
       input.gsub(/<img\s+[^>]*src="([^"]+)"[^>]*>/) do |img_tag|
         src = $1
-        new_src = CDNImageFilter.append_oss_params(src)
+        new_src = CDNImageFilter.optimize(src)
 
         if src != new_src
           img_tag.sub(src, new_src)
@@ -40,7 +51,7 @@ module Jekyll
 
     # Filter for processing raw URLs (e.g. page.feature)
     def cdn_image_url(input)
-      CDNImageFilter.append_oss_params(input)
+      CDNImageFilter.optimize(input)
     end
   end
 end

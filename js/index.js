@@ -28,11 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return cleaned + hash;
       };
 
+      var stripCfResize = function (url) {
+        if (!url || typeof url !== 'string') return url;
+        // https://cdn.tw93.fun/cdn-cgi/image/<opts>/<path> -> https://cdn.tw93.fun/<path>
+        return url.replace(/\/cdn-cgi\/image\/[^/]+\//, '/');
+      };
+
       var getOriginalSrc = function (img) {
         var dataSrc = img.getAttribute('data-pswp-src');
         if (dataSrc) return dataSrc;
         var src = img.getAttribute('data-src') || img.currentSrc || img.src;
-        return stripOssProcess(src);
+        return stripCfResize(stripOssProcess(src));
       };
 
       var loadCSS = function (href) {
