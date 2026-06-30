@@ -4,7 +4,7 @@
 
 Kami is an open source project by [Tw93](https://tw93.fun) with 9.3K GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
-Latest release: V1.9.0 (2026-06-22)
+Latest release: V1.9.1 (2026-06-29)
 
 ## Key Features
 
