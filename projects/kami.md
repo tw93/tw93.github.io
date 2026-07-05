@@ -2,7 +2,9 @@
 
 > Document design system for AI-generated PDFs with warm parchment typography.
 
-Kami is an open source project by [Tw93](https://tw93.fun) with 0 GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
+Kami is an open source project by [Tw93](https://tw93.fun) with 9.5K GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
+
+Latest release: V1.9.2 (2026-07-04)
 
 ## Key Features
 
@@ -47,7 +49,7 @@ Chinese, English, and Japanese. Each language has carefully selected fonts, lett
 
 ## Links
 
-- GitHub: https://github.com/tw93/kami
+- GitHub: https://github.com/tw93/Kami
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt
