@@ -4,6 +4,8 @@
 
 This repository powers the personal Jekyll blog at `tw93.fun`.
 
+Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and publishes `tw93.fun` automatically on every push; there is no staging. `.github/workflows/jekyll.yml` is a leftover GitHub Pages workflow that triggers on `master` and never runs; do not treat it as the deploy path.
+
 ## Repository Map
 
 - `_posts/` - Chinese posts.
@@ -12,8 +14,8 @@ This repository powers the personal Jekyll blog at `tw93.fun`.
 - `_includes/` - shared page fragments.
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling.
-- `.github/workflows/jekyll.yml` - site build/deploy workflow.
-- `.github/workflows/sync-ai-data.yml` - AI data synchronization workflow.
+- `vercel.json` - Vercel build environment for the production deploy.
+- `.github/workflows/sync-ai-data.yml` - daily sync that overwrites `llms-full.txt`, `api/`, and `projects/` from Yobi; do not hand-edit those files, edits get clobbered on the next run.
 
 ## Commands
 
@@ -27,7 +29,8 @@ npm run build
 
 ## Content Rules
 
-- Chinese posts live in `_posts/` with filename `YYYY-MM-DD-{topic}.md`. English posts live in `_posts_en/` with filename `YYYY-MM-DD-{topic}.en.md`. Do not mix languages in a single post file.
+- Chinese posts live in `_posts/`, English posts in `_posts_en/`, both named `YYYY-MM-DD-{topic}.md` (no `.en` suffix; the directory is the language marker). Do not mix languages in a single post file.
+- Posts are zh/en mirror pairs keyed by identical filenames. When editing a post in `_posts/`, check whether `_posts_en/` has the same file and apply the equivalent change there (and vice versa). A few Chinese posts intentionally have no English mirror; do not create one unless asked.
 - Required frontmatter: `layout`, `title`, `date`. Preserve all existing frontmatter fields; do not drop keys.
 - Preserve the author's voice: do not rewrite colloquial phrasing to formal style, do not add emoji.
 

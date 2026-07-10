@@ -19,7 +19,6 @@ gh issue list --state open
 gh pr view 123
 gh pr diff 123
 gh run list --limit 10
-gh run list --workflow=jekyll.yml --limit 10
 gh run list --workflow=sync-ai-data.yml --limit 10
 ```
 
