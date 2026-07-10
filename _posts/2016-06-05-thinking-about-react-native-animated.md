@@ -18,7 +18,7 @@ categories: Study
 
 ### RN动画支持
 
-<img data-src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="lazyload img-zoom" src="{{site.defaultImage}}"/>
+<img src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="img-zoom" loading="lazy" decoding="async"/>
 
 从上面的MineNode我们可以看出RN中有3个地方可以使用动画：
 

@@ -18,7 +18,7 @@ The title of this special article is "ReactNative Animation Research". Since it 
 
 ### RN Animation Support
 
-<img data-src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="lazyload img-zoom" src="{{site.defaultImage}}"/>
+<img src="//img.alicdn.com/tfs/TB1HDwhKXXXXXcraXXXXXXXXXXX-1225-1716.png" class="img-zoom" loading="lazy" decoding="async"/>
 
 From the MineNode above, we can see that there are 3 places in RN where animation can be used:
 

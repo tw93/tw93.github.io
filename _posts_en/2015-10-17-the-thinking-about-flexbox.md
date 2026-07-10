@@ -61,7 +61,7 @@ If you use flex, the implementation is simple, and you don't need to calculate i
 
 In fact, the excellent features of Flexbox are not just these. First, let's have a property map of it~
 
-<img data-src="{{site.assetUrl}}flexbox.png" class="lazyload img-zoom" src="{{site.defaultImage}}"/>
+<img src="{{site.assetUrl}}flexbox.png" class="img-zoom" loading="lazy" decoding="async"/>
 
 First, let's analyze this picture. From the first child node, we can see that Flexbox consists of Flex Container and Flex Item. The container is the parent element, and the item is the child element. Some relationships between them can be represented like this:
 

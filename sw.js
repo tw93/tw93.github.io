@@ -1,7 +1,6 @@
 const CACHE_NAME = "tw93-cache-v1";
 const FONT_BASE_URL = "https://gw.alipayobjects.com/os/k/jinkai/";
 const IMMUTABLE_ASSETS = [
-  "https://gw.alipayobjects.com/os/k/s3/lightense.min.js",
   "https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png", // Favicon/Logo
 ];
 

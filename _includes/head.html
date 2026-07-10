@@ -23,10 +23,6 @@
   {% assign og_image = page.feature | default:
   "https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png" %}
 
-  {% if page.feature %}
-  <link rel="preload" as="image" href="{{ page.feature | cdn_image_url }}" fetchpriority="high">
-  {% endif %}
-
   <meta property="og:locale" content="{{ site.lang }}">
   {% if page.layout == "post" %}
   <meta property="og:type" content="article">
@@ -77,15 +73,14 @@
   <link rel="dns-prefetch" href="https://gw.alipayobjects.com">
   <link rel="dns-prefetch" href="https://gw.alicdn.com">
   <link rel="preconnect" href="https://gw.alipayobjects.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com">
 
   <!-- Styles and Scripts -->
-  <link rel="stylesheet" href="{{ '/css/index.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
-  <link rel="stylesheet" href="{{ '/css/jinkai.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
-
-  {% if page.layout == "post" %}
-  <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async defer></script>
-  {% endif %}
+  <link rel="stylesheet" href="{{ '/css/index.css' | relative_url }}?v={{ site.asset_version }}">
+  <!-- jinkai.css only holds @font-face declarations (font-display: swap), so it must not block rendering -->
+  <link rel="preload" href="{{ '/css/jinkai.css' | relative_url }}?v={{ site.asset_version }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="{{ '/css/jinkai.css' | relative_url }}?v={{ site.asset_version }}">
+  </noscript>
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png"

@@ -48,10 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.head.appendChild(link);
       };
 
-      loadCSS("/css/photoswipe.css");
+      var assetV = window.ASSET_VERSION ? '?v=' + window.ASSET_VERSION : '';
 
-      loadScript("/js/photoswipe.umd.min.js", function () {
-        loadScript("/js/photoswipe-lightbox.umd.min.js", function () {
+      loadCSS("/css/photoswipe.css" + assetV);
+
+      loadScript("/js/photoswipe.umd.min.js" + assetV, function () {
+        loadScript("/js/photoswipe-lightbox.umd.min.js" + assetV, function () {
           if (typeof PhotoSwipeLightbox === 'undefined' || typeof PhotoSwipe === 'undefined') return;
 
           var lightbox = new PhotoSwipeLightbox({

@@ -40,8 +40,9 @@
   </footer>
 </div>
 
-<script type="text/javascript" src="{{ '/js/index.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
-<script type="text/javascript" src="{{ '/js/search.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+<script>window.ASSET_VERSION = '{{ site.asset_version }}';</script>
+<script type="text/javascript" src="{{ '/js/index.js' | relative_url }}?v={{ site.asset_version }}" defer></script>
+<script type="text/javascript" src="{{ '/js/search.js' | relative_url }}?v={{ site.asset_version }}" defer></script>
 
 {% if site.google_analytics %}
 <script>

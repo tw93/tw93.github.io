@@ -7,7 +7,7 @@ summary: This week, I shared the Topic "Hello Weex" with my department colleague
 categories: Share
 ---
 
-<img data-src="http://img.alicdn.com/tfs/TB1qlHxPXXXXXaFaXXXXXXXXXXX-2880-1800.jpg" class="lazyload" />
+<img src="http://img.alicdn.com/tfs/TB1qlHxPXXXXXaFaXXXXXXXXXXX-2880-1800.jpg" loading="lazy" decoding="async" />
 
 This week, I shared the Topic "Hello Weex" with my department colleagues. Now I have organized it into a text version to share with students who follow Weex. It mainly involves:
 
@@ -24,7 +24,7 @@ I believe some students cannot distinguish between Module and Component clearly.
 > Module: An implementation unit of software that provides a coherent set of responsibilities.
 > Component:A component is a reusable building block that can be combined with other components in the same or other computers in a distributed network to form an application.
 
-<img data-src="http://img.alicdn.com/tfs/TB1T6zwPXXXXXa2aXXXXXXXXXXX-440-317.png" class="lazyload" />
+<img src="http://img.alicdn.com/tfs/TB1T6zwPXXXXXa2aXXXXXXXXXXX-440-317.png" loading="lazy" decoding="async" />
 
 Roughly meaning, Module refers to the implementation unit of software that provides a coherent set of responsibilities; Component is a reusable program building block that can be combined with other components in the same or other computers in a distributed network to form an application.
 
@@ -40,11 +40,11 @@ So in Weex, what exactly are Module and Component? You can first look at what Mo
 
 **Module is a set of APIs that can be called by JS Framework. Some of them can call JS Framework in an asynchronous way.**
 
-<img data-src="//img.alicdn.com/tfs/TB10Qn_PXXXXXXFXXXXXXXXXXXX-1172-458.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB10Qn_PXXXXXXFXXXXXXXXXXXX-1172-458.png" loading="lazy" decoding="async" />
 
 **Component refers to being visible on the screen, having specific behaviors, being able to be configured with different properties and styles, and being able to respond to user interactions.**
 
-<img data-src="//img.alicdn.com/tfs/TB1NvfQPXXXXXcLXFXXXXXXXXXX-1322-766.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1NvfQPXXXXXcLXFXXXXXXXXXX-1322-766.png" loading="lazy" decoding="async" />
 
 ## **Weex Architecture**
 
@@ -52,7 +52,7 @@ The official website describes Weex as *"A framework for building Mobile cross-p
 
 I believe students who have paid attention to Weex should have seen the following Weex architecture diagram.
 
-<img data-src="//img.alicdn.com/tfs/TB1EITwPXXXXXaCaXXXXXXXXXXX-852-566.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1EITwPXXXXXaCaXXXXXXXXXXX-852-566.png" loading="lazy" decoding="async" />
 
 Looking at the picture and speaking is like this:
 
@@ -62,7 +62,7 @@ Looking at the picture and speaking is like this:
 
 **The work done by Transform** is actually converting DSL into a JSON-like tree structure, and aggregating and combining it into a JavaScript AMD module, facilitating subsequent processing by JS Framework. Can see the work done by transform from the figure below:
 
-<img data-src="//img.alicdn.com/tfs/TB1_hLfPXXXXXbgaVXXXXXXXXXX-2880-1800.jpg" src="{{site.defaultImage}}" class="lazyload img-zoom" />
+<img src="//img.alicdn.com/tfs/TB1_hLfPXXXXXbgaVXXXXXXXXXX-2880-1800.jpg" class="img-zoom" loading="lazy" decoding="async" />
 
 The left part above is actually a DSL, a domain-specific language, which can directly use concepts in its object domain, focusing on describing the "What" part, without having to describe "How" (How).
 
@@ -70,11 +70,11 @@ The left part above is actually a DSL, a domain-specific language, which can dir
 
 **JS Framework** initialization of an instance involves the following process, see [**vanilla/index.js**](https://link.zhihu.com/?target=https%3A//github.com/alibaba/weex/blob/master/html5/vanilla/index.js) for details
 
-<img data-src="//img.alicdn.com/tfs/TB1CjTtPXXXXXa0apXXXXXXXXXX-1268-630.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1CjTtPXXXXXa0apXXXXXXXXXX-1268-630.png" loading="lazy" decoding="async" />
 
 People who see here must love learning.....
 
-<img data-src="//img.alicdn.com/tfs/TB1Hc6BPXXXXXa1aXXXXXXXXXXX-400-361.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1Hc6BPXXXXXa1aXXXXXXXXXXX-400-361.png" loading="lazy" decoding="async" />
 
 ## **Weex Others**
 
@@ -82,7 +82,7 @@ People who see here must love learning.....
 
 Why not recommend using scroller? Native students must know ScrollView in Android and UIScrollView in Ios. See the picture for details:
 
-<img data-src="//img.alicdn.com/tfs/TB1dgbFPXXXXXbDXVXXXXXXXXXX-1344-516.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1dgbFPXXXXXbDXVXXXXXXXXXX-1344-516.png" loading="lazy" decoding="async" />
 
 You can imagine the things in scroller as a big sub-View. If the list is too long, it can be imagined that the completion of first screen rendering and interface operability need to wait until all lists are loaded before use. No memory recovery, undoubtedly will cause certain impact on performance and experience.
 
@@ -90,11 +90,11 @@ You can imagine the things in scroller as a big sub-View. If the list is too lon
 
 Why use list? The reason is that this component only renders visible area, and can perform memory reuse at the same time.
 
-<img data-src="//img.alicdn.com/tfs/TB1ObPUPXXXXXasXFXXXXXXXXXX-1168-824.png" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1ObPUPXXXXXasXFXXXXXXXXXX-1168-824.png" loading="lazy" decoding="async" />
 
 If it is still not very easy to understand, you can look at the principle diagram of UITableView in Ios:
 
-<img data-src="//img.alicdn.com/tfs/TB1eSL4PXXXXXaPXXXXXXXXXXXX-1914-1485.jpg" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1eSL4PXXXXXaPXXXXXXXXXXXX-1914-1485.jpg" loading="lazy" decoding="async" />
 
 **UITableView control uses cell to display data. A cell corresponds to a row, but cell and row are not exactly the same. First cell is a view. The number of cells is determined by the number of rows that can be seen at a certain moment. When a row of data is moved up and moved out of the screen and becomes invisible, cell will be reused, and then used to display those row data newly appearing on the screen.**
 
@@ -104,7 +104,7 @@ list is only suitable for vertical long list rolling scenarios, but if horizonta
 
 Weex can now also generate APP like RN. See [**weexteam/weex-hackernews**](https:/github.com/weexteam/weex-hackernews) for details. The following is my running result, truly achieving one code running in multiple places.
 
-<img data-src="//img.alicdn.com/tfs/TB1cpfCPXXXXXbWaXXXXXXXXXXX-2822-1708.jpg" class="lazyload" />
+<img src="//img.alicdn.com/tfs/TB1cpfCPXXXXXbWaXXXXXXXXXXX-2822-1708.jpg" loading="lazy" decoding="async" />
 
 **4. Weex-x**
 
