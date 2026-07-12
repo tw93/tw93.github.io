@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 150K+ GitHub stars, 16K+ forks, 12,109 GitHub followers across 20 open source projects (6 core + 14 secondary).
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 150K+ GitHub stars, 16K+ forks, 12,119 GitHub followers across 20 open source projects (6 core + 14 secondary).
 
 ## Identity & Background
 
@@ -8,7 +8,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Skills**: Rust, Swift, TypeScript, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
-- **GitHub**: 150K+ stars, 16K+ forks, 12,109 followers
+- **GitHub**: 150K+ stars, 16K+ forks, 12,119 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -32,10 +32,10 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 59,691
-- Forks: 12,040
+- Stars: 59,754
+- Forks: 12,059
 - Stack: Rust, Tauri v2, TypeScript
-- Latest Release: V3.13.1 "Bridge" (2026-07-04)
+- Latest Release: V3.14.0 "Canvas" (2026-07-10)
 - Install: `npm install -g pake-cli`
 
 **Features:**
@@ -118,10 +118,10 @@ A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electro
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - GitHub: https://github.com/tw93/Kaku
-- Stars: 5,540
+- Stars: 5,550
 - Forks: 279
 - Stack: Rust, Lua, Metal/GPU
-- Latest Release: V0.13.0 "Faster" (2026-07-05)
+- Latest Release: V0.14.0 "Focused" (2026-07-11)
 - Homepage: https://kaku.fun
 
 **Features:**
@@ -209,7 +209,7 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - GitHub: https://github.com/tw93/MiaoYan
-- Stars: 8,420
+- Stars: 8,421
 - Forks: 496
 - Stack: Swift, AppKit
 - Latest Release: V4.0.0 "Valstrax 🚀" (2026-06-19)
@@ -297,10 +297,10 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 58,489
-- Forks: 2,064
+- Stars: 58,653
+- Forks: 2,068
 - Stack: Shell, Rust
-- Latest Release: V1.45.0 "Quiet 🤫" (2026-07-04)
+- Latest Release: V1.46.0 "Careful 🧤" (2026-07-11)
 - Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`
 - Homepage: https://mole.fit
 
@@ -394,7 +394,7 @@ mo status                    # Live system health dashboard
 Waza is a collection of Claude Code skills (slash commands) that automate common engineering tasks: code review, debugging, design, writing, and more. Install once, use across all projects.
 
 - GitHub: https://github.com/tw93/Waza
-- Stars: 6,378
+- Stars: 6,389
 - Forks: 379
 - Stack: Markdown, Shell
 - Latest Release: v3.31.2 "V3.31.2 Safeguard 🛡️" (2026-07-10)
@@ -466,10 +466,10 @@ Each skill is a folder with reference docs, helper scripts, and gotchas from rea
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 9,725
-- Forks: 455
+- Stars: 9,739
+- Forks: 457
 - Stack: HTML, CSS, Python
-- Latest Release: V1.9.3 "Truer Type" (2026-07-05)
+- Latest Release: V1.9.4 "Living Diagrams" (2026-07-10)
 - Homepage: https://kami.tw93.fun
 
 **Features:**
@@ -557,7 +557,7 @@ Real PDFs from one constraint set, across templates and languages. Click any pre
 
 ## Secondary Projects
 
-### Weekly (863 stars)
+### Weekly (864 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021.
 
