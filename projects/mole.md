@@ -79,7 +79,7 @@ No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, Launc
 ## Links
 
 - Website: https://mole.fit
-- GitHub: https://github.com/tw93/Mole
+- Source: https://github.com/tw93/Mole
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt
