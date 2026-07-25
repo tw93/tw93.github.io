@@ -1,17 +1,25 @@
 # Mole
 
-> All-in-one macOS system cleaning and maintenance AI assistant.
+> Free open source macOS CLI to clean, uninstall, optimize, analyze, and monitor your Mac from the terminal.
 
-Mole is an open source project by [Tw93](https://tw93.fun) with 59.8K GitHub stars. Mole is a macOS system maintenance tool that helps clean junk files, manage storage, and optimize system performance. Built with Shell and Rust, it runs as a CLI with an optional companion macOS app.
+Website: https://mole.fit
+
+Mole is an open source project by [Tw93](https://tw93.fun) with 59.8K GitHub stars. Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
+
+License: GPL-3.0
 
 Latest release: V1.47.1 (2026-07-18)
 
 ## Key Features
 
-- System junk cleaning
-- Storage analysis and management
-- CLI-first with macOS companion app
-- Safe operations with dry-run support
+- `mo clean` deep cache cleanup plus leftovers from already-uninstalled apps
+- `mo uninstall` removes installed apps together with their leftover files
+- `mo optimize` refreshes system caches and services
+- `mo analyze` visual disk explorer for finding what takes the space
+- `mo status` live system health dashboard in the terminal
+- `mo purge` and `mo installer` clear project build artifacts and stale installers
+- `mo touchid` enables Touch ID for sudo
+- Every destructive command supports `--dry-run` to preview before acting
 
 ## Alternatives Comparison
 
@@ -25,18 +33,28 @@ Mole is often compared to: CleanMyMac, OnyX, AppCleaner, DaisyDisk.
 - free CleanMyMac alternative
 - clean Xcode derived data and caches
 - remove old Docker images and npm cache
+- Homebrew cache taking too much space
+- clean a Mac from the terminal
+
+## Requirements
+
+macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
 
 ## Install
 
 ```
-curl -fsSL https://mole.tw93.fun/install.sh | bash
+brew install mole
 ```
 
 ## FAQ
 
+**Is Mole free?**
+
+The Mole CLI is free and open source under GPL-3.0. Mole for Mac, the native GUI app at https://mole.fit, is a separate paid product with a $19 one-time license.
+
 **Is Mole safe to use?**
 
-Yes. Mole uses safe helper functions and never runs raw rm -rf. All destructive operations support dry-run mode.
+Yes. Mole uses safe helper functions and never runs raw rm -rf. It applies path validation, protected-directory rules, and conservative cleanup boundaries, and every destructive operation supports dry-run mode.
 
 **What does Mole clean?**
 
@@ -44,22 +62,23 @@ Browser caches (Chrome, Arc, Brave, Safari), Xcode derived data, Homebrew cache,
 
 **How do I install and update Mole?**
 
-Install: `curl -fsSL https://mole.tw93.fun/install.sh | bash`. Update to stable: `mo update`. Update to nightly: `mo update --nightly`.
+Install with Homebrew: `brew install mole`. Or with the script: `curl -fsSL https://raw.githubusercontent.com/tw93/mole/main/install.sh | bash`. Update to stable: `mo update`. Update to the latest unreleased main build: `mo update --nightly` (script install only).
 
 **What are the main Mole commands?**
 
-`mo clean` (junk cleaning), `mo analyze` (storage analysis), `mo optimize` (system optimization), `mo uninstall` (app removal with cleanup). Each supports `--dry-run` to preview before acting.
+`mo clean` (cache and leftover cleanup), `mo uninstall` (app removal with leftovers), `mo optimize` (system maintenance), `mo analyze` (disk explorer), `mo status` (live system dashboard), `mo purge` (project build artifacts), `mo installer` (stale installer sweep). Each supports `--dry-run` to preview before acting.
 
 **Does Mole have a GUI?**
 
-Yes. mole-mac (tw93/mole-mac) is the native macOS GUI companion. The CLI remains the primary interface.
+Yes. Mole for Mac at https://mole.fit is the native SwiftUI app. It is a separate paid product ($19 one-time, lifetime updates, 2 Macs per license) and adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, and in-app app updates. The CLI stays free and open source for terminal workflows.
 
 **Does Mole work on Linux?**
 
-Mole is macOS-only. It relies on macOS-specific APIs like mdfind, LaunchAgent/LaunchDaemon, and TCC for safe operations.
+No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, LaunchAgent/LaunchDaemon, and TCC for safe operations. An experimental Windows build exists on the windows branch, but there is no Linux version.
 
 ## Links
 
+- Website: https://mole.fit
 - GitHub: https://github.com/tw93/Mole
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
