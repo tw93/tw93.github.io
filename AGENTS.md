@@ -29,7 +29,7 @@ These files exist so AI agents and crawlers can use the site without scraping HT
 - `schema-map.xml` - structured data feed list, referenced from `robots.txt` via `Schemamap:`.
 - `sitemap-ai.xml` - sitemap for every surface above; new project briefs land here automatically, new root-level files need an explicit entry.
 - `_includes/head.html` - the homepage JSON-LD `@graph` (Person, Organization, SoftwareApplication per project). Prices here must match `pricing.md`.
-- `vercel.json` - serves `/index.md` for `GET /?mode=agent` and for `GET /` with `Accept: text/markdown`, and sets the `Link` and `Vary` response headers on `/`.
+- `vercel.json` - 302s `GET /?mode=agent` and `GET /` with `Accept: text/markdown` to `/index.md`, and sets the `Link` and `Vary` response headers on `/`. These must stay `redirects`, not `rewrites`: Vercel checks the filesystem before applying rewrites, `/` already matches `index.html`, so a rewrite on `/` never fires. Verify after deploying, not just locally. `vercel.json` takes no comment keys, the published schema rejects unknown top-level properties.
 
 Facts in these files must be verifiable. Check licences against the GitHub API and install commands against `api/projects.json` or the project's own README rather than guessing. Do not publish a manifest for a service that does not exist; there is no MCP server, no A2A endpoint, and no write API on this domain.
 

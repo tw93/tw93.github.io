@@ -5,7 +5,7 @@
       "RUBYOPT": "-E utf-8"
     }
   },
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
       "has": [
@@ -15,7 +15,8 @@
           "value": "agent"
         }
       ],
-      "destination": "/index.md"
+      "destination": "/index.md",
+      "statusCode": 302
     },
     {
       "source": "/",
@@ -26,7 +27,8 @@
           "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/index.md"
+      "destination": "/index.md",
+      "statusCode": 302
     }
   ],
   "headers": [
@@ -207,42 +209,6 @@
         {
           "key": "Link",
           "value": "</sitemap.xml>; rel=\"sitemap\", </index.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"alternate\"; type=\"text/plain\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json;version=3.1.0\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/agent.json>; rel=\"service-meta\"; type=\"application/json\", </feed.xml>; rel=\"alternate\"; type=\"application/atom+xml\", </about.html>; rel=\"author\", </privacy.html>; rel=\"privacy-policy\""
-        }
-      ]
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        },
-        {
-          "key": "Vary",
-          "value": "Accept"
-        }
-      ]
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "mode",
-          "value": "agent"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
         }
       ]
     }
