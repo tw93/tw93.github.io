@@ -1,0 +1,42 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+The AI-facing surfaces (projects/*.md, api/*.json, llms*.txt) are copied to the
+build as static files, not Jekyll pages, so jekyll-sitemap never sees them and
+they end up discoverable only by guessing the URL. This sitemap lists them so
+crawlers can find them. Built from site.static_files, so a new project page
+lands here automatically on the next build.
+{%- endcomment -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/llms.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/llms-full.txt</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+{%- for file in site.static_files -%}
+{%- if file.path contains '/projects/' and file.extname == '.md' %}
+  <url>
+    <loc>{{ site.url }}{{ file.path }}</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endif -%}
+{%- endfor -%}
+{%- for file in site.static_files -%}
+{%- if file.path contains '/api/' and file.extname == '.json' %}
+  <url>
+    <loc>{{ site.url }}{{ file.path }}</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+{%- endif -%}
+{%- endfor %}
+</urlset>

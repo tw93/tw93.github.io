@@ -28,6 +28,8 @@ I like to hack on new projects during long holidays, so most of these "family me
 - [**Kami**](https://github.com/tw93/Kami) is the younger sister, born on a spring weekend in 2026. The youngest in the family, cheerful and bright, always smiling. She loves keeping things in order, loves drawing pretty pictures. Small, but very warm.
 - [**Mole**](https://github.com/tw93/Mole) is the family pet mole, brought home from a poolside in Sanya before the 2025 National Day. Round and sturdy, with a tiny headlamp and a small shovel. He loves rummaging through corners, finding things you no longer need and helping toss them out. Always there, keeping us company.
 
+The mole later grew a native Mac app, [Mole for Mac](https://mole.fit), a $19 one-time purchase and my first paid product. The command-line one is still free and open source under GPL-3.0.
+
 ## Follow Me
 
 - [Github](https://github.com/{{site.github}})

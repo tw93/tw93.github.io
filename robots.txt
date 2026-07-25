@@ -7,9 +7,14 @@ Disallow: /_site/
 Disallow: /css/
 Disallow: /js/
 Disallow: /.git/
+Crawl-delay: 1
 
-# Sitemap
+# Sitemaps
+# sitemap.xml covers posts and pages; sitemap-ai.xml covers the machine-readable
+# surfaces (projects/*.md, api/*.json, llms*.txt) that Jekyll ships as static
+# files and therefore leaves out of the generated sitemap.
 Sitemap: https://tw93.fun/sitemap.xml
+Sitemap: https://tw93.fun/sitemap-ai.xml
 
 # AI Crawlers - Explicitly allow for better indexing
 User-agent: GPTBot
@@ -60,6 +65,3 @@ Allow: /
 
 User-agent: DuckAssistBot
 Allow: /
-
-# Crawl-delay to be respectful
-Crawl-delay: 1

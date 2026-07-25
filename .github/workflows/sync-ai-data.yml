@@ -15,15 +15,18 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fetch data from Yobi
+        # Fail loudly on a bad fetch. Silently keeping the previous file makes
+        # the site publish stale AI data that looks fresh.
         run: |
+          set -euo pipefail
           mkdir -p api projects
-          curl -sf https://yobi.tw93.fun/llms-full.txt -o llms-full.txt
-          curl -sf https://yobi.tw93.fun/api/profile -o api/profile.json
-          curl -sf https://yobi.tw93.fun/api/projects -o api/projects.json
-          curl -sf https://yobi.tw93.fun/api/blog -o api/blog.json
-          curl -sf https://yobi.tw93.fun/api/weekly -o api/weekly.json
-          for slug in pake kaku miaoyan mole waza kami; do
-            curl -sf "https://yobi.tw93.fun/projects/${slug}" -o "projects/${slug}.md"
+          curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/llms-full.txt -o llms-full.txt
+          curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/profile -o api/profile.json
+          curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/projects -o api/projects.json
+          curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/blog -o api/blog.json
+          curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/weekly -o api/weekly.json
+          for slug in pake kaku miaoyan mole mole-mac waza kami; do
+            curl -sf --retry 3 --retry-delay 5 "https://yobi.tw93.fun/projects/${slug}" -o "projects/${slug}.md"
           done
 
       - name: Rewrite legacy CDN to R2
@@ -39,13 +42,41 @@ jobs:
           done
 
       - name: Commit if changed
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add llms-full.txt api/ projects/
           if git diff --cached --quiet; then
             echo "No changes to commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: sync AI knowledge data from Yobi"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # The AI surfaces are the only pages that change on this schedule, and the
+      # workflow that used to carry IndexNow (jekyll.yml) triggers on `master`
+      # and never runs, so nothing has been pinging search engines for them.
+      - name: Ping IndexNow with the refreshed AI surfaces
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          KEY="6ff2b87724ac930114bf05c74db50bb5"
+          HOST="tw93.fun"
+
+          URLS=$(git diff --name-only HEAD~1 HEAD -- 'projects/*.md' 'llms-full.txt' \
+            | sed "s|^|https://$HOST/|")
+
+          if [ -z "$URLS" ]; then
+            echo "No AI surface URLs changed, skipping IndexNow"
+            exit 0
+          fi
+
+          URL_LIST=$(printf '%s\n' "$URLS" | jq -R -s 'split("\n") | map(select(length > 0))')
+          echo "Submitting to IndexNow: $URL_LIST"
+
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{\"host\":\"$HOST\",\"key\":\"$KEY\",\"keyLocation\":\"https://$HOST/$KEY.txt\",\"urlList\":$URL_LIST}"

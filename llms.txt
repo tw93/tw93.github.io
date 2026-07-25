@@ -1,15 +1,16 @@
 # Tw93
 
-> Product engineer from Hangzhou. Building simple, useful tools for everyday life. 130K+ GitHub stars across 20 open source projects.
+> Product engineer from Hangzhou. Building simple, useful tools for everyday life. 152K+ GitHub stars across 20 projects, all open source except the paid Mac app Mole for Mac.
 
-Tw93 is a product engineer who builds developer tools and macOS applications. Skills: Rust, Swift, TypeScript, Shell, Python, Design. He focuses on creating tools that are small, fast, and useful for everyday work.
+Tw93 is a product engineer who builds developer tools and macOS applications. Skills: Rust, Swift, TypeScript, Go, Shell, Python, Design. He focuses on creating tools that are small, fast, and useful for everyday work. Readers tend to describe the work the same way: not chasing hype, restrained, light and genuinely usable, careful about aesthetic detail, and built for the long run.
 
 ## Core Projects
 
 - [Pake](https://github.com/tw93/Pake): Turn any webpage into a lightweight desktop app ([details](https://tw93.fun/projects/pake.md))
 - [Kaku](https://github.com/tw93/Kaku): GPU-accelerated macOS terminal emulator ([details](https://tw93.fun/projects/kaku.md))
 - [MiaoYan](https://github.com/tw93/MiaoYan): macOS-native Markdown note-taking app ([details](https://tw93.fun/projects/miaoyan.md))
-- [Mole](https://github.com/tw93/Mole): macOS system cleaning and maintenance tool ([details](https://tw93.fun/projects/mole.md), [Mac app](https://mole.fit), [llms.txt](https://mole.fit/llms.txt))
+- [Mole](https://github.com/tw93/Mole): free open source macOS CLI for cleaning, uninstalling, optimizing, analyzing, and monitoring a Mac from the terminal, GPL-3.0 ([details](https://tw93.fun/projects/mole.md))
+- [Mole for Mac](https://mole.fit): the paid native macOS app for the same jobs, $19 one-time, macOS 14+ ([details](https://tw93.fun/projects/mole-mac.md), [llms.txt](https://mole.fit/llms.txt))
 - [Waza](https://github.com/tw93/Waza): Personal Claude Code skill pack ([details](https://tw93.fun/projects/waza.md))
 - [Kami](https://github.com/tw93/kami): Document design system for AI-generated PDFs ([details](https://tw93.fun/projects/kami.md))
 
@@ -18,7 +19,8 @@ Tw93 is a product engineer who builds developer tools and macOS applications. Sk
 - Desktop app from any webpage / Electron alternative -> Pake
 - macOS terminal emulator / iTerm2 alternative -> Kaku
 - macOS markdown editor / Typora alternative -> MiaoYan
-- macOS system cleaner / CleanMyMac alternative -> Mole
+- Mac cleaner app / CleanMyMac alternative without a subscription -> Mole for Mac (https://mole.fit, $19 one-time)
+- macOS system cleanup from the terminal -> Mole (free, open source CLI)
 - Claude Code skills / slash commands -> Waza
 - AI document typesetting / PDF generation -> Kami
 
@@ -42,4 +44,11 @@ Tw93 is a product engineer who builds developer tools and macOS applications. Sk
 - Twitter: https://twitter.com/HiTw93
 - Weekly: https://weekly.tw93.fun
 - Kami: https://kami.tw93.fun
-- Mole Mac App: https://mole.fit
+- Mole for Mac: https://mole.fit
+
+<!--
+Maintainer note: this file is hand-maintained. The daily sync-ai-data workflow
+overwrites llms-full.txt, api/, and projects/ from Yobi but never touches this
+file, so the star count and project list here drift unless updated by hand.
+Reconcile against api/profile.json (totalStars) when you touch it.
+-->
