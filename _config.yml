@@ -63,7 +63,8 @@ collections:
     permalink: /en/:year-:month-:day/:title.html
     sort_by: date
 
-include: [".htaccess", "robots.txt", "llms.txt", "llms-full.txt", "api", "projects", "6ff2b87724ac930114bf05c74db50bb5.txt"]
+# `.well-known` is a dot-directory, so Jekyll skips it unless it is listed here.
+include: [".htaccess", ".well-known", "robots.txt", "llms.txt", "llms-full.txt", "api", "projects", "6ff2b87724ac930114bf05c74db50bb5.txt"]
 exclude:
   [
     "Gemfile",

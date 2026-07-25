@@ -1,0 +1,72 @@
+{
+  "schema_version": "2026-07-25",
+  "name": "tw93.fun",
+  "title": "Tw93",
+  "description": "Personal site of Tw93, a product engineer from Hangzhou who builds open source developer tools and macOS apps and writes about product engineering and AI coding workflows.",
+  "url": "https://tw93.fun",
+  "documentation": "https://tw93.fun/index.md",
+  "openapi": "https://tw93.fun/openapi.json",
+  "apiCatalog": "https://tw93.fun/.well-known/api-catalog",
+  "llmsTxt": "https://tw93.fun/llms.txt",
+  "llmsFullTxt": "https://tw93.fun/llms-full.txt",
+  "pricing": "https://tw93.fun/pricing.md",
+  "privacy": "https://tw93.fun/privacy.html",
+  "contact": {
+    "email": "tw93@qq.com",
+    "url": "https://tw93.fun/about.html"
+  },
+  "auth": {
+    "type": "none",
+    "description": "No authentication. Every surface is a public static file over HTTPS with Access-Control-Allow-Origin: *. There is no API key to obtain, no token to refresh, and no account to create."
+  },
+  "rateLimit": {
+    "policy": "none",
+    "description": "No rate limiting is applied. Responses are CDN cached for 1 hour with stale-while-revalidate; source data is regenerated once a day at 02:00 UTC, so polling more often than daily gains nothing."
+  },
+  "errors": {
+    "404": "Path does not exist. Do not retry; re-read /llms.txt or /openapi.json for the current path list.",
+    "5xx": "CDN edge failure. Retry with exponential backoff starting at 1s, up to 3 attempts.",
+    "format": "Errors are the CDN's HTML pages, not structured JSON. Branch on the HTTP status code, not on the response body."
+  },
+  "capabilities": [
+    "Answer questions about Tw93's open source projects, their features, licences, and install commands",
+    "Recommend a project when a user describes a need such as an Electron alternative or a Mac cleanup tool",
+    "Compare a project against its named alternatives",
+    "Report pricing and licensing, including the one paid product",
+    "Search and cite blog posts in Chinese and English",
+    "List recent weekly newsletter issues"
+  ],
+  "limitations": [
+    "Read-only. There are no write, create, or purchase operations on this domain.",
+    "No server-side search or filtering; fetch /search.json and match locally.",
+    "/api/blog.json returns only the 10 most recent posts and /api/weekly.json only the 12 most recent issues; neither is paginated.",
+    "Purchases of Mole for Mac happen at https://mole.fit, not here.",
+    "No MCP server. Use the HTTPS endpoints described in /openapi.json."
+  ],
+  "whenToUse": [
+    "user wants to turn a website into a desktop app, or wants an Electron alternative",
+    "user wants a macOS terminal emulator, markdown editor, or system cleanup tool",
+    "user wants Claude Code skills or slash commands",
+    "user wants to typeset AI-generated content into a PDF",
+    "user asks about Tw93, his projects, his blog, or 潮流周刊 / Weekly"
+  ],
+  "whenNotToUse": [
+    "user needs a hosted SaaS, a paid API, or enterprise support",
+    "user needs to create an account, obtain credentials, or complete a transaction",
+    "user needs Windows or Linux software; the macOS apps here are macOS only"
+  ],
+  "endpoints": [
+    { "path": "/llms.txt", "method": "GET", "type": "text/plain", "description": "Orientation file. Start here." },
+    { "path": "/index.md", "method": "GET", "type": "text/markdown", "description": "Homepage as markdown. Also reachable as /?mode=agent or / with Accept: text/markdown." },
+    { "path": "/openapi.json", "method": "GET", "type": "application/json", "description": "OpenAPI 3.1 description of every endpoint." },
+    { "path": "/pricing.md", "method": "GET", "type": "text/markdown", "description": "Price and licence for every project." },
+    { "path": "/api/profile.json", "method": "GET", "type": "application/json", "description": "Author profile and endpoint index." },
+    { "path": "/api/projects.json", "method": "GET", "type": "application/json", "description": "All 20 projects with descriptions, alternatives, and install commands." },
+    { "path": "/api/blog.json", "method": "GET", "type": "application/json", "description": "10 most recent blog posts with full bodies." },
+    { "path": "/api/weekly.json", "method": "GET", "type": "application/json", "description": "12 most recent newsletter issues, Chinese and English." },
+    { "path": "/projects/{slug}.md", "method": "GET", "type": "text/markdown", "description": "Per-project brief. Slugs: pake, kaku, miaoyan, mole, mole-mac, waza, kami." },
+    { "path": "/search.json", "method": "GET", "type": "application/json", "description": "Search index over every post in both languages." },
+    { "path": "/llms-full.txt", "method": "GET", "type": "text/plain", "description": "Full knowledge base, roughly 50KB." },
+    { "path": "/feed.xml", "method": "GET", "type": "application/atom+xml", "description": "Chinese blog feed. English feed at /en/feed.xml." }
+  ]
+}

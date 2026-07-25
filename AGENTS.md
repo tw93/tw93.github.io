@@ -14,8 +14,24 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_includes/` - shared page fragments.
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling.
-- `vercel.json` - Vercel build environment for the production deploy.
-- `.github/workflows/sync-ai-data.yml` - daily sync that overwrites `llms-full.txt`, `api/`, and `projects/` from Yobi; do not hand-edit those files, edits get clobbered on the next run.
+- `vercel.json` - Vercel build environment, response headers, and the agent rewrites for the production deploy.
+- `.github/workflows/sync-ai-data.yml` - daily sync that overwrites `llms-full.txt`, `api/*.json`, and `projects/*.md` from Yobi; do not hand-edit those files, edits get clobbered on the next run. It only writes those exact filenames and never deletes, so hand-maintained files that live alongside them (`api/llms.txt`, `projects/llms.txt`) are safe.
+
+## Agent Surfaces
+
+These files exist so AI agents and crawlers can use the site without scraping HTML. All of them are hand-maintained and repeat facts that also live in `llms.txt`; when a project, price, or licence changes, update every one of them in the same commit.
+
+- `llms.txt` - orientation file, the entry point. `llms-full.txt` is machine-generated, do not edit.
+- `index.md` and `pricing.md` - static markdown at the repo root, no front matter so Jekyll copies them verbatim. Do not add front matter or they turn into HTML pages and the URLs break.
+- `openapi.json` - OpenAPI 3.1 description of the read-only endpoints. Verify with `npx @redocly/cli lint openapi.json` after editing.
+- `.well-known/` - `ai-plugin.json`, `agent.json`, and `api-catalog` (RFC 9727, extensionless). Listed in `_config.yml` `include:` because Jekyll skips dot-directories.
+- `api/llms.txt`, `projects/llms.txt` - scoped context for those two directories.
+- `schema-map.xml` - structured data feed list, referenced from `robots.txt` via `Schemamap:`.
+- `sitemap-ai.xml` - sitemap for every surface above; new project briefs land here automatically, new root-level files need an explicit entry.
+- `_includes/head.html` - the homepage JSON-LD `@graph` (Person, Organization, SoftwareApplication per project). Prices here must match `pricing.md`.
+- `vercel.json` - serves `/index.md` for `GET /?mode=agent` and for `GET /` with `Accept: text/markdown`, and sets the `Link` and `Vary` response headers on `/`.
+
+Facts in these files must be verifiable. Check licences against the GitHub API and install commands against `api/projects.json` or the project's own README rather than guessing. Do not publish a manifest for a service that does not exist; there is no MCP server, no A2A endpoint, and no write API on this domain.
 
 ## Commands
 

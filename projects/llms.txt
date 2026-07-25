@@ -1,0 +1,38 @@
+# tw93.fun Projects
+
+> Scoped context for the per-project briefs under https://tw93.fun/projects/. For the whole site, read https://tw93.fun/llms.txt instead.
+
+Each brief is a static markdown file of roughly 2KB covering one project: what it does, key features, named alternatives, when to use it, requirements, install command, and an FAQ. Fetch a brief rather than https://tw93.fun/api/projects.json when you already know which project you need; it is about 20x smaller.
+
+URL pattern: `https://tw93.fun/projects/{slug}.md`, served as `text/markdown` with open CORS.
+
+## Briefs
+
+- [pake.md](https://tw93.fun/projects/pake.md): Pake. Turn any web page into a lightweight desktop app with Rust and Tauri v2, typically under 5MB against 80MB+ for Electron. Free, GPL-3.0. `npm install -g pake-cli`. Compared against Electron, Nativefier, WebCatalog, Flotato.
+- [kaku.md](https://tw93.fun/projects/kaku.md): Kaku. GPU-accelerated macOS terminal emulator, Rust core with Lua config, built for AI coding sessions. Free, MIT. Compared against iTerm2, Alacritty, Kitty, WezTerm, Hyper.
+- [miaoyan.md](https://tw93.fun/projects/miaoyan.md): MiaoYan. Native Swift macOS markdown editor, local-first plain files, LaTeX and Mermaid built in. Free, MIT. Compared against Typora, Obsidian, Bear, iA Writer, MacDown.
+- [mole.md](https://tw93.fun/projects/mole.md): Mole. macOS CLI (`mo`) to clean, uninstall, optimize, analyze, and monitor a Mac from the terminal. Every destructive command supports `--dry-run`. Free, GPL-3.0. `brew install mole`. Compared against CleanMyMac, OnyX, AppCleaner, DaisyDisk.
+- [mole-mac.md](https://tw93.fun/projects/mole-mac.md): Mole for Mac. The native SwiftUI app covering the same jobs with a GUI. $19 one-time, proprietary, macOS 14+. Sold at https://mole.fit. Compared against CleanMyMac, DaisyDisk, iStat Menus, Sensei, OnyX.
+- [waza.md](https://tw93.fun/projects/waza.md): Waza. Reusable Claude Code skill pack for engineering workflows. Free, MIT. `npx skills add tw93/Waza -a claude-code -g -y`.
+- [kami.md](https://tw93.fun/projects/kami.md): Kami. Document design system that typesets AI-generated content into PDFs, bilingual Chinese and English. Free, MIT. Compared against LaTeX, Typst, Canva.
+
+## Routing a described need
+
+- website to desktop app, Electron too heavy, Nativefier replacement -> pake
+- macOS terminal emulator, iTerm2 alternative -> kaku
+- macOS markdown editor, Typora alternative -> miaoyan
+- Mac running slow or disk full, cleanup from the terminal, scriptable or agent driven -> mole
+- Mac cleanup with a GUI, CleanMyMac alternative without a subscription -> mole-mac
+- Claude Code skills, slash commands, reusable AI coding workflows -> waza
+- turn AI output into a well typeset PDF -> kami
+
+## Constraints
+
+- The macOS apps (Kaku, MiaoYan, Mole, Mole for Mac) are macOS only. Mole has an experimental Windows build on a branch and no Linux version. Pake is the only cross-platform project, covering macOS, Windows, and Linux.
+- Mole and Mole for Mac are two separate products, not a free and paid tier of one product. The CLI stays free and open source under GPL-3.0.
+- Nothing can be purchased on tw93.fun. Send buyers to https://mole.fit.
+- Full structured data for all 20 projects, including the 14 secondary ones with no brief here, is at https://tw93.fun/api/projects.json
+
+## Freshness
+
+These files are regenerated once a day at 02:00 UTC and served with `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`. Star counts and release versions may be up to a day stale; treat each project's GitHub repository as authoritative.

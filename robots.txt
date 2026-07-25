@@ -1,7 +1,9 @@
 # robots.txt for tw93.fun
-# Allow all search engines and AI crawlers
+# Every crawler is allowed. The Content-Signal lines state, per tier, what each
+# group of crawlers may do with the content once it has been fetched.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /_site/
 Disallow: /css/
@@ -16,52 +18,104 @@ Crawl-delay: 1
 Sitemap: https://tw93.fun/sitemap.xml
 Sitemap: https://tw93.fun/sitemap-ai.xml
 
-# AI Crawlers - Explicitly allow for better indexing
-User-agent: GPTBot
-Allow: /
+# Schema Map (NLWeb Schema Feeds): the structured data feeds on this site.
+Schemamap: https://tw93.fun/schema-map.xml
 
-User-agent: ChatGPT-User
-Allow: /
+# Agent entry points, listed here so a crawler that reads only robots.txt still
+# finds them:
+#   https://tw93.fun/llms.txt                    orientation, start here
+#   https://tw93.fun/llms-full.txt               full knowledge base
+#   https://tw93.fun/index.md                    homepage as markdown
+#   https://tw93.fun/pricing.md                  pricing and licensing
+#   https://tw93.fun/openapi.json                OpenAPI 3.1 description
+#   https://tw93.fun/.well-known/api-catalog     RFC 9727 API catalog
+#   https://tw93.fun/.well-known/agent.json      capabilities, limits, error handling
+#   https://tw93.fun/.well-known/ai-plugin.json  plugin manifest
 
-User-agent: CCBot
-Allow: /
+# ---------------------------------------------------------------------------
+# Tier 1: search and retrieval crawlers.
+# These fetch a page to answer a query and link back to it.
+# ---------------------------------------------------------------------------
 
-User-agent: Claude-Web
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot
+User-agent: Googlebot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 User-agent: Bingbot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-User-agent: Googlebot
-Allow: /
-
-# AI Search Bots (retrieval-only, not training)
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-User-agent: Perplexity-User
+User-agent: Applebot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 User-agent: DuckAssistBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Tier 2: AI assistants fetching on behalf of a user, and AI search bots.
+# These are the crawlers the machine-readable surfaces here are written for.
+# ---------------------------------------------------------------------------
+
+User-agent: ChatGPT-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: OAI-SearchBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Claude-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Claude-SearchBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Claude-Web
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: PerplexityBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Perplexity-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Tier 3: model training crawlers.
+# Training on this content is permitted, stated here explicitly rather than
+# left to the wildcard group.
+# ---------------------------------------------------------------------------
+
+User-agent: GPTBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: ClaudeBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: anthropic-ai
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Google-Extended
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Bytespider
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /

@@ -1,0 +1,843 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "tw93.fun Content API",
+    "version": "1.0.0",
+    "summary": "Read-only JSON, markdown, and plain text surfaces describing Tw93's open source projects, blog posts, and weekly newsletter.",
+    "description": "tw93.fun is a statically hosted personal site. Every operation below is a plain GET against a static file on a CDN: no authentication, no API key, no rate limit, no quota, and no write operations. CORS is open (`Access-Control-Allow-Origin: *`), so browser-based agents can fetch these directly.\n\n**Freshness.** `/api/*.json`, `/llms-full.txt`, and `/projects/{slug}.md` are regenerated once a day at 02:00 UTC by a scheduled job. Responses are served with `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`, so a response may be up to an hour older than the origin. Polling more often than daily gains nothing.\n\n**Errors.** There is no application server, so there are no application-level error bodies. A `404` means the path does not exist; do not retry it, re-read `/llms.txt` or this document for the current path list. A `5xx` or a connection failure means the CDN edge is unhealthy; retry with exponential backoff starting at 1s, up to 3 attempts.\n\n**Where to start.** Fetch `/llms.txt` for orientation, `/api/projects.json` for structured project data, and `/index.md` for a markdown rendering of the homepage.",
+    "contact": {
+      "name": "Tw93",
+      "url": "https://tw93.fun/about.html",
+      "email": "tw93@qq.com"
+    },
+    "license": {
+      "name": "Content is the author's; each software project carries its own licence, see /pricing.md",
+      "url": "https://tw93.fun/pricing.md"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://tw93.fun",
+      "description": "Production. There is no staging or sandbox environment; every endpoint is public and read-only, so production is safe to explore."
+    }
+  ],
+  "security": [],
+  "externalDocs": {
+    "description": "llms.txt orientation file",
+    "url": "https://tw93.fun/llms.txt"
+  },
+  "tags": [
+    {
+      "name": "profile",
+      "description": "Who the author is."
+    },
+    {
+      "name": "projects",
+      "description": "Open source projects and the paid Mac app."
+    },
+    {
+      "name": "content",
+      "description": "Blog posts, newsletter issues, and search."
+    },
+    {
+      "name": "agent",
+      "description": "Files written for AI agents rather than humans."
+    }
+  ],
+  "paths": {
+    "/api/profile.json": {
+      "get": {
+        "operationId": "getProfile",
+        "tags": [
+          "profile"
+        ],
+        "summary": "Get the author profile",
+        "description": "Returns Tw93's role, location, skills, aggregate GitHub statistics, canonical links, and a compact index of every project. Use this to answer 'who is Tw93' or to discover the other endpoints programmatically.",
+        "responses": {
+          "200": {
+            "description": "Author profile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profile"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/api/projects.json": {
+      "get": {
+        "operationId": "listProjects",
+        "tags": [
+          "projects"
+        ],
+        "summary": "List every project",
+        "description": "Returns all 20 projects with descriptions, tech stacks, feature lists, install commands, named alternatives, and 'recommend when' phrases. This is the richest single endpoint and the one to use when deciding which project answers a user's need. There are no query parameters; the response is the complete set, so filter client-side on `tier` (`core` or `secondary`) or on `categories`.",
+        "responses": {
+          "200": {
+            "description": "Every project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectList"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/projects/{slug}.md": {
+      "get": {
+        "operationId": "getProjectBrief",
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get a single project brief as markdown",
+        "description": "Returns a human and agent readable brief for one project: what it does, key features, named alternatives, when to use it, requirements, install command, and an FAQ. Prefer this over `listProjects` when the project is already known, because the response is roughly 2KB instead of roughly 45KB.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Project identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pake",
+                "kaku",
+                "miaoyan",
+                "mole",
+                "mole-mac",
+                "waza",
+                "kami"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Project brief in markdown.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/api/blog.json": {
+      "get": {
+        "operationId": "listBlogPosts",
+        "tags": [
+          "content"
+        ],
+        "summary": "List the most recent blog posts",
+        "description": "Returns the 10 most recent posts with their full rendered HTML bodies. This endpoint is not paginated and does not reach further back than 10 posts; use `getSearchIndex` for the complete archive, or `/feed.xml` for an Atom feed.",
+        "responses": {
+          "200": {
+            "description": "Recent blog posts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogFeed"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/api/weekly.json": {
+      "get": {
+        "operationId": "listWeeklyIssues",
+        "tags": [
+          "content"
+        ],
+        "summary": "List the most recent weekly newsletter issues",
+        "description": "Returns the 12 most recent issues of 潮流周刊 (Weekly), in Chinese under `zh` and English under `en`. Not paginated; the full archive lives at https://weekly.tw93.fun.",
+        "responses": {
+          "200": {
+            "description": "Recent newsletter issues, keyed by language.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeeklyFeed"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/search.json": {
+      "get": {
+        "operationId": "getSearchIndex",
+        "tags": [
+          "content"
+        ],
+        "summary": "Get the full-site search index",
+        "description": "Returns one entry for every post in both languages, each with a title, URL, date, categories, summary, and the first 50 words of body text. There is no server-side search; fetch this index once and match against it locally. This is the only endpoint that covers the complete archive.",
+        "responses": {
+          "200": {
+            "description": "Search index over every post.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SearchEntry"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "operationId": "getLlmsTxt",
+        "tags": [
+          "agent"
+        ],
+        "summary": "Get the llms.txt orientation file",
+        "description": "Short, hand-maintained overview of the site written for language models: project list, when-to-use routing table, and pointers to every other surface. Roughly 4KB. Start here.",
+        "responses": {
+          "200": {
+            "description": "Orientation file.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "operationId": "getLlmsFullTxt",
+        "tags": [
+          "agent"
+        ],
+        "summary": "Get the full knowledge base",
+        "description": "The complete knowledge base: every project README, FAQ, and release note concatenated. Roughly 50KB, regenerated daily. Fetch this only when the smaller surfaces are not enough.",
+        "responses": {
+          "200": {
+            "description": "Full knowledge base.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/index.md": {
+      "get": {
+        "operationId": "getHomepageMarkdown",
+        "tags": [
+          "agent"
+        ],
+        "summary": "Get the homepage as markdown",
+        "description": "The markdown rendering of the homepage: who the author is, when an agent should use this site, a project comparison table, install commands, and the endpoint index. The same content is returned by `GET /?mode=agent` and by `GET /` with an `Accept: text/markdown` request header.",
+        "responses": {
+          "200": {
+            "description": "Homepage in markdown.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/pricing.md": {
+      "get": {
+        "operationId": "getPricing",
+        "tags": [
+          "agent"
+        ],
+        "summary": "Get pricing and licensing for every project",
+        "description": "Price and licence for each project in a markdown table. Everything is free and open source except Mole for Mac, which is $19 one-time. No purchase can be completed on tw93.fun.",
+        "responses": {
+          "200": {
+            "description": "Pricing in markdown.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "NotFound": {
+        "description": "The path does not exist. The body is the CDN's HTML error page, not a structured error object. Do not retry; re-read /llms.txt or this document for the current path list."
+      },
+      "EdgeFailure": {
+        "description": "The CDN edge failed. Retry with exponential backoff starting at 1s, up to 3 attempts."
+      }
+    },
+    "schemas": {
+      "Profile": {
+        "type": "object",
+        "description": "The author's profile and an index of every other surface.",
+        "required": [
+          "name",
+          "role",
+          "bio",
+          "totalStars",
+          "projectCount",
+          "links",
+          "projects"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name.",
+            "examples": [
+              "Tw93"
+            ]
+          },
+          "alternateName": {
+            "type": "string",
+            "description": "Alternate handle."
+          },
+          "identity": {
+            "type": "string",
+            "description": "One-line self description used on GitHub."
+          },
+          "location": {
+            "type": "string",
+            "examples": [
+              "Hangzhou, China"
+            ]
+          },
+          "role": {
+            "type": "string",
+            "examples": [
+              "Product Engineer"
+            ]
+          },
+          "bio": {
+            "type": "string",
+            "description": "One-sentence biography."
+          },
+          "skills": {
+            "type": "array",
+            "description": "Languages and disciplines the author works in.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "values": {
+            "type": "object",
+            "description": "Stated beliefs, stance, and design philosophy.",
+            "properties": {
+              "beliefs": {
+                "type": "string"
+              },
+              "stance": {
+                "type": "string"
+              },
+              "philosophy": {
+                "type": "string"
+              }
+            }
+          },
+          "totalStars": {
+            "type": "integer",
+            "description": "GitHub stars summed across all repositories."
+          },
+          "totalForks": {
+            "type": "integer",
+            "description": "GitHub forks summed across all repositories."
+          },
+          "followers": {
+            "type": "integer",
+            "description": "GitHub follower count."
+          },
+          "projectCount": {
+            "type": "integer",
+            "description": "Number of tracked projects."
+          },
+          "tiers": {
+            "type": "object",
+            "description": "How many projects sit in each tier.",
+            "properties": {
+              "core": {
+                "type": "integer"
+              },
+              "secondary": {
+                "type": "integer"
+              }
+            }
+          },
+          "links": {
+            "type": "object",
+            "description": "Canonical external URLs for the author.",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "endpoints": {
+            "type": "object",
+            "description": "Path index. Note that these are the upstream generator's paths; on tw93.fun the JSON paths carry a `.json` suffix, for example `/api/profile.json`.",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "projects": {
+            "type": "array",
+            "description": "Compact project index. Use listProjects for the full records.",
+            "items": {
+              "$ref": "#/components/schemas/ProjectSummary"
+            }
+          }
+        }
+      },
+      "ProjectSummary": {
+        "type": "object",
+        "required": [
+          "slug",
+          "name",
+          "tier",
+          "tagline"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Stable identifier, also the path segment for getProjectBrief.",
+            "examples": [
+              "pake"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "examples": [
+              "Pake"
+            ]
+          },
+          "repo": {
+            "type": "string",
+            "description": "GitHub owner/name.",
+            "examples": [
+              "tw93/Pake"
+            ]
+          },
+          "tier": {
+            "type": "string",
+            "enum": [
+              "core",
+              "secondary"
+            ],
+            "description": "`core` projects are actively developed and worth recommending first."
+          },
+          "tagline": {
+            "type": "string",
+            "description": "One-sentence pitch."
+          }
+        }
+      },
+      "ProjectList": {
+        "type": "object",
+        "required": [
+          "count",
+          "projects"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Number of projects in the response."
+          },
+          "totalStars": {
+            "type": "integer",
+            "description": "Stars summed across the listed projects."
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Project"
+            }
+          }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "description": "A full project record. Optional fields are present only where they apply; for example `pricing` and `license` appear on the paid Mac app but not on every open source repository.",
+        "required": [
+          "slug",
+          "name",
+          "tier",
+          "tagline",
+          "description"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string",
+            "description": "GitHub owner/name. Absent for the paid app, which has no public repository."
+          },
+          "tier": {
+            "type": "string",
+            "enum": [
+              "core",
+              "secondary"
+            ]
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "description": "Paragraph-length explanation of what the project does."
+          },
+          "stack": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Languages and frameworks."
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "installCommand": {
+            "type": "string",
+            "description": "Shell command that installs the project, where one exists.",
+            "examples": [
+              "npm install -g pake-cli",
+              "brew install mole"
+            ]
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Generic category phrases, useful for matching a user's described need."
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Competing products this is commonly compared against."
+          },
+          "recommendWhen": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "User intents that should route to this project."
+          },
+          "faq": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Question and answer pairs."
+          },
+          "license": {
+            "type": "string",
+            "examples": [
+              "GPL-3.0",
+              "MIT",
+              "Proprietary"
+            ]
+          },
+          "openSource": {
+            "type": "boolean"
+          },
+          "pricing": {
+            "type": "string",
+            "description": "Plain-language pricing. Absent means free."
+          },
+          "platform": {
+            "type": "string",
+            "description": "Supported operating systems and versions."
+          },
+          "website": {
+            "type": "string",
+            "format": "uri"
+          },
+          "githubUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "homepage": {
+            "type": "string",
+            "format": "uri"
+          },
+          "language": {
+            "type": "string",
+            "description": "Primary language reported by GitHub."
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "forks": {
+            "type": "integer"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last repository update."
+          },
+          "readme": {
+            "type": "string",
+            "description": "Full README source."
+          },
+          "latestRelease": {
+            "type": "object",
+            "description": "Most recent release, where the project publishes releases."
+          }
+        }
+      },
+      "BlogFeed": {
+        "type": "object",
+        "required": [
+          "count",
+          "posts"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Number of posts in the response, currently always 10."
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlogPost"
+            }
+          }
+        }
+      },
+      "BlogPost": {
+        "type": "object",
+        "required": [
+          "title",
+          "link",
+          "pubDate"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Post title, usually Chinese."
+          },
+          "link": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical post URL."
+          },
+          "pubDate": {
+            "type": "string",
+            "description": "Publication date, YYYY-MM-DD.",
+            "examples": [
+              "2026-06-07"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Full post body as rendered HTML."
+          }
+        }
+      },
+      "WeeklyFeed": {
+        "type": "object",
+        "description": "Newsletter issues keyed by language.",
+        "properties": {
+          "zh": {
+            "$ref": "#/components/schemas/WeeklyIssueList"
+          },
+          "en": {
+            "$ref": "#/components/schemas/WeeklyIssueList"
+          }
+        }
+      },
+      "WeeklyIssueList": {
+        "type": "object",
+        "required": [
+          "count",
+          "issues"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Number of issues in the response, currently always 12."
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WeeklyIssue"
+            }
+          }
+        }
+      },
+      "WeeklyIssue": {
+        "type": "object",
+        "required": [
+          "title",
+          "link",
+          "pubDate"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "examples": [
+              "第274期 - 海阔天空"
+            ]
+          },
+          "link": {
+            "type": "string",
+            "format": "uri"
+          },
+          "pubDate": {
+            "type": "string",
+            "description": "RFC 1123 date.",
+            "examples": [
+              "Mon, 20 Jul 2026 00:00:00 GMT"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Full issue body as rendered HTML."
+          }
+        }
+      },
+      "SearchEntry": {
+        "type": "object",
+        "required": [
+          "title",
+          "url",
+          "date",
+          "lang"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "Site-relative post path.",
+            "examples": [
+              "/2026-06-07/robot.html"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "YYYY-MM-DD."
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "summary": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "description": "First 50 words of the body, HTML stripped."
+          },
+          "lang": {
+            "type": "string",
+            "enum": [
+              "zh-CN",
+              "en-US"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+# tw93.fun API
+
+> Scoped context for the JSON endpoints under https://tw93.fun/api/. For the whole site, read https://tw93.fun/llms.txt instead.
+
+Every endpoint here is a static JSON file served over HTTPS. No authentication, no API key, no rate limit, no quota, no write operations. CORS is open (`Access-Control-Allow-Origin: *`).
+
+Formal description: https://tw93.fun/openapi.json (OpenAPI 3.1)
+Catalog: https://tw93.fun/.well-known/api-catalog (RFC 9727)
+
+## Endpoints
+
+- [GET /api/profile.json](https://tw93.fun/api/profile.json): author profile, skills, aggregate GitHub stats, canonical links, and a compact index of every project. Roughly 4KB.
+- [GET /api/projects.json](https://tw93.fun/api/projects.json): all 20 projects with descriptions, tech stacks, features, install commands, named alternatives, and "recommend when" phrases. Roughly 45KB. Richest single endpoint; use it to route a described need to a project.
+- [GET /api/blog.json](https://tw93.fun/api/blog.json): the 10 most recent blog posts with full rendered HTML bodies. Roughly 380KB. Not paginated.
+- [GET /api/weekly.json](https://tw93.fun/api/weekly.json): the 12 most recent 潮流周刊 / Weekly issues, keyed `zh` and `en`. Roughly 280KB. Not paginated.
+
+Outside `/api/` but often needed alongside it:
+
+- [GET /search.json](https://tw93.fun/search.json): search index over every post in both languages. The only surface covering the complete archive.
+- [GET /projects/{slug}.md](https://tw93.fun/projects/pake.md): per-project brief in markdown, roughly 2KB. Prefer this over `projects.json` when the project is already known. Slugs: pake, kaku, miaoyan, mole, mole-mac, waza, kami. Scoped context: https://tw93.fun/projects/llms.txt
+
+## Choosing an endpoint
+
+- "Who is Tw93" -> `profile.json`
+- "Which of his projects does X" -> `projects.json`, match against `categories`, `recommendWhen`, and `alternatives`
+- "Tell me about Pake" -> `/projects/pake.md`, not `projects.json`
+- "What has he written about X" -> `search.json`, then fetch the post URL
+- "What did he publish recently" -> `blog.json` or `/feed.xml`
+
+## Constraints
+
+- There are no query parameters. `profile.json` advertises paths like `/api/projects?tier=core`; those belong to the upstream generator, not to this domain. On tw93.fun the paths carry a `.json` suffix and take no arguments. Filter client-side on the `tier` field instead.
+- There is no server-side search. Fetch `search.json` once and match locally.
+- `blog.json` and `weekly.json` are windows, not archives. For the full blog archive use `search.json`; for the full newsletter archive use https://weekly.tw93.fun.
+
+## Freshness
+
+All files here are regenerated once a day at 02:00 UTC and served with `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`. A response may be up to an hour older than the origin. Polling more often than daily gains nothing.
+
+## Errors and retries
+
+- `404`: the path does not exist. Do not retry; re-read this file or `/openapi.json` for the current path list.
+- `5xx` or a connection failure: the CDN edge is unhealthy. Retry with exponential backoff starting at 1s, up to 3 attempts.
+- Error bodies are the CDN's HTML pages, not structured JSON. Branch on the HTTP status code, not on the response body.

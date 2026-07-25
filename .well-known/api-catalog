@@ -1,0 +1,66 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://tw93.fun/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://tw93.fun/openapi.json",
+          "title": "tw93.fun Content API",
+          "type": "application/vnd.oai.openapi+json;version=3.1.0"
+        }
+      ]
+    },
+    {
+      "anchor": "https://tw93.fun/openapi.json",
+      "service-desc": [
+        {
+          "href": "https://tw93.fun/openapi.json",
+          "title": "OpenAPI 3.1 description of every read-only endpoint on tw93.fun",
+          "type": "application/vnd.oai.openapi+json;version=3.1.0"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://tw93.fun/index.md",
+          "title": "Human and agent readable overview of the site and its endpoints",
+          "type": "text/markdown"
+        },
+        {
+          "href": "https://tw93.fun/llms.txt",
+          "title": "llms.txt orientation file",
+          "type": "text/plain"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://tw93.fun/.well-known/agent.json",
+          "title": "Agent capability, authentication, rate limit, and error handling notes",
+          "type": "application/json"
+        },
+        {
+          "href": "https://tw93.fun/pricing.md",
+          "title": "Pricing and licensing",
+          "type": "text/markdown"
+        }
+      ],
+      "author": [
+        {
+          "href": "https://tw93.fun/about.html",
+          "title": "Tw93"
+        }
+      ],
+      "license": [
+        {
+          "href": "https://tw93.fun/pricing.md",
+          "title": "Each project carries its own licence; see the pricing and licensing page"
+        }
+      ],
+      "privacy-policy": [
+        {
+          "href": "https://tw93.fun/privacy.html",
+          "title": "Privacy policy"
+        }
+      ]
+    }
+  ]
+}

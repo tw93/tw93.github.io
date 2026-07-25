@@ -46,7 +46,7 @@
   "https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png" %}
   <meta name="twitter:card" content="{% if page.feature %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:creator" content="@{{ site.twitter }}">
-  <meta name="twitter:site" content="{{ site.url }}">
+  <meta name="twitter:site" content="@{{ site.twitter }}">
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
   <meta name="twitter:title" content="{{ page.title }} - Tw93">
   <meta name="twitter:description" content="{{ page.summary }}">
@@ -143,6 +143,229 @@
       "@type": "ImageObject",
       "url": "{{ page.feature }}"
     }{% endif %}
+  }
+  </script>
+  {% elsif page.url == '/' or page.url == '/en/' %}
+  {%- comment -%}
+  Homepage graph. Agents use this to identify the entity behind the domain, so it
+  carries the bits a bare WebSite block leaves out: sameAs for disambiguation,
+  an Organization with a contact point and address, and one SoftwareApplication
+  per core project with its price. Keep the prices in step with /pricing.md and
+  /llms.txt, all three are hand-maintained.
+  {%- endcomment -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}",
+        "description": "{{ site.description }}",
+        "inLanguage": ["zh-CN", "en-US"],
+        "publisher": { "@id": "{{ site.url }}/#organization" },
+        "author": { "@id": "{{ site.url }}/#person" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ site.url }}/search.json?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}#webpage",
+        "url": "{{ site.url }}{{ page.url }}",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "isPartOf": { "@id": "{{ site.url }}/#website" },
+        "about": { "@id": "{{ site.url }}/#person" },
+        "inLanguage": "{{ page.lang | default: site.lang }}",
+        "breadcrumb": { "@id": "{{ site.url }}{{ page.url }}#breadcrumb" },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".entry-title", ".entry-content"]
+        },
+        "encoding": {
+          "@type": "MediaObject",
+          "encodingFormat": "text/markdown",
+          "contentUrl": "{{ site.url }}/index.md"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{ site.title }}", "item": "{{ site.url }}/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "{{ site.url }}/about.html" },
+          { "@type": "ListItem", "position": 3, "name": "Pricing", "item": "{{ site.url }}/pricing.md" }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#person",
+        "name": "{{ site.author.name | default: 'Tw93' }}",
+        "alternateName": "Tw93",
+        "url": "{{ site.url }}",
+        "email": "mailto:{{ site.author.email }}",
+        "jobTitle": "Product Engineer",
+        "description": "Product engineer from Hangzhou building small, fast, open source developer tools and macOS applications.",
+        "image": "https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png",
+        "knowsAbout": ["Rust", "Swift", "TypeScript", "Go", "Shell", "Python", "macOS development", "AI coding workflows", "Product engineering", "Open source", "Design"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hangzhou",
+          "addressRegion": "Zhejiang",
+          "addressCountry": "CN"
+        },
+        "sameAs": [
+          "https://github.com/{{ site.author.github }}",
+          "https://twitter.com/{{ site.author.twitter }}",
+          "https://www.youtube.com/@HiTw93",
+          "https://www.zhihu.com/people/{{ site.zhihu }}",
+          "https://www.v2ex.com/member/{{ site.v2ex }}",
+          "https://weekly.tw93.fun",
+          "https://kami.tw93.fun",
+          "https://mole.fit"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#organization",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}",
+        "description": "Independent one-person studio publishing open source developer tools and macOS applications.",
+        "founder": { "@id": "{{ site.url }}/#person" },
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png",
+          "width": 420,
+          "height": 420
+        },
+        "email": "mailto:{{ site.author.email }}",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "{{ site.author.email }}",
+            "url": "{{ site.url }}/about.html",
+            "availableLanguage": ["Chinese", "English"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "technical support",
+            "url": "https://github.com/{{ site.author.github }}",
+            "availableLanguage": ["Chinese", "English"]
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hangzhou",
+          "addressRegion": "Zhejiang",
+          "addressCountry": "CN"
+        },
+        "sameAs": [
+          "https://github.com/{{ site.author.github }}",
+          "https://twitter.com/{{ site.author.twitter }}",
+          "https://www.youtube.com/@HiTw93",
+          "https://mole.fit"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Pake",
+        "url": "https://github.com/tw93/Pake",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Windows, Linux",
+        "description": "Turn any web page into a lightweight desktop app with Rust and Tauri v2. Builds are typically under 5MB against 80MB+ for Electron.",
+        "license": "https://spdx.org/licenses/GPL-3.0-only.html",
+        "isAccessibleForFree": true,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Kaku",
+        "url": "https://github.com/tw93/Kaku",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS",
+        "description": "GPU-accelerated macOS terminal emulator with a Rust core and Lua configuration, built for AI coding sessions.",
+        "license": "https://spdx.org/licenses/MIT.html",
+        "isAccessibleForFree": true,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "MiaoYan",
+        "url": "https://github.com/tw93/MiaoYan",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "macOS",
+        "description": "Native Swift macOS markdown editor. Local-first plain files with no sync service or vault format, LaTeX and Mermaid built in.",
+        "license": "https://spdx.org/licenses/MIT.html",
+        "isAccessibleForFree": true,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Mole",
+        "url": "https://github.com/tw93/Mole",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "macOS",
+        "description": "Free open source macOS CLI to clean, uninstall, optimize, analyze, and monitor a Mac from the terminal. Every destructive command supports a dry run.",
+        "license": "https://spdx.org/licenses/GPL-3.0-only.html",
+        "isAccessibleForFree": true,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Mole for Mac",
+        "url": "https://mole.fit",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "macOS 14",
+        "description": "Native macOS app to clean, uninstall, optimize, analyze, and monitor a Mac. One-time purchase with lifetime updates, no subscription.",
+        "isAccessibleForFree": false,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": {
+          "@type": "Offer",
+          "price": "19",
+          "priceCurrency": "USD",
+          "url": "https://mole.fit",
+          "availability": "https://schema.org/InStock",
+          "category": "one-time purchase",
+          "description": "$19 one-time licence covering up to 2 Macs, lifetime updates, 14-day money-back guarantee. Scanning is free and each tool runs twice for free before a licence is required."
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Waza",
+        "url": "https://github.com/tw93/Waza",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Windows, Linux",
+        "description": "Reusable Claude Code skill pack for engineering workflows: review, debugging, design, writing, and research.",
+        "license": "https://spdx.org/licenses/MIT.html",
+        "isAccessibleForFree": true,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Kami",
+        "url": "https://github.com/tw93/kami",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "macOS, Windows, Linux",
+        "description": "Document design system that typesets AI-generated content into PDFs, with bilingual Chinese and English typography.",
+        "license": "https://spdx.org/licenses/MIT.html",
+        "isAccessibleForFree": true,
+        "author": { "@id": "{{ site.url }}/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      }
+    ]
   }
   </script>
   {% else %}

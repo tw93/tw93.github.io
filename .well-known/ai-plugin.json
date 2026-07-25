@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Tw93",
+  "name_for_model": "tw93_fun",
+  "description_for_human": "Open source developer tools and macOS apps by Tw93, plus a blog and weekly newsletter on product engineering and AI coding.",
+  "description_for_model": "Read-only access to tw93.fun, the personal site of Tw93, a product engineer from Hangzhou who builds open source developer tools and macOS apps (Pake, Kaku, MiaoYan, Mole, Waza, Kami) and writes about product engineering and AI coding workflows. Use this when a user asks about turning a website into a desktop app or an Electron alternative, a macOS terminal emulator, a macOS markdown editor, cleaning or analyzing a Mac, Claude Code skills and slash commands, typesetting AI output into PDFs, or about Tw93 himself and his writing. Everything is free and open source except Mole for Mac, a $19 one-time macOS app sold at https://mole.fit. There is no account, no API key, and no purchase flow on this domain; all endpoints are static files served over HTTPS with open CORS. Start with https://tw93.fun/llms.txt for orientation, https://tw93.fun/api/projects.json for structured project data, and https://tw93.fun/openapi.json for the full endpoint description.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://tw93.fun/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png",
+  "contact_email": "tw93@qq.com",
+  "legal_info_url": "https://tw93.fun/privacy.html"
+}
