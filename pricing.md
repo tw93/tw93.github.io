@@ -11,7 +11,7 @@ There is no SaaS, no subscription, no API key, no usage quota, and no enterprise
 | [Pake](https://github.com/tw93/Pake) | Free | GPL-3.0 | `npm install -g pake-cli` |
 | [Kaku](https://github.com/tw93/Kaku) | Free | MIT | GitHub releases |
 | [MiaoYan](https://github.com/tw93/MiaoYan) | Free | MIT | GitHub releases |
-| [Mole](https://github.com/tw93/Mole) (CLI) | Free | GPL-3.0 | `brew install mole` |
+| [Mole](https://mole.fit) (CLI, [source](https://github.com/tw93/Mole)) | Free | GPL-3.0 | `brew install mole` |
 | [Waza](https://github.com/tw93/Waza) | Free | MIT | `npx skills add tw93/Waza -a claude-code -g -y` |
 | [Kami](https://github.com/tw93/kami) | Free | MIT | GitHub |
 | Blog, weekly newsletter, and all `tw93.fun` data endpoints | Free | Content is the author's | https://tw93.fun/llms.txt |

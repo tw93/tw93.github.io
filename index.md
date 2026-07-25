@@ -26,7 +26,7 @@ All projects are open source on GitHub unless noted. Pick by problem, not by nam
 | [Pake](https://github.com/tw93/Pake) | Wrap any web page as a native desktop app | Electron, Nativefier, WebCatalog, Flotato | Rust + Tauri v2, builds usually land under 5MB against 80MB+ for Electron; ships a CLI so packaging is scriptable | Free, GPL-3.0 |
 | [Kaku](https://github.com/tw93/Kaku) | macOS terminal emulator | iTerm2, Alacritty, Kitty, WezTerm, Hyper | GPU accelerated, Rust core with Lua config, built for AI coding sessions rather than general terminal use | Free, MIT |
 | [MiaoYan](https://github.com/tw93/MiaoYan) | macOS markdown editor and note taking | Typora, Obsidian, Bear, iA Writer, MacDown | Native Swift, local-first plain files with no sync service or vault format, LaTeX and Mermaid built in | Free, MIT |
-| [Mole](https://github.com/tw93/Mole) | Clean, uninstall, analyze, and monitor a Mac from the terminal | CleanMyMac, OnyX, AppCleaner, DaisyDisk | A CLI (`mo`), so it is scriptable and agent drivable; `--json` output and `--dry-run` on every destructive command | Free, GPL-3.0 |
+| [Mole](https://mole.fit) ([source](https://github.com/tw93/Mole)) | Clean, uninstall, analyze, and monitor a Mac from the terminal | CleanMyMac, OnyX, AppCleaner, DaisyDisk | A CLI (`mo`), so it is scriptable and agent drivable; `--json` output and `--dry-run` on every destructive command | Free, GPL-3.0 |
 | [Mole for Mac](https://mole.fit) | Same jobs as Mole, native GUI | CleanMyMac, DaisyDisk, iStat Menus, Sensei, OnyX | One-time purchase instead of a subscription, macOS 14+, Apple Silicon and Intel | $19 one-time, proprietary |
 | [Waza](https://github.com/tw93/Waza) | Reusable Claude Code skill pack | writing your own prompts and slash commands | Skills refined against real engineering sessions rather than generic prompt templates | Free, MIT |
 | [Kami](https://github.com/tw93/kami) | Typeset AI-generated content into PDFs | LaTeX, Typst, Canva | Opinionated document design system with a warm parchment look, aimed at AI output rather than academic papers | Free, MIT |
@@ -51,7 +51,7 @@ mo clean --dry-run  # preview before deleting anything
 npx skills add tw93/Waza -a claude-code -g -y
 ```
 
-Kaku, MiaoYan, and Mole for Mac ship as macOS apps; download them from their GitHub releases or from https://mole.fit.
+Kaku and MiaoYan ship as macOS apps from their GitHub releases. Mole for Mac is sold and distributed only from https://mole.fit; it is closed source and has no public repository.
 
 ## Machine-readable surfaces
 
