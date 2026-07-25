@@ -79,6 +79,10 @@ File scans run locally. Outbound traffic is limited to license validation, the s
 
 No. The Mac app is a closed source commercial product. The Mole CLI that its cleanup scope and safety practices come from is open source under GPL-3.0 at github.com/tw93/Mole.
 
+**Where can I read guides on Mac cleanup and maintenance?**
+
+Mole publishes an English guide blog at https://mole.fit/blog, grouped into performance (high CPU processes, thermals, fans), storage (Photos, iPhone backups, System Data, large files), developer (Xcode, Docker, Homebrew, node_modules, AI tool leftovers), apps and maintenance (uninstalling, startup items, battery health, cleaner comparisons), and notes on building Mole. Full index in https://mole.fit/llms.txt.
+
 ## Links
 
 - Website: https://mole.fit

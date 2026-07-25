@@ -33,7 +33,7 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - GitHub: https://github.com/tw93/Pake
-- Stars: 60,197
+- Stars: 60,198
 - Forks: 12,206
 - Stack: Rust, Tauri v2, TypeScript
 - Latest Release: V3.15.1 "Bridge" (2026-07-18)
@@ -298,8 +298,8 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - GitHub: https://github.com/tw93/Mole
-- Stars: 59,817
-- Forks: 2,107
+- Stars: 59,821
+- Forks: 2,108
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -444,6 +444,9 @@ A: File scans run locally. Outbound traffic is limited to license validation, th
 **Q: Is Mole for Mac open source?**
 A: No. The Mac app is a closed source commercial product. The Mole CLI that its cleanup scope and safety practices come from is open source under GPL-3.0 at github.com/tw93/Mole.
 
+**Q: Where can I read guides on Mac cleanup and maintenance?**
+A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into performance (high CPU processes, thermals, fans), storage (Photos, iPhone backups, System Data, large files), developer (Xcode, Docker, Homebrew, node_modules, AI tool leftovers), apps and maintenance (uninstalling, startup items, battery health, cleaner comparisons), and notes on building Mole. Full index in https://mole.fit/llms.txt.
+
 
 ### Waza
 
@@ -522,7 +525,7 @@ Each skill is a folder with reference docs, helper scripts, and gotchas from rea
 Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. Supports both Chinese and English typography.
 
 - GitHub: https://github.com/tw93/Kami
-- Stars: 10,103
+- Stars: 10,104
 - Forks: 469
 - Stack: HTML, CSS, Python
 - Latest Release: V1.10.0 "Reliable Documents" (2026-07-19)
