@@ -15,7 +15,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling.
 - `vercel.json` - Vercel build environment, response headers, and the agent rewrites for the production deploy.
-- `.github/workflows/sync-ai-data.yml` - daily sync that overwrites `llms-full.txt`, `api/*.json`, and `projects/*.md` from Yobi; do not hand-edit those files, edits get clobbered on the next run. It only writes those exact filenames and never deletes, so hand-maintained files that live alongside them (`api/llms.txt`, `projects/llms.txt`) are safe.
+- `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and `projects/*.md` from Yobi. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It only writes those exact filenames and never deletes, so hand-maintained files that live alongside them (`api/llms.txt`, `projects/llms.txt`) are safe.
 
 ## Agent Surfaces
 
