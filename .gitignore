@@ -17,3 +17,4 @@ CLAUDE.local.md
 journal/
 .claude/settings.local.json
 .mcp.json
+.claude/worktrees/
