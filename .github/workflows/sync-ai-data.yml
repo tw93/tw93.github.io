@@ -79,7 +79,23 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: sync AI knowledge data from Yobi"
-            git push
+            # A plain push loses the whole run to any commit that lands between
+            # checkout and push: a hand edit, or the daily cron overlapping one.
+            # The generated files are wholly rewritten from Yobi each run, so
+            # rebasing onto whatever arrived is safe.
+            pushed=false
+            for attempt in 1 2 3; do
+              if git push; then
+                pushed=true
+                break
+              fi
+              echo "push rejected, rebasing onto origin/main (attempt $attempt)"
+              git pull --rebase --autostash origin main
+            done
+            if [ "$pushed" != true ]; then
+              echo "Could not push after 3 attempts"
+              exit 1
+            fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
