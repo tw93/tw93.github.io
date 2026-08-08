@@ -126,6 +126,7 @@ Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for pe
 - Stars: 5,740
 - Forks: 289
 - Stack: Rust, Lua, Metal/GPU
+- License: MIT
 - Latest Release: V0.18.0 "Detached" (2026-08-08)
 - Homepage: https://kaku.fun
 
@@ -307,7 +308,7 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 
 - Website: https://mole.fit
 - Source: https://github.com/tw93/Mole
-- Stars: 62,577
+- Stars: 62,580
 - Forks: 2,206
 - Stack: Shell, Go
 - License: GPL-3.0
