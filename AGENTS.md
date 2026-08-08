@@ -21,6 +21,8 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 
 These files exist so AI agents and crawlers can use the site without scraping HTML. All of them are hand-maintained and repeat facts that also live in `llms.txt`; when a project, price, or licence changes, update every one of them in the same commit.
 
+Price is the fact most expensive to get wrong and the most scattered, so do not reconstruct the list from memory. Run `grep -rlE '\$19|one-time|14-day' . --exclude-dir=.git --exclude-dir=_site --exclude=AGENTS.md`. It returns thirteen files (this file is excluded because the pattern above matches itself). One, `js/ppt/plugin/highlight/highlight.js`, is a false positive: the `$19` there is a regex capture group. Four fix themselves because Yobi overwrites them (`llms-full.txt`, `api/projects.json`, `projects/mole.md`, `projects/mole-mac.md`), so change the price in Yobi's `data/projects.ts` first and let the sync land. The remaining eight are hand-edits: `pricing.md`, `llms.txt`, `index.md`, `projects/llms.txt`, `_includes/head.html`, `openapi.json`, `.well-known/ai-plugin.json`, and `en/about.md`. That last one is a normal page rather than an agent surface, which is why it is the one that gets missed.
+
 - `llms.txt` - orientation file, the entry point. `llms-full.txt` is machine-generated, do not edit.
 - `index.md` and `pricing.md` - static markdown at the repo root, no front matter so Jekyll copies them verbatim. Do not add front matter or they turn into HTML pages and the URLs break.
 - `openapi.json` - OpenAPI 3.1 description of the read-only endpoints. Verify with `npx @redocly/cli lint openapi.json` after editing.
