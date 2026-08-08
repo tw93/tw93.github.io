@@ -25,7 +25,17 @@ jobs:
           curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/projects -o api/projects.json
           curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/blog -o api/blog.json
           curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/weekly -o api/weekly.json
-          for slug in pake kaku miaoyan mole mole-mac waza kami; do
+          # This list used to be hardcoded. Yobi's llms.txt links every core
+          # project to tw93.fun/projects/{slug}.md, so adding a project there
+          # while this list stayed put would publish a link to a file this job
+          # never fetches. Read the list from the payload already downloaded.
+          slugs=$(jq -r '.projects[] | select(.tier == "core") | .slug' api/projects.json)
+          if [ -z "$slugs" ]; then
+            echo "No core slugs in api/projects.json, refusing to sync a partial set."
+            exit 1
+          fi
+          echo "Core projects: $(echo "$slugs" | tr '\n' ' ')"
+          for slug in $slugs; do
             curl -sf --retry 3 --retry-delay 5 "https://yobi.tw93.fun/projects/${slug}" -o "projects/${slug}.md"
           done
 
@@ -41,12 +51,29 @@ jobs:
             ' "$f"
           done
 
+      - name: Refresh the counts in the hand-written llms.txt
+        # llms.txt stays hand-written: its "when to use this site" section is
+        # better than anything generated. Only the two numbers that rot are
+        # touched, and they had already drifted to 152K stars across 20
+        # projects while Yobi was serving 156K across 19.
+        run: |
+          set -euo pipefail
+          stars=$(jq -r '.totalStars' api/profile.json)
+          count=$(jq -r '.projectCount' api/profile.json)
+          if [ "$stars" = "null" ] || [ "$count" = "null" ] || [ "$stars" -lt 1000 ]; then
+            echo "Refusing to write implausible counts: stars=$stars count=$count"
+            exit 1
+          fi
+          label="$((stars / 1000))K+"
+          perl -i -pe "s/\d+K\+ GitHub stars across \d+ projects/${label} GitHub stars across ${count} projects/" llms.txt
+          grep -n "GitHub stars across" llms.txt
+
       - name: Commit if changed
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add llms-full.txt api/ projects/
+          git add llms-full.txt llms.txt api/ projects/
           if git diff --cached --quiet; then
             echo "No changes to commit"
             echo "changed=false" >> "$GITHUB_OUTPUT"
