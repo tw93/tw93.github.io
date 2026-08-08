@@ -6,6 +6,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 document.addEventListener("DOMContentLoaded", function () {
 
   initPostToc();
+  initHeaderTitleFit();
 
   var zoomImgs = Array.prototype.slice.call(document.querySelectorAll('.entry-content img'));
   if (zoomImgs.length > 0) {
@@ -338,6 +339,66 @@ function addCodeCopy() {
         }, 2000);
       });
     });
+  });
+}
+
+// The banner title rides an SVG textPath, which cannot wrap. A long title
+// overflows the banner and gets clipped at both ends, worst on tablet-width
+// screens. Shrink it to fit, and redo it on rotate or resize.
+function initHeaderTitleFit() {
+  var svg = document.querySelector('.entry-header svg');
+  var text = svg && svg.querySelector('text');
+  if (!text) return;
+
+  var MIN_SIZE = 20;
+
+  var read = function (name, fallback) {
+    var stored = text.getAttribute('data-base-' + name);
+    if (stored !== null) return parseFloat(stored);
+    var live = parseFloat(text.getAttribute(name));
+    if (isNaN(live)) live = fallback;
+    text.setAttribute('data-base-' + name, live);
+    return live;
+  };
+
+  var apply = function (scale, size, letter, word) {
+    text.setAttribute('font-size', size * scale);
+    text.setAttribute('letter-spacing', letter * scale);
+    text.setAttribute('word-spacing', word * scale);
+  };
+
+  var fit = function () {
+    var size = read('font-size', 36);
+    var letter = read('letter-spacing', 0);
+    var word = read('word-spacing', 0);
+    var avail = svg.clientWidth - 48;
+    if (!size || avail <= 0) return;
+
+    // letter-spacing and word-spacing are fixed pixel values, so width is
+    // affine in font-size, not proportional: shrinking the type alone leaves a
+    // constant of several hundred pixels and never converges. Scale all three
+    // together and one pass lands it.
+    apply(1, size, letter, word);
+
+    // getComputedTextLength is the full advance of the string. Unlike the box,
+    // it ignores how much of the path has typed itself in so far, so this is
+    // safe to call at any point in the intro animation.
+    var natural = text.getComputedTextLength();
+    if (!natural || natural <= avail) return;
+
+    apply(Math.max(MIN_SIZE / size, avail / natural), size, letter, word);
+  };
+
+  // Measuring before the webfont lands would size against the fallback metrics.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fit);
+  }
+  fit();
+
+  var pending;
+  window.addEventListener('resize', function () {
+    clearTimeout(pending);
+    pending = setTimeout(fit, 150);
   });
 }
 
