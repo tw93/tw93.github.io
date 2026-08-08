@@ -63,6 +63,10 @@ Yes. Since Pake uses the system WebView, it handles cookies, localStorage, and a
 
 Usually 2-5MB on macOS, depending on injected assets. Compare that to Electron apps which start at ~80MB because they bundle Chromium.
 
+**Can an AI agent drive Pake?**
+
+Yes, and the repository ships the contract for it. Pass `--json` for machine-readable output, describe an app declaratively with `--config app.json`, and read https://unpkg.com/pake-cli@latest/llms.txt for the full agent contract. Claude Code users can install the official skill with `/plugin marketplace add tw93/Pake` then `/plugin install pake@pake`.
+
 ## Links
 
 - GitHub: https://github.com/tw93/Pake

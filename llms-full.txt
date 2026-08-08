@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 156K+ GitHub stars, 16K+ forks, 12,530 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 156K+ GitHub stars, 16K+ forks, 12,532 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
 
 ## Identity & Background
 
@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 156K+ stars, 16K+ forks, 12,530 followers
+- **GitHub**: 156K+ stars, 16K+ forks, 12,532 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -64,6 +64,9 @@ A: Yes. Since Pake uses the system WebView, it handles cookies, localStorage, an
 
 **Q: How large is a typical Pake app?**
 A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electron apps which start at ~80MB because they bundle Chromium.
+
+**Q: Can an AI agent drive Pake?**
+A: Yes, and the repository ships the contract for it. Pass `--json` for machine-readable output, describe an app declaratively with `--config app.json`, and read https://unpkg.com/pake-cli@latest/llms.txt for the full agent contract. Claude Code users can install the official skill with `/plugin marketplace add tw93/Pake` then `/plugin install pake@pake`.
 
 #### README Excerpt
 
@@ -241,6 +244,9 @@ A: MiaoYan reads and writes standard .md (Markdown) files. It also renders LaTeX
 **Q: Can I use MiaoYan for programming notes with code blocks?**
 A: Yes. MiaoYan supports fenced code blocks with syntax highlighting for 100+ languages. The monospace rendering is clean and fast.
 
+**Q: Can an AI agent write MiaoYan notes for me?**
+A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments, PPT patterns, and the CLI. Install it with `npx skills add tw93/MiaoYan/skills/miaoyan -g`; source at https://github.com/tw93/MiaoYan/tree/main/skills/miaoyan.
+
 #### README Excerpt
 
 <h4 align="right">English | <strong><a href="https://github.com/tw93/MiaoYan/blob/main/README_CN.md">简体中文</a></strong></h4>
@@ -301,7 +307,7 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 
 - Website: https://mole.fit
 - Source: https://github.com/tw93/Mole
-- Stars: 62,569
+- Stars: 62,577
 - Forks: 2,206
 - Stack: Shell, Go
 - License: GPL-3.0
@@ -530,7 +536,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 10,426
+- Stars: 10,428
 - Forks: 482
 - Stack: HTML, CSS, Python
 - License: MIT

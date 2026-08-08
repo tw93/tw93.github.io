@@ -53,6 +53,10 @@ MiaoYan reads and writes standard .md (Markdown) files. It also renders LaTeX ma
 
 Yes. MiaoYan supports fenced code blocks with syntax highlighting for 100+ languages. The monospace rendering is clean and fast.
 
+**Can an AI agent write MiaoYan notes for me?**
+
+Yes. The repository ships an agent skill covering MiaoYan syntax, attachments, PPT patterns, and the CLI. Install it with `npx skills add tw93/MiaoYan/skills/miaoyan -g`; source at https://github.com/tw93/MiaoYan/tree/main/skills/miaoyan.
+
 ## Links
 
 - GitHub: https://github.com/tw93/MiaoYan
