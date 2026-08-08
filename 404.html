@@ -439,6 +439,38 @@ is404: true
   #link:hover {
     opacity: 1;
   }
+
+  /* The 500px stage and the oversized numerals are both wider than a phone,
+     so the scene used to push the whole page into a sideways scroll. Scale it
+     down on narrow screens and clip anything that still spills. */
+  .error-page {
+    overflow: hidden;
+  }
+
+  @media (max-width: 600px) {
+    .error-page {
+      margin: 20px 0 60px;
+      height: 360px;
+    }
+    .text {
+      font-size: 20em;
+    }
+    .container {
+      transform: translate(-50%, -50%) scale(0.7);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .error-page {
+      height: 300px;
+    }
+    .text {
+      font-size: 15em;
+    }
+    .container {
+      transform: translate(-50%, -50%) scale(0.52);
+    }
+  }
 </style>
 <div class="error-page">
   <div class="text"><p>404</p></div>
