@@ -58,3 +58,9 @@ $page-width: 900px;
 $page-width-tablet: 760px;
 // Minimum breathing room between the reading column and the screen edge.
 $page-gutter: 20px;
+
+// Article table of contents rail, shown beside the reading column on wide
+// screens. $toc-rail is the space the column has to give up to make room.
+$toc-width: 260px;
+$toc-gap: 24px;
+$toc-rail: $toc-width + $toc-gap;

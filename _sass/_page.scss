@@ -357,8 +357,18 @@ iframe {
 
 }
 
-@media (min-width: 88em) {
+// 84em (1344px) is the narrowest width that fits the column, the rail and a
+// 40px gutter, so iPad Pro 12.9" landscape (1366px) gets the table of contents.
+@media (min-width: 84em) {
   #post.has-post-toc {
+    // Reserve the rail on the containers, not on the column, so the column and
+    // the rail centre as one unit. Centring the column alone pushed the rail
+    // past the right edge and scrolled the page sideways from 1408 to 1467px.
+    #main,
+    .header-menu {
+      padding-right: $toc-rail;
+    }
+
     .post-shell {
       max-width: $page-width;
       margin: 34px auto;
@@ -377,8 +387,8 @@ iframe {
       display: block;
       position: absolute;
       top: -4px;
-      left: calc(100% + 24px);
-      width: 260px;
+      left: calc(100% + #{$toc-gap});
+      width: $toc-width;
       height: 100%;
       min-height: 32px;
     }
