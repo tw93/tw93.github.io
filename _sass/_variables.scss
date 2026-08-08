@@ -43,6 +43,18 @@ $border-radius: 8px;
 
 // Screen Size
 // --------------------------------------------------
+// $medium is the phone -> tablet switch. 46em (736px) so iPad mini portrait
+// (744px) and iPad split-view widths get the tablet layout, not the phone one.
 $small: "only screen and (min-width: 30em)";
-$medium: "only screen and (min-width: 48em)";
+$medium: "only screen and (min-width: 46em)";
 $large: "only screen and (min-width: 62.5em)";
+
+// Content Width
+// --------------------------------------------------
+// One source of truth for the reading column. $page-width is the desktop
+// column; $page-width-tablet keeps the 736-999px band (iPad portrait) from
+// stretching a line of text across the whole screen.
+$page-width: 900px;
+$page-width-tablet: 760px;
+// Minimum breathing room between the reading column and the screen edge.
+$page-gutter: 20px;

@@ -55,7 +55,12 @@ iframe {
   font-size: 22px;
   line-height: 1.35;
   margin: 6px 0 8px;
+  // Step with the column: 30px against the 760px tablet card leaves a
+  // one-character orphan on the longer titles.
   @media #{$medium} {
+    font-size: 26px;
+  }
+  @media #{$large} {
     font-size: 30px;
   }
 }
@@ -126,6 +131,9 @@ iframe {
     }
     @media #{$medium} {
       font-size: 17px;
+    }
+    // The QR only opens on hover, so a touch-only iPad would show a dead icon.
+    @media #{$medium} and (hover: hover) {
       .qr-text {
         display: inline-block;
       }
@@ -239,12 +247,15 @@ iframe {
     background-color: $white;
     box-shadow: none;
     @media #{$medium} {
-      margin: 30px 10px;
-      padding: 20px 30px;
+      width: calc(100% - #{$page-gutter * 2});
+      max-width: $page-width-tablet;
+      margin: 30px auto;
+      padding: 24px 44px;
       border-radius: $border-radius;
     }
     @media #{$large} {
-      max-width: 900px;
+      width: auto;
+      max-width: $page-width;
       margin: 34px auto 34px auto;
       padding: 32px 80px 70px;
       > p:first-child {
@@ -257,12 +268,15 @@ iframe {
     padding: 20px 15px;
     background-color: $white;
     @media #{$medium} {
-      margin: 20px 10px;
-      padding: 20px 30px;
+      width: calc(100% - #{$page-gutter * 2});
+      max-width: $page-width-tablet;
+      margin: 20px auto;
+      padding: 24px 44px;
       border-radius: $border-radius;
     }
     @media #{$large} {
-      max-width: 900px;
+      width: auto;
+      max-width: $page-width;
       padding: 50px 80px;
       margin: 0 auto;
     }
@@ -346,7 +360,7 @@ iframe {
 @media (min-width: 88em) {
   #post.has-post-toc {
     .post-shell {
-      max-width: 900px;
+      max-width: $page-width;
       margin: 34px auto;
     }
 
@@ -355,7 +369,7 @@ iframe {
     }
 
     .entry-content {
-      max-width: 900px;
+      max-width: $page-width;
       margin: 0 auto;
     }
 
@@ -375,7 +389,7 @@ iframe {
     }
 
     .post-followup {
-      max-width: 900px;
+      max-width: $page-width;
       margin: 0 auto;
     }
   }
@@ -434,12 +448,15 @@ iframe {
   padding: 40px 15px 25px;
   background-color: $white;
   @media #{$medium} {
-    margin: 40px 10px 48px;
-    padding: 40px 30px 25px;
+    width: calc(100% - #{$page-gutter * 2});
+    max-width: $page-width-tablet;
+    margin: 40px auto 48px;
+    padding: 40px 44px 25px;
     border-radius: $border-radius;
   }
   @media #{$large} {
-    max-width: 900px;
+    width: auto;
+    max-width: $page-width;
     padding: 50px 80px;
     margin: 34px auto 48px;
   }
@@ -479,6 +496,9 @@ iframe {
     font-size: 22px;
     line-height: 1.35;
     @media #{$medium} {
+      font-size: 26px;
+    }
+    @media #{$large} {
       font-size: 30px;
     }
     a {
@@ -507,11 +527,14 @@ iframe {
     overflow: hidden;
     background-color: $body-color;
     @media #{$medium} {
-      margin: 20px;
+      width: calc(100% - #{$page-gutter * 2});
+      max-width: $page-width-tablet;
+      margin: 20px auto;
       background-color: transparent;
     }
     @media #{$large} {
-      max-width: 900px;
+      width: auto;
+      max-width: $page-width;
       margin: 34px auto 0;
     }
   }
@@ -525,7 +548,7 @@ iframe {
       margin-top: 0;
       margin-bottom: 30px;
       border-radius: $border-radius;
-      padding: 20px 36px 20px;
+      padding: 24px 44px;
     }
     @media #{$large} {
       margin-bottom: 34px;
@@ -635,10 +658,6 @@ iframe {
     list-style-type: none;
     height: 100%;
     padding: 0;
-    @media #{$large} {
-      max-width: 900px; // Match content width
-      padding: 0; // Reset padding for large screens to allow flush alignment
-    }
   }
 }
 
@@ -801,9 +820,16 @@ iframe {
   height: 100%;
   display: flex; // Flex for modern layout control
   align-items: center;
-  @media #{$large} {
-    max-width: 900px;
+  // Track the reading column so the logo and the language toggle sit on the
+  // same edges as the cards below instead of touching the screen.
+  @media #{$medium} {
+    width: calc(100% - #{$page-gutter * 2});
+    max-width: $page-width-tablet;
     margin: 0 auto;
+  }
+  @media #{$large} {
+    width: auto;
+    max-width: $page-width;
   }
 }
 
