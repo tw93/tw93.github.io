@@ -4,7 +4,9 @@
 
 Pake is an open source project by [Tw93](https://tw93.fun) with 60.5K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
-Latest release: V3.15.1 (2026-07-18)
+License: GPL-3.0
+
+Latest release: V3.15.6 (2026-08-08)
 
 ## Key Features
 
