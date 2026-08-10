@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 156K+ GitHub stars, 16K+ forks, 12,532 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 156K+ GitHub stars, 16K+ forks, 12,544 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
 
 ## Identity & Background
 
@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 156K+ stars, 16K+ forks, 12,532 followers
+- **GitHub**: 156K+ stars, 16K+ forks, 12,544 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 60,514
-- Forks: 12,333
+- Stars: 60,531
+- Forks: 12,342
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.15.6 "Anchor" (2026-08-08)
@@ -123,7 +123,7 @@ A: Yes, and the repository ships the contract for it. Pass `--json` for machine-
 Kaku is a fast, GPU-rendered terminal emulator for macOS. Built with Rust for performance and Lua for configuration. Designed to be simple, beautiful, and responsive.
 
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,740
+- Stars: 5,743
 - Forks: 289
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -215,8 +215,8 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,506
-- Forks: 500
+- Stars: 8,509
+- Forks: 502
 - Stack: Swift, AppKit
 - License: MIT
 - Latest Release: V4.1.0 "Aegis 🛡️" (2026-07-18)
@@ -308,8 +308,8 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 
 - Website: https://mole.fit
 - Source: https://github.com/tw93/Mole
-- Stars: 62,580
-- Forks: 2,206
+- Stars: 62,766
+- Forks: 2,215
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -462,8 +462,8 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,786
-- Forks: 401
+- Stars: 6,792
+- Forks: 402
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.34.0 "V3.34.0 Latch 🔒" (2026-08-08)
@@ -537,7 +537,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 10,428
+- Stars: 10,448
 - Forks: 482
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -628,7 +628,7 @@ Real PDFs from one constraint set, across templates and languages. Click any pre
 
 ## Secondary Projects
 
-### Weekly (868 stars)
+### Weekly (867 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
@@ -677,7 +677,7 @@ A commitizen adapter that enables standardized git commit messages with emoji pr
 - Chinese localization
 - Commitizen integration
 
-### MiaoYan NetNewsWire Theme (118 stars)
+### MiaoYan NetNewsWire Theme (117 stars)
 
 A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
 
@@ -881,7 +881,7 @@ A: Both. His blog (tw93.fun) has posts in both languages. Project documentation 
 A: Pake uses Tauri (Rust + system WebView) instead of bundling Chromium. Apps are ~20x smaller and more resource-efficient.
 
 **Q: What is 潮流周刊 (Trendy Weekly)?**
-A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 276 issues since 2021.
+A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 277 issues since 2021.
 
 **Q: How do I install Pake?**
 A: Run `npm install -g pake-cli`, then `pake <url>` to turn any webpage into a desktop app. Pre-built popular apps are also available on the GitHub releases page.
@@ -956,6 +956,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第277期 - 小叶赤楠](https://weekly.tw93.fun/posts/277/) (2026-08-10)
 - [第276期 - 树和建筑](https://weekly.tw93.fun/posts/276/) (2026-08-03)
 - [第275期 - 蓝色黄昏](https://weekly.tw93.fun/posts/275/) (2026-07-27)
 - [第274期 - 海阔天空](https://weekly.tw93.fun/posts/274/) (2026-07-20)
@@ -967,12 +968,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第268期 - 小河公园](https://weekly.tw93.fun/posts/268/) (2026-05-25)
 - [第267期 - 西湖拍字](https://weekly.tw93.fun/posts/267/) (2026-05-11)
 - [第266期 - 口罩雕塑](https://weekly.tw93.fun/posts/266/) (2026-04-27)
-- [第265期 - 西溪窗外](https://weekly.tw93.fun/posts/265/) (2026-04-20)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [277. Brush Cherry](https://weekly.tw93.fun/en/posts/277/) (2026-08-10)
 - [276. Trees and Buildings](https://weekly.tw93.fun/en/posts/276/) (2026-08-03)
 - [275. Blue Dusk](https://weekly.tw93.fun/en/posts/275/) (2026-07-27)
 - [274. Boundless Sky](https://weekly.tw93.fun/en/posts/274/) (2026-07-20)
@@ -984,7 +985,6 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [268. Xiaohe Park](https://weekly.tw93.fun/en/posts/268/) (2026-05-25)
 - [267. Westlake Stone Characters](https://weekly.tw93.fun/en/posts/267/) (2026-05-11)
 - [266. Masked Sculpture](https://weekly.tw93.fun/en/posts/266/) (2026-04-27)
-- [265. Xixi Window View](https://weekly.tw93.fun/en/posts/265/) (2026-04-20)
 
 ## Links
 
