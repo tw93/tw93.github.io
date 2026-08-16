@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
       for (var i = 0; i < 5; i++) {
         var posX = mouse.x + Math.random() * 10;
         var posY = mouse.y + Math.random() * 10;
-        points.push(new Point(posX, posY, 1 + Math.random() * 2, 5, 'white'));
+        points.push(new Point(posX, posY, 1 + Math.random() * 2, 5, '#f3ebdb'));
       }
     }
 
