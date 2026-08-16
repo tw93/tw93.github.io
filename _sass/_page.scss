@@ -357,18 +357,17 @@ iframe {
 
 }
 
-// 84em (1344px) is the narrowest width that fits the column, the rail and a
-// 40px gutter, so iPad Pro 12.9" landscape (1366px) gets the table of contents.
-@media (min-width: 84em) {
+// The reading column stays centred on the viewport at every width; the rail
+// lives in the right margin and only appears once that margin can hold it.
+// 94.25em (1508px) is where it first fits: a centred 900px column leaves
+// (W - 900) / 2 per side, and the rail needs $toc-rail plus $page-gutter, so
+// W / 2 + 734 <= W - 20. Below that the table of contents is simply hidden
+// (maintainer call: a centred column matters more than showing it on 1366 and
+// 1440). The earlier layout reserved $toc-rail on #main and .header-menu so
+// column and rail centred as a pair, which kept the rail on screen from 1344px
+// but pushed the column 142px left of centre at every desktop width.
+@media (min-width: 94.25em) {
   #post.has-post-toc {
-    // Reserve the rail on the containers, not on the column, so the column and
-    // the rail centre as one unit. Centring the column alone pushed the rail
-    // past the right edge and scrolled the page sideways from 1408 to 1467px.
-    #main,
-    .header-menu {
-      padding-right: $toc-rail;
-    }
-
     .post-shell {
       max-width: $page-width;
       margin: 34px auto;

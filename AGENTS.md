@@ -52,7 +52,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 - Breakpoints: `$medium` 46em (736px) is the phone to tablet switch, deliberately below 48em so iPad mini portrait (744px) and split-view widths get the tablet layout. `$large` 62.5em (1000px) is the desktop switch.
 - Column: `$page-width` 900px on desktop, `$page-width-tablet` 760px between `$medium` and `$large`, with `$page-gutter` 20px of minimum breathing room. The pattern for a card is `width: calc(100% - #{$page-gutter * 2}); max-width: $page-width-tablet; margin: auto`.
 - The post body, comments, read-more, index list and header container all track the same column, so their left edges line up. Change one and change the rest.
-- The article table of contents appears from 84em (1344px). `$toc-rail` is reserved on `#main` and `.header-menu` so the column and the rail centre as a pair; centring the column alone pushes the rail off-screen.
+- The reading column is centred on the viewport at every width, including when the table of contents shows. The rail lives in the right margin, so the contents only appear from 94.25em (1508px), the width where a centred 900px column still leaves `$toc-rail` plus `$page-gutter` on the right. Below that the rail is hidden rather than shrunk or shifted (maintainer call 2026-08: a centred column is worth more than showing contents on 1366 and 1440). Do not reintroduce `padding-right: $toc-rail` on `#main` / `.header-menu`: that centred column and rail as a pair, which kept the rail on screen from 1344px but pushed the column 142px left of centre on every desktop width, and reading it as "off-centre" is exactly what got it changed.
 
 ## Content Rules
 
