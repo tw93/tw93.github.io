@@ -1,6 +1,6 @@
 # Tw93
 
-> Product engineer from Hangzhou. Building simple, useful tools for everyday life. 158K+ GitHub stars across 19 projects, all free and open source except the paid Mac app Mole for Mac.
+> Product engineer from Hangzhou. Building simple, useful tools for everyday life. 159K+ GitHub stars across 19 projects, all free and open source except the paid Mac app Mole for Mac.
 
 Tw93 is a product engineer who builds developer tools and macOS applications. Skills: Rust, Swift, TypeScript, Go, Shell, Python, Design. He focuses on creating tools that are small, fast, and useful for everyday work. Readers tend to describe the work the same way: not chasing hype, restrained, light and genuinely usable, careful about aesthetic detail, and built for the long run.
 
