@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 159K+ GitHub stars, 16K+ forks, 12,717 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 159K+ GitHub stars, 16K+ forks, 12,728 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
 
 ## Identity & Background
 
@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 159K+ stars, 16K+ forks, 12,717 followers
+- **GitHub**: 159K+ stars, 16K+ forks, 12,728 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 60,930
-- Forks: 12,491
+- Stars: 60,964
+- Forks: 12,503
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.15.6 "Anchor" (2026-08-08)
@@ -216,8 +216,8 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
 MiaoYan (妙言) is a native macOS Markdown editor built with Swift and AppKit. It focuses on simplicity and speed, with local file storage, syntax highlighting, LaTeX math rendering, and Mermaid diagram support.
 
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,591
-- Forks: 502
+- Stars: 8,593
+- Forks: 503
 - Stack: Swift, AppKit
 - License: MIT
 - Latest Release: V4.2.0 "Zinogre 🍝" (2026-08-15)
@@ -309,8 +309,8 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 
 - Website: https://mole.fit
 - Source: https://github.com/tw93/Mole
-- Stars: 64,365
-- Forks: 2,255
+- Stars: 64,497
+- Forks: 2,257
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -352,7 +352,7 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
 
 <div align="center">
   <h1>Mole</h1>
-  <p><em>🐹 Clean, uninstall, analyze, optimize, and monitor your Mac from the terminal.</em></p>
+  <p><em>🐹 Clean, uninstall, analyze, optimize, and monitor your Mac. Free open-source CLI, plus a native Mac app.</em></p>
 </div>
 
 <p align="center">
@@ -368,7 +368,7 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
   <img src="https://gw.alipayobjects.com/zos/k/ro/ZzF8e8.png" alt="Mole - 95.50GB freed" width="1000" />
 </p>
 
-> 💡 The CLI is free and open source. Prefer a native Mac app? [Mole for Mac](https://mole.fit) adds visual cleanup review, app updates, uninstall, maintenance, disk maps, live status, and a menu bar HUD. One license covers 2 Macs, with lifetime updates and a 14-day refund.
+> 💡 Mole comes in two forms. The `mo` command line tool on this page is free and open source. [Mole for Mac](https://mole.fit) is the native SwiftUI app, with a graphical cleanup review before anything is deleted, app updates, uninstall, maintenance, disk maps, live status, and a menu bar HUD. One license covers 2 Macs, with lifetime updates and a 14-day refund.
 
 ###### Features
 
@@ -395,17 +395,14 @@ Homebrew follows Homebrew's supported macOS tiers. Use macOS 14 or later for the
 curl -fsSL https://raw.githubusercontent.com/tw93/mole/main/install.sh | bash
 ```
 
-> Note: Mole is built for macOS. An experimental Windows version is available in the [windows branch](https://github.com/tw93/Mole/tree/windows) for early adopters.
-
-**Run**
+The script defaults to `/usr/local/bin`, which normally asks for an administrator password. For a per-user install whose future `mo update` runs stay password-free:
 
 ```bash
-mo                           # Interactive menu
-mo clean                     # Deep cleanup + already-uninstalled app leftovers
-mo uninstall                 # Remove installed apps + their leftovers
-mo optimize                  # Refresh caches & services
-mo analyze                   # Visual disk explorer (or 'mo analyse')
-mo status                    # Live system health dashboard
+mkdir -p "$HOME/.local/bin"
+curl -fsSL https://raw.githubusercontent.com/tw93/mole/main/install.sh | bash -s -- --prefix "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+```
+
 
 [...truncated]
 
@@ -463,7 +460,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,881
+- Stars: 6,889
 - Forks: 405
 - Stack: Markdown, Shell
 - License: MIT
@@ -538,8 +535,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 10,785
-- Forks: 490
+- Stars: 10,838
+- Forks: 493
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.12.0 "Safer Output" (2026-08-01)
