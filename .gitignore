@@ -18,3 +18,4 @@ journal/
 .claude/settings.local.json
 .mcp.json
 .claude/worktrees/
+.wrangler/
