@@ -102,7 +102,7 @@ list 只适合垂直长列表的滚动场景，但是假如需要使用横向滚
 
 **3. Weex App**
 
-Weex 现在也可以像 RN 那样生成 APP 了，详细可以见[**weexteam/weex-hackernews**](https:/github.com/weexteam/weex-hackernews)，以下是我的运行结果，真正做到了一份代码多处运行。
+Weex 现在也可以像 RN 那样生成 APP 了，详细可以见[**weexteam/weex-hackernews**](https://github.com/weexteam/weex-hackernews)，以下是我的运行结果，真正做到了一份代码多处运行。
 
 <img src="//img.alicdn.com/tfs/TB1cpfCPXXXXXbWaXXXXXXXXXXX-2822-1708.jpg" loading="lazy" decoding="async" />
 

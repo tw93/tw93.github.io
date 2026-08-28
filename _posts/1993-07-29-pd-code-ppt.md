@@ -7,6 +7,9 @@ feature: https://gw.alicdn.com/imgextra/i4/O1CN0170apqO1j6afnI6xEX_!!60000000044
 summary: 最近给团队同学的一个分享，从前端工程师的视角来看如何做成一个产品开发工程师。
 comments: false
 hidden: true
+sitemap: false
+robots: "noindex, follow"
+canonical_url: https://tw93.fun/2022-07-29/pd-code.html
 ---
 
 <div style="height:80vh;display:flex;align-items:center;">

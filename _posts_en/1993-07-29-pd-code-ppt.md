@@ -7,6 +7,9 @@ feature: https://gw.alicdn.com/imgextra/i4/O1CN0170apqO1j6afnI6xEX_!!60000000044
 summary: A recent sharing with the team, from the perspective of a front-end engineer, how to become a product development engineer.
 comments: false
 hidden: true
+sitemap: false
+robots: "noindex, follow"
+canonical_url: https://tw93.fun/en/2022-07-29/pd-code.html
 ---
 
 <div style="height:80vh;display:flex;align-items:center;">

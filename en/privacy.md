@@ -1,11 +1,12 @@
 ---
 layout: page
-title: Privacy
+title: Privacy Notice
 permalink: /en/privacy.html
 hideHomeActive: true
 lang: en-US
 lang_equivalent: /privacy.html
 comments: false
+summary: How tw93.fun handles visitor data through Vercel, Google Analytics 4, and giscus; the site has no accounts, forms, or first-party profiling.
 ---
 
 ## Privacy

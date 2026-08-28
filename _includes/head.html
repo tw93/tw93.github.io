@@ -1,14 +1,45 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.layout == 'post' or page.hideHomeActive or page.is404 %}{{ page.title }} - {% endif %}{{ site.title
-    }}</title>
-  {% if page.summary %}
-  <meta name="description" content="{{ page.summary | strip_html | truncate: 160 }}">
-  {% else %}
-  <meta name="description" content="{{ site.description }}">
+  {% assign archive_page = page.en_page_number | default: paginator.page | default: 1 %}
+  {% assign is_english_surface = false %}
+  {% if page.url == '/en/' or page.url contains '/en/' %}
+  {% assign is_english_surface = true %}
   {% endif %}
+  {% assign document_language = page.lang | default: site.lang %}
+  {% if is_english_surface %}
+  {% assign og_locale = 'en_US' %}
+  {% else %}
+  {% assign og_locale = 'zh_CN' %}
+  {% endif %}
+  {% if page.layout == 'home' and page.is404 != true %}
+    {% if is_english_surface %}
+      {% capture seo_title %}Tw93 · Product Engineering, AI Coding, and Open Source{% if archive_page > 1 %} · Page {{ archive_page }}{% endif %}{% endcapture %}
+      {% capture seo_description %}Tw93's writing on product engineering, AI coding, open-source tools, design, and building native macOS software.{% if archive_page > 1 %} Archive page {{ archive_page }}.{% endif %}{% endcapture %}
+    {% else %}
+      {% capture seo_title %}Tw93 · 产品工程、AI Coding 与开源工具{% if archive_page > 1 %} · 第 {{ archive_page }} 页{% endif %}{% endcapture %}
+      {% capture seo_description %}Tw93 的个人博客，记录产品工程、AI Coding、开源工具、设计与原生 macOS 软件开发。{% if archive_page > 1 %}当前为第 {{ archive_page }} 页。{% endif %}{% endcapture %}
+    {% endif %}
+    {% assign document_title = seo_title %}
+  {% else %}
+    {% assign seo_title = page.title | default: site.title %}
+    {% assign seo_description = page.summary | default: site.description %}
+    {% if page.layout == 'post' or page.hideHomeActive or page.is404 %}
+      {% capture document_title %}{{ seo_title }} - {{ site.title }}{% endcapture %}
+    {% else %}
+      {% assign document_title = site.title %}
+    {% endif %}
+  {% endif %}
+  <title>{{ document_title | escape }}</title>
+  <meta name="description" content="{{ seo_description | strip_html | truncate: 160 | escape }}">
   {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+  <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}">
+  {% endif %}
+
+  <!-- Canonical URL -->
+  {% if page.canonical_url %}
+  {% assign canonical = page.canonical_url %}
+  {% else %}
+  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
   {% endif %}
 
   <!-- Viewport and Theme Color -->
@@ -18,12 +49,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <!-- Open Graph Metadata -->
-  {% assign og_title = page.title | default: site.title %}
-  {% assign og_description = page.summary | default: site.description %}
+  {% assign og_title = seo_title %}
+  {% assign og_description = seo_description %}
   {% assign og_image = page.feature | default:
   "https://gw.alicdn.com/imgextra/i1/O1CN01BjlaXE1auDGoniJGl_!!6000000003389-2-tps-480-444.png" %}
 
-  <meta property="og:locale" content="{{ site.lang }}">
+  <meta property="og:locale" content="{{ og_locale }}">
   {% if page.layout == "post" %}
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
@@ -34,11 +65,11 @@
   {% else %}
   <meta property="og:type" content="website">
   {% endif %}
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} - Tw93{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{{ og_description }}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:title" content="{{ document_title | escape }}">
+  <meta property="og:description" content="{{ og_description | strip_html | escape }}">
+  <meta property="og:url" content="{{ canonical | escape }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:image" content="{{ og_image | escape }}">
 
   <!-- Twitter Metadata -->
   {% if page.layout == "post" %}
@@ -47,27 +78,54 @@
   <meta name="twitter:card" content="{% if page.feature %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:creator" content="@{{ site.twitter }}">
   <meta name="twitter:site" content="@{{ site.twitter }}">
-  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-  <meta name="twitter:title" content="{{ page.title }} - Tw93">
-  <meta name="twitter:description" content="{{ page.summary }}">
-  <meta name="twitter:image" content="{{ twitter_image }}">
+  <meta name="twitter:url" content="{{ canonical | escape }}">
+  <meta name="twitter:title" content="{{ document_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
+  <meta name="twitter:image" content="{{ twitter_image | escape }}">
   {% endif %}
 
-  <!-- Canonical URL -->
-  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url |
-  remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
-  <link rel="canonical" href="{{ canonical }}">
+  <link rel="canonical" href="{{ canonical | escape }}">
 
   <!-- Hreflang for multilingual content -->
-  {% if page.url contains '/en/' %}
-  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}" />
-  <link rel="alternate" hreflang="zh" href="{{ site.url }}{{ page.url | remove: '/en' }}" />
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: '/en' }}" />
-  {% else %}
-  <link rel="alternate" hreflang="zh" href="{{ site.url }}{{ page.url }}" />
+  {% unless page.robots contains 'noindex' %}
+    {% if page.collection == 'posts' or page.collection == 'posts_en' %}
+      {% assign current_filename = page.path | split: '/' | last %}
+      {% if page.collection == 'posts' %}
+        {% assign alternate_doc = site.posts_en | where_exp: "item", "item.path contains current_filename" | first %}
+        {% if alternate_doc %}
+  <link rel="alternate" hreflang="zh" href="{{ canonical | escape }}" />
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ alternate_doc.url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ canonical | escape }}" />
+        {% endif %}
+      {% else %}
+        {% assign alternate_doc = site.posts | where_exp: "item", "item.path contains current_filename" | first %}
+        {% if alternate_doc %}
+  <link rel="alternate" hreflang="en" href="{{ canonical | escape }}" />
+  <link rel="alternate" hreflang="zh" href="{{ site.url }}{{ alternate_doc.url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ alternate_doc.url }}" />
+        {% endif %}
+      {% endif %}
+    {% elsif page.lang_equivalent %}
+      {% if page.url contains '/en/' %}
+  <link rel="alternate" hreflang="en" href="{{ canonical | escape }}" />
+  <link rel="alternate" hreflang="zh" href="{{ site.url }}{{ page.lang_equivalent }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.lang_equivalent }}" />
+      {% else %}
+  <link rel="alternate" hreflang="zh" href="{{ canonical | escape }}" />
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.lang_equivalent }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ canonical | escape }}" />
+      {% endif %}
+    {% elsif page.url == '/en/' or page.url contains '/en/page' %}
+      {% assign zh_home_url = page.url | remove_first: '/en' %}
+  <link rel="alternate" hreflang="en" href="{{ canonical | escape }}" />
+  <link rel="alternate" hreflang="zh" href="{{ site.url }}{{ zh_home_url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ zh_home_url }}" />
+    {% elsif page.url == '/' or page.url contains '/page' %}
+  <link rel="alternate" hreflang="zh" href="{{ canonical | escape }}" />
   <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url }}" />
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}" />
-  {% endif %}
+  <link rel="alternate" hreflang="x-default" href="{{ canonical | escape }}" />
+    {% endif %}
+  {% endunless %}
 
   <!-- DNS Prefetch & Preconnect for Performance -->
   <link rel="dns-prefetch" href="https://gw.alipayobjects.com">
@@ -92,7 +150,7 @@
   <meta http-equiv="cleartype" content="on">
   <meta name="format-detection" content="telephone=no">
   <meta name="author" content="Tw93">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="{{ page.robots | default: 'index, follow' | escape }}">
 
   <!-- Feed -->
   <link href="{% if page.url contains '/en/' %}{{ site.url }}/en/feed.xml{% else %}{{ site.url }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
@@ -103,55 +161,58 @@
 
   <!-- Structured Data for SEO and AI Crawlers -->
   {% if page.layout == "post" %}
+  {% assign structured_description = page.summary | default: page.excerpt | strip_html | truncate: 160 | default: site.description %}
+  {% assign structured_language = page.lang | default: site.lang %}
+  {% capture structured_keywords %}{{ page.categories | join: ', ' }}{% if page.tags %}, {{ page.tags | join: ', ' }}{% endif %}{% endcapture %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "{{ page.title }}",
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "headline": {{ page.title | jsonify }},
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.modified | default: page.date | date_to_xmlschema | jsonify }},
     "author": {
       "@type": "Person",
-      "name": "{{ site.author.name | default: 'Tw93' }}",
-      "url": "{{ site.author.url | default: site.url }}",
+      "name": {{ site.author.name | default: 'Tw93' | jsonify }},
+      "url": {{ site.author.url | default: site.url | jsonify }},
       "sameAs": [
         "https://github.com/{{ site.author.github }}",
         "https://twitter.com/{{ site.author.twitter }}",
-        "https://weekly.tw93.fun",
-        "https://yobi.tw93.fun",
-        "https://kami.tw93.fun",
-        "https://mole.fit"
+        "https://www.youtube.com/@HiTw93",
+        "https://www.zhihu.com/people/{{ site.zhihu }}",
+        "https://www.v2ex.com/member/{{ site.v2ex }}",
+        "https://yobi.tw93.fun"
       ]
     },
     "publisher": {
       "@type": "Organization",
-      "name": "{{ site.title }}",
+      "name": {{ site.title | jsonify }},
       "logo": {
         "@type": "ImageObject",
         "url": "https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png"
       }
     },
-    "description": "{{ page.summary | default: page.excerpt | strip_html | truncate: 160 | default: site.description }}",
+    "description": {{ structured_description | jsonify }},
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "{{ site.url }}{{ page.url }}"
+      "@id": {{ canonical | jsonify }}
     },
-    "url": "{{ site.url }}{{ page.url }}",
-    "inLanguage": "{{ page.lang | default: site.lang }}",
-    "keywords": "{{ page.categories | join: ', ' }}{% if page.tags %}, {{ page.tags | join: ', ' }}{% endif %}"{% if page.feature %},
+    "url": {{ canonical | jsonify }},
+    "inLanguage": {{ structured_language | jsonify }},
+    "keywords": {{ structured_keywords | strip | jsonify }}{% if page.feature %},
     "image": {
       "@type": "ImageObject",
-      "url": "{{ page.feature }}"
+      "url": {{ page.feature | jsonify }}
     }{% endif %}
   }
   </script>
   {% elsif page.url == '/' or page.url == '/en/' %}
   {%- comment -%}
   Homepage graph. Agents use this to identify the entity behind the domain, so it
-  carries the bits a bare WebSite block leaves out: sameAs for disambiguation,
-  an Organization with a contact point and address, and one SoftwareApplication
-  per core project with its price. Keep the prices in step with /pricing.md and
-  /llms.txt, all three are hand-maintained.
+  carries the bits a bare WebSite block leaves out: identity links for
+  disambiguation, an Organization with a contact point and address, and one
+  project entity per core product. Keep paid-product facts in step with
+  /pricing.md and /llms.txt; all three are hand-maintained.
   {%- endcomment -%}
   <script type="application/ld+json">
   {
@@ -162,47 +223,25 @@
         "@id": "{{ site.url }}/#website",
         "name": "{{ site.title }}",
         "url": "{{ site.url }}",
-        "description": "{{ site.description }}",
+        "description": {{ seo_description | jsonify }},
         "inLanguage": ["zh-CN", "en-US"],
         "publisher": { "@id": "{{ site.url }}/#organization" },
-        "author": { "@id": "{{ site.url }}/#person" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "{{ site.url }}/search.json?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
+        "author": { "@id": "{{ site.url }}/#person" }
       },
       {
         "@type": "WebPage",
-        "@id": "{{ site.url }}{{ page.url }}#webpage",
-        "url": "{{ site.url }}{{ page.url }}",
-        "name": "{{ site.title }}",
-        "description": "{{ site.description }}",
+        "@id": {{ canonical | append: '#webpage' | jsonify }},
+        "url": {{ canonical | jsonify }},
+        "name": {{ document_title | jsonify }},
+        "description": {{ seo_description | jsonify }},
         "isPartOf": { "@id": "{{ site.url }}/#website" },
         "about": { "@id": "{{ site.url }}/#person" },
-        "inLanguage": "{{ page.lang | default: site.lang }}",
-        "breadcrumb": { "@id": "{{ site.url }}{{ page.url }}#breadcrumb" },
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".entry-title", ".entry-content"]
-        },
+        "inLanguage": {{ document_language | jsonify }},
         "encoding": {
           "@type": "MediaObject",
           "encodingFormat": "text/markdown",
           "contentUrl": "{{ site.url }}/index.md"
         }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "{{ site.title }}", "item": "{{ site.url }}/" },
-          { "@type": "ListItem", "position": 2, "name": "About", "item": "{{ site.url }}/about.html" },
-          { "@type": "ListItem", "position": 3, "name": "Pricing", "item": "{{ site.url }}/pricing.md" }
-        ]
       },
       {
         "@type": "Person",
@@ -227,9 +266,7 @@
           "https://www.youtube.com/@HiTw93",
           "https://www.zhihu.com/people/{{ site.zhihu }}",
           "https://www.v2ex.com/member/{{ site.v2ex }}",
-          "https://weekly.tw93.fun",
-          "https://kami.tw93.fun",
-          "https://mole.fit"
+          "https://yobi.tw93.fun"
         ]
       },
       {
@@ -271,7 +308,7 @@
           "https://github.com/{{ site.author.github }}",
           "https://twitter.com/{{ site.author.twitter }}",
           "https://www.youtube.com/@HiTw93",
-          "https://mole.fit"
+          "https://yobi.tw93.fun"
         ]
       },
       {
@@ -313,8 +350,8 @@
       {
         "@type": "SoftwareApplication",
         "name": "Mole",
-        "url": "https://mole.fit",
-        "sameAs": ["https://github.com/tw93/Mole"],
+        "url": "https://github.com/tw93/Mole",
+        "subjectOf": { "@type": "WebPage", "url": "https://mole.fit/blog/mole-cli-vs-mac-app" },
         "downloadUrl": "https://github.com/tw93/Mole/releases",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "macOS",
@@ -344,28 +381,26 @@
         }
       },
       {
-        "@type": "SoftwareApplication",
+        "@type": "SoftwareSourceCode",
         "name": "Waza",
         "url": "https://github.com/tw93/Waza",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "macOS, Windows, Linux",
-        "description": "Reusable Claude Code skill pack for engineering workflows: review, debugging, design, writing, and research.",
+        "codeRepository": "https://github.com/tw93/Waza",
+        "programmingLanguage": "Markdown",
+        "description": "Reusable engineering skill pack for AI coding agents: review, debugging, design, writing, and research.",
         "license": "https://spdx.org/licenses/MIT.html",
         "isAccessibleForFree": true,
-        "author": { "@id": "{{ site.url }}/#person" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+        "author": { "@id": "{{ site.url }}/#person" }
       },
       {
-        "@type": "SoftwareApplication",
+        "@type": "SoftwareSourceCode",
         "name": "Kami",
         "url": "https://github.com/tw93/kami",
-        "applicationCategory": "DesignApplication",
-        "operatingSystem": "macOS, Windows, Linux",
+        "codeRepository": "https://github.com/tw93/kami",
+        "programmingLanguage": "Markdown",
         "description": "Document design system that typesets AI-generated content into PDFs, with bilingual Chinese and English typography.",
         "license": "https://spdx.org/licenses/MIT.html",
         "isAccessibleForFree": true,
-        "author": { "@id": "{{ site.url }}/#person" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+        "author": { "@id": "{{ site.url }}/#person" }
       }
     ]
   }
@@ -374,21 +409,18 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
-    "description": "{{ site.description }}",
+    "@type": "WebPage",
+    "@id": {{ canonical | append: '#webpage' | jsonify }},
+    "name": {{ document_title | jsonify }},
+    "url": {{ canonical | jsonify }},
+    "description": {{ seo_description | jsonify }},
+    "isPartOf": { "@id": "{{ site.url }}/#website" },
     "author": {
       "@type": "Person",
       "name": "{{ site.author.name | default: 'Tw93' }}",
       "url": "{{ site.author.url | default: site.url }}"
     },
-    "inLanguage": "{{ site.lang }}",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ site.url }}/search.json?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "inLanguage": {{ document_language | jsonify }}
   }
   </script>
   {% endif %}

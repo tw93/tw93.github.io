@@ -102,7 +102,7 @@ list is only suitable for vertical long list rolling scenarios, but if horizonta
 
 **3. Weex App**
 
-Weex can now also generate APP like RN. See [**weexteam/weex-hackernews**](https:/github.com/weexteam/weex-hackernews) for details. The following is my running result, truly achieving one code running in multiple places.
+Weex can now also generate APP like RN. See [**weexteam/weex-hackernews**](https://github.com/weexteam/weex-hackernews) for details. The following is my running result, truly achieving one code running in multiple places.
 
 <img src="//img.alicdn.com/tfs/TB1cpfCPXXXXXbWaXXXXXXXXXXX-2822-1708.jpg" loading="lazy" decoding="async" />
 

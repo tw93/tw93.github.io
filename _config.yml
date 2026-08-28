@@ -103,6 +103,14 @@ defaults:
     values:
       sitemap: false
   - scope:
+      path: "files/share/agent.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "github.html"
+    values:
+      sitemap: false
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -129,4 +137,3 @@ showBuyCoffee: true
 payImage: //gw.alipayobjects.com/zos/k/vb/1.png
 assetUrl: //tw93.fun/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-

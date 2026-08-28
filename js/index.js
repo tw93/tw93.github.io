@@ -236,13 +236,16 @@ document.addEventListener("DOMContentLoaded", function () {
   var qrTextEl = document.getElementById('J_qr_text');
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
   isShowQr && loadScript('https://gw.alipayobjects.com/os/k/qa/qrcode.min.js', function () {
-    QRCode && new QRCode(document.getElementById("J_qr_code"), {
+    var qrCodeEl = document.getElementById("J_qr_code");
+    QRCode && new QRCode(qrCodeEl, {
       width: 128,
       height: 128,
       useSVG: true,
       text: window.location.href,
       correctLevel: QRCode.CorrectLevel.L
     });
+    var qrImage = qrCodeEl && qrCodeEl.querySelector('img');
+    if (qrImage) qrImage.alt = '';
   });
 
 }, false);

@@ -2,6 +2,9 @@
 layout: base
 ---
 
+{% assign listing_page = page.en_page_number | default: paginator.page | default: 1 %}
+<h1 class="visually-hidden">{% if page.url contains '/en/' %}Tw93 · Product engineer, open source creator, and writer{% if listing_page > 1 %}, page {{ listing_page }}{% endif %}{% else %}Tw93 · 产品工程师、开源作者与写作者{% if listing_page > 1 %}，第 {{ listing_page }} 页{% endif %}{% endif %}</h1>
+
 {% if page.url contains '/en/' %}
 {% assign per_page = site.paginate | default: 10 %}
 {% assign current_page = page.en_page_number | default: 1 %}

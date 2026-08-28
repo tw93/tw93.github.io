@@ -92,7 +92,7 @@ Promise.all([
 
 > “Generators are functions that can be paused and resumed, which enables a variety of applications.”
 
-([http://www.2ality.com/2015/03/es6-generators.html](<(http://www.2ality.com/2015/03/es6-generators.html)>))
+[http://www.2ality.com/2015/03/es6-generators.html](http://www.2ality.com/2015/03/es6-generators.html)
 
 为了快速的总结 Generator，它们可以使我们通过调用在一个迭代器对象上面调用 yield 和通过 next 获取到值生成一个值的序列。
 

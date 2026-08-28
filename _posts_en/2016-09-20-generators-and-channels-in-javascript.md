@@ -92,7 +92,7 @@ Before we talk about what, why, how, we can first look at the short definition o
 
 > “Generators are functions that can be paused and resumed, which enables a variety of applications.”
 
-([http://www.2ality.com/2015/03/es6-generators.html](<(http://www.2ality.com/2015/03/es6-generators.html)>))
+[http://www.2ality.com/2015/03/es6-generators.html](http://www.2ality.com/2015/03/es6-generators.html)
 
 To quickly summarize Generator, they allow us to generate a sequence of values by calling yield on an iterator object and getting values via next.
 

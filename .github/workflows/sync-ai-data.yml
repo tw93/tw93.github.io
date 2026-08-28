@@ -25,19 +25,41 @@ jobs:
           curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/projects -o api/projects.json
           curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/blog -o api/blog.json
           curl -sf --retry 3 --retry-delay 5 https://yobi.tw93.fun/api/weekly -o api/weekly.json
-          # This list used to be hardcoded. Yobi's llms.txt links every core
-          # project to tw93.fun/projects/{slug}.md, so adding a project there
-          # while this list stayed put would publish a link to a file this job
-          # never fetches. Read the list from the payload already downloaded.
-          slugs=$(jq -r '.projects[] | select(.tier == "core") | .slug' api/projects.json)
+          # Keep the root-domain mirror complete. The project list is owned by
+          # Yobi, so derive every slug from the payload instead of maintaining
+          # a second core-only allowlist here.
+          slugs=$(jq -r '.projects[].slug' api/projects.json)
           if [ -z "$slugs" ]; then
-            echo "No core slugs in api/projects.json, refusing to sync a partial set."
+            echo "No project slugs in api/projects.json, refusing to sync a partial set."
             exit 1
           fi
-          echo "Core projects: $(echo "$slugs" | tr '\n' ' ')"
+          echo "Projects: $(echo "$slugs" | tr '\n' ' ')"
+          project_manifest=$(mktemp)
           for slug in $slugs; do
-            curl -sf --retry 3 --retry-delay 5 "https://yobi.tw93.fun/projects/${slug}" -o "projects/${slug}.md"
+            case "$slug" in
+              ''|*[!a-z0-9-]*|-*|*-)
+                echo "Invalid project slug from Yobi: ${slug}"
+                exit 1
+                ;;
+            esac
+            target="projects/${slug}.md"
+            printf '%s\n' "$target" >> "$project_manifest"
+            curl -sf --retry 3 --retry-delay 5 "https://yobi.tw93.fun/projects/${slug}.md" -o "$target"
+            if ! grep -q '^# ' "$target" || grep -qi '<!doctype html' "$target"; then
+              echo "Yobi returned a non-Markdown payload for ${slug}."
+              exit 1
+            fi
           done
+          # These Markdown files are generated mirrors. Remove only stale
+          # mirrors that are no longer present in Yobi; hand-written files such
+          # as projects/llms.txt are outside this exact glob.
+          for target in projects/*.md; do
+            [ -e "$target" ] || continue
+            if ! grep -Fxq "$target" "$project_manifest"; then
+              rm -f -- "$target"
+            fi
+          done
+          rm -f -- "$project_manifest"
 
       - name: Rewrite legacy CDN to R2
         run: |

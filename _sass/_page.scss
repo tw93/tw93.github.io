@@ -737,42 +737,29 @@ iframe {
   }
 }
 
-// Left-side navigation items (About, Weekly)
+// Keep the two utility controls reachable on narrow phones. The other text
+// links remain in the document and return at the tablet breakpoint.
 .header-item-left {
   display: flex;
   align-items: center;
-  padding-left: 10px; // Standardized for breathing room
+  padding-left: 10px;
   padding-right: 10px;
 
-
-
-
-  // Hide "About" (First Item) on mobile
-  .header-item-title + & {
+  &.header-item-weekly,
+  &.header-item-twitter,
+  &.header-item-about {
     display: none;
-    @media #{$medium} {
-      display: flex; // Show on desktop
-      padding-left: 10px; // Reset padding
-    }
-  }
-
-  // Add spacing to "Weekly" (Second Item) on mobile
-  .header-item-title + & + & {
-    padding-left: 30px;
-    @media #{$medium} {
-      padding-left: 10px; // Reset to standard on desktop
-    }
   }
 
   @media #{$medium} {
-    padding-left: 10px; // Unified desktop breathing room
+    display: flex;
+    padding-left: 10px;
     padding-right: 10px;
-  }
 
-  // Large gap between text links group and functional group on desktop
-  &.header-item-social:last-of-type {
-    @media #{$medium} {
-      margin-right: 20px;
+    &.header-item-weekly,
+    &.header-item-twitter,
+    &.header-item-about {
+      display: flex;
     }
   }
 
@@ -795,24 +782,6 @@ iframe {
   &:hover {
     a {
       color: $header-active;
-    }
-  }
-}
-
-// Hide social links on mobile
-.header-item-social {
-  display: flex; // Show GitHub on mobile (First Social Item)
-
-  // Hide subsequent social items (Twitter) on mobile
-  & + & {
-    display: none;
-  }
-
-  @media #{$medium} {
-    display: block;
-    // Show all social items on desktop
-    & + & {
-      display: block;
     }
   }
 }
@@ -1008,4 +977,16 @@ video.bg-img {
   @media #{$medium} {
     cursor: zoom-in;
   }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

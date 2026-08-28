@@ -7,6 +7,16 @@
   },
   "redirects": [
     {
+      "source": "/2021-06-08/app.html",
+      "destination": "/2021-06-09/app.html",
+      "statusCode": 308
+    },
+    {
+      "source": "/en/2021-06-08/app.html",
+      "destination": "/en/2021-06-09/app.html",
+      "statusCode": 308
+    },
+    {
       "source": "/",
       "has": [
         {

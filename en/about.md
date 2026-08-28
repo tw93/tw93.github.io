@@ -5,6 +5,7 @@ permalink: /en/about.html
 hideHomeActive: true
 lang: en-US
 lang_equivalent: /about.html
+summary: Tw93 is a product engineer in Hangzhou who builds restrained open-source tools, native macOS apps, and writes about product engineering.
 ---
 
 ## About Me
@@ -12,6 +13,8 @@ lang_equivalent: /about.html
 A product engineer based in Hangzhou, building easy-to-use tools to simplify life. I know a bit of Swift, Rust, JavaScript, Python, Shell, and design.
 
 I love open source, believe in AI, and invest in AI. Not into the tech-influencer scene, and a strong believer in long-termism. I write about tech and life on [**Tw93**](https://tw93.fun/) and share cool finds every week via [**Trend Weekly**](https://weekly.tw93.fun/).
+
+For a single index of these projects, visit [**Yobi**](https://yobi.tw93.fun/). It brings together what each project does, when to choose it, and its machine-readable references.
 
 ## Open Source Family
 

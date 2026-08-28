@@ -1,10 +1,11 @@
 ---
 layout: page
-title: Privacy
+title: 隐私说明
 permalink: /privacy.html
 hideHomeActive: true
 lang_equivalent: /en/privacy.html
 comments: false
+summary: tw93.fun 的隐私说明：本站没有账号或表单，并说明 Vercel、Google Analytics 4 与 giscus 会经手哪些访问数据。
 ---
 
 ## 隐私说明
