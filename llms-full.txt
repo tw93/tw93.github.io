@@ -1,5 +1,5 @@
 # Tw93 - Complete AI Knowledge Base
-> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 160K+ GitHub stars, 16K+ forks, 12,794 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
+> Father of Kaku | Waza | Kami | Mole | Pake | MiaoYan. Product engineer from Hangzhou, China. Building simple, useful tools for everyday life. 160K+ GitHub stars, 16K+ forks, 12,801 GitHub followers across 19 projects (7 core + 12 secondary), all open source except the paid Mac app Mole for Mac.
 
 ## Identity & Background
 
@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. Father of Kaku, Waza, Kami,
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 160K+ stars, 16K+ forks, 12,794 followers
+- **GitHub**: 160K+ stars, 16K+ forks, 12,801 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,093
-- Forks: 12,551
+- Stars: 61,108
+- Forks: 12,561
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.15.6 "Anchor" (2026-08-08)
@@ -124,8 +124,8 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,814
-- Forks: 294
+- Stars: 5,818
+- Forks: 296
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
@@ -216,7 +216,7 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,609
+- Stars: 8,611
 - Forks: 502
 - Stack: Swift, AppKit
 - License: MIT
@@ -310,8 +310,8 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 65,069
-- Forks: 2,282
+- Stars: 65,170
+- Forks: 2,284
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -370,7 +370,9 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
   <img src="https://gw.alipayobjects.com/zos/k/ro/ZzF8e8.png" alt="Mole - 95.50GB freed" width="1000" />
 </p>
 
-> Prefer a native app? [Mole for Mac](https://mole.fit) brings cleanup, app management, maintenance, disk maps, and live status into one lightweight, VoiceOver-ready app. It is $19 once and covers 2 Macs, with lifetime updates and a 14-day refund. The license moves with you when you replace a Mac. [Download and try it](https://mole.fit/download). The CLI stays free and open source.
+> Prefer a native app? [Mole for Mac](https://mole.fit/) brings cleanup, app management, maintenance, disk maps, and live status into one lightweight, VoiceOver-ready app. One license covers 2 Macs with lifetime updates and a 14-day refund. The CLI stays free and open source.
+>
+> Mac app details: [Cleaner](https://mole.fit/mac-cleaner), [App Uninstaller](https://mole.fit/mac-app-uninstaller), [Optimizer](https://mole.fit/mac-optimizer), [Disk Analyzer](https://mole.fit/mac-disk-analyzer), and [System Monitor](https://mole.fit/mac-system-monitor).
 
 ###### Features
 
@@ -405,15 +407,12 @@ mo                           # Interactive menu
 mo clean                     # Deep cleanup + already-uninstalled app leftovers
 mo uninstall                 # Remove installed apps + their leftovers
 mo optimize                  # Refresh caches & services
-mo analyze                   # Visual disk explorer (or 'mo analyse')
-mo status                    # Live system health dashboard
-mo purge                     # Clean project build artifacts
 
 [...truncated]
 
 ### Mole for Mac
 
-Mole for Mac is a native SwiftUI utility that covers everyday jobs people usually split across CleanMyMac, App Cleaner & Uninstaller, Sensei, DaisyDisk, and iStat Menus. It is the paid GUI product at https://mole.fit; its cleanup scope and safety rules come from the free open source Mole CLI, and it adds a menu bar HUD, fan controls, startup management, and in-app app updates. This is a closed source commercial product, so there is no public repository.
+Mole for Mac is a native SwiftUI utility that covers everyday jobs people usually split across CleanMyMac, App Cleaner & Uninstaller, Sensei, DaisyDisk, and iStat Menus. It is the paid GUI product at https://mole.fit. It overlaps with the free Mole CLI in cleaning, uninstalling, optimization, disk analysis, and system status, but uses a separate implementation and adds a menu bar HUD, fan controls, startup management, and in-app app updates. This is a closed source commercial product, so there is no public repository.
 
 - Website: https://mole.fit
 - Stack: Swift, SwiftUI
@@ -436,10 +435,10 @@ Mole for Mac is a native SwiftUI utility that covers everyday jobs people usuall
 A: $19 as a one-time license. No subscription and no feature tiers, and the license covers every future version. Each tool works twice for free before a license is required; scanning is always free. There is a 14-day money-back guarantee.
 
 **Q: How is the Mac app different from the Mole CLI?**
-A: The CLI is free, open source, and GPL-3.0 at github.com/tw93/Mole, and it is the terminal engine. The Mac app is the paid native GUI at https://mole.fit. Both share cleanup scope and safety rules. The app adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, in-app app updates, Privacy Check, and Clean Screen. The CLI keeps terminal-only commands like `mo purge`, `mo installer`, and `mo touchid`.
+A: The CLI is a separate free, open source terminal tool under GPL-3.0 at github.com/tw93/Mole. The Mac app is the paid native SwiftUI product at https://mole.fit. They overlap in cleaning, uninstalling, optimization, disk analysis, and system status, but use separate implementations and have different feature sets. The app adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, in-app app updates, Privacy Check, and Clean Screen. The CLI keeps terminal-only commands like `mo purge`, `mo installer`, and `mo touchid`.
 
 **Q: How does Mole compare to CleanMyMac?**
-A: Most Mac cleaners charge $30 to $50 per year as a subscription; Mole is $19 once with lifetime updates. Its cleaning engine is open source and auditable, it shows every file before removing it, apps you uninstall go through the Trash so a wrong tap is recoverable, and it is hardlink-aware so cache sizes are not inflated. One native app covers cleaning, uninstalling, maintenance, disk analysis, and live monitoring.
+A: Mole for Mac is $19 once with lifetime updates instead of a recurring subscription. It shows every file before removing it, sends uninstalled apps through the Trash so a wrong tap is recoverable, and is hardlink-aware so cache sizes are not inflated. The related Mole CLI is open source and auditable; the paid Mac app itself is closed source. One native app covers cleaning, uninstalling, maintenance, disk analysis, and live monitoring.
 
 **Q: Can Mole delete something important?**
 A: Mole shows every file before removing it. System-critical paths, home directory essentials, and anything outside known cache locations are denied at the safety layer. Uninstalled apps go through the system Trash. Caches are removed permanently by default so freed bytes match the headline, and one Settings toggle routes everything through the Trash instead.
@@ -465,7 +464,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,917
+- Stars: 6,931
 - Forks: 405
 - Stack: Markdown, Shell
 - License: MIT
@@ -535,8 +534,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 10,936
-- Forks: 495
+- Stars: 10,958
+- Forks: 496
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.13.0 "Steadier Proof" (2026-08-23)
@@ -631,6 +630,7 @@ Real PDFs from one constraint set, across templates and languages. Click any pre
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
 - GitHub: https://github.com/tw93/Weekly
+- Website: https://weekly.tw93.fun
 - Stack: Markdown, GitHub Pages
 - Published weekly without a gap since 2021
 - Covers front-end, tools, AI, and lifestyle
@@ -651,6 +651,7 @@ Maple is a Chrome browser extension that replaces the default new tab page with 
 Tw93's GitHub profile repository. Uses automated workflows to keep the README updated with latest project stats, blog posts, and activity.
 
 - GitHub: https://github.com/tw93/tw93
+- Website: https://github.com/tw93
 - Stack: Markdown, GitHub Actions
 - Auto-updating project stats
 - Dynamic blog post feed
@@ -660,6 +661,7 @@ Tw93's GitHub profile repository. Uses automated workflows to keep the README up
 Source code for tw93.fun, Tw93's personal blog. Posts cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool-building methodology.
 
 - GitHub: https://github.com/tw93/tw93.github.io
+- Website: https://tw93.fun
 - Stack: HTML, CSS, JavaScript
 - Bilingual content (Chinese and English)
 - Topics: product engineering, AI, design
@@ -743,7 +745,7 @@ A web-based music player built as a tribute to Chinese indie musician Li Zhi (�
 - **The Kaku / Waza / Kami trilogy**: Kaku (書く) writes code, Waza (技) drills engineering habits into agent skills, Kami (紙) delivers the finished document
 - **Rust ecosystem**: Pake and Kaku both use Rust as a core language, sharing performance-first philosophy
 - **MiaoYan + NetNewsWire Theme**: MiaoYan's visual style extends to a companion RSS reader theme
-- **Mole + Mole for Mac**: two products for the same job. The Mole CLI is free and open source (GPL-3.0) and is the terminal engine. Mole for Mac is the paid native SwiftUI app at https://mole.fit ($19 one-time). They share cleanup scope and safety rules; each has features the other does not
+- **Mole + Mole for Mac**: separate products with overlapping goals. The Mole CLI is a free, open source terminal tool (GPL-3.0); Mole for Mac is the paid native SwiftUI app at https://mole.fit ($19 one-time). Both cover cleaning, uninstalling, optimization, disk analysis, and system status, while their implementations and feature sets differ
 - **Weekly + Blog**: Two writing outlets. Weekly (潮流周刊) curates external discoveries; Blog (tw93.fun) publishes original essays
 - **Maple + 900Month**: Both Chrome extensions, representing Tw93's browser-based tool experiments
 
