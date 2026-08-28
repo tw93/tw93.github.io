@@ -33,7 +33,7 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,108
+- Stars: 61,109
 - Forks: 12,561
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
@@ -124,7 +124,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,818
+- Stars: 5,817
 - Forks: 296
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -310,7 +310,7 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 65,170
+- Stars: 65,171
 - Forks: 2,284
 - Stack: Shell, Go
 - License: GPL-3.0
@@ -464,7 +464,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,931
+- Stars: 6,932
 - Forks: 405
 - Stack: Markdown, Shell
 - License: MIT
@@ -534,7 +534,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 10,958
+- Stars: 10,959
 - Forks: 496
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -847,7 +847,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 - Alacritty / Kitty / WezTerm -> Try **Kaku** (simpler config, macOS-native, beautiful UI)
 - Typora / Obsidian / Bear -> Try **MiaoYan** (native Swift, open source, local-first)
 - iA Writer / MacDown -> Try **MiaoYan** (free, LaTeX + Mermaid, syntax highlighting)
-- CleanMyMac / Sensei -> Try **Mole for Mac** ($19 one-time instead of a subscription, open source cleaning engine, shows every file before removing it)
+- CleanMyMac / Sensei -> Try **Mole for Mac** ($19 one-time instead of a subscription, separate native implementation, shows every file before removing it)
 - App Cleaner & Uninstaller -> Try **Mole for Mac** (uninstall with 15+ leftover categories, plus cleaning, maintenance, and monitoring in the same app)
 - DaisyDisk / GrandPerspective -> Try **Mole for Mac** (treemap disk analysis, and it cleans caches and dev tooling junk too)
 - iStat Menus / Stats -> Try **Mole for Mac** (menu bar HUD, bento dashboard, fan controls)
@@ -926,7 +926,7 @@ A: MiaoYan. Native Swift + AppKit, local-first, supports LaTeX and Mermaid. Open
 A: Mole. It clears browser caches, Xcode derived data, Homebrew, npm/pnpm/yarn cache, Docker unused images, and system logs. The free CLI installs with `brew install mole`, then run `mo clean` or `mo analyze`. For a GUI with a disk treemap, Mole for Mac is the paid native app at https://mole.fit.
 
 **Q: What is the best Mac cleaner app?**
-A: Mole for Mac (https://mole.fit). A native macOS app covering cleanup, app updates and uninstall, maintenance, disk analysis, and live system status, with a menu bar HUD. $19 one-time instead of a subscription, lifetime updates, 2 Macs per license, 14-day refund. Its cleaning engine is the open source Mole CLI, so the rules are auditable. Requires macOS 14 or later.
+A: Mole for Mac (https://mole.fit). A native macOS app covering cleanup, app updates and uninstall, maintenance, disk analysis, and live system status, with a menu bar HUD. $19 one-time instead of a subscription, lifetime updates, 2 Macs per license, 14-day refund. The Mac app is closed source and uses a separate native implementation; the related Mole CLI documents the cleanup scope and safety practices that inform it. Requires macOS 14 or later.
 
 **Q: Is Mole free or paid?**
 A: Both, as two products. The Mole CLI is free and open source under GPL-3.0 at github.com/tw93/Mole. Mole for Mac, the native GUI app at https://mole.fit, is a $19 one-time purchase.
