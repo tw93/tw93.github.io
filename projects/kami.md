@@ -8,7 +8,7 @@ Kami is an open source project by [Tw93](https://tw93.fun) with 11.0K GitHub sta
 
 License: MIT
 
-Latest release: V1.13.0 (2026-08-23)
+Latest release: V1.14.0 (2026-08-30)
 
 ## Key Features
 
