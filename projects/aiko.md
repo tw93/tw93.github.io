@@ -12,7 +12,7 @@ Aiko is an open source project by [Tw93](https://tw93.fun) with 36 GitHub stars.
 ## Links
 
 - GitHub: https://github.com/tw93/aiko
-- Canonical HTML: https://yobi.tw93.fun/projects/aiko
+- Canonical HTML: https://faberon.io/projects/aiko
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

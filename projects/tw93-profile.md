@@ -15,7 +15,7 @@ tw93 Profile is an open source project by [Tw93](https://tw93.fun) with 250 GitH
 
 - Website: https://github.com/tw93
 - Source: https://github.com/tw93/tw93
-- Canonical HTML: https://yobi.tw93.fun/projects/tw93-profile
+- Canonical HTML: https://faberon.io/projects/tw93-profile
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

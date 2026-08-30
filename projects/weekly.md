@@ -16,7 +16,7 @@ Weekly is an open source project by [Tw93](https://tw93.fun) with 870 GitHub sta
 
 - Website: https://weekly.tw93.fun
 - Source: https://github.com/tw93/Weekly
-- Canonical HTML: https://yobi.tw93.fun/projects/weekly
+- Canonical HTML: https://faberon.io/projects/weekly
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

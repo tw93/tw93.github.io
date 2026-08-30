@@ -58,7 +58,7 @@ Yes. Waza installs into the shared ~/.agents/skills directory, so Codex, Cursor,
 ## Links
 
 - GitHub: https://github.com/tw93/Waza
-- Canonical HTML: https://yobi.tw93.fun/projects/waza
+- Canonical HTML: https://faberon.io/projects/waza
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

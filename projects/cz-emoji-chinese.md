@@ -13,7 +13,7 @@ cz-emoji-chinese is an open source project by [Tw93](https://tw93.fun) with 140 
 ## Links
 
 - GitHub: https://github.com/tw93/cz-emoji-chinese
-- Canonical HTML: https://yobi.tw93.fun/projects/cz-emoji-chinese
+- Canonical HTML: https://faberon.io/projects/cz-emoji-chinese
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

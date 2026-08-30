@@ -70,7 +70,7 @@ Yes, and the repository ships the contract for it. Pass `--json` for machine-rea
 ## Links
 
 - GitHub: https://github.com/tw93/Pake
-- Canonical HTML: https://yobi.tw93.fun/projects/pake
+- Canonical HTML: https://faberon.io/projects/pake
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

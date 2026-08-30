@@ -13,7 +13,7 @@ Maple is an open source project by [Tw93](https://tw93.fun) with 509 GitHub star
 ## Links
 
 - GitHub: https://github.com/tw93/Maple
-- Canonical HTML: https://yobi.tw93.fun/projects/maple
+- Canonical HTML: https://faberon.io/projects/maple
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

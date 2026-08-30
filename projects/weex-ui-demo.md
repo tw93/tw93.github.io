@@ -12,7 +12,7 @@ Weex UI Demo is an open source project by [Tw93](https://tw93.fun) with 60 GitHu
 ## Links
 
 - GitHub: https://github.com/tw93/weex-ui-demo
-- Canonical HTML: https://yobi.tw93.fun/projects/weex-ui-demo
+- Canonical HTML: https://faberon.io/projects/weex-ui-demo
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

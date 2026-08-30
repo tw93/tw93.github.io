@@ -70,7 +70,7 @@ Kaku combines Alacritty's speed (GPU rendering), Kitty's feature set, and WezTer
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Canonical HTML: https://yobi.tw93.fun/projects/kaku
+- Canonical HTML: https://faberon.io/projects/kaku
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

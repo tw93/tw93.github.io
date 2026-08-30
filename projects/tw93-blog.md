@@ -16,7 +16,7 @@ tw93 Blog is an open source project by [Tw93](https://tw93.fun) with 7 GitHub st
 
 - Website: https://tw93.fun
 - Source: https://github.com/tw93/tw93.github.io
-- Canonical HTML: https://yobi.tw93.fun/projects/tw93-blog
+- Canonical HTML: https://faberon.io/projects/tw93-blog
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

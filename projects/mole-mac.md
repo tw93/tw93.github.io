@@ -86,7 +86,7 @@ Mole publishes an English guide blog at https://mole.fit/blog, grouped into perf
 ## Links
 
 - Website: https://mole.fit
-- Canonical HTML: https://yobi.tw93.fun/projects/mole-mac
+- Canonical HTML: https://faberon.io/projects/mole-mac
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

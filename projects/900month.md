@@ -12,7 +12,7 @@
 ## Links
 
 - GitHub: https://github.com/tw93/900Month
-- Canonical HTML: https://yobi.tw93.fun/projects/900month
+- Canonical HTML: https://faberon.io/projects/900month
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt
