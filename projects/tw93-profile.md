@@ -4,7 +4,7 @@
 
 Website: https://github.com/tw93
 
-tw93 Profile is an open source project by [Tw93](https://tw93.fun) with 250 GitHub stars. Tw93's GitHub profile repository. Uses automated workflows to keep the README updated with latest project stats, blog posts, and activity.
+tw93 Profile is an open source project by [Tw93](https://tw93.fun) with 251 GitHub stars. Tw93's GitHub profile repository. Uses automated workflows to keep the README updated with latest project stats, blog posts, and activity.
 
 ## Key Features
 
