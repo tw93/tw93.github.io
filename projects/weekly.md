@@ -4,7 +4,7 @@
 
 Website: https://weekly.tw93.fun
 
-Weekly is an open source project by [Tw93](https://tw93.fun) with 871 GitHub stars. Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
+Weekly is an open source project by [Tw93](https://tw93.fun) with 872 GitHub stars. Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
 ## Key Features
 

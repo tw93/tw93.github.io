@@ -2,7 +2,7 @@
 
 > Free open source macOS CLI to clean, uninstall, optimize, analyze, and monitor your Mac.
 
-Mole is an open source project by [Tw93](https://tw93.fun) with 65.6K GitHub stars. Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
+Mole is an open source project by [Tw93](https://tw93.fun) with 65.7K GitHub stars. Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 License: GPL-3.0
 
@@ -52,7 +52,7 @@ The Mole CLI is free and open source under GPL-3.0. Mole for Mac, the native GUI
 
 **Is Mole safe to use?**
 
-Yes. Mole uses safe helper functions and never runs raw rm -rf. It applies path validation, protected-directory rules, and conservative cleanup boundaries, and every destructive operation supports dry-run mode.
+Mole scopes cleanup to known-safe caches, logs, temporary files, developer artifacts, and leftovers. Before a destructive action, users can review eligible paths with --dry-run and protect caches with --whitelist; maintenance tasks that are unnecessary, unsafe at the moment, or unavailable are skipped with a reason.
 
 **What does Mole clean?**
 

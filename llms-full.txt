@@ -9,7 +9,7 @@ Faberon is the product home for Mole, Pake, MiaoYan, Kaku, Waza, and Kami. Tw93 
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 161K+ stars, 16K+ forks, 12,838 followers
+- **GitHub**: 161K+ stars, 16K+ forks, 12,850 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -30,15 +30,16 @@ Tw93 frames his open source projects as a family. Each project was born during a
 
 ### Pake
 
-Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
+Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,185
-- Forks: 12,577
+- Stars: 61,198
+- Forks: 12,583
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.15.6 "Anchor" (2026-08-08)
 - Install: `npm install -g pake-cli`
+- Homepage: https://faberon.io/projects/pake
 
 **Features:**
 - Nearly 20x smaller than Electron apps
@@ -63,7 +64,7 @@ A: Yes. The CLI supports options for window size, title bar style (immersive/tra
 A: Yes. Since Pake uses the system WebView, it handles cookies, localStorage, and auth flows like a regular browser. SPAs with client-side routing work out of the box.
 
 **Q: How large is a typical Pake app?**
-A: Usually 2-5MB on macOS, depending on injected assets. Compare that to Electron apps which start at ~80MB because they bundle Chromium.
+A: A typical Pake app uses under 10MB of disk space. The final size varies by platform and bundled assets, while Electron apps are much larger because they include Chromium.
 
 **Q: Can an AI agent drive Pake?**
 A: Yes, and the repository ships the contract for it. Pass `--json` for machine-readable output, describe an app declaratively with `--config app.json`, and read https://unpkg.com/pake-cli@latest/llms.txt for the full agent contract. Claude Code users can install the official skill with `/plugin marketplace add tw93/Pake` then `/plugin install pake@pake`.
@@ -124,7 +125,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,832
+- Stars: 5,844
 - Forks: 299
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -216,14 +217,13 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,613
+- Stars: 8,618
 - Forks: 503
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 11.5 or later.
 - Latest Release: V4.2.0 "Zinogre 🍝" (2026-08-15)
 - Install: `brew install --cask miaoyan`
-- Homepage: https://apps.apple.com/cn/app/miaoyan/id6759252269
 
 **Features:**
 - Native macOS app, no Electron
@@ -310,14 +310,14 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 65,572
-- Forks: 2,298
+- Stars: 65,667
+- Forks: 2,308
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
 - Latest Release: V1.53.0 "Aware 👁️" (2026-08-30)
 - Install: `brew install mole`
-- Homepage: https://mole.fit
+- Homepage: https://faberon.io/projects/mole
 
 **Features:**
 - `mo clean` deep cache cleanup plus leftovers from already-uninstalled apps
@@ -333,7 +333,7 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 A: The Mole CLI is free and open source under GPL-3.0. Mole for Mac, the native GUI app at https://mole.fit, is a separate paid product with a $19 one-time license.
 
 **Q: Is Mole safe to use?**
-A: Yes. Mole uses safe helper functions and never runs raw rm -rf. It applies path validation, protected-directory rules, and conservative cleanup boundaries, and every destructive operation supports dry-run mode.
+A: Mole scopes cleanup to known-safe caches, logs, temporary files, developer artifacts, and leftovers. Before a destructive action, users can review eligible paths with --dry-run and protect caches with --whitelist; maintenance tasks that are unnecessary, unsafe at the moment, or unavailable are skipped with a reason.
 
 **Q: What does Mole clean?**
 A: Browser caches (Chrome, Arc, Brave, Safari), Xcode derived data, Homebrew cache, npm/pnpm/yarn cache, Docker unused images, system logs, old AI coding assistant versions (Copilot CLI, Claude Code, Cursor Agent), and app-specific temp files.
@@ -465,12 +465,13 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,936
+- Stars: 6,942
 - Forks: 406
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.34.1 "V3.34.1 Receipt 🧾" (2026-08-23)
 - Install: `npx skills add tw93/Waza -a claude-code codex cursor antigravity-cli -g -y`
+- Homepage: https://faberon.io/projects/waza
 
 **Features:**
 - Eight skills: /think, /ui, /check, /hunt, /write, /learn, /read, /health
@@ -531,24 +532,25 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 
 ### Kami
 
-Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. One constraint language covers eight document templates plus a landing-page system, strict enough that an agent's output is shippable without hand fixing. Supports Chinese, English, and Japanese typography.
+Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. One constraint language covers eight document templates, a landing-page system, and 18 diagram types. English and Chinese are optimized paths; Japanese and Korean are supported as best-effort CJK paths with visual QA before delivery.
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 10,992
-- Forks: 497
+- Stars: 11,005
+- Forks: 499
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.14.0 "Quieter Pages" (2026-08-30)
 
 **Features:**
 - Warm parchment design system with ink-blue accents
-- Trilingual typography (Chinese, English, Japanese)
+- Four language paths: optimized English and Chinese, best-effort Japanese and Korean
 - Eight document templates plus a landing-page system
+- 18 built-in diagram types for charts and technical figures
 - AI-friendly: designed for LLM-generated content
 
 **Q: What documents can Kami produce?**
-A: Resumes, one-pagers, white papers, letters, portfolios, and slide decks, plus product landing pages. It handles Chinese, English, and Japanese with appropriate typefaces.
+A: Resumes, one-pagers, white papers, letters, portfolios, and slide decks, plus product landing pages. English and Chinese are optimized; Japanese and Korean use best-effort CJK paths with visual QA before delivery.
 
 **Q: How do I install Kami?**
 A: Kami has its own plugin marketplace, separate from Waza. In Claude Code (v2.1.142 or newer) run `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Codex has an equivalent marketplace command. You then describe what you want and Kami generates a typeset HTML document that exports to PDF, image, or slide deck.
@@ -557,10 +559,10 @@ A: Kami has its own plugin marketplace, separate from Waza. In Claude Code (v2.1
 A: Warm parchment background with ink-blue (#1B365D) accents, Charter serif for English, TsangerJinKai02 + Source Han for Chinese. Tight editorial spacing with clear visual hierarchy.
 
 **Q: Does Kami support charts and diagrams?**
-A: Yes. Kami supports 12 types of inline SVG charts (bar, line, pie, area, architecture diagrams, etc.) with colors that match the parchment design system. Charts are automatically inserted when the content benefits from visualization.
+A: Yes. Kami ships 18 inline SVG diagram types, including architecture, flowchart, timeline, charts, sequence, class, and ER diagrams. They share the parchment design system and are used only when a visual makes the content clearer.
 
 **Q: What languages does Kami support for typesetting?**
-A: Chinese, English, and Japanese. Each language has carefully selected fonts, letter-spacing, line-height, and font-size tuned for print-quality output.
+A: English, Chinese, Japanese, and Korean. English and Chinese are optimized paths; Japanese and Korean are best-effort CJK paths with language-specific fonts and visual QA before delivery.
 
 #### README Excerpt
 
@@ -626,7 +628,7 @@ Real PDFs from one constraint set, across templates and languages. Click any pre
 
 ## Secondary Projects
 
-### Weekly (871 stars)
+### Weekly (872 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 

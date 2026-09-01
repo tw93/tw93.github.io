@@ -2,7 +2,7 @@
 
 > Turn any webpage into a lightweight desktop app with Rust + Tauri. Nearly 20x smaller than Electron.
 
-Pake is an open source project by [Tw93](https://tw93.fun) with 61.2K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. The resulting app is typically under 5MB, compared to 80MB+ for Electron-based alternatives. Supports macOS, Windows, and Linux with features like shortcut customization, immersive windows, and system tray integration.
+Pake is an open source project by [Tw93](https://tw93.fun) with 61.2K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 License: GPL-3.0
 
@@ -61,7 +61,7 @@ Yes. Since Pake uses the system WebView, it handles cookies, localStorage, and a
 
 **How large is a typical Pake app?**
 
-Usually 2-5MB on macOS, depending on injected assets. Compare that to Electron apps which start at ~80MB because they bundle Chromium.
+A typical Pake app uses under 10MB of disk space. The final size varies by platform and bundled assets, while Electron apps are much larger because they include Chromium.
 
 **Can an AI agent drive Pake?**
 

@@ -4,7 +4,7 @@
 
 Website: https://kami.tw93.fun
 
-Kami is an open source project by [Tw93](https://tw93.fun) with 11.0K GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. One constraint language covers eight document templates plus a landing-page system, strict enough that an agent's output is shippable without hand fixing. Supports Chinese, English, and Japanese typography.
+Kami is an open source project by [Tw93](https://tw93.fun) with 11.0K GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. One constraint language covers eight document templates, a landing-page system, and 18 diagram types. English and Chinese are optimized paths; Japanese and Korean are supported as best-effort CJK paths with visual QA before delivery.
 
 License: MIT
 
@@ -13,8 +13,9 @@ Latest release: V1.14.0 (2026-08-30)
 ## Key Features
 
 - Warm parchment design system with ink-blue accents
-- Trilingual typography (Chinese, English, Japanese)
+- Four language paths: optimized English and Chinese, best-effort Japanese and Korean
 - Eight document templates plus a landing-page system
+- 18 built-in diagram types for charts and technical figures
 - AI-friendly: designed for LLM-generated content
 
 ## Alternatives Comparison
@@ -33,7 +34,7 @@ Kami is often compared to: LaTeX, Typst, Canva.
 
 **What documents can Kami produce?**
 
-Resumes, one-pagers, white papers, letters, portfolios, and slide decks, plus product landing pages. It handles Chinese, English, and Japanese with appropriate typefaces.
+Resumes, one-pagers, white papers, letters, portfolios, and slide decks, plus product landing pages. English and Chinese are optimized; Japanese and Korean use best-effort CJK paths with visual QA before delivery.
 
 **How do I install Kami?**
 
@@ -45,11 +46,11 @@ Warm parchment background with ink-blue (#1B365D) accents, Charter serif for Eng
 
 **Does Kami support charts and diagrams?**
 
-Yes. Kami supports 12 types of inline SVG charts (bar, line, pie, area, architecture diagrams, etc.) with colors that match the parchment design system. Charts are automatically inserted when the content benefits from visualization.
+Yes. Kami ships 18 inline SVG diagram types, including architecture, flowchart, timeline, charts, sequence, class, and ER diagrams. They share the parchment design system and are used only when a visual makes the content clearer.
 
 **What languages does Kami support for typesetting?**
 
-Chinese, English, and Japanese. Each language has carefully selected fonts, letter-spacing, line-height, and font-size tuned for print-quality output.
+English, Chinese, Japanese, and Korean. English and Chinese are optimized paths; Japanese and Korean are best-effort CJK paths with language-specific fonts and visual QA before delivery.
 
 ## Links
 
