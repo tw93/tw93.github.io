@@ -4,7 +4,7 @@
 
 Website: https://kaku.fun
 
-Kaku is an open source project by [Tw93](https://tw93.fun) with 5.8K GitHub stars. Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua and WezTerm config compatibility, adds practical zero-config defaults, and includes an AI assistant for failed-command recovery, natural-language command generation, and AI coding tool setup.
+Kaku is an open source project by [Tw93](https://tw93.fun) with 5.9K GitHub stars. Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua and WezTerm config compatibility, adds practical zero-config defaults, and includes an AI assistant for failed-command recovery, natural-language command generation, and AI coding tool setup.
 
 License: MIT
 

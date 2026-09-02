@@ -4,7 +4,7 @@
 
 Website: https://kami.tw93.fun
 
-Kami is an open source project by [Tw93](https://tw93.fun) with 11.0K GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. One constraint language covers eight document templates, a landing-page system, and 18 diagram types. English and Chinese are optimized paths; Japanese and Korean are supported as best-effort CJK paths with visual QA before delivery.
+Kami is an open source project by [Tw93](https://tw93.fun) with 11.1K GitHub stars. Kami is a document design system that produces beautifully typeset PDFs. It uses a warm parchment aesthetic with ink-blue accents, serif-led hierarchy, and tight editorial spacing. One constraint language covers eight document templates, a landing-page system, and 18 diagram types. English and Chinese are optimized paths; Japanese and Korean are supported as best-effort CJK paths with visual QA before delivery.
 
 License: MIT
 
