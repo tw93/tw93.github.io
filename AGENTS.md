@@ -15,7 +15,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling.
 - `vercel.json` - Vercel build environment, response headers, and the agent rewrites for the production deploy.
-- `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and the Yobi-owned `projects/*.md` mirrors. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It removes stale `projects/*.md` mirrors that no longer exist in Yobi, but exact-scope hand-maintained files alongside them (`api/llms.txt`, `projects/llms.txt`) remain safe.
+- `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and the Yobi-owned `projects/*.md` mirrors. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It removes stale `projects/*.md` mirrors that no longer exist in Yobi, but exact-scope hand-maintained files alongside them (`api/llms.txt`, `projects/llms.txt`) remain safe. It also rewrites the `NK+ GitHub stars across N projects` line in the otherwise hand-written `llms.txt` from `api/profile.json`, and pings IndexNow for the AI surfaces it changed.
 
 ## Agent Surfaces
 
@@ -57,6 +57,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 ## Content Rules
 
 - Chinese posts live in `_posts/`, English posts in `_posts_en/`, both named `YYYY-MM-DD-{topic}.md` (no `.en` suffix; the directory is the language marker). Do not mix languages in a single post file.
+- Non-post zh/en pairs: `index.html` / `en/index.html`, `about.md` / `en/about.md`, `privacy.md` / `en/privacy.md`, `feed.xml` / `en/feed.xml`. `index.md`, `pricing.md`, and the agent surfaces are English-only by design.
 - Posts are zh/en mirror pairs keyed by identical filenames. When editing a post in `_posts/`, check whether `_posts_en/` has the same file and apply the equivalent change there (and vice versa). A few Chinese posts intentionally have no English mirror; do not create one unless asked.
 - Required frontmatter: `layout`, `title`, `date`. Preserve all existing frontmatter fields; do not drop keys.
 - Every post should carry `poem`, and mirror pairs share the same one. It is what the header banner renders; without it the banner falls back to the title, which cannot wrap on its SVG textPath. `js/index.js` shrinks an oversized banner down to 20px, below which it still clips.
