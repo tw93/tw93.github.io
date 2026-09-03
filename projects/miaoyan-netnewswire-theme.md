@@ -2,7 +2,7 @@
 
 > RSS reader theme that matches MiaoYan's aesthetic for NetNewsWire.
 
-MiaoYan NetNewsWire Theme is an open source project by [Tw93](https://tw93.fun) with 117 GitHub stars. A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
+MiaoYan NetNewsWire Theme is an open source project by [Tw93](https://tw93.fun) with 118 GitHub stars. A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
 
 ## Key Features
 

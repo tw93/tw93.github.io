@@ -6,7 +6,7 @@ Waza is an open source project by [Tw93](https://tw93.fun) with 6.9K GitHub star
 
 License: MIT
 
-Latest release: v3.34.1 (2026-08-23)
+Latest release: v3.35.0 (2026-09-02)
 
 ## Key Features
 
