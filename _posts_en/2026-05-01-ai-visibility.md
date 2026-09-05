@@ -79,7 +79,7 @@ Disallow: /
 
 ## Write Your llms.txt and Cross-Link Your Sites
 
-llms.txt is a new standard, similar to robots.txt but designed for AI consumption. You place a Markdown file at your site root describing what your site does, its key pages, and who's behind it. AI systems prioritize this file when they crawl your content.
+llms.txt is a new standard, similar to robots.txt but written for AI tools to read. You place a Markdown file at your site root describing what your site does, its key pages, and who's behind it. AI systems prioritize this file when they crawl your content.
 
 BuiltWith tracks over 840,000 websites that have deployed llms.txt, including Anthropic, Cloudflare, Stripe, and Vercel. But in SE Ranking's survey of 300,000 domains, adoption is only 10%. It's still early, and being early is an advantage.
 
@@ -154,9 +154,9 @@ Perplexity has more users than you'd expect. They run a publisher program at ppl
 
 Instead of waiting for AI to scrape information from scattered sources, give it a single entry point with everything organized.
 
-A knowledge site should provide three layers: an overview (llms.txt), a full version (llms-full.txt, 30-60KB), and standalone knowledge pages for each core project. Add structured JSON APIs so AI tools can fetch data programmatically. Pull data live from upstream sources like the GitHub API with caching that refreshes periodically, keeping maintenance cost near zero.
+A knowledge site should provide three layers: an overview (llms.txt), a full version (llms-full.txt, 30-60KB), and standalone knowledge pages for each core project. Add structured JSON APIs so AI tools can fetch data programmatically. Pull data live from upstream sources like the GitHub API with caching that refreshes periodically, keeping maintenance work down.
 
-One thing that's easy to miss: give AI a narrative structure, not just a list of projects. If you have multiple projects, write a description that connects them, how they relate, your technical direction, the overall picture. When AI answers "who is this person" or "what does this team do," a coherent narrative works much better than a flat list.
+It also helps to explain how your projects relate, rather than giving AI just a list. If you have multiple projects, write a description that connects them, how they relate, your technical direction, the overall picture. When AI answers "who is this person" or "what does this team do," that description gives it more to work with than a list alone.
 
 My implementation is called Yobi (from the Japanese 呼び / よび, meaning "to call" or "to summon"). It serves an llms.txt overview, a 50KB llms-full.txt, per-project pages, and four JSON endpoints (`/api/profile`, `/api/projects`, `/api/blog`, `/api/weekly`) that pull live data from the GitHub API with ISR caching that refreshes hourly. Stack: Next.js + TypeScript on Vercel.
 
@@ -230,7 +230,7 @@ Of all the pages ChatGPT retrieves during a session, only 15% end up in the fina
 
 Ahrefs found that cited pages have titles with noticeably higher semantic similarity to user queries, and pages with descriptive natural-language URL slugs get cited more than those with opaque IDs. This is why llms.txt and Markdown routes help: they give the model a clean, unambiguous signal about what your page covers.
 
-Brands get cited 6.5x more often through third-party sources than through their own domains. Someone praising your project on Reddit or Hacker News carries more weight than your own marketing copy. That's exactly why having a well-structured llms.txt matters: it gives the model a citable anchor to point to, even when the conversation that triggered the query happened somewhere else.
+Brands get cited 6.5x more often through third-party sources than through their own domains. Someone praising your project on Reddit or Hacker News carries more weight than your own marketing copy. That's exactly why having a well-structured llms.txt matters: it gives the model a place to find and cite the original information, even when the conversation that triggered the query happened somewhere else.
 
 There are AI SEO audit tools that score your site and tell you to add FAQ sections, trust pages, or more text. Don't let scores drive your decisions. The test is simple: does every paragraph you add contain information that isn't already on the page? If not, don't add it. I once added a FAQ to Yobi that just restated what the About section already said, purely to push the score up. That's padding. I removed it.
 
