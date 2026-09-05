@@ -9,7 +9,7 @@ Faberon is the product home for Mole, Pake, MiaoYan, Kaku, Waza, and Kami. Tw93 
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 161K+ stars, 16K+ forks, 12,883 followers
+- **GitHub**: 162K+ stars, 16K+ forks, 12,914 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,258
-- Forks: 12,598
+- Stars: 61,284
+- Forks: 12,609
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.15.6 "Anchor" (2026-08-08)
@@ -125,7 +125,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,863
+- Stars: 5,870
 - Forks: 301
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -217,8 +217,8 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,625
-- Forks: 503
+- Stars: 8,626
+- Forks: 504
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 11.5 or later.
@@ -310,8 +310,8 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 65,939
-- Forks: 2,313
+- Stars: 66,214
+- Forks: 2,328
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -464,8 +464,8 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,949
-- Forks: 405
+- Stars: 6,959
+- Forks: 407
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.35.0 "V3.35.0 Ruler 📏" (2026-09-02)
@@ -535,7 +535,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,164
+- Stars: 11,209
 - Forks: 503
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -867,7 +867,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the maker behind Faberon. He builds open source developer tools and macOS applications, with a combined 161K+ GitHub stars across 19 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the maker behind Faberon. He builds open source developer tools and macOS applications, with a combined 162K+ GitHub stars across 19 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.
