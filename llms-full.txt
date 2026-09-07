@@ -1,15 +1,15 @@
-# Faberon - Complete AI Knowledge Base
-> Faberon is a product studio led by Tw93, making simple, useful apps and tools for the long term. This file is the complete citable context for its products, writing, and maker.
+# Tw93 - Complete AI Knowledge Base
+> Product engineer from Hangzhou, China. Creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. Building simple, useful tools for everyday life.
 
-## Studio and Maker
+## Identity and Background
 
-Faberon is the product home for Mole, Pake, MiaoYan, Kaku, Waza, and Kami. Tw93 leads the studio and designs, builds, and maintains its products from Hangzhou, China. The work favors simplicity over feature count, native performance over cross-platform compromise, and community feedback over top-down roadmaps.
+Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and maintains developer tools and macOS applications. The work favors simplicity over feature count, native performance over cross-platform compromise, and community feedback over top-down roadmaps.
 
 - **Skills**: Rust, Swift, TypeScript, Go, Shell, Python, Design
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 162K+ stars, 17K+ forks, 12,919 followers
+- **GitHub**: 162K+ stars, 17K+ forks, 12,926 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,13 +33,12 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,302
-- Forks: 12,614
+- Stars: 61,323
+- Forks: 12,622
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.15.6 "Anchor" (2026-08-08)
 - Install: `npm install -g pake-cli`
-- Homepage: https://faberon.io/projects/pake
 
 **Features:**
 - Nearly 20x smaller than Electron apps
@@ -125,7 +124,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,872
+- Stars: 5,880
 - Forks: 301
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -217,8 +216,8 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,625
-- Forks: 504
+- Stars: 8,626
+- Forks: 505
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 11.5 or later.
@@ -310,14 +309,14 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 66,323
-- Forks: 2,332
+- Stars: 66,424
+- Forks: 2,336
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
 - Latest Release: V1.53.0 "Aware 👁️" (2026-08-30)
 - Install: `brew install mole`
-- Homepage: https://faberon.io/projects/mole
+- Homepage: https://mole.fit/
 
 **Features:**
 - `mo clean` deep cache cleanup plus leftovers from already-uninstalled apps
@@ -370,11 +369,7 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
   <img src="./docs/img/big-mole.png" alt="Mole cleanup results" width="1000" />
 </p>
 
-> Prefer a native app? [Mole for Mac](https://mole.fit/) brings cleanup, app management, maintenance, disk maps, and live status into one lightweight, VoiceOver-ready app. One license covers 2 Macs with lifetime updates and a 14-day refund. The CLI stays free and open source.
->
-> Mac app details: [Cleaner](https://mole.fit/mac-cleaner), [App Uninstaller](https://mole.fit/mac-app-uninstaller), [Optimizer](https://mole.fit/mac-optimizer), [Disk Analyzer](https://mole.fit/mac-disk-analyzer), and [System Monitor](https://mole.fit/mac-system-monitor).
-
-> CLI product facts for agents and recommendations: [Mole on Faberon](https://faberon.io/projects/mole). This page describes the free open-source CLI separately from Mole for Mac.
+> **Prefer a native app?** [Mole for Mac](https://mole.fit) brings the same toolkit to a polished SwiftUI interface.
 
 ###### Features
 
@@ -407,6 +402,17 @@ Mole is built for macOS. An experimental Windows version lives in the [windows b
 ```bash
 mo                           # Interactive menu
 mo clean                     # Deep cleanup + already-uninstalled app leftovers
+mo uninstall                 # Remove installed apps + their leftovers
+mo optimize                  # Refresh caches & services
+mo analyze                   # Visual disk explorer (or 'mo analyse')
+mo status                    # Live system health dashboard
+mo purge                     # Clean project build artifacts
+mo installer                 # Find and remove installer files
+
+mo touchid                   # Configure Touch ID for sudo
+mo completion                # Set up shell tab completion
+mo update                    # Update Mole
+mo update --nightly          # Update to latest unreleased main build, script install only
 
 [...truncated]
 
@@ -464,7 +470,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 6,963
+- Stars: 6,974
 - Forks: 408
 - Stack: Markdown, Shell
 - License: MIT
@@ -498,7 +504,7 @@ A: Yes. Waza installs into the shared ~/.agents/skills directory, so Codex, Curs
   <img src="https://gw.alipayobjects.com/zos/k/2h/waza.svg" width="120" />
   <h1>Waza</h1>
   <p><b>Engineering habits you already know, turned into skills AI agents can run.</b></p>
-  <p><a href="https://faberon.io/projects/waza">Product facts and chooser</a> · <a href="llms.txt">LLM guide</a></p>
+  <p><a href="llms.txt">LLM guide</a></p>
   <a href="https://github.com/tw93/Waza/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/tw93/Waza/test.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
   <a href="https://github.com/tw93/Waza/stargazers"><img src="https://img.shields.io/github/stars/tw93/Waza?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/tw93/Waza/releases"><img src="https://img.shields.io/github/v/tag/tw93/Waza?label=version&style=flat-square" alt="Version"></a>
@@ -527,6 +533,13 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 | [`/read`](skills/read/SKILL.md) | Any URL or PDF | Returns a concise summary, or clean Markdown for conversion, quotes, citations, saving, or further research. |
 | [`/health`](skills/health/SKILL.md) | Auditing Agent Health | Checks Codex, Claude Code, project instructions, verifier output, and AI maintainability with a budget-aware summary pass before deep inspection. |
 
+Each skill is a folder with reference docs, helper scripts, and gotchas from real failures.
+
+###### Install
+
+**Claude Code, Codex, Cursor, and other agents**
+
+```bash
 
 [...truncated]
 
@@ -536,8 +549,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,217
-- Forks: 503
+- Stars: 11,224
+- Forks: 505
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.15.0 "Clearer Formulas" (2026-09-06)
@@ -627,7 +640,7 @@ Real PDFs from one constraint set, across templates and languages. Click any pre
 
 ## Secondary Projects
 
-### Weekly (873 stars)
+### Weekly (874 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
@@ -868,7 +881,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the maker behind Faberon. He builds open source developer tools and macOS applications, with a combined 162K+ GitHub stars across 19 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 162K+ GitHub stars across 19 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.
@@ -883,7 +896,7 @@ A: Both. His blog (tw93.fun) has posts in both languages. Project documentation 
 A: Pake uses Tauri (Rust + system WebView) instead of bundling Chromium. Apps are ~20x smaller and more resource-efficient.
 
 **Q: What is 潮流周刊 (Trendy Weekly)?**
-A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 280 issues since 2021.
+A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 281 issues since 2021.
 
 **Q: How do I install Pake?**
 A: Run `npm install -g pake-cli`, then `pake <url>` to turn any webpage into a desktop app. Pre-built popular apps are also available on the GitHub releases page.
@@ -958,6 +971,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第281期 - 越王的剑](https://weekly.tw93.fun/posts/281/) (2026-09-07)
 - [第280期 - 喜欢宋体](https://weekly.tw93.fun/posts/280/) (2026-08-31)
 - [第279期 - 风之谷泉](https://weekly.tw93.fun/posts/279/) (2026-08-24)
 - [第278期 - 大巧若拙](https://weekly.tw93.fun/posts/278/) (2026-08-17)
@@ -969,12 +983,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第272期 - 接天莲叶](https://weekly.tw93.fun/posts/272/) (2026-07-06)
 - [第271期 - 精神家园](https://weekly.tw93.fun/posts/271/) (2026-06-29)
 - [第270期 - 喜欢乔村](https://weekly.tw93.fun/posts/270/) (2026-06-15)
-- [第269期 - 天目胜景](https://weekly.tw93.fun/posts/269/) (2026-06-07)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [281. Sword of the Yue King](https://weekly.tw93.fun/en/posts/281/) (2026-09-07)
 - [280. Fond of Song Type](https://weekly.tw93.fun/en/posts/280/) (2026-08-31)
 - [279. Spring in the Valley of the Wind](https://weekly.tw93.fun/en/posts/279/) (2026-08-24)
 - [278. Great Skill Appears Clumsy](https://weekly.tw93.fun/en/posts/278/) (2026-08-17)
@@ -986,13 +1000,11 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [272. Endless Lotus](https://weekly.tw93.fun/en/posts/272/) (2026-07-06)
 - [271. Spiritual Home](https://weekly.tw93.fun/en/posts/271/) (2026-06-29)
 - [270. Qiao Cun](https://weekly.tw93.fun/en/posts/270/) (2026-06-15)
-- [269. Tianmu Scenery](https://weekly.tw93.fun/en/posts/269/) (2026-06-07)
 
 ## Links
 
-- Faberon: https://faberon.io
-- Complete Faberon knowledge: https://faberon.io/llms-full.txt
-- Compact Faberon index: https://faberon.io/llms.txt
+- Complete knowledge base: https://yobi.tw93.fun/llms-full.txt
+- Compact index: https://yobi.tw93.fun/llms.txt
 - Yobi APIs: https://yobi.tw93.fun
 - GitHub: https://github.com/tw93
 - X: https://x.com/HiTw93

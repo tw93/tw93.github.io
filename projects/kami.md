@@ -56,7 +56,6 @@ English, Chinese, Japanese, and Korean. English and Chinese are optimized paths;
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Canonical HTML: https://faberon.io/projects/kami
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

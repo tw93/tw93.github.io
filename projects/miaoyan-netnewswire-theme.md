@@ -12,7 +12,6 @@ MiaoYan NetNewsWire Theme is an open source project by [Tw93](https://tw93.fun) 
 ## Links
 
 - GitHub: https://github.com/tw93/MiaoYan-NetNewsWire-Theme
-- Canonical HTML: https://faberon.io/projects/miaoyan-netnewswire-theme
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt
