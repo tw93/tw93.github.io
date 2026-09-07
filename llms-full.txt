@@ -309,7 +309,7 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 66,424
+- Stars: 66,425
 - Forks: 2,336
 - Stack: Shell, Go
 - License: GPL-3.0
@@ -369,7 +369,7 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
   <img src="./docs/img/big-mole.png" alt="Mole cleanup results" width="1000" />
 </p>
 
-> **Prefer a native app?** [Mole for Mac](https://mole.fit) brings the same toolkit to a polished SwiftUI interface.
+> Prefer a native app? [Mole for Mac](https://mole.fit/) brings cleanup, app management, maintenance, disk maps, and live status into one lightweight, VoiceOver-ready app. One license covers 2 Macs with lifetime updates and a 14-day refund. The CLI stays free and open source.
 
 ###### Features
 
@@ -410,9 +410,6 @@ mo purge                     # Clean project build artifacts
 mo installer                 # Find and remove installer files
 
 mo touchid                   # Configure Touch ID for sudo
-mo completion                # Set up shell tab completion
-mo update                    # Update Mole
-mo update --nightly          # Update to latest unreleased main build, script install only
 
 [...truncated]
 
