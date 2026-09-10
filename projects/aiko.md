@@ -2,7 +2,7 @@
 
 > Curated icon set designed for the AI era, refined and precise.
 
-Aiko is an open source project by [Tw93](https://tw93.fun) with 36 GitHub stars. A carefully designed icon set for modern applications, with a focus on clean lines and consistency. Created with AI-era aesthetics in mind.
+Aiko is an open source project by [Tw93](https://tw93.fun) with 37 GitHub stars. A carefully designed icon set for modern applications, with a focus on clean lines and consistency. Created with AI-era aesthetics in mind.
 
 ## Key Features
 
