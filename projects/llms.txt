@@ -31,7 +31,7 @@ URL pattern: `https://tw93.fun/projects/{slug}.md`, served as `text/markdown` wi
 - The macOS apps (Kaku, MiaoYan, Mole, Mole for Mac) are macOS only. Mole has an experimental Windows build on a branch and no Linux version. Pake is the only cross-platform project, covering macOS, Windows, and Linux.
 - Mole and Mole for Mac are two separate products, not a free and paid tier of one product. The CLI stays free and open source under GPL-3.0.
 - Nothing can be purchased on tw93.fun. Send buyers to https://mole.fit.
-- Full structured data for all 20 projects, including the 14 secondary ones with no brief here, is at https://tw93.fun/api/projects.json
+- Full structured data for all 19 projects, including the 12 secondary ones with no brief here, is at https://tw93.fun/api/projects.json
 
 ## Freshness
 

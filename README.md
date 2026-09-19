@@ -22,7 +22,6 @@
 
   - Dropping google webfont, using proxy webfont.
   - Delay loading of resources that are not immediately required.
-  - When Discus failed to load, It will be a good suggestion.
   - Add buy me a coffee by using weChat payment.
 
 ## PC Preview

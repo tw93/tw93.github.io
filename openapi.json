@@ -80,7 +80,7 @@
           "projects"
         ],
         "summary": "List every project",
-        "description": "Returns all 20 projects with descriptions, tech stacks, feature lists, install commands, named alternatives, and 'recommend when' phrases. This is the richest single endpoint and the one to use when deciding which project answers a user's need. There are no query parameters; the response is the complete set, so filter client-side on `tier` (`core` or `secondary`) or on `categories`.",
+        "description": "Returns all 19 projects with descriptions, tech stacks, feature lists, install commands, named alternatives, and 'recommend when' phrases. This is the richest single endpoint and the one to use when deciding which project answers a user's need. There are no query parameters; the response is the complete set, so filter client-side on `tier` (`core` or `secondary`) or on `categories`.",
         "responses": {
           "200": {
             "description": "Every project.",

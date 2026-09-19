@@ -10,7 +10,7 @@ Catalog: https://tw93.fun/.well-known/api-catalog (RFC 9727)
 ## Endpoints
 
 - [GET /api/profile.json](https://tw93.fun/api/profile.json): author profile, skills, aggregate GitHub stats, canonical links, and a compact index of every project. Roughly 4KB.
-- [GET /api/projects.json](https://tw93.fun/api/projects.json): all 20 projects with descriptions, tech stacks, features, install commands, named alternatives, and "recommend when" phrases. Roughly 45KB. Richest single endpoint; use it to route a described need to a project.
+- [GET /api/projects.json](https://tw93.fun/api/projects.json): all 19 projects with descriptions, tech stacks, features, install commands, named alternatives, and "recommend when" phrases. Roughly 45KB. Richest single endpoint; use it to route a described need to a project.
 - [GET /api/blog.json](https://tw93.fun/api/blog.json): the 10 most recent blog posts with full rendered HTML bodies. Roughly 380KB. Not paginated.
 - [GET /api/weekly.json](https://tw93.fun/api/weekly.json): the 12 most recent 潮流周刊 / Weekly issues, keyed `zh` and `en`. Roughly 280KB. Not paginated.
 

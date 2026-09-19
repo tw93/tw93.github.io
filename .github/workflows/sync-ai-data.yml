@@ -73,11 +73,11 @@ jobs:
             ' "$f"
           done
 
-      - name: Refresh the counts in the hand-written llms.txt
-        # llms.txt stays hand-written: its "when to use this site" section is
-        # better than anything generated. Only the two numbers that rot are
-        # touched, and they had already drifted to 152K stars across 20
-        # projects while Yobi was serving 156K across 19.
+      - name: Refresh the counts in the hand-written orientation files
+        # llms.txt and index.md stay hand-written: their "when to use this
+        # site" sections are better than anything generated. Only the two
+        # numbers that rot are touched. Both files carry the same sentence,
+        # and keeping only llms.txt in scope is what let index.md drift.
         run: |
           set -euo pipefail
           stars=$(jq -r '.totalStars' api/profile.json)
@@ -87,15 +87,18 @@ jobs:
             exit 1
           fi
           label="$((stars / 1000))K+"
-          perl -i -pe "s/\d+K\+ GitHub stars across \d+ projects/${label} GitHub stars across ${count} projects/" llms.txt
-          grep -n "GitHub stars across" llms.txt
+          for f in llms.txt index.md; do
+            [ -f "$f" ] || continue
+            perl -i -pe "s/\d+K\+ GitHub stars across \d+ projects/${label} GitHub stars across ${count} projects/" "$f"
+            grep -n "GitHub stars across" "$f"
+          done
 
       - name: Commit if changed
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add llms-full.txt llms.txt api/ projects/
+          git add llms-full.txt llms.txt index.md api/ projects/
           if git diff --cached --quiet; then
             echo "No changes to commit"
             echo "changed=false" >> "$GITHUB_OUTPUT"

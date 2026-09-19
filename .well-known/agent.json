@@ -61,7 +61,7 @@
     { "path": "/openapi.json", "method": "GET", "type": "application/json", "description": "OpenAPI 3.1 description of every endpoint." },
     { "path": "/pricing.md", "method": "GET", "type": "text/markdown", "description": "Price and licence for every project." },
     { "path": "/api/profile.json", "method": "GET", "type": "application/json", "description": "Author profile and endpoint index." },
-    { "path": "/api/projects.json", "method": "GET", "type": "application/json", "description": "All 20 projects with descriptions, alternatives, and install commands." },
+    { "path": "/api/projects.json", "method": "GET", "type": "application/json", "description": "All 19 projects with descriptions, alternatives, and install commands." },
     { "path": "/api/blog.json", "method": "GET", "type": "application/json", "description": "10 most recent blog posts with full bodies." },
     { "path": "/api/weekly.json", "method": "GET", "type": "application/json", "description": "12 most recent newsletter issues, Chinese and English." },
     { "path": "/projects/{slug}.md", "method": "GET", "type": "text/markdown", "description": "Per-project brief. Slugs: pake, kaku, miaoyan, mole, mole-mac, waza, kami." },

@@ -118,11 +118,11 @@ All static files over HTTPS. No authentication, no API key, no rate limit, no qu
 Maintainer note: the prose here is hand-maintained on purpose; the "when to use
 this site" section is the part Yobi cannot generate. The daily sync-ai-data
 workflow overwrites llms-full.txt, api/, and projects/ from Yobi, and rewrites
-exactly one line of this file: the star count and project count in the opening
-blockquote, taken from api/profile.json. Those two had already drifted to 152K
-across 20 while Yobi served 156K across 19, which is why they are no longer
-hand-kept. Everything else here still drifts unless you update it, including
-the per-project table and the briefs list. The same applies to index.md,
-pricing.md, api/llms.txt, and projects/llms.txt, which are hand-maintained too
-and repeat some of the facts here.
+exactly one line of this file and of index.md: the star count and project count
+in the opening blockquote, taken from api/profile.json. Both had drifted while
+Yobi served the right numbers, which is why they are no longer hand-kept.
+Everything else here still drifts unless you update it, including the
+per-project table and the briefs list. The same applies to the rest of
+index.md, and to pricing.md, api/llms.txt, and projects/llms.txt, which are
+hand-maintained too and repeat some of the facts here.
 -->
