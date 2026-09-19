@@ -12,7 +12,6 @@
 - Modern and minimal design, **more concise and faster** than other jekyll theme.
 - **Responsive templates for post, page**, looks great on mobile, tablet, and desktop devices.
 - **Loading resources selectively on different platforms.**
-- **Support lazyload.**
 - Compress JavaScript and CSS.
 - By using SVG and Canvas makes this blog more geeks.
 - When running in pc,It will show a qrCode that you can read on mobile.
