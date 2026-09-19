@@ -30,7 +30,7 @@ Waza is often compared to: custom prompts, slash commands.
 ## Install
 
 ```
-npx skills add tw93/Waza -a claude-code codex cursor antigravity-cli -g -y
+npx skills add tw93/Waza -a claude-code codex cursor -g -y
 ```
 
 ## FAQ
@@ -45,7 +45,7 @@ Eight: /think (pressure-tests a design into a decision-complete plan), /ui (fron
 
 **How do I install Waza?**
 
-Run `npx skills add tw93/Waza -a claude-code codex cursor antigravity-cli -g -y`. One canonical copy lands in ~/.agents/skills with Claude Code symlinked in, so every agent reading that directory picks it up. Update later with `npx skills update -g -y`.
+Run `npx skills add tw93/Waza -a claude-code codex cursor -g -y`. One canonical copy lands in ~/.agents/skills with Claude Code symlinked in, so every agent reading that directory picks it up. Agents with a private skills directory take their id after `-a`, for example `antigravity-cli`. Update later with `npx skills update -g -y`.
 
 **Can I use individual Waza skills without installing all of them?**
 

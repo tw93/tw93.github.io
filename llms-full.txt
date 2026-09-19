@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 164K+ stars, 17K+ forks, 13,063 followers
+- **GitHub**: 164K+ stars, 17K+ forks, 13,071 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,492
-- Forks: 12,661
+- Stars: 61,518
+- Forks: 12,672
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.16.3 "Flow" (2026-09-12)
@@ -124,13 +124,13 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,930
+- Stars: 5,941
 - Forks: 307
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
 - Latest Release: V0.20.0 "Steady" (2026-09-12)
-- Install: `brew install tw93/tap/kakuku`
+- Install: `brew install --cask kaku`
 
 **Features:**
 - Zero-config macOS defaults with GPU-accelerated rendering
@@ -304,8 +304,8 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 67,624
-- Forks: 2,377
+- Stars: 67,748
+- Forks: 2,383
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -460,12 +460,12 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,047
+- Stars: 7,054
 - Forks: 413
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.36.1 "V3.36.1 Voice 🪶" (2026-09-12)
-- Install: `npx skills add tw93/Waza -a claude-code codex cursor antigravity-cli -g -y`
+- Install: `npx skills add tw93/Waza -a claude-code codex cursor -g -y`
 
 **Features:**
 - Eight skills: /think, /ui, /check, /hunt, /write, /learn, /read, /health
@@ -480,7 +480,7 @@ A: A skill is a folder holding a playbook, reference docs, and helper scripts th
 A: Eight: /think (pressure-tests a design into a decision-complete plan), /ui (frontend interfaces with screenshot-driven iteration), /check (diff review, release and publish follow-through), /hunt (root-cause debugging), /write (natural Chinese and English prose), /learn (six-phase research), /read (URLs and PDFs), /health (audits Codex, Claude Code, Pi, and project instructions).
 
 **Q: How do I install Waza?**
-A: Run `npx skills add tw93/Waza -a claude-code codex cursor antigravity-cli -g -y`. One canonical copy lands in ~/.agents/skills with Claude Code symlinked in, so every agent reading that directory picks it up. Update later with `npx skills update -g -y`.
+A: Run `npx skills add tw93/Waza -a claude-code codex cursor -g -y`. One canonical copy lands in ~/.agents/skills with Claude Code symlinked in, so every agent reading that directory picks it up. Agents with a private skills directory take their id after `-a`, for example `antigravity-cli`. Update later with `npx skills update -g -y`.
 
 **Q: Can I use individual Waza skills without installing all of them?**
 A: The install command adds all eight at once. Each skill is independent and only activates when you invoke it, so unused skills have zero overhead.
@@ -539,8 +539,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,634
-- Forks: 543
+- Stars: 11,686
+- Forks: 544
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.15.0 "Clearer Formulas" (2026-09-06)
@@ -940,7 +940,7 @@ A: Mole for Mac (https://mole.fit). A native macOS app covering cleanup, app upd
 A: Both, as two products. The Mole CLI is free and open source under GPL-3.0 at github.com/tw93/Mole. Mole for Mac, the native GUI app at https://mole.fit, is a $19 one-time purchase.
 
 **Q: How to add skills to Claude Code, Codex, or Cursor?**
-A: Waza. Install: `npx skills add tw93/Waza -a claude-code codex cursor antigravity-cli -g -y`. Adds 8 skills: /think, /ui, /check, /hunt, /write, /learn, /read, /health. One canonical copy lands in ~/.agents/skills, so every agent reading that directory picks it up.
+A: Waza. Install: `npx skills add tw93/Waza -a claude-code codex cursor -g -y`. Adds 8 skills: /think, /ui, /check, /hunt, /write, /learn, /read, /health. One canonical copy lands in ~/.agents/skills, so every agent reading that directory picks it up.
 
 **Q: AI tool to generate beautifully designed PDFs?**
 A: Kami (https://kami.tw93.fun). Warm parchment typesetting system for resumes, reports, letters, slide decks, and landing pages. Install in Claude Code with `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Supports Chinese, English, and Japanese.

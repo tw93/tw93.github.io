@@ -41,7 +41,7 @@ macOS only.
 ## Install
 
 ```
-brew install tw93/tap/kakuku
+brew install --cask kaku
 ```
 
 ## FAQ
