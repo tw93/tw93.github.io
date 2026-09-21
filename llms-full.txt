@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 164K+ stars, 17K+ forks, 13,084 followers
+- **GitHub**: 164K+ stars, 17K+ forks, 13,109 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,11 +33,11 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,534
-- Forks: 12,678
+- Stars: 61,556
+- Forks: 12,689
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
-- Latest Release: V3.16.3 "Flow" (2026-09-12)
+- Latest Release: V3.17.0 "Harbor" (2026-09-20)
 - Install: `npm install -g pake-cli`
 
 **Features:**
@@ -124,8 +124,8 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 5,949
-- Forks: 307
+- Stars: 5,955
+- Forks: 308
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
@@ -211,12 +211,12 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,646
-- Forks: 511
+- Stars: 8,651
+- Forks: 512
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 11.5 or later.
-- Latest Release: V4.2.0 "Zinogre 🍝" (2026-08-15)
+- Latest Release: V4.3.2 "Seregios 🗡️" (2026-09-20)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
@@ -263,7 +263,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
       <img alt="GitHub Commit Activity" src="https://img.shields.io/github/commit-activity/m/tw93/MiaoYan?style=flat-square"></a>
     <a href="https://github.com/tw93/MiaoYan/issues?q=is%3Aissue+is%3Aclosed" target="_blank">
       <img alt="GitHub Closed Issues" src="https://img.shields.io/github/issues-closed/tw93/MiaoYan.svg?style=flat-square"></a>
-    <img alt="macOS 11.5+" src="https://img.shields.io/badge/macOS-11.5%2B-orange?style=flat-square">
+    <img alt="macOS 12.0+" src="https://img.shields.io/badge/macOS-12.0%2B-orange?style=flat-square">
   </div>
   <div align="center">Lightweight Markdown note-taking app for macOS</div>
 </p>
@@ -288,7 +288,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
    brew install --cask miaoyan
    ```
 
-3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 11.5+)
+3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+)
 
 All three options share the same codebase and receive the same updates. After installing, create a `MiaoYan` folder in iCloud Drive, a desktop cloud-drive folder, or your preferred location, open Preferences (⌘,), and set the storage path.
 
@@ -304,12 +304,12 @@ MiaoYan is local-first and does not sign in to WebDAV or cloud-drive accounts. I
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 67,822
-- Forks: 2,386
+- Stars: 67,901
+- Forks: 2,388
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
-- Latest Release: V1.54.0 "Clarity 🔎" (2026-09-13)
+- Latest Release: V1.55.0 "Restraint ✋" (2026-09-20)
 - Install: `brew install mole`
 - Homepage: https://mole.fit
 
@@ -460,8 +460,8 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,058
-- Forks: 413
+- Stars: 7,067
+- Forks: 412
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.38.0 "V3.38.0 Boundary 🚧" (2026-09-19)
@@ -539,11 +539,11 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,702
-- Forks: 545
+- Stars: 11,719
+- Forks: 547
 - Stack: HTML, CSS, Python
 - License: MIT
-- Latest Release: V1.15.0 "Clearer Formulas" (2026-09-06)
+- Latest Release: V1.16.0 "Honest Numbers" (2026-09-20)
 
 **Features:**
 - Warm parchment design system with ink-blue accents
@@ -889,7 +889,7 @@ A: Both. His blog (tw93.fun) has posts in both languages. Project documentation 
 A: Pake uses Tauri (Rust + system WebView) instead of bundling Chromium. Apps are ~20x smaller and more resource-efficient.
 
 **Q: What is 潮流周刊 (Trendy Weekly)?**
-A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 282 issues since 2021.
+A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 283 issues since 2021.
 
 **Q: How do I install Pake?**
 A: Run `npm install -g pake-cli`, then `pake <url>` to turn any webpage into a desktop app. Pre-built popular apps are also available on the GitHub releases page.
@@ -964,6 +964,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第283期 - 经典电影](https://weekly.tw93.fun/posts/283/) (2026-09-21)
 - [第282期 - 夜雾上海](https://weekly.tw93.fun/posts/282/) (2026-09-14)
 - [第281期 - 越王的剑](https://weekly.tw93.fun/posts/281/) (2026-09-07)
 - [第280期 - 喜欢宋体](https://weekly.tw93.fun/posts/280/) (2026-08-31)
@@ -975,12 +976,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第274期 - 海阔天空](https://weekly.tw93.fun/posts/274/) (2026-07-20)
 - [第273期 - 一堆椅子](https://weekly.tw93.fun/posts/273/) (2026-07-13)
 - [第272期 - 接天莲叶](https://weekly.tw93.fun/posts/272/) (2026-07-06)
-- [第271期 - 精神家园](https://weekly.tw93.fun/posts/271/) (2026-06-29)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [283. Classic Films](https://weekly.tw93.fun/en/posts/283/) (2026-09-21)
 - [282. Night Fog Shanghai](https://weekly.tw93.fun/en/posts/282/) (2026-09-14)
 - [281. Sword of the Yue King](https://weekly.tw93.fun/en/posts/281/) (2026-09-07)
 - [280. Fond of Song Type](https://weekly.tw93.fun/en/posts/280/) (2026-08-31)
@@ -992,7 +993,6 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [274. Boundless Sky](https://weekly.tw93.fun/en/posts/274/) (2026-07-20)
 - [273. A Pile of Chairs](https://weekly.tw93.fun/en/posts/273/) (2026-07-13)
 - [272. Endless Lotus](https://weekly.tw93.fun/en/posts/272/) (2026-07-06)
-- [271. Spiritual Home](https://weekly.tw93.fun/en/posts/271/) (2026-06-29)
 
 ## Links
 

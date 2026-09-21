@@ -4,11 +4,11 @@
 
 Website: https://miaoyan.app
 
-MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.6K GitHub stars. MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface.
+MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub stars. MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface.
 
 License: MIT
 
-Latest release: V4.3.0 (2026-09-20)
+Latest release: V4.3.2 (2026-09-20)
 
 ## Key Features
 
