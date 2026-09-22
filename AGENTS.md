@@ -14,12 +14,12 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_includes/` - shared page fragments.
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling.
-- `vercel.json` - Vercel build environment, response headers, and the agent rewrites for the production deploy.
+- `vercel.json` - Vercel build environment, response headers, and the agent redirects for the production deploy.
 - `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and the Yobi-owned `projects/*.md` mirrors. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It removes stale `projects/*.md` mirrors that no longer exist in Yobi, but exact-scope hand-maintained files alongside them (`api/llms.txt`, `projects/llms.txt`) remain safe. It also rewrites the `NK+ GitHub stars across N projects` line in the otherwise hand-written `llms.txt` and `index.md` from `api/profile.json`, and pings IndexNow for the AI surfaces it changed.
 
 ## Agent Surfaces
 
-These files exist so AI agents and crawlers can use the site without scraping HTML. All of them are hand-maintained and repeat facts that also live in `llms.txt`; when a project, price, or licence changes, update every one of them in the same commit.
+These files exist so AI agents and crawlers can use the site without scraping HTML. The hand-maintained surfaces repeat facts that also live in `llms.txt`; when a project, price, or licence changes, update those copies together and change generated surfaces at their upstream source, as listed below.
 
 Price is the fact most expensive to get wrong and the most scattered, so do not reconstruct the list from memory. Run `rg --hidden -l '\$19|one-time|14-day' . --glob '!AGENTS.md' --glob '!_site/**' --glob '!.git/**' --glob '!.claude/**' --glob '!.jekyll-cache/**' --glob '!node_modules/**' --glob '!vendor/**'`. It returns thirteen files while excluding local worktrees, caches, and dependencies. One, `js/ppt/plugin/highlight/highlight.js`, is a false positive: the `$19` there is a regex capture group. Four fix themselves because Yobi overwrites them (`llms-full.txt`, `api/projects.json`, `projects/mole.md`, `projects/mole-mac.md`), so change the price in Yobi's `data/projects.ts` first and let the sync land. The remaining eight are hand-edits: `pricing.md`, `llms.txt`, `index.md`, `projects/llms.txt`, `_includes/head.html`, `openapi.json`, `.well-known/ai-plugin.json`, and `en/about.md`. That last one is a normal page rather than an agent surface, which is why it is the one that gets missed.
 
