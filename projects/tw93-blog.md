@@ -4,7 +4,7 @@
 
 Website: https://tw93.fun
 
-tw93 Blog is an open source project by [Tw93](https://tw93.fun) with 7 GitHub stars. Source code for tw93.fun, Tw93's personal blog. Posts cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool-building methodology.
+tw93 Blog is an open source project by [Tw93](https://tw93.fun) with 8 GitHub stars. Source code for tw93.fun, Tw93's personal blog. Posts cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool-building methodology.
 
 ## Key Features
 
