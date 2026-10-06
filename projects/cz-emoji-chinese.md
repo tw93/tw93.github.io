@@ -2,7 +2,7 @@
 
 > Commitizen adapter for Chinese emoji-style git commit messages.
 
-cz-emoji-chinese is an open source project by [Tw93](https://tw93.fun) with 140 GitHub stars. A commitizen adapter that enables standardized git commit messages with emoji prefixes, localized for Chinese developers. Makes commit history readable and consistent.
+cz-emoji-chinese is an open source project by [Tw93](https://tw93.fun) with 141 GitHub stars. A commitizen adapter that enables standardized git commit messages with emoji prefixes, localized for Chinese developers. Makes commit history readable and consistent.
 
 ## Key Features
 
