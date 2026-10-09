@@ -7,7 +7,7 @@ summary: 前端开发已经不是前几年的那种前端开发了，已经有�
 categories: Study
 ---
 
-前端开发已经不是前几年的那种前端开发了，已经有农业时代进入工业时代了，这几年出现了很多优秀的 JavaScript 方面的 MVVM 框架，今天我们来比较下 Vue，Angular，AAvalon 这些框架优缺点。
+前端开发已经不是前几年的那种前端开发了，已经有农业时代进入工业时代了，这几年出现了很多优秀的 JavaScript 方面的 MVVM 框架，今天我们来比较下 Vue，Angular，Avalon 这些框架优缺点。
 
 ### Vue
 
@@ -46,9 +46,9 @@ Angular 最近很火，追随者也很多，[Superheroic JavaScript MVW Framewor
    之后才有稳定版，这个稳定版应该不支持很多浏览器了，稳定版一段时间内是没有任何周边的，所以，目前学 1.3 不能算是无效投资。
 3. 不支持 IE8 以下，貌似 2.0 变得只支持移动端了，等到出来后再看吧。
 
-### AAvalon
+### Avalon
 
-[AAvalon](https://github.com/RubyLouvre/avalon){:target="_blank"}是司徒正美老师所写的个简单易用迷你的 MVVM 框架，它最早发布于 2012.09.15，为解决同一业务逻辑存在各种视图呈现而开发出来的。常常可以看到老师推广他的 AAvalon，出了很多教程，无疑对国内学习 AAvalon 的人提供了巨大方便。
+[Avalon](https://github.com/RubyLouvre/avalon){:target="_blank"}是司徒正美老师所写的个简单易用迷你的 MVVM 框架，它最早发布于 2012.09.15，为解决同一业务逻辑存在各种视图呈现而开发出来的。常常可以看到老师推广他的 Avalon，出了很多教程，无疑对国内学习 Avalon 的人提供了巨大方便。
 
 #### 优点
 

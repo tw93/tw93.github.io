@@ -45,9 +45,9 @@ Angular is very hot recently, and there are many followers, [Superheroic JavaScr
 2. Overthrow and rewrite: Browsing the community a while ago, found Angular2 will overthrow and rewrite the previous one. The changes of the two frameworks are very large, basically two frameworks. It means that after 2.0 comes out, you need to start from scratch again. As Xu Fei said, the popularity of 2.0 will take at least 3 years. Without jumping the gun, there will be a stable version after 1 year. This stable version should not support many browsers. There will be no peripherals for the stable version for a period of time. So, current learning of 1.3 cannot be considered invalid investment.
 3. Does not support below IE8. Seems 2.0 becomes only supporting mobile end. Wait until it comes out and see.
 
-### AAvalon
+### Avalon
 
-[AAvalon](https://github.com/RubyLouvre/avalon){:target="_blank"} is a simple and easy-to-use mini MVVM framework written by Mr. Situ Zhengmei. It was first released on 2012.09.15, developed to solve the existence of various view presentations for the same business logic. Can often see the teacher promoting his AAvalon, issued many tutorials, undoubtedly providing great convenience for people learning AAvalon in China.
+[Avalon](https://github.com/RubyLouvre/avalon){:target="_blank"} is a simple and easy-to-use mini MVVM framework written by Mr. Situ Zhengmei. It was first released on 2012.09.15, developed to solve the existence of various view presentations for the same business logic. Can often see the teacher promoting his Avalon, issued many tutorials, undoubtedly providing great convenience for people learning Avalon in China.
 
 #### Advantages
 

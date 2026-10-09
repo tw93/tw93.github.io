@@ -78,7 +78,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 - Workflow/data sync changes: inspect the matching GitHub Actions workflow and required secrets before proposing publication.
 - Local visual checks: run `npm run dev` and inspect the affected page.
 - Responsive changes: check both sides of every breakpoint, not just a narrow and a wide viewport. The useful widths are 393, 744, 768, 820, 999, 1024, 1343, 1366, 1408 and 1512, across the home list, a post, `/about.html` and `/404.html`. Assert `document.documentElement.scrollWidth === clientWidth` on each; three separate sideways-scroll bugs lived at 393, 999 and 1408 while the extremes looked fine.
-- Frontmatter edits: confirm the page builds and appears in the expected language/feed.
+- Frontmatter edits: confirm the page builds and appears in the expected language/feed. `python3 scripts/check_seo_copy.py` checks that every post has its own summary in the file's language. It does not enforce a character count.
 - Documentation-only changes: check links and commands.
 
 ## GitHub Operations
