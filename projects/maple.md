@@ -1,14 +1,14 @@
 # Maple
 
-> Chrome extension that transforms the bookmark bar into a beautiful new tab page.
+> Clean Chrome new-tab page built from your bookmark bar.
 
-Maple is an open source project by [Tw93](https://tw93.fun) with 511 GitHub stars. Maple is a Chrome browser extension that replaces the default new tab page with a clean, organized view of your bookmarks. It turns your bookmark bar into a visually appealing, fast-access dashboard.
+Maple is an open source project by [Tw93](https://tw93.fun) with 510 GitHub stars. Maple replaces the default Chrome new-tab page with a fast, uncluttered dashboard populated directly from your browser bookmarks.
 
 ## Key Features
 
-- Beautiful new tab bookmark display
-- Fast access to frequently used bookmarks
-- Clean, minimal interface
+- Clean new-tab bookmark dashboard
+- Instant access to pinned bookmarks
+- Minimal, distraction-free interface
 
 ## Links
 

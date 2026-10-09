@@ -1,8 +1,8 @@
 # Weex UI Demo
 
-> Demo app showcasing Weex UI component library (historical project).
+> Demo app showcasing Weex UI mobile component library.
 
-Weex UI Demo is an open source project by [Tw93](https://tw93.fun) with 60 GitHub stars. Demonstration application for the Weex UI component library, an earlier mobile cross-platform project. Represents Tw93's earlier work in mobile UI frameworks.
+Weex UI Demo is an open source project by [Tw93](https://tw93.fun) with 60 GitHub stars. Demonstration application for the Weex UI component library, a cross-platform mobile UI framework built during Tw93's work on mobile architecture.
 
 ## Key Features
 

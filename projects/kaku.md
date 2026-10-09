@@ -12,10 +12,10 @@ Latest release: V0.22.0 (2026-10-05)
 
 ## Key Features
 
-- Zero-config macOS defaults with GPU-accelerated rendering
+- Zero-config macOS defaults with Metal GPU-accelerated rendering
 - Built-in AI assistant for error recovery and natural-language commands
-- WezTerm-compatible Lua configuration
-- Fast startup, curated shell tools, tabs, and split panes
+- Tab Navigator, pane splits, and automatic window and working-directory restore
+- WezTerm-compatible Lua configuration with curated Lazygit and Yazi shortcuts
 
 ## Alternatives Comparison
 
@@ -56,7 +56,7 @@ Kaku uses a Lua config file at ~/.config/kaku/kaku.lua. You can set fonts, color
 
 **Does Kaku support multiple tabs and split panes?**
 
-Yes. Kaku supports tabbed windows and split panes with keyboard shortcuts. The tab bar is minimal and only appears when you have more than one tab.
+Yes. Kaku supports tabbed windows and split panes with keyboard shortcuts. It features Tab Navigator to find panes easily, and automatically restores open windows, panes, and working directories when you reopen Kaku.
 
 **What is Kaku's dark theme like?**
 

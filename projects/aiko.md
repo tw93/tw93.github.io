@@ -1,13 +1,13 @@
 # Aiko
 
-> Curated icon set designed for the AI era, refined and precise.
+> Minimalist SVG icon set with clean, balanced lines.
 
-Aiko is an open source project by [Tw93](https://tw93.fun) with 37 GitHub stars. A carefully designed icon set for modern applications, with a focus on clean lines and consistency. Created with AI-era aesthetics in mind.
+Aiko is an open source project by [Tw93](https://tw93.fun) with 37 GitHub stars. A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for modern web and desktop interfaces.
 
 ## Key Features
 
-- AI-era aesthetic design
-- Clean, consistent icon set
+- Clean geometric icon design
+- Consistent stroke weights and export formats
 
 ## Links
 

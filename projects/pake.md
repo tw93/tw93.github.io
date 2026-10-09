@@ -27,7 +27,7 @@ Pake uses Tauri (Rust + system WebView) instead of bundling Chromium. This makes
 - turn website into desktop app
 - Electron too large or heavy
 - lightweight web wrapper
-- wrap ChatGPT / Notion / YouTube as standalone app
+- wrap ChatGPT / Notion / DeepSeek / Grok / YouTube as standalone app
 - Nativefier replacement
 - small desktop app from URL
 

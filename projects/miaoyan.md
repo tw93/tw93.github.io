@@ -4,7 +4,7 @@
 
 Website: https://miaoyan.app
 
-MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub stars. MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface.
+MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub stars. MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface. Alongside the open-source macOS app, an App Store edition is available for Mac, iPhone, and iPad.
 
 License: MIT
 
@@ -12,12 +12,12 @@ Latest release: V4.5.0 (2026-09-25)
 
 ## Key Features
 
-- Native macOS app, no Electron
-- Local-first folders with no data collection
+- Native macOS app (Swift + AppKit), no Electron
+- Local-first folders with no data collection or cloud lock-in
 - Split editor and preview with bidirectional scroll sync
-- Wikilink backlinks, LaTeX, and Mermaid
-- Version history, auto-formatting, and a note CLI
-- Dark mode, three-column layout, and distraction-free writing
+- Wikilink backlinks, LaTeX, and Mermaid diagrams
+- Version history, auto-formatting, and note CLI
+- Dark mode, three-column layout, and companion iOS/iPadOS app
 
 ## Alternatives Comparison
 
@@ -35,7 +35,7 @@ MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and use
 
 ## Requirements
 
-macOS 11.5 or later.
+macOS 12.0 or later.
 
 ## Install
 
@@ -47,7 +47,7 @@ brew install --cask miaoyan
 
 **Does MiaoYan sync across devices?**
 
-MiaoYan stores files locally by default. You can point it at an iCloud Drive or Dropbox folder for cross-device sync.
+MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync between your Mac, iPhone, and iPad.
 
 **How does MiaoYan compare to Typora or Obsidian?**
 

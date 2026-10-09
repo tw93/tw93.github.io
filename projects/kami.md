@@ -38,7 +38,7 @@ Resumes, one-pagers, white papers, letters, portfolios, and slide decks, plus pr
 
 **How do I install Kami?**
 
-Kami has its own plugin marketplace, separate from Waza. In Claude Code (v2.1.142 or newer) run `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Codex has an equivalent marketplace command. You then describe what you want and Kami generates a typeset HTML document that exports to PDF, image, or slide deck.
+Install across agents with `npx skills add tw93/kami -a claude-code codex cursor -g -y`. In Claude Code (v2.1.142 or newer) you can also use `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Codex has an equivalent marketplace command. You then describe what you want and Kami generates a typeset HTML document that exports to PDF, PNG, or editable PowerPoint slides.
 
 **What is Kami's design aesthetic?**
 
