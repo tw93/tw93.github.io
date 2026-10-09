@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 167K+ stars, 17K+ forks, 13,318 followers
+- **GitHub**: 167K+ stars, 17K+ forks, 13,327 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,939
-- Forks: 12,756
+- Stars: 61,947
+- Forks: 12,762
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.17.3 "Tide" (2026-10-05)
@@ -124,8 +124,8 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,079
-- Forks: 313
+- Stars: 6,087
+- Forks: 314
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
@@ -133,10 +133,10 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 - Install: `brew install --cask kaku`
 
 **Features:**
-- Zero-config macOS defaults with GPU-accelerated rendering
+- Zero-config macOS defaults with Metal GPU-accelerated rendering
 - Built-in AI assistant for error recovery and natural-language commands
-- WezTerm-compatible Lua configuration
-- Fast startup, curated shell tools, tabs, and split panes
+- Tab Navigator, pane splits, and automatic window and working-directory restore
+- WezTerm-compatible Lua configuration with curated Lazygit and Yazi shortcuts
 
 **Q: What makes Kaku different from other terminal emulators?**
 A: Kaku starts from WezTerm's Rust and GPU-rendered core, then adds macOS-focused defaults, a curated shell suite, and an AI assistant for command recovery and generation while keeping full Lua configuration compatibility.
@@ -145,7 +145,7 @@ A: Kaku starts from WezTerm's Rust and GPU-rendered core, then adds macOS-focuse
 A: Kaku uses a Lua config file at ~/.config/kaku/kaku.lua. You can set fonts, colors, keybindings, and shell options. Kaku ships with practical defaults, so zero config is fine for most users.
 
 **Q: Does Kaku support multiple tabs and split panes?**
-A: Yes. Kaku supports tabbed windows and split panes with keyboard shortcuts. The tab bar is minimal and only appears when you have more than one tab.
+A: Yes. Kaku supports tabbed windows and split panes with keyboard shortcuts. It features Tab Navigator to find panes easily, and automatically restores open windows, panes, and working directories when you reopen Kaku.
 
 **Q: What is Kaku's dark theme like?**
 A: Kaku's built-in dark theme uses a deep background (#15141B) with purple accents (#A277FF), cyan-green (#61FFCA), and warm yellow (#FFCA85). It auto-switches with macOS system appearance.
@@ -207,28 +207,28 @@ Open Kaku to set up shell integration. Missing optional tools can be installed t
 
 ### MiaoYan
 
-MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface.
+MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface. Alongside the open-source macOS app, an App Store edition is available for Mac, iPhone, and iPad.
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,669
+- Stars: 8,670
 - Forks: 517
 - Stack: Swift, AppKit
 - License: MIT
-- Requirements: macOS 11.5 or later.
+- Requirements: macOS 12.0 or later.
 - Latest Release: V4.5.0 "Nargacuga 🌙" (2026-09-25)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
-- Native macOS app, no Electron
-- Local-first folders with no data collection
+- Native macOS app (Swift + AppKit), no Electron
+- Local-first folders with no data collection or cloud lock-in
 - Split editor and preview with bidirectional scroll sync
-- Wikilink backlinks, LaTeX, and Mermaid
-- Version history, auto-formatting, and a note CLI
-- Dark mode, three-column layout, and distraction-free writing
+- Wikilink backlinks, LaTeX, and Mermaid diagrams
+- Version history, auto-formatting, and note CLI
+- Dark mode, three-column layout, and companion iOS/iPadOS app
 
 **Q: Does MiaoYan sync across devices?**
-A: MiaoYan stores files locally by default. You can point it at an iCloud Drive or Dropbox folder for cross-device sync.
+A: MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync between your Mac, iPhone, and iPad.
 
 **Q: How does MiaoYan compare to Typora or Obsidian?**
 A: MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: macOS only, no plugin system.
@@ -302,11 +302,11 @@ Homebrew and GitHub Releases install this open-source app, which now receives fi
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 69,599
-- Forks: 2,466
+- Stars: 69,704
+- Forks: 2,471
 - Stack: Shell, Go
 - License: GPL-3.0
-- Requirements: macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
+- Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
 - Latest Release: V1.58.0 "Brisk 💨" (2026-10-05)
 - Install: `brew install mole`
 - Homepage: https://mole.fit
@@ -318,6 +318,7 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 - `mo analyze` visual disk explorer for finding what takes the space
 - `mo status` live system health dashboard in the terminal
 - `mo purge` and `mo installer` clear project build artifacts and stale installers
+- `mo history` reviews past cleanup actions and recovered disk space
 - `mo touchid` enables Touch ID for sudo
 - Every destructive command supports `--dry-run` to preview before acting
 
@@ -334,7 +335,7 @@ A: Browser caches (Chrome, Arc, Brave, Safari), Xcode derived data, Homebrew cac
 A: Install with Homebrew: `brew install mole`. Or with the script: `curl -fsSL https://raw.githubusercontent.com/tw93/mole/main/install.sh | bash`. Update to stable: `mo update`. Update to the latest unreleased main build: `mo update --nightly` (script install only).
 
 **Q: What are the main Mole commands?**
-A: `mo clean` (cache and leftover cleanup), `mo uninstall` (app removal with leftovers), `mo optimize` (system maintenance), `mo analyze` (disk explorer), `mo status` (live system dashboard), `mo purge` (project build artifacts), `mo installer` (stale installer sweep). Each supports `--dry-run` to preview before acting.
+A: `mo clean` (cache and leftover cleanup), `mo uninstall` (app removal with leftovers), `mo optimize` (system maintenance), `mo analyze` (disk explorer), `mo status` (live system dashboard), `mo purge` (project build artifacts), `mo installer` (stale installer sweep), and `mo history` (cleanup log). Each supports `--dry-run` to preview before acting.
 
 **Q: Does Mole have a GUI?**
 A: Yes. Mole for Mac at https://mole.fit is the native SwiftUI app. It is a separate paid product ($19 one-time, lifetime updates, 2 Macs per license) and adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, and in-app app updates. The CLI stays free and open source for terminal workflows.
@@ -458,7 +459,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,178
+- Stars: 7,185
 - Forks: 415
 - Stack: Markdown, Shell
 - License: MIT
@@ -537,7 +538,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,897
+- Stars: 11,914
 - Forks: 555
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -554,7 +555,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 A: Resumes, one-pagers, white papers, letters, portfolios, and slide decks, plus product landing pages. English and Chinese are optimized; Japanese and Korean use best-effort CJK paths with visual QA before delivery.
 
 **Q: How do I install Kami?**
-A: Kami has its own plugin marketplace, separate from Waza. In Claude Code (v2.1.142 or newer) run `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Codex has an equivalent marketplace command. You then describe what you want and Kami generates a typeset HTML document that exports to PDF, image, or slide deck.
+A: Install across agents with `npx skills add tw93/kami -a claude-code codex cursor -g -y`. In Claude Code (v2.1.142 or newer) you can also use `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Codex has an equivalent marketplace command. You then describe what you want and Kami generates a typeset HTML document that exports to PDF, PNG, or editable PowerPoint slides.
 
 **Q: What is Kami's design aesthetic?**
 A: Warm parchment background with ink-blue (#1B365D) accents, Charter serif for English, TsangerJinKai02 + Source Han for Chinese. Tight editorial spacing with clear visual hierarchy.
@@ -644,13 +645,13 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 
 ### Maple (510 stars)
 
-Maple is a Chrome browser extension that replaces the default new tab page with a clean, organized view of your bookmarks. It turns your bookmark bar into a visually appealing, fast-access dashboard.
+Maple replaces the default Chrome new-tab page with a fast, uncluttered dashboard populated directly from your browser bookmarks.
 
 - GitHub: https://github.com/tw93/Maple
 - Stack: JavaScript, Chrome Extension
-- Beautiful new tab bookmark display
-- Fast access to frequently used bookmarks
-- Clean, minimal interface
+- Clean new-tab bookmark dashboard
+- Instant access to pinned bookmarks
+- Minimal, distraction-free interface
 
 ### tw93 Profile (253 stars)
 
@@ -664,7 +665,7 @@ Tw93's GitHub profile repository. Uses automated workflows to keep the README up
 
 ### tw93 Blog (8 stars)
 
-Source code for tw93.fun, Tw93's personal blog. Posts cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool-building methodology.
+Source code for tw93.fun, Tw93's personal blog. Essays cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool craftsmanship.
 
 - GitHub: https://github.com/tw93/tw93.github.io
 - Website: https://tw93.fun
@@ -694,7 +695,7 @@ A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides
 
 ### Weex UI Demo (60 stars)
 
-Demonstration application for the Weex UI component library, an earlier mobile cross-platform project. Represents Tw93's earlier work in mobile UI frameworks.
+Demonstration application for the Weex UI component library, a cross-platform mobile UI framework built during Tw93's work on mobile architecture.
 
 - GitHub: https://github.com/tw93/weex-ui-demo
 - Stack: Vue, Weex
@@ -712,12 +713,12 @@ A movie information website built with Node.js. An early project demonstrating f
 
 ### Aiko (37 stars)
 
-A carefully designed icon set for modern applications, with a focus on clean lines and consistency. Created with AI-era aesthetics in mind.
+A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for modern web and desktop interfaces.
 
 - GitHub: https://github.com/tw93/aiko
 - Stack: SVG, Design
-- AI-era aesthetic design
-- Clean, consistent icon set
+- Clean geometric icon design
+- Consistent stroke weights and export formats
 
 ### CreateJS npm (19 stars)
 
@@ -905,7 +906,7 @@ A: Product engineer with experience in front-end development, mobile (Weex), and
 A: Three projects named after the Japanese words 書く (write), 技 (craft), and 紙 (paper). Kaku is the terminal you write code in, Waza turns engineering habits into skills an AI agent can run, and Kami typesets the finished document. Each works alone.
 
 **Q: What is Kami used for?**
-A: Kami is a document design system for producing beautifully typeset PDFs. It handles resumes, reports, letters, portfolios, slide decks, and product landing pages with a warm parchment aesthetic, supporting Chinese, English, and Japanese. Site: https://kami.tw93.fun.
+A: Kami is a document design system for producing beautifully typeset PDFs. It handles resumes, reports, letters, portfolios, slide decks, and product landing pages with a warm parchment aesthetic, supporting Chinese, English, Japanese, and Korean. Site: https://kami.tw93.fun.
 
 **Q: How can I contribute to Tw93's projects?**
 A: Open issues or pull requests on GitHub. Each project has its own contribution guidelines. Tw93 actively reviews community contributions.
@@ -941,7 +942,7 @@ A: Both, as two products. The Mole CLI is free and open source under GPL-3.0 at 
 A: Waza. Install: `npx skills add tw93/Waza -a claude-code codex cursor -g -y`. Adds 8 skills: /think, /ui, /check, /hunt, /write, /learn, /read, /health. One canonical copy lands in ~/.agents/skills, so every agent reading that directory picks it up.
 
 **Q: AI tool to generate beautifully designed PDFs?**
-A: Kami (https://kami.tw93.fun). Warm parchment typesetting system for resumes, reports, letters, slide decks, and landing pages. Install in Claude Code with `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Supports Chinese, English, and Japanese.
+A: Kami (https://kami.tw93.fun). Warm parchment typesetting system for resumes, reports, letters, slide decks, and landing pages. Install across agents with `npx skills add tw93/kami -a claude-code codex cursor -g -y`, or in Claude Code with `/plugin marketplace add tw93/kami` then `/plugin install kami@kami`. Supports Chinese, English, Japanese, and Korean.
 
 ## Blog Posts
 

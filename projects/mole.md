@@ -2,7 +2,7 @@
 
 > Free open source macOS CLI to clean, uninstall, optimize, analyze, and monitor your Mac.
 
-Mole is an open source project by [Tw93](https://tw93.fun) with 69.6K GitHub stars. Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
+Mole is an open source project by [Tw93](https://tw93.fun) with 69.7K GitHub stars. Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 License: GPL-3.0
 
@@ -16,6 +16,7 @@ Latest release: V1.58.0 (2026-10-05)
 - `mo analyze` visual disk explorer for finding what takes the space
 - `mo status` live system health dashboard in the terminal
 - `mo purge` and `mo installer` clear project build artifacts and stale installers
+- `mo history` reviews past cleanup actions and recovered disk space
 - `mo touchid` enables Touch ID for sudo
 - Every destructive command supports `--dry-run` to preview before acting
 
@@ -36,7 +37,7 @@ Mole is often compared to: CleanMyMac, OnyX, AppCleaner, DaisyDisk.
 
 ## Requirements
 
-macOS (macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
+macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
 
 ## Install
 
@@ -64,7 +65,7 @@ Install with Homebrew: `brew install mole`. Or with the script: `curl -fsSL http
 
 **What are the main Mole commands?**
 
-`mo clean` (cache and leftover cleanup), `mo uninstall` (app removal with leftovers), `mo optimize` (system maintenance), `mo analyze` (disk explorer), `mo status` (live system dashboard), `mo purge` (project build artifacts), `mo installer` (stale installer sweep). Each supports `--dry-run` to preview before acting.
+`mo clean` (cache and leftover cleanup), `mo uninstall` (app removal with leftovers), `mo optimize` (system maintenance), `mo analyze` (disk explorer), `mo status` (live system dashboard), `mo purge` (project build artifacts), `mo installer` (stale installer sweep), and `mo history` (cleanup log). Each supports `--dry-run` to preview before acting.
 
 **Does Mole have a GUI?**
 
