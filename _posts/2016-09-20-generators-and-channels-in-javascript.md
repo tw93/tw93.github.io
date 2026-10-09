@@ -164,7 +164,7 @@ console.log(callerCallee.next()) // {value: 1, done: false}
 {% endhighlight %}
 
 现在大家应该对 Generator 有一个基础的理解了。
-关于 ES6 中 Generator 更详细的的介绍，可以阅读 [Axel Rauschmayer](https://medium.com/u/7fab51e62203)这篇更全面的文章[ES6 Generators in depth](http://www.2ality.com/2015/03/es6-generators.html)。
+关于 ES6 中 Generator 更详细的介绍，可以阅读 [Axel Rauschmayer](https://medium.com/u/7fab51e62203)这篇更全面的文章[ES6 Generators in depth](http://www.2ality.com/2015/03/es6-generators.html)。
 
 ### Generator, Promise and Coroutine
 
@@ -473,7 +473,7 @@ AppStart(App, store)
 
 ### 总结
 
-这是一篇介绍 Generator 和 Channel 的文章，我们任然缺少一些重要的部分，比如 Transducer，接下来的文章将会覆盖 Channels 和 Transducer，包括更多使用 React 的例子。
+这是一篇介绍 Generator 和 Channel 的文章，我们仍然缺少一些重要的部分，比如 Transducer，接下来的文章将会覆盖 Channels 和 Transducer，包括更多使用 React 的例子。
 
 #### 更新
 

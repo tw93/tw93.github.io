@@ -33,7 +33,7 @@ req.onreadystatechange = function() {
 }
 req.open('GET', url + '?' + params.join('&'), true);
 //设置请求头信息
-req.setRequestHeader('X-Request-With', 'XMLHttpRequest')；
+req.setRequestHeader('X-Request-With', 'XMLHttpRequest');
 req.send(null); //发送一个请求
 {%endhighlight%}
 

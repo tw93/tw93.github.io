@@ -22,7 +22,7 @@ Weex Ui originated from an internal Weex upper-layer Ui component library. After
 
 ### Positioning of Weex Ui
 
-The positioning of Weex Ui is **a set of lightweight, rich interactive, high-performance Weex upper-layer Ui component library**. Through upper-layer Vue code, components are encapsulated with Native-level optimization, friendly supporting Weex iOS, Android, H5 basic environments. Provided to developers through front-end out-of-the-box thinking. At the same time, through Weex Ui code, students who have not contacted Weex can have reference for its writing.
+The positioning of Weex Ui is **a lightweight, highly interactive, high-performance UI component library for Weex**. Components encapsulate native-level optimizations beneath intuitive Vue APIs, seamlessly supporting Weex on iOS, Android, and mobile web. It also serves as a clean, idiomatic reference for developers new to building on Weex.
 
 [QR code picture here>>>](https://gw.alipayobjects.com/zos/rmsportal/MNIgWQQFnsXFVDgmXLrr.jpeg)
 
@@ -38,7 +38,7 @@ The positioning of Weex Ui is **a set of lightweight, rich interactive, high-per
 
   <img src="https://img.alicdn.com/tfs/TB1Rz9dhCtYBeNjSspaXXaOOFXa-1576-318.png" width="500"/>
 
-- Students contributing code to Weex Ui
+- Contributors who submitted code to Weex Ui
 
   <img src="https://img.alicdn.com/tfs/TB1U8sghgmTBuNjy1XbXXaMrVXa-1800-196.png" width="600"/>
 
@@ -51,7 +51,7 @@ For more version iterations, see [Weex Ui Upgrade Log](https://alibaba.github.io
 ### Outlook of Weex Ui
 
 - Introduce more **rich interactive** components to make Weex applications More Native
-- Continue to **lighten and simplify** the use of Weex Ui, downgrade the starting cost for non-front-end students
+- Continue to **lighten and simplify** Weex Ui, lowering the barrier to entry for non-frontend engineers
 - Component **performance continuous optimization**, especially low-end machine performance improvement
 - Support component **theme one-click switch**, under implementation
 - Collection of usage Demo organization, including tools, media, management, etc.
@@ -61,9 +61,9 @@ For more version iterations, see [Weex Ui Upgrade Log](https://alibaba.github.io
 
 **The development of Weex Ui cannot be separated from the contribution of the community. Since open source, it has slowly removed internal-specific characteristics and developed towards community.**
 
-Thank every student who made suggestions and code contributions to Weex Ui, especially thank community [@zwwill](https://github.com/zwwill), [@GJJDD](https://github.com/GJJDD), [@Yanjiie](https://github.com/Yanjiie), [@zweipix](https://github.com/zweipix) and other students for their dedication.
+Huge thanks to everyone who shared suggestions and contributed code to Weex Ui, especially community contributors [@zwwill](https://github.com/zwwill), [@GJJDD](https://github.com/GJJDD), [@Yanjiie](https://github.com/Yanjiie), [@zweipix](https://github.com/zweipix), and others for their dedication.
 
-Hope that in the future, more students can join the development of Weex Ui, so that everyone can happily use Weex Ui to improve efficiency and get off work early, while promoting its better development.
+I hope more developers will join the Weex Ui community in the future — helping everyone build faster, leave work on time, and make the ecosystem better for all.
 
 > **Please feel free to use and contribute to the development.**
 

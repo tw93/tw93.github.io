@@ -61,7 +61,7 @@ function innerHTMLLoop() {
 var elements=document.getElementById('menu').getElementsByTagName('a');
 
 //建议做法
-var elements=document.querySelectAll('#menu a')；
+var elements=document.querySelectorAll('#menu a');
 {% endhighlight %}
 
 还有一个遍历方法--<span class="orange">querySelector()</span>来获取第一个匹配的节点。

@@ -467,7 +467,7 @@ AppStart(App, store)
 
 The above is just a quick case to explain how React is used in combination with Channel. We need more time to think and verify how to make this solution beneficial to us.
 
-Through the listen function in the previous section, how we convert an element into a Channel, throwing a brick to attract jade, leading to other ideas, including reacting to window, changing the structure, style or layout of your App.
+The listen function in the previous section showed how to convert an element into a Channel — consider it food for thought to spark more ideas, such as reacting to window events or dynamically altering your application's structure, styles, and layout.
 
 The examples provided above can be seen as a new starting point for the possibility of using this new feature.
 

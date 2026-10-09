@@ -61,7 +61,7 @@ The browser provides a native DOM method called <span class="orange">querySelect
 var elements=document.getElementById('menu').getElementsByTagName('a');
 
 //Recommended practice
-var elements=document.querySelectAll('#menu a')；
+var elements=document.querySelectorAll('#menu a');
 {% endhighlight %}
 
 There is another traversal method - <span class="orange">querySelector()</span> to get the first matching node.

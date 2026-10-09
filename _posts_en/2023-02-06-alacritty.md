@@ -52,7 +52,7 @@ After configuration, the UI color and font display are roughly as follows, basic
 
 ### 4. Why Not Try Fish Shell
 
-Many students probably use zsh; I did too. However, the overall loading and usage performance of zsh is not very fast, and it is not so convenient to configure. Here, I recommend trying [Fish](https://fishshell.com/), which is very out-of-the-box, and performs very well, with built-in auto-suggestions, syntax highlighting, tab auto-completion, visual Web configuration features. Additionally, the shell's prompt loads super fast, with almost no delay.
+Most developers probably use zsh; I did too. However, the startup time and interaction latency of bloated zsh setups can drag on performance, and configuration is often tedious. Here, I recommend giving [Fish](https://fishshell.com/) a shot: it works out of the box with blazing-fast completions, built-in autosuggestions, syntax highlighting, and zero prompt lag.
 
 First, you can install the fish shell via brew. During the installation process, it should ask if you want to set it as the default. If after installation, the default is not fish, you can refer to this document [default-shell](https://fishshell.com/docs/current/index.html#default-shell) to set it as default.
 

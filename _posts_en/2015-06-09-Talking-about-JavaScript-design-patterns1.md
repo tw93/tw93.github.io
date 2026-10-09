@@ -3,11 +3,11 @@ layout: post
 title: Brief Talk on Object-Oriented JavaScript
 poem: 繩鋸木斷，水滴石穿
 date: 2015-06-09 21:47:29
-summary: Recently I have been learning "JavaScript Design Patterns" written by Ross Harmes/Dustin Diaz. I read this book about twice and gained a lot. This book is suitable for students who want to study JavaScript deeply to increase your internal strength. It can help you enhance your understanding of JavaScript object-oriented, while learning various specific design patterns, knowing what occasions these design patterns should be used in, and how to implement them, to write more elegant code. This article is used to summarize my reading notes ...
+summary: Recently I read "Pro JavaScript Design Patterns" by Ross Harmes and Dustin Diaz twice and took extensive notes. The book is ideal for developers looking to deepen their grasp of JavaScript fundamentals and object-oriented paradigms, explaining when to reach for specific design patterns and how to implement them cleanly. Below is a summary of my notes.
 categories: Study
 ---
 
-Recently I have been learning ["JavaScript Design Patterns"](http://book.douban.com/subject/3329540/){:target="_blank"} written by Ross Harmes/Dustin Diaz. I read this book about twice and gained a lot. This book is suitable for students who want to study JavaScript deeply to increase your internal strength. It can help you enhance your understanding of JavaScript object-oriented, while learning various specific design patterns, knowing what occasions these design patterns should be used in, and how to implement them, to write more elegant code. This article is used to summarize my reading notes.
+Recently I read ["Pro JavaScript Design Patterns"](http://book.douban.com/subject/3329540/){:target="_blank"} by Ross Harmes and Dustin Diaz twice and took extensive notes. The book is ideal for developers looking to deepen their grasp of JavaScript fundamentals and object-oriented paradigms, explaining when to reach for specific design patterns and how to implement them cleanly. Below is a summary of my notes.
 
 #### Expressive JavaScript
 

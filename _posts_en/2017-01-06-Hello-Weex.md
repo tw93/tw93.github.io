@@ -3,23 +3,23 @@ layout: post
 title: Hello Weex
 poem: 海闊憑魚躍，天高任鳥飛
 date: 2017-01-06 16:00:00
-summary: This week, I shared the Topic "Hello Weex" with my department colleagues. Now I have organized it into a text version to share with students who follow Weex. It mainly involves Module && Component, Weex Architecture, Weex Others ...
+summary: This week I gave an internal sharing on "Hello Weex" to my department colleagues, and adapted it into an article for anyone following Weex development. It covers Modules vs. Components, Weex Architecture, and best practices.
 categories: Share
 ---
 
 <img src="http://img.alicdn.com/tfs/TB1qlHxPXXXXXaFaXXXXXXXXXXX-2880-1800.jpg" loading="lazy" decoding="async" />
 
-This week, I shared the Topic "Hello Weex" with my department colleagues. Now I have organized it into a text version to share with students who follow Weex. It mainly involves:
+This week I gave an internal sharing on "Hello Weex" to my department colleagues, and adapted it into an article for anyone following Weex development:
 
 1. Module && Component
 2. Weex Architecture
-3. Weex Others
+3. Weex Best Practices
 
-*To ensure information confidentiality, some other information has been removed. Please understand.* Sharing begins.
+*Confidential internal information has been removed.* Let's dive in.
 
 ## **Module && Component**
 
-I believe some students cannot distinguish between Module and Component clearly. Through Google search, I got the following two explanations:
+The distinction between a Module and a Component is often a point of confusion. Standard definitions from computer science distinguish them as follows:
 
 > Module: An implementation unit of software that provides a coherent set of responsibilities.
 > Component:A component is a reusable building block that can be combined with other components in the same or other computers in a distributed network to form an application.
@@ -50,37 +50,37 @@ So in Weex, what exactly are Module and Component? You can first look at what Mo
 
 The official website describes Weex as *"A framework for building Mobile cross-platform UI"*, a lightweight mobile cross-platform dynamic technical solution. Actually, to put it plainly, it is Vue-Native.
 
-I believe students who have paid attention to Weex should have seen the following Weex architecture diagram.
+Anyone who has looked into Weex has likely come across this architecture diagram:
 
 <img src="//img.alicdn.com/tfs/TB1EITwPXXXXXaCaXXXXXXXXXXX-852-566.png" loading="lazy" decoding="async" />
 
-Looking at the picture and speaking is like this:
+In brief:
 
-1. The transform tool in weex-toolkit converts the .we file we wrote into JS Bundle, and then deploys the JS Bundle to Server.
-2. JS Framework in Weex SDK gets JS Bundle and executes it, performs instance initialization work on it, and simultaneously performs data binding, template compilation, and provides callNative and callJS methods.
-3. JS Framework and native communicate through these two methods callNative and callJS, jointly relying on the same JSON configuration table (this time you can associate with the implementation principle of RN)
+1. `weex-toolkit`'s transform tooling converts `.we` source files into a JS Bundle, which is published to a CDN/server.
+2. The JS Framework within the Weex SDK executes the bundle, initializes instances, binds data, compiles templates, and provides bidirectional `callNative` and `callJS` communication channels.
+3. The JS Framework and native platform communicate across these channels backed by a synchronized JSON bridge (very similar conceptually to React Native).
 
-**The work done by Transform** is actually converting DSL into a JSON-like tree structure, and aggregating and combining it into a JavaScript AMD module, facilitating subsequent processing by JS Framework. Can see the work done by transform from the figure below:
+**The Transform stage** compiles the high-level DSL into a JSON-like AST and bundles it as an AMD module. The figure below illustrates the transformation:
 
 <img src="//img.alicdn.com/tfs/TB1_hLfPXXXXXbgaVXXXXXXXXXX-2880-1800.jpg" class="img-zoom" loading="lazy" decoding="async" />
 
-The left part above is actually a DSL, a domain-specific language, which can directly use concepts in its object domain, focusing on describing the "What" part, without having to describe "How" (How).
+The left panel represents a domain-specific language (DSL) that declaratively specifies "what" to render rather than "how".
 
 > A domain-specific language (DSL) is a computer language specialized to a particular application domain.
 
-**JS Framework** initialization of an instance involves the following process, see [**vanilla/index.js**](https://link.zhihu.com/?target=https%3A//github.com/alibaba/weex/blob/master/html5/vanilla/index.js) for details
+**JS Framework instance initialization** follows this lifecycle (see [vanilla/index.js](https://github.com/alibaba/weex/blob/master/html5/vanilla/index.js)):
 
 <img src="//img.alicdn.com/tfs/TB1CjTtPXXXXXa0apXXXXXXXXXX-1268-630.png" loading="lazy" decoding="async" />
 
-People who see here must love learning.....
+If you've read this far, you must genuinely love technical deep dives...
 
 <img src="//img.alicdn.com/tfs/TB1Hc6BPXXXXXa1aXXXXXXXXXXX-400-361.png" loading="lazy" decoding="async" />
 
-## **Weex Others**
+## **Weex Best Practices**
 
-**1. Why not use scroller ?**
+**1. Why avoid `scroller` for large lists?**
 
-Why not recommend using scroller? Native students must know ScrollView in Android and UIScrollView in Ios. See the picture for details:
+Why recommend against `scroller`? Native mobile engineers will recognize this from Android's `ScrollView` and iOS's `UIScrollView`:
 
 <img src="//img.alicdn.com/tfs/TB1dgbFPXXXXXbDXVXXXXXXXXXX-1344-516.png" loading="lazy" decoding="async" />
 
