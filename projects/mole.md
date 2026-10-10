@@ -6,7 +6,7 @@ Mole is an open source project by [Tw93](https://tw93.fun) with 69.8K GitHub sta
 
 License: GPL-3.0
 
-Latest release: V1.58.0 (2026-10-05)
+Latest release: V1.59.0 (2026-10-10)
 
 ## Key Features
 
