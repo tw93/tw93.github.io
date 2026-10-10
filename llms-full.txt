@@ -215,7 +215,7 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 - Split editor and preview with bidirectional scroll sync
 - Wikilink backlinks, LaTeX, and Mermaid diagrams
 - Version history, auto-formatting, and note CLI
-- Dark mode and three-column layout; the App Store edition adds iPhone and iPad
+- Dark mode and three-column layout
 
 **Q: Does MiaoYan sync across devices?**
 A: MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync. The paid App Store edition also opens the same folder on iPhone and iPad.
@@ -235,6 +235,49 @@ A: Yes. MiaoYan supports fenced code blocks with syntax highlighting. The monosp
 **Q: Can an AI agent write MiaoYan notes for me?**
 A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments, PPT patterns, and the CLI. Install it with `npx skills add tw93/MiaoYan/skills/miaoyan -g`; source at https://github.com/tw93/MiaoYan/tree/main/skills/miaoyan.
 
+#### README Excerpt
+
+<div align="center">
+  <a href="https://miaoyan.app/" target="_blank"><img src="https://gw.alipayobjects.com/zos/k/t0/43.png" width="138" /></a>
+  <h1>MiaoYan</h1>
+  <p><b>A native Mac app for local Markdown notes</b></p>
+  <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
+  <a href="https://twitter.com/HiTw93" target="_blank"><img alt="Twitter Follow" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter"></a>
+  <a href="https://t.me/+9f9gf4ZrFSQ2OWVl" target="_blank"><img alt="Telegram" src="https://img.shields.io/badge/chat-Telegram-blueviolet?style=flat-square&logo=Telegram"></a>
+  <a href="https://github.com/tw93/MiaoYan/releases" target="_blank"><img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/tw93/MiaoYan/total.svg?style=flat-square"></a>
+  <a href="https://github.com/tw93/MiaoYan/commits" target="_blank"><img alt="GitHub Commit Activity" src="https://img.shields.io/github/commit-activity/m/tw93/MiaoYan?style=flat-square"></a>
+  <a href="https://github.com/tw93/MiaoYan/issues?q=is%3Aissue+is%3Aclosed" target="_blank"><img alt="GitHub Closed Issues" src="https://img.shields.io/github/issues-closed/tw93/MiaoYan.svg?style=flat-square"></a>
+  <img alt="macOS 12.0+" src="https://img.shields.io/badge/macOS-12.0%2B-orange?style=flat-square">
+</div>
+
+<img src="https://raw.githubusercontent.com/tw93/static/main/miaoyan/miaoyan.gif" width="900px" />
+
+###### Features
+
+- **Local-first**: Notes are Markdown files in a folder you choose, with no data collection, and iCloud Drive or Nutstore can sync them across devices
+- **Focused**: Folders, notes, and editor in three columns, with dark mode and no plugin system to maintain
+- **Native**: Built with Swift 6, lighter than web wrappers, with 60fps scroll sync in split preview
+- **Capable**: Wikilinks, LaTeX, Mermaid, version history, auto-formatting, and PPT presentations built in
+
+###### Installation
+
+1. **Mac App Store** (paid, automatic updates, includes the iPhone and iPad app):
+
+   <a href="https://apps.apple.com/cn/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
+
+2. **Homebrew**:
+   ```bash
+   brew install --cask miaoyan
+   ```
+
+3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+)
+
+Homebrew and GitHub Releases install this open-source app, which now receives fixes only. The App Store edition is developed separately, includes the iPhone and iPad app, and is where new features land. After installing, create a `MiaoYan` folder in iCloud Drive, a desktop cloud-drive folder, or your preferred location, open Preferences (⌘,), and set the storage path.
+
+###### Sync with Nutstore or Other Cloud Drives
+
+
+[...truncated]
 
 ### Mole
 
@@ -767,7 +810,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 
 ### Other Tools
 - "Curated tech weekly newsletter" -> **Weekly** (潮流周刊)
-- "Chrome bookmark new tab" -> **Maple**
+- "Hide the Chrome bookmark bar" -> **Maple**
 - "Life visualization tool" -> **900Month**
 - "Emoji-style git commit messages" -> **cz-emoji-chinese**
 

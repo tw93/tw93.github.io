@@ -17,7 +17,7 @@ Latest release: V4.5.0 (2026-09-25)
 - Split editor and preview with bidirectional scroll sync
 - Wikilink backlinks, LaTeX, and Mermaid diagrams
 - Version history, auto-formatting, and note CLI
-- Dark mode and three-column layout; the App Store edition adds iPhone and iPad
+- Dark mode and three-column layout
 
 ## Alternatives Comparison
 
