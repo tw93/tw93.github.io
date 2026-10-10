@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 167K+ stars, 17K+ forks, 13,328 followers
+- **GitHub**: 167K+ stars, 17K+ forks, 13,332 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,949
-- Forks: 12,763
+- Stars: 61,958
+- Forks: 12,766
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.17.3 "Tide" (2026-10-05)
@@ -70,23 +70,16 @@ A: Yes, and the repository ships the contract for it. Pass `--json` for machine-
 
 #### README Excerpt
 
-<h4 align="right"><strong>English</strong> | <a href="README_CN.md">简体中文</a></h4>
-<p align="center">
-    <img src=https://gw.alipayobjects.com/zos/k/fa/logo-modified.png width=138/>
-</p>
-<h1 align="center">Pake</h1>
-<p align="center"><strong>Turn any webpage into a desktop app with one command, supports macOS, Windows, and Linux</strong></p>
 <div align="center">
-    <a href="https://twitter.com/HiTw93" target="_blank">
-    <img alt="twitter" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter"></a>
-    <a href="https://t.me/+9f9gf4ZrFSQ2OWVl" target="_blank">
-    <img alt="telegram" src="https://img.shields.io/badge/chat-telegram-blueviolet?style=flat-square&logo=Telegram"></a>
-    <a href="https://github.com/tw93/Pake/releases" target="_blank">
-    <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/tw93/Pake/total.svg?style=flat-square"></a>
-    <a href="https://github.com/tw93/Pake/commits" target="_blank">
-    <img alt="GitHub commit" src="https://img.shields.io/github/commit-activity/m/tw93/Pake?style=flat-square"></a>
-    <a href="https://github.com/tw93/Pake/issues?q=is%3Aissue+is%3Aclosed" target="_blank">
-    <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/tw93/Pake.svg?style=flat-square"></a>
+  <img src="https://gw.alipayobjects.com/zos/k/fa/logo-modified.png" width="138" />
+  <h1>Pake</h1>
+  <p><b>Turn any webpage into a desktop app with one command. Supports macOS, Windows, and Linux</b></p>
+  <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
+  <a href="https://twitter.com/HiTw93" target="_blank"><img alt="twitter" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter"></a>
+  <a href="https://t.me/+9f9gf4ZrFSQ2OWVl" target="_blank"><img alt="telegram" src="https://img.shields.io/badge/chat-telegram-blueviolet?style=flat-square&logo=Telegram"></a>
+  <a href="https://github.com/tw93/Pake/releases" target="_blank"><img alt="GitHub downloads" src="https://img.shields.io/github/downloads/tw93/Pake/total.svg?style=flat-square"></a>
+  <a href="https://github.com/tw93/Pake/commits" target="_blank"><img alt="GitHub commit" src="https://img.shields.io/github/commit-activity/m/tw93/Pake?style=flat-square"></a>
+  <a href="https://github.com/tw93/Pake/issues?q=is%3Aissue+is%3Aclosed" target="_blank"><img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/tw93/Pake.svg?style=flat-square"></a>
 </div>
 
 ###### Features
@@ -124,7 +117,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,087
+- Stars: 6,089
 - Forks: 314
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -159,22 +152,20 @@ A: Kaku combines Alacritty's speed (GPU rendering), Kitty's feature set, and Wez
   <img src="https://gw.alipayobjects.com/zos/k/6h/dwarf.svg" width="120" />
   <h1>Kaku</h1>
   <p><em>An AI-friendly Mac terminal with sensible defaults, ready out of the box.</em></p>
+  <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <p>
     <a href="https://kaku.fun">Website</a> ·
     <a href="https://kaku.fun/docs/">Docs</a> ·
     <a href="https://kaku.fun/compare">Compare</a> ·
     <a href="https://github.com/tw93/Kaku/releases/latest">Download</a>
   </p>
-</div>
-
-<p align="center">
   <a href="https://kaku.fun"><img src="https://img.shields.io/badge/website-kaku.fun-1B365D?style=flat-square" alt="Website"></a>
   <a href="https://github.com/tw93/Kaku/stargazers"><img src="https://img.shields.io/github/stars/tw93/Kaku?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/tw93/Kaku/releases"><img src="https://img.shields.io/github/v/tag/tw93/Kaku?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/tw93/Kaku/commits"><img src="https://img.shields.io/github/commit-activity/m/tw93/Kaku?style=flat-square" alt="Commits"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
-</p>
+</div>
 
 <p align="center">
   <img src="assets/kaku.jpg" alt="Kaku Screenshot" width="1000" />
@@ -201,7 +192,6 @@ Open Kaku to set up shell integration. Missing optional tools can be installed t
 - **Ready to use**: JetBrains Mono, automatic dark and light themes, copy on select, and familiar Mac shortcuts.
 - **Tabs and panes**: Split your workspace, find a pane with Tab Navigator, and restore windows, panes, and working directories when you reopen Kaku.
 - **Right-click menu**: Paste, search, open AI chat, split or close the clicked pane, and open or close tabs without remembering shortcuts.
-- **Clickable links**: `Cmd + Click` opens URLs and file paths; URLs automatically wrapped by the terminal keep their full address.
 
 [...truncated]
 
@@ -211,7 +201,7 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,669
+- Stars: 8,668
 - Forks: 517
 - Stack: Swift, AppKit
 - License: MIT
@@ -225,13 +215,13 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 - Split editor and preview with bidirectional scroll sync
 - Wikilink backlinks, LaTeX, and Mermaid diagrams
 - Version history, auto-formatting, and note CLI
-- Dark mode, three-column layout, and companion iOS/iPadOS app
+- Dark mode and three-column layout; the App Store edition adds iPhone and iPad
 
 **Q: Does MiaoYan sync across devices?**
-A: MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync between your Mac, iPhone, and iPad.
+A: MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync. The paid App Store edition also opens the same folder on iPhone and iPad.
 
 **Q: How does MiaoYan compare to Typora or Obsidian?**
-A: MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: macOS only, no plugin system.
+A: MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: the open-source app is macOS only (the App Store edition adds iPhone and iPad), no plugin system.
 
 **Q: Does MiaoYan support WYSIWYG editing?**
 A: MiaoYan uses a split-pane approach: source editing on the left, live preview on the right. It is not a block-based WYSIWYG editor. The source view has syntax highlighting for Markdown, LaTeX, and Mermaid.
@@ -245,65 +235,14 @@ A: Yes. MiaoYan supports fenced code blocks with syntax highlighting. The monosp
 **Q: Can an AI agent write MiaoYan notes for me?**
 A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments, PPT patterns, and the CLI. Install it with `npx skills add tw93/MiaoYan/skills/miaoyan -g`; source at https://github.com/tw93/MiaoYan/tree/main/skills/miaoyan.
 
-#### README Excerpt
-
-<h4 align="right">English | <strong><a href="https://github.com/tw93/MiaoYan/blob/main/README_CN.md">简体中文</a></strong></h4>
-
-<p align="center">
-  <a href="https://miaoyan.app/" target="_blank"><img src="https://gw.alipayobjects.com/zos/k/t0/43.png" width="138" /></a>
-  <h1 align="center">MiaoYan</h1>
-  <div align="center">
-    <a href="https://twitter.com/HiTw93" target="_blank">
-      <img alt="Twitter Follow" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter"></a>
-    <a href="https://t.me/+9f9gf4ZrFSQ2OWVl" target="_blank">
-      <img alt="Telegram" src="https://img.shields.io/badge/chat-Telegram-blueviolet?style=flat-square&logo=Telegram"></a>
-    <a href="https://github.com/tw93/MiaoYan/releases" target="_blank">
-      <img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/tw93/MiaoYan/total.svg?style=flat-square"></a>
-    <a href="https://github.com/tw93/MiaoYan/commits" target="_blank">
-      <img alt="GitHub Commit Activity" src="https://img.shields.io/github/commit-activity/m/tw93/MiaoYan?style=flat-square"></a>
-    <a href="https://github.com/tw93/MiaoYan/issues?q=is%3Aissue+is%3Aclosed" target="_blank">
-      <img alt="GitHub Closed Issues" src="https://img.shields.io/github/issues-closed/tw93/MiaoYan.svg?style=flat-square"></a>
-    <img alt="macOS 12.0+" src="https://img.shields.io/badge/macOS-12.0%2B-orange?style=flat-square">
-  </div>
-  <div align="center">Lightweight Markdown note-taking app for macOS</div>
-</p>
-
-<img src="https://raw.githubusercontent.com/tw93/static/main/miaoyan/miaoyan.gif" width="900px" />
-
-###### Features
-
-- **Fantastic**: Local-first, no data collection, split editor & preview, wikilink backlinks, LaTeX, Mermaid
-- **Beautiful**: Minimalist design, three-column layout, dark mode, macOS 26 glass, distraction-free
-- **Fast**: Swift 6 native, better performance than Electron-based apps
-- **Simple**: Lightweight, version history, keyboard shortcuts, auto-formatting
-
-###### Installation
-
-1. **Mac App Store** (paid, automatic updates, includes the iPhone and iPad app):
-
-   <a href="https://apps.apple.com/cn/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
-
-2. **Homebrew**:
-   ```bash
-   brew install --cask miaoyan
-   ```
-
-3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+)
-
-Homebrew and GitHub Releases install this open-source app, which now receives fixes only. The App Store edition is developed separately, includes the iPhone and iPad app, and is where new features land. After installing, create a `MiaoYan` folder in iCloud Drive, a desktop cloud-drive folder, or your preferred location, open Preferences (⌘,), and set the storage path.
-
-###### Sync with Nutstore or Other Cloud Drives
-
-
-[...truncated]
 
 ### Mole
 
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 69,720
-- Forks: 2,471
+- Stars: 69,788
+- Forks: 2,475
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -347,31 +286,30 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
 
 <div align="center">
   <h1>Mole</h1>
-  <p><em>🐹 Clean, uninstall, analyze, optimize, and monitor your Mac. Free open-source CLI, plus a native Mac app.</em></p>
-</div>
-
-<p align="center">
+  <p><b>Deep clean, uninstall apps, optimize, analyze disk, and monitor your Mac. Free open-source CLI, plus a native Mac app.</b></p>
+  <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <a href="https://github.com/tw93/mole/stargazers"><img src="https://img.shields.io/github/stars/tw93/mole?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/tw93/mole/releases"><img src="https://img.shields.io/github/v/tag/tw93/mole?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/tw93/mole/commits"><img src="https://img.shields.io/github/commit-activity/m/tw93/mole?style=flat-square" alt="Commits"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
   <a href="https://t.me/+9f9gf4ZrFSQ2OWVl"><img src="https://img.shields.io/badge/chat-Telegram-blueviolet?style=flat-square&logo=Telegram" alt="Telegram"></a>
-</p>
+</div>
 
 <p align="center">
   <img src="./docs/img/big-mole.png" alt="Mole cleanup results" width="1000" />
 </p>
 
-> 💡 This repo is the free open-source CLI (`mo`). Prefer a native app? [Mole for Mac](https://mole.fit/) is a separate download: cleanup, app management, maintenance, disk maps, and live status in one lightweight, VoiceOver-ready app. One license covers 2 Macs with free updates and a 14-day refund. `brew install mole` installs the CLI only.
+> 💡 This repo is the free open-source CLI (`mo`). Prefer a native app? [Mole for Mac](https://mole.fit/) is a separate download with review-before-delete cleanup, tested leftovers for 800+ apps, maintenance, disk drill-downs, live status, and fan controls on supported Macs. `brew install mole` installs the CLI only.
 
 ###### Features
 
-- **All-in-one CLI toolkit**: Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus style workflows in a **single terminal binary**
-- **Deep cleaning**: Removes caches, logs, leftovers, and orphaned app data to **reclaim gigabytes of space**
-- **Smart uninstaller**: Removes apps plus launch agents, preferences, and **hidden remnants**
-- **Disk insights**: Visualizes usage, finds large files, **rebuilds caches**, and refreshes system services
-- **Live monitoring**: Shows real-time CPU, GPU, memory, disk, and network stats
+- **All-in-one CLI toolkit**: Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus style workflows in one terminal command
+- **Deep clean**: Removes caches, logs, leftovers, and orphaned app data to reclaim disk space
+- **Smart uninstaller**: Removes apps together with LaunchAgents, preferences, and leftovers
+- **Disk analyzer**: Visualizes disk usage with an interactive TUI, finds large files, and navigates directories
+- **System maintenance**: Flushes DNS, refreshes QuickLook/icons, and optimizes system databases
+- **Live monitoring**: Shows real-time CPU, memory, disk I/O, network traffic, and process stats
 
 ###### Quick Start
 
@@ -398,10 +336,6 @@ Mole is built for macOS. An experimental Windows version lives in the [windows b
 ```bash
 mo                           # Interactive menu
 mo clean                     # Deep cleanup + already-uninstalled app leftovers
-mo uninstall                 # Remove installed apps + their leftovers
-mo optimize                  # Refresh caches & services
-mo analyze                   # Visual disk explorer (or 'mo analyse')
-mo status                    # Live system health dashboard
 
 [...truncated]
 
@@ -459,7 +393,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,186
+- Stars: 7,195
 - Forks: 415
 - Stack: Markdown, Shell
 - License: MIT
@@ -493,7 +427,7 @@ A: Yes. Waza installs into the shared ~/.agents/skills directory, so Codex, Curs
   <img src="https://gw.alipayobjects.com/zos/k/2h/waza.svg" width="120" />
   <h1>Waza</h1>
   <p><b>Engineering habits you already know, turned into skills AI agents can run.</b></p>
-  <p><a href="llms.txt">LLM guide</a></p>
+  <p>English · <a href="README_CN.md">简体中文</a> · <a href="README_TW.md">繁體中文</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <a href="https://github.com/tw93/Waza/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/tw93/Waza/test.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
   <a href="https://github.com/tw93/Waza/stargazers"><img src="https://img.shields.io/github/stars/tw93/Waza?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/tw93/Waza/releases"><img src="https://img.shields.io/github/v/tag/tw93/Waza?label=version&style=flat-square" alt="Version"></a>
@@ -520,15 +454,6 @@ Each engineering habit gets an installed skill. In Claude Code, type the slash c
 | [`/write`](skills/write/SKILL.md) | Writing or editing prose | Rewrites prose to sound natural in Chinese and English. Cuts stiff, formulaic phrasing. |
 | [`/learn`](skills/learn/SKILL.md) | Diving into an unfamiliar domain | Six-phase research workflow: collect, digest, outline, fill in, refine, then self-review and publish. |
 | [`/read`](skills/read/SKILL.md) | Any URL or PDF | Returns a concise summary, or clean Markdown for conversion, quotes, citations, saving, or further research. |
-| [`/health`](skills/health/SKILL.md) | Auditing Agent Health | Checks Codex, Claude Code, project instructions, verifier output, and AI maintainability with a budget-aware summary pass before deep inspection. |
-
-Each skill is a folder with reference docs, helper scripts, and gotchas from real failures.
-
-###### Install
-
-**Claude Code, Codex, Cursor, and other agents**
-
-```bash
 
 [...truncated]
 
@@ -538,7 +463,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,914
+- Stars: 11,919
 - Forks: 555
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -572,6 +497,7 @@ A: English, Chinese, Japanese, and Korean. English and Chinese are optimized pat
   <img src="skills/kami/assets/images/logo.svg" width="120" />
   <h1>Kami</h1>
   <p><b>Good content deserves good paper.</b></p>
+  <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <a href="https://github.com/tw93/kami/stargazers"><img src="https://img.shields.io/github/stars/tw93/kami?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/tw93/kami/releases"><img src="https://img.shields.io/github/v/tag/tw93/kami?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
@@ -624,9 +550,6 @@ Sample PDFs in several formats and languages. Click any preview to open it.
     <br><b>Letter</b> · 中文
     <br><sub>推荐信, 1 页</sub>
   </td>
-  <td align="center" width="25%">
-    <a href="site/assets/demos/demo-changelog.pdf"><img src="site/assets/demos/demo-changelog.png" alt="Mole release notes"></a>
-    <br><b>Changelog</b> · English
 
 [...truncated]
 
@@ -643,15 +566,15 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 - Covers front-end, tools, AI, and lifestyle
 - Published as a static site via GitHub Pages
 
-### Maple (510 stars)
+### Maple (509 stars)
 
-Maple replaces the default Chrome new-tab page with a fast, uncluttered dashboard populated directly from your browser bookmarks.
+Maple is a set of three Chrome extensions for browsing with the bookmark bar hidden. Maple Bookmarks opens your bookmarks with a shortcut and searches them as you type, Maple NewTab replaces the new-tab page so the bookmark bar stays hidden there too, and Maple Theme is a plain white browser theme.
 
 - GitHub: https://github.com/tw93/Maple
 - Stack: JavaScript, Chrome Extension
-- Clean new-tab bookmark dashboard
-- Instant access to pinned bookmarks
-- Minimal, distraction-free interface
+- Maple Bookmarks: open and search bookmarks with a shortcut
+- Maple NewTab: Renaissance art, Bing image, Weekly picture, or blank backgrounds
+- Maple Theme: a plain white Chrome theme
 
 ### tw93 Profile (253 stars)
 
@@ -695,7 +618,7 @@ A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides
 
 ### Weex UI Demo (60 stars)
 
-Demonstration application for the Weex UI component library, a cross-platform mobile UI framework built during Tw93's work on mobile architecture.
+Demonstration application for the Weex UI component library, an earlier mobile cross-platform project. Represents Tw93's earlier work in mobile UI frameworks.
 
 - GitHub: https://github.com/tw93/weex-ui-demo
 - Stack: Vue, Weex
@@ -713,11 +636,11 @@ A movie information website built with Node.js. An early project demonstrating f
 
 ### Aiko (37 stars)
 
-A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for modern web and desktop interfaces.
+A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for the metaphors and actions of AI agents and modern interfaces.
 
 - GitHub: https://github.com/tw93/aiko
 - Stack: SVG, Design
-- Clean geometric icon design
+- Icons for AI agent metaphors and actions
 - Consistent stroke weights and export formats
 
 ### CreateJS npm (19 stars)

@@ -17,13 +17,13 @@ Latest release: V4.5.0 (2026-09-25)
 - Split editor and preview with bidirectional scroll sync
 - Wikilink backlinks, LaTeX, and Mermaid diagrams
 - Version history, auto-formatting, and note CLI
-- Dark mode, three-column layout, and companion iOS/iPadOS app
+- Dark mode and three-column layout; the App Store edition adds iPhone and iPad
 
 ## Alternatives Comparison
 
 MiaoYan is often compared to: Typora, Obsidian, Bear, iA Writer, MacDown.
 
-MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: macOS only, no plugin system.
+MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: the open-source app is macOS only (the App Store edition adds iPhone and iPad), no plugin system.
 
 ## When to Use
 
@@ -47,11 +47,11 @@ brew install --cask miaoyan
 
 **Does MiaoYan sync across devices?**
 
-MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync between your Mac, iPhone, and iPad.
+MiaoYan stores files locally by default. You can point it at an iCloud Drive, Nutstore, or Dropbox folder for cross-device sync. The paid App Store edition also opens the same folder on iPhone and iPad.
 
 **How does MiaoYan compare to Typora or Obsidian?**
 
-MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: macOS only, no plugin system.
+MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and uses minimal memory. Unlike Typora it is open source. Unlike Obsidian it does not use Electron. Trade-off: the open-source app is macOS only (the App Store edition adds iPhone and iPad), no plugin system.
 
 **Does MiaoYan support WYSIWYG editing?**
 
