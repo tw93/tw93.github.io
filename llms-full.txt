@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 167K+ stars, 17K+ forks, 13,360 followers
+- **GitHub**: 167K+ stars, 17K+ forks, 13,372 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,7 +33,7 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 61,993
+- Stars: 62,006
 - Forks: 12,765
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
@@ -116,7 +116,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,091
+- Stars: 6,095
 - Forks: 314
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -148,7 +148,11 @@ A: Kaku combines Alacritty's speed (GPU rendering), Kitty's feature set, and Wez
 #### README Excerpt
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/tw93/Kaku/main/assets/readme-logo.svg" width="120" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tw93/Kaku/main/assets/readme-logo.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tw93/Kaku/main/assets/readme-logo-light.svg" />
+    <img src="https://raw.githubusercontent.com/tw93/Kaku/main/assets/readme-logo-light.svg" alt="Kaku" width="120" />
+  </picture>
   <h1>Kaku</h1>
   <p><em>An AI-friendly Mac terminal with sensible defaults, ready out of the box.</em></p>
   <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
@@ -189,8 +193,6 @@ Open Kaku to set up shell integration, install missing optional tools with `kaku
 ###### Features
 
 - **Ready to use**: JetBrains Mono, automatic dark and light themes, copy on select, and familiar Mac shortcuts
-- **Tabs and panes**: Split your workspace, jump between tabs with Tab Navigator, and restore windows, panes, and working directories when you reopen Kaku
-- **Right-click menu**: Paste, search, open AI chat, split or close the clicked pane, and open or close tabs without remembering shortcuts
 
 [...truncated]
 
@@ -200,7 +202,7 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,669
+- Stars: 8,670
 - Forks: 516
 - Stack: Swift, AppKit
 - License: MIT
@@ -240,6 +242,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
   <a href="https://miaoyan.app/" target="_blank"><img src="https://raw.githubusercontent.com/tw93/MiaoYan/main/Resources/app.icon/Assets/43.png" width="138" /></a>
   <h1>MiaoYan</h1>
   <p><b>A native Mac app for local Markdown notes</b></p>
+  <p>MiaoYan is 妙言 in Chinese, words beyond words.</p>
   <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <a href="https://twitter.com/HiTw93" target="_blank"><img alt="Twitter Follow" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter"></a>
   <a href="https://t.me/+9f9gf4ZrFSQ2OWVl" target="_blank"><img alt="Telegram" src="https://img.shields.io/badge/chat-Telegram-blueviolet?style=flat-square&logo=Telegram"></a>
@@ -260,7 +263,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 
 ###### Installation
 
-1. **Mac App Store** (paid, automatic updates, includes the iPhone and iPad app):
+1. **App Store** (recommended, one purchase for iPhone, iPad and Mac, automatic updates):
 
    <a href="https://apps.apple.com/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
 
@@ -271,7 +274,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 
 3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+)
 
-Homebrew and GitHub Releases install this open-source app, which now receives fixes only. The App Store edition is developed separately and is where new features land.
+Homebrew and GitHub Releases install the same free, open-source Mac app, which keeps being developed. The App Store version is recommended: one purchase gets you MiaoYan on iPhone, iPad and Mac, all opening the same iCloud Drive folder, with automatic updates.
 
 ###### Sync with Nutstore or Other Cloud Drives
 
@@ -283,8 +286,8 @@ Homebrew and GitHub Releases install this open-source app, which now receives fi
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 69,876
-- Forks: 2,477
+- Stars: 69,938
+- Forks: 2,480
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -326,12 +329,14 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
 
 #### README Excerpt
 
+<p align="right"><b>macOS</b> · <a href="https://github.com/tw93/Mole/tree/windows">Windows</a></p>
+
 <div align="center">
   <h1>Mole</h1>
   <p><b>Deep clean, uninstall apps, optimize, analyze disk, and monitor your Mac. Free open-source CLI, plus a native Mac app.</b></p>
   <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a> · <a href="README_UA.md">Українська</a></p>
   <a href="https://github.com/tw93/mole/stargazers"><img src="https://img.shields.io/github/stars/tw93/mole?style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/tw93/mole/releases"><img src="https://img.shields.io/github/v/tag/tw93/mole?label=version&style=flat-square" alt="Version"></a>
+  <a href="https://github.com/tw93/mole/releases"><img src="https://img.shields.io/github/v/release/tw93/mole?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/tw93/mole/commits"><img src="https://img.shields.io/github/commit-activity/m/tw93/mole?style=flat-square" alt="Commits"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
@@ -355,7 +360,7 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
 
 ###### Quick Start
 
-Mole requires macOS 12 or newer and supports both Intel and Apple Silicon Macs. If Homebrew no longer supports your macOS version, use the script install instead. An experimental Windows version lives in the [windows branch](https://github.com/tw93/Mole/tree/windows).
+Mole requires macOS 12 or newer and supports both Intel and Apple Silicon Macs. If Homebrew no longer supports your macOS version, use the script install instead.
 
 **Install via Homebrew**
 
@@ -369,11 +374,9 @@ brew install mole
 curl -fsSL https://raw.githubusercontent.com/tw93/mole/main/install.sh | bash
 ```
 
-**Run**
+**On Windows** ([Windows CLI](https://github.com/tw93/Mole/tree/windows))
 
-```bash
-mo                           # Interactive menu
-mo clean                     # Deep cleanup + already-uninstalled app leftovers
+```powershell
 
 [...truncated]
 
@@ -431,7 +434,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,235
+- Stars: 7,253
 - Forks: 420
 - Stack: Markdown, Shell
 - License: MIT
@@ -501,7 +504,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,934
+- Stars: 11,938
 - Forks: 555
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -847,7 +850,7 @@ A: Both. His blog (tw93.fun) has posts in both languages. Project documentation 
 A: Pake uses Tauri (Rust + system WebView) instead of bundling Chromium. Apps are ~20x smaller and more resource-efficient.
 
 **Q: What is 潮流周刊 (Trendy Weekly)?**
-A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 284 issues since 2021.
+A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 285 issues since 2021.
 
 **Q: How do I install Pake?**
 A: Run `npm install -g pake-cli`, then `pake <url>` to turn any webpage into a desktop app. Pre-built popular apps are also available on the GitHub releases page.
@@ -922,6 +925,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第285期 - 陵水的云](https://weekly.tw93.fun/posts/285/) (2026-11-12)
 - [第284期 - 小资餐厅](https://weekly.tw93.fun/posts/284/) (2026-09-28)
 - [第283期 - 经典电影](https://weekly.tw93.fun/posts/283/) (2026-09-21)
 - [第282期 - 夜雾上海](https://weekly.tw93.fun/posts/282/) (2026-09-14)
@@ -933,12 +937,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第276期 - 树和建筑](https://weekly.tw93.fun/posts/276/) (2026-08-03)
 - [第275期 - 蓝色黄昏](https://weekly.tw93.fun/posts/275/) (2026-07-27)
 - [第274期 - 海阔天空](https://weekly.tw93.fun/posts/274/) (2026-07-20)
-- [第273期 - 一堆椅子](https://weekly.tw93.fun/posts/273/) (2026-07-13)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [285. Clouds of Lingshui](https://weekly.tw93.fun/en/posts/285/) (2026-11-12)
 - [284. A Stylish Restaurant](https://weekly.tw93.fun/en/posts/284/) (2026-09-28)
 - [283. Classic Films](https://weekly.tw93.fun/en/posts/283/) (2026-09-21)
 - [282. Night Fog Shanghai](https://weekly.tw93.fun/en/posts/282/) (2026-09-14)
@@ -950,7 +954,6 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [276. Trees and Buildings](https://weekly.tw93.fun/en/posts/276/) (2026-08-03)
 - [275. Blue Dusk](https://weekly.tw93.fun/en/posts/275/) (2026-07-27)
 - [274. Boundless Sky](https://weekly.tw93.fun/en/posts/274/) (2026-07-20)
-- [273. A Pile of Chairs](https://weekly.tw93.fun/en/posts/273/) (2026-07-13)
 
 ## Links
 
