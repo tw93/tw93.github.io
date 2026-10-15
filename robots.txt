@@ -18,9 +18,6 @@ Crawl-delay: 1
 Sitemap: https://tw93.fun/sitemap.xml
 Sitemap: https://tw93.fun/sitemap-ai.xml
 
-# Schema Map (NLWeb Schema Feeds): the structured data feeds on this site.
-Schemamap: https://tw93.fun/schema-map.xml
-
 # Agent entry points, listed here so a crawler that reads only robots.txt still
 # finds them:
 #   https://tw93.fun/llms.txt                    orientation, start here

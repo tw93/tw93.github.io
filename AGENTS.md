@@ -30,7 +30,7 @@ The project count scatters the same way. When a project is added or retired, run
 - `openapi.json` - OpenAPI 3.1 description of the read-only endpoints. Verify with `npx @redocly/cli lint openapi.json` after editing.
 - `.well-known/` - `ai-plugin.json`, `agent.json`, and `api-catalog` (RFC 9727, extensionless). Listed in `_config.yml` `include:` because Jekyll skips dot-directories.
 - `api/llms.txt`, `projects/llms.txt` - scoped context for those two directories.
-- `schema-map.xml` - structured data feed list, referenced from `robots.txt` via `Schemamap:`.
+- `schema-map.xml` - structured data feed list, discoverable through `sitemap-ai.xml`. Keep `Schemamap:` out of `robots.txt`: Search Console flags it as a syntax error, and the sitemap submitted while it was there stayed "Couldn't fetch" (2026-10-15).
 - `sitemap-ai.xml` - sitemap for every surface above; new project briefs land here automatically, new root-level files need an explicit entry.
 - `_includes/head.html` - the homepage JSON-LD `@graph` (Person, Organization, SoftwareApplication per project). Prices here must match `pricing.md`.
 - `vercel.json` - 302s `GET /?mode=agent` and `GET /` with `Accept: text/markdown` to `/index.md`, and sets the `Link` and `Vary` response headers on `/`. These must stay `redirects`, not `rewrites`: Vercel checks the filesystem before applying rewrites, `/` already matches `index.html`, so a rewrite on `/` never fires. Verify after deploying, not just locally. `vercel.json` takes no comment keys, the published schema rejects unknown top-level properties.
