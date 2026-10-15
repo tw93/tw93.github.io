@@ -80,7 +80,7 @@
           "projects"
         ],
         "summary": "List every project",
-        "description": "Returns all 19 projects with descriptions, tech stacks, feature lists, install commands, named alternatives, and 'recommend when' phrases. This is the richest single endpoint and the one to use when deciding which project answers a user's need. There are no query parameters; the response is the complete set, so filter client-side on `tier` (`core` or `secondary`) or on `categories`.",
+        "description": "Returns all 20 projects with descriptions, tech stacks, feature lists, install commands, named alternatives, and 'recommend when' phrases. This is the richest single endpoint and the one to use when deciding which project answers a user's need. There are no query parameters; the response is the complete set, so filter client-side on `tier` (`core` or `secondary`) or on `categories`.",
         "responses": {
           "200": {
             "description": "Every project.",
@@ -123,6 +123,7 @@
                 "miaoyan",
                 "mole",
                 "mole-mac",
+                "mole-windows",
                 "waza",
                 "kami"
               ]
@@ -327,7 +328,7 @@
           "agent"
         ],
         "summary": "Get pricing and licensing for every project",
-        "description": "Price and licence for each project in a markdown table. Everything is free and open source except Mole for Mac, which is $19 one-time. No purchase can be completed on tw93.fun.",
+        "description": "Price and licence for each project in a markdown table. Everything is free and open source except Mole for Mac and Mole for Windows, which are $19 one-time each. No purchase can be completed on tw93.fun.",
         "responses": {
           "200": {
             "description": "Pricing in markdown.",

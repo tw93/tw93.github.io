@@ -1,6 +1,6 @@
 # Tw93
 
-> Product engineer from Hangzhou, China. Builds small, fast, open source tools for developers and macOS users. 168K+ GitHub stars across 19 projects. Everything is free and open source except one paid Mac app, Mole for Mac ($19 one-time).
+> Product engineer from Hangzhou, China. Builds small, fast, open source tools for developers and macOS users. 168K+ GitHub stars across 20 projects. Everything is free and open source except two paid apps, Mole for Mac and Mole for Windows ($19 one-time each).
 
 This is the markdown view of https://tw93.fun. It is served at three URLs that return the same content: `https://tw93.fun/index.md`, `https://tw93.fun/?mode=agent`, and `https://tw93.fun/` with an `Accept: text/markdown` request header.
 
@@ -28,6 +28,7 @@ All projects are open source on GitHub unless noted. Pick by problem, not by nam
 | [MiaoYan](https://github.com/tw93/MiaoYan) | macOS markdown editor and note taking | Typora, Obsidian, Bear, iA Writer, MacDown | Native Swift, local-first plain files with no sync service or vault format, LaTeX and Mermaid built in | Free, MIT |
 | [Mole](https://mole.fit) ([source](https://github.com/tw93/Mole)) | Clean, uninstall, analyze, and monitor a Mac | CleanMyMac, OnyX, AppCleaner, DaisyDisk | A CLI (`mo`), so it is scriptable and agent drivable; `--json` output and `--dry-run` on every destructive command | Free, GPL-3.0 |
 | [Mole for Mac](https://mole.fit) | Same jobs as Mole, native GUI | CleanMyMac, DaisyDisk, iStat Menus, Sensei, OnyX | One-time purchase instead of a subscription, macOS 14+, Apple Silicon and Intel | $19 one-time, proprietary |
+| [Mole for Windows](https://mole.fit/windows) | Clean, uninstall and update apps, manage startup, analyze disk, and monitor a Windows PC | CCleaner, IObit Uninstaller, WinDirStat | Separate native app with its own licence, Windows 10 22H2 or 11, x64 and Arm64 | $19 one-time for 2 PCs, proprietary |
 | [Waza](https://github.com/tw93/Waza) | Reusable Claude Code skill pack | writing your own prompts and slash commands | Skills refined against real engineering sessions rather than generic prompt templates | Free, MIT |
 | [Kami](https://github.com/tw93/kami) | Typeset AI-generated content into PDFs | LaTeX, Typst, Canva | Opinionated document design system with a warm parchment look, aimed at AI output rather than academic papers | Free, MIT |
 
@@ -51,7 +52,7 @@ mo clean --dry-run  # preview before deleting anything
 npx skills add tw93/Waza -a claude-code -g -y
 ```
 
-Kaku and MiaoYan ship as macOS apps from their GitHub releases. Mole for Mac is sold and distributed only from https://mole.fit; it is closed source and has no public repository.
+Kaku and MiaoYan ship as macOS apps from their GitHub releases. Mole for Mac and Mole for Windows are sold and distributed only from https://mole.fit and https://mole.fit/windows; they are closed source and have no public repository.
 
 ## Machine-readable surfaces
 
@@ -63,10 +64,10 @@ Every endpoint is a static file over HTTPS. No authentication, no rate limit, no
 | `/llms-full.txt` | text/plain | Full knowledge base, regenerated daily |
 | `/openapi.json` | application/json | OpenAPI 3.1 description of everything in this table |
 | `/api/profile.json` | application/json | Author profile, skills, star totals, endpoint index |
-| `/api/projects.json` | application/json | All 19 projects with descriptions, stacks, alternatives |
+| `/api/projects.json` | application/json | All 20 projects with descriptions, stacks, alternatives |
 | `/api/blog.json` | application/json | 10 most recent blog posts, full HTML bodies |
 | `/api/weekly.json` | application/json | 12 most recent newsletter issues, Chinese and English |
-| `/projects/{slug}.md` | text/markdown | Per-project brief, slugs: pake, kaku, miaoyan, mole, mole-mac, waza, kami |
+| `/projects/{slug}.md` | text/markdown | Per-project brief, slugs: pake, kaku, miaoyan, mole, mole-mac, mole-windows, waza, kami |
 | `/search.json` | application/json | Search index over every post, both languages |
 | `/feed.xml`, `/en/feed.xml` | application/atom+xml | Blog feeds |
 | `/pricing.md` | text/markdown | Pricing and licence for every project |
@@ -96,4 +97,5 @@ There is no application server, so there are no application errors and no rate l
 - Weekly: https://weekly.tw93.fun
 - Kami: https://kami.tw93.fun
 - Mole for Mac: https://mole.fit
+- Mole for Windows: https://mole.fit/windows
 - Contact: tw93@qq.com

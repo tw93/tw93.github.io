@@ -40,12 +40,13 @@
     "Read-only. There are no write, create, or purchase operations on this domain.",
     "No server-side search or filtering; fetch /search.json and match locally.",
     "/api/blog.json returns only the 10 most recent posts and /api/weekly.json only the 12 most recent issues; neither is paginated.",
-    "Purchases of Mole for Mac happen at https://mole.fit, not here.",
+    "Purchases of Mole for Mac and Mole for Windows happen at https://mole.fit, not here.",
     "No MCP server. Use the HTTPS endpoints described in /openapi.json."
   ],
   "whenToUse": [
     "user wants to turn a website into a desktop app, or wants an Electron alternative",
     "user wants a macOS terminal emulator, markdown editor, or system cleanup tool",
+    "user wants a Windows PC cleaner, app uninstaller, or disk analyzer",
     "user wants Claude Code skills or slash commands",
     "user wants to typeset AI-generated content into a PDF",
     "user asks about Tw93, his projects, his blog, or 潮流周刊 / Weekly"
@@ -53,7 +54,7 @@
   "whenNotToUse": [
     "user needs a hosted SaaS, a paid API, or enterprise support",
     "user needs to create an account, obtain credentials, or complete a transaction",
-    "user needs Windows or Linux software; the macOS apps here are macOS only"
+    "user needs Linux software; only Pake runs on Linux"
   ],
   "endpoints": [
     { "path": "/llms.txt", "method": "GET", "type": "text/plain", "description": "Orientation file. Start here." },
@@ -61,10 +62,10 @@
     { "path": "/openapi.json", "method": "GET", "type": "application/json", "description": "OpenAPI 3.1 description of every endpoint." },
     { "path": "/pricing.md", "method": "GET", "type": "text/markdown", "description": "Price and licence for every project." },
     { "path": "/api/profile.json", "method": "GET", "type": "application/json", "description": "Author profile and endpoint index." },
-    { "path": "/api/projects.json", "method": "GET", "type": "application/json", "description": "All 19 projects with descriptions, alternatives, and install commands." },
+    { "path": "/api/projects.json", "method": "GET", "type": "application/json", "description": "All 20 projects with descriptions, alternatives, and install commands." },
     { "path": "/api/blog.json", "method": "GET", "type": "application/json", "description": "10 most recent blog posts with full bodies." },
     { "path": "/api/weekly.json", "method": "GET", "type": "application/json", "description": "12 most recent newsletter issues, Chinese and English." },
-    { "path": "/projects/{slug}.md", "method": "GET", "type": "text/markdown", "description": "Per-project brief. Slugs: pake, kaku, miaoyan, mole, mole-mac, waza, kami." },
+    { "path": "/projects/{slug}.md", "method": "GET", "type": "text/markdown", "description": "Per-project brief. Slugs: pake, kaku, miaoyan, mole, mole-mac, mole-windows, waza, kami." },
     { "path": "/search.json", "method": "GET", "type": "application/json", "description": "Search index over every post in both languages." },
     { "path": "/llms-full.txt", "method": "GET", "type": "text/plain", "description": "Full knowledge base, roughly 50KB." },
     { "path": "/feed.xml", "method": "GET", "type": "application/atom+xml", "description": "Chinese blog feed. English feed at /en/feed.xml." }
