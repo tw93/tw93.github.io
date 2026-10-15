@@ -30,7 +30,26 @@
     {% endif %}
   {% endif %}
   <title>{{ document_title | escape }}</title>
-  <meta name="description" content="{{ seo_description | strip_html | truncate: 160 | escape }}">
+  {%- comment -%} Cut long summaries at a word boundary on English pages; Chinese has no word gaps, so it is cut by character. {%- endcomment -%}
+  {%- assign meta_description = seo_description | strip_html | strip_newlines | strip -%}
+  {%- if meta_description.size > 160 -%}
+    {%- if is_english_surface -%}
+      {%- assign meta_words = meta_description | slice: 0, 161 | split: " " | pop -%}
+      {%- assign meta_description = meta_words | join: " " -%}
+      {%- assign meta_last = meta_description | slice: -1 -%}
+      {%- if meta_last == "," or meta_last == ";" or meta_last == ":" -%}
+        {%- assign meta_keep = meta_description.size | minus: 1 -%}
+        {%- assign meta_description = meta_description | slice: 0, meta_keep -%}
+        {%- assign meta_last = "" -%}
+      {%- endif -%}
+      {%- unless meta_last == "." or meta_last == "!" or meta_last == "?" -%}
+        {%- assign meta_description = meta_description | append: "…" -%}
+      {%- endunless -%}
+    {%- else -%}
+      {%- assign meta_description = meta_description | slice: 0, 159 | append: "…" -%}
+    {%- endif -%}
+  {%- endif %}
+  <meta name="description" content="{{ meta_description | escape }}">
   {% if page.tags %}
   <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}">
   {% endif %}
@@ -317,7 +336,7 @@
         "url": "https://github.com/tw93/Pake",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
-        "description": "Turn any web page into a lightweight desktop app with Rust and Tauri v2. Builds are typically under 5MB against 80MB+ for Electron.",
+        "description": "Turn any web page into a lightweight desktop app with Rust and Tauri v2. Builds are typically under 10MB, nearly 20x smaller than Electron.",
         "license": "https://spdx.org/licenses/GPL-3.0-only.html",
         "isAccessibleForFree": true,
         "author": { "@id": "{{ site.url }}/#person" },

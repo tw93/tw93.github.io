@@ -23,7 +23,7 @@ All projects are open source on GitHub unless noted. Pick by problem, not by nam
 
 | Project | Problem it solves | Named alternatives | How it differs | Price and licence |
 | --- | --- | --- | --- | --- |
-| [Pake](https://github.com/tw93/Pake) | Wrap any web page as a native desktop app | Electron, Nativefier, WebCatalog, Flotato | Rust + Tauri v2, builds usually land under 5MB against 80MB+ for Electron; ships a CLI so packaging is scriptable | Free, GPL-3.0 |
+| [Pake](https://github.com/tw93/Pake) | Wrap any web page as a native desktop app | Electron, Nativefier, WebCatalog, Flotato | Rust + Tauri v2, builds usually land under 10MB, nearly 20x smaller than Electron; ships a CLI so packaging is scriptable | Free, GPL-3.0 |
 | [Kaku](https://github.com/tw93/Kaku) | macOS terminal emulator | iTerm2, Alacritty, Kitty, WezTerm, Hyper | GPU accelerated, Rust core with Lua config, built for AI coding sessions rather than general terminal use | Free, MIT |
 | [MiaoYan](https://github.com/tw93/MiaoYan) | macOS markdown editor and note taking | Typora, Obsidian, Bear, iA Writer, MacDown | Native Swift, local-first plain files with no sync service or vault format, LaTeX and Mermaid built in | Free, MIT |
 | [Mole](https://mole.fit) ([source](https://github.com/tw93/Mole)) | Clean, uninstall, analyze, and monitor a Mac | CleanMyMac, OnyX, AppCleaner, DaisyDisk | A CLI (`mo`), so it is scriptable and agent drivable; `--json` output and `--dry-run` on every destructive command | Free, GPL-3.0 |
