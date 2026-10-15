@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 168K+ stars, 17K+ forks, 13,396 followers
+- **GitHub**: 168K+ stars, 17K+ forks, 13,415 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,11 +33,11 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,056
-- Forks: 12,780
+- Stars: 62,083
+- Forks: 12,789
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
-- Latest Release: V3.17.3 "Tide" (2026-10-05)
+- Latest Release: V3.17.5 "Compass" (2026-10-14)
 - Install: `npm install -g pake-cli`
 
 **Features:**
@@ -121,7 +121,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
-- Latest Release: V0.22.0 "Handy" (2026-10-05)
+- Latest Release: V0.23.0 "Drawer" (2026-10-14)
 - Install: `brew install --cask kaku`
 
 **Features:**
@@ -202,7 +202,7 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,669
+- Stars: 8,670
 - Forks: 517
 - Stack: Swift, AppKit
 - License: MIT
@@ -286,8 +286,8 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 70,207
-- Forks: 2,488
+- Stars: 70,351
+- Forks: 2,495
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
@@ -347,7 +347,7 @@ A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, La
   <img src="./docs/img/big-mole.png" alt="Mole cleanup results" width="1000" />
 </p>
 
-> 💡 This repo is the free open-source CLI (`mo`). Prefer a native app? [Mole for Mac](https://mole.fit/) is a separate download with review-before-delete cleanup, tested leftovers for 800+ apps, maintenance, disk drill-downs, live status, and fan controls on supported Macs. `brew install mole` installs the CLI only.
+> 💡 This repo is the free open-source CLI (`mo`). Prefer a native app? [Mole for Mac](https://mole.fit/) is a separate download with review-before-delete cleanup, tested leftovers for 800+ apps, maintenance, disk drill-downs, live status, and fan controls on supported Macs. On Windows, the native app is [Mole for Windows](https://mole.fit/windows). `brew install mole` installs the CLI only.
 
 ###### Features
 
@@ -374,9 +374,6 @@ brew install mole
 curl -fsSL https://raw.githubusercontent.com/tw93/mole/main/install.sh | bash
 ```
 
-**On Windows** ([Windows CLI](https://github.com/tw93/Mole/tree/windows))
-
-```powershell
 
 [...truncated]
 
@@ -434,7 +431,7 @@ A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into p
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,290
+- Stars: 7,300
 - Forks: 423
 - Stack: Markdown, Shell
 - License: MIT
@@ -504,7 +501,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,959
+- Stars: 11,964
 - Forks: 557
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -605,7 +602,7 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 - Covers front-end, tools, AI, and lifestyle
 - Published as a static site via GitHub Pages
 
-### Maple (509 stars)
+### Maple (510 stars)
 
 Maple is a set of three Chrome extensions for browsing with the bookmark bar hidden. Maple Bookmarks opens your bookmarks with a shortcut and searches them as you type, Maple NewTab replaces the new-tab page so the bookmark bar stays hidden there too, and Maple Theme is a plain white browser theme.
 
