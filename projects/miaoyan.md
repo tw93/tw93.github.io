@@ -1,10 +1,10 @@
 # MiaoYan
 
-> Lightweight, local-first Markdown note-taking app for macOS.
+> Native Markdown note app for Mac, iPhone and iPad, with notes kept as plain Markdown files in a folder you choose.
 
 Website: https://miaoyan.app
 
-MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub stars. MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores files in a folder you choose, collects no data, and combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, and a command-line interface. Alongside the open-source macOS app, an App Store edition is available for Mac, iPhone, and iPad.
+MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub stars. MiaoYan (妙言) is a native Markdown note app. The recommended App Store edition (https://miaoyan.app) is one purchase for Mac, iPhone and iPad. The free, open-source Mac app (MIT, Swift and AppKit) installs from Homebrew or GitHub Releases. Notes stay as plain Markdown files in a folder you choose, no data is collected, and the Mac app combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, export, and a command-line interface.
 
 License: MIT
 
@@ -17,6 +17,7 @@ Latest release: V4.5.0 (2026-09-25)
 - Split editor and preview with bidirectional scroll sync
 - Wikilink backlinks, LaTeX, and Mermaid diagrams
 - Version history, auto-formatting, and note CLI
+- Export to HTML, PDF, and image
 - Dark mode and three-column layout
 
 ## Alternatives Comparison
@@ -35,7 +36,7 @@ MiaoYan is a native macOS app (Swift + AppKit), so it launches instantly and use
 
 ## Requirements
 
-macOS 12.0 or later.
+macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
 
 ## Install
 
