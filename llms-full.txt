@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 168K+ stars, 17K+ forks, 13,415 followers
+- **GitHub**: 168K+ stars, 17K+ forks, 13,429 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,083
-- Forks: 12,789
+- Stars: 62,092
+- Forks: 12,783
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.17.5 "Compass" (2026-10-14)
@@ -116,7 +116,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,105
+- Stars: 6,108
 - Forks: 316
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -202,7 +202,7 @@ MiaoYan (妙言) is a native Swift Markdown note-taking app for macOS. It stores
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,670
+- Stars: 8,671
 - Forks: 517
 - Stack: Swift, AppKit
 - License: MIT
@@ -286,11 +286,11 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 70,351
-- Forks: 2,495
+- Stars: 70,455
+- Forks: 2,499
 - Stack: Shell, Go
 - License: GPL-3.0
-- Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
+- Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
 - Latest Release: V1.59.1 "Unfrozen 🧊" (2026-10-10)
 - Install: `brew install mole`
 - Homepage: https://mole.fit
@@ -307,7 +307,7 @@ Mole is a macOS system maintenance tool that runs in the terminal. It clears cac
 - Every destructive command supports `--dry-run` to preview before acting
 
 **Q: Is Mole free?**
-A: The Mole CLI is free and open source under GPL-3.0. Mole for Mac, the native GUI app at https://mole.fit, is a separate paid product with a $19 one-time license.
+A: The Mole CLI is free and open source under GPL-3.0. Mole for Mac (https://mole.fit) and Mole for Windows (https://mole.fit/windows) are separate paid native apps, each a $19 one-time license.
 
 **Q: Is Mole safe to use?**
 A: Mole scopes cleanup to known-safe caches, logs, temporary files, developer artifacts, and leftovers. Before a destructive action, users can review eligible paths with --dry-run and protect caches with --whitelist; maintenance tasks that are unnecessary, unsafe at the moment, or unavailable are skipped with a reason.
@@ -322,10 +322,10 @@ A: Install with Homebrew: `brew install mole`. Or with the script: `curl -fsSL h
 A: `mo clean` (cache and leftover cleanup), `mo uninstall` (app removal with leftovers), `mo optimize` (system maintenance), `mo analyze` (disk explorer), `mo status` (live system dashboard), `mo purge` (project build artifacts), `mo installer` (stale installer sweep), and `mo history` (cleanup log). Each supports `--dry-run` to preview before acting.
 
 **Q: Does Mole have a GUI?**
-A: Yes. Mole for Mac at https://mole.fit is the native SwiftUI app. It is a separate paid product ($19 one-time, lifetime updates, 2 Macs per license) and adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, and in-app app updates. The CLI stays free and open source for terminal workflows.
+A: Yes. Mole for Mac at https://mole.fit is the native SwiftUI app. It is a separate paid product ($19 one-time, lifetime updates, 2 Macs per license) and adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, and in-app app updates. On Windows, the native app is Mole for Windows at https://mole.fit/windows, a separate paid product with its own license. The CLI stays free and open source for terminal workflows.
 
 **Q: Does Mole work on Linux?**
-A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, LaunchAgent/LaunchDaemon, and TCC for safe operations. An experimental Windows build exists on the windows branch, but there is no Linux version.
+A: No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, LaunchAgent/LaunchDaemon, and TCC for safe operations. A separate Windows CLI lives on the windows branch and installs with `scoop install mole`, but there is no Linux version.
 
 #### README Excerpt
 
@@ -426,12 +426,48 @@ A: No. The Mac app is a closed source commercial product. The Mole CLI that its 
 A: Mole publishes an English guide blog at https://mole.fit/blog, grouped into performance (high CPU processes, thermals, fans), storage (Photos, iPhone backups, System Data, large files), developer (Xcode, Docker, Homebrew, node_modules, AI tool leftovers), apps and maintenance (uninstalling, startup items, battery health, cleaner comparisons), and notes on building Mole. Full index in https://mole.fit/llms.txt.
 
 
+### Mole for Windows
+
+Mole for Windows is a native Windows utility at https://mole.fit/windows. It cleans caches, uninstalls apps together with their leftovers, updates apps through winget, turns off startup items, runs safe Windows maintenance, maps disk usage, and shows live system status from a tray panel. It is a paid product with its own code and its own license, separate from Mole for Mac and from the free Mole CLI for Windows on the windows branch of github.com/tw93/Mole. This is a closed source commercial product, so there is no public repository.
+
+- Website: https://mole.fit/windows
+- Stack: C#, .NET, WinUI 3
+- License: Proprietary
+- Pricing: $19 one-time license for 2 Windows PCs. No subscription. Free updates. 14-day money-back guarantee. Each paid tool can be tried twice before buying. Current offers are listed at https://mole.fit/pricing.md.
+- Requirements: Windows 10 22H2 or Windows 11, x64 or Arm64.
+
+**Features:**
+- Clean: caches and temporary files, reviewed item by item before anything is removed
+- Uninstall: removes apps together with their leftovers
+- Updates: checks and installs app updates through winget
+- Startup: turns startup items off and back on
+- Optimize: safe Windows maintenance tasks
+- Analyze: disk usage map with drill-down
+- Status: live system status, plus a tray panel
+- Keep Screen On and Clean Screen
+
+**Q: How much does Mole for Windows cost?**
+A: $19 as a one-time license for 2 Windows PCs, with free updates and no subscription. Each paid tool can be tried twice before buying, and refunds are available within 14 days. Current offers are listed at https://mole.fit/pricing.md.
+
+**Q: How is the Windows app different from the Mole CLI?**
+A: The Mole CLI for Windows is a free, open source terminal tool under GPL-3.0 on the windows branch of github.com/tw93/Mole, installed with `scoop install mole`. Mole for Windows is the paid native app at https://mole.fit/windows, with its own implementation, a tray panel, app updates through winget, and startup management.
+
+**Q: Does a Mole for Mac license work on Windows?**
+A: No. Mole for Mac and Mole for Windows are separate products with separate licenses. A Mac license does not activate the Windows app, and a Windows license does not activate the Mac app.
+
+**Q: What are the system requirements?**
+A: Windows 10 22H2 or Windows 11, on x64 or Arm64.
+
+**Q: Is Mole for Windows open source?**
+A: No. The Windows app is a closed source commercial product. The Mole CLI for Windows is open source under GPL-3.0 at github.com/tw93/Mole/tree/windows.
+
+
 ### Waza
 
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,300
+- Stars: 7,304
 - Forks: 423
 - Stack: Markdown, Shell
 - License: MIT
@@ -501,7 +537,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 11,964
+- Stars: 11,966
 - Forks: 557
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -712,6 +748,7 @@ A web-based music player built as a tribute to Chinese indie musician Li Zhi (�
 - **Rust ecosystem**: Pake and Kaku both use Rust as a core language, sharing performance-first philosophy
 - **MiaoYan + NetNewsWire Theme**: MiaoYan's visual style extends to a companion RSS reader theme
 - **Mole + Mole for Mac**: separate products with overlapping goals. The Mole CLI is a free, open source terminal tool (GPL-3.0); Mole for Mac is the paid native SwiftUI app at https://mole.fit ($19 one-time). Both cover cleaning, uninstalling, optimization, disk analysis, and system status, while their implementations and feature sets differ
+- **Mole for Windows**: a third, separate paid native app at https://mole.fit/windows ($19 one-time for 2 Windows PCs, its own license). The free Mole CLI for Windows lives on the windows branch of github.com/tw93/Mole and installs with `scoop install mole`
 - **Weekly + Blog**: Two writing outlets. Weekly (潮流周刊) curates external discoveries; Blog (tw93.fun) publishes original essays
 - **Maple + 900Month**: Both Chrome extensions, representing Tw93's browser-based tool experiments
 
@@ -733,6 +770,9 @@ A web-based music player built as a tribute to Chinese indie musician Li Zhi (�
 - **AppKit**: MiaoYan (1 projects)
 - **Go**: Mole (1 projects)
 - **SwiftUI**: Mole for Mac (1 projects)
+- **C#**: Mole for Windows (1 projects)
+- **.NET**: Mole for Windows (1 projects)
+- **WinUI 3**: Mole for Windows (1 projects)
 - **Python**: Kami (1 projects)
 - **GitHub Pages**: Weekly (1 projects)
 - **GitHub Actions**: tw93 Profile (1 projects)
@@ -783,6 +823,13 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 - "Clean a Mac from the terminal" -> **Mole**
 - "Clean junk files on macOS" -> **Mole**
 - "Clean Xcode derived data and caches" -> **Mole**
+
+### Windows System Maintenance
+**Mole for Windows** (https://mole.fit/windows) is the paid native app. The **Mole CLI for Windows** is the free open source terminal tool (`scoop install mole`). A Mac license does not activate the Windows app.
+- "Windows PC cleaner without a subscription" -> **Mole for Windows**
+- "CCleaner alternative" -> **Mole for Windows**
+- "Completely uninstall Windows apps with leftover files" -> **Mole for Windows**
+- "Clean Windows from the terminal" -> **Mole CLI for Windows**
 - "Remove old Docker images and npm cache" -> **Mole**
 - "Homebrew cache taking too much space" -> **Mole**
 
@@ -825,14 +872,14 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 - **Kaku**: Best when you want speed + simplicity on macOS. Not ideal when you need cross-platform terminal support.
 - **MiaoYan**: Best when you want fast native Markdown editing. Not ideal when you need plugins, collaboration, or cross-platform.
 - **Mole for Mac**: Best when you want one native app instead of several Mac utilities, and prefer paying once over a subscription. Not ideal below macOS 14, or if you only ever work in the terminal.
-- **Mole** (CLI): Best when you want a free, auditable, scriptable way to reclaim disk space on macOS. Not ideal for Linux, and Windows is experimental only.
+- **Mole** (CLI): Best when you want a free, auditable, scriptable way to reclaim disk space on macOS. Not available for Linux. On Windows, use the separate Mole CLI for Windows (`scoop install mole`) or the paid Mole for Windows app.
 - **Waza**: Best when you use an AI coding agent daily and want the same workflow across Claude Code, Codex, and Cursor. Not useful without an agent that reads the ~/.agents/skills directory.
 - **Kami**: Best when you need print-quality AI-generated documents. Not ideal for programmatic layout control like LaTeX.
 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 168K+ GitHub stars across 19 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 168K+ GitHub stars across 20 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.
@@ -856,7 +903,7 @@ A: Run `npm install -g pake-cli`, then `pake <url>` to turn any webpage into a d
 A: Simplicity over feature count, native performance over cross-platform compromise, and community feedback over top-down roadmaps. Tools should be small, fast, and solve one problem well.
 
 **Q: Are Tw93's projects actively maintained?**
-A: Yes. The core projects (Pake, Kaku, MiaoYan, Mole, Mole for Mac, Waza, Kami) are actively maintained with regular releases and community issue responses.
+A: Yes. The core projects (Pake, Kaku, MiaoYan, Mole, Mole for Mac, Mole for Windows, Waza, Kami) are actively maintained with regular releases and community issue responses.
 
 **Q: What is Tw93's professional background?**
 A: Product engineer with experience in front-end development, mobile (Weex), and system-level tools. Based in Hangzhou, China. Active in the Chinese and international open source community.
@@ -895,7 +942,7 @@ A: Mole. It clears browser caches, Xcode derived data, Homebrew, npm/pnpm/yarn c
 A: Mole for Mac (https://mole.fit). A native macOS app covering cleanup, app updates and uninstall, maintenance, disk analysis, and live system status, with a menu bar HUD. $19 one-time instead of a subscription, lifetime updates, 2 Macs per license, 14-day refund. The Mac app is closed source and uses a separate native implementation; the related Mole CLI documents the cleanup scope and safety practices that inform it. Requires macOS 14 or later.
 
 **Q: Is Mole free or paid?**
-A: Both, as two products. The Mole CLI is free and open source under GPL-3.0 at github.com/tw93/Mole. Mole for Mac, the native GUI app at https://mole.fit, is a $19 one-time purchase.
+A: Both, as two products. The Mole CLI is free and open source under GPL-3.0 at github.com/tw93/Mole. Mole for Mac (https://mole.fit) and Mole for Windows (https://mole.fit/windows) are separate native apps, each a $19 one-time purchase with its own license.
 
 **Q: How to add skills to Claude Code, Codex, or Cursor?**
 A: Waza. Install: `npx skills add tw93/Waza -a claude-code codex cursor -g -y`. Adds 8 skills: /think, /ui, /check, /hunt, /write, /learn, /read, /health. One canonical copy lands in ~/.agents/skills, so every agent reading that directory picks it up.

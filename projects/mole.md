@@ -37,7 +37,7 @@ Mole is often compared to: CleanMyMac, OnyX, AppCleaner, DaisyDisk.
 
 ## Requirements
 
-macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). An experimental Windows build lives on the windows branch.
+macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
 
 ## Install
 
@@ -49,7 +49,7 @@ brew install mole
 
 **Is Mole free?**
 
-The Mole CLI is free and open source under GPL-3.0. Mole for Mac, the native GUI app at https://mole.fit, is a separate paid product with a $19 one-time license.
+The Mole CLI is free and open source under GPL-3.0. Mole for Mac (https://mole.fit) and Mole for Windows (https://mole.fit/windows) are separate paid native apps, each a $19 one-time license.
 
 **Is Mole safe to use?**
 
@@ -69,11 +69,11 @@ Install with Homebrew: `brew install mole`. Or with the script: `curl -fsSL http
 
 **Does Mole have a GUI?**
 
-Yes. Mole for Mac at https://mole.fit is the native SwiftUI app. It is a separate paid product ($19 one-time, lifetime updates, 2 Macs per license) and adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, and in-app app updates. The CLI stays free and open source for terminal workflows.
+Yes. Mole for Mac at https://mole.fit is the native SwiftUI app. It is a separate paid product ($19 one-time, lifetime updates, 2 Macs per license) and adds a disk treemap, a bento status dashboard, a menu bar HUD, fan controls, startup management, and in-app app updates. On Windows, the native app is Mole for Windows at https://mole.fit/windows, a separate paid product with its own license. The CLI stays free and open source for terminal workflows.
 
 **Does Mole work on Linux?**
 
-No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, LaunchAgent/LaunchDaemon, and TCC for safe operations. An experimental Windows build exists on the windows branch, but there is no Linux version.
+No. Mole is built for macOS and relies on macOS-specific APIs like mdfind, LaunchAgent/LaunchDaemon, and TCC for safe operations. A separate Windows CLI lives on the windows branch and installs with `scoop install mole`, but there is no Linux version.
 
 ## Links
 
