@@ -6,7 +6,7 @@ Pake is an open source project by [Tw93](https://tw93.fun) with 62.1K GitHub sta
 
 License: GPL-3.0
 
-Latest release: V3.17.5 (2026-10-14)
+Latest release: V3.17.6 (2026-10-17)
 
 ## Key Features
 
