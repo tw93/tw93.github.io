@@ -8,7 +8,7 @@ Kaku is an open source project by [Tw93](https://tw93.fun) with 6.1K GitHub star
 
 License: MIT
 
-Latest release: V0.25.0 (2026-10-18)
+Latest release: V0.26.0 (2026-10-20)
 
 ## Key Features
 
