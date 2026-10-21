@@ -19,7 +19,7 @@ For a single index of these projects, visit [**Yobi**](https://yobi.tw93.fun/). 
 ## Open Source Family
 
 <figure class="center">
-  <img src="https://gw.alipayobjects.com/zos/k/sa/family.png" alt="Tw93 Open Source Family" style="width:100%">
+  <img src="https://cdn.tw93.fun/images/open-source-family-20261021.png" alt="Tw93 Open Source Family" style="width:100%">
 </figure>
 
 I like to hack on new projects during long holidays, so most of these "family members" were born on Spring Festival, Labor Day, or National Day breaks:

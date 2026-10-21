@@ -18,7 +18,7 @@ summary: Tw93 是来自杭州的产品工程师，长期创作简洁、好用的
 ## 开源小家庭
 
 <figure class="center">
-  <img src="https://gw.alipayobjects.com/zos/k/sa/family.png" alt="Tw93 Open Source Family" style="width:100%">
+  <img src="https://cdn.tw93.fun/images/open-source-family-20261021.png" alt="Tw93 Open Source Family" style="width:100%">
 </figure>
 
 我喜欢在长假里折腾新项目，于是这些"家人"基本都诞生在春节、五一、国庆这些假期里：
