@@ -4,11 +4,11 @@ title: "You Didn't Know GEO: AI Visibility Principles, Practices, and Trade-offs
 poem: 桃李不言，下自成蹊
 date: 2026-05-01 16:00:00
 summary: Friends told me AI was recommending my projects unprompted. I hadn't done anything special, so I spent an hour structuring my content for AI readability. What I did, what works, and what to skip.
-feature: https://cdn.tw93.fun/blog/pic/OMaEoa53.png
+feature: https://cdn.tw93.fun/blog/pic/ai-visibility-cover-words-en.png
 categories: Share
 ---
 
-<img src="https://cdn.tw93.fun/blog/pic/OMaEoa53.png" alt="AI visibility cover" width="1000" />
+<img src="https://cdn.tw93.fun/blog/pic/ai-visibility-cover-words-en.png" alt="AI visibility cover" width="1000" />
 
 ## One Hour to Make AI Find Your Content
 
