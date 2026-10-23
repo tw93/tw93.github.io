@@ -17,6 +17,7 @@ import io
 import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -36,16 +37,24 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTM
 
 
 def post_images() -> set[str]:
+    # Older posts write {{ site.assetUrl }}name.png; expand it the way Liquid
+    # does so the key matches the src the build renders.
+    asset_url = re.search(r"^assetUrl:\s*(\S+)", (ROOT / "_config.yml").read_text(encoding="utf-8"), re.M)
     urls: set[str] = set()
     for folder in SOURCES:
         for path in (ROOT / folder).glob("*.md"):
             text = path.read_text(encoding="utf-8")
+            if asset_url:
+                text = re.sub(r"\{\{\s*site\.assetUrl\s*\}\}", asset_url.group(1), text)
             urls.update(MARKDOWN_IMG.findall(text))
             urls.update(HTML_IMG.findall(text))
     return {u.replace("&amp;", "&") for u in urls if u.startswith(("http", "/"))}
 
 
 def read_bytes(url: str) -> bytes:
+    own = re.match(r"^(?:https?:)?//(?:tw93\.fun|tw93\.github\.io)(/images/.*)$", url)
+    if own:
+        url = urllib.parse.unquote(own.group(1))
     if url.startswith("//"):
         url = "https:" + url
     elif url.startswith("/"):

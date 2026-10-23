@@ -1,4 +1,5 @@
 require 'cgi'
+require 'set'
 
 module Jekyll
   module CDNImageFilter
@@ -37,6 +38,8 @@ module Jekyll
       "#{url}#{separator}x-oss-process=image/auto-orient,1/resize,w_2000/format,webp"
     end
 
+    UNSIZED = Set.new
+
     # Add width and height from _data/image_sizes.json (written by
     # scripts/image_sizes.py) so the browser reserves the image's box before it
     # loads instead of growing from zero height. CSS keeps max-width: 100% and
@@ -45,7 +48,10 @@ module Jekyll
     def self.with_size(img_tag, src, sizes)
       return img_tag if sizes.nil? || img_tag =~ /\sheight=/i
       size = sizes[CGI.unescapeHTML(src)]
-      return img_tag unless size
+      unless size
+        UNSIZED << src if src.start_with?('http', '/')
+        return img_tag
+      end
       w, h, fluid = size
       if (m = img_tag.match(/\swidth=["']?(\d+)/i))
         img_tag.sub(/<img\b/i, %(<img height="#{(m[1].to_i * h.to_f / w).round}"))
@@ -83,3 +89,13 @@ module Jekyll
 end
 
 Liquid::Template.register_filter(Jekyll::CDNImageFilter)
+
+# Name the images that render without a reserved box, so a post pushed without
+# running scripts/image_sizes.py shows up in the build log, Vercel's included.
+Jekyll::Hooks.register :site, :post_render do
+  unsized = Jekyll::CDNImageFilter::UNSIZED
+  next if unsized.empty?
+  Jekyll.logger.warn 'Image sizes:', "#{unsized.size} image(s) have no recorded size; run python3 scripts/image_sizes.py"
+  unsized.first(10).each { |src| Jekyll.logger.warn '', src }
+  unsized.clear
+end
