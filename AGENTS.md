@@ -71,6 +71,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 - Preserve frontmatter fields and date semantics.
 - PPT posts use `layout: ppt`; old dates can intentionally hide slides from the normal feed.
 - Keep image paths compatible with the CDN image filter.
+- After adding or replacing images in a post, run `python3 scripts/image_sizes.py`: it records each image's pixel size in `_data/image_sizes.json`, and `cdn_image_filter` writes them as `width`/`height` so the browser reserves the box before the image loads (224 of 232 sampled images used to sit at zero height until they arrived). The build never fetches images; an unrecorded image just renders without the placeholder. SVGs with only a viewBox are stored with a third value and get `style="width: 100%"` to keep filling the column. `--check` lists unrecorded images. Detect SVG by content, not by searching for `<svg`: a PNG's metadata can hold SVG text, which once recorded 50 images as 716x716.
 
 ## Verification
 
@@ -78,6 +79,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 - Workflow/data sync changes: inspect the matching GitHub Actions workflow and required secrets before proposing publication.
 - Local visual checks: run `npm run dev` and inspect the affected page.
 - Responsive changes: check both sides of every breakpoint, not just a narrow and a wide viewport. The useful widths are 393, 744, 768, 820, 999, 1024, 1343, 1366, 1408 and 1512, across the home list, a post, `/about.html` and `/404.html`. Assert `document.documentElement.scrollWidth === clientWidth` on each; three separate sideways-scroll bugs lived at 393, 999 and 1408 while the extremes looked fine.
+- Image changes: `python3 scripts/image_sizes.py --check` reports every post image with a recorded size.
 - Frontmatter edits: confirm the page builds and appears in the expected language/feed. `python3 scripts/check_seo_copy.py` checks that every post has its own summary in the file's language. It does not enforce a character count.
 - Documentation-only changes: check links and commands.
 
