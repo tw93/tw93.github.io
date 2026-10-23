@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 170K+ stars, 17K+ forks, 13,530 followers
+- **GitHub**: 170K+ stars, 17K+ forks, 13,545 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,245
-- Forks: 12,803
+- Stars: 62,258
+- Forks: 12,811
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.17.6 "Clearance" (2026-10-17)
@@ -117,12 +117,12 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,139
-- Forks: 320
+- Stars: 6,146
+- Forks: 323
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
-- Latest Release: V0.26.0 "Bridge" (2026-10-20)
+- Latest Release: V0.26.1 "Steady" (2026-10-22)
 - Install: `brew install --cask kaku`
 
 **Features:**
@@ -155,7 +155,7 @@ A: Kaku combines Alacritty's speed (GPU rendering), Kitty's feature set, and Wez
     <img src="https://raw.githubusercontent.com/tw93/Kaku/main/assets/readme-logo-light.svg" alt="Kaku" width="120" />
   </picture>
   <h1>Kaku</h1>
-  <p><em>An AI-friendly Mac terminal with sensible defaults, ready out of the box.</em></p>
+  <p><em>A modern Mac terminal that looks good, runs fast, and works with AI out of the box.</em></p>
   <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <p>
     <a href="https://kaku.fun">Website</a> ·
@@ -163,7 +163,7 @@ A: Kaku combines Alacritty's speed (GPU rendering), Kitty's feature set, and Wez
     <a href="https://kaku.fun/compare">Compare</a> ·
     <a href="https://github.com/tw93/Kaku/releases/latest">Download</a>
   </p>
-  <a href="https://kaku.fun"><img src="https://img.shields.io/badge/website-kaku.fun-1B365D?style=flat-square" alt="Website"></a>
+  <a href="https://kaku.fun"><img src="https://img.shields.io/badge/website-kaku.fun-287A3D?style=flat-square" alt="Website"></a>
   <a href="https://github.com/tw93/Kaku/stargazers"><img src="https://img.shields.io/github/stars/tw93/Kaku?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/tw93/Kaku/releases"><img src="https://img.shields.io/github/v/tag/tw93/Kaku?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
@@ -179,7 +179,7 @@ A: Kaku combines Alacritty's speed (GPU rendering), Kitty's feature set, and Wez
 
 Kaku (書く, かく) means "to write" in Japanese. It is a macOS terminal based on WezTerm, with fonts, themes, shell integration, and Mac shortcuts already configured, while preserving full Lua customization.
 
-As the coding foundation of the trilogy, Kaku works alongside [Waza](https://github.com/tw93/Waza) (技), built around engineering habits, and [Kami](https://github.com/tw93/Kami) (紙), built for shipping documents, so writing code, building habits, and shipping documents flow from one to the next.
+Kaku is for writing code, alongside [Waza](https://github.com/tw93/Waza) (技) for engineering habits and [Kami](https://github.com/tw93/Kami) (紙) for documents.
 
 ###### Quick Start
 
@@ -194,6 +194,7 @@ Open Kaku to set up shell integration, install missing optional tools with `kaku
 ###### Features
 
 - **Ready to use**: JetBrains Mono, automatic dark and light themes, copy on select, and familiar Mac shortcuts
+- **Tabs and panes**: Split your workspace, jump between tabs with Tab Navigator, and restore windows, panes, and working directories when you reopen Kaku
 
 [...truncated]
 
@@ -203,8 +204,8 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,680
-- Forks: 521
+- Stars: 8,682
+- Forks: 520
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
@@ -288,8 +289,8 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 72,188
-- Forks: 2,551
+- Stars: 72,396
+- Forks: 2,556
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -473,8 +474,8 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,339
-- Forks: 422
+- Stars: 7,348
+- Forks: 423
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.40.0 "V3.40.0 Compass 🧭" (2026-10-15)
@@ -543,7 +544,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,051
+- Stars: 12,057
 - Forks: 560
 - Stack: HTML, CSS, Python
 - License: MIT
