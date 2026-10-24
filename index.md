@@ -1,6 +1,6 @@
 # Tw93
 
-> Product engineer from Hangzhou, China. Builds small, fast, open source tools for developers and macOS users. 170K+ GitHub stars across 20 projects. Everything is free and open source except two paid apps, Mole for Mac and Mole for Windows ($19 one-time each).
+> Product engineer from Hangzhou, China. Builds small, fast, open source tools for developers and macOS users. 171K+ GitHub stars across 20 projects. Everything is free and open source except two paid apps, Mole for Mac and Mole for Windows ($19 one-time each).
 
 This is the markdown view of https://tw93.fun. It is served at three URLs that return the same content: `https://tw93.fun/index.md`, `https://tw93.fun/?mode=agent`, and `https://tw93.fun/` with an `Accept: text/markdown` request header.
 
