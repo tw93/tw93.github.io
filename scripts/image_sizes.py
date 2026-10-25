@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Record the pixel size of every image the posts show.
 
-The build reads _data/image_sizes.json and writes width and height onto each
+Jekyll rendering reads _data/image_sizes.json and writes width and height onto each
 <img> (see _plugins/cdn_image_filter.rb), so the browser reserves the image's
-space before it downloads instead of jumping from zero height. The build never
-fetches images itself: Vercel would pay for hundreds of downloads per deploy and
-a slow host would stall it.
+space before it downloads instead of jumping from zero height. Jekyll never
+fetches images itself; the npm build/dev wrappers run this script beforehand
+to fetch missing sizes and update the metadata file.
 
 Run after adding images to a post; only images missing from the file are
 fetched. --check exits 1 when a post image has no recorded size.
