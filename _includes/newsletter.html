@@ -1,0 +1,56 @@
+{% if site.newsletter == true %}
+{% if page.lang == 'en-US' %}{% assign nl_lang = 'en' %}{% else %}{% assign nl_lang = 'zh' %}{% endif %}
+<form class="newsletter" data-lang="{{ nl_lang }}"
+  {% if nl_lang == 'en' %}
+  data-sent="Check your inbox and click the link to confirm."
+  data-invalid="That email address doesn't look right."
+  data-failed="Couldn't send it right now, try again later."
+  {% else %}
+  data-sent="确认信已发到邮箱，点里面的链接就订阅好了。"
+  data-invalid="邮箱地址的格式不对。"
+  data-failed="暂时没能发出，过一会儿再试试。"
+  {% endif %}>
+  <div class="newsletter-row">
+    <input type="email" name="email" required autocomplete="email" maxlength="254"
+      placeholder="{% if nl_lang == 'en' %}Email address{% else %}邮箱地址{% endif %}"
+      aria-label="{% if nl_lang == 'en' %}Email address{% else %}邮箱地址{% endif %}">
+    <button type="submit">{% if nl_lang == 'en' %}Subscribe{% else %}订阅博客{% endif %}</button>
+  </div>
+  <input class="newsletter-trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <p class="newsletter-status" role="status" aria-live="polite"></p>
+</form>
+<script>
+  // Posts to the Weekly's signup function, which serves both sites; it only
+  // mails a confirmation link.
+  document.querySelectorAll('form.newsletter').forEach(function (form) {
+    var status = form.querySelector('.newsletter-status');
+    var button = form.querySelector('button');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      button.disabled = true;
+      fetch('https://weekly.tw93.fun/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: data.get('email'),
+          website: data.get('website'),
+          lang: form.dataset.lang,
+          topics: ['blog']
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          return form.dataset.sent;
+        }
+        return response.status === 400 ? form.dataset.invalid : form.dataset.failed;
+      }).catch(function () {
+        return form.dataset.failed;
+      }).then(function (message) {
+        status.textContent = message;
+        button.disabled = false;
+      });
+    });
+  });
+</script>
+{% endif %}
