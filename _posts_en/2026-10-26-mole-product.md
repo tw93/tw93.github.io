@@ -10,7 +10,7 @@ categories: Thought
 
 ![Building Products in the AI Era article cover](https://cdn.tw93.fun/blog/pic/mole-product-cover-honest-en.png)
 
-It has been a little over two months since I wrote the previous post, [From Mole CLI to Mole for Mac: What I Learned](https://tw93.fun/en/2026-08-16/mole-mac.html). In that time Mole went from 1.13 all the way to 1.18, added AI tool cleanup and System Data, the Windows version shipped on the evening of October 14, and the GitHub repository quietly passed 72.9K stars.
+It has been a little over two months since I wrote the previous post, [From Mole CLI to Mole for Mac: What I Learned](https://tw93.fun/en/2026-08-16/mole-mac.html). In that time Mole went from 1.13 all the way to 1.18, added AI tool cleanup and System Data cleanup, the Windows version shipped on the evening of October 14, and the GitHub repository quietly passed 72.9K stars.
 
 Looking back, most of my time did not go into new features. It went into things that look like a poor trade to an engineer: installing 850 Mac apps from China and abroad one by one, using each a little, then uninstalling it; resending more than 400 unactivated license emails one at a time; redrawing dozens of icons over three rounds; and rewriting the interface copy line by line until someone opening Mole for the first time could follow it.
 
@@ -82,7 +82,7 @@ As for things like the 119 GB iPhone backup and the 79.5 GB Parallels virtual ma
 
 Over the National Day holiday I spent a day on something I had put off for a long time. I went through every Mole order from the May launch to the end of September that was bought but never activated, about 400, had AI write a simple local script to list the emails and keys, and resent them one by one, grouped by purchase month, country and language. Not a promotion, and not a push to activate, more like sending a message to a friend: a reminder not to forget it, and no rush if they are not using it yet.
 
-Interestingly, replies kept coming in from users in many countries, and they meant much more than I expected. Some said they bought it just to support the development and actually preferred the Terminal version, and some had forgotten about the GUI and had been using the CLI all along. One user had bought two, one for themselves and one for family as a Christmas present, so it was still unactivated and already saved in their password manager. It made the world feel like a lovely place.
+Interestingly, replies kept coming in from users in many countries, and they meant much more than I expected. Some said they bought it just to support the development and actually preferred the Terminal version, and some had forgotten about the GUI and had been using the CLI all along. One user had bought two, one for themselves and one for family as a Christmas present, so it was still unactivated, the key already saved in their password manager. It made the world feel like a lovely place.
 
 One user could use it on a work computer at first, until the company banned software outside its approved list, and was waiting for a new Mac of their own to start using it. Another bought during a discount and still had no MacBook, planning to activate as soon as the new machine arrived. Someone replied with just "Prefect!", and someone else said during the holiday that it was time to slack off properly, a pun on mole that only works in Chinese. These replies were a joy to read.
 
