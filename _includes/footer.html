@@ -64,10 +64,18 @@
     window.removeEventListener('touchstart', triggerGA);
     loadGA();
   };
-  window.addEventListener('scroll', triggerGA, { once: true });
-  window.addEventListener('mousemove', triggerGA, { once: true });
-  window.addEventListener('touchstart', triggerGA, { once: true });
-  setTimeout(() => { if (!window.dataLayer.length) loadGA(); }, 5000);
+  const armGA = () => {
+    window.addEventListener('scroll', triggerGA, { once: true });
+    window.addEventListener('mousemove', triggerGA, { once: true });
+    window.addEventListener('touchstart', triggerGA, { once: true });
+    setTimeout(() => { if (!window.dataLayer.length) loadGA(); }, 5000);
+  };
+  // A hover-prerendered page the reader never opens must not count as a visit.
+  if (document.prerendering) {
+    document.addEventListener('prerenderingchange', armGA, { once: true });
+  } else {
+    armGA();
+  }
 </script>
 {% endif %} {% if page.url=="/" %}
 <script>
@@ -92,6 +100,15 @@
   console.log(string);
 </script>
 {% endif %}
+
+{%- comment -%}
+Chromium prerenders a same-origin page once the pointer rests on its link (or
+on pointerdown on touch), so the click swaps it in instantly. Only HTML pages
+qualify; feeds, agent files and downloads are left alone.
+{%- endcomment %}
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[{"or":[{"href_matches":"/*.html"},{"href_matches":"/*/"}]},{"not":{"href_matches":"/files/*"}},{"not":{"selector_matches":"[target=_blank], [download]"}}]},"eagerness":"moderate"}]}
+</script>
 
 <script>
   if ('serviceWorker' in navigator) {
@@ -128,30 +145,24 @@
       }
     });
 
-    // Select all the links that need to be preloaded
-    const linksToPrefetch = document.querySelectorAll('.read-more, .header-href, .pagination a, .header-item a');
-    const prefetchedLinks = new Set();
-
-    // Debounce to avoid excessive prefetching
-    let prefetchTimer;
-
-    linksToPrefetch.forEach(function (link) {
-      // Use mouseenter for hover devices only
-      if (window.matchMedia('(hover: hover)').matches) {
-        link.addEventListener('mouseenter', function () {
-          clearTimeout(prefetchTimer);
-          prefetchTimer = setTimeout(function () {
-            if (!prefetchedLinks.has(link.href)) {
-              var prefetchLink = document.createElement('link');
-              prefetchLink.rel = 'prefetch';
-              prefetchLink.href = link.href;
-              prefetchLink.as = 'document';
-              document.head.appendChild(prefetchLink);
-              prefetchedLinks.add(link.href);
-            }
-          }, 100); // 100ms delay to avoid prefetching on quick mouse movements
-        });
-      }
-    });
+    // Browsers without speculation rules (Safari, Firefox) still fetch a page
+    // the pointer rests on, so the click finds it in the HTTP cache.
+    if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) && window.matchMedia('(hover: hover)').matches) {
+      const prefetched = new Set();
+      let prefetchTimer;
+      document.addEventListener('mouseover', function (event) {
+        const link = event.target.closest && event.target.closest('a[href]');
+        if (!link || link.origin !== location.origin || link.target === '_blank' || !/(\.html|\/)$/.test(link.pathname)) return;
+        clearTimeout(prefetchTimer);
+        prefetchTimer = setTimeout(function () {
+          if (prefetched.has(link.href)) return;
+          const prefetchLink = document.createElement('link');
+          prefetchLink.rel = 'prefetch';
+          prefetchLink.href = link.href;
+          document.head.appendChild(prefetchLink);
+          prefetched.add(link.href);
+        }, 100);
+      });
+    }
   });
 </script>
