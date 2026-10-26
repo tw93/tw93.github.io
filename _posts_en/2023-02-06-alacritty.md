@@ -4,7 +4,7 @@ title: Improvements to the Legendary Fastest Terminal
 poem: 快馬加鞭未下鞍
 date: 2023-02-06 21:00:00
 feature: https://gw.alipayobjects.com/zos/k/k1/Lb8iKn.png
-summary: Recently, I discovered Alacritty, a cross-platform terminal emulator powered by Rust and accelerated with OpenGL, merely around 5MB in size, touted as the fastest terminal. However, it's truly unattractive. I contemplated whether to revamp it to possibly make it my default terminal. The final product turned out quite well.
+summary: It's been a while since I tinkered with command-line terminal tools on my computer. After using iTerm2 for many years, due to being part of the aesthetics crowd, I started using Hyper last year, paired with Oh My Zsh, and it's been pretty smooth, except for the somewhat slow cold start. I've also tried others like Warp, Wez's, Kitty, etc., but none felt quite right.
 categories: Creation
 lang: en-US
 ---

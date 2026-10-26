@@ -4,7 +4,7 @@ title: 改良了下传说中最快的终端
 poem: 快馬加鞭未下鞍
 date: 2023-02-06 21:00:00
 feature: https://gw.alipayobjects.com/zos/k/k1/Lb8iKn.png
-summary: Alacritty 是一个基于 Rust 使用 GPU 加速的跨平台终端仿真器，只有 5M 左右，传说中最快的终端。用了两年多，体验非常好，这篇文章记录了我的配置和使用心得（2025 年更新版）。
+summary: 好久没有折腾电脑的命令行终端工具了，之前用了好多年的 iTerm2，也尝试过 Hyper、Warp、Wez's、Kitty 等，要么冷启动慢，要么不太顺手。
 categories: Creation
 ---
 

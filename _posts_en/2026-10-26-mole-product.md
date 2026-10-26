@@ -4,7 +4,7 @@ title: "Building Products in the AI Era: Spend the Time You Save on the Details"
 poem: 大直若屈，大巧若拙
 date: 2026-10-26 20:00:00
 feature: https://cdn.tw93.fun/blog/pic/mole-product-cover-honest-en.png
-summary: In the two months and more since Mole for Mac came out, I installed and uninstalled 850 Mac apps one by one, tested more than 30 AI tools, dug into what the one or two hundred GB of System Data actually is, resent more than 400 license emails that were never activated, reworked the icons and the copy several times, and tested 486 apps for the Windows version. This post is about those tasks that look a little foolish, and why I want to spend the time AI saves me on them.
+summary: "It has been a little over two months since I wrote the previous post, “From Mole CLI to Mole for Mac: What I Learned”. In that time Mole went from 1.13 all the way to 1.18, added AI tool cleanup and System Data cleanup, the Windows version shipped on the evening of October 14, and the GitHub repository quietly passed 72.9K stars."
 categories: Thought
 ---
 

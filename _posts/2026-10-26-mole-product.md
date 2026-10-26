@@ -4,7 +4,7 @@ title: AI 时代做产品，把省下来的时间花在细节上
 poem: 大直若屈，大巧若拙
 date: 2026-10-26 20:00:00
 feature: https://cdn.tw93.fun/blog/pic/mole-product-cover-honest.png
-summary: Mole 出 Mac 版以后的两个多月里，我把 850 款 Mac 软件一个个装上再卸掉，把 30 多款 AI 工具逐个测了一遍，一点点去查系统数据里那一两百 GB 到底是什么，补发了 400 多封没激活的 license 邮件，又把整套图标和文案改了好几轮，Windows 版也测了 486 款软件。这篇聊聊这些看着很蠢的事情，以及我为什么想把 AI 省下来的时间花在它们上面。
+summary: 距离写完上一篇《Mole 出 Mac 版后，用户教会了我做产品》已经过去两个多月。这段时间里，Mole 从 1.13 一路发到了 1.18，加上了 AI 工具清理和系统数据清理，Windows 版也在 10 月 14 日晚上发了出来，GitHub 上的 Star 一转眼也到了 72.9K。
 categories: Thought
 ---
 
