@@ -136,7 +136,7 @@ defaults:
 showBuyCoffee: true
 # Email signup under each post, served by weekly.tw93.fun/api/subscribe.
 # Turn on only after a real signup and test send went through.
-newsletter: false
+newsletter: true
 payImage: //gw.alipayobjects.com/zos/k/vb/1.png
 assetUrl: //tw93.fun/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
