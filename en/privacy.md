@@ -6,7 +6,7 @@ hideHomeActive: true
 lang: en-US
 lang_equivalent: /privacy.html
 comments: false
-summary: How tw93.fun handles visitor data through Vercel, Google Analytics 4, and giscus; the site has no accounts, forms, or first-party profiling.
+summary: How tw93.fun handles visitor data through Vercel, Google Analytics 4, GEOInflow, and giscus; the site has no accounts, forms, or first-party profiling.
 ---
 
 ## Privacy
@@ -21,12 +21,13 @@ The site has no server-side logic of its own; every page and endpoint is a stati
 
 - **Vercel**: hosting and CDN. Like any web server, Vercel records standard access log information such as IP address, User-Agent, and request path, used for delivery and abuse prevention.
 - **Google Analytics 4** (measurement ID `G-KS7EDB6BRM`): page view and rough traffic source statistics. It sets cookies. If you use your browser's Do Not Track setting, a blocker extension, or Google's official [opt-out add-on](https://tools.google.com/dlpage/gaoptout), your visit is not recorded.
+- **GEOInflow**: my self-hosted analytics at `geo.tw93.fun`. It records page views, rough traffic sources, and which pages AI crawlers fetch, sets no cookies, and shares nothing with third parties.
 - **giscus**: comments, backed by GitHub Discussions. Your GitHub account is only involved if you choose to sign in from the comment area. Comments are stored publicly in this repository's Discussions and are governed by GitHub's privacy policy. If you never comment, nothing is linked to you.
 - **CDN assets**: images and fonts are served from `cdn.tw93.fun`, `gw.alicdn.com`, and `gw.alipayobjects.com`. Those providers see the usual HTTP request information when the assets load.
 
 ## Machine-readable endpoints
 
-A set of read-only endpoints is published for AI crawlers and agents (`/llms.txt`, `/openapi.json`, `/api/*.json`, and others). They require no authentication, apply no quota, keep no record of who called them, and return no personal information. The full list is in [/openapi.json](/openapi.json); the crawl policy is in [robots.txt](/robots.txt).
+A set of read-only endpoints is published for AI crawlers and agents (`/llms.txt`, `/openapi.json`, `/api/*.json`, and others). They require no authentication, apply no quota, and return no personal information. Requests reach the access logs like any other visit, and I use the crawler entries to see which pages AI systems fetch. The full list is in [/openapi.json](/openapi.json); the crawl policy is in [robots.txt](/robots.txt).
 
 ## Your options
 
