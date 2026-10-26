@@ -152,7 +152,7 @@
   <link rel="preconnect" href="https://gw.alipayobjects.com" crossorigin>
 
   <!-- Styles and Scripts -->
-  <link rel="stylesheet" href="{{ '/css/index.css' | relative_url }}?v={{ site.asset_version }}">
+  <style>{% inline_css css/index.scss %}</style>
   <!-- jinkai.css only holds @font-face declarations (font-display: swap), so it must not block rendering -->
   <link rel="preload" href="{{ '/css/jinkai.css' | relative_url }}?v={{ site.asset_version }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>

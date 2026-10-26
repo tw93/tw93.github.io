@@ -176,6 +176,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var points = [];
   var isAnimating = true;
+  var isRunning = false;
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var mouse = {
     x: 0,
@@ -188,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach(function(entry) {
         isAnimating = entry.isIntersecting;
       });
+      startFirework();
     }, { threshold: 0 });
     observer.observe(canvas);
   }
@@ -225,9 +228,17 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   };
 
+  // The loop only runs while there is something to draw, so an idle page does
+  // not repaint the canvas every frame.
+  function startFirework() {
+    if (isRunning || prefersReducedMotion || !isAnimating) return;
+    isRunning = true;
+    requestAnimationFrame(drawFirework);
+  }
+
   function drawFirework() {
     if (!isAnimating) {
-      requestAnimationFrame(drawFirework);
+      isRunning = false;
       return;
     }
 
@@ -248,18 +259,17 @@ document.addEventListener("DOMContentLoaded", function () {
         points[i].physx();
       }
     }
+    if (!points.length && mouse.y >= height) {
+      isRunning = false;
+      return;
+    }
     requestAnimationFrame(drawFirework);
-  }
-
-  // Check for prefers-reduced-motion
-  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion) {
-    drawFirework();
   }
 
   document.onmousemove = function (e) {
     mouse.x = e.pageX;
     mouse.y = e.pageY;
+    if (mouse.y < height) startFirework();
   }
   document.onmouseout = function (e) {
     mouse.x = 0;
@@ -269,7 +279,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var qrTextEl = document.getElementById('J_qr_text');
   var isShowQr = qrTextEl && qrTextEl.offsetParent;
-  isShowQr && loadScript('https://gw.alipayobjects.com/os/k/qa/qrcode.min.js', function () {
+  var loadQr = function (callback) {
+    if ('requestIdleCallback' in window) requestIdleCallback(callback, { timeout: 3000 });
+    else setTimeout(callback, 1500);
+  };
+  isShowQr && loadQr(function () { loadScript('https://gw.alipayobjects.com/os/k/qa/qrcode.min.js', function () {
     var qrCodeEl = document.getElementById("J_qr_code");
     QRCode && new QRCode(qrCodeEl, {
       width: 128,
@@ -280,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     var qrImage = qrCodeEl && qrCodeEl.querySelector('img');
     if (qrImage) qrImage.alt = '';
-  });
+  }); });
 
 }, false);
 
