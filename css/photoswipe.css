@@ -429,3 +429,25 @@ div.pswp__img--placeholder,
 .pswp--minimal .pswp__preloader {
   display: none !important;
 }
+
+/* index.js keeps --pswp-img-radius at the image radius divided by the zoom
+   wrap's scale, so corners stay the same size on screen through every zoom.
+   Registered so its animation interpolates instead of jumping. */
+@property --pswp-img-radius {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 6px;
+}
+
+.pswp__zoom-wrap img {
+  border-radius: var(--pswp-img-radius);
+}
+
+.pswp__zoom-wrap[data-svg-background] img {
+  background-color: var(--pswp-img-bg);
+}
+
+/* The thumbnail placeholder is a 250px image scaled up by its own transform. */
+.pswp__zoom-wrap img.pswp__img--placeholder {
+  border-radius: calc(var(--pswp-img-radius) / var(--pswp-ph-scale, 1));
+}

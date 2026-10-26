@@ -50,11 +50,38 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       var assetV = window.ASSET_VERSION ? '?v=' + window.ASSET_VERSION : '';
+      var gallery = document.querySelector('.entry-content');
+      var lightboxState = 'idle';
+      var pendingIndex = -1;
 
-      loadCSS("/css/photoswipe.css" + assetV);
+      // The lightbox is 70KB, so it loads once the page is idle, or as soon as a
+      // pointer reaches an image. A click that lands before it is ready is
+      // remembered and opens that image once it is.
+      var loadLightbox = function () {
+        if (lightboxState !== 'idle') return;
+        lightboxState = 'loading';
+        loadCSS("/css/photoswipe.css" + assetV);
+        loadScript("/js/photoswipe.umd.min.js" + assetV, function () {
+          loadScript("/js/photoswipe-lightbox.umd.min.js" + assetV, initLightbox);
+        });
+      };
 
-      loadScript("/js/photoswipe.umd.min.js" + assetV, function () {
-        loadScript("/js/photoswipe-lightbox.umd.min.js" + assetV, function () {
+      gallery.addEventListener('pointerover', function (e) {
+        if (e.target.tagName === 'IMG') loadLightbox();
+      });
+      gallery.addEventListener('touchstart', loadLightbox, { passive: true, once: true });
+      gallery.addEventListener('click', function (e) {
+        if (lightboxState === 'ready' || e.target.tagName !== 'IMG') return;
+        pendingIndex = zoomImgs.indexOf(e.target);
+        loadLightbox();
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadLightbox, { timeout: 3000 });
+      } else {
+        setTimeout(loadLightbox, 1500);
+      }
+
+      var initLightbox = function () {
           if (typeof PhotoSwipeLightbox === 'undefined' || typeof PhotoSwipe === 'undefined') return;
 
           var lightbox = new PhotoSwipeLightbox({
@@ -66,6 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
             mainClass: 'pswp--custom-bg pswp--minimal',
           });
 
+          keepLightboxCorners(lightbox, parseFloat(getComputedStyle(zoomImgs[0]).borderTopLeftRadius) || 0);
+
           lightbox.addFilter('domItemData', function (itemData, element) {
             if (!element) return itemData;
 
@@ -74,20 +103,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             var src = getOriginalSrc(element);
 
-            // Filter out SVGs or other unwanted types if strictly needed (weekly does it)
-            if (src && (src.indexOf('.svg') > -1 || src.indexOf('.gif') > -1)) {
-                 // return null; // Removed strict filter to allow zooming gifs/svgs if desired, or keep to match weekly
+            itemData.src = src;
+            itemData.msrc = element.src;
+
+            // SVGs scale without loss but often report a tiny intrinsic size, which
+            // made the lightbox open them smaller than the page showed them. Size
+            // them at twice the viewport so they open fitted and can still zoom 2x.
+            if (/\.svg(\?|#|$)/i.test(src)) {
+              var rect = element.getBoundingClientRect();
+              var ratio = rect.width && rect.height ? rect.width / rect.height : (element.naturalWidth / element.naturalHeight) || 1;
+              itemData.w = Math.round(Math.max(window.innerWidth, window.innerHeight) * 2);
+              itemData.h = Math.round(itemData.w / ratio);
+              // Transparent SVGs keep the white of the column they sat on.
+              itemData.svgBackground = getComputedStyle(gallery).backgroundColor;
+              return itemData;
             }
 
-            // If we can't determine dimensions, PhotoSwipe v5 might struggle or just show it.
-            // We can try to get natural dimensions if loaded, or simple attributes.
-            // Ideally we need actual width/height.
-            // Weekly uses naturalWidth || 1000.
-
-            itemData.src = src;
             itemData.w = Number(element.getAttribute('data-width')) || element.naturalWidth || window.innerWidth;
             itemData.h = Number(element.getAttribute('data-height')) || element.naturalHeight || window.innerHeight;
-            itemData.msrc = element.src;
 
             return itemData;
           });
@@ -113,8 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
 
           lightbox.init();
-        });
-      });
+          lightboxState = 'ready';
+          if (pendingIndex >= 0) lightbox.loadAndOpen(pendingIndex, { gallery: gallery });
+      };
   }
 
   addCodeCopy();
@@ -249,6 +283,101 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 }, false);
+
+// PhotoSwipe scales the zoom wrap with a transform, so the images' fixed radius
+// would scale with it and the corners would balloon while zooming. The wrap
+// carries --pswp-img-radius = radius / scale, set in the same task PhotoSwipe
+// writes a transform. While a CSS transition animates that transform, one script
+// animation replays the same transform together with the radius: the custom
+// property keeps it off the compositor, so both advance in the same frame even
+// when the main thread stalls, instead of the image growing while the radius waits.
+function keepLightboxCorners(lightbox, radius) {
+  if (!radius || !Element.prototype.animate || !Element.prototype.getAnimations) return;
+
+  var scaleOf = function (transform) {
+    return (transform && transform !== 'none' ? new DOMMatrixReadOnly(transform).a : 1) || 1;
+  };
+  var setRadius = function (wrap, scale) {
+    wrap.style.setProperty('--pswp-img-radius', radius / scale + 'px');
+  };
+  var isRadiusAnimation = function (a) {
+    return a.id === 'pswp-radius';
+  };
+  var syncWrap = function (wrap) {
+    if (!wrap || wrap.getAnimations().some(isRadiusAnimation)) return;
+    setRadius(wrap, scaleOf(getComputedStyle(wrap).transform));
+  };
+  var syncSlides = function () {
+    var pswp = lightbox.pswp;
+    if (!pswp) return;
+    pswp.mainScroll.itemHolders.forEach(function (holder) {
+      var wrap = holder.slide && holder.slide.container;
+      if (!wrap) return;
+      syncWrap(wrap);
+      var background = holder.slide.data.svgBackground;
+      if (background && wrap.dataset.svgBackground !== background) {
+        wrap.dataset.svgBackground = background;
+        wrap.style.setProperty('--pswp-img-bg', background);
+      }
+    });
+  };
+
+  document.addEventListener('transitionrun', function (event) {
+    var wrap = event.target;
+    if (event.propertyName !== 'transform' || !wrap.classList || !wrap.classList.contains('pswp__zoom-wrap')) return;
+    var transition = wrap.getAnimations().filter(function (a) {
+      return a.transitionProperty === 'transform';
+    })[0];
+    var effect = transition && transition.effect;
+    if (!effect) return;
+    var keyframes = effect.getKeyframes();
+    var from = scaleOf(String(keyframes[0].transform));
+    var to = scaleOf(String(keyframes[keyframes.length - 1].transform));
+    var timing = effect.getTiming();
+    wrap.getAnimations().forEach(function (a) {
+      if (isRadiusAnimation(a)) a.cancel();
+    });
+    // Keyframe offsets live in eased progress, where the transition moves the
+    // scale linearly, so sampling radius / scale there tracks it frame for frame.
+    var steps = 24;
+    var frames = [];
+    for (var i = 0; i <= steps; i++) {
+      frames.push({ offset: i / steps, '--pswp-img-radius': radius / (from + ((to - from) * i) / steps) + 'px' });
+    }
+    frames[0].transform = String(keyframes[0].transform);
+    frames[steps].transform = String(keyframes[keyframes.length - 1].transform);
+    var animation = wrap.animate(frames, { duration: timing.duration, easing: timing.easing, id: 'pswp-radius' });
+    setRadius(wrap, to);
+    var align = function () {
+      if (transition.startTime !== null) animation.startTime = transition.startTime;
+    };
+    align();
+    transition.ready.then(align, function () {});
+    transition.finished.then(
+      function () {
+        animation.cancel();
+      },
+      function () {
+        animation.cancel();
+        syncWrap(wrap);
+      }
+    );
+  });
+
+  lightbox.on('beforeOpen', syncSlides);
+  // The closed-state transform is set right before the opening animation starts.
+  lightbox.on('openingAnimationStart', syncSlides);
+  // Pans, pinches, wheel zoom and the resolution swap after a zoom transition all
+  // write the transform through applyCurrentZoomPan, which emits this.
+  lightbox.on('zoomPanUpdate', syncSlides);
+  lightbox.on('change', syncSlides);
+
+  // PhotoSwipe sizes the placeholder thumbnail as a 250px image scaled up.
+  lightbox.on('contentResize', function (e) {
+    var placeholder = e.content.placeholder && e.content.placeholder.element;
+    if (placeholder && placeholder.tagName === 'IMG') placeholder.style.setProperty('--pswp-ph-scale', String(e.width / 250 || 1));
+  });
+}
 
 function isPC() {
   var userAgentInfo = navigator.userAgent;
