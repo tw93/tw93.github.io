@@ -120,12 +120,6 @@ So I reworked all of these as people suggested. Check for Updates became a clock
 
 ![The same piece of interface side by side, each row from left to right: the system icon, the first version, and what it looks like now](https://cdn.tw93.fun/blog/pic/mole-product-mole-icons-iterations.webp)
 
-Size and alignment were another matter. The menu icons first followed the system font size and looked big and heavy; shrinking from 14.3pt to 12.5pt was still too big, and they ended at 11pt. Some icons were aligned by width and some by their long side, so the tall broom looked big and the wide line chart looked small; in the end they were unified to the same visual size by the average of width and height, with a cap on the long side. The battery was first drawn as an empty frame, which at full charge looked empty instead, so it now fills in quarters of the charge level.
-
-Even the comparison image for the tweet had a catch: the Mole in its title was set in a serif face, and its Latin letters sat 4pt higher than the Chinese beside them, so they had to be pushed down a little for both to sit on one line.
-
-![The same 14 icons: on the left aligned by width or long side, on the right after unifying their visual size](https://cdn.tw93.fun/blog/pic/mole-product-mole-icons-optical-size.webp)
-
 The copy took the same kind of fiddling. I had used up most of my Claude and Codex quota writing code, so I dug out Gemini, which had been gathering dust for a while, switched to 3.8 Flash High and asked it to look at the copy. It pleasantly surprised me: it may not be the very best at code, but it writes plain language very well. I put almost all of Mole's settings, cleanup item descriptions and site content through it. The brief was simple: talk like a person, simple, clear, easy to grasp, so someone using it for the first time gets it instantly, nothing stilted and no AI tone.
 
 I had it output before and after versions with the reason for each change, then went through them one by one. It really felt like having a very patient language teacher sitting beside me, turning a lot of programmer-pleasing phrasing into words normal people can follow. For example, the cache deletion item used to be easy to misread as the way the whole app gets deleted; now it says clearly that it only covers ordinary caches on the Clean page and does not affect uninstall.
