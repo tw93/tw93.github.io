@@ -112,15 +112,6 @@
       }
     }
 
-    // The second image is the cover image, both of which could do with some optimization
-    const images = document.querySelectorAll('.entry-content img');
-    images.forEach((img, index) => {
-      if (index > 1) {
-        img.setAttribute('loading', 'lazy');
-        img.setAttribute('decoding', 'async');
-      }
-    });
-
     // Full screen button
     const fullscreenBtn = document.getElementById("fullscreenBtn");
     fullscreenBtn && fullscreenBtn.addEventListener("click", function () {

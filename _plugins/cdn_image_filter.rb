@@ -65,12 +65,25 @@ module Jekyll
       end
     end
 
+    # The first images are usually the title shot and the cover, both above the
+    # fold; the rest wait until they near the viewport. This has to be in the
+    # HTML: the parser starts every image request before any script can run.
+    EAGER_IMAGES = 2
+
+    def self.lazy(img_tag)
+      return img_tag if img_tag =~ /\sloading=/i
+      img_tag.sub(/<img\b/i, '<img loading="lazy" decoding="async"')
+    end
+
     # Filter for processing HTML content (<img> tags)
     def cdn_image_filter(input)
       sizes = @context.registers[:site].data['image_sizes']
+      index = 0
       input.gsub(/<img\s+[^>]*src="([^"]+)"[^>]*>/) do |img_tag|
         src = $1
         img_tag = CDNImageFilter.with_size(img_tag, src, sizes)
+        img_tag = CDNImageFilter.lazy(img_tag) if index >= EAGER_IMAGES
+        index += 1
         new_src = CDNImageFilter.optimize(src)
 
         if src != new_src
