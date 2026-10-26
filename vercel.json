@@ -1,4 +1,5 @@
 {
+  "buildCommand": "bundle exec jekyll build",
   "build": {
     "env": {
       "LANG": "en_US.UTF-8",

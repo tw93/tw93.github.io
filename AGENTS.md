@@ -14,7 +14,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_includes/` - shared page fragments.
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling.
-- `vercel.json` - Vercel build environment, response headers, and the agent redirects for the production deploy.
+- `vercel.json` - Vercel build command and environment, response headers, and the agent redirects for the production deploy. `buildCommand` runs `bundle exec jekyll build` directly: the Vercel image has no Pillow, so routing it through `npm run build` and `scripts/image_sizes.py` failed every deploy from 76d1123 to a73553e (2026-10-26). Image metadata is a local step committed with the post.
 - `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and the Yobi-owned `projects/*.md` mirrors. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It removes stale `projects/*.md` mirrors that no longer exist in Yobi, but exact-scope hand-maintained files alongside them (`api/llms.txt`, `projects/llms.txt`) remain safe. It also rewrites the `NK+ GitHub stars across N projects` line in the otherwise hand-written `llms.txt` and `index.md` from `api/profile.json`, and pings IndexNow for the AI surfaces it changed.
 
 ## Agent Surfaces
