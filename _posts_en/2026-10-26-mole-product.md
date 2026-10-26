@@ -22,7 +22,7 @@ Programmers naturally like work that scales. Whatever the task, we look for a wa
 
 I am a bit obsessive and keep my own Mac at around 30 apps. To make Mole's uninstall more thorough and its leftover cleanup stronger, the first round collected more than 300 Mac apps from China and abroad, about 100 GB of downloads, split into 30 groups of 10. An agent used computer use to download each from its official site, install it on my Mac, check its folders, update bundles and login items, uninstall it, look for what was left behind, and add the missing rules to Mole.
 
-At first I thought 100 mainstream apps would be plenty. When those were done I thought, why not another 100, and at 200 I thought the same again. Later I added App Store versions and extensions, and the count went to 549, 709, 824, and now 850. For someone like me who keeps the Mac at 30 apps, it suddenly turned into the very messy desktop below. Have a look.
+At first I thought 100 mainstream apps would be plenty. When those were done I thought, why not another 100, and at 200 I thought the same again. Later I added App Store versions and extensions, and the count went to 549, 709, 824, and now 850. My Mac suddenly turned into the very messy desktop below. Have a look.
 
 ![The real desktop during testing, with open apps, permission prompts and work windows piled on top of each other](https://cdn.tw93.fun/blog/pic/mole-product-testing-mac-apps-desktop.webp)
 
@@ -42,7 +42,7 @@ I also wrote up the uninstall steps for every app as guides in Chinese and Engli
 
 ## You only know an AI tool once you have used it
 
-Before Mole had AI cleanup, many people asked for something like it. I used to see every AI coding session history as a valuable asset, so Mole only cleaned real caches and old versions there.
+Before Mole had AI cleanup, many people had asked to clean up the data AI tools leave behind. I used to see AI coding session history as a valuable asset, so Mole only cleaned real caches and old versions there.
 
 But using AI every day, I had piled up plenty of old artifacts, old sessions and worktrees I no longer needed, and one user's single `opencode.db` had grown to 62 GB and they urgently asked how to clean it. So I tested more than 30 AI tools one by one: 13 desktop apps, 13 command line tools, plus the folders OpenClaw, Hermes and Pi leave behind after uninstall.
 
@@ -52,7 +52,7 @@ For each tool, the AI compared against the state before install, measured what i
 
 This round was more surprising than ordinary apps. The most visible part was memory: the 13 desktop apps open together took about 23 GB, and one tool from a big Chinese company started 41 processes and 4.49 GB of memory on launch. Most of these tools are built on VS Code or Electron, so each window brings a string of helpers. That is why Mole's Status page gives each app one row and adds up all of its child processes; in Activity Monitor alone it is hard to see who is actually eating the memory.
 
-Even more surprising were the small changes they made to the system. Some tools, on first launch, put a root-owned command link in `/usr/local/bin`, which becomes a dead link once the app is deleted. One put a `python3.12` into `~/.local/bin`, so typing `python3.12` in the terminal afterwards ran its bundled copy. The worst was a Chinese command line tool: I ran it once, it told me it was no longer maintained, and then, without asking, downloaded and installed its new version, edited `.zshrc`, and renamed the old command to legacy.
+Then there were the small changes they made to the system. Some tools, on first launch, put a root-owned command link in `/usr/local/bin`, which becomes a dead link once the app is deleted. One put a `python3.12` into `~/.local/bin`, so typing `python3.12` in the terminal afterwards ran its bundled copy. The worst was a Chinese command line tool: I ran it once, it told me it was no longer maintained, and then, without asking, downloaded and installed its new version, edited `.zshrc`, and renamed the old command to legacy.
 
 The sizes were wild too. One desktop app downloaded a roughly 1 GB toolkit the first time I used its Work mode, 3.1 GB unpacked, carrying its own LibreOffice, FFmpeg and OpenJDK. My own `~/.codex`, which I use every day, was already 24 GB, 17 GB of it sessions, and 12 GB of the Claude desktop app's 14 GB was the Cowork virtual machine. Many skill installers also write a `skills/` folder into every agent's directory whether or not you have that agent, so I had config folders for Qwen Code, iFlow and Droid without ever using them. Mole's first version even treated them as 2.4 MB of tool leftovers and nearly cleaned out my installed skills as junk.
 
@@ -65,8 +65,6 @@ All this changed one of my earlier judgments. Sessions really are valuable, but 
 ![Mole's AI Cleanup & Care page, listed in three sections: caches and old versions, sessions and workspaces, idle tools](https://cdn.tw93.fun/blog/pic/mole-product-en-ai.webp)
 
 ## System Data is the hardest part to test
-
-System Data in 1.16 was the hardest part to test in these two months.
 
 A while ago I was browsing Reddit and saw many people complaining that System Data in macOS settings often reaches one or two hundred GB, asking what it is and whether it can be deleted. That number is only the result of a classification. [Apple's own explanation](https://support.apple.com/102624) also counts every file the other categories did not take, so it is not a list you can delete from. Mole's System Data group therefore only states how much it measured and can handle, and does not try to match the total in System Settings.
 
@@ -104,7 +102,7 @@ Lately I have been doing something similar: writing to the early users who bough
 
 Even a short letter like that went through several drafts. The first few always read a bit like a sales pitch, like a marketing email. I rewrote it line by line in the tone I use with friends, simple, clear, not wordy, until it read like a letter I would actually send myself.
 
-Paul Graham wrote in [Do Things that Don't Scale](https://paulgraham.com/ds.html) that Wufoo sent handwritten thank-you notes to early users and that the Stripe founders would take a user's laptop and set them up on the spot. In an era when code is no longer much of a moat, this kind of unscalable, patient work turns out to be what is most worth doing.
+Paul Graham wrote in [Do Things that Don't Scale](https://paulgraham.com/ds.html) that Wufoo sent handwritten thank-you notes to early users and that the Stripe founders would take a user's laptop and set them up on the spot. Now that code is hardly a moat anymore, this kind of unscalable, patient work is worth even more.
 
 ## A new set of icons, another round of copy
 
@@ -112,9 +110,9 @@ The detail that took the most time these two months was replacing every icon in 
 
 ![35 pairs of icons, each with the old system icon on the left and the new icon on the right](https://cdn.tw93.fun/blog/pic/mole-product-mole-icons-before-after.webp)
 
-I have always wanted the products we make to feel alive and have some spirit, not like the cold build output of AI coding with no thought behind it, and small details like icons are a good place to start. For Keep Screen On I used a cup of coffee, a nod to Caffeine, as if the computer drank coffee and could not sleep. About usually gets a circled i, but I thought it should say hello, so I used a waving hand. Diagnostics would normally get a troubleshooting mark; I used a stethoscope, more like giving the computer a checkup.
+I have always wanted what I make to feel alive, with some spirit, so people using it can tell that care went into it, and small details like icons are a good place to start. For Keep Screen On I used a cup of coffee, a nod to Caffeine, as if the computer drank coffee and could not sleep. About usually gets a circled i, but I thought it should say hello, so I used a waving hand. Diagnostics would normally get a troubleshooting mark; I used a stethoscope, more like giving the computer a checkup.
 
-Then the feedback after release sent me into another round. Some icons I liked, users found unclear. Check for Updates used a download icon, so people read it as download. The little square for the GPU did not read as a graphics card, the archive icon was confusing, and two stacked memory sticks did not look much like memory. Some said the sponge for Clean Screen and the waving hand for About made no sense. Thinking about it, they were right: an icon first has to be understood, and looking nice comes second.
+Then the feedback after release made me realize some of the icons could still be better. Some icons I liked, users found unclear. Check for Updates used a download icon, so people read it as download. The little square for the GPU did not read as a graphics card, the archive icon was confusing, and two stacked memory sticks did not look much like memory. Some said the sponge for Clean Screen and the waving hand for About made no sense. Thinking about it, they were right: an icon first has to be understood, and looking nice comes second.
 
 So I reworked all of these as people suggested. Check for Updates became a clockwise arrow, the GPU became a dual-fan graphics card, the archive became a storage box, audio went from a music note to headphones, Clean Screen went back to its original brush, memory went back to a chip, and About ended up as the most orthodox ⓘ, just redrawn to the line width of its column. Quite a few were changed three times before they finally felt right.
 
@@ -128,11 +126,11 @@ I had it output before and after versions with the reason for each change, then 
 
 Testing hundreds of apps brought an unexpected bonus. In its first few versions Mole already supported blind and low-vision users with many accessibility attributes, and this time they helped a lot: with them, the AI could find every button and element very precisely, and testing went much more smoothly.
 
-Accessibility attributes give more than a coordinate. They say what a control is called, what kind it is and what state it is in, so when the interface shifts a little, a script still finds the same button. Relying only on screenshots and coordinates, a changed dialog or a moved window easily makes the click miss. Apple made so much of the system readable by VoiceOver from the start, so that everyone can use it equally, and that is lovely. Fellow indie developers, when you build apps and web pages, let your AI coding tool add accessibility along the way. Once blind users can really use it, it often comes back to help you in automated testing later.
+Accessibility attributes give more than a coordinate. They say what a control is called, what kind it is and what state it is in, so when the interface shifts a little, a script still finds the same button. Relying only on screenshots and coordinates, a changed dialog or a moved window easily makes the click miss. From the start Apple wanted everyone to be able to use a computer equally, so much of the system can be read by VoiceOver, and I love that. Fellow indie developers, when you build apps and web pages, let your AI coding tool add accessibility along the way. Once blind users can really use it, it often comes back to help you in automated testing later.
 
 ## One Mac, plus one ThinkPad
 
-The Windows version followed the same approach. Windows was not starting from zero: Mole's Windows CLI has been maintained since early this year with contributions from the community, and the CLI is quite mature now. That groundwork is what made this desktop version possible. The desktop version uses native C# and WinUI 3 on Windows, and the Swift code of the Mac version is almost no use there. It took close to a month of back and forth, 78,000 lines of code and more than 4,000 test cases. The 486 Windows apps tested so far ran mostly in a Parallels virtual machine on the Mac. I also bought a ThinkPad X1 that stays on 24 hours a day, and the Mac connects to it through UU Remote and ssh, letting the AI operate this real computer directly for install, uninstall and cleanup acceptance.
+The Windows version was tested the same way, one app at a time. Windows was not starting from zero: Mole's Windows CLI has been maintained since early this year with contributions from the community, and the CLI is quite mature now. That groundwork is what made this desktop version possible. The desktop version uses native C# and WinUI 3 on Windows, and the Swift code of the Mac version is almost no use there. It took close to a month of back and forth, 78,000 lines of code and more than 4,000 test cases. The 486 Windows apps tested so far ran mostly in a Parallels virtual machine on the Mac. I also bought a ThinkPad X1 that stays on 24 hours a day, and the Mac connects to it through UU Remote and ssh, letting the AI operate this real computer directly for install, uninstall and cleanup acceptance.
 
 ![The Apps page of Mole for Windows, listing installed apps and their sizes](https://cdn.tw93.fun/blog/pic/mole-product-windows-uninstall.webp)
 
@@ -144,11 +142,11 @@ How exactly to build Windows software on a Mac, for example how to layer the cod
 
 ## Polishing that looks like wasted effort
 
-AI makes code faster to write and makes a passable interface much easier to build. It can look as if people have nothing left to do but talk. My experience is the opposite: the human part matters more now, and the time AI saves us is exactly what we can spend on this polishing that looks like wasted effort.
+AI makes code faster to write and makes a passable interface much easier to build. It can look as if people have nothing left to do but talk. My experience these months is that the human part matters even more now, and the time AI saves us is exactly what we can spend on this polishing that looks like wasted effort.
 
 Installing and uninstalling 850 apps one by one, reading every reply, redrawing dozens of icons three times: AI will not decide to do these for you. But once they are done, if 1% of your users now and then get that instant understanding, that wow, that feeling of a magic trick while using your product, it is very, very worth it.
 
-After all this, the pitfalls turned into cleanup rules, more than 100 new unit tests and public guides, so next time I do not start from scratch. That is what keeps this patient work from going to waste.
+The pitfalls turned into cleanup rules, more than 100 new unit tests and public guides, so next time I do not start from scratch. That is what keeps this patient work from going to waste.
 
 The more apps I test, the more I want Mole to keep its current restraint: no uploading of users' local files or session content, no usage analytics of any kind, and no new switch where a default will do.
 
