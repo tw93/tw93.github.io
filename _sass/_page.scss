@@ -941,7 +941,8 @@ iframe {
     border-radius: $border-radius;
     background: transparent;
     color: $base-color;
-    font-size: 14px;
+    // iOS Safari zooms the page into any field under 16px.
+    font-size: 16px;
     box-sizing: border-box;
     &:focus {
       outline: none;
