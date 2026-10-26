@@ -65,6 +65,10 @@ $code-red: #ff6767;
       z-index: 1;
       color: rgba(237, 236, 238, 0.64);
       font-size: 11px;
+      // Phone ladder floor (Kata site.md): nothing under 12px at 640px and below.
+      @media (max-width: 640px) {
+        font-size: 12px;
+      }
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0.04em;
@@ -80,6 +84,9 @@ $code-red: #ff6767;
       border-radius: 4px;
       color: rgba(237, 236, 238, 0.62);
       font-size: 11px;
+      @media (max-width: 640px) {
+        font-size: 12px;
+      }
       cursor: pointer;
       transition: color 0.2s ease, background-color 0.2s ease;
 
