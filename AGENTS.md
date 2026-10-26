@@ -13,7 +13,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_layouts/` - Jekyll layouts, including post and PPT modes.
 - `_includes/` - shared page fragments.
 - `_sass/` - stylesheets.
-- `_plugins/` - custom Jekyll plugins, including CDN image handling.
+- `_plugins/` - custom Jekyll plugins, including CDN image handling and `markdown_twins.rb`, which writes the post Markdown surfaces listed under Agent Surfaces.
 - `vercel.json` - Vercel build command and environment, response headers, and the agent redirects for the production deploy. `buildCommand` runs `bundle exec jekyll build` directly: the Vercel image has no Pillow, so routing it through `npm run build` and `scripts/image_sizes.py` failed every deploy from 76d1123 to a73553e (2026-10-26). Image metadata is a local step committed with the post.
 - `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and the Yobi-owned `projects/*.md` mirrors. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It removes stale `projects/*.md` mirrors that no longer exist in Yobi, but exact-scope hand-maintained files alongside them (`api/llms.txt`, `projects/llms.txt`) remain safe. It also rewrites the `NK+ GitHub stars across N projects` line in the otherwise hand-written `llms.txt` and `index.md` from `api/profile.json`, and pings IndexNow for the AI surfaces it changed.
 
@@ -30,6 +30,7 @@ The project count scatters the same way. When a project is added or retired, run
 - `openapi.json` - OpenAPI 3.1 description of the read-only endpoints. Verify with `npx @redocly/cli lint openapi.json` after editing.
 - `.well-known/` - `ai-plugin.json`, `agent.json`, and `api-catalog` (RFC 9727, extensionless). Listed in `_config.yml` `include:` because Jekyll skips dot-directories.
 - `api/llms.txt`, `projects/llms.txt` - scoped context for those two directories.
+- Post Markdown surfaces, written into `_site` by `_plugins/markdown_twins.rb` on every build and never committed: a `.md` twin beside every post (`/2026-10-22/desktop.md`), `/posts.md` and `/en/posts.md`, `/api/posts.json`, and `/api/posts.jsonl` / `/api/en/posts.jsonl` with each post's full Markdown. They come from the post source kept at `:post_read`, because by `:post_write` the content is HTML; they are plain files rather than Jekyll pages, because a `.md` page would be converted to HTML and Liquid would eat the `{{ }}` in code samples. PPT posts are left out. The daily Yobi sync only overwrites the `api/*.json` files it fetches, so it never touches these. `vercel.json` gives them their content types and 302s a post's `.html` with `Accept: text/markdown` to its `.md`.
 - `schema-map.xml` - structured data feed list, discoverable through `sitemap-ai.xml`. Keep `Schemamap:` out of `robots.txt`: Search Console flags it as a syntax error, and the sitemap submitted while it was there stayed "Couldn't fetch" (2026-10-15).
 - `sitemap-ai.xml` - sitemap for every surface above; new project briefs land here automatically, new root-level files need an explicit entry.
 - `_includes/head.html` - the homepage JSON-LD `@graph` (Person, Organization, SoftwareApplication per project). Prices here must match `pricing.md`.

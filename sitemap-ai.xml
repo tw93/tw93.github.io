@@ -66,6 +66,24 @@ lands here automatically on the next build.
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+{%- for path in "/posts.md,/en/posts.md,/api/posts.json,/api/posts.jsonl,/api/en/posts.jsonl" | split: "," %}
+  <url>
+    <loc>{{ site.url }}{{ path }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endfor -%}
+{%- assign agent_posts = site.posts | concat: site.posts_en -%}
+{%- for post in agent_posts -%}
+{%- unless post.layout == 'ppt' %}
+  <url>
+    <loc>{{ site.url }}{{ post.url | replace: '.html', '.md' }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{%- endunless -%}
+{%- endfor -%}
 {%- for file in site.static_files -%}
 {%- if file.path contains '/projects/' and file.extname == '.md' %}
   <url>

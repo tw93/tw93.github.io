@@ -40,6 +40,30 @@
       ],
       "destination": "/index.md",
       "statusCode": 302
+    },
+    {
+      "source": "/:date(\\d{4}-\\d{2}-\\d{2})/:slug.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/:date/:slug.md",
+      "statusCode": 302
+    },
+    {
+      "source": "/en/:date(\\d{4}-\\d{2}-\\d{2})/:slug.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/en/:date/:slug.md",
+      "statusCode": 302
     }
   ],
   "headers": [
@@ -131,6 +155,74 @@
         {
           "key": "Content-Type",
           "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(posts|en/posts).md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/:date(\\d{4}-\\d{2}-\\d{2})/:slug.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/en/:date(\\d{4}-\\d{2}-\\d{2})/:slug.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*).jsonl",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/x-ndjson; charset=utf-8"
         },
         {
           "key": "Access-Control-Allow-Origin",

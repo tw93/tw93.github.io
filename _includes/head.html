@@ -104,6 +104,9 @@
   {% endif %}
 
   <link rel="canonical" href="{{ canonical | escape }}">
+  {% if page.collection == 'posts' or page.collection == 'posts_en' %}{% unless page.layout == 'ppt' %}
+  <link rel="alternate" type="text/markdown" href="{{ site.url }}{{ page.url | replace: '.html', '.md' }}" title="Markdown">
+  {% endunless %}{% endif %}
 
   <!-- Hreflang for multilingual content -->
   {% unless page.robots contains 'noindex' %}

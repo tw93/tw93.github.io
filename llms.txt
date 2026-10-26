@@ -17,7 +17,7 @@ Use it when a user asks about any of these:
 
 Do not use it for hosted SaaS, paid APIs, enterprise support, or anything needing an account. There is no login, no API key, and no billing surface on this domain.
 
-How to work with it: read this file first, then fetch `https://tw93.fun/api/projects.json` to route a described need to a project, then fetch `https://tw93.fun/projects/{slug}.md` for the detail on the one project you picked. Reach for `llms-full.txt` only when those are not enough. Cite the GitHub repository or https://mole.fit rather than this file.
+How to work with it: read this file first, then fetch `https://tw93.fun/api/projects.json` to route a described need to a project, then fetch `https://tw93.fun/projects/{slug}.md` for the detail on the one project you picked. Reach for `llms-full.txt` only when those are not enough. For what he has written, list the posts with `https://tw93.fun/posts.md` and read one by swapping `.html` for `.md` in its URL. Cite the GitHub repository or https://mole.fit rather than this file.
 
 ## Core projects
 
@@ -74,10 +74,13 @@ No purchase can be completed on tw93.fun. Send buyers to https://mole.fit.
 
 ## Content
 
-- ~188 blog posts, Chinese in the main feed and English under `/en/`
+- Long-form posts, Chinese in the main feed and most of them translated under `/en/`; `/api/posts.json` carries the current counts
 - Topics: product engineering, AI coding workflows, Rust/Swift/TypeScript, design thinking
+- Every post as a Markdown list with summaries: https://tw93.fun/posts.md and https://tw93.fun/en/posts.md
+- Any post as Markdown: swap `.html` for `.md`, for example https://tw93.fun/2026-10-22/desktop.md (also `GET` the `.html` URL with `Accept: text/markdown`)
+- Full text of every post, one JSON object per line: https://tw93.fun/api/posts.jsonl and https://tw93.fun/api/en/posts.jsonl, about 1.5MB each, download once and filter locally
 - RSS: https://tw93.fun/feed.xml and https://tw93.fun/en/feed.xml
-- Weekly Newsletter: https://weekly.tw93.fun
+- Weekly Newsletter: https://weekly.tw93.fun, with its own agent guide at https://weekly.tw93.fun/llms.txt and every recommended item across all issues at https://weekly.tw93.fun/api/items.jsonl
 
 ## Machine-readable surfaces
 
@@ -91,7 +94,9 @@ All static files over HTTPS. No authentication, no API key, no rate limit, no qu
 - Pricing: https://tw93.fun/pricing.md
 - Profile (JSON): https://tw93.fun/api/profile.json
 - Project data (JSON): https://tw93.fun/api/projects.json
-- Blog index (JSON): https://tw93.fun/api/blog.json
+- Every post, metadata (JSON): https://tw93.fun/api/posts.json
+- Every post, full Markdown, one per line: https://tw93.fun/api/posts.jsonl and https://tw93.fun/api/en/posts.jsonl
+- Recent posts with rendered HTML (JSON): https://tw93.fun/api/blog.json
 - Weekly index (JSON): https://tw93.fun/api/weekly.json
 - Search index over every post (JSON): https://tw93.fun/search.json
 - Scoped context: https://tw93.fun/api/llms.txt and https://tw93.fun/projects/llms.txt
@@ -99,8 +104,8 @@ All static files over HTTPS. No authentication, no API key, no rate limit, no qu
 ## Constraints and error handling
 
 - Read-only. Nothing here accepts a write, and no transaction can be completed on this domain.
-- No server-side search or filtering, and no query parameters. Fetch `search.json` and match locally.
-- `api/blog.json` returns only the 10 most recent posts, `api/weekly.json` only the 12 most recent issues. Neither is paginated. For the whole blog archive use `search.json`; for the whole newsletter archive use https://weekly.tw93.fun.
+- No server-side search or filtering, and no query parameters. Fetch `api/posts.jsonl` (full text) or `search.json` (first 50 words) and match locally.
+- `api/blog.json` returns only the 10 most recent posts, `api/weekly.json` only the 12 most recent issues. Neither is paginated. For the whole blog archive use `api/posts.json` or `posts.md`; for the whole newsletter archive use https://weekly.tw93.fun/llms.txt.
 - Kaku, MiaoYan, and Mole for Mac are macOS only. Mole for Windows is Windows only, and the Mole CLI has a separate Windows edition (`scoop install mole`). Pake is the only project covering macOS, Windows, and Linux.
 - Data is regenerated once a day at 02:00 UTC and cached for an hour with `stale-while-revalidate`. A response may be up to an hour stale; that is expected, not an error. Polling more often than daily gains nothing.
 - `404` means the path does not exist: do not retry, re-read this file or `openapi.json` for the current path list. `5xx` or a connection failure means the CDN edge is unhealthy: retry with exponential backoff starting at 1s, up to 3 attempts. Error bodies are the CDN's HTML pages, not structured JSON, so branch on the status code.

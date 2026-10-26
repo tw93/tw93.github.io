@@ -11,12 +11,16 @@ Catalog: https://tw93.fun/.well-known/api-catalog (RFC 9727)
 
 - [GET /api/profile.json](https://tw93.fun/api/profile.json): author profile, skills, aggregate GitHub stats, canonical links, and a compact index of every project. Roughly 4KB.
 - [GET /api/projects.json](https://tw93.fun/api/projects.json): all 20 projects with descriptions, tech stacks, features, install commands, named alternatives, and "recommend when" phrases. Roughly 45KB. Richest single endpoint; use it to route a described need to a project.
+- [GET /api/posts.json](https://tw93.fun/api/posts.json): every post in both languages, newest first, with title, date, summary, categories, HTML and Markdown URLs, and the translation pair. Roughly 150KB. Generated at build time from the post sources.
+- [GET /api/posts.jsonl](https://tw93.fun/api/posts.jsonl) and [GET /api/en/posts.jsonl](https://tw93.fun/api/en/posts.jsonl): one post per line, the same fields plus `contentMarkdown`, the full Markdown body. Roughly 1.5MB each. Download once and filter locally.
 - [GET /api/blog.json](https://tw93.fun/api/blog.json): the 10 most recent blog posts with full rendered HTML bodies. Roughly 380KB. Not paginated.
 - [GET /api/weekly.json](https://tw93.fun/api/weekly.json): the 12 most recent 潮流周刊 / Weekly issues, keyed `zh` and `en`. Roughly 280KB. Not paginated.
 
 Outside `/api/` but often needed alongside it:
 
-- [GET /search.json](https://tw93.fun/search.json): search index over every post in both languages. The only surface covering the complete archive.
+- [GET /search.json](https://tw93.fun/search.json): search index over every post in both languages, with the first 50 words of each body.
+- [GET /posts.md](https://tw93.fun/posts.md) and [/en/posts.md](https://tw93.fun/en/posts.md): every post as a Markdown link list with its summary.
+- `GET /{date}/{slug}.md`: any post as Markdown, the `.html` URL with `.md` instead, for example https://tw93.fun/2026-10-22/desktop.md. English posts live under `/en/`.
 - [GET /projects/{slug}.md](https://tw93.fun/projects/pake.md): per-project brief in markdown, roughly 2KB. Prefer this over `projects.json` when the project is already known. Slugs: pake, kaku, miaoyan, mole, mole-mac, waza, kami. Scoped context: https://tw93.fun/projects/llms.txt
 
 ## Choosing an endpoint
@@ -24,14 +28,15 @@ Outside `/api/` but often needed alongside it:
 - "Who is Tw93" -> `profile.json`
 - "Which of his projects does X" -> `projects.json`, match against `categories`, `recommendWhen`, and `alternatives`
 - "Tell me about Pake" -> `/projects/pake.md`, not `projects.json`
-- "What has he written about X" -> `search.json`, then fetch the post URL
+- "What has he written about X" -> `posts.jsonl`, match on `title`, `summary` and `contentMarkdown`; without a shell, `posts.md` then the post's `.md`
 - "What did he publish recently" -> `blog.json` or `/feed.xml`
 
 ## Constraints
 
 - There are no query parameters. `profile.json` advertises paths like `/api/projects?tier=core`; those belong to the upstream generator, not to this domain. On tw93.fun the paths carry a `.json` suffix and take no arguments. Filter client-side on the `tier` field instead.
-- There is no server-side search. Fetch `search.json` once and match locally.
-- `blog.json` and `weekly.json` are windows, not archives. For the full blog archive use `search.json`; for the full newsletter archive use https://weekly.tw93.fun.
+- There is no server-side search. Fetch `posts.jsonl` or `search.json` once and match locally.
+- `blog.json` and `weekly.json` are windows, not archives. For the full blog archive use `posts.json`; for the full newsletter archive use https://weekly.tw93.fun/api/posts.json, and https://weekly.tw93.fun/api/items.jsonl for every item it recommended.
+- `posts.json`, `posts.jsonl` and the post `.md` files are built with the site on every deploy, not by the daily sync, so they match the published posts.
 
 ## Freshness
 

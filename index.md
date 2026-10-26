@@ -65,10 +65,14 @@ Every endpoint is a static file over HTTPS. No authentication, no rate limit, no
 | `/openapi.json` | application/json | OpenAPI 3.1 description of everything in this table |
 | `/api/profile.json` | application/json | Author profile, skills, star totals, endpoint index |
 | `/api/projects.json` | application/json | All 20 projects with descriptions, stacks, alternatives |
+| `/api/posts.json` | application/json | Every post in both languages, metadata and Markdown URLs |
+| `/api/posts.jsonl`, `/api/en/posts.jsonl` | application/x-ndjson | Every post with its full Markdown body, one per line |
+| `/posts.md`, `/en/posts.md` | text/markdown | Every post as a link list with summaries |
+| `/{date}/{slug}.md` | text/markdown | Any post as Markdown, the `.html` URL with `.md` |
 | `/api/blog.json` | application/json | 10 most recent blog posts, full HTML bodies |
 | `/api/weekly.json` | application/json | 12 most recent newsletter issues, Chinese and English |
 | `/projects/{slug}.md` | text/markdown | Per-project brief, slugs: pake, kaku, miaoyan, mole, mole-mac, mole-windows, waza, kami |
-| `/search.json` | application/json | Search index over every post, both languages |
+| `/search.json` | application/json | Search index over every post, first 50 words of each |
 | `/feed.xml`, `/en/feed.xml` | application/atom+xml | Blog feeds |
 | `/pricing.md` | text/markdown | Pricing and licence for every project |
 | `/.well-known/api-catalog` | application/linkset+json | RFC 9727 catalog of the above |
@@ -84,9 +88,9 @@ There is no application server, so there are no application errors and no rate l
 
 ## Content
 
-- Around 188 blog posts, Chinese in the main feed and English under `/en/`
+- Long-form posts, Chinese in the main feed and most translated under `/en/`, listed at `/posts.md` and `/en/posts.md`
 - Topics: product engineering, AI coding workflows, Rust, Swift, TypeScript, design thinking
-- Weekly newsletter: https://weekly.tw93.fun
+- Weekly newsletter: https://weekly.tw93.fun, agent guide at https://weekly.tw93.fun/llms.txt
 
 ## Links
 

@@ -150,6 +150,177 @@
         }
       }
     },
+    "/api/posts.json": {
+      "get": {
+        "operationId": "listPosts",
+        "tags": [
+          "content"
+        ],
+        "summary": "List every post",
+        "description": "Every post in both languages, newest first, with title, date, language, summary, categories, HTML and Markdown URLs, and the translation pair. Built from the post sources on every deploy.",
+        "responses": {
+          "200": {
+            "description": "Every post.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostIndex"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/api/posts.jsonl": {
+      "get": {
+        "operationId": "getChinesePostsFullText",
+        "tags": [
+          "content"
+        ],
+        "summary": "Full text of every Chinese post",
+        "description": "Newline-delimited JSON, one PostFull object per line, newest first, each with its full Markdown body. Roughly 1.5MB; download once and match locally on title, summary and contentMarkdown.",
+        "responses": {
+          "200": {
+            "description": "One PostFull object per line.",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "type": "string"
+                },
+                "x-item-schema": {
+                  "$ref": "#/components/schemas/PostFull"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/api/en/posts.jsonl": {
+      "get": {
+        "operationId": "getEnglishPostsFullText",
+        "tags": [
+          "content"
+        ],
+        "summary": "Full text of every English post",
+        "description": "Same shape as /api/posts.jsonl for the English translations.",
+        "responses": {
+          "200": {
+            "description": "One PostFull object per line.",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "type": "string"
+                },
+                "x-item-schema": {
+                  "$ref": "#/components/schemas/PostFull"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/posts.md": {
+      "get": {
+        "operationId": "getPostListMarkdown",
+        "tags": [
+          "content",
+          "agent"
+        ],
+        "summary": "Every Chinese post as Markdown",
+        "description": "Link list of every Chinese post with its date, summary and Markdown URL. English at /en/posts.md.",
+        "responses": {
+          "200": {
+            "description": "Post list as Markdown.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
+    "/{date}/{slug}.md": {
+      "get": {
+        "operationId": "getPostMarkdown",
+        "tags": [
+          "content",
+          "agent"
+        ],
+        "summary": "One post as Markdown",
+        "description": "The Markdown twin of /{date}/{slug}.html, headed by its title, summary, date and links. English posts live under /en/{date}/{slug}.md. Requesting the .html URL with Accept: text/markdown redirects here.",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "description": "Publication date, YYYY-MM-DD.",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "example": "2026-10-22"
+          },
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Post slug from the post URL.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "desktop"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post as Markdown.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/EdgeFailure"
+          }
+        }
+      }
+    },
     "/api/blog.json": {
       "get": {
         "operationId": "listBlogPosts",
@@ -213,7 +384,7 @@
           "content"
         ],
         "summary": "Get the full-site search index",
-        "description": "Returns one entry for every post in both languages, each with a title, URL, date, categories, summary, and the first 50 words of body text. There is no server-side search; fetch this index once and match against it locally. This is the only endpoint that covers the complete archive.",
+        "description": "Returns one entry for every post in both languages, each with a title, URL, date, categories, summary, and the first 50 words of body text. There is no server-side search; fetch this index once and match against it locally. For the full text of every post use /api/posts.jsonl.",
         "responses": {
           "200": {
             "description": "Search index over every post.",
@@ -836,6 +1007,114 @@
               "zh-CN",
               "en-US"
             ]
+          }
+        }
+      },
+      "PostRecord": {
+        "type": "object",
+        "required": [
+          "title",
+          "date",
+          "language",
+          "url",
+          "markdownUrl"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "description": "YYYY-MM-DD."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "zh-CN",
+              "en-US"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "markdownUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "translation": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "language": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "markdownUrl": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      },
+      "PostFull": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostRecord"
+          },
+          {
+            "type": "object",
+            "required": [
+              "contentMarkdown"
+            ],
+            "properties": {
+              "contentMarkdown": {
+                "type": "string",
+                "description": "Full Markdown body of the post."
+              }
+            }
+          }
+        ]
+      },
+      "PostIndex": {
+        "type": "object",
+        "properties": {
+          "site": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Chinese posts."
+          },
+          "englishCount": {
+            "type": "integer"
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostRecord"
+            }
           }
         }
       }
