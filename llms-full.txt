@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 171K+ stars, 17K+ forks, 13,568 followers
+- **GitHub**: 171K+ stars, 17K+ forks, 13,582 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,309
-- Forks: 12,832
+- Stars: 62,318
+- Forks: 12,840
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.17.6 "Clearance" (2026-10-17)
@@ -117,12 +117,12 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,152
-- Forks: 321
+- Stars: 6,155
+- Forks: 322
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
-- Latest Release: V0.26.1 "Steady" (2026-10-22)
+- Latest Release: V0.27.0 "Reach" (2026-10-26)
 - Install: `brew install --cask kaku`
 
 **Features:**
@@ -204,12 +204,12 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,682
+- Stars: 8,685
 - Forks: 520
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
-- Latest Release: V4.5.0 "Nargacuga 🌙" (2026-09-25)
+- Latest Release: V4.6.0 "Lagiacrus ⚡" (2026-10-26)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
@@ -289,8 +289,8 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 72,861
-- Forks: 2,572
+- Stars: 72,992
+- Forks: 2,574
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -474,8 +474,8 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,356
-- Forks: 423
+- Stars: 7,367
+- Forks: 424
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.40.0 "V3.40.0 Compass 🧭" (2026-10-15)
@@ -544,8 +544,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,079
-- Forks: 565
+- Stars: 12,093
+- Forks: 566
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.18.0 "Charted Pages" (2026-10-15)
@@ -634,7 +634,7 @@ Sample PDFs in several formats and languages. Click any preview to open it.
 
 ## Secondary Projects
 
-### Weekly (880 stars)
+### Weekly (881 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
@@ -645,7 +645,7 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 - Covers front-end, tools, AI, and lifestyle
 - Published as a static site via GitHub Pages
 
-### Maple (511 stars)
+### Maple (512 stars)
 
 Maple is a set of three Chrome extensions for browsing with the bookmark bar hidden. Maple Bookmarks opens your bookmarks with a shortcut and searches them as you type, Maple NewTab replaces the new-tab page so the bookmark bar stays hidden there too, and Maple Theme is a plain white browser theme.
 
@@ -961,6 +961,7 @@ A: Kami (https://kami.tw93.fun). Warm parchment typesetting system for resumes, 
 
 From [tw93.fun](https://tw93.fun) (10 most recent):
 
+- [AI 时代做产品，把省下来的时间花在细节上](https://tw93.fun/2026-10-26/mole-product.html) (2026-10-26)
 - [你不知道的客户端开发：选型、原生、多端与借力](https://tw93.fun/2026-10-22/desktop.html) (2026-10-22)
 - [Mole 出 Mac 版后，用户教会了我做产品](https://tw93.fun/2026-08-16/mole-mac.html) (2026-08-16)
 - [你不知道的具身智能：从小机器狗到 Optimus](https://tw93.fun/2026-06-07/robot.html) (2026-06-07)
@@ -970,7 +971,6 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 - [你不知道的大模型训练：原理、路径与新实践](https://tw93.fun/2026-04-03/llm.html) (2026-04-03)
 - [杀死那个手工程序员](https://tw93.fun/2026-03-30/kill.html) (2026-03-30)
 - [你不知道的 Agent：原理、架构与工程实践](https://tw93.fun/2026-03-21/agent.html) (2026-03-21)
-- [你不知道的 Claude Code：架构、治理与工程实践](https://tw93.fun/2026-03-12/claude.html) (2026-03-12)
 
 ## Weekly Issues (Chinese)
 
