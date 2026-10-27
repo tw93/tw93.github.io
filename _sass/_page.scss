@@ -921,25 +921,36 @@ iframe {
 
 .newsletter {
   width: 100%;
-  max-width: 360px;
-  margin: 16px auto 0;
+  margin: 40px 0 0;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba($base-color, 0.05);
+  box-sizing: border-box;
   position: relative;
-  // .coffee pulls the next block up by 20px on large screens.
-  @media #{$large} {
-    margin-top: 36px;
+  .newsletter-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: $base-color;
+  }
+  .newsletter-note {
+    margin: 4px 0 14px;
+    font-size: 15px;
+    color: rgba($base-color, 0.65);
   }
   .newsletter-row {
     display: flex;
     gap: 8px;
+    max-width: 440px;
   }
   input[type="email"] {
     flex: 1;
     min-width: 0;
-    height: 40px;
+    height: 44px;
     padding: 0 12px;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background: transparent;
+    background: $white;
     color: $base-color;
     // iOS Safari zooms the page into any field under 16px.
     font-size: 16px;
@@ -950,13 +961,14 @@ iframe {
     }
   }
   button {
-    height: 40px;
-    padding: 0 16px;
+    height: 44px;
+    padding: 0 20px;
     border: 0;
     border-radius: $border-radius;
-    background: rgba($base-color, 0.08);
-    color: $base-color;
-    font-size: 14px;
+    background: $primary;
+    color: $body-color;
+    font-size: 15px;
+    font-weight: 500;
     white-space: nowrap;
     cursor: pointer;
     transition: opacity 0.12s ease-out;
@@ -977,10 +989,16 @@ iframe {
   }
   .newsletter-status {
     margin: 8px 0 0;
-    min-height: 1.5em;
-    text-align: center;
-    font-size: 14px;
+    font-size: 15px;
+    &:empty {
+      display: none;
+    }
   }
+}
+
+// The support button sits right under the signup card.
+.newsletter + .coffee {
+  margin-top: 16px;
 }
 
 .img-zoom {

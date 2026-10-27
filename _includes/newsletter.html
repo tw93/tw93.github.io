@@ -10,11 +10,13 @@
   data-invalid="邮箱地址的格式不对。"
   data-failed="暂时没能发出，过一会儿再试试。"
   {% endif %}>
+  <p class="newsletter-title">{% if nl_lang == 'en' %}Subscribe to the blog{% else %}订阅博客{% endif %}</p>
+  <p class="newsletter-note">{% if nl_lang == 'en' %}New posts land in your inbox.{% else %}新文章发布后发到你的邮箱{% endif %}</p>
   <div class="newsletter-row">
     <input type="email" name="email" required autocomplete="email" maxlength="254"
       placeholder="{% if nl_lang == 'en' %}Email address{% else %}邮箱地址{% endif %}"
       aria-label="{% if nl_lang == 'en' %}Email address{% else %}邮箱地址{% endif %}">
-    <button type="submit">{% if nl_lang == 'en' %}Subscribe{% else %}订阅博客{% endif %}</button>
+    <button type="submit">{% if nl_lang == 'en' %}Subscribe{% else %}订阅{% endif %}</button>
   </div>
   <input class="newsletter-trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
   <p class="newsletter-status" role="status" aria-live="polite"></p>
