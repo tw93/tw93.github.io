@@ -345,8 +345,20 @@ function keepLightboxCorners(lightbox, radius) {
     var effect = transition && transition.effect;
     if (!effect) return;
     var keyframes = effect.getKeyframes();
-    var from = scaleOf(String(keyframes[0].transform));
-    var to = scaleOf(String(keyframes[keyframes.length - 1].transform));
+    // Under browser zoom Chromium reports a transition's keyframes in zoomed
+    // pixels (at 110% on a 2x screen, translations come back 2.2x), and
+    // replaying them opened the image from its lower right. PhotoSwipe's inline
+    // transform is the target in CSS pixels; scale the start's translation by
+    // the same ratio, and leave the plain transition alone when it is unknown.
+    var target = new DOMMatrixReadOnly(wrap.style.transform || 'none');
+    var start = new DOMMatrix(String(keyframes[0].transform));
+    var end = new DOMMatrixReadOnly(String(keyframes[keyframes.length - 1].transform));
+    var zoom = Math.abs(target.e) >= Math.abs(target.f) ? end.e / target.e : end.f / target.f;
+    if (!isFinite(zoom) || zoom <= 0) return;
+    start.e /= zoom;
+    start.f /= zoom;
+    var from = start.a;
+    var to = target.a;
     var timing = effect.getTiming();
     wrap.getAnimations().forEach(function (a) {
       if (isRadiusAnimation(a)) a.cancel();
@@ -358,8 +370,8 @@ function keepLightboxCorners(lightbox, radius) {
     for (var i = 0; i <= steps; i++) {
       frames.push({ offset: i / steps, '--pswp-img-radius': radius / (from + ((to - from) * i) / steps) + 'px' });
     }
-    frames[0].transform = String(keyframes[0].transform);
-    frames[steps].transform = String(keyframes[keyframes.length - 1].transform);
+    frames[0].transform = start.toString();
+    frames[steps].transform = target.toString();
     var animation = wrap.animate(frames, { duration: timing.duration, easing: timing.easing, id: 'pswp-radius' });
     setRadius(wrap, to);
     var align = function () {
