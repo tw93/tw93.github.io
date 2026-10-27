@@ -923,11 +923,10 @@ iframe {
 
 .newsletter {
   width: 100%;
-  max-width: 480px;
-  margin: 16px auto 20px;
+  margin: 20px 0;
   // .coffee pulls the next block up by 20px on large screens.
   @media #{$large} {
-    margin-top: 36px;
+    margin-top: 40px;
   }
   &[hidden] {
     display: none;
@@ -938,7 +937,7 @@ iframe {
   }
   padding: 20px;
   border-radius: 12px;
-  background: rgba($base-color, 0.05);
+  background: rgba($base-color, 0.03);
   box-sizing: border-box;
   position: relative;
   .newsletter-note {
