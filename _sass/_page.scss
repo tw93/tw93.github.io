@@ -899,6 +899,9 @@ iframe {
   display: flex;
   justify-content: center;
   gap: 16px;
+  @media #{$large} {
+    gap: 32px;
+  }
   margin: 40px 0 20px;
   position: relative;
   @media #{$large} {
