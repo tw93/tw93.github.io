@@ -121,6 +121,7 @@ defaults:
       path: ""
       type: "posts_en"
     values:
+      lang: en-US
       sitemap:
         priority: 0.8
         changefreq: weekly
