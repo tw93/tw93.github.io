@@ -2,11 +2,13 @@
 {% if page.lang == 'en-US' %}{% assign nl_lang = 'en' %}{% else %}{% assign nl_lang = 'zh' %}{% endif %}
 <form id="newsletter" class="newsletter" hidden data-lang="{{ nl_lang }}"
   {% if nl_lang == 'en' %}
-  data-sent="Sent to {email}. Check your inbox to confirm."
+  data-sent="Sent to {email}. {open}."
+  data-open="Check your inbox to confirm"
   data-invalid="That email address doesn't look right."
   data-failed="Couldn't send it right now, try again later."
   {% else %}
-  data-sent="邮件已发到 {email}，去邮箱确认一下。"
+  data-sent="邮件已发到 {email}，{open}。"
+  data-open="去邮箱确认"
   data-invalid="邮箱地址的格式不对。"
   data-failed="暂时没能发出，过一会儿再试试。"
   {% endif %}>
@@ -35,6 +37,69 @@
     });
   });
 
+  // Webmail for the common providers, so 去邮箱确认 opens the inbox itself.
+  // Company and other domains have no known web address and stay plain text.
+  // Kept in step with the Weekly's src/components/Subscribe.astro.
+  var WEBMAIL = [
+    [/^(gmail|googlemail)\.com$/, 'https://mail.google.com/'],
+    [/^(qq|vip\.qq|foxmail)\.com$/, 'https://mail.qq.com/'],
+    [/^163\.com$/, 'https://mail.163.com/'],
+    [/^126\.com$/, 'https://mail.126.com/'],
+    [/^yeah\.net$/, 'https://mail.yeah.net/'],
+    [/^vip\.(163|126)\.com$/, 'https://vip.163.com/'],
+    [/^188\.com$/, 'https://www.188.com/'],
+    [/^(sina\.com|sina\.cn|vip\.sina\.com)$/, 'https://mail.sina.com.cn/'],
+    [/^sohu\.com$/, 'https://mail.sohu.com/'],
+    [/^aliyun\.com$/, 'https://mail.aliyun.com/'],
+    [/^139\.com$/, 'https://mail.10086.cn/'],
+    [/^189\.cn$/, 'https://mail.189.cn/'],
+    [/^wo\.cn$/, 'https://mail.wo.cn/'],
+    [/^tom\.com$/, 'https://mail.tom.com/'],
+    [/^263\.net$/, 'https://mail.263.net/'],
+    [/^((outlook|hotmail|live)\.[a-z.]+|msn\.com)$/, 'https://outlook.live.com/mail/'],
+    [/^(icloud|me|mac)\.com$/, 'https://www.icloud.com/mail'],
+    [/^yahoo\.co\.jp$/, 'https://mail.yahoo.co.jp/'],
+    [/^(yahoo\.[a-z.]+|ymail\.com|rocketmail\.com)$/, 'https://mail.yahoo.com/'],
+    [/^aol\.com$/, 'https://mail.aol.com/'],
+    [/^(proton\.me|protonmail\.(com|ch)|pm\.me)$/, 'https://mail.proton.me/'],
+    [/^(zoho|zohomail)\.(com|com\.cn)$/, 'https://mail.zoho.com/'],
+    [/^(fastmail\.(com|fm))$/, 'https://app.fastmail.com/'],
+    [/^hey\.com$/, 'https://app.hey.com/'],
+    [/^(tutanota\.(com|de)|tuta\.(io|com))$/, 'https://app.tuta.com/'],
+    [/^gmx\.(com|us|co\.uk)$/, 'https://www.gmx.com/'],
+    [/^gmx\.(de|net|at|ch)$/, 'https://www.gmx.net/'],
+    [/^web\.de$/, 'https://web.de/'],
+    [/^(yandex\.[a-z]+|ya\.ru)$/, 'https://mail.yandex.com/'],
+    [/^(mail|inbox|list|bk)\.ru$/, 'https://e.mail.ru/'],
+    [/^naver\.com$/, 'https://mail.naver.com/'],
+    [/^(daum\.net|hanmail\.net)$/, 'https://mail.daum.net/']
+  ];
+  function webmailFor(email) {
+    var domain = email.split('@').pop().toLowerCase();
+    for (var i = 0; i < WEBMAIL.length; i++) {
+      if (WEBMAIL[i][0].test(domain)) return WEBMAIL[i][1];
+    }
+    return null;
+  }
+
+  // Writes 邮件已发到 {email}，{open}。 with {open} as a link when the inbox is known.
+  function showSent(status, template, open, email) {
+    var parts = template.replace('{email}', email).split('{open}');
+    var url = webmailFor(email);
+    var action = document.createTextNode(open);
+    if (url) {
+      action = document.createElement('a');
+      action.href = url;
+      action.target = '_blank';
+      action.rel = 'noopener';
+      action.textContent = open;
+    }
+    status.textContent = '';
+    status.appendChild(document.createTextNode(parts[0]));
+    status.appendChild(action);
+    status.appendChild(document.createTextNode(parts[1] || ''));
+  }
+
   // Posts to the Weekly's signup function, which serves both sites; it only
   // mails a confirmation link.
   document.querySelectorAll('form.newsletter').forEach(function (form) {
@@ -55,12 +120,16 @@
         })
       }).then(function (response) {
         // Keep the address in the field so a typo stays visible.
-        if (response.ok) return form.dataset.sent.replace('{email}', String(data.get('email')).trim());
+        if (response.ok) return true;
         return response.status === 400 ? form.dataset.invalid : form.dataset.failed;
       }).catch(function () {
         return form.dataset.failed;
       }).then(function (message) {
-        status.textContent = message;
+        if (message === true) {
+          showSent(status, form.dataset.sent, form.dataset.open, String(data.get('email')).trim());
+        } else {
+          status.textContent = message;
+        }
         button.disabled = false;
       });
     });

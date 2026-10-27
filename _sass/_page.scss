@@ -997,6 +997,11 @@ iframe {
   .newsletter-status {
     margin: 8px 0 0;
     font-size: 15px;
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
     &:empty {
       display: none;
     }
