@@ -8,7 +8,11 @@ body_id: post
     <div class="entry-content {% if page.url contains '/en/' %}{% else %}heti{% endif %}">
       <h1 class="post-title entry-title">{{ page.title }}</h1>
       <h4 class="page-info">
+        {% if page.url contains '/en/' %}
         <span>Categories: {{page.categories}}</span>
+        {% else %}
+        <span>分类：{{ page.categories | join: '、' | replace: 'Creation', '创作' | replace: 'Life', '生活' | replace: 'Share', '分享' | replace: 'Study', '学习' | replace: 'Thought', '思考' }}</span>
+        {% endif %}
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
         <div class="qr-text" id="J_qr_text">
           <div id="J_qr_code" class="qr-code" aria-label="QR code for this page" role="img"></div>

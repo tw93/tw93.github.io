@@ -35,7 +35,7 @@ The mole later grew a native Mac app, [Mole for Mac](https://mole.fit), a $19 on
 
 ## Follow Me
 
-- [Github](https://github.com/{{site.github}})
+- [GitHub](https://github.com/{{site.github}})
 - [Twitter](https://twitter.com/{{site.twitter}})
 - [YouTube](https://www.youtube.com/@HiTw93)
 - [Zhihu](https://www.zhihu.com/people/{{site.zhihu}})

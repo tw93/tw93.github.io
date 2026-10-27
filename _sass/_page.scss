@@ -921,6 +921,10 @@ iframe {
       background-color: #fff;
       color: #222;
     }
+    // A plain space after the emoji is nearly invisible in the body font.
+    .coffee-heart {
+      margin-right: 6px;
+    }
   }
 }
 

@@ -34,7 +34,7 @@ summary: Tw93 是来自杭州的产品工程师，长期创作简洁、好用的
 
 ## 关注我
 
-- [Github](https://github.com/{{site.github}})
+- [GitHub](https://github.com/{{site.github}})
 - [Twitter](https://twitter.com/{{site.twitter}})
 - [YouTube](https://www.youtube.com/@HiTw93)
 - [知乎](https://www.zhihu.com/people/{{site.zhihu}})
