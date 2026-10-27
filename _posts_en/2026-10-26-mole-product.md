@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building Products in the AI Era: Spend the Time You Save on the Details"
+title: "How to Build a Slow Product in the Fast AI Era"
 poem: 大直若屈，大巧若拙
 date: 2026-10-26 20:00:00
 feature: https://cdn.tw93.fun/blog/pic/mole-product-cover-honest-en.png
@@ -8,13 +8,11 @@ summary: "It has been a little over two months since I wrote the previous post, 
 categories: Thought
 ---
 
-![Building Products in the AI Era article cover](https://cdn.tw93.fun/blog/pic/mole-product-cover-honest-en.png)
+![How to Build a Slow Product in the Fast AI Era article cover](https://cdn.tw93.fun/blog/pic/mole-product-cover-honest-en.png)
 
 It has been a little over two months since I wrote the previous post, [From Mole CLI to Mole for Mac: What I Learned](https://tw93.fun/en/2026-08-16/mole-mac.html). In that time Mole went from 1.13 all the way to 1.18, added AI tool cleanup and System Data cleanup, the Windows version shipped on the evening of October 14, and the GitHub repository quietly passed 72.9K stars.
 
 Looking back, most of my time did not go into new features. It went into things that look like a poor trade to an engineer: installing 850 Mac apps from China and abroad one by one, using each a little, then uninstalling it; resending more than 400 unactivated license emails one at a time; redrawing dozens of icons over three rounds; and rewriting the interface copy line by line until someone opening Mole for the first time could follow it.
-
-> Mole's site is [mole.fit](https://mole.fit), the CLI is open source on [GitHub](https://github.com/tw93/Mole), and the Windows version is at [mole.fit/windows](https://mole.fit/windows).
 
 Programmers naturally like work that scales. Whatever the task, we look for a way to turn it into a tool, a script or an AI call so we can be lazy. These two months left me feeling a bit differently. Code keeps getting cheaper and anyone can quickly build something that runs, so what sets products apart is more and more the details you only learn by doing the work yourself. The good news is that with AI, these chores that used to take a lot of people can now be finished by one.
 
@@ -36,7 +34,7 @@ It also changed some of my assumptions. I thought software engineering was order
 
 That first round of more than 300 apps gave Mole 13 kinds of reusable general rules and more than 90 precise cleanup paths. Along the way it also fixed more than 30 places I had thought should be cleaned but should actually be left alone, and added more than 100 unit tests. Those places to leave alone were as valuable to me as the new leftovers: a cache can be rebuilt, the user's own files cannot, and data several apps share should never go just because one of them was uninstalled.
 
-I also wrote up the uninstall steps for every app as guides in Chinese and English on the site. All 850 are free to read, so even without Mole you can follow them by hand. See whether the apps on your Mac are in [this list](https://mole.fit/tested-apps).
+I also wrote up the leftover paths and uninstall steps for every app as guides in Chinese and English on the site. All 850 are free to read, so even without any tools you can follow them by hand. See whether the apps on your Mac are in [this list](https://mole.fit/tested-apps).
 
 ![The AI tools part of the tested app list](https://cdn.tw93.fun/blog/pic/mole-product-testing-mac-apps-800.webp)
 
@@ -50,7 +48,7 @@ Unlike the earlier install-and-uninstall rounds, this time I signed in to every 
 
 For each tool, the AI compared against the state before install, measured what it wrote into the home folder, `~/Library`, `/usr/local/bin` and the shell configuration, and recorded it in a ledger. Then it checked how many processes and how much memory the tool used, uninstalled it with Mole, and scanned the whole home folder by name for anything unlisted. Whatever was missing went into the code that night and was tested again.
 
-This round was more surprising than ordinary apps. The most visible part was memory: the 13 desktop apps open together took about 23 GB, and one tool from a big Chinese company started 41 processes and 4.49 GB of memory on launch. Most of these tools are built on VS Code or Electron, so each window brings a string of helpers. That is why Mole's Status page gives each app one row and adds up all of its child processes; in Activity Monitor alone it is hard to see who is actually eating the memory.
+This round was more surprising than ordinary apps. The most visible part was memory: the 13 desktop apps open together took about 23 GB, and one tool from a big Chinese company started 41 processes and 4.49 GB of memory on launch. Most of these tools are built on VS Code or Electron, so each window brings a string of helpers. That is why, when I built status monitoring, I gave each app one row and added up all of its child processes; in Activity Monitor alone it is hard to see who is actually eating the memory.
 
 Then there were the small changes they made to the system. Some tools, on first launch, put a root-owned command link in `/usr/local/bin`, which becomes a dead link once the app is deleted. One put a `python3.12` into `~/.local/bin`, so typing `python3.12` in the terminal afterwards ran its bundled copy. The worst was a Chinese command line tool: I ran it once, it told me it was no longer maintained, and then, without asking, downloaded and installed its new version, edited `.zshrc`, and renamed the old command to legacy.
 
@@ -90,13 +88,13 @@ Quite a few, though, had simply typed their email wrong, probably in a hurry, `g
 
 In the back-end data, all of these people have the same status: not activated. Sending everyone the same activation reminder would have meant getting the problem wrong. People who bought to support Mole, kept it as a gift or were waiting for a new computer had nothing to be reminded about; the ones with a mistyped email or a lost message were the ones who never got their key. The dashboard numbers cannot tell these cases apart. Only reading the replies one by one can.
 
-So I filled in a piece of the post-purchase flow. After payment, the user is taken to a page on Mole's site that shows the activation key right away, so even with a mistyped email or a blocked message they see it the moment they buy. Mole also gained a fun feature: click activate on the web page, and the installed Mole app comes up with the key already filled in on its license activation page. No copying and pasting, just press the confirm button.
+So I filled in a piece of the post-purchase flow: after payment, the user is taken back to the site, which displays the Key right away, so even with a mistyped email or a blocked message they see it immediately. There is also a neat little detail: clicking activate on the web page invokes the installed client through a custom protocol and automatically fills in the Key, leaving the user to just press confirm without copying and pasting.
 
 <video width="800px" controls preload="none" muted playsinline poster="https://cdn.tw93.fun/blog/pic/mole-product-mole-active-poster.webp">
   <source src="https://cdn.tw93.fun/blog/pic/mole-product-mole-active.mp4" type="video/mp4">
 </video>
 
-Taken apart, this small piece of magic is the web page handing macOS a link Mole recognizes, the system handing it to the app, and the app only placing the key in the input field. It never confirms the activation for the user; it still goes through the original license check, and the last step stays with the user. An engineer who has built clients or front ends may find this trivial, but to most users it feels like wow, how did it do that, this product did a little extra for me. Maybe that is what I keep chasing in products: a few fun touches that give users that sense of magic, a little of the hackers and painters feeling.
+Taken apart, this small piece of magic is just the web page handing the system a link Mole recognizes, the system handing it to the app, and the app only placing the key in the input field. It never confirms the activation for the user; it still goes through the original license check, and the last step stays with the user. An engineer who has built clients or front ends may find this trivial, but to most users it feels like wow, how did it do that, this product did a little extra for me. Maybe that is what I keep chasing in products: a few fun touches that give users that sense of magic, a little of the hackers and painters feeling.
 
 Lately I have been doing something similar: writing to the early users who bought Mole right after its launch in May, with versions in Simplified Chinese, Traditional Chinese, English, Spanish and French. The letter mostly thanks them for supporting it so early, mentions that the Mac version has added System Data and AI cleanup these months and that checking for updates in Mole brings them in, and ends by asking them to reply directly with anything that feels off or any feature they want.
 
@@ -144,7 +142,7 @@ How exactly to build Windows software on a Mac, for example how to layer the cod
 
 AI makes code faster to write and makes a passable interface much easier to build. It can look as if people have nothing left to do but talk. My experience these months is that the human part matters even more now, and the time AI saves us is exactly what we can spend on this polishing that looks like wasted effort.
 
-Installing and uninstalling 850 apps one by one, reading every reply, redrawing dozens of icons three times: AI will not decide to do these for you. But once they are done, if 1% of your users now and then get that instant understanding, that wow, that feeling of a magic trick while using your product, it is very, very worth it.
+Installing and uninstalling 850 apps one by one, reading every reply, redrawing dozens of icons three times: AI will not decide to do these for you. But once they are done, if 1% of your users now and then get that instant understanding, that wow, that feeling of a magic trick while using your product, it is very much worth it.
 
 The pitfalls turned into cleanup rules, more than 100 new unit tests and public guides, so next time I do not start from scratch. That is what keeps this patient work from going to waste.
 
@@ -152,4 +150,4 @@ The more apps I test, the more I want Mole to keep its current restraint: no upl
 
 Next on the Mac side I want to reach 1,000 apps first, and the Windows side will keep filling in too. If your computer has an app that is especially hard to uninstall or leaves deep leftovers, tell me in the [GitHub discussion](https://github.com/tw93/Mole/discussions/1604) and I will put it on the next round's list. Steadily making a tool I enjoy using and others find reliable is what makes me happy.
 
-The CLI is open source and free on [GitHub](https://github.com/tw93/Mole), the Mac version is at [mole.fit](https://mole.fit), and the Windows version is at [mole.fit/windows](https://mole.fit/windows). Feel free to come and complain anytime.
+The CLI remains open source and free on [GitHub](https://github.com/tw93/Mole), and the desktop versions for Mac and Windows are at [mole.fit](https://mole.fit). Feel free to come and complain anytime.
