@@ -898,7 +898,7 @@ iframe {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   margin: 40px 0 20px;
   position: relative;
   @media #{$large} {
@@ -908,12 +908,17 @@ iframe {
     @include btn-base();
     margin: 0;
     position: relative;
-    min-width: 136px;
+    min-width: 160px;
     padding: 0 18px;
     font-family: inherit;
     text-align: center;
     cursor: pointer;
     user-select: none;
+    // On phones the pair splits the row and lines up with the panel below.
+    @media (max-width: 640px) {
+      flex: 1 1 0;
+      min-width: 0;
+    }
     &.active {
       background-color: #fff;
       color: #222;
@@ -930,10 +935,6 @@ iframe {
   }
   &[hidden] {
     display: none;
-  }
-  animation: newsletter-in 0.25s ease-out;
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
   }
   padding: 20px;
   border-radius: 12px;
@@ -1001,12 +1002,6 @@ iframe {
     &:empty {
       display: none;
     }
-  }
-}
-
-@keyframes newsletter-in {
-  from {
-    opacity: 0;
   }
 }
 

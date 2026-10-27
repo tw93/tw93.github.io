@@ -21,15 +21,40 @@
   <p class="newsletter-status" role="status" aria-live="polite"></p>
 </form>
 <script>
-  // The 邮件订阅 button beside 支持作者 opens the form under the pair.
+  // The 邮件订阅 button beside 支持作者 opens the form under the pair. The
+  // panel grows from nothing and fades in over 0.25s, and shrinks back the same
+  // way; reduced motion just shows or hides it.
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   document.querySelectorAll('.newsletter-toggle').forEach(function (toggle) {
     var form = document.getElementById(toggle.getAttribute('aria-controls'));
     if (!form) return;
+    var running;
     toggle.addEventListener('click', function () {
-      var open = form.hidden;
-      form.hidden = !open;
+      var open = toggle.getAttribute('aria-expanded') !== 'true';
       toggle.setAttribute('aria-expanded', String(open));
+      if (running) running.cancel();
+      form.hidden = false;
       if (open) form.querySelector('input[type="email"]').focus({ preventScroll: true });
+      if (reduceMotion.matches || !form.animate) {
+        form.hidden = !open;
+        return;
+      }
+      var style = getComputedStyle(form);
+      var shown = {
+        height: form.offsetHeight + 'px',
+        paddingTop: style.paddingTop,
+        paddingBottom: style.paddingBottom,
+        marginTop: style.marginTop,
+        marginBottom: style.marginBottom,
+        opacity: 1
+      };
+      var folded = { height: '0px', paddingTop: '0px', paddingBottom: '0px', marginTop: '0px', marginBottom: '0px', opacity: 0 };
+      form.style.overflow = 'hidden';
+      running = form.animate(open ? [folded, shown] : [shown, folded], { duration: 250, easing: 'ease-out' });
+      running.onfinish = function () {
+        form.style.overflow = '';
+        form.hidden = !open;
+      };
     });
   });
 
