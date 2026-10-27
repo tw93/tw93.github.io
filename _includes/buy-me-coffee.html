@@ -1,5 +1,10 @@
 {% if site.showBuyCoffee != false %}
 <div class="coffee">
+  {% if site.newsletter == true %}
+  <button type="button" class="buy-me-coffee newsletter-toggle" aria-expanded="false" aria-controls="newsletter">
+    {% if page.lang == 'en-US' %}Subscribe{% else %}邮件订阅{% endif %}
+  </button>
+  {% endif %}
   {% if page.lang == 'en-US' %}
   <a class="buy-me-coffee" href="https://mole.fit" target="_blank" rel="noopener noreferrer">
     ❤️ Support me
