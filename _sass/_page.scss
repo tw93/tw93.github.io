@@ -908,17 +908,12 @@ iframe {
     @include btn-base();
     margin: 0;
     position: relative;
-    min-width: 160px;
+    min-width: 136px;
     padding: 0 18px;
     font-family: inherit;
     text-align: center;
     cursor: pointer;
     user-select: none;
-    // On phones the pair splits the row and lines up with the panel below.
-    @media (max-width: 640px) {
-      flex: 1 1 0;
-      min-width: 0;
-    }
     &.active {
       background-color: #fff;
       color: #222;
