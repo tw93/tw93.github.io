@@ -142,13 +142,6 @@ $notes-line: rgba($base-color, 0.14);
   scroll-margin-top: 80px;
 }
 
-// A long scroll keeps hundreds of notes in the page; the ones off screen
-// skip layout and paint, and keep the height they last had.
-.notes-list > .note {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 520px;
-}
-
 .note-meta,
 .note-foot {
   display: flex;
