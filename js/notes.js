@@ -98,11 +98,18 @@
     var player = e.target.closest && e.target.closest('.note-player:not(.note-gif):not(.is-playing)');
     if (!player) return;
     e.preventDefault();
-    player.querySelector('video').play().catch(function () {});
+    player.classList.add('is-loading');
+    player.querySelector('video').play().catch(function () {
+      player.classList.remove('is-loading');
+    });
   });
   list.addEventListener('playing', function (e) {
     var player = e.target.closest('.note-player');
-    if (player) player.classList.add('is-playing');
+    if (player) player.classList.replace('is-loading', 'is-playing') || player.classList.add('is-playing');
+  }, true);
+  list.addEventListener('error', function (e) {
+    var player = e.target.closest && e.target.closest('.note-player');
+    if (player) player.classList.remove('is-loading');
   }, true);
   list.addEventListener('play', function (e) {
     if (e.target.closest('.note-gif')) return;

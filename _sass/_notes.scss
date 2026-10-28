@@ -365,6 +365,29 @@ $notes-line: rgba($base-color, 0.14);
   &.is-playing .note-play {
     display: none;
   }
+  // Between the click and the first frame, which can take seconds on a cold
+  // cache, the play icon turns into a ring of the same size.
+  &.is-loading .note-play {
+    svg {
+      display: none;
+    }
+    &::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      margin: 2px;
+      border: 2px solid rgba($white, 0.3);
+      border-top-color: $white;
+      border-radius: 50%;
+      animation: note-spin 0.8s linear infinite;
+    }
+  }
+}
+
+@keyframes note-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .note-play.note-play-center {
