@@ -271,15 +271,18 @@ module Jekyll
       text.length > 150 ? "#{text[0, 148]}…" : text
     end
 
+    # One row a year and a fixed column a month, December first, so the
+    # months line up down the years instead of running on like a sentence.
     def archive_html(months)
       years = months.keys.group_by { |key| key[0, 4] }
       rows = years.sort.reverse.map do |year, keys|
         links = keys.sort.reverse.map do |key|
-          %(<a href="/notes/#{key[0, 4]}/#{key[5, 2]}/" title="#{months[key].size} 条">#{key[5, 2].to_i} 月</a>)
+          month = key[5, 2].to_i
+          %(<a href="/notes/#{key[0, 4]}/#{key[5, 2]}/" style="grid-column: #{14 - month}" title="#{key[0, 4]} 年 #{month} 月，#{months[key].size} 条">#{month}</a>)
         end
         %(<div class="notes-year"><span>#{year}</span>#{links.join}</div>)
       end
-      rows.join
+      %(<h2 class="notes-archive-title">按月浏览</h2>#{rows.join})
     end
 
     def make_page(site, dir, name, data)

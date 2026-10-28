@@ -435,11 +435,26 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .notes-more {
-  display: block;
-  padding: 8px 0;
-  text-align: center;
-  font-size: 14px;
-  color: $notes-meta;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 36px;
+  margin: 8px auto 0;
+  padding: 0 18px;
+  border: 1px solid $notes-line;
+  border-radius: $border-radius;
+  font-size: 15px;
+  color: $text-color;
+  transition: border-color 0.12s ease-out;
+  &:hover {
+    border-color: rgba($base-color, 0.35);
+  }
+  // Any display value beats the hidden attribute, which js/notes.js sets
+  // until the list reaches its cap.
+  &[hidden] {
+    display: none;
+  }
 }
 
 .notes-sentinel {
@@ -461,22 +476,30 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .notes-archive {
-  margin-top: 40px;
+  margin-top: 48px;
+  font-size: 15px;
+}
+
+.notes-archive-title {
+  margin: 0 0 12px;
   font-size: 14px;
+  font-weight: normal;
   color: $notes-meta;
 }
 
 .notes-year {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-  margin-bottom: 6px;
+  display: grid;
+  grid-template-columns: 3.4em repeat(12, minmax(0, 1fr));
+  align-items: baseline;
+  padding: 6px 0;
   span {
-    width: 3em;
+    grid-column: 1;
     color: $text-color;
   }
   a {
+    text-align: center;
     color: $notes-meta;
+    transition: color 0.12s ease-out;
     &:hover {
       color: $text-color;
     }
