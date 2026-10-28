@@ -46,50 +46,52 @@ $notes-line: rgba($base-color, 0.14);
   display: flex;
   align-items: center;
   gap: 12px;
-  // The menus below carry 11px of their own tap height above the words.
-  margin-bottom: 6px;
   img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
   }
+  // A phone keeps the avatar alone so the menus fit beside it down to 320px;
+  // the site header right above already names the author.
   strong {
+    display: none;
     font-size: 17px;
     color: $text-color;
+    @media #{$medium} {
+      display: inline;
+    }
   }
 }
 
 .notes-bar {
+  // The author, the menus and the search icon share the first row at every
+  // width; the open field fills the rest of that row on desktop and takes the
+  // next row, from the column's left edge, below it; the categories close the
+  // bar. Inner gaps are 10px boxes, about 16px between the words and images.
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 16px;
   margin-bottom: 16px;
   font-size: 14px;
-  // On desktop the author, the search field and the menus share one row, and
-  // the categories run below it from the column's left edge.
-  @media #{$large} {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
+  @media #{$medium} {
     column-gap: 32px;
-    .notes-author {
-      margin-bottom: 0;
-    }
-    .notes-chips {
-      grid-column: 1 / -1;
-      margin-top: 20px;
-    }
   }
   @media #{$large} {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
+  }
+  .notes-chips {
+    grid-column: 1 / -1;
+    margin-top: 10px;
   }
 }
 
-// The three menus read as text with a chevron, starting on the column's left
-// edge, and search waits behind an icon right after them. Opened, the field
-// takes its own row below on phones and the rest of the row on desktop.
+// The three menus read as text with a chevron, and search waits behind an
+// icon right after them.
 .notes-controls {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 10px 20px;
+  gap: 20px;
   select {
     flex: none;
     height: 36px;
@@ -122,9 +124,10 @@ $notes-line: rgba($base-color, 0.14);
 
 .notes-search {
   display: none;
-  flex: 1 1 100%;
+  grid-column: 1 / -1;
   min-width: 0;
   height: 36px;
+  margin-top: 10px;
   padding: 0 12px;
   border: 0;
   border-radius: $border-radius;
@@ -140,7 +143,9 @@ $notes-line: rgba($base-color, 0.14);
     font-size: inherit;
   }
   @media #{$large} {
-    flex: 1 1 0;
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 0;
   }
   &:focus {
     outline: none;
@@ -189,16 +194,6 @@ $notes-line: rgba($base-color, 0.14);
   white-space: pre;
 }
 
-
-// An open field on its own row would otherwise sit on the categories.
-.notes-chips {
-  .is-searching & {
-    margin-top: 10px;
-    @media #{$large} {
-      margin-top: 20px;
-    }
-  }
-}
 
 .notes-chip-group {
   @include chip-group();
