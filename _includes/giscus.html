@@ -5,6 +5,6 @@
     data-emit-metadata="0" data-input-position="bottom"
     data-term="{{ page.path | split: '/' | last | replace: '.md', '' }}"
     data-lang="{% assign current_lang = page.lang | default: site.lang %}{% if current_lang == 'en-US' or current_lang == 'en' %}en{% else %}zh-CN{% endif %}"
-    data-loading="lazy" data-theme="{{ site.url }}/css/comment.css" crossorigin="anonymous" async></script>
+    data-loading="lazy" data-theme="{{ site.url }}/css/comment.css?v={{ site.asset_version }}" crossorigin="anonymous" async></script>
 </div>
 {% endif %}
