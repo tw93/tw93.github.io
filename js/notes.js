@@ -119,7 +119,6 @@
   var type = document.getElementById('J_notes_t');
   var sort = document.getElementById('J_notes_sort');
   var find = document.getElementById('J_notes_find');
-  var clear = document.getElementById('J_notes_clear');
   var more = document.getElementById('J_notes_more');
   var empty = document.getElementById('J_notes_empty');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
@@ -429,12 +428,10 @@
       apply();
     }
   };
-  // The icon opens the field and closes it again, dropping its words so what
-  // is shown always matches it; the clear inside only empties it.
+  // The icon opens the field and closes it again, as Escape does, dropping
+  // its words so what is shown always matches it.
   var tapping = false;
-  [find, clear].forEach(function (button) {
-    button.addEventListener('pointerdown', function () { tapping = true; });
-  });
+  find.addEventListener('pointerdown', function () { tapping = true; });
   find.addEventListener('click', function () {
     tapping = false;
     if (!bar.classList.contains('is-searching')) {
@@ -445,23 +442,19 @@
     searching(false);
     dropQuery();
   });
-  clear.addEventListener('click', function () {
-    tapping = false;
-    dropQuery();
-    input.focus();
-  });
   // An empty field folds away once attention leaves it, unless that was a
-  // tap on the icon or the clear, which handle the field themselves.
+  // tap on the icon, which closes it itself. A field with words stays, since
+  // they still decide what the list shows.
   input.addEventListener('blur', function () {
     setTimeout(function () {
       if (!tapping && !input.value && document.activeElement !== input) searching(false);
     }, 0);
   });
   input.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !input.value) {
-      searching(false);
-      find.focus();
-    }
+    if (e.key !== 'Escape') return;
+    searching(false);
+    dropQuery();
+    find.focus();
   });
   bar.addEventListener('click', function (e) {
     var button = e.target.closest('.notes-chip-group button');
