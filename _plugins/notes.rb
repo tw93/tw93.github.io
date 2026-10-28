@@ -105,23 +105,27 @@ module Jekyll
       text.split(/\n{2,}/).map { |para| "<p>#{inline(para).gsub("\n", '<br>')}</p>" }.join
     end
 
-    # Display size for a thumbnail: R2 images go through Cloudflare's resize,
-    # X images through their own name= sizes.
+    # Display size for a thumbnail: a mirrored note image has WebP copies at
+    # each of WIDTHS beside it on R2, made by `notes.py resize-media`; X images
+    # use their own name= sizes.
     def thumb(src, width)
-      if src.start_with?('https://cdn.tw93.fun/')
-        src.sub('https://cdn.tw93.fun/', "https://cdn.tw93.fun/cdn-cgi/image/width=#{width},quality=80,format=auto,fit=scale-down/")
+      if (key = src[MIRRORED, 1])
+        "https://cdn.tw93.fun/notes/#{width}/#{key}.webp"
       else
         src.sub('name=large', width > 700 ? 'name=medium' : 'name=small')
       end
     end
 
-    # Width candidates for R2 images: 680 and 1200 are the two sizes
-    # Cloudflare has already made for every photo, so srcset adds no new
-    # transformations, and the browser picks one by the width it shows.
+    # Width candidates for mirrored images, matching WIDTHS in
+    # scripts/notes.py. They are static files rather than Cloudflare
+    # /cdn-cgi/image/ resizes: 2920 photos at two widths used up the free
+    # plan's 5000 transformations a month, and the rest answered 429
+    # (2026-10-28).
     WIDTHS = [680, 1200].freeze
+    MIRRORED = %r{\Ahttps://cdn\.tw93\.fun/notes/([A-Za-z0-9_-]+)\.jpg\z}.freeze
 
     def img_attrs(src, sizes)
-      return %(src="#{esc(thumb(src, 1200))}") unless src.start_with?('https://cdn.tw93.fun/')
+      return %(src="#{esc(thumb(src, 1200))}") unless src.match?(MIRRORED)
 
       set = WIDTHS.map { |w| "#{esc(thumb(src, w))} #{w}w" }.join(', ')
       %(src="#{esc(thumb(src, 680))}" srcset="#{set}" sizes="#{sizes}")

@@ -24,7 +24,7 @@ The night run also refreshes recent metrics (see step 3). A run that finds nothi
 - Cloudflare R2 write access to bucket `tw93` through `wrangler`, with `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` in the environment.
 - Push access to `tw93/tw93.github.io` `main`.
 - The full raw archive, `data/x/posts.json` (see below).
-- Python 3, Ruby with Bundler (`bundle exec jekyll build`), Node for `npx wrangler`.
+- Python 3 with Pillow (for `resize-media`), Ruby with Bundler (`bundle exec jekyll build`), Node for `npx wrangler`.
 
 Credentials come from the agent's secret store. Never print them, write them into a file in the repository, put them in a commit, a log line or a URL.
 
@@ -107,25 +107,32 @@ python3 -I scripts/notes.py fetch-articles
 
 ```bash
 python3 -I scripts/notes.py fetch-media
+python3 -I scripts/notes.py resize-media
 ```
 
-It downloads each new photo, and the poster of each new video or GIF, as `data/x/mirror/<media_key>.jpg`, asking X for `format=jpg&name=large`, and rejects anything that is not a JPEG. Then, for each new file, in this order:
+`fetch-media` downloads each new photo, and the poster of each new video or GIF, as `data/x/mirror/<media_key>.jpg`, asking X for `format=jpg&name=large`, and rejects anything that is not a JPEG. `resize-media` (needs Pillow) then writes two WebP copies of every JPEG in `data/x/mirror/`, the article covers from step 5 included, as `data/x/mirror/680/<media_key>.webp` and `data/x/mirror/1200/<media_key>.webp`, skipping copies that already exist. The page shows those two copies and opens the JPEG only in the lightbox. Then, for each new key, in this order:
 
-1. Upload it:
+1. Upload the JPEG and both copies:
 
    ```bash
    npx -y wrangler r2 object put \
      "tw93/notes/<media_key>.jpg" --file "data/x/mirror/<media_key>.jpg" \
      --content-type image/jpeg \
      --cache-control "public, max-age=31536000, immutable" --remote
+   for w in 680 1200; do
+     npx -y wrangler r2 object put \
+       "tw93/notes/$w/<media_key>.webp" --file "data/x/mirror/$w/<media_key>.webp" \
+       --content-type image/webp \
+       --cache-control "public, max-age=31536000, immutable" --remote
+   done
    ```
 
-2. Read it back: `curl -sI https://cdn.tw93.fun/notes/<media_key>.jpg` must return `200` with `content-type: image/jpeg`.
+2. Read all three back: `curl -sI https://cdn.tw93.fun/notes/<media_key>.jpg` must return `200` with `content-type: image/jpeg`, and `https://cdn.tw93.fun/notes/680/<media_key>.webp` and `…/1200/<media_key>.webp` `200` with `content-type: image/webp`. Do not request any of these addresses before its upload: Cloudflare caches the 404 and keeps serving it after the file exists.
 3. Only then add `<media_key>` to `scripts/notes/mirrored.json`, which stays a sorted list without duplicates.
 
 Never list a key before its upload is confirmed: a listed key is served from `cdn.tw93.fun`, and a missing file there is a broken image. An unlisted key is still shown, from `pbs.twimg.com`, which works everywhere except mainland China, and the next run tries it again. Three old photos (`3_2005634251358969856`, `3_1613577620171653120`, `3_1612841171923111937`) have failed to download since the first import; their failure is expected and does not fail the run.
 
-Do not resize, recompress, crop, watermark or convert the photos: the page asks for the size it needs through `cdn.tw93.fun/cdn-cgi/image/…`, and the `width`/`height` from X reserve the box before the image arrives.
+Upload the JPEG exactly as `fetch-media` saved it, and make the copies only with `resize-media`; do not crop, watermark or convert anything by hand. Never point the page at `cdn.tw93.fun/cdn-cgi/image/…`: those resizes count against Cloudflare's monthly allowance, which the notes alone outgrow, and every one past it is a broken image. The `width`/`height` from X reserve the box before the image arrives.
 
 ### 7. Videos and GIFs
 

@@ -110,6 +110,12 @@
   list.addEventListener('error', function (e) {
     var player = e.target.closest && e.target.closest('.note-player');
     if (player) player.classList.remove('is-loading');
+    // A resized copy missing on R2 falls back to the original it was made from.
+    var img = e.target;
+    var sized = img.tagName === 'IMG' && /\/notes\/\d+\/([\w-]+)\.webp$/.exec(img.currentSrc || img.src);
+    if (!sized) return;
+    img.removeAttribute('srcset');
+    img.src = 'https://cdn.tw93.fun/notes/' + sized[1] + '.jpg';
   }, true);
   list.addEventListener('play', function (e) {
     if (e.target.closest('.note-gif')) return;

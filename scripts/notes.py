@@ -20,6 +20,9 @@ META = ROOT / 'scripts/notes'
 OUTPUT = ROOT / '_data/notes.json'
 MIRROR = ROOT / 'data/x/mirror'
 VIDEOS = MIRROR / 'video'
+# Display widths each R2 image is pre-resized to, served as notes/<w>/<key>.webp;
+# _plugins/notes.rb WIDTHS must match.
+WIDTHS = (680, 1200)
 CATEGORIES = {'ai', 'tools', 'learn', 'make', 'think', 'life'}
 TCO = re.compile(r'https?://t\.co/[A-Za-z0-9]+')
 MENTIONS = re.compile(r'^\s*(?:@[A-Za-z0-9_]+\s*)+')
@@ -465,6 +468,33 @@ def fetch_media(used):
         print(json.dumps({'required_files': len(jobs), 'files': len(files), 'MB': round(sum(p.stat().st_size for p in files) / 1_000_000, 2), 'downloaded': done, 'skipped': len(jobs) - len(pending), 'failures': failures, 'unattempted': len(pending) - attempted}), flush=True)
 
 
+def resize_one(path):
+    from PIL import Image, ImageOps
+    made = 0
+    with Image.open(path) as source:
+        image = ImageOps.exif_transpose(source).convert('RGB')
+        for width in WIDTHS:
+            out = MIRROR / str(width) / (path.stem + '.webp')
+            if out.is_file():
+                continue
+            # Never upscale: a narrower original keeps its own width.
+            copy = image if image.width <= width else image.resize((width, round(image.height * width / image.width)), Image.LANCZOS)
+            out.parent.mkdir(parents=True, exist_ok=True)
+            copy.save(out, 'WEBP', quality=80, method=6)
+            made += 1
+    return made
+
+
+def resize_media():
+    """Pre-resize every mirrored JPEG locally, so the page never spends
+    Cloudflare's monthly allowance of on-the-fly transformations (5000 on the
+    free plan, exhausted by 2920 photos at two widths on 2026-10-28)."""
+    sources = sorted(p for p in MIRROR.glob('*.jpg') if re.fullmatch(r'[A-Za-z0-9_-]+', p.stem))
+    with concurrent.futures.ProcessPoolExecutor() as pool:
+        made = sum(pool.map(resize_one, sources, chunksize=16))
+    print(json.dumps({'sources': len(sources), 'made': made, 'MB': round(sum(p.stat().st_size for w in WIDTHS for p in (MIRROR / str(w)).glob('*.webp')) / 1_000_000, 2)}), flush=True)
+
+
 def video_variant(m):
     """The sharpest MP4 whose short side is at most 720px, about 5GB for all."""
     mp4 = [v for v in m.get('variants', []) if v.get('content_type') == 'video/mp4']
@@ -555,11 +585,13 @@ def fetch_articles(used):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', nargs='?', default='build', choices=['build', 'resolve-links', 'fetch-media', 'fetch-videos', 'fetch-articles'])
+    parser.add_argument('command', nargs='?', default='build', choices=['build', 'resolve-links', 'fetch-media', 'resize-media', 'fetch-videos', 'fetch-articles'])
     parser.add_argument('--check', action='store_true', help='Validate offline output without writing it')
     args = parser.parse_args()
     if args.check and args.command != 'build':
         parser.error('--check is offline and only applies to build')
+    if args.command == 'resize-media':
+        return resize_media()
     posts = read_json(RAW)
     heads, threads = select(posts)
     used = all_used(heads, threads)
