@@ -124,33 +124,11 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .notes-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
   margin-top: 12px;
 }
 
 .notes-chip-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  button {
-    padding: 3px 10px;
-    border: 0;
-    border-radius: 6px;
-    background: none;
-    color: $notes-meta;
-    font: inherit;
-    cursor: pointer;
-    transition: background-color 0.12s ease-out, color 0.12s ease-out;
-    &:hover {
-      color: $text-color;
-    }
-    &[aria-pressed="true"] {
-      background-color: $body-color;
-      color: $text-color;
-    }
-  }
+  @include chip-group();
 }
 
 .notes-status {
