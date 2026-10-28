@@ -177,9 +177,11 @@
   };
 
   // The text a search matches, one string per index entry in the same order.
-  var loadText = function () {
+  // A prefetch asks at low priority, so a category tapped meanwhile is not
+  // stuck behind it.
+  var loadText = function (low) {
     if (!textLoading) {
-      textLoading = Promise.all([loadIndex(), fetch('/notes/search.json' + assetV).then(function (res) { return res.json(); })])
+      textLoading = Promise.all([loadIndex(), fetch('/notes/search.json' + assetV, low === true ? { priority: 'low' } : {}).then(function (res) { return res.json(); })])
         .then(function (both) {
           var text = both[1];
           index.forEach(function (item, i) { item.s = (text[i] || '').toLowerCase(); });
@@ -390,7 +392,7 @@
   var desktop = window.matchMedia && matchMedia('(pointer: fine)').matches;
   var preload = function () {
     idle(function () {
-      loadIndex().then(function () { if (desktop) idle(function () { loadText().catch(function () {}); }); }, function () {});
+      loadIndex().then(function () { if (desktop) idle(function () { loadText(true).catch(function () {}); }); }, function () {});
     });
   };
   if (document.readyState === 'complete') preload();
