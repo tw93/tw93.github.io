@@ -180,19 +180,15 @@ $notes-line: rgba($base-color, 0.14);
   }
 }
 
-.note-fold .note-body {
-  max-height: 14em;
-  overflow: hidden;
+.note-fold .note-tail,
+.note-fold .note-rest {
+  display: none;
 }
 
 .note-unfold {
-  display: inline-block;
-  margin-top: 2px;
-  font-size: 14px;
-  color: $notes-meta;
-  &:hover {
-    color: $text-color;
-  }
+  margin-left: 2px;
+  white-space: nowrap;
+  @include content-link();
 }
 
 .note-media {

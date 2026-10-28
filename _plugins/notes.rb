@@ -19,6 +19,9 @@ module Jekyll
     POEM = '人生到處知何似，應似飛鴻踏雪泥'.freeze
     FIRST_PAGE = 30
     FOLD_CHARS = 360
+    # A folded note keeps about as much text as X shows before Show more:
+    # 280 in X's count, where a CJK character weighs two.
+    PREVIEW_WEIGHT = 280
     AVATAR = 'https://cdn.tw93.fun/notes/avatar.jpg'.freeze
     ZONE = '+08:00'.freeze
     CATEGORIES = {
@@ -208,8 +211,85 @@ module Jekyll
       %(<div class="notes-author"><img src="#{AVATAR}" width="44" height="44" alt="Tw93"><div><strong>Tw93</strong><a href="https://x.com/HiTw93" target="_blank" rel="noopener">@HiTw93</a></div></div>)
     end
 
-    # In lists a long note is folded to a few lines; the link opens the note's
-    # own page, and js/notes.js unfolds it in place instead.
+    def weight(char)
+      char.match?(/[\p{Han}\p{Hiragana}\p{Katakana}\p{Hangul}\u3000-\u303f\uff00-\uffef]/) ? 2 : 1
+    end
+
+    # Where a fold cuts the text: the last sentence, clause or word break
+    # within the preview, never inside a link, tag or mention. Nil when the
+    # text already fits.
+    def fold_cut(text)
+      total = 0
+      limit = text.each_char.with_index.find { |char, _| (total += weight(char)) > PREVIEW_WEIGHT }&.last
+      return nil unless limit && text.length - limit > 20
+
+      [URL_RE, /#[\p{L}\p{N}_]+/, /@\w{1,15}/].each do |re|
+        text.to_enum(:scan, re).each do
+          match = Regexp.last_match
+          limit = match.begin(0) if match.begin(0) < limit && limit < match.end(0)
+        end
+      end
+      floor = limit * 2 / 3
+      breaks = [/[。！？!?\n]/, /[，、；：,;:]/, /\s/]
+      cut = breaks.lazy.map { |re| text[floor...limit].rindex(re) }.find(&:itself)
+      cut = cut ? floor + cut + 1 : limit
+      # A line that ends on a colon leads into what was cut, so the fold
+      # stops before it.
+      head = text[0...cut].rstrip
+      if head.end_with?('：', ':') && (start = head.rindex(/[。！？!?\n]/))
+        cut = start + 1
+      end
+      cut.positive? ? cut : nil
+    end
+
+    # The fold keeps the opening text and every photo of the first post: the
+    # rest of its text and the thread wait behind 展开全文, which sits where
+    # the text stops. The link opens the note's own page; js/notes.js
+    # unfolds it in place instead.
+    def folded_text_html(note)
+      text = note['text'].to_s
+      link = %(<a class="note-unfold" href="#{page_url(note)}">展开全文</a>)
+      cut = fold_cut(text)
+      unless cut
+        return %(<p class="note-fold-mark">#{link}</p>) if text.strip.empty?
+
+        return text_html(text).sub(%r{</p>\z}, %(<span class="note-fold-mark"> #{link}</span></p>))
+      end
+
+      head = text[0...cut].rstrip
+      tail = text[cut..].lstrip
+      gap = text[head.length...(text.length - tail.length)]
+      paras = head.split(/\n{2,}/)
+      last = paras.pop
+      # The whitespace at the cut decides whether the hidden text goes on
+      # the same line, after a line break, or starts a new paragraph.
+      if gap.count("\n") >= 2
+        lead = ''
+        rest = tail
+      else
+        lead, rest = tail.split(/\n{2,}/, 2)
+        lead = (gap.include?("\n") ? "\n" : gap.empty? ? '' : ' ') + lead.to_s
+      end
+      # A finished sentence needs no ellipsis; a clause gives its comma to one.
+      last = last.to_s
+      cut_mark = if last.match?(/[。！？!?]\z/) then ' '
+                 else
+                   comma = last[/[，、；,;]\z/]
+                   if comma
+                     last = last.chomp(comma)
+                     lead = comma + lead
+                   end
+                   '…'
+                 end
+      html = paras.map { |para| "<p>#{inline(para).gsub("\n", '<br>')}</p>" }.join
+      html << "<p>#{inline(last).gsub("\n", '<br>')}<span class=\"note-fold-mark\">#{cut_mark}#{link}</span>"
+      html << %(<span class="note-tail">#{inline(lead).gsub("\n", '<br>')}</span>) unless lead.empty?
+      html << '</p>'
+      html << %(<div class="note-rest">#{text_html(rest)}</div>) unless rest.to_s.strip.empty?
+      html
+    end
+
+    # In lists a long note is folded; see folded_text_html.
     def article(note, by_id, fold: false)
       folded = fold && !note['article'] && full_text(note).length > FOLD_CHARS
       time = local(note['date'])
@@ -221,15 +301,15 @@ module Jekyll
       end
       meta << %(<a class="note-cat" href="/notes/?c=#{note['category']}">#{category}</a>)
 
-      body = text_html(note['text']) + article_html(note) + media_html(note['media'])
-      (note['thread'] || []).each { |part| body << text_html(part['text']) << media_html(part['media']) << quote_html(part, by_id) }
+      body = (folded ? folded_text_html(note) : text_html(note['text'])) + article_html(note) + media_html(note['media'])
+      thread = (note['thread'] || []).map { |part| text_html(part['text']) + media_html(part['media']) + quote_html(part, by_id) }.join
+      body << (folded && !thread.empty? ? %(<div class="note-rest">#{thread}</div>) : thread)
       body << quote_html(note, by_id)
 
       <<~HTML.delete("\n")
         <article class="note#{folded ? ' note-fold' : ''}" id="n#{note['id']}">
         <div class="note-meta">#{meta.join('<span class="note-dot"> · </span>')}</div>
         <div class="note-body">#{body}</div>
-        #{folded ? %(<a class="note-unfold" href="#{page_url(note)}">展开全文</a>) : ''}
         <div class="note-foot">#{stats_html(note)}</div>
         </article>
       HTML

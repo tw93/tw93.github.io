@@ -66,8 +66,9 @@
     var unfold = e.target.closest && e.target.closest('.note-unfold');
     if (!unfold) return;
     e.preventDefault();
-    unfold.closest('.note').classList.remove('note-fold');
-    unfold.remove();
+    var note = unfold.closest('.note');
+    note.classList.remove('note-fold');
+    note.querySelectorAll('.note-fold-mark').forEach(function (mark) { mark.remove(); });
   });
 
   list.addEventListener('click', function (e) {
@@ -241,7 +242,7 @@
       if (words.length) {
         // A match may sit in the folded part, so searched notes open in full.
         holder.querySelectorAll('.note-fold').forEach(function (note) { note.classList.remove('note-fold'); });
-        holder.querySelectorAll('.note-unfold').forEach(function (link) { link.remove(); });
+        holder.querySelectorAll('.note-fold-mark').forEach(function (mark) { mark.remove(); });
       }
       highlight(holder, words);
       while (holder.firstChild) list.appendChild(holder.firstChild);
