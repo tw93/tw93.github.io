@@ -423,7 +423,10 @@ def fetch_media(used):
                 raise ValueError('Missing media URL: ' + key)
             jobs[key] = photo_url(source)
     MIRROR.mkdir(parents=True, exist_ok=True)
-    pending = [(key, url) for key, url in sorted(jobs.items()) if not (MIRROR / (key + '.jpg')).is_file()]
+    # A key already on R2 is never fetched again, so a fresh checkout without
+    # data/x/mirror downloads only what is new.
+    hosted = set(read_json(META / 'mirrored.json', []))
+    pending = [(key, url) for key, url in sorted(jobs.items()) if key not in hosted and not (MIRROR / (key + '.jpg')).is_file()]
     done = failures = attempted = 0
     try:
         for batch in parallel_batches(pending, download_one):
@@ -476,7 +479,8 @@ def fetch_videos(used):
             if m['type'] in ('video', 'animated_gif') and video_variant(m):
                 jobs[m['media_key']] = video_variant(m)
     VIDEOS.mkdir(parents=True, exist_ok=True)
-    pending = [(k, u) for k, u in sorted(jobs.items()) if not (VIDEOS / (k + '.mp4')).is_file()]
+    hosted = set(read_json(META / 'videos.json', []))
+    pending = [(k, u) for k, u in sorted(jobs.items()) if k not in hosted and not (VIDEOS / (k + '.mp4')).is_file()]
     done = failures = 0
     for batch in parallel_batches(pending, download_video):
         for key, size, error in batch:
