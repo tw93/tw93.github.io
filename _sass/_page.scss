@@ -731,6 +731,9 @@ iframe {
 .header-item-title {
   // Container uses flexbox for alignment
   border-top-width: 0px;
+  // The logo sits further from the menu than the menu items sit from each
+  // other, 22px to 16px on phones as 30px to 20px above.
+  padding-right: 14px;
   @media #{$medium} {
     padding-left: 0;
     padding-right: 20px;
@@ -742,8 +745,8 @@ iframe {
 .header-item-left {
   display: flex;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
 
   &.header-item-weekly,
   &.header-item-about {

@@ -22,6 +22,17 @@
   }
 }
 
+// Below 360px (first iPhone SE) the icons push the language toggle off
+// screen; GitHub and X stay in the footer there.
+@media (max-width: 359px) {
+  .header-social {
+    display: none;
+  }
+  .search-btn-container {
+    margin-left: auto;
+  }
+}
+
 // Drop the list items' 8px padding between the two groups, so GitHub, X and
 // search sit 18px apart ink to ink.
 .header-social {
