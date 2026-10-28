@@ -12,6 +12,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `_posts_en/` - English posts.
 - `_layouts/` - Jekyll layouts, including post and PPT modes.
 - `_includes/` - shared page fragments.
+- `_includes/giscus.html` - the comment widget. Its theme is `https://weekly.tw93.fun/styles/giscus-blog.css`, generated in the Weekly repo with Weekly's two themes from one template; change comment styles there, not here.
 - `_sass/` - stylesheets.
 - `_plugins/` - custom Jekyll plugins, including CDN image handling and `markdown_twins.rb`, which writes the post Markdown surfaces listed under Agent Surfaces.
 - `vercel.json` - Vercel build command and environment, response headers, and the agent redirects for the production deploy. `buildCommand` runs `bundle exec jekyll build` directly: the Vercel image has no Pillow, so routing it through `npm run build` and `scripts/image_sizes.py` failed every deploy from 76d1123 to a73553e (2026-10-26). Image metadata is a local step committed with the post.
