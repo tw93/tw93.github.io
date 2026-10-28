@@ -208,7 +208,7 @@ module Jekyll
     end
 
     def author_html
-      %(<div class="notes-author"><img src="#{AVATAR}" width="44" height="44" alt="Tw93"><div><strong>Tw93</strong><a href="https://x.com/HiTw93" target="_blank" rel="noopener">@HiTw93</a></div></div>)
+      %(<div class="notes-author"><img src="#{AVATAR}" width="44" height="44" alt=""><strong>Tw93</strong></div>)
     end
 
     def weight(char)
@@ -392,7 +392,6 @@ module Jekyll
         site.pages << Notes.make_page(site, 'notes', 'index.html',
           'layout' => 'notes', 'title' => 'Notes', 'notes_index' => true,
           'summary' => "Tw93 在 X 上写下的 #{notes.size} 条日常思考和碎碎念，从 #{months.keys.min[0, 4]} 年至今，可以搜索、按分类查找和按点赞排序。",
-          'notes_total' => notes.size,
           'notes_years' => months.keys.map { |key| key[0, 4] }.uniq.sort.reverse,
           'notes_categories' => CATEGORIES.map { |key, label| { 'key' => key, 'label' => label } },
           'notes_html' => Notes.eager(notes.first(FIRST_PAGE).map { |note| html[note['id']] }.join),

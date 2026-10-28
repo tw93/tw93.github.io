@@ -118,6 +118,7 @@
   var year = document.getElementById('J_notes_y');
   var type = document.getElementById('J_notes_t');
   var sort = document.getElementById('J_notes_sort');
+  var find = document.getElementById('J_notes_find');
   var more = document.getElementById('J_notes_more');
   var empty = document.getElementById('J_notes_empty');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
@@ -300,11 +301,30 @@
     history.replaceState(null, '', location.pathname + (search ? '?' + search : ''));
   };
 
+  // A menu is as wide as the option it shows, so its chevron sits right after
+  // the word instead of after the longest option.
+  var ruler = document.createElement('span');
+  ruler.className = 'notes-ruler';
+  bar.appendChild(ruler);
+  var fit = function () {
+    [year, type, sort].forEach(function (select) {
+      ruler.textContent = select.options[select.selectedIndex].text;
+      select.style.width = ruler.offsetWidth + 18 + 'px';
+    });
+  };
+  var searching = function (on) {
+    bar.classList.toggle('is-searching', on);
+    find.setAttribute('aria-expanded', String(on));
+    find.setAttribute('aria-label', on ? '关闭搜索' : '搜索');
+  };
+
   var syncControls = function () {
     input.value = state.q;
+    if (state.q) searching(true);
     year.value = state.y;
     type.value = state.t;
     sort.value = state.sort;
+    fit();
     bar.querySelectorAll('.notes-chip-group button').forEach(function (button) {
       button.setAttribute('aria-pressed', String(button.getAttribute('data-value') === state.c));
     });
@@ -395,13 +415,35 @@
   else window.addEventListener('load', preload, { once: true });
   ['pointerover', 'focusin', 'touchstart'].forEach(function (name) {
     bar.addEventListener(name, loadIndex, { once: true, passive: true });
-    input.addEventListener(name, loadText, { once: true, passive: true });
+    find.addEventListener(name, loadText, { once: true, passive: true });
   });
-  year.addEventListener('change', function () { state.y = year.value; apply(); });
-  type.addEventListener('change', function () { state.t = type.value; apply(); });
-  sort.addEventListener('change', function () { state.sort = sort.value; apply(); });
+  year.addEventListener('change', function () { state.y = year.value; fit(); apply(); });
+  type.addEventListener('change', function () { state.t = type.value; fit(); apply(); });
+  sort.addEventListener('change', function () { state.sort = sort.value; fit(); apply(); });
+  if (document.fonts) document.fonts.ready.then(fit);
+  // Closing the field drops its words, so what is shown always matches it.
+  find.addEventListener('click', function () {
+    if (!bar.classList.contains('is-searching')) {
+      searching(true);
+      input.focus();
+      return;
+    }
+    searching(false);
+    if (input.value) {
+      clearTimeout(timer);
+      input.value = '';
+      state.q = '';
+      apply();
+    }
+  });
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !input.value) {
+      searching(false);
+      find.focus();
+    }
+  });
   bar.addEventListener('click', function (e) {
-    var button = e.target.closest('button');
+    var button = e.target.closest('.notes-chip-group button');
     if (!button) return;
     state.c = button.getAttribute('data-value');
     apply();

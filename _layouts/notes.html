@@ -15,7 +15,6 @@ body_id: notes
   <form class="notes-bar" id="J_notes_bar" role="search" onsubmit="return false">
     {{ page.notes_author }}
     <div class="notes-controls">
-      <input class="notes-search" id="J_notes_q" type="search" name="q" placeholder="搜索 {{ page.notes_total }} 条 Notes" aria-label="搜索 Notes" autocomplete="off">
       <select id="J_notes_y" name="y" aria-label="年份">
         <option value="">年份</option>
         {% for year in page.notes_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
@@ -35,6 +34,8 @@ body_id: notes
         <option value="reply">评论最多</option>
         <option value="bookmark">收藏最多</option>
       </select>
+      <input class="notes-search" id="J_notes_q" type="search" name="q" placeholder="搜索" aria-label="搜索 Notes" autocomplete="off">
+      <button class="notes-find" id="J_notes_find" type="button" aria-label="搜索" aria-expanded="false" aria-controls="J_notes_q"><svg class="notes-find-open" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="m10.4 10.4 3 3"/></svg><svg class="notes-find-close" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg></button>
     </div>
     <div class="notes-chips">
       <span class="notes-chip-group" data-key="c">

@@ -52,21 +52,9 @@ $notes-line: rgba($base-color, 0.14);
     height: 44px;
     border-radius: 50%;
   }
-  div {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.35;
-  }
   strong {
     font-size: 17px;
     color: $text-color;
-  }
-  a {
-    font-size: 14px;
-    color: $notes-meta;
-    &:hover {
-      color: $text-color;
-    }
   }
 }
 
@@ -90,53 +78,123 @@ $notes-line: rgba($base-color, 0.14);
   }
 }
 
+// The three menus read as text with a chevron, starting on the column's left
+// edge, and search waits behind an icon at the row's end. Opened, the field
+// takes its own row below on phones and the free space in the row on desktop.
 .notes-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 8px;
-  input,
+  align-items: center;
+  gap: 10px 20px;
   select {
+    flex: none;
     height: 36px;
-    min-width: 0;
-    border: 1px solid $notes-line;
-    border-radius: $border-radius;
-    background-color: $white;
-    color: $text-color;
+    padding: 0 18px 0 0;
+    border: 0;
+    background-color: transparent;
+    color: rgba($base-color, 0.75);
     font: inherit;
-    transition: border-color 0.12s ease-out;
-    &:focus {
-      outline: none;
-      border-color: rgba($base-color, 0.45);
-    }
-  }
-  // Drawn like the search field, with its own chevron, so the four controls
-  // read as one row instead of a field next to three system menus.
-  select {
-    flex: 1 1 0;
-    padding: 0 28px 0 10px;
     -webkit-appearance: none;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%2324292f' stroke-opacity='.6' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 9px center;
+    background-position: right center;
     background-size: 12px;
     cursor: pointer;
-    @media #{$medium} {
-      flex: none;
+    transition: color 0.12s ease-out;
+    &:hover {
+      color: $text-color;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:focus-visible {
+      color: $text-color;
+      outline: 2px solid rgba($base-color, 0.3);
+      outline-offset: 2px;
     }
   }
 }
 
-// Phones give the search field its own row and the three menus the next.
 .notes-search {
+  display: none;
+  order: 1;
   flex: 1 1 100%;
+  min-width: 0;
+  height: 36px;
   padding: 0 12px;
+  border: 0;
+  border-radius: $border-radius;
+  background-color: rgba($base-color, 0.045);
+  color: $text-color;
+  font: inherit;
+  // Below 16px, Safari on iPhone zooms the page when the field takes focus.
+  font-size: 16px;
   -webkit-appearance: none;
   appearance: none;
+  transition: background-color 0.12s ease-out;
   @media #{$medium} {
+    font-size: inherit;
+  }
+  &:focus {
+    outline: none;
+    background-color: rgba($base-color, 0.07);
+  }
+  // The close button beside the field already clears it.
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+  .is-searching & {
+    display: block;
+  }
+  @media #{$large} {
+    order: 0;
     flex: 1 1 0;
   }
 }
+
+// 36px to tap, pulled out by the icon's inset so its ink ends on the
+// column's right edge.
+.notes-find {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 -9px 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba($base-color, 0.6);
+  cursor: pointer;
+  transition: color 0.12s ease-out;
+  &:hover,
+  &[aria-expanded="true"] {
+    color: $text-color;
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+  .notes-find-close,
+  &[aria-expanded="true"] .notes-find-open {
+    display: none;
+  }
+  &[aria-expanded="true"] .notes-find-close {
+    display: block;
+  }
+}
+
+.notes-ruler {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+}
+
 
 .notes-chips {
   margin-top: 16px;
