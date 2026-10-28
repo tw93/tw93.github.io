@@ -34,8 +34,11 @@ body_id: notes
         <option value="reply">评论最多</option>
         <option value="bookmark">收藏最多</option>
       </select>
-      <input class="notes-search" id="J_notes_q" type="search" name="q" placeholder="搜索" aria-label="搜索 Notes" autocomplete="off">
-      <button class="notes-find" id="J_notes_find" type="button" aria-label="搜索" aria-expanded="false" aria-controls="J_notes_q"><svg class="notes-find-open" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="m10.4 10.4 3 3"/></svg><svg class="notes-find-close" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg></button>
+      <button class="notes-find" id="J_notes_find" type="button" aria-label="搜索" aria-expanded="false" aria-controls="J_notes_q"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="m10.4 10.4 3 3"/></svg></button>
+      <span class="notes-field">
+        <input class="notes-search" id="J_notes_q" type="text" name="q" placeholder="搜索" aria-label="搜索 Notes" autocomplete="off" enterkeyhint="search">
+        <button class="notes-clear" id="J_notes_clear" type="button" aria-label="清除搜索"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="m5.5 5.5 5 5M10.5 5.5l-5 5"/></svg></button>
+      </span>
     </div>
     <div class="notes-chips">
       <span class="notes-chip-group" data-key="c">

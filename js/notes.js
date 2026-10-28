@@ -119,6 +119,7 @@
   var type = document.getElementById('J_notes_t');
   var sort = document.getElementById('J_notes_sort');
   var find = document.getElementById('J_notes_find');
+  var clear = document.getElementById('J_notes_clear');
   var more = document.getElementById('J_notes_more');
   var empty = document.getElementById('J_notes_empty');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
@@ -315,7 +316,6 @@
   var searching = function (on) {
     bar.classList.toggle('is-searching', on);
     find.setAttribute('aria-expanded', String(on));
-    find.setAttribute('aria-label', on ? '关闭搜索' : '搜索');
   };
 
   var syncControls = function () {
@@ -421,20 +421,41 @@
   type.addEventListener('change', function () { state.t = type.value; fit(); apply(); });
   sort.addEventListener('change', function () { state.sort = sort.value; fit(); apply(); });
   if (document.fonts) document.fonts.ready.then(fit);
-  // Closing the field drops its words, so what is shown always matches it.
+  var dropQuery = function () {
+    clearTimeout(timer);
+    input.value = '';
+    if (state.q) {
+      state.q = '';
+      apply();
+    }
+  };
+  // The icon opens the field and closes it again, dropping its words so what
+  // is shown always matches it; the clear inside only empties it.
+  var tapping = false;
+  [find, clear].forEach(function (button) {
+    button.addEventListener('pointerdown', function () { tapping = true; });
+  });
   find.addEventListener('click', function () {
+    tapping = false;
     if (!bar.classList.contains('is-searching')) {
       searching(true);
       input.focus();
       return;
     }
     searching(false);
-    if (input.value) {
-      clearTimeout(timer);
-      input.value = '';
-      state.q = '';
-      apply();
-    }
+    dropQuery();
+  });
+  clear.addEventListener('click', function () {
+    tapping = false;
+    dropQuery();
+    input.focus();
+  });
+  // An empty field folds away once attention leaves it, unless that was a
+  // tap on the icon or the clear, which handle the field themselves.
+  input.addEventListener('blur', function () {
+    setTimeout(function () {
+      if (!tapping && !input.value && document.activeElement !== input) searching(false);
+    }, 0);
   });
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !input.value) {

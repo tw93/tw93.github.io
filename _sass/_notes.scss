@@ -46,7 +46,8 @@ $notes-line: rgba($base-color, 0.14);
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  // The menus below carry 11px of their own tap height above the words.
+  margin-bottom: 6px;
   img {
     width: 44px;
     height: 44px;
@@ -59,7 +60,7 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .notes-bar {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   font-size: 14px;
   // On desktop the author, the search field and the menus share one row, and
   // the categories run below it from the column's left edge.
@@ -76,11 +77,14 @@ $notes-line: rgba($base-color, 0.14);
       margin-top: 20px;
     }
   }
+  @media #{$large} {
+    margin-bottom: 28px;
+  }
 }
 
 // The three menus read as text with a chevron, starting on the column's left
-// edge, and search waits behind an icon at the row's end. Opened, the field
-// takes its own row below on phones and the free space in the row on desktop.
+// edge, and search waits behind an icon right after them. Opened, the field
+// takes its own row below on phones and the rest of the row on desktop.
 .notes-controls {
   display: flex;
   flex-wrap: wrap;
@@ -116,13 +120,24 @@ $notes-line: rgba($base-color, 0.14);
   }
 }
 
-.notes-search {
+.notes-field {
+  position: relative;
   display: none;
-  order: 1;
   flex: 1 1 100%;
   min-width: 0;
+  .is-searching & {
+    display: block;
+  }
+  @media #{$large} {
+    flex: 1 1 0;
+  }
+}
+
+.notes-search {
+  display: block;
+  width: 100%;
   height: 36px;
-  padding: 0 12px;
+  padding: 0 36px 0 12px;
   border: 0;
   border-radius: $border-radius;
   background-color: rgba($base-color, 0.045);
@@ -140,28 +155,54 @@ $notes-line: rgba($base-color, 0.14);
     outline: none;
     background-color: rgba($base-color, 0.07);
   }
-  // The close button beside the field already clears it.
-  &::-webkit-search-cancel-button {
+}
+
+// One quiet clear inside the field, shown once there is something to clear.
+.notes-clear {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba($base-color, 0.3);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: color 0.12s ease-out;
+  &:hover {
+    color: rgba($base-color, 0.5);
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+  circle {
+    fill: currentColor;
+  }
+  path {
+    stroke: $white;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+  .notes-search:placeholder-shown + & {
     display: none;
-  }
-  .is-searching & {
-    display: block;
-  }
-  @media #{$large} {
-    order: 0;
-    flex: 1 1 0;
   }
 }
 
-// 36px to tap, pulled out by the icon's inset so its ink ends on the
-// column's right edge.
+// 36px to tap, pulled in by the icon's inset so its ink sits the menus' own
+// 20px after the last chevron.
 .notes-find {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
-  margin: 0 -9px 0 auto;
+  margin: 0 -9px;
   padding: 0;
   border: 0;
   background: none;
@@ -180,13 +221,6 @@ $notes-line: rgba($base-color, 0.14);
     stroke-width: 1.5;
     stroke-linecap: round;
   }
-  .notes-find-close,
-  &[aria-expanded="true"] .notes-find-open {
-    display: none;
-  }
-  &[aria-expanded="true"] .notes-find-close {
-    display: block;
-  }
 }
 
 .notes-ruler {
@@ -196,8 +230,14 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 
+// An open field on its own row would otherwise sit on the categories.
 .notes-chips {
-  margin-top: 16px;
+  .is-searching & {
+    margin-top: 10px;
+    @media #{$large} {
+      margin-top: 20px;
+    }
+  }
 }
 
 .notes-chip-group {
