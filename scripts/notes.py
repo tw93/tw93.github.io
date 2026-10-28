@@ -5,6 +5,7 @@ import concurrent.futures
 import collections
 import datetime as dt
 import html
+import http.client
 import json
 import re
 import sys
@@ -18,6 +19,7 @@ RAW = ROOT / 'data/x/posts.json'
 META = ROOT / 'scripts/notes'
 OUTPUT = ROOT / '_data/notes.json'
 MIRROR = ROOT / 'data/x/mirror'
+VIDEOS = MIRROR / 'video'
 CATEGORIES = {'ai', 'tools', 'learn', 'make', 'think', 'life'}
 TCO = re.compile(r'https?://t\.co/[A-Za-z0-9]+')
 MENTIONS = re.compile(r'^\s*(?:@[A-Za-z0-9_]+\s*)+')
@@ -135,7 +137,7 @@ def photo_url(url):
     return urllib.parse.urlunsplit((p.scheme, p.netloc, p.path, 'format=jpg&name=large', ''))
 
 
-def media(post, mirrored):
+def media(post, mirrored, videos=()):
     result = []
     for m in post.get('media', []):
         key = m['media_key']
@@ -152,11 +154,16 @@ def media(post, mirrored):
                 item['poster'] = hosted or m['preview_image_url']
             if typ == 'video' and m.get('duration_ms') is not None:
                 item['duration'] = m['duration_ms'] // 1000
+            # Played on the page only once the MP4 is on R2; until then the
+            # poster links to X.
+            if key in videos:
+                item['video'] = f'https://cdn.tw93.fun/notes/{key}.mp4'
         result.append(item)
     return result
 
 
-def build_notes(heads, threads, categories, resolved, mirrored):
+def build_notes(heads, threads, categories, resolved, mirrored, videos=(), articles=None):
+    articles = articles or {}
     missing = [p['id'] for p in heads if categories.get(p['id']) not in CATEGORIES]
     if missing:
         raise ValueError(f'{len(missing)} included notes lack a valid category: ' + ', '.join(missing[:20]))
@@ -169,15 +176,22 @@ def build_notes(heads, threads, categories, resolved, mirrored):
     for p in heads:
         pid = p['id']
         text, links = clean(p, resolved)
+        card = article_card(articles.get(pid), mirrored)
+        if card:
+            # The post is the article's link; the card shows it instead.
+            links = [u for u in links if u != card['url']]
+            text = text.replace(card['url'], '').strip()
         q = reference(p, 'quoted')
         kind = 'reply' if replying(p) else 'quote' if q else 'post'
-        n = {'id': pid, 'url': p['url'], 'date': date(p), 'kind': kind, 'lang': language(text), 'category': categories[pid], 'text': text}
+        n = {'id': pid, 'url': p['url'], 'date': date(p), 'kind': kind, 'lang': language(text or (card or {}).get('title', '')), 'category': categories[pid], 'text': text}
+        if card:
+            n['article'] = card
         tags = list(dict.fromkeys(HASHTAG.findall(text)))
         if tags:
             n['tags'] = tags
         if links:
             n['links'] = links
-        images = media(p, mirrored)
+        images = media(p, mirrored, videos)
         if images:
             n['media'] = images
         if pid in threads:
@@ -187,7 +201,7 @@ def build_notes(heads, threads, categories, resolved, mirrored):
                 entry = {'id': t['id'], 'date': date(t), 'text': words}
                 if urls:
                     entry['links'] = urls
-                images_t = media(t, mirrored)
+                images_t = media(t, mirrored, videos)
                 if images_t:
                     entry['media'] = images_t
                 # clean() drops the quoted status URL from the text, so keep
@@ -216,10 +230,21 @@ def build_notes(heads, threads, categories, resolved, mirrored):
                 n['reply_to'] = target
         raw_metrics = p.get('metrics') or {}
         n['metrics'] = {k: raw_metrics.get('impression' if k == 'view' else k, 0) or 0 for k in ['like', 'reply', 'repost', 'quote', 'bookmark', 'view']}
-        n['long'] = p.get('note_tweet') is not None or len(text) > 280
-        n['thin'] = len(text) < 20 and not any(n.get(k) for k in ['media', 'thread', 'quote'])
+        n['long'] = p.get('note_tweet') is not None or len(text) > 280 or bool(card)
+        n['thin'] = len(text) < 20 and not any(n.get(k) for k in ['media', 'thread', 'quote', 'article'])
         result.append(n)
     return result
+
+
+def article_card(entry, mirrored):
+    if not entry:
+        return None
+    card = {'url': 'https://x.com/i/article/' + entry['id'], 'title': entry['title']}
+    if entry.get('preview'):
+        card['preview'] = entry['preview']
+    if entry.get('cover') in mirrored:
+        card.update({'cover': f'https://cdn.tw93.fun/notes/{entry["cover"]}.jpg', 'w': entry['w'], 'h': entry['h']})
+    return card
 
 
 def validate(notes):
@@ -240,11 +265,12 @@ def validate(notes):
                 require(isinstance(n[key], list) and len(set(n[key])) == len(n[key]) and all(isinstance(v, str) and v for v in n[key]), 'Invalid ' + key)
         require(all(url(v) for v in n.get('links', [])), 'Invalid link')
         for m in n.get('media', []):
-            require(set(m) <= {'type', 'src', 'w', 'h', 'poster', 'duration'} and m.get('type') in {'photo', 'video', 'gif'} and url(m.get('src')), 'Invalid media')
+            require(set(m) <= {'type', 'src', 'w', 'h', 'poster', 'duration', 'video'} and m.get('type') in {'photo', 'video', 'gif'} and url(m.get('src')), 'Invalid media')
             require(all(type(m[k]) is int and m[k] >= 0 for k in ['w', 'h', 'duration'] if k in m), 'Invalid media dimensions/duration')
             require(m['type'] == 'video' or 'duration' not in m, 'Duration on non-video')
             require(m['type'] == 'photo' or url(m.get('poster')), 'Missing poster')
             require(m['type'] != 'photo' or 'poster' not in m, 'Poster on photo')
+            require('video' not in m or (m['type'] != 'photo' and url(m['video'])), 'Invalid video')
         if thread:
             require(set(n) <= {'id', 'date', 'text', 'links', 'media', 'quote'}, 'Invalid thread fields')
     require(isinstance(notes, list), 'Output is not an array')
@@ -252,13 +278,16 @@ def validate(notes):
     last = None
     for n in notes:
         content(n)
-        require(set(n) <= {'id', 'url', 'date', 'kind', 'lang', 'category', 'tags', 'text', 'links', 'media', 'thread', 'quote', 'reply_to', 'metrics', 'long', 'thin'}, 'Unknown note fields')
+        require(set(n) <= {'id', 'url', 'date', 'kind', 'lang', 'category', 'tags', 'text', 'links', 'media', 'thread', 'quote', 'reply_to', 'metrics', 'long', 'thin', 'article'}, 'Unknown note fields')
         require(url(n.get('url')), 'Invalid note URL')
         require(n.get('kind') in {'post', 'quote', 'reply'} and n.get('lang') in {'zh', 'en', 'ja', 'und'} and n.get('category') in CATEGORIES, 'Invalid enum')
         require(type(n.get('long')) is bool and type(n.get('thin')) is bool, 'Missing booleans')
         require(set(n.get('metrics', {})) == {'like', 'reply', 'repost', 'quote', 'bookmark', 'view'} and all(type(v) is int and v >= 0 for v in n['metrics'].values()), 'Invalid metrics')
-        require(n['thin'] == (len(n['text']) < 20 and not any(n.get(k) for k in ['media', 'thread', 'quote'])), 'Invalid thin')
-        require(n['lang'] == language(n['text']), 'Invalid language')
+        require(n['thin'] == (len(n['text']) < 20 and not any(n.get(k) for k in ['media', 'thread', 'quote', 'article'])), 'Invalid thin')
+        require(n['lang'] == language(n['text'] or n.get('article', {}).get('title', '')), 'Invalid language')
+        if 'article' in n:
+            a = n['article']
+            require(set(a) <= {'url', 'title', 'preview', 'cover', 'w', 'h'} and url(a.get('url')) and a.get('title') and ('cover' not in a or url(a['cover'])), 'Invalid article')
         require(n.get('tags', []) == list(dict.fromkeys(HASHTAG.findall(n['text']))), 'Invalid hashtags')
         require(n['id'] not in seen, 'Duplicate note')
         seen.add(n['id'])
@@ -412,9 +441,96 @@ def fetch_media(used):
         print(json.dumps({'required_files': len(jobs), 'files': len(files), 'MB': round(sum(p.stat().st_size for p in files) / 1_000_000, 2), 'downloaded': done, 'skipped': len(jobs) - len(pending), 'failures': failures, 'unattempted': len(pending) - attempted}), flush=True)
 
 
+def video_variant(m):
+    """The sharpest MP4 whose short side is at most 720px, about 5GB for all."""
+    mp4 = [v for v in m.get('variants', []) if v.get('content_type') == 'video/mp4']
+    def side(v):
+        size = re.search(r'/(\d+)x(\d+)/', v['url'])
+        return min(int(size.group(1)), int(size.group(2))) if size else 0
+    fit = [v for v in mp4 if side(v) <= 720] or mp4
+    return max(fit, key=lambda v: v.get('bit_rate') or 0)['url'] if fit else None
+
+
+def download_video(job):
+    key, url = job
+    path = VIDEOS / (key + '.mp4')
+    last = None
+    for attempt in range(2):
+        try:
+            request = urllib.request.Request(url, headers={'User-Agent': UA})
+            with urllib.request.urlopen(request, timeout=60) as response:
+                data = response.read()
+            if data[4:8] != b'ftyp':
+                raise ValueError('not an MP4')
+            path.write_bytes(data)
+            return key, len(data), None
+        except (OSError, ValueError, urllib.error.URLError, http.client.HTTPException) as e:
+            last = type(e).__name__ + ': ' + str(getattr(e, 'reason', e))
+    return key, 0, last
+
+
+def fetch_videos(used):
+    jobs = {}
+    for p in used:
+        for m in p.get('media', []):
+            if m['type'] in ('video', 'animated_gif') and video_variant(m):
+                jobs[m['media_key']] = video_variant(m)
+    VIDEOS.mkdir(parents=True, exist_ok=True)
+    pending = [(k, u) for k, u in sorted(jobs.items()) if not (VIDEOS / (k + '.mp4')).is_file()]
+    done = failures = 0
+    for batch in parallel_batches(pending, download_video):
+        for key, size, error in batch:
+            if error:
+                failures += 1
+                print('Video failed: ' + key + ': ' + error, file=sys.stderr)
+            else:
+                done += 1
+        print(f'Videos: {done + failures}/{len(pending)}, failures {failures}', flush=True)
+    files = [VIDEOS / (k + '.mp4') for k in jobs if (VIDEOS / (k + '.mp4')).is_file()]
+    print(json.dumps({'required_files': len(jobs), 'files': len(files), 'MB': round(sum(f.stat().st_size for f in files) / 1_000_000, 1), 'downloaded': done, 'failures': failures}), flush=True)
+
+
+def article_ids(used, resolved):
+    """Note ID to X Article ID, for notes that link an article of their own."""
+    found = {}
+    for p in used:
+        for short in TCO.findall(full_text(p)):
+            m = re.search(r'x\.com/i/article/(\d+)', resolved.get(short) or '')
+            if m:
+                found[p['id']] = m.group(1)
+    return found
+
+
+def fetch_articles(used):
+    """Title, preview and cover from X's public syndication endpoint."""
+    path = META / 'articles.json'
+    cache = read_json(path, {})
+    for pid, aid in sorted(article_ids(used, read_json(META / 'links.json', {})).items()):
+        if pid in cache:
+            continue
+        # The endpoint asks for a token but does not check it (2026-10-28).
+        url = f'https://cdn.syndication.twimg.com/tweet-result?id={pid}&token=a'
+        with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=20) as response:
+            article = json.load(response).get('article') or {}
+        if article.get('rest_id') != aid:
+            print('Article missing: ' + pid, file=sys.stderr)
+            continue
+        entry = {'id': aid, 'title': article['title'].strip(), 'preview': (article.get('preview_text') or '').strip()}
+        cover = ((article.get('cover_media') or {}).get('media_info') or {})
+        if cover.get('original_img_url'):
+            key = 'article_' + aid
+            target = MIRROR / (key + '.jpg')
+            if not target.is_file():
+                download_one((key, photo_url(cover['original_img_url'])))
+            entry.update({'cover': key, 'w': cover['original_img_width'], 'h': cover['original_img_height']})
+        cache[pid] = entry
+        write_map(path, cache)
+    print(json.dumps({'articles': len(cache)}), flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', nargs='?', default='build', choices=['build', 'resolve-links', 'fetch-media'])
+    parser.add_argument('command', nargs='?', default='build', choices=['build', 'resolve-links', 'fetch-media', 'fetch-videos', 'fetch-articles'])
     parser.add_argument('--check', action='store_true', help='Validate offline output without writing it')
     args = parser.parse_args()
     if args.check and args.command != 'build':
@@ -426,9 +542,13 @@ def main():
         resolve_links(used)
     elif args.command == 'fetch-media':
         fetch_media(used)
+    elif args.command == 'fetch-videos':
+        fetch_videos(used)
+    elif args.command == 'fetch-articles':
+        fetch_articles(used)
     else:
         resolved = read_json(META / 'links.json', {})
-        notes = build_notes(heads, threads, read_json(META / 'categories.json', {}), resolved, read_json(META / 'mirrored.json', {}))
+        notes = build_notes(heads, threads, read_json(META / 'categories.json', {}), resolved, read_json(META / 'mirrored.json', {}), set(read_json(META / 'videos.json', [])), read_json(META / 'articles.json', {}))
         validate(notes)
         if args.check:
             existing = read_json(OUTPUT)

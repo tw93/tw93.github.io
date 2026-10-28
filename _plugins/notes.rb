@@ -112,6 +112,21 @@ module Jekyll
       end
     end
 
+    # Width candidates for R2 images: 680 and 1200 are the two sizes
+    # Cloudflare has already made for every photo, so srcset adds no new
+    # transformations, and the browser picks one by the width it shows.
+    WIDTHS = [680, 1200].freeze
+
+    def img_attrs(src, sizes)
+      return %(src="#{esc(thumb(src, 1200))}") unless src.start_with?('https://cdn.tw93.fun/')
+
+      set = WIDTHS.map { |w| "#{esc(thumb(src, w))} #{w}w" }.join(', ')
+      %(src="#{esc(thumb(src, 680))}" srcset="#{set}" sizes="#{sizes}")
+    end
+
+    # One photo or video fills the column up to 640px tall (720px for a
+    # video). Two or more sit in a row that scrolls sideways, every item at
+    # one height and its own shape, so nothing is cropped.
     def media_html(media)
       return '' if media.nil? || media.empty?
 
@@ -119,15 +134,40 @@ module Jekyll
       items = media.map do |item|
         w = item['w'].to_i.positive? ? item['w'].to_i : 1200
         h = item['h'].to_i.positive? ? item['h'].to_i : 900
+        r = w / h.to_f
+        # Shown widths: the strip is 280px tall on phones and 360px above,
+        # a single item fills the column (100vw - 30px, at most 740px).
+        sizes = single ? "(max-width: 736px) calc(100vw - 30px), #{[740, ((item['type'] == 'photo' ? 640 : 720) * r).round].min}px" : "(max-width: 736px) #{(280 * r).round}px, #{(360 * r).round}px"
+        shape = %(width="#{w}" height="#{h}" style="--r: #{w} / #{h}")
         if item['type'] == 'photo'
           src = item['src']
-          %(<img class="note-img" src="#{esc(thumb(src, single ? 1200 : 680))}" data-pswp-src="#{esc(src)}" data-width="#{w}" data-height="#{h}" width="#{w}" height="#{h}" style="--r: #{w} / #{h}" alt="" loading="lazy" decoding="async">)
+          %(<img class="note-img" #{img_attrs(src, sizes)} data-pswp-src="#{esc(src)}" data-width="#{w}" data-height="#{h}" #{shape} alt="" loading="lazy" decoding="async">)
+        elsif item['video']
+          # A <video poster> is fetched at once, lazy or not, so the poster is
+          # a lazy <img> over a video that loads nothing until it plays.
+          poster = %(<img class="note-poster" #{img_attrs(item['poster'].to_s, sizes)} width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async">)
+          if item['type'] == 'gif'
+            %(<span class="note-player note-gif" style="--r: #{w} / #{h}">#{poster}<video class="note-clip" src="#{esc(item['video'])}" width="#{w}" height="#{h}" muted loop playsinline preload="none"></video></span>)
+          else
+            length = item['duration'] ? %(<span class="note-duration">#{item['duration'] / 60}:#{format('%02d', item['duration'] % 60)}</span>) : ''
+            %(<span class="note-player" style="--r: #{w} / #{h}">#{poster}<video class="note-clip" src="#{esc(item['video'])}" width="#{w}" height="#{h}" controls playsinline preload="none"></video><span class="note-play note-play-center">#{icon('play')}#{length}</span></span>)
+          end
         else
           length = item['duration'] ? %(<span class="note-duration">#{item['duration'] / 60}:#{format('%02d', item['duration'] % 60)}</span>) : ''
-          %(<a class="note-video" href="#{esc(item['src'])}" target="_blank" rel="noopener" style="--r: #{w} / #{h}" aria-label="在 X 上播放"><img src="#{esc(thumb(item['poster'].to_s, single ? 1200 : 680))}" width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async"><span class="note-play">#{icon('play')}#{length}</span></a>)
+          %(<a class="note-video" href="#{esc(item['src'])}" target="_blank" rel="noopener" style="--r: #{w} / #{h}" aria-label="在 X 上播放"><img #{img_attrs(item['poster'].to_s, sizes)} width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async"><span class="note-play">#{icon('play')}#{length}</span></a>)
         end
       end
-      %(<div class="note-media note-media-#{[media.size, 4].min}">#{items.join}</div>)
+      %(<div class="note-media#{single ? ' note-media-1' : ' note-strip'}">#{items.join}</div>)
+    end
+
+    # An X Article shows as X does: cover, title, then the opening lines.
+    def article_html(note)
+      card = note['article']
+      return '' unless card
+
+      cover = card['cover'] ? %(<img #{img_attrs(card['cover'], '(max-width: 736px) calc(100vw - 30px), 740px')} width="#{card['w']}" height="#{card['h']}" style="--r: #{card['w']} / #{card['h']}" alt="" loading="lazy" decoding="async">) : ''
+      preview = card['preview'] ? %(<span class="note-article-text">#{esc(plain(card['preview']))}</span>) : ''
+      %(<a class="note-article" href="#{esc(card['url'])}" target="_blank" rel="noopener">#{cover}<span class="note-article-body"><strong>#{esc(card['title'])}</strong>#{preview}</span></a>)
     end
 
     def quote_html(note, by_id)
@@ -144,14 +184,23 @@ module Jekyll
       end
     end
 
+    # Each count opens its own action on X, and the X mark the post itself,
+    # one row of links rather than counts with a stray mark at the far end.
     def stats_html(note)
       metrics = note['metrics'] || {}
+      id = note['id']
+      targets = {
+        'like' => "https://x.com/intent/like?tweet_id=#{id}",
+        'reply' => "https://x.com/intent/post?in_reply_to=#{id}",
+        'bookmark' => note['url'],
+      }
       stats = %w[like reply bookmark].filter_map do |key|
         value = metrics[key].to_i
         next if value.zero?
 
-        %(<span class="note-stat" title="#{TITLES[key]}">#{icon(key)}#{count(value)}</span>)
+        %(<a class="note-stat" href="#{esc(targets[key])}" target="_blank" rel="nofollow noopener" title="#{TITLES[key]}">#{icon(key)}#{count(value)}</a>)
       end
+      stats << %(<a class="note-stat note-x" href="#{esc(note['url'])}" target="_blank" rel="noopener" title="在 X 上查看" aria-label="在 X 上查看">#{icon('x')}</a>)
       stats.join
     end
 
@@ -162,7 +211,7 @@ module Jekyll
     # In lists a long note is folded to a few lines; the link opens the note's
     # own page, and js/notes.js unfolds it in place instead.
     def article(note, by_id, fold: false)
-      folded = fold && full_text(note).length > FOLD_CHARS
+      folded = fold && !note['article'] && full_text(note).length > FOLD_CHARS
       time = local(note['date'])
       category = CATEGORIES.fetch(note['category'])
       meta = [%(<a class="note-date" href="#{page_url(note)}"><time datetime="#{time.iso8601}">#{time.strftime('%Y-%m-%d')}</time></a>)]
@@ -172,7 +221,7 @@ module Jekyll
       end
       meta << %(<a class="note-cat" href="/notes/?c=#{note['category']}">#{category}</a>)
 
-      body = text_html(note['text']) + media_html(note['media'])
+      body = text_html(note['text']) + article_html(note) + media_html(note['media'])
       (note['thread'] || []).each { |part| body << text_html(part['text']) << media_html(part['media']) << quote_html(part, by_id) }
       body << quote_html(note, by_id)
 
@@ -181,9 +230,15 @@ module Jekyll
         <div class="note-meta">#{meta.join('<span class="note-dot"> · </span>')}</div>
         <div class="note-body">#{body}</div>
         #{folded ? %(<a class="note-unfold" href="#{page_url(note)}">展开全文</a>) : ''}
-        <div class="note-foot">#{stats_html(note)}<a class="note-x" href="#{esc(note['url'])}" target="_blank" rel="noopener" title="在 X 上查看" aria-label="在 X 上查看">#{icon('x')}</a></div>
+        <div class="note-foot">#{stats_html(note)}</div>
         </article>
       HTML
+    end
+
+    # The first image of a list page is usually what paints largest, so it
+    # loads at once instead of waiting for layout to find it in view.
+    def eager(html)
+      html.sub(' loading="lazy"', ' fetchpriority="high"')
     end
 
     def flags(note)
@@ -199,10 +254,13 @@ module Jekyll
     end
 
     def full_text(note)
-      ([note['text']] + (note['thread'] || []).map { |part| part['text'] }).compact.reject(&:empty?).join("\n\n")
+      article = note['article'] ? [note['article']['title'], note['article']['preview']] : []
+      (article + [note['text']] + (note['thread'] || []).map { |part| part['text'] }).compact.reject(&:empty?).join("\n\n")
     end
 
     def title_of(note)
+      return note['article']['title'] if note['article']
+
       line = plain(note['text'].to_s.lines.first)
       line = "#{line[0, 30]}…" if line.length > 32
       line.empty? ? "Notes #{local(note['date']).strftime('%Y-%m-%d')}" : line
@@ -254,7 +312,7 @@ module Jekyll
           'notes_total' => notes.size,
           'notes_years' => months.keys.map { |key| key[0, 4] }.uniq.sort.reverse,
           'notes_categories' => CATEGORIES.map { |key, label| { 'key' => key, 'label' => label } },
-          'notes_html' => notes.first(FIRST_PAGE).map { |note| html[note['id']] }.join,
+          'notes_html' => Notes.eager(notes.first(FIRST_PAGE).map { |note| html[note['id']] }.join),
           'notes_older' => notes.size > FIRST_PAGE ? "/notes/#{Notes.local(notes[FIRST_PAGE]['date']).strftime('%Y/%m')}/" : nil,
           'notes_archive' => archive)
 
@@ -267,7 +325,7 @@ module Jekyll
             'layout' => 'notes', 'title' => "#{year} 年 #{month.to_i} 月 Notes",
             'summary' => "Tw93 #{year} 年 #{month.to_i} 月在 X 上写下的 #{months[key].size} 条 Notes。",
             'notes_month' => "#{year} 年 #{month.to_i} 月",
-            'notes_html' => months[key].map { |note| html[note['id']] }.join,
+            'notes_html' => Notes.eager(months[key].map { |note| html[note['id']] }.join),
             'notes_newer' => newer && { 'url' => "/notes/#{newer.tr('-', '/')}/", 'label' => "#{newer[0, 4]} 年 #{newer[5, 2].to_i} 月" },
             'notes_older' => older && { 'url' => "/notes/#{older.tr('-', '/')}/", 'label' => "#{older[0, 4]} 年 #{older[5, 2].to_i} 月" },
             'notes_archive' => archive)
@@ -280,7 +338,7 @@ module Jekyll
             # and canonical and sitemap.xml then point at a URL that 404s.
             'permalink' => Notes.page_url(note),
             'layout' => 'note', 'title' => Notes.title_of(note), 'summary' => Notes.summary_of(note),
-            'note_html' => Notes.article(note, by_id),
+            'note_html' => Notes.eager(Notes.article(note, by_id)),
             'note_month' => { 'url' => "/notes/#{time.strftime('%Y/%m')}/", 'label' => "#{time.year} 年 #{time.month} 月" },
             'note_jsonld' => JSON.generate(
               '@context' => 'https://schema.org',

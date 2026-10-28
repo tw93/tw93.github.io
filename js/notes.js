@@ -76,6 +76,36 @@
     loadLightbox();
   });
 
+  // GIFs loop while on screen and stop once scrolled past. A video starts on
+  // the first click on its poster, and starting one pauses whichever one was
+  // playing. The poster is an <img> that hides once frames arrive.
+  var clips = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) entry.target.play().catch(function () {});
+      else entry.target.pause();
+    });
+  }, { threshold: 0.5 });
+  var watch = function () {
+    list.querySelectorAll('.note-gif video').forEach(function (clip) { clips.observe(clip); });
+  };
+  watch();
+  list.addEventListener('click', function (e) {
+    var player = e.target.closest && e.target.closest('.note-player:not(.note-gif):not(.is-playing)');
+    if (!player) return;
+    e.preventDefault();
+    player.querySelector('video').play().catch(function () {});
+  });
+  list.addEventListener('playing', function (e) {
+    var player = e.target.closest('.note-player');
+    if (player) player.classList.add('is-playing');
+  }, true);
+  list.addEventListener('play', function (e) {
+    if (e.target.closest('.note-gif')) return;
+    list.querySelectorAll('.note-player:not(.note-gif) video').forEach(function (video) {
+      if (video !== e.target) video.pause();
+    });
+  }, true);
+
   var bar = document.getElementById('J_notes_bar');
   if (!bar) return;
 
@@ -93,6 +123,11 @@
   var shown = 0;
   var token = 0;
   var busy = false;
+  // Endless scrolling stops after this many notes so an old phone's memory
+  // stays flat; past it the link opens the next month page, or loads the next
+  // results when filtering.
+  var LIMIT = 240;
+  var limit = LIMIT;
 
   // Without a filter the next notes come from the month pages, in the order
   // the archive links list them, so scrolling never downloads the index.
@@ -187,6 +222,7 @@
         page.querySelectorAll('#J_notes > .note').forEach(function (note) {
           if (!document.getElementById(note.id)) list.appendChild(document.adoptNode(note));
         });
+        watch();
         return true;
       });
     }
@@ -206,6 +242,7 @@
       }
       highlight(holder, words);
       while (holder.firstChild) list.appendChild(holder.firstChild);
+      watch();
       shown += next.length;
       return true;
     });
@@ -243,15 +280,30 @@
     renderMore().then(function (left) {
       if (mine !== token) return;
       busy = false;
-      if (left) observer.observe(sentinel);
+      if (!left) return;
+      if (more && list.children.length >= limit && (mode === 'results' ? shown < results.length : months[monthAt])) {
+        more.textContent = mode === 'months' ? '更早的 Notes' : '加载更多';
+        more.href = mode === 'months' ? months[monthAt] : '#';
+        more.hidden = false;
+        return;
+      }
+      observer.observe(sentinel);
     }, function () { if (mine === token) busy = false; });
   };
   var observer = new IntersectionObserver(function (entries) {
     if (entries[0].isIntersecting) step();
   }, { rootMargin: '800px 0px' });
 
+  if (more) more.addEventListener('click', function (e) {
+    if (mode !== 'results') return;
+    e.preventDefault();
+    limit = list.children.length + LIMIT;
+    step();
+  });
+
   var apply = function () {
     var mine = ++token;
+    limit = LIMIT;
     mode = 'results';
     busy = false;
     syncUrl();

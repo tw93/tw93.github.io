@@ -142,6 +142,13 @@ $notes-line: rgba($base-color, 0.14);
   scroll-margin-top: 80px;
 }
 
+// A long scroll keeps hundreds of notes in the page; the ones off screen
+// skip layout and paint, and keep the height they last had.
+.notes-list > .note {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+
 .note-meta,
 .note-foot {
   display: flex;
@@ -196,15 +203,11 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .note-media {
-  display: grid;
-  gap: 4px;
   margin: 10px 0;
-  img {
+  img,
+  video {
     display: block;
-    width: 100%;
-    height: auto;
     border-radius: $border-radius;
-    object-fit: cover;
     background-color: $body-color;
     // A hairline keeps light screenshots from melting into the white column.
     outline: 1px solid $notes-line;
@@ -213,25 +216,160 @@ $notes-line: rgba($base-color, 0.14);
   .note-img {
     cursor: zoom-in;
   }
-  > * {
-    aspect-ratio: 1;
-  }
 }
 
-// A single image keeps its own shape, no taller than 480px.
-.note-media.note-media-1 > * {
-  width: min(100%, calc(480px * var(--r)));
+// One photo fills the column, no taller than 640px; a video gets 720px,
+// so a phone-shaped clip is not left narrow.
+.note-media-1 > * {
+  width: min(100%, calc(640px * var(--r)));
+  height: auto;
   aspect-ratio: var(--r);
 }
 
-.note-media-2,
-.note-media-4 {
-  grid-template-columns: 1fr 1fr;
-  max-width: 520px;
+.note-media-1 > .note-player {
+  width: min(100%, calc(720px * var(--r)));
 }
 
-.note-media-3 {
-  grid-template-columns: 1fr 1fr 1fr;
+// Two or more scroll sideways at one height, each in its own shape. The row
+// runs on into the card's padding, so the cut-off photo shows there is more;
+// $pad tracks .notes padding at each width.
+.note-strip {
+  $pad: 15px;
+  display: flex;
+  gap: 6px;
+  margin: 10px (-$pad);
+  padding: 0 $pad;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 $pad;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media #{$medium} {
+    $pad: 44px;
+    margin: 10px (-$pad);
+    padding: 0 $pad;
+    scroll-padding: 0 $pad;
+  }
+  @media #{$large} {
+    $pad: 80px;
+    margin: 10px (-$pad);
+    padding: 0 $pad;
+    scroll-padding: 0 $pad;
+  }
+  > * {
+    flex: none;
+    width: auto;
+    max-width: 100%;
+    height: 280px;
+    aspect-ratio: var(--r);
+    // A panorama wider than the column keeps its shape inside the box.
+    object-fit: contain;
+    scroll-snap-align: start;
+    @media #{$medium} {
+      height: 360px;
+    }
+  }
+}
+
+
+// The poster <img> covers the video until it plays; js/notes.js starts it on
+// the first click and then hands over to the video's own controls.
+.note-player {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: $border-radius;
+  background-color: $black;
+  img,
+  video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  // Above the video, which would otherwise paint its empty frame and
+  // controls over the poster.
+  // X's recorded size and the frames can disagree; the gap reads as a
+  // player's black bars rather than the page colour.
+  .note-poster,
+  .note-clip {
+    background-color: $black;
+    outline: none;
+  }
+  .note-poster {
+    z-index: 1;
+  }
+  .note-play {
+    z-index: 2;
+  }
+  &:not(.is-playing) {
+    cursor: pointer;
+  }
+  &.is-playing .note-poster,
+  &.is-playing .note-play {
+    display: none;
+  }
+}
+
+.note-play.note-play-center {
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  padding: 10px 16px 10px 12px;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  pointer-events: none;
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.note-article {
+  display: block;
+  margin: 10px 0;
+  overflow: hidden;
+  border: 1px solid $notes-line;
+  border-radius: 12px;
+  transition: border-color 0.12s ease-out;
+  &:hover {
+    border-color: rgba($base-color, 0.3);
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--r);
+    // The card's own corners clip it; the site's rounded images would leave
+    // a notch above the title.
+    border-radius: 0;
+    background-color: $body-color;
+  }
+}
+
+.note-article-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px 14px;
+  strong {
+    font-size: 17px;
+    line-height: 1.45;
+    color: $text-color;
+  }
+}
+
+.note-article-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  color: $notes-meta;
 }
 
 .note-video {
@@ -280,11 +418,12 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .note-foot {
-  gap: 16px;
-  margin-top: 4px;
+  gap: 24px;
+  margin-top: 8px;
+  font-size: 15px;
   svg {
-    width: 14px;
-    height: 14px;
+    width: 17px;
+    height: 17px;
     fill: currentColor;
   }
 }
@@ -292,12 +431,14 @@ $notes-line: rgba($base-color, 0.14);
 .note-stat {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
-.note-x {
-  display: inline-flex;
-  margin-left: auto;
+// The X mark carries more ink than the outline-free counts, so it sits a
+// size down to read as the same weight.
+.note-x svg {
+  width: 15px;
+  height: 15px;
 }
 
 .notes-more {

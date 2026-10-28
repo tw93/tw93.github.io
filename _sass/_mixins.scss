@@ -82,39 +82,36 @@
   }
 }
 
-// Category switch shared by /notes/ and /posts/: one row of quiet tabs, the
-// chosen one sits on the page colour.
+// Category switch shared by /notes/ and /posts/: plain words that keep their
+// left edge whether chosen or not; the chosen one is darker, with a small
+// hand-drawn wave under it.
 @mixin chip-group() {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px;
+  // 14px keeps the seven Notes categories on one row down to a 320px phone.
+  gap: 0 14px;
   @media #{$medium} {
-    gap: 6px;
+    gap: 0 22px;
   }
   > a,
   > button {
     display: inline-flex;
     align-items: center;
     height: 32px;
-    // Narrower on phones so the Notes and English archive rows fit 393 in one line.
-    padding: 0 8px;
-    @media #{$medium} {
-      padding: 0 14px;
-    }
+    padding: 0;
     border: 0;
-    border-radius: $border-radius;
     background: none;
-    color: rgba($base-color, 0.66);
+    color: rgba($base-color, 0.6);
     font: inherit;
     font-size: 15px;
     cursor: pointer;
-    transition: background-color 0.12s ease-out, color 0.12s ease-out;
+    transition: color 0.12s ease-out;
     &:hover {
       color: $text-color;
     }
     &[aria-pressed="true"] {
-      background-color: $body-color;
-      color: $text-color;
+      color: $base-color;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 6'%3E%3Cpath d='M0 3.2c2-2.4 4-2.4 6 0s4 2.4 6 0' fill='none' stroke='%2324292f' stroke-opacity='.4' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E") left bottom 1px / 12px 6px round no-repeat;
     }
   }
 }

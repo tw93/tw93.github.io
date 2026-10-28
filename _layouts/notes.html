@@ -17,11 +17,11 @@ body_id: notes
     <div class="notes-controls">
       <input class="notes-search" id="J_notes_q" type="search" name="q" placeholder="搜索 {{ page.notes_total }} 条 Notes" aria-label="搜索 Notes" autocomplete="off">
       <select id="J_notes_y" name="y" aria-label="年份">
-        <option value="">全部年份</option>
+        <option value="">年份</option>
         {% for year in page.notes_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
       </select>
       <select id="J_notes_t" name="t" aria-label="类型">
-        <option value="">全部类型</option>
+        <option value="">类型</option>
         <option value="l">长文</option>
         <option value="p">图片</option>
         <option value="v">视频</option>
