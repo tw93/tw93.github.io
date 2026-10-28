@@ -75,6 +75,8 @@ exclude:
     "node_modules",
     "SEO_GUIDE.md",
     "CLAUDE.md",
+    "data",
+    "scripts",
   ]
 
 # Plugins

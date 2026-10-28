@@ -19,3 +19,6 @@ journal/
 .mcp.json
 .claude/worktrees/
 .wrangler/
+
+# Raw X export, a local build input for scripts/notes.py; never published
+/data/
