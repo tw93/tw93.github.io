@@ -223,34 +223,18 @@ $notes-line: rgba($base-color, 0.14);
   width: min(100%, calc(720px * var(--r)));
 }
 
-// Two or more scroll sideways at one height, each in its own shape. The row
-// runs on into the card's padding, so the cut-off photo shows there is more;
-// $pad tracks .notes padding at each width.
+// Two or more scroll sideways at one height, each in its own shape, inside
+// the text column: the row starts and ends on the text's edges, and the
+// photo cut off at the right edge shows there is more.
 .note-strip {
-  $pad: 15px;
   display: flex;
   gap: 6px;
-  margin: 10px (-$pad);
-  padding: 0 $pad;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding: 0 $pad;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
-  }
-  @media #{$medium} {
-    $pad: 44px;
-    margin: 10px (-$pad);
-    padding: 0 $pad;
-    scroll-padding: 0 $pad;
-  }
-  @media #{$large} {
-    $pad: 80px;
-    margin: 10px (-$pad);
-    padding: 0 $pad;
-    scroll-padding: 0 $pad;
   }
   > * {
     flex: none;
