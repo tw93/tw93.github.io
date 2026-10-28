@@ -50,7 +50,9 @@ $notes-line: rgba($base-color, 0.14);
   flex-wrap: wrap;
   align-items: center;
   column-gap: 16px;
-  margin-bottom: 14px;
+  // The month archives' own title gap, so the head reads apart from the
+  // first note rather than as its first line.
+  margin-bottom: 24px;
   font-size: 14px;
   .notes-title {
     margin: 0;
