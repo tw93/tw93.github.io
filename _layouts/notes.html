@@ -13,8 +13,11 @@ body_id: notes
 
   {% if page.notes_index %}
   <form class="notes-bar" id="J_notes_bar" role="search" onsubmit="return false">
-    {{ page.notes_author }}
     <div class="notes-controls">
+      <select id="J_notes_c" name="c" aria-label="分类">
+        <option value="">分类</option>
+        {% for category in page.notes_categories %}<option value="{{ category.key }}">{{ category.label }}</option>{% endfor %}
+      </select>
       <select id="J_notes_y" name="y" aria-label="年份">
         <option value="">年份</option>
         {% for year in page.notes_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
@@ -37,12 +40,6 @@ body_id: notes
       <button class="notes-find" id="J_notes_find" type="button" aria-label="搜索" aria-expanded="false" aria-controls="J_notes_q"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="m10.4 10.4 3 3"/></svg></button>
     </div>
     <input class="notes-search" id="J_notes_q" type="text" name="q" placeholder="搜索" aria-label="搜索 Notes" autocomplete="off" enterkeyhint="search">
-    <div class="notes-chips">
-      <span class="notes-chip-group" data-key="c">
-        <button type="button" data-value="" aria-pressed="true">全部</button>
-        {% for category in page.notes_categories %}<button type="button" data-value="{{ category.key }}" aria-pressed="false">{{ category.label }}</button>{% endfor %}
-      </span>
-    </div>
   </form>
   {% endif %}
 

@@ -6,7 +6,6 @@ body_id: notes
 
 <div class="notes notes-single">
   <h1 class="visually-hidden">{{ page.title | escape }}</h1>
-  {{ page.notes_author }}
   <div class="notes-list" id="J_notes">{{ page.note_html }}</div>
   <nav class="notes-pager">
     <a href="{{ '/notes/' | relative_url }}">全部 Notes</a>

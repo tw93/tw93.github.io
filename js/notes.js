@@ -115,6 +115,7 @@
   if (!bar) return;
 
   var input = document.getElementById('J_notes_q');
+  var cat = document.getElementById('J_notes_c');
   var year = document.getElementById('J_notes_y');
   var type = document.getElementById('J_notes_t');
   var sort = document.getElementById('J_notes_sort');
@@ -307,7 +308,7 @@
   ruler.className = 'notes-ruler';
   bar.appendChild(ruler);
   var fit = function () {
-    [year, type, sort].forEach(function (select) {
+    [cat, year, type, sort].forEach(function (select) {
       ruler.textContent = select.options[select.selectedIndex].text;
       select.style.width = ruler.offsetWidth + 18 + 'px';
     });
@@ -320,13 +321,11 @@
   var syncControls = function () {
     input.value = state.q;
     if (state.q) searching(true);
+    cat.value = state.c;
     year.value = state.y;
     type.value = state.t;
     sort.value = state.sort;
     fit();
-    bar.querySelectorAll('.notes-chip-group button').forEach(function (button) {
-      button.setAttribute('aria-pressed', String(button.getAttribute('data-value') === state.c));
-    });
   };
 
   // Endless scrolling. Re-observing after each batch makes the observer report
@@ -416,6 +415,7 @@
     bar.addEventListener(name, loadIndex, { once: true, passive: true });
     find.addEventListener(name, loadText, { once: true, passive: true });
   });
+  cat.addEventListener('change', function () { state.c = cat.value; fit(); apply(); });
   year.addEventListener('change', function () { state.y = year.value; fit(); apply(); });
   type.addEventListener('change', function () { state.t = type.value; fit(); apply(); });
   sort.addEventListener('change', function () { state.sort = sort.value; fit(); apply(); });
@@ -455,12 +455,6 @@
     searching(false);
     dropQuery();
     find.focus();
-  });
-  bar.addEventListener('click', function (e) {
-    var button = e.target.closest('.notes-chip-group button');
-    if (!button) return;
-    state.c = button.getAttribute('data-value');
-    apply();
   });
 
   // Category and hashtag links inside notes filter in place.

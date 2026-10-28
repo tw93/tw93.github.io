@@ -207,10 +207,6 @@ module Jekyll
       stats.join
     end
 
-    def author_html
-      %(<div class="notes-author"><img src="#{AVATAR}" width="44" height="44" alt=""><strong>Tw93</strong></div>)
-    end
-
     def weight(char)
       char.match?(/[\p{Han}\p{Hiragana}\p{Katakana}\p{Hangul}\u3000-\u303f\uff00-\uffef]/) ? 2 : 1
     end
@@ -368,7 +364,7 @@ module Jekyll
     def make_page(site, dir, name, data)
       page = PageWithoutAFile.new(site, site.source, dir, name)
       page.content = ''
-      page.data.merge!('poem' => POEM, 'hideHomeActive' => true, 'comments' => false, 'notes_sprite' => sprite, 'notes_author' => author_html)
+      page.data.merge!('poem' => POEM, 'hideHomeActive' => true, 'comments' => false, 'notes_sprite' => sprite)
       page.data.merge!(data)
       page
     end
