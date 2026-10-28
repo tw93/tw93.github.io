@@ -64,10 +64,12 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .notes-bar {
-  // The author, the menus and the search icon share the first row at every
-  // width; the open field fills the rest of that row on desktop and takes the
-  // next row, from the column's left edge, below it; the categories close the
-  // bar. Inner gaps are 10px boxes, about 16px between the words and images.
+  // Phones and tablets put the author, the menus and the search icon on the
+  // first row and the categories on the next; desktop fits all of it on one
+  // row, categories after the author and the menus at the end (about 710px
+  // of the 740px column, with the longest sort label). An open field takes
+  // its own row, from the column's left edge. Inner gaps are 10px boxes,
+  // about 16px between the words and images.
   display: grid;
   grid-template-columns: auto auto minmax(0, 1fr);
   align-items: center;
@@ -78,11 +80,25 @@ $notes-line: rgba($base-color, 0.14);
     column-gap: 32px;
   }
   @media #{$large} {
-    margin-bottom: 20px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    // The avatar's edge has no slack, so this lands near the categories'
+    // 29px on the rows below.
+    margin-bottom: 26px;
   }
   .notes-chips {
     grid-column: 1 / -1;
     margin-top: 10px;
+    @media #{$large} {
+      grid-column: 2;
+      grid-row: 1;
+      margin-top: 0;
+    }
+  }
+  .notes-controls {
+    @media #{$large} {
+      grid-column: 3;
+      grid-row: 1;
+    }
   }
 }
 
@@ -143,9 +159,8 @@ $notes-line: rgba($base-color, 0.14);
     font-size: inherit;
   }
   @media #{$large} {
-    grid-column: 3;
-    grid-row: 1;
-    margin-top: 0;
+    grid-row: 2;
+    margin-top: 16px;
   }
   &:focus {
     outline: none;
