@@ -198,9 +198,6 @@ $notes-line: rgba($base-color, 0.14);
     display: block;
     border-radius: $border-radius;
     background-color: $body-color;
-    // A hairline keeps light screenshots from melting into the white column.
-    outline: 1px solid $notes-line;
-    outline-offset: -1px;
   }
   .note-img {
     cursor: zoom-in;
@@ -271,7 +268,6 @@ $notes-line: rgba($base-color, 0.14);
   .note-poster,
   .note-clip {
     background-color: $black;
-    outline: none;
   }
   .note-poster {
     z-index: 1;
