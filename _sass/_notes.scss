@@ -73,6 +73,21 @@ $notes-line: rgba($base-color, 0.14);
 .notes-bar {
   margin-bottom: 28px;
   font-size: 14px;
+  // On desktop the author, the search field and the menus share one row, and
+  // the categories run below it from the column's left edge.
+  @media #{$large} {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 32px;
+    .notes-author {
+      margin-bottom: 0;
+    }
+    .notes-chips {
+      grid-column: 1 / -1;
+      margin-top: 20px;
+    }
+  }
 }
 
 .notes-controls {

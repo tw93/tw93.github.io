@@ -11,9 +11,9 @@ body_id: notes
   <h1 class="visually-hidden">Notes</h1>
   {% endif %}
 
-  {% if page.notes_index %}{{ page.notes_author }}{% endif %}
   {% if page.notes_index %}
   <form class="notes-bar" id="J_notes_bar" role="search" onsubmit="return false">
+    {{ page.notes_author }}
     <div class="notes-controls">
       <input class="notes-search" id="J_notes_q" type="search" name="q" placeholder="搜索 {{ page.notes_total }} 条 Notes" aria-label="搜索 Notes" autocomplete="off">
       <select id="J_notes_y" name="y" aria-label="年份">
