@@ -198,6 +198,31 @@ $notes-line: rgba($base-color, 0.14);
   white-space: pre;
 }
 
+// Each note opens with who is speaking, the header's avatar at a size that
+// sits inside the meta line without raising it.
+.note-avatar {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.note-name {
+  color: $text-color;
+  font-weight: 600;
+}
+
+// A phone shows the avatar alone: with the name, a reply to a long handle
+// broke the line, and the page header right above already names the author.
+.note-name,
+.note-name + .note-dot {
+  display: none;
+  @media #{$medium} {
+    display: inline;
+  }
+}
+
 .note-body {
   font-size: 17px;
   color: $text-color;

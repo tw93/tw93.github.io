@@ -294,7 +294,7 @@ module Jekyll
       folded = fold && !note['article'] && full_text(note).length > FOLD_CHARS
       time = local(note['date'])
       category = CATEGORIES.fetch(note['category'])
-      meta = [%(<a class="note-date" href="#{page_url(note)}"><time datetime="#{time.iso8601}">#{time.strftime('%Y-%m-%d')}</time></a>)]
+      meta = [%(<span class="note-name">Tw93</span>), %(<a class="note-date" href="#{page_url(note)}"><time datetime="#{time.iso8601}">#{time.strftime('%Y-%m-%d')}</time></a>)]
       if (reply = note['reply_to'])
         label = reply['user'] ? "回复 @#{esc(reply['user'])}" : '回复'
         meta << %(<a href="#{esc(reply['url'])}" target="_blank" rel="nofollow noopener">#{label}</a>)
@@ -308,7 +308,7 @@ module Jekyll
 
       <<~HTML.delete("\n")
         <article class="note#{folded ? ' note-fold' : ''}" id="n#{note['id']}">
-        <div class="note-meta">#{meta.join('<span class="note-dot"> · </span>')}</div>
+        <div class="note-meta"><img class="note-avatar" src="#{AVATAR}" width="20" height="20" alt="">#{meta.join('<span class="note-dot"> · </span>')}</div>
         <div class="note-body">#{body}</div>
         <div class="note-foot">#{stats_html(note)}</div>
         </article>
