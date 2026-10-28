@@ -3,6 +3,7 @@
   "cover": "article_2012150356520669184",
   "h": 818,
   "id": "2012150356520669184",
+  "post": "https://tw93.fun/2026-01-14/llm.html",
   "preview": "原文来源于 Simon Willison’s Weblog 的 2025: The year in LLMs，看完觉得写得很好，能够帮助我们很好看清楚去年这一年大模型领域发展的一切，我通过文章边翻译边学习边 Check",
   "title": "2025 大语言模型年度回顾",
   "w": 2045
@@ -11,6 +12,7 @@
   "cover": "article_2014682276286922752",
   "h": 768,
   "id": "2014682276286922752",
+  "post": "https://tw93.fun/2026-01-24/good.html",
   "preview": "上周为了给团队同学买年夜饭礼物，在 X 上随口问大伙，最近一年，你买过最称心如意的东西是什么，或者说假如需要推荐一个你最想推荐的东西会是什么？可以是电子设备、软件、生活用品都可以。\n没想到收到了 243",
   "title": "243 个工程师最近一年买到的好东西",
   "w": 1920
@@ -19,6 +21,7 @@
   "cover": "article_2015039903806152705",
   "h": 768,
   "id": "2015039903806152705",
+  "post": "https://tw93.fun/2024-03-03/simple.html",
   "preview": "极简是恰到好处的东西",
   "title": "我的极简生活经验",
   "w": 1920
@@ -27,6 +30,7 @@
   "cover": "article_2017887345643839488",
   "h": 480,
   "id": "2017887345643839488",
+  "post": "https://tw93.fun/2026-02-01/money.html",
   "preview": "最近比特币从 12w 的高点回落到 7w 多，市场情绪再次走向恐慌，每当市场下跌时，我反而会去想一个更基础的问题：市场里，哪些东西更像赌场，哪些还在慢慢修建大教堂。",
   "title": "比特币下跌时，我重新理解了大教堂与赌场",
   "w": 1200
@@ -35,6 +39,7 @@
   "cover": "article_2015042185100673024",
   "h": 768,
   "id": "2015042185100673024",
+  "post": "https://tw93.fun/2023-05-17/eyes.html",
   "preview": "原文来源我的博客，做完后陆续有不少身边小伙伴咨询，故分享出来，并在这里补充做完全飞秒两年半26年2月后的感受和体验，希望可以给大伙一些参考。\n2023年 5",
   "title": "全飞秒近视手术过程和恢复记录",
   "w": 1920
@@ -43,6 +48,7 @@
   "cover": "article_2032079318256664586",
   "h": 1104,
   "id": "2032079318256664586",
+  "post": "https://tw93.fun/2026-03-12/claude.html",
   "preview": "0. 太长不读\n今天这篇文章源于最近半年深度使用 Claude Code、两个账号每月 40 刀氪金换来的一些踩坑经验，希望能给大伙一些输入。\n刚开始我也把它当 ChatBot",
   "title": "你不知道的 Claude Code：架构、治理与工程实践",
   "w": 2760
@@ -51,6 +57,7 @@
   "cover": "article_2032364186022686720",
   "h": 1104,
   "id": "2032364186022686720",
+  "post": "https://tw93.fun/en/2026-03-12/claude.html",
   "preview": "This handbook is written for engineers who already use Claude Code and want workflows that are more predictable, more controllable, and easier to verify.\nUnless noted otherwise, the guidance here is",
   "title": "You Don’t Know Claude Code: Architecture, Governance, and Engineering Practices",
   "w": 2760
@@ -59,6 +66,7 @@
   "cover": "article_2034253511698055168",
   "h": 1200,
   "id": "2034253511698055168",
+  "post": "https://tw93.fun/2026-03-21/agent.html",
   "preview": "0. 太长不读\n在写完「你不知道的 Claude Code：架构、治理与工程实践」之后，发现自己对 Agent 底层的理解还不够深入，加上团队在 Agent",
   "title": "你不知道的 Agent：原理、架构与工程实践",
   "w": 3000
@@ -67,6 +75,7 @@
   "cover": "article_2035243897472131075",
   "h": 600,
   "id": "2035243897472131075",
+  "post": "https://tw93.fun/en/2026-03-21/agent.html",
   "preview": "0. TL;DR\nAfter writing \"The Claude Code You Don't Know,\" I realized my understanding of the underlying agent foundations wasn't deep enough. Given our team's growing experience deploying agents in",
   "title": "You Don't Know AI Agents: Principles, Architecture, and Engineering Practices",
   "w": 1500
@@ -75,6 +84,7 @@
   "cover": "article_2038251439865413632",
   "h": 600,
   "id": "2038251439865413632",
+  "post": "https://tw93.fun/2026-03-30/kill.html",
   "preview": "标题来源于 12 年前我很喜欢的一首万青的歌《杀死那个石家庄人》的改写，和当时他们描述的那个情景也有点类似。\n \n好多年没有坐公交了，上次去太子湾，由于景区限行，只能把车停在外面，坐景区免费接驳车过去。",
   "title": "杀死那个手工程序员",
   "w": 1500
@@ -83,6 +93,7 @@
   "cover": "article_2038575427921600512",
   "h": 600,
   "id": "2038575427921600512",
+  "post": "https://tw93.fun/en/2026-03-30/kill.html",
   "preview": "The title is adapted from a song I loved 12 years ago, “Kill That Shijiazhuang Man” by Omnipotent Youth Society, a song about ordinary people, fading ideals, and the weight of a changing time.\nI had",
   "title": "Kill the Manual Programmer",
   "w": 1500
@@ -91,6 +102,7 @@
   "cover": "article_2040042805612228608",
   "h": 600,
   "id": "2040042805612228608",
+  "post": "https://tw93.fun/2026-04-01/llm.html",
   "preview": "太长也要读\n在写完《你不知道的 Claude Code：架构、治理与工程实践》、《你不知道的",
   "title": "你不知道的大模型训练：原理、路径与新实践",
   "w": 1500
@@ -99,6 +111,7 @@
   "cover": "article_2042136972974813186",
   "h": 600,
   "id": "2042136972974813186",
+  "post": "https://tw93.fun/en/2026-04-01/llm.html",
   "preview": "TL;DR\nAfter writing \"The Claude Code You Don't Know\" and \"The AI Agents You Don't Know,\" I wanted to tackle a third installment. This time I pushed myself to work through how large model training",
   "title": "You Don't Know LLM Training: Principles, Pipelines, and New Practices",
   "w": 1500
@@ -107,6 +120,7 @@
   "cover": "article_2048210736024035328",
   "h": 600,
   "id": "2048210736024035328",
+  "post": "https://tw93.fun/2026-04-26/ai-coding.html",
   "preview": "太长可不读\n上个月在公司里给产品和业务的小伙伴分享了下如何上手 AI Coding，加上最近又发了条推特，聊到不少同学因为订阅门槛没机会用上一线 AI Coding",
   "title": "你不知道的 AI Coding：非技术人的上手、场景与实战",
   "w": 1500
@@ -115,6 +129,7 @@
   "cover": "article_2049454754783449088",
   "h": 710,
   "id": "2049454754783449088",
+  "post": "https://tw93.fun/en/2026-04-26/ai-coding.html",
   "preview": "TL;DR\nAI Coding is not just for programmers.\nLast month, I ran an internal session for product, business, and operations teammates on how to get started with Claude Code. That deck eventually grew",
   "title": "You Don’t Know AI Coding: A Non-Engineer’s Guide to Claude Code",
   "w": 1774
@@ -123,6 +138,7 @@
   "cover": "article_2050180952060792832",
   "h": 600,
   "id": "2050180952060792832",
+  "post": "https://tw93.fun/2026-05-01/ai-visibility.html",
   "preview": "花一小时让 AI 找到你的内容\n这几天有好几个小伙伴@我说，我的开源工具在他们问 AI",
   "title": "你不知道的 GEO：AI 可见性的原理、实践与取舍",
   "w": 1500
@@ -131,6 +147,7 @@
   "cover": "article_2050929847023886336",
   "h": 600,
   "id": "2050929847023886336",
+  "post": "https://tw93.fun/en/2026-05-01/ai-visibility.html",
   "preview": "One Hour to Make AI Find Your Content\nA few friends pinged me recently saying my open source tools were showing up when they asked AI questions. I hadn’t done anything deliberate, so I figured: why",
   "title": "You Didn't Know GEO: AI Visibility Principles, Practices, and Trade-offs",
   "w": 1500
@@ -139,6 +156,7 @@
   "cover": "article_2063249451075207168",
   "h": 1200,
   "id": "2063249451075207168",
+  "post": "https://tw93.fun/2026-06-07/robot.html",
   "preview": "太长也要读\n今年 4 月我组装了一台小机器狗，做的过程在推特上发过几条，大伙应该都刷到过，从买零件、装结构，到最后它能听懂指令、走两步、还能对话几句。\n缘由要从过年那段时间说起，那阵子我天天用 Opus 4.6",
   "title": "你不知道的具身智能：从小机器狗到 Optimus",
   "w": 3000
@@ -147,6 +165,7 @@
   "cover": "article_2064662597652426752",
   "h": 600,
   "id": "2064662597652426752",
+  "post": "https://tw93.fun/en/2026-06-07/robot.html",
   "preview": "Short Version\nIn April I assembled a small robot dog. I posted a few clips on X while I was building it, so some of you probably saw the parts, the frame, and the final moment when it could hear a",
   "title": "You Don't Know Embodied AI: From a Tiny Robot Dog to Optimus",
   "w": 1500
@@ -163,6 +182,7 @@
   "cover": "article_2088965193875296256",
   "h": 600,
   "id": "2088965193875296256",
+  "post": "https://tw93.fun/2026-08-16/mole-mac.html",
   "preview": "最近我写了不少关于独立开发的思考，想着要汇总一下，就把 Mole 从开源 CLI 做到 Mac 付费软件这一路聊一聊，我当时是怎么想的，哪些事情做下来真的有用，也许能给正在做自己作品的朋友一些输入。\nMole 的官网是",
   "title": "Mole 出 Mac 版后，用户教会了我做产品",
   "w": 1500
@@ -171,6 +191,7 @@
   "cover": "article_2090080253695967232",
   "h": 960,
   "id": "2090080253695967232",
+  "post": "https://tw93.fun/en/2026-08-16/mole-mac.html",
   "preview": "Lately I’ve piled up a lot of thoughts on indie development and wanted to pull them together, so this is the story of taking Mole from an open source CLI to a paid Mac app. What I was thinking at the",
   "title": "What I Learned Shipping Mole for Mac",
   "w": 2400
@@ -179,6 +200,7 @@
   "cover": "article_2114637795948113921",
   "h": 600,
   "id": "2114637795948113921",
+  "post": "https://tw93.fun/2026-10-22/desktop.html",
   "preview": "太长不读\n发现不少小伙伴很好奇我是怎么用 Mac 来开发 Windows 软件的，以及 Windows 软件现在一般用什么技术栈来实现，刚好有空，来和大伙随便聊聊关于多客户端下技术选择的思考以及我的一些想法。",
   "title": "你不知道的客户端开发：选型、原生、多端与借力",
   "w": 1500

@@ -101,7 +101,7 @@ python3 -I scripts/notes.py resolve-links
 python3 -I scripts/notes.py fetch-articles
 ```
 
-`resolve-links` expands every new `t.co` link into `scripts/notes/links.json` and skips links it already knows. `fetch-articles` reads the title, preview and cover of each X Article the author linked, into `scripts/notes/articles.json`, and saves the cover as `data/x/mirror/article_<id>.jpg`; that cover is uploaded and listed in step 6 like any photo. If a link fails twice it is left unresolved and shows as `t.co` on the page; report it, do not invent a target.
+`resolve-links` expands every new `t.co` link into `scripts/notes/links.json` and skips links it already knows. `fetch-articles` reads the title, preview and cover of each X Article the author linked, into `scripts/notes/articles.json`, and saves the cover as `data/x/mirror/article_<id>.jpg`; that cover is uploaded and listed in step 6 like any photo. Most of the author's X Articles are also posts on tw93.fun: for each new entry, find the post with the same title, or the post in the same language published within a few days of it, and add its address as `"post": "https://tw93.fun/YYYY-MM-DD/slug.html"` (`/en/YYYY-MM-DD/slug.html` for an English post). The card then opens the blog instead of X, and `build` fails if that post does not exist. Check the title by reading it, not by a keyword: an English title can name another post's subject, as "A Non-Engineer's Guide to Claude Code" does. Leave `post` out when no post matches. If a link fails twice it is left unresolved and shows as `t.co` on the page; report it, do not invent a target.
 
 ### 6. Photos
 

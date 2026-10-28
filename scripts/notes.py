@@ -172,15 +172,18 @@ def build_notes(heads, threads, categories, resolved, mirrored, videos=(), artic
             if categories.get(p['id']) != categories[hid]:
                 raise ValueError(f'Thread {p["id"]} must inherit category of {hid}')
     included = {p['id'] for p in all_used(heads, threads)}
+    heads_ids = {p['id'] for p in heads}
     result = []
     for p in heads:
         pid = p['id']
         text, links = clean(p, resolved)
+        text, links = own_pages(text, links, heads_ids)
         card = article_card(articles.get(pid), mirrored)
         if card:
             # The post is the article's link; the card shows it instead.
-            links = [u for u in links if u != card['url']]
-            text = text.replace(card['url'], '').strip()
+            x_url = 'https://x.com/i/article/' + articles[pid]['id']
+            links = [u for u in links if u != x_url]
+            text = text.replace(x_url, '').strip()
         q = reference(p, 'quoted')
         kind = 'reply' if replying(p) else 'quote' if q else 'post'
         n = {'id': pid, 'url': p['url'], 'date': date(p), 'kind': kind, 'lang': language(text or (card or {}).get('title', '')), 'category': categories[pid], 'text': text}
@@ -197,7 +200,7 @@ def build_notes(heads, threads, categories, resolved, mirrored, videos=(), artic
         if pid in threads:
             n['thread'] = []
             for t in threads[pid]:
-                words, urls = clean(t, resolved)
+                words, urls = own_pages(*clean(t, resolved), heads_ids)
                 entry = {'id': t['id'], 'date': date(t), 'text': words}
                 if urls:
                     entry['links'] = urls
@@ -236,10 +239,28 @@ def build_notes(heads, threads, categories, resolved, mirrored, videos=(), artic
     return result
 
 
+def own_pages(text, links, heads_ids):
+    """A link to another of the author's notes opens its page here, not X."""
+    for i, u in enumerate(links):
+        sid = status_id(u)
+        if sid in heads_ids:
+            page = f'https://tw93.fun/notes/{sid}.html'
+            text = text.replace(u, page)
+            links[i] = page
+    return text, list(dict.fromkeys(links))
+
+
 def article_card(entry, mirrored):
     if not entry:
         return None
-    card = {'url': 'https://x.com/i/article/' + entry['id'], 'title': entry['title']}
+    # An X Article that is also a blog post links to the post; `post` is set
+    # by hand in articles.json and must name a post that exists.
+    post = entry.get('post')
+    if post:
+        m = re.fullmatch(r'https://tw93\.fun/(en/)?(\d{4}-\d{2}-\d{2})/([\w-]+)\.html', post)
+        if not m or not (ROOT / ('_posts_en' if m.group(1) else '_posts') / f'{m.group(2)}-{m.group(3)}.md').is_file():
+            raise ValueError('Article post not found: ' + post)
+    card = {'url': post or 'https://x.com/i/article/' + entry['id'], 'title': entry['title']}
     if entry.get('preview'):
         card['preview'] = entry['preview']
     if entry.get('cover') in mirrored:
