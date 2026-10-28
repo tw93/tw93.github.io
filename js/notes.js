@@ -29,6 +29,9 @@
           bgOpacity: 0.9,
           padding: { top: 20, bottom: 20, left: 20, right: 20 },
           mainClass: 'pswp--custom-bg pswp--minimal',
+          // A tap anywhere closes on phones, as a click on the backdrop does
+          // with a mouse; the default only toggles the controls.
+          tapAction: 'close',
         });
         var sample = document.querySelector('.note-img');
         keepLightboxCorners(lightbox, sample ? parseFloat(getComputedStyle(sample).borderTopLeftRadius) || 0 : 0);

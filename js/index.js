@@ -91,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
             bgOpacity: 0.9,
             padding: { top: 20, bottom: 20, left: 20, right: 20 },
             mainClass: 'pswp--custom-bg pswp--minimal',
+            // A tap anywhere closes on phones, as a click on the backdrop
+            // does with a mouse; the default only toggles the controls.
+            tapAction: 'close',
           });
 
           keepLightboxCorners(lightbox, parseFloat(getComputedStyle(zoomImgs[0]).borderTopLeftRadius) || 0);
