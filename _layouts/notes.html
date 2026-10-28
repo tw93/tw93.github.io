@@ -7,12 +7,14 @@ body_id: notes
 <div class="notes">
   {% if page.notes_month %}
   <h1 class="notes-title">{{ page.notes_month }}</h1>
+  {% elsif page.notes_index %}
   {% else %}
   <h1 class="visually-hidden">Notes</h1>
   {% endif %}
 
   {% if page.notes_index %}
   <form class="notes-bar" id="J_notes_bar" role="search" onsubmit="return false">
+    <h1 class="notes-title">片语</h1>
     <div class="notes-controls">
       <select id="J_notes_c" name="c" aria-label="分类">
         <option value="">分类</option>

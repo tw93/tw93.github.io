@@ -42,19 +42,27 @@ $notes-line: rgba($base-color, 0.14);
   }
 }
 
-// Four menus read as text with a chevron, and search waits behind an icon
-// right after them, one row from the column's left edge at every width. An
-// open field takes the next row.
+// The title on the left, four menus read as text with a chevron and search
+// behind an icon on the right, one row from 360px. An open field takes the
+// next row.
 .notes-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 16px;
   margin-bottom: 14px;
   font-size: 14px;
+  .notes-title {
+    margin: 0;
+  }
 }
 
 .notes-controls {
   display: flex;
   flex-wrap: wrap;
+  margin-left: auto;
   align-items: center;
-  gap: 0 16px;
+  gap: 0 14px;
   @media #{$medium} {
     column-gap: 20px;
   }
