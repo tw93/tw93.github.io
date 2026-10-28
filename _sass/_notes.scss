@@ -146,12 +146,6 @@ $notes-line: rgba($base-color, 0.14);
   @include chip-group();
 }
 
-.notes-status {
-  margin: -12px 0 20px;
-  font-size: 14px;
-  color: $notes-meta;
-}
-
 .notes-list {
   transition: opacity 0.25s ease-out;
   &.is-waiting {

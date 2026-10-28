@@ -118,7 +118,6 @@
   var year = document.getElementById('J_notes_y');
   var type = document.getElementById('J_notes_t');
   var sort = document.getElementById('J_notes_sort');
-  var status = document.getElementById('J_notes_status');
   var more = document.getElementById('J_notes_more');
   var empty = document.getElementById('J_notes_empty');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
@@ -368,9 +367,6 @@
       compute();
       shown = 0;
       fresh = true;
-      // The empty state says it when nothing matches.
-      status.hidden = !filtering() || !results.length;
-      status.textContent = '找到 ' + results.length + ' 条';
       step();
     }, function () {
       if (mine !== token) return;
