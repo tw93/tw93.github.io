@@ -5,6 +5,7 @@
 // _plugins/notes.rb, never built here.
 (function () {
   var PAGE = 30;
+  var FIRST = 10;
   var list = document.getElementById('J_notes');
   if (!list) return;
   var assetV = window.ASSET_VERSION ? '?v=' + window.ASSET_VERSION : '';
@@ -263,7 +264,9 @@
         return true;
       });
     }
-    var next = results.slice(shown, shown + PAGE);
+    // A new filter's first batch is small, so the first screen waits on the
+    // fewest month files; the sentinel fetches the rest right after.
+    var next = results.slice(shown, shown + (fresh ? FIRST : PAGE));
     if (!next.length) {
       if (fresh) settle();
       return Promise.resolve(false);
