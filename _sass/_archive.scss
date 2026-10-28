@@ -1,0 +1,87 @@
+@use "globals" as *;
+
+// /posts/: every post as a title list per category, in the same white
+// column as /notes/.
+$archive-meta: rgba($base-color, 0.66);
+
+#archive {
+  #main {
+    margin: 60px 0 0 0;
+    @media #{$medium} {
+      width: calc(100% - #{$page-gutter * 2});
+      max-width: $page-width-tablet;
+      margin: 30px auto;
+    }
+    @media #{$large} {
+      width: auto;
+      max-width: $page-width;
+      margin: 34px auto;
+    }
+  }
+}
+
+.archive {
+  background-color: $white;
+  padding: 18px 15px 24px;
+  @media #{$medium} {
+    border-radius: $border-radius;
+    padding: 28px 44px 32px;
+  }
+  @media #{$large} {
+    padding: 36px 80px 44px;
+  }
+}
+
+.archive-cats {
+  @include chip-group();
+  margin-bottom: 4px;
+}
+
+.archive-group {
+  margin-top: 28px;
+  scroll-margin-top: 80px;
+  // The reset gives sections display: block, which beats the hidden attribute.
+  &[hidden] {
+    display: none;
+  }
+  h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 0 10px;
+    font-size: 22px;
+    line-height: 1.35;
+    @media #{$medium} {
+      font-size: 26px;
+    }
+    span {
+      font-size: 14px;
+      font-weight: normal;
+      color: $archive-meta;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 5px 0;
+    font-size: 17px;
+  }
+  a {
+    color: $text-color;
+    &:hover {
+      @include need-dotted();
+    }
+  }
+  time {
+    flex: none;
+    font-size: 14px;
+    color: $archive-meta;
+  }
+}

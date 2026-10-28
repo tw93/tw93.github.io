@@ -737,8 +737,8 @@ iframe {
   }
 }
 
-// Keep the two utility controls reachable on narrow phones. The other text
-// links remain in the document and return at the tablet breakpoint.
+// Phones keep Blog and Notes; Weekly and About return at the tablet
+// breakpoint, as About always has.
 .header-item-left {
   display: flex;
   align-items: center;
@@ -746,7 +746,6 @@ iframe {
   padding-right: 10px;
 
   &.header-item-weekly,
-  &.header-item-twitter,
   &.header-item-about {
     display: none;
   }
@@ -757,7 +756,6 @@ iframe {
     padding-right: 10px;
 
     &.header-item-weekly,
-    &.header-item-twitter,
     &.header-item-about {
       display: flex;
     }

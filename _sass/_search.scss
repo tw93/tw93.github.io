@@ -2,9 +2,38 @@
 
 // Search Button in Header
 // --------------------------------------------------
+// GitHub and X sit before search, and the group is pushed to the right.
+.header-social {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  a {
+    display: flex;
+    padding: 9px;
+    color: #4b5563; // gray-600, a step darker than search: these are links
+    transition: color 0.12s ease-out;
+    &:hover {
+      color: #111827;
+    }
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// Drop the list items' 8px padding between the two groups, so GitHub, X and
+// search sit 18px apart ink to ink.
+.header-social {
+  padding-right: 0;
+}
+
 .search-btn-container {
   line-height: 1;
-  margin-left: auto; // Push search and language toggle to the right
+}
+
+.header-social + .search-btn-container {
+  padding-left: 0;
 }
 
 .search-btn {

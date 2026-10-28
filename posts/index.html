@@ -1,0 +1,52 @@
+---
+layout: base
+body_id: archive
+title: 文章
+poem: 腹有詩書氣自華
+hideHomeActive: true
+summary: Tw93 的全部文章，按分享、学习、创作、思考和生活分类。
+---
+{% assign categories = "Share:分享,Study:学习,Creation:创作,Thought:思考,Life:生活" | split: "," %}
+{% assign posts = site.posts | where_exp: "post", "post.layout != 'ppt'" %}
+<div class="archive">
+  <h1 class="visually-hidden">{{ page.title }}</h1>
+  <nav class="archive-cats" aria-label="分类">
+    <a href="#" aria-pressed="true">全部</a>{% for pair in categories %}{% assign kv = pair | split: ":" %}<a href="#{{ kv[0] | downcase }}">{{ kv[1] }}</a>{% endfor %}
+  </nav>
+  {% for pair in categories %}
+  {% assign kv = pair | split: ":" %}
+  {% assign group = posts | where_exp: "post", "post.categories contains kv[0]" %}
+  {% assign group = group | where_exp: "post", "post.hidden != true and post.hide != true" %}
+  <section class="archive-group" id="{{ kv[0] | downcase }}">
+    <h2>{{ kv[1] }}<span>{{ group.size }}</span></h2>
+    <ul>
+      {% for post in group %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+
+<script>
+  // The category row switches the list in place; the hash keeps the choice
+  // shareable, and without JS the links still jump to their section.
+  (function () {
+    var links = document.querySelectorAll('.archive-cats a');
+    var groups = document.querySelectorAll('.archive-group');
+    var show = function (key) {
+      if (!document.getElementById(key)) key = '';
+      links.forEach(function (a) { a.setAttribute('aria-pressed', String(a.getAttribute('href').slice(1) === key)); });
+      groups.forEach(function (g) { g.hidden = !!key && g.id !== key; });
+    };
+    document.querySelector('.archive-cats').addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (!a) return;
+      e.preventDefault();
+      var key = a.getAttribute('href').slice(1);
+      history.replaceState(null, '', location.pathname + (key ? '#' + key : ''));
+      show(key);
+    });
+    show(location.hash.slice(1));
+  })();
+</script>

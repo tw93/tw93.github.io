@@ -1,0 +1,52 @@
+---
+layout: base
+body_id: archive
+title: Posts
+poem: 腹有詩書氣自華
+hideHomeActive: true
+lang: en-US
+summary: Every post by Tw93, grouped into share, study, creation, thought and life.
+---
+{% assign categories = "Share,Study,Creation,Thought,Life" | split: "," %}
+{% assign posts = site.posts_en | where_exp: "post", "post.layout != 'ppt'" | sort: "date" | reverse %}
+<div class="archive">
+  <h1 class="visually-hidden">{{ page.title }}</h1>
+  <nav class="archive-cats" aria-label="Categories">
+    <a href="#" aria-pressed="true">All</a>{% for category in categories %}<a href="#{{ category | downcase }}">{{ category }}</a>{% endfor %}
+  </nav>
+  {% for category in categories %}
+  {% assign group = posts | where_exp: "post", "post.categories contains category" %}
+  {% assign group = group | where_exp: "post", "post.hidden != true and post.hide != true" %}
+  <section class="archive-group" id="{{ category | downcase }}">
+    <h2>{{ category }}<span>{{ group.size }}</span></h2>
+    <ul>
+      {% for post in group %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+
+<script>
+  // The category row switches the list in place; the hash keeps the choice
+  // shareable, and without JS the links still jump to their section.
+  (function () {
+    var links = document.querySelectorAll('.archive-cats a');
+    var groups = document.querySelectorAll('.archive-group');
+    var show = function (key) {
+      if (!document.getElementById(key)) key = '';
+      links.forEach(function (a) { a.setAttribute('aria-pressed', String(a.getAttribute('href').slice(1) === key)); });
+      groups.forEach(function (g) { g.hidden = !!key && g.id !== key; });
+    };
+    document.querySelector('.archive-cats').addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (!a) return;
+      e.preventDefault();
+      var key = a.getAttribute('href').slice(1);
+      history.replaceState(null, '', location.pathname + (key ? '#' + key : ''));
+      show(key);
+    });
+    show(location.hash.slice(1));
+  })();
+</script>

@@ -81,3 +81,40 @@
     color: #24292f;
   }
 }
+
+// Category switch shared by /notes/ and /posts/: one row of quiet tabs, the
+// chosen one sits on the page colour.
+@mixin chip-group() {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  @media #{$medium} {
+    gap: 6px;
+  }
+  > a,
+  > button {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    // Narrower on phones so the Notes and English archive rows fit 393 in one line.
+    padding: 0 8px;
+    @media #{$medium} {
+      padding: 0 14px;
+    }
+    border: 0;
+    border-radius: $border-radius;
+    background: none;
+    color: rgba($base-color, 0.66);
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.12s ease-out, color 0.12s ease-out;
+    &:hover {
+      color: $text-color;
+    }
+    &[aria-pressed="true"] {
+      background-color: $body-color;
+      color: $text-color;
+    }
+  }
+}
