@@ -33,6 +33,9 @@ menu:
 
 # SEO and Analytics
 google_analytics: G-KS7EDB6BRM
+# Every TsangerJinKai @font-face rule, a copy of css/jinkai.css under its content hash.
+# Weekly loads the same URL, so either site warms the cache for the other.
+font_css: https://cdn.tw93.fun/fonts/jinkai-07d73034.css
 
 # Build Settings
 paginate: 10

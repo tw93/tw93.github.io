@@ -156,10 +156,13 @@
 
   <!-- Styles and Scripts -->
   <style>{% inline_css css/index.scss %}</style>
-  <!-- jinkai.css only holds @font-face declarations (font-display: swap), so it must not block rendering -->
-  <link rel="preload" href="{{ '/css/jinkai.css' | relative_url }}?v={{ site.asset_version }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- The @font-face rules this page's own text needs, written in at build time by _plugins/font_faces.rb -->
+  <!-- jinkai-faces -->
+  <!-- Every subset, for text scripts add later. The file never changes, so it lives at a hashed URL that
+       Weekly loads too and the browser keeps for a year; media=print keeps it off the critical path. -->
+  <link rel="stylesheet" href="{{ site.font_css }}" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="{{ '/css/jinkai.css' | relative_url }}?v={{ site.asset_version }}">
+    <link rel="stylesheet" href="{{ site.font_css }}">
   </noscript>
 
   <!-- Favicon -->
