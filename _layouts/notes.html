@@ -1,0 +1,61 @@
+---
+layout: base
+body_id: notes
+---
+{{ page.notes_sprite }}
+
+<div class="notes">
+  {% if page.notes_month %}
+  <h1 class="notes-title">{{ page.notes_month }}</h1>
+  {% else %}
+  <h1 class="visually-hidden">Notes</h1>
+  {% endif %}
+
+  {% if page.notes_index %}{{ page.notes_author }}{% endif %}
+  {% if page.notes_index %}
+  <form class="notes-bar" id="J_notes_bar" role="search" onsubmit="return false">
+    <div class="notes-controls">
+      <input class="notes-search" id="J_notes_q" type="search" name="q" placeholder="搜索 {{ page.notes_total }} 条 Notes" aria-label="搜索 Notes" autocomplete="off">
+      <select id="J_notes_y" name="y" aria-label="年份">
+        <option value="">全部年份</option>
+        {% for year in page.notes_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+      </select>
+      <select id="J_notes_sort" name="sort" aria-label="排序">
+        <option value="">最新</option>
+        <option value="old">最早</option>
+        <option value="like">点赞最多</option>
+        <option value="reply">评论最多</option>
+        <option value="bookmark">收藏最多</option>
+      </select>
+    </div>
+    <div class="notes-chips">
+      <span class="notes-chip-group" data-key="c">
+        <button type="button" data-value="" aria-pressed="true">全部</button>
+        {% for category in page.notes_categories %}<button type="button" data-value="{{ category.key }}" aria-pressed="false">{{ category.label }}</button>{% endfor %}
+      </span>
+      <span class="notes-chip-group" data-key="t">
+        <button type="button" data-value="l" aria-pressed="false">长文</button>
+        <button type="button" data-value="p" aria-pressed="false">图片</button>
+        <button type="button" data-value="v" aria-pressed="false">视频</button>
+        <button type="button" data-value="t" aria-pressed="false">串</button>
+        <button type="button" data-value="r" aria-pressed="false">回复</button>
+      </span>
+    </div>
+  </form>
+  <p class="notes-status" id="J_notes_status" hidden></p>
+  {% endif %}
+
+  <div class="notes-list" id="J_notes">{{ page.notes_html }}</div>
+
+  {% if page.notes_index %}
+  {% if page.notes_older %}<a class="notes-more" id="J_notes_more" href="{{ page.notes_older }}">更早的 Notes</a>{% endif %}
+  {% else %}
+  <nav class="notes-pager">
+    {% if page.notes_newer %}<a href="{{ page.notes_newer.url }}">{{ page.notes_newer.label }}</a>{% else %}<span></span>{% endif %}
+    {% if page.notes_older %}<a href="{{ page.notes_older.url }}">{{ page.notes_older.label }}</a>{% endif %}
+  </nav>
+  {% endif %}
+
+  <nav class="notes-archive" aria-label="按月浏览">{{ page.notes_archive }}</nav>
+</div>
+<script src="{{ '/js/notes.js' | relative_url }}?v={{ site.asset_version }}" defer></script>

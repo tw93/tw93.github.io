@@ -1,0 +1,364 @@
+@use "globals" as *;
+
+// /notes/: one white column like a post, notes parted by space, not lines.
+// Meta text is #24292f at 0.66 on white, about 5:1.
+$notes-meta: rgba($base-color, 0.66);
+$notes-line: rgba($base-color, 0.14);
+
+#notes {
+  #main {
+    margin: 60px 0 0 0;
+    @media #{$medium} {
+      width: calc(100% - #{$page-gutter * 2});
+      max-width: $page-width-tablet;
+      margin: 30px auto;
+    }
+    @media #{$large} {
+      width: auto;
+      max-width: $page-width;
+      margin: 34px auto;
+    }
+  }
+}
+
+.notes {
+  background-color: $white;
+  padding: 18px 15px 24px;
+  @media #{$medium} {
+    border-radius: $border-radius;
+    padding: 28px 44px 32px;
+  }
+  @media #{$large} {
+    padding: 36px 80px 44px;
+  }
+}
+
+.notes-title {
+  margin: 0 0 24px;
+  font-size: 22px;
+  line-height: 1.35;
+  @media #{$medium} {
+    font-size: 26px;
+  }
+}
+
+.notes-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+  }
+  strong {
+    font-size: 17px;
+    color: $text-color;
+  }
+  a {
+    font-size: 14px;
+    color: $notes-meta;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+
+.notes-bar {
+  margin-bottom: 28px;
+  font-size: 14px;
+}
+
+.notes-controls {
+  display: flex;
+  gap: 8px;
+  input,
+  select {
+    height: 36px;
+    min-width: 0;
+    border: 1px solid $notes-line;
+    border-radius: $border-radius;
+    background-color: $white;
+    color: $text-color;
+    font: inherit;
+    transition: border-color 0.12s ease-out;
+    &:focus {
+      outline: none;
+      border-color: rgba($base-color, 0.45);
+    }
+  }
+  select {
+    flex: none;
+    padding: 0 8px;
+  }
+}
+
+.notes-search {
+  flex: 1;
+  padding: 0 12px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.notes-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 12px;
+}
+
+.notes-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  button {
+    padding: 3px 10px;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: $notes-meta;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.12s ease-out, color 0.12s ease-out;
+    &:hover {
+      color: $text-color;
+    }
+    &[aria-pressed="true"] {
+      background-color: $body-color;
+      color: $text-color;
+    }
+  }
+}
+
+.notes-status {
+  margin: -12px 0 20px;
+  font-size: 14px;
+  color: $notes-meta;
+}
+
+.note {
+  margin-bottom: 36px;
+  scroll-margin-top: 80px;
+}
+
+.note-meta,
+.note-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 14px;
+  color: $notes-meta;
+  a {
+    color: inherit;
+    transition: color 0.12s ease-out;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+
+.note-dot {
+  white-space: pre;
+}
+
+.note-body {
+  font-size: 17px;
+  color: $text-color;
+  overflow-wrap: anywhere;
+  text-autospace: ideograph-alpha ideograph-numeric;
+  p {
+    margin: 6px 0;
+  }
+  p > a {
+    @include need-dotted();
+  }
+  mark {
+    background-color: $banner-text;
+    color: inherit;
+    border-radius: 2px;
+  }
+}
+
+.note-fold .note-body {
+  max-height: 14em;
+  overflow: hidden;
+}
+
+.note-unfold {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 14px;
+  color: $notes-meta;
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.note-media {
+  display: grid;
+  gap: 4px;
+  margin: 10px 0;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+    object-fit: cover;
+    background-color: $body-color;
+    // A hairline keeps light screenshots from melting into the white column.
+    outline: 1px solid $notes-line;
+    outline-offset: -1px;
+  }
+  .note-img {
+    cursor: zoom-in;
+  }
+  > * {
+    aspect-ratio: 1;
+  }
+}
+
+// A single image keeps its own shape, no taller than 480px.
+.note-media.note-media-1 > * {
+  width: min(100%, calc(480px * var(--r)));
+  aspect-ratio: var(--r);
+}
+
+.note-media-2,
+.note-media-4 {
+  grid-template-columns: 1fr 1fr;
+  max-width: 520px;
+}
+
+.note-media-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.note-video {
+  position: relative;
+  display: block;
+  img {
+    height: 100%;
+  }
+}
+
+.note-play {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px 3px 7px;
+  border-radius: 999px;
+  background-color: rgba($black, 0.55);
+  color: $white;
+  font-size: 14px;
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}
+
+.note-quote {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 6px;
+  font-size: 14px;
+  color: $notes-meta;
+  svg {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.note-foot {
+  gap: 16px;
+  margin-top: 4px;
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+}
+
+.note-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.note-x {
+  display: inline-flex;
+  margin-left: auto;
+}
+
+.notes-more {
+  display: block;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+  color: $notes-meta;
+}
+
+.notes-sentinel {
+  height: 1px;
+}
+
+.notes-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  a {
+    color: $notes-meta;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+
+.notes-archive {
+  margin-top: 40px;
+  font-size: 14px;
+  color: $notes-meta;
+}
+
+.notes-year {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 6px;
+  span {
+    width: 3em;
+    color: $text-color;
+  }
+  a {
+    color: $notes-meta;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+
+.notes-single .note {
+  margin-bottom: 28px;
+  .note-body {
+    @media #{$medium} {
+      font-size: 20px;
+    }
+  }
+}

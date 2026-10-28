@@ -21,6 +21,9 @@ zhihu: tw93
 twitter: HiTw93
 v2ex: tw93
 menu:
+  - title: "Notes"
+    url: "/notes/"
+    global: true
   - title: "Weekly"
     url: "https://weekly.tw93.fun/"
   - title: "GitHub"

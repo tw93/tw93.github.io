@@ -17,6 +17,16 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `vercel.json` - Vercel build command and environment, response headers, and the agent redirects for the production deploy. `buildCommand` runs `bundle exec jekyll build` directly: the Vercel image has no Pillow, so routing it through `npm run build` and `scripts/image_sizes.py` failed every deploy from 76d1123 to a73553e (2026-10-26). Image metadata is a local step committed with the post.
 - `.github/workflows/sync-ai-data.yml` - 02:00 UTC cron that overwrites `llms-full.txt`, `api/*.json`, and the Yobi-owned `projects/*.md` mirrors. The Yobi repo also dispatches it right after a data push, so a clobber can land at any hour; do not hand-edit those files, edits get clobbered on the next run. It removes stale `projects/*.md` mirrors that no longer exist in Yobi, but exact-scope hand-maintained files alongside them (`api/llms.txt`, `projects/llms.txt`) remain safe. It also rewrites the `NK+ GitHub stars across N projects` line in the otherwise hand-written `llms.txt` and `index.md` from `api/profile.json`, and pings IndexNow for the AI surfaces it changed.
 
+## Notes
+
+`/notes/` shows every original post from @HiTw93 on X since the account opened in May 2022, plus replies to other people with at least 10 likes and 10 characters of the author's own words. Pipeline:
+
+- Raw input is the local X export at `data/x/posts.json`. `data/` is gitignored and excluded from Jekyll: it once went live at `tw93.fun/data/x/` with 4485 replies written by other people (2026-10-28). The full dump lives in the maintainer's Google Drive (`HiTw93-x-export`).
+- `python3 -I scripts/notes.py resolve-links` expands t.co links into `scripts/notes/links.json`; `fetch-media` downloads photos and video posters to `data/x/mirror/`; `build` writes `_data/notes.json` offline; `--check` validates the schema. `scripts/notes/categories.json` (id to one of `ai tools learn make think life`) is hand-editable and the build fails on a note without one.
+- Older export records carry `is_reply: false` and no `referenced` even when they are replies; `replying()` treats a leading @mention as the reply marker. Keep that, or about 430 conversational replies show up as originals.
+- Images are served from R2 at `cdn.tw93.fun/notes/<media_key>.jpg`; `scripts/notes/mirrored.json` lists the uploaded keys, and a note falls back to `pbs.twimg.com` (blocked in mainland China) for any key not listed. Upload new files before listing them.
+- `_plugins/notes.rb` renders each note's HTML once and reuses it for `/notes/`, the monthly archives `/notes/YYYY/MM/`, one page per note `/notes/<id>.html` (all indexed, maintainer 2026-10-28), `/notes/data.json` (what `js/notes.js` searches and sorts), `/notes/feed.xml`, `/notes.md` and `/api/notes.jsonl`.
+
 ## Agent Surfaces
 
 These files exist so AI agents and crawlers can use the site without scraping HTML. The hand-maintained surfaces repeat facts that also live in `llms.txt`; when a project, price, or licence changes, update those copies together and change generated surfaces at their upstream source, as listed below.

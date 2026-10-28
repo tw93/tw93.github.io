@@ -79,7 +79,8 @@ No purchase can be completed on tw93.fun. Send buyers to https://mole.fit.
 - Every post as a Markdown list with summaries: https://tw93.fun/posts.md and https://tw93.fun/en/posts.md
 - Any post as Markdown: swap `.html` for `.md`, for example https://tw93.fun/2026-10-22/desktop.md (also `GET` the `.html` URL with `Accept: text/markdown`)
 - Full text of every post, one JSON object per line: https://tw93.fun/api/posts.jsonl and https://tw93.fun/api/en/posts.jsonl, about 1.5MB each, download once and filter locally
-- RSS: https://tw93.fun/feed.xml and https://tw93.fun/en/feed.xml
+- Notes: every original post from @HiTw93 on X since 2022, plus well-received replies, one page per note at https://tw93.fun/notes/; as Markdown at https://tw93.fun/notes.md and in full, one JSON object per line, at https://tw93.fun/api/notes.jsonl
+- RSS: https://tw93.fun/feed.xml and https://tw93.fun/en/feed.xml, Notes at https://tw93.fun/notes/feed.xml
 - Weekly Newsletter: https://weekly.tw93.fun, with its own agent guide at https://weekly.tw93.fun/llms.txt and every recommended item across all issues at https://weekly.tw93.fun/api/items.jsonl
 
 ## Machine-readable surfaces
@@ -97,6 +98,7 @@ All static files over HTTPS. No authentication, no API key, no rate limit, no qu
 - Every post, metadata (JSON): https://tw93.fun/api/posts.json
 - Every post, full Markdown, one per line: https://tw93.fun/api/posts.jsonl and https://tw93.fun/api/en/posts.jsonl
 - Recent posts with rendered HTML (JSON): https://tw93.fun/api/blog.json
+- Every note from X, full text, one per line: https://tw93.fun/api/notes.jsonl
 - Weekly index (JSON): https://tw93.fun/api/weekly.json
 - Search index over every post (JSON): https://tw93.fun/search.json
 - Scoped context: https://tw93.fun/api/llms.txt and https://tw93.fun/projects/llms.txt

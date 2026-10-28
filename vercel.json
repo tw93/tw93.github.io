@@ -167,7 +167,7 @@
       ]
     },
     {
-      "source": "/(posts|en/posts).md",
+      "source": "/(posts|en/posts|notes).md",
       "headers": [
         {
           "key": "Content-Type",

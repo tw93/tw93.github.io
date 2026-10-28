@@ -22,6 +22,8 @@
     <li class="header-item-left header-item-{{ menu.title | downcase }} {{class}}"><a href="{{menu.url}}" target="_blank" rel="noopener noreferrer">{{
         menu.title
         }}</a></li>
+    {% elsif menu.global %}
+    <li class="header-item-left header-item-{{ menu.title | downcase }} {{class}}"><a href="{{ menu.url | relative_url }}">{{ menu.title }}</a></li>
     {% else %}
     {% if page.url contains '/en/' %}
     <li class="header-item-left header-item-{{ menu.title | downcase }} {{class}}"><a href="{{ '/en/' | append: menu.url | replace: '//', '/' | relative_url }}">{{ menu.title }}</a></li>
