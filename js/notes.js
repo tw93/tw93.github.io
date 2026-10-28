@@ -1,7 +1,8 @@
 // /notes/: lightbox per note, and on the index page search, filters, sorting
-// and endless scrolling over /notes/data.json. The first 30 notes arrive as
-// HTML, so the data is fetched only once someone searches, filters or scrolls
-// past them. Every note's HTML comes from _plugins/notes.rb, never built here.
+// and endless scrolling. The first 30 notes arrive as HTML; scrolling further
+// reads the month pages, and a search or filter reads /notes/index.json plus
+// the /notes/html/YYYY.json years it shows. Every note's HTML comes from
+// _plugins/notes.rb, never built here.
 (function () {
   var PAGE = 30;
   var list = document.getElementById('J_notes');
@@ -80,64 +81,74 @@
 
   var input = document.getElementById('J_notes_q');
   var year = document.getElementById('J_notes_y');
+  var type = document.getElementById('J_notes_t');
   var sort = document.getElementById('J_notes_sort');
   var status = document.getElementById('J_notes_status');
   var more = document.getElementById('J_notes_more');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
-  var data = null;
-  var loading = null;
+  var index = null;
+  var indexLoading = null;
+  var chunks = {};
   var results = [];
-  var computed = false;
   var shown = 0;
+  var token = 0;
+  var busy = false;
+
+  // Without a filter the next notes come from the month pages, in the order
+  // the archive links list them, so scrolling never downloads the index.
+  var months = Array.prototype.map.call(document.querySelectorAll('.notes-archive a'), function (a) { return a.href; });
+  var monthAt = 0;
+  var mode = 'months';
 
   var params = new URLSearchParams(location.search);
   Object.keys(state).forEach(function (key) { state[key] = params.get(key) || ''; });
   if (params.get('tag')) state.q = '#' + params.get('tag');
 
-  var decode = function (html) {
-    return html.replace(/<[^>]+>/g, ' ')
-      .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&')
-      .toLowerCase();
-  };
-
-  var load = function () {
-    if (!loading) {
-      loading = fetch('/notes/data.json' + assetV)
+  var loadIndex = function () {
+    if (!indexLoading) {
+      indexLoading = fetch('/notes/index.json' + assetV)
         .then(function (res) { return res.json(); })
         .then(function (items) {
           items.forEach(function (item) {
-            item.s = decode(item.h);
+            item.s = item.s.toLowerCase();
             item.y = String(new Date(item.t * 1000 + 8 * 3600 * 1000).getUTCFullYear());
           });
-          data = items;
-          return items;
+          index = items;
         });
     }
-    return loading;
+    return indexLoading;
+  };
+
+  var loadYear = function (y) {
+    if (!chunks[y]) chunks[y] = fetch('/notes/html/' + y + '.json' + assetV).then(function (res) { return res.json(); });
+    return chunks[y];
   };
 
   var filtering = function () {
     return !!(state.q.trim() || state.c || state.t || state.y || state.sort);
   };
 
+  var terms = function () {
+    return state.q.toLowerCase().split(/\s+/).filter(Boolean);
+  };
+
   var compute = function () {
-    var terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
-    results = data.filter(function (item) {
+    var words = terms();
+    results = index.filter(function (item) {
       if (state.c && item.c !== state.c) return false;
       if (state.t && item.f.indexOf(state.t) === -1) return false;
       if (state.y && item.y !== state.y) return false;
-      for (var i = 0; i < terms.length; i++) if (item.s.indexOf(terms[i]) === -1) return false;
+      for (var i = 0; i < words.length; i++) if (item.s.indexOf(words[i]) === -1) return false;
       return true;
     });
     var key = { like: 'l', reply: 'r', bookmark: 'b' }[state.sort];
     if (key) results.sort(function (a, b) { return b[key] - a[key] || b.t - a.t; });
     else if (state.sort === 'old') results.sort(function (a, b) { return a.t - b.t; });
-    computed = true;
   };
 
-  var highlight = function (root, terms) {
-    if (!terms.length) return;
-    var pattern = new RegExp(terms.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|'), 'gi');
+  var highlight = function (root, words) {
+    if (!words.length) return;
+    var pattern = new RegExp(words.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|'), 'gi');
     root.querySelectorAll('.note-body').forEach(function (body) {
       var walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
       var nodes = [];
@@ -164,21 +175,40 @@
     });
   };
 
+  // Resolves true while there may be more to show. A batch started before the
+  // filter changed is dropped, so a slow response never lands in new results.
   var renderMore = function () {
-    var next = results.slice(shown, shown + PAGE);
-    if (!next.length) return false;
-    var holder = document.createElement('div');
-    holder.innerHTML = next.map(function (item) { return item.h; }).join('');
-    var terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
-    if (terms.length) {
-      // A match may sit in the folded part, so searched notes open in full.
-      holder.querySelectorAll('.note-fold').forEach(function (note) { note.classList.remove('note-fold'); });
-      holder.querySelectorAll('.note-unfold').forEach(function (link) { link.remove(); });
+    var mine = token;
+    if (mode === 'months') {
+      if (monthAt >= months.length) return Promise.resolve(false);
+      return fetch(months[monthAt++]).then(function (res) { return res.text(); }).then(function (html) {
+        if (mine !== token) return false;
+        var page = new DOMParser().parseFromString(html, 'text/html');
+        page.querySelectorAll('#J_notes > .note').forEach(function (note) {
+          if (!document.getElementById(note.id)) list.appendChild(document.adoptNode(note));
+        });
+        return true;
+      });
     }
-    highlight(holder, terms);
-    while (holder.firstChild) list.appendChild(holder.firstChild);
-    shown += next.length;
-    return true;
+    var next = results.slice(shown, shown + PAGE);
+    if (!next.length) return Promise.resolve(false);
+    var years = next.map(function (item) { return item.y; }).filter(function (y, i, all) { return all.indexOf(y) === i; });
+    return Promise.all(years.map(loadYear)).then(function (maps) {
+      if (mine !== token) return false;
+      var html = Object.assign.apply(null, [{}].concat(maps));
+      var holder = document.createElement('div');
+      holder.innerHTML = next.map(function (item) { return html[item.i] || ''; }).join('');
+      var words = terms();
+      if (words.length) {
+        // A match may sit in the folded part, so searched notes open in full.
+        holder.querySelectorAll('.note-fold').forEach(function (note) { note.classList.remove('note-fold'); });
+        holder.querySelectorAll('.note-unfold').forEach(function (link) { link.remove(); });
+      }
+      highlight(holder, words);
+      while (holder.firstChild) list.appendChild(holder.firstChild);
+      shown += next.length;
+      return true;
+    });
   };
 
   var syncUrl = function () {
@@ -191,32 +221,49 @@
   var syncControls = function () {
     input.value = state.q;
     year.value = state.y;
+    type.value = state.t;
     sort.value = state.sort;
-    bar.querySelectorAll('.notes-chip-group').forEach(function (group) {
-      var key = group.getAttribute('data-key');
-      group.querySelectorAll('button').forEach(function (button) {
-        button.setAttribute('aria-pressed', String(button.getAttribute('data-value') === state[key]));
-      });
+    bar.querySelectorAll('.notes-chip-group button').forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.getAttribute('data-value') === state.c));
     });
   };
 
+  // Endless scrolling. Re-observing after each batch makes the observer report
+  // again while the sentinel is still within reach, so a tall screen keeps
+  // filling; it stops once nothing is left, and apply() re-arms it.
+  var sentinel = document.createElement('div');
+  sentinel.className = 'notes-sentinel';
+  list.parentNode.insertBefore(sentinel, list.nextSibling);
+  var step = function () {
+    if (busy) return;
+    busy = true;
+    var mine = token;
+    if (more) more.hidden = true;
+    observer.unobserve(sentinel);
+    renderMore().then(function (left) {
+      if (mine !== token) return;
+      busy = false;
+      if (left) observer.observe(sentinel);
+    }, function () { if (mine === token) busy = false; });
+  };
+  var observer = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) step();
+  }, { rootMargin: '800px 0px' });
+
   var apply = function () {
+    var mine = ++token;
+    mode = 'results';
+    busy = false;
     syncUrl();
     syncControls();
-    load().then(function () {
+    loadIndex().then(function () {
+      if (mine !== token) return;
       compute();
       list.innerHTML = '';
       shown = 0;
-      renderMore();
-      observer.unobserve(sentinel);
-      observer.observe(sentinel);
-      if (more) more.hidden = true;
-      if (filtering()) {
-        status.hidden = false;
-        status.textContent = results.length ? '找到 ' + results.length + ' 条' : '没有找到相关的 Notes';
-      } else {
-        status.hidden = true;
-      }
+      status.hidden = !filtering();
+      status.textContent = results.length ? '找到 ' + results.length + ' 条' : '没有找到相关的 Notes';
+      step();
     });
   };
 
@@ -225,15 +272,17 @@
     clearTimeout(timer);
     timer = setTimeout(function () { state.q = input.value; apply(); }, 150);
   });
-  input.addEventListener('focus', load, { once: true });
+  // The index loads when someone reaches for the bar, not on every visit.
+  ['pointerover', 'focusin', 'touchstart'].forEach(function (name) {
+    bar.addEventListener(name, loadIndex, { once: true, passive: true });
+  });
   year.addEventListener('change', function () { state.y = year.value; apply(); });
+  type.addEventListener('change', function () { state.t = type.value; apply(); });
   sort.addEventListener('change', function () { state.sort = sort.value; apply(); });
   bar.addEventListener('click', function (e) {
     var button = e.target.closest('button');
     if (!button) return;
-    var key = button.parentNode.getAttribute('data-key');
-    var value = button.getAttribute('data-value');
-    state[key] = state[key] === value && key === 't' ? '' : value;
+    state.c = button.getAttribute('data-value');
     apply();
   });
 
@@ -248,31 +297,7 @@
     bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // Endless scrolling: before any filter, continue after the 30 notes the page
-  // shipped with; the "更早的 Notes" link stays as the fallback without JS.
-  var sentinel = document.createElement('div');
-  sentinel.className = 'notes-sentinel';
-  list.parentNode.insertBefore(sentinel, list.nextSibling);
-  // Re-observing after each batch makes the observer report again while the
-  // sentinel is still within reach, so a tall screen keeps filling.
-  var observer = new IntersectionObserver(function (entries) {
-    if (!entries[0].isIntersecting) return;
-    // Stops once every result is shown; apply() re-arms it for a new filter.
-    var step = function () {
-      observer.unobserve(sentinel);
-      if (renderMore()) observer.observe(sentinel);
-    };
-    if (computed) return step();
-    load().then(function () {
-      if (computed) return step();
-      compute();
-      shown = list.querySelectorAll('.note').length;
-      if (more) more.hidden = true;
-      step();
-    });
-  }, { rootMargin: '800px 0px' });
-  observer.observe(sentinel);
-
   syncControls();
   if (filtering()) apply();
+  else observer.observe(sentinel);
 })();

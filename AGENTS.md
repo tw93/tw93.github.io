@@ -25,7 +25,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 - `python3 -I scripts/notes.py resolve-links` expands t.co links into `scripts/notes/links.json`; `fetch-media` downloads photos and video posters to `data/x/mirror/`; `build` writes `_data/notes.json` offline; `--check` validates the schema. `scripts/notes/categories.json` (id to one of `ai tools learn make think life`) is hand-editable and the build fails on a note without one.
 - Older export records carry `is_reply: false` and no `referenced` even when they are replies; `replying()` treats a leading @mention as the reply marker. Keep that, or about 430 conversational replies show up as originals.
 - Images are served from R2 at `cdn.tw93.fun/notes/<media_key>.jpg`; `scripts/notes/mirrored.json` lists the uploaded keys, and a note falls back to `pbs.twimg.com` (blocked in mainland China) for any key not listed. Upload new files before listing them.
-- `_plugins/notes.rb` renders each note's HTML once and reuses it for `/notes/`, the monthly archives `/notes/YYYY/MM/`, one page per note `/notes/<id>.html` (all indexed, maintainer 2026-10-28), `/notes/data.json` (what `js/notes.js` searches and sorts), `/notes/feed.xml`, `/notes.md` and `/api/notes.jsonl`.
+- `_plugins/notes.rb` renders each note's HTML once and reuses it for `/notes/`, the monthly archives `/notes/YYYY/MM/`, one page per note `/notes/<id>.html` (all indexed, maintainer 2026-10-28), `/notes/index.json` plus `/notes/html/YYYY.json` (what `js/notes.js` searches, sorts and renders; endless scroll without a filter reads the month pages instead), `/notes/feed.xml`, `/notes.md` and `/api/notes.jsonl`.
 
 ## Agent Surfaces
 

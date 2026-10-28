@@ -10,7 +10,8 @@ require 'time'
 # - /notes/YYYY/MM/, every note of a month as plain HTML for readers without
 #   JavaScript and for crawlers;
 # - /notes/<id>.html, one page per note, all indexed and in the sitemap;
-# - /notes/data.json, what js/notes.js loads to search and sort;
+# - /notes/index.json and /notes/html/YYYY.json, what js/notes.js searches,
+#   sorts and renders;
 # - /notes/feed.xml, /notes.md and /api/notes.jsonl.
 module Jekyll
   module Notes
@@ -385,14 +386,20 @@ module Jekyll
       return unless state
 
       notes = state['notes']
+      # Search, filters and sorting read a text-only index; the HTML of the
+      # notes they show comes per year, so a search for 2023 loads 2023 only.
       items = notes.map do |note|
         {
           'i' => note['id'], 't' => Time.parse(note['date']).to_i, 'c' => note['category'], 'f' => flags(note),
           'l' => note.dig('metrics', 'like').to_i, 'r' => note.dig('metrics', 'reply').to_i,
-          'b' => note.dig('metrics', 'bookmark').to_i, 'h' => state['html'][note['id']],
+          'b' => note.dig('metrics', 'bookmark').to_i,
+          's' => [full_text(note), note.dig('reply_to', 'user') && "@#{note['reply_to']['user']}"].compact.join(' ').gsub(/\s+/, ' '),
         }
       end
-      write(site, 'notes/data.json', JSON.generate(items))
+      write(site, 'notes/index.json', JSON.generate(items))
+      notes.group_by { |note| local(note['date']).year }.each do |year, group|
+        write(site, "notes/html/#{year}.json", JSON.generate(group.to_h { |note| [note['id'], state['html'][note['id']]] }))
+      end
       write(site, 'notes/feed.xml', feed(notes))
       write(site, 'notes.md', markdown(notes, state['months']))
       write(site, 'api/notes.jsonl', notes.map { |note| JSON.generate(record(note)) }.join("\n") + "\n")

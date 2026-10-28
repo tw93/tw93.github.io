@@ -20,6 +20,14 @@ body_id: notes
         <option value="">全部年份</option>
         {% for year in page.notes_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
       </select>
+      <select id="J_notes_t" name="t" aria-label="类型">
+        <option value="">全部类型</option>
+        <option value="l">长文</option>
+        <option value="p">图片</option>
+        <option value="v">视频</option>
+        <option value="t">串</option>
+        <option value="r">回复</option>
+      </select>
       <select id="J_notes_sort" name="sort" aria-label="排序">
         <option value="">最新</option>
         <option value="old">最早</option>
@@ -32,13 +40,6 @@ body_id: notes
       <span class="notes-chip-group" data-key="c">
         <button type="button" data-value="" aria-pressed="true">全部</button>
         {% for category in page.notes_categories %}<button type="button" data-value="{{ category.key }}" aria-pressed="false">{{ category.label }}</button>{% endfor %}
-      </span>
-      <span class="notes-chip-group" data-key="t">
-        <button type="button" data-value="l" aria-pressed="false">长文</button>
-        <button type="button" data-value="p" aria-pressed="false">图片</button>
-        <button type="button" data-value="v" aria-pressed="false">视频</button>
-        <button type="button" data-value="t" aria-pressed="false">串</button>
-        <button type="button" data-value="r" aria-pressed="false">回复</button>
       </span>
     </div>
   </form>

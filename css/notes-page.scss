@@ -1,0 +1,6 @@
+---
+sitemap: false
+---
+
+// Only /notes/ pages load this, so the rest of the site does not inline it.
+@use "notes";

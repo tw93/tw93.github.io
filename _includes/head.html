@@ -177,6 +177,7 @@
   <!-- Feed -->
   <link href="{% if page.url contains '/en/' %}{{ site.url }}/en/feed.xml{% else %}{{ site.url }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
   {% if page.url contains '/notes/' %}
+  <link rel="stylesheet" href="{{ '/css/notes-page.css' | relative_url }}?v={{ site.asset_version }}">
   <link href="{{ site.url }}/notes/feed.xml" type="application/atom+xml" rel="alternate" title="Tw93 Notes">
   <link rel="alternate" type="text/markdown" href="{{ site.url }}/notes.md" title="Markdown">
   {% endif %}

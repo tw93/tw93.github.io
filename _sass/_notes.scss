@@ -77,6 +77,7 @@ $notes-line: rgba($base-color, 0.14);
 
 .notes-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   input,
   select {
@@ -93,17 +94,33 @@ $notes-line: rgba($base-color, 0.14);
       border-color: rgba($base-color, 0.45);
     }
   }
+  // Drawn like the search field, with its own chevron, so the four controls
+  // read as one row instead of a field next to three system menus.
   select {
-    flex: none;
-    padding: 0 8px;
+    flex: 1 1 0;
+    padding: 0 28px 0 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%2324292f' stroke-opacity='.6' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 12px;
+    cursor: pointer;
+    @media #{$medium} {
+      flex: none;
+    }
   }
 }
 
+// Phones give the search field its own row and the three menus the next.
 .notes-search {
-  flex: 1;
+  flex: 1 1 100%;
   padding: 0 12px;
   -webkit-appearance: none;
   appearance: none;
+  @media #{$medium} {
+    flex: 1 1 0;
+  }
 }
 
 .notes-chips {
