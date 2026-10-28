@@ -49,6 +49,7 @@ body_id: notes
   <div class="notes-list" id="J_notes">{{ page.notes_html }}</div>
 
   {% if page.notes_index %}
+  <div class="notes-empty" id="J_notes_empty" hidden><img src="https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png" width="64" height="64" alt=""><p>暂时没有相关的 Notes</p></div>
   {% if page.notes_older %}<a class="notes-more" id="J_notes_more" href="{{ page.notes_older }}">更早的 Notes</a>{% endif %}
   {% else %}
   <nav class="notes-pager">

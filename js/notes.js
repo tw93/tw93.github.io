@@ -119,6 +119,7 @@
   var sort = document.getElementById('J_notes_sort');
   var status = document.getElementById('J_notes_status');
   var more = document.getElementById('J_notes_more');
+  var empty = document.getElementById('J_notes_empty');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
   var index = null;
   var indexLoading = null;
@@ -127,6 +128,18 @@
   var shown = 0;
   var token = 0;
   var busy = false;
+  // A new filter keeps the old notes on screen, dimmed if the wait runs
+  // long, until its first batch is ready to replace them, so the archive
+  // below never moves up into the gap.
+  var fresh = false;
+  var waitTimer = null;
+  var settle = function () {
+    fresh = false;
+    clearTimeout(waitTimer);
+    list.classList.remove('is-waiting');
+    list.innerHTML = '';
+    if (empty) empty.hidden = results.length > 0;
+  };
   // Endless scrolling stops after this many notes so an old phone's memory
   // stays flat; past it the link opens the next month page, or loads the next
   // results when filtering.
@@ -231,7 +244,10 @@
       });
     }
     var next = results.slice(shown, shown + PAGE);
-    if (!next.length) return Promise.resolve(false);
+    if (!next.length) {
+      if (fresh) settle();
+      return Promise.resolve(false);
+    }
     var years = next.map(function (item) { return item.y; }).filter(function (y, i, all) { return all.indexOf(y) === i; });
     return Promise.all(years.map(loadYear)).then(function (maps) {
       if (mine !== token) return false;
@@ -245,6 +261,7 @@
         holder.querySelectorAll('.note-fold-mark').forEach(function (mark) { mark.remove(); });
       }
       highlight(holder, words);
+      if (fresh) settle();
       while (holder.firstChild) list.appendChild(holder.firstChild);
       watch();
       shown += next.length;
@@ -292,7 +309,12 @@
         return;
       }
       observer.observe(sentinel);
-    }, function () { if (mine === token) busy = false; });
+    }, function () {
+      if (mine !== token) return;
+      busy = false;
+      clearTimeout(waitTimer);
+      list.classList.remove('is-waiting');
+    });
   };
   var observer = new IntersectionObserver(function (entries) {
     if (entries[0].isIntersecting) step();
@@ -312,14 +334,23 @@
     busy = false;
     syncUrl();
     syncControls();
+    // Until the new results are in, scrolling must not load more of the old.
+    observer.unobserve(sentinel);
+    clearTimeout(waitTimer);
+    waitTimer = setTimeout(function () { list.classList.add('is-waiting'); }, 450);
     loadIndex().then(function () {
       if (mine !== token) return;
       compute();
-      list.innerHTML = '';
       shown = 0;
-      status.hidden = !filtering();
-      status.textContent = results.length ? '找到 ' + results.length + ' 条' : '没有找到相关的 Notes';
+      fresh = true;
+      // The empty state says it when nothing matches.
+      status.hidden = !filtering() || !results.length;
+      status.textContent = '找到 ' + results.length + ' 条';
       step();
+    }, function () {
+      if (mine !== token) return;
+      clearTimeout(waitTimer);
+      list.classList.remove('is-waiting');
     });
   };
 
