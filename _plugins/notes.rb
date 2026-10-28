@@ -10,8 +10,8 @@ require 'time'
 # - /notes/YYYY/MM/, every note of a month as plain HTML for readers without
 #   JavaScript and for crawlers;
 # - /notes/<id>.html, one page per note, all indexed and in the sitemap;
-# - /notes/index.json and /notes/html/YYYY.json, what js/notes.js searches,
-#   sorts and renders;
+# - /notes/index.json, /notes/search.json and /notes/html/YYYY-MM.json, what
+#   js/notes.js filters, searches, sorts and renders;
 # - /notes/feed.xml, /notes.md and /api/notes.jsonl.
 module Jekyll
   module Notes
@@ -527,19 +527,25 @@ module Jekyll
       return unless state
 
       notes = state['notes']
-      # Search, filters and sorting read a text-only index; the HTML of the
-      # notes they show comes per year, so a search for 2023 loads 2023 only.
+      # Filters and sorting read a small index, about 50KB gzipped, that the
+      # page fetches while idle; the text a search needs is a separate file in
+      # the same order, fetched once the search field is touched. The HTML of
+      # the notes they show comes per month, so a category's first screen
+      # loads a few months, not whole years.
       items = notes.map do |note|
         {
           'i' => note['id'], 't' => Time.parse(note['date']).to_i, 'c' => note['category'], 'f' => flags(note),
           'l' => note.dig('metrics', 'like').to_i, 'r' => note.dig('metrics', 'reply').to_i,
           'b' => note.dig('metrics', 'bookmark').to_i,
-          's' => [full_text(note), note.dig('reply_to', 'user') && "@#{note['reply_to']['user']}"].compact.join(' ').gsub(/\s+/, ' '),
         }
       end
+      text = notes.map do |note|
+        [full_text(note), note.dig('reply_to', 'user') && "@#{note['reply_to']['user']}"].compact.join(' ').gsub(/\s+/, ' ')
+      end
       write(site, 'notes/index.json', JSON.generate(items))
-      notes.group_by { |note| local(note['date']).year }.each do |year, group|
-        write(site, "notes/html/#{year}.json", JSON.generate(group.to_h { |note| [note['id'], state['html'][note['id']]] }))
+      write(site, 'notes/search.json', JSON.generate(text))
+      notes.group_by { |note| local(note['date']).strftime('%Y-%m') }.each do |month, group|
+        write(site, "notes/html/#{month}.json", JSON.generate(group.to_h { |note| [note['id'], state['html'][note['id']]] }))
       end
       write(site, 'notes/feed.xml', feed(notes))
       write(site, 'notes.md', markdown(notes, state['months']))

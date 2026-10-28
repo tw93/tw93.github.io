@@ -123,6 +123,7 @@
   var state = { q: '', c: '', t: '', y: '', sort: '' };
   var index = null;
   var indexLoading = null;
+  var textLoading = null;
   var chunks = {};
   var results = [];
   var shown = 0;
@@ -162,18 +163,37 @@
         .then(function (res) { return res.json(); })
         .then(function (items) {
           items.forEach(function (item) {
-            item.s = item.s.toLowerCase();
-            item.y = String(new Date(item.t * 1000 + 8 * 3600 * 1000).getUTCFullYear());
+            var day = new Date(item.t * 1000 + 8 * 3600 * 1000);
+            var month = day.getUTCMonth() + 1;
+            item.y = String(day.getUTCFullYear());
+            item.m = item.y + '-' + (month < 10 ? '0' : '') + month;
           });
           index = items;
         });
+      indexLoading.catch(function () { indexLoading = null; });
     }
     return indexLoading;
   };
 
-  var loadYear = function (y) {
-    if (!chunks[y]) chunks[y] = fetch('/notes/html/' + y + '.json' + assetV).then(function (res) { return res.json(); });
-    return chunks[y];
+  // The text a search matches, one string per index entry in the same order.
+  var loadText = function () {
+    if (!textLoading) {
+      textLoading = Promise.all([loadIndex(), fetch('/notes/search.json' + assetV).then(function (res) { return res.json(); })])
+        .then(function (both) {
+          var text = both[1];
+          index.forEach(function (item, i) { item.s = (text[i] || '').toLowerCase(); });
+        });
+      textLoading.catch(function () { textLoading = null; });
+    }
+    return textLoading;
+  };
+
+  var loadMonth = function (m) {
+    if (!chunks[m]) {
+      chunks[m] = fetch('/notes/html/' + m + '.json' + assetV).then(function (res) { return res.json(); });
+      chunks[m].catch(function () { delete chunks[m]; });
+    }
+    return chunks[m];
   };
 
   var filtering = function () {
@@ -248,8 +268,8 @@
       if (fresh) settle();
       return Promise.resolve(false);
     }
-    var years = next.map(function (item) { return item.y; }).filter(function (y, i, all) { return all.indexOf(y) === i; });
-    return Promise.all(years.map(loadYear)).then(function (maps) {
+    var keys = next.map(function (item) { return item.m; }).filter(function (m, i, all) { return all.indexOf(m) === i; });
+    return Promise.all(keys.map(loadMonth)).then(function (maps) {
       if (mine !== token) return false;
       var html = Object.assign.apply(null, [{}].concat(maps));
       var holder = document.createElement('div');
@@ -338,7 +358,7 @@
     observer.unobserve(sentinel);
     clearTimeout(waitTimer);
     waitTimer = setTimeout(function () { list.classList.add('is-waiting'); }, 450);
-    loadIndex().then(function () {
+    (terms().length ? loadText() : loadIndex()).then(function () {
       if (mine !== token) return;
       compute();
       shown = 0;
@@ -359,9 +379,16 @@
     clearTimeout(timer);
     timer = setTimeout(function () { state.q = input.value; apply(); }, 150);
   });
-  // The index loads when someone reaches for the bar, not on every visit.
+  // The small index loads once the page is idle, so a category answers at
+  // once even on a phone, where the tap itself is the first sign of intent;
+  // the search text waits until someone reaches for the search field.
+  var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1200); };
+  var preload = function () { idle(function () { loadIndex(); }); };
+  if (document.readyState === 'complete') preload();
+  else window.addEventListener('load', preload, { once: true });
   ['pointerover', 'focusin', 'touchstart'].forEach(function (name) {
     bar.addEventListener(name, loadIndex, { once: true, passive: true });
+    input.addEventListener(name, loadText, { once: true, passive: true });
   });
   year.addEventListener('change', function () { state.y = year.value; apply(); });
   type.addEventListener('change', function () { state.t = type.value; apply(); });
