@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 171K+ stars, 17K+ forks, 13,582 followers
+- **GitHub**: 171K+ stars, 17K+ forks, 13,599 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,318
-- Forks: 12,840
+- Stars: 62,326
+- Forks: 12,839
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.17.6 "Clearance" (2026-10-17)
@@ -117,12 +117,12 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,155
-- Forks: 322
+- Stars: 6,158
+- Forks: 325
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
-- Latest Release: V0.27.0 "Reach" (2026-10-26)
+- Latest Release: V0.27.1 "Guard" (2026-10-27)
 - Install: `brew install --cask kaku`
 
 **Features:**
@@ -204,8 +204,8 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,685
-- Forks: 520
+- Stars: 8,697
+- Forks: 522
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
@@ -289,12 +289,12 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 72,992
-- Forks: 2,574
+- Stars: 73,094
+- Forks: 2,575
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
-- Latest Release: V1.64.0 "Steady" (2026-10-25)
+- Latest Release: V1.65.0 "Tidy" (2026-10-27)
 - Install: `brew install mole`
 - Homepage: https://mole.fit
 
@@ -474,8 +474,8 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,367
-- Forks: 424
+- Stars: 7,371
+- Forks: 426
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.40.0 "V3.40.0 Compass 🧭" (2026-10-15)
@@ -544,8 +544,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,093
-- Forks: 566
+- Stars: 12,102
+- Forks: 568
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.18.0 "Charted Pages" (2026-10-15)
@@ -961,8 +961,8 @@ A: Kami (https://kami.tw93.fun). Warm parchment typesetting system for resumes, 
 
 From [tw93.fun](https://tw93.fun) (10 most recent):
 
-- [AI 时代做产品，把省下来的时间花在细节上](https://tw93.fun/2026-10-26/mole-product.html) (2026-10-26)
-- [你不知道的客户端开发：选型、原生、多端与借力](https://tw93.fun/2026-10-22/desktop.html) (2026-10-22)
+- [在快 AI 时代，如何做一款慢产品？](https://tw93.fun/2026-10-26/mole-product.html) (2026-10-26)
+- [你不知道的客户端开发：AI 时代下的选型、原生与借力](https://tw93.fun/2026-10-22/desktop.html) (2026-10-22)
 - [Mole 出 Mac 版后，用户教会了我做产品](https://tw93.fun/2026-08-16/mole-mac.html) (2026-08-16)
 - [你不知道的具身智能：从小机器狗到 Optimus](https://tw93.fun/2026-06-07/robot.html) (2026-06-07)
 - [你不知道的 GEO：AI 可见性的原理、实践与取舍](https://tw93.fun/2026-05-01/ai-visibility.html) (2026-05-01)
