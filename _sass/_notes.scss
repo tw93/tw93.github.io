@@ -178,7 +178,7 @@ $notes-line: rgba($base-color, 0.14);
     margin: 6px 0;
   }
   p > a {
-    @include need-dotted();
+    @include content-link();
   }
   mark {
     background-color: $banner-text;

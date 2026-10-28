@@ -75,8 +75,9 @@ $archive-meta: rgba($base-color, 0.66);
   }
   a {
     color: $text-color;
+    transition: color 0.12s ease-out;
     &:hover {
-      @include need-dotted();
+      color: $link-blue;
     }
   }
   time {

@@ -145,7 +145,7 @@ iframe {
   p > a,
   strong > a,
   li > a {
-    @include need-dotted();
+    @include content-link();
   }
 }
 
@@ -498,7 +498,7 @@ iframe {
   }
   p > a,
   li > a {
-    @include need-dotted();
+    @include content-link();
   }
   h3 {
     margin: 0;
