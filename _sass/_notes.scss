@@ -78,7 +78,7 @@ $notes-line: rgba($base-color, 0.14);
 .notes-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px 8px;
   input,
   select {
     height: 36px;
@@ -124,7 +124,7 @@ $notes-line: rgba($base-color, 0.14);
 }
 
 .notes-chips {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .notes-chip-group {
