@@ -166,12 +166,13 @@ module Jekyll
       category = CATEGORIES.fetch(note['category'])
       meta = [%(<a class="note-date" href="#{page_url(note)}"><time datetime="#{time.iso8601}">#{time.strftime('%Y-%m-%d')}</time></a>)]
       if (reply = note['reply_to'])
-        meta << %(<a href="#{esc(reply['url'])}" target="_blank" rel="nofollow noopener">回复 @#{esc(reply['user'])}</a>)
+        label = reply['user'] ? "回复 @#{esc(reply['user'])}" : '回复'
+        meta << %(<a href="#{esc(reply['url'])}" target="_blank" rel="nofollow noopener">#{label}</a>)
       end
       meta << %(<a class="note-cat" href="/notes/?c=#{note['category']}">#{category}</a>)
 
       body = text_html(note['text']) + media_html(note['media'])
-      (note['thread'] || []).each { |part| body << text_html(part['text']) << media_html(part['media']) }
+      (note['thread'] || []).each { |part| body << text_html(part['text']) << media_html(part['media']) << quote_html(part, by_id) }
       body << quote_html(note, by_id)
 
       <<~HTML.delete("\n")
@@ -274,6 +275,9 @@ module Jekyll
         notes.each do |note|
           time = Notes.local(note['date'])
           data = {
+            # Without an explicit permalink Jekyll drops the .html from page.url,
+            # and canonical and sitemap.xml then point at a URL that 404s.
+            'permalink' => Notes.page_url(note),
             'layout' => 'note', 'title' => Notes.title_of(note), 'summary' => Notes.summary_of(note),
             'note_html' => Notes.article(note, by_id),
             'note_month' => { 'url' => "/notes/#{time.strftime('%Y/%m')}/", 'label' => "#{time.year} 年 #{time.month} 月" },

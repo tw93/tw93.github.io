@@ -190,6 +190,13 @@ def build_notes(heads, threads, categories, resolved, mirrored):
                 images_t = media(t, mirrored)
                 if images_t:
                     entry['media'] = images_t
+                # clean() drops the quoted status URL from the text, so keep
+                # the quote itself or the continuation loses what it points at.
+                q_t = reference(t, 'quoted')
+                if q_t:
+                    entry['quote'] = {'url': 'https://x.com/i/status/' + q_t['id']}
+                    if q_t['id'] in included:
+                        entry['quote']['id'] = q_t['id']
                 n['thread'].append(entry)
         if q:
             n['quote'] = {'url': 'https://x.com/i/status/' + q['id']}
@@ -239,7 +246,7 @@ def validate(notes):
             require(m['type'] == 'photo' or url(m.get('poster')), 'Missing poster')
             require(m['type'] != 'photo' or 'poster' not in m, 'Poster on photo')
         if thread:
-            require(set(n) <= {'id', 'date', 'text', 'links', 'media'}, 'Invalid thread fields')
+            require(set(n) <= {'id', 'date', 'text', 'links', 'media', 'quote'}, 'Invalid thread fields')
     require(isinstance(notes, list), 'Output is not an array')
     seen = set()
     last = None

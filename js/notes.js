@@ -142,20 +142,31 @@
       var walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
       var nodes = [];
       while (walker.nextNode()) nodes.push(walker.currentNode);
+      // Built from text nodes, so a term like "&" never lands inside an entity.
       nodes.forEach(function (node) {
-        if (!pattern.test(node.nodeValue)) return;
+        var text = node.nodeValue;
         pattern.lastIndex = 0;
-        var span = document.createElement('span');
-        span.innerHTML = node.nodeValue.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; })
-          .replace(pattern, function (m) { return '<mark>' + m + '</mark>'; });
-        node.parentNode.replaceChild(span, node);
+        if (!pattern.test(text)) return;
+        pattern.lastIndex = 0;
+        var frag = document.createDocumentFragment();
+        var last = 0;
+        var match;
+        while ((match = pattern.exec(text))) {
+          frag.appendChild(document.createTextNode(text.slice(last, match.index)));
+          var mark = document.createElement('mark');
+          mark.textContent = match[0];
+          frag.appendChild(mark);
+          last = match.index + match[0].length;
+        }
+        frag.appendChild(document.createTextNode(text.slice(last)));
+        node.parentNode.replaceChild(frag, node);
       });
     });
   };
 
   var renderMore = function () {
     var next = results.slice(shown, shown + PAGE);
-    if (!next.length) return;
+    if (!next.length) return false;
     var holder = document.createElement('div');
     holder.innerHTML = next.map(function (item) { return item.h; }).join('');
     var terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
@@ -167,6 +178,7 @@
     highlight(holder, terms);
     while (holder.firstChild) list.appendChild(holder.firstChild);
     shown += next.length;
+    return true;
   };
 
   var syncUrl = function () {
@@ -196,6 +208,8 @@
       list.innerHTML = '';
       shown = 0;
       renderMore();
+      observer.unobserve(sentinel);
+      observer.observe(sentinel);
       if (more) more.hidden = true;
       if (filtering()) {
         status.hidden = false;
@@ -243,10 +257,10 @@
   // sentinel is still within reach, so a tall screen keeps filling.
   var observer = new IntersectionObserver(function (entries) {
     if (!entries[0].isIntersecting) return;
+    // Stops once every result is shown; apply() re-arms it for a new filter.
     var step = function () {
-      renderMore();
       observer.unobserve(sentinel);
-      observer.observe(sentinel);
+      if (renderMore()) observer.observe(sentinel);
     };
     if (computed) return step();
     load().then(function () {
