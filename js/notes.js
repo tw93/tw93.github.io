@@ -383,10 +383,16 @@
     timer = setTimeout(function () { state.q = input.value; apply(); }, 150);
   });
   // The small index loads once the page is idle, so a category answers at
-  // once even on a phone, where the tap itself is the first sign of intent;
-  // the search text waits until someone reaches for the search field.
+  // once even on a phone, where the tap itself is the first sign of intent.
+  // The search text, about 360KB, follows while idle on desktop; a phone
+  // waits until someone reaches for the search field, to spare its data.
   var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1200); };
-  var preload = function () { idle(function () { loadIndex(); }); };
+  var desktop = window.matchMedia && matchMedia('(pointer: fine)').matches;
+  var preload = function () {
+    idle(function () {
+      loadIndex().then(function () { if (desktop) idle(function () { loadText().catch(function () {}); }); }, function () {});
+    });
+  };
   if (document.readyState === 'complete') preload();
   else window.addEventListener('load', preload, { once: true });
   ['pointerover', 'focusin', 'touchstart'].forEach(function (name) {
