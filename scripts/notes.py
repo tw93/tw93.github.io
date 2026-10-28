@@ -128,11 +128,16 @@ def clean(post, resolved):
 
 
 def language(text):
-    if re.search(r'[\u3040-\u30ff\u31f0-\u31ff\uff66-\uff9f]', text):
+    kana = len(re.findall(r'[\u3040-\u30ff\u31f0-\u31ff\uff66-\uff9f]', text))
+    han = len(re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\U00020000-\U000323af]', text))
+    latin = len(re.findall(r'[A-Za-z\u00c0-\u024f]', text))
+    # Japanese is mostly kana; a Chinese post quoting one word (呼び), or an
+    # English one glossing Waza as 技, わざ, is not.
+    if latin > 10 * (kana + han) or not kana + han:
+        return 'en' if latin else 'und'
+    if kana >= 0.2 * (kana + han):
         return 'ja'
-    if re.search(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\U00020000-\U000323af]', text):
-        return 'zh'
-    return 'en' if re.search(r'[A-Za-z\u00c0-\u024f]', text) else 'und'
+    return 'zh'
 
 
 def photo_url(url):
@@ -556,6 +561,64 @@ def article_ids(used, resolved):
     return found
 
 
+def long_one(post):
+    url = f'https://api.fxtwitter.com/HiTw93/status/{post["id"]}'
+    last = None
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=20) as response:
+                tweet = json.load(response).get('tweet') or {}
+            if not tweet.get('is_note_tweet'):
+                return post['id'], None, None
+            raw = tweet.get('raw_text')
+            return post['id'], (raw.get('text') if isinstance(raw, dict) else raw) or tweet.get('text'), None
+        except (OSError, ValueError, urllib.error.URLError, http.client.HTTPException) as e:
+            last = type(e).__name__ + ': ' + str(getattr(e, 'reason', e))
+    return post['id'], None, last
+
+
+def fetch_long(used):
+    """Full text of long posts the export cut short: hundreds of records came
+    without note_tweet and end mid-sentence (2026-10-29). The X API needs a
+    key, so this reads fxtwitter's public mirror of the same post. Length is
+    no filter, some were cut at about 180 of X's weighted 280, so every
+    record without note_tweet is asked once per run (about 3 minutes); the
+    sync's own API calls return note_tweet, so new posts never need it."""
+    path = META / 'long.json'
+    cache = read_json(path, {})
+    pending = [p for p in used if not p.get('note_tweet') and p['id'] not in cache]
+    found = failures = attempted = 0
+    try:
+        for batch in parallel_batches(pending, long_one):
+            for pid, text, error in batch:
+                attempted += 1
+                if error:
+                    failures += 1
+                    print('Long text failed: ' + pid + ': ' + error, file=sys.stderr)
+                elif text:
+                    cache[pid] = text
+                    found += 1
+            write_map(path, cache)
+    finally:
+        write_map(path, cache)
+        print(json.dumps({'candidates': len(pending), 'found': found, 'failures': failures, 'unattempted': len(pending) - attempted, 'cached': len(cache)}), flush=True)
+
+
+def apply_long(posts):
+    """Give each cut record the full text fetch-long found, as note_tweet,
+    keeping the export's leading @mentions so reply detection is unchanged."""
+    texts = read_json(META / 'long.json', {})
+    for p in posts:
+        text = texts.get(p['id'])
+        if not text or p.get('note_tweet'):
+            continue
+        mentions = MENTIONS.match(p['text'])
+        if mentions and not MENTIONS.match(text):
+            text = mentions.group() + text
+        p['note_tweet'] = {'text': text}
+    return posts
+
+
 def fetch_articles(used):
     """Title, preview and cover from X's public syndication endpoint."""
     path = META / 'articles.json'
@@ -585,14 +648,14 @@ def fetch_articles(used):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', nargs='?', default='build', choices=['build', 'resolve-links', 'fetch-media', 'resize-media', 'fetch-videos', 'fetch-articles'])
+    parser.add_argument('command', nargs='?', default='build', choices=['build', 'resolve-links', 'fetch-media', 'resize-media', 'fetch-videos', 'fetch-articles', 'fetch-long'])
     parser.add_argument('--check', action='store_true', help='Validate offline output without writing it')
     args = parser.parse_args()
     if args.check and args.command != 'build':
         parser.error('--check is offline and only applies to build')
     if args.command == 'resize-media':
         return resize_media()
-    posts = read_json(RAW)
+    posts = apply_long(read_json(RAW))
     heads, threads = select(posts)
     used = all_used(heads, threads)
     if args.command == 'resolve-links':
@@ -603,6 +666,8 @@ def main():
         fetch_videos(used)
     elif args.command == 'fetch-articles':
         fetch_articles(used)
+    elif args.command == 'fetch-long':
+        fetch_long(used)
     else:
         resolved = read_json(META / 'links.json', {})
         notes = build_notes(heads, threads, read_json(META / 'categories.json', {}), resolved, read_json(META / 'mirrored.json', {}), set(read_json(META / 'videos.json', [])), read_json(META / 'articles.json', {}))
