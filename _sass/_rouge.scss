@@ -40,15 +40,15 @@ $code-red: #ff6767;
         transition: transform 0.2s ease;
 
         &.dot-red {
-          background: linear-gradient(135deg, #ff7f7f 0%, #ff6767 100%);
+          background: #ff6767;
         }
 
         &.dot-yellow {
-          background: linear-gradient(135deg, #ffd7a6 0%, #ffca85 100%);
+          background: #ffca85;
         }
 
         &.dot-green {
-          background: linear-gradient(135deg, #8bffe0 0%, #61ffca 100%);
+          background: #61ffca;
         }
 
         &:hover {
@@ -64,15 +64,9 @@ $code-red: #ff6767;
       transform: translate(-50%, -50%);
       z-index: 1;
       color: rgba(237, 236, 238, 0.64);
-      font-size: 11px;
-      // Phone ladder floor (Kata site.md): nothing under 12px at 640px and below.
-      @media (max-width: 640px) {
-        font-size: 12px;
-      }
+      font-size: 12px;
       font-weight: 400;
       line-height: 1;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
       text-align: center;
       user-select: none;
       white-space: nowrap;
@@ -83,16 +77,13 @@ $code-red: #ff6767;
       padding: 0 6px;
       border-radius: 4px;
       color: rgba(237, 236, 238, 0.62);
-      font-size: 11px;
-      @media (max-width: 640px) {
-        font-size: 12px;
-      }
+      font-size: 12px;
       cursor: pointer;
       transition: color 0.2s ease, background-color 0.2s ease;
 
       &:hover {
         color: $code-fg;
-        background-color: rgba(162, 119, 255, 0.12);
+        background-color: rgba(237, 236, 238, 0.08);
       }
     }
   }
@@ -132,11 +123,11 @@ $code-red: #ff6767;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(162, 119, 255, 0.32);
+      background: rgba(237, 236, 238, 0.22);
       border-radius: 999px;
 
       &:hover {
-        background: rgba(162, 119, 255, 0.45);
+        background: rgba(237, 236, 238, 0.34);
       }
     }
   }

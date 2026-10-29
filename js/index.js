@@ -476,7 +476,7 @@ function addCodeCopy() {
 
     var languageLabel = header.querySelector('.highlight-lang');
     if (language) {
-      languageLabel.textContent = language.toUpperCase();
+      languageLabel.textContent = language;
     } else {
       languageLabel.textContent = '';
       languageLabel.style.display = 'none';
