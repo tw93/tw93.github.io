@@ -93,11 +93,6 @@ module Jekyll
         end
       end
     end
-
-    # Filter for processing raw URLs (e.g. page.feature)
-    def cdn_image_url(input)
-      CDNImageFilter.optimize(input)
-    end
   end
 end
 
