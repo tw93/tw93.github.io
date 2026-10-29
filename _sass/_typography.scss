@@ -13,7 +13,8 @@ body {
   font-family: $base-font;
   color: $text-color;
   letter-spacing: 0.5px;
-  line-height: 1.7;
+  // Same as Weekly's --line-height-normal: 1.7 read loose, 1.6 dense on phones.
+  line-height: 1.64;
   -webkit-text-size-adjust: 100%; // Prevent iOS text resize
   @media #{$medium} {
     letter-spacing: 0.6px;
