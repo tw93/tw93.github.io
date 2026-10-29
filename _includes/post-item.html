@@ -3,14 +3,9 @@
   {% if is_hidden != true %}
     <a href="{{ post.url | relative_url }}" rel="bookmark" title="{{ post.title | escape }}" itemprop="url" class="header-href">
       <article class="hentry">
-        {%- comment -%} The last four characters wrap together, so a card never ends on a one or two character line. {%- endcomment -%}
-        {%- assign card_title = post.title | strip -%}
-        {%- assign card_title_cut = card_title.size | minus: 4 | at_least: 0 -%}
-        {%- assign card_summary = post.summary | strip -%}
-        {%- assign card_summary_cut = card_summary.size | minus: 4 | at_least: 0 -%}
-        <h2 class="entry-title">{{ card_title | slice: 0, card_title_cut }}<span class="nowrap">{{ card_title | slice: card_title_cut, 4 }}</span></h2>
+        <h2 class="entry-title">{{ post.title }}</h2>
         <div class="entry-content">
-          <span>【{{ post.date | date: "%Y-%m-%d" }}】</span>{{ card_summary | slice: 0, card_summary_cut }}<span class="nowrap">{{ card_summary | slice: card_summary_cut, 4 }}</span>
+          <span>【{{ post.date | date: "%Y-%m-%d" }}】</span>{{ post.summary }}
         </div>
       </article>
     </a>
