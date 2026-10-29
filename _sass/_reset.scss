@@ -125,12 +125,6 @@ table {
   width: 100%;
 }
 
-// Prevent max-width from affecting Google Maps
-#map_canvas img,
-.google-maps img {
-  max-width: none;
-}
-
 // Forms
 // -------------------------
 // Font size in all browsers, margin changes, misc consistency

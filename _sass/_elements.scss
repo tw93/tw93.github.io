@@ -32,30 +32,6 @@ figure {
       }
     }
   }
-  &.half {
-    @media #{$large} {
-      img {
-        width: 310px;
-        float: left;
-        margin-right: 10px;
-      }
-      figcaption {
-        clear: left;
-      }
-    }
-  }
-  &.third {
-    @media #{$large} {
-      img {
-        width: 200px;
-        float: left;
-        margin-right: 10px;
-      }
-      figcaption {
-        clear: left;
-      }
-    }
-  }
 }
 svg:not(:root) {
   overflow: hidden;
@@ -101,76 +77,6 @@ figure.center img {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
-  }
-}
-.btn-inverse {
-  background-color: $white;
-  color: $primary;
-  border-color: $white;
-  &:visited {
-    color: $primary;
-  }
-  @media (hover: hover) {
-    &:hover {
-      background-color: $primary;
-      color: $white;
-    }
-  }
-}
-.btn-success {
-  background-color: $success;
-  color: $white;
-  border-color: $success;
-  &:visited {
-    color: $white;
-  }
-  @media (hover: hover) {
-    &:hover {
-      background-color: $white;
-      color: $success;
-    }
-  }
-}
-.btn-warning {
-  background-color: $warning;
-  color: $white;
-  border-color: $warning;
-  &:visited {
-    color: $white;
-  }
-  @media (hover: hover) {
-    &:hover {
-      background-color: $white;
-      color: $warning;
-    }
-  }
-}
-.btn-danger {
-  background-color: $danger;
-  color: $white;
-  border-color: $danger;
-  &:visited {
-    color: $white;
-  }
-  @media (hover: hover) {
-    &:hover {
-      background-color: $white;
-      color: $danger;
-    }
-  }
-}
-.btn-info {
-  background-color: $info;
-  color: $white;
-  border-color: $info;
-  &:visited {
-    color: $white;
-  }
-  @media (hover: hover) {
-    &:hover {
-      background-color: $white;
-      color: $info;
-    }
   }
 }
 

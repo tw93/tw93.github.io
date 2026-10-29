@@ -65,10 +65,6 @@ iframe {
   }
 }
 
-.body-title {
-  display: block;
-}
-
 .entry-content {
   font-size: 17px;
   position: relative;
@@ -166,63 +162,6 @@ iframe {
   vertical-align: top;
 }
 
-///sections
-.content-header-title {
-  text-align: center;
-  margin: 30px 0 0;
-  h1 {
-    margin: 10px 20px;
-    font-weight: 700;
-    font-size: 22px;
-    color: #5c6469;
-    @media #{$medium} {
-      font-size: 30px;
-    }
-  }
-  h2 {
-    margin: 0;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #8b9299;
-    @media #{$medium} {
-      font-size: 25px;
-    }
-  }
-  p {
-    color: #5c6469;
-  }
-}
-
-// Single Post and Page
-// --------------------------------------------------
-.entry-meta {
-  font-size: 13px;
-  margin-top: 0;
-  color: #c9ced4;
-  a {
-    color: #c9ced4;
-  }
-  .tag {
-    display: inline-block;
-    margin: 4px;
-    color: $white;
-    border-radius: calc($border-radius / 2);
-    background-color: $header-color;
-    span {
-      float: left;
-      padding: 2px 6px;
-    }
-    .count {
-      background-color: #fff;
-      color: $header-color;
-      border-top-right-radius: calc($border-radius / 2);
-      border-top-left-radius: 0px;
-      border-bottom-right-radius: calc($border-radius / 2);
-      border-bottom-left-radius: 0;
-    }
-  }
-}
-
 #post,
 #page {
   #main {
@@ -280,9 +219,6 @@ iframe {
       padding: 50px 80px;
       margin: 0 auto;
     }
-  }
-  .entry-meta {
-    margin: 10px 0 20px;
   }
 }
 
@@ -404,15 +340,6 @@ iframe {
   }
 }
 
-.entry-tags {
-  display: block;
-  margin-bottom: 6px;
-}
-
-.year-heading {
-  margin-top: 0;
-}
-
 // Permalink icon for link post
 .permalink {
   margin-right: 7px;
@@ -516,18 +443,6 @@ iframe {
   }
 }
 
-.list-inline {
-  padding-left: 0;
-  margin-left: -5px;
-  list-style: none;
-}
-
-.list-inline > li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
-}
-
 // Post Index
 // --------------------------------------------------
 #post-index {
@@ -586,45 +501,6 @@ iframe {
   }
 }
 
-// Browser Upgrade
-// --------------------------------------------------
-.upgrade {
-  padding: 10px;
-  text-align: center;
-}
-
-// Google Search
-// --------------------------------------------------
-#goog-fixurl {
-  ul {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-    li {
-      list-style-type: none;
-    }
-  }
-}
-
-#goog-wm-qt {
-  width: auto;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  padding: 8px 20px;
-  display: inline-block;
-  font-size: 15px;
-  background-color: $white;
-  color: $text-color;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #91979f;
-  border-radius: $button-radius;
-}
-
-#goog-wm-sb {
-  @include btn-base();
-}
-
 // Header
 .entry-header {
   position: relative;
@@ -673,17 +549,6 @@ iframe {
 .header-menu-overflow {
   @media #{$medium} {
     transform: translateY(-100%); // Slide up out of view
-  }
-}
-
-.header-item.language-icon svg {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-top: 9px;
-  margin-right: 4px;
-  @media #{$medium} {
-    margin-top: 11px;
   }
 }
 
@@ -833,15 +698,6 @@ iframe {
     @media #{$medium} {
       font-size: 30px;
       padding-left: 0;
-    }
-
-    .logo-img {
-      display: block; // Ensure image is displayed
-      border-radius: 50%;
-      margin-top: -2px;
-      width: 36px;
-      height: 36px;
-      object-fit: cover;
     }
   }
 }
@@ -1019,23 +875,6 @@ iframe {
   }
 }
 
-.lazyload,
-.lazyloading {
-  filter: blur(5px);
-  transition: filter 400ms;
-}
-
-.lazyloaded {
-  filter: blur(0);
-}
-
-.share-img {
-  margin: 0 auto;
-  width: 0px;
-  height: 0px;
-  overflow: hidden;
-}
-
 .video {
   margin-block-end: 1em;
 }
@@ -1059,12 +898,6 @@ video.bg-img {
   vertical-align: middle;
   height: 42px;
   line-height: 42px;
-}
-
-.video-border {
-  padding: 24px;
-  background: url(https://gw.alipayobjects.com/zos/k/0d/UpT4s7.png) no-repeat
-    center;
 }
 
 .entry-content img {

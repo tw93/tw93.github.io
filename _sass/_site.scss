@@ -8,29 +8,6 @@
 .wrap {
 	margin: 0 auto;
 }
-.all-caps {
-	text-transform: uppercase;
-}
-.image-left {
-	float: none;
-	@media #{$medium} {
-		float: left;
-	}
-}
-.image-right {
-	float: none;
-	@media #{$medium} {
-		float: right;
-	}
-}
-.unstyled-list {
-	list-style: none;
-	margin-left: 0;
-	padding-left: 0;
-	li {
-		list-style-type: none;
-	}
-}
 .inline-list {
 	list-style: none;
 	margin-left: 0;

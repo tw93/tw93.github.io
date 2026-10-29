@@ -91,12 +91,6 @@ a {
   }
 }
 
-.link-arrow {
-  font-weight: 400;
-  text-decoration: underline;
-  font-style: normal;
-}
-
 // Figures
 // --------------------------------------------------
 figcaption {
@@ -104,18 +98,6 @@ figcaption {
   font-size: 15px;
   line-height: 1.3;
   color: #505862;
-}
-
-// Note text
-// --------------------------------------------------
-.notice {
-  margin-top: 1.5em;
-  padding: 0.5em 1em;
-  text-indent: 0;
-  font-size: 15px;
-  background-color: $body-color;
-  border: 1px solid #bbbbbb;
-  border-radius: $border-radius;
 }
 
 // Blockquotes
@@ -157,7 +139,6 @@ pre {
   td code,
   th code,
   blockquote code,
-  .notice code,
   figcaption code {
     margin: 0 2px;
     padding: 0.08em 0.42em;
