@@ -75,7 +75,6 @@ exclude:
     "package.json",
     "node_modules",
     "SEO_GUIDE.md",
-    "CLAUDE.md",
     "data",
     "scripts",
   ]
