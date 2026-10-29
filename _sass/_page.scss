@@ -848,6 +848,9 @@ iframe {
 
 .header-href {
   display: block;
+  .nowrap {
+    white-space: nowrap;
+  }
 }
 
 .video-container,
