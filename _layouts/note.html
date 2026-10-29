@@ -8,7 +8,7 @@ body_id: notes
   <h1 class="visually-hidden">{{ page.title | escape }}</h1>
   <div class="notes-list" id="J_notes">{{ page.note_html }}</div>
   <nav class="notes-pager">
-    <a href="{{ '/notes/' | relative_url }}">全部 Notes</a>
+    <a href="{{ page.note_all.url | relative_url }}">{{ page.note_all.label }}</a>
     <a href="{{ page.note_month.url }}">{{ page.note_month.label }}</a>
   </nav>
 </div>

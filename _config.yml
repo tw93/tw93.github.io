@@ -25,7 +25,6 @@ menu:
     url: "/posts/"
   - title: "Notes"
     url: "/notes/"
-    global: true
   - title: "Weekly"
     url: "https://weekly.tw93.fun/"
   - title: "About"

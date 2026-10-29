@@ -1,7 +1,8 @@
 // /notes/: lightbox per note, and on the index page search, filters, sorting
 // and endless scrolling. The first 30 notes arrive as HTML; scrolling further
 // reads the month pages, and a search or filter reads /notes/index.json plus
-// the /notes/html/YYYY.json years it shows. Every note's HTML comes from
+// the /notes/html/YYYY-MM.json months it shows; /en/notes/ reads the same
+// files under its own data-base. Every note's HTML comes from
 // _plugins/notes.rb, never built here.
 (function () {
   var PAGE = 30;
@@ -9,6 +10,7 @@
   var list = document.getElementById('J_notes');
   if (!list) return;
   var assetV = window.ASSET_VERSION ? '?v=' + window.ASSET_VERSION : '';
+  var base = list.getAttribute('data-base') || '/notes/';
 
   // Lightbox: the photos of one note form one gallery.
   var lightbox = null;
@@ -134,6 +136,7 @@
   var sort = document.getElementById('J_notes_sort');
   var find = document.getElementById('J_notes_find');
   var more = document.getElementById('J_notes_more');
+  var olderText = more ? more.textContent : '';
   var empty = document.getElementById('J_notes_empty');
   var state = { q: '', c: '', t: '', y: '', sort: '' };
   var index = null;
@@ -174,7 +177,7 @@
 
   var loadIndex = function () {
     if (!indexLoading) {
-      indexLoading = fetch('/notes/index.json' + assetV)
+      indexLoading = fetch(base + 'index.json' + assetV)
         .then(function (res) { return res.json(); })
         .then(function (items) {
           items.forEach(function (item) {
@@ -195,7 +198,7 @@
   // stuck behind it.
   var loadText = function (low) {
     if (!textLoading) {
-      textLoading = Promise.all([loadIndex(), fetch('/notes/search.json' + assetV, low === true ? { priority: 'low' } : {}).then(function (res) { return res.json(); })])
+      textLoading = Promise.all([loadIndex(), fetch(base + 'search.json' + assetV, low === true ? { priority: 'low' } : {}).then(function (res) { return res.json(); })])
         .then(function (both) {
           var text = both[1];
           index.forEach(function (item, i) { item.s = (text[i] || '').toLowerCase(); });
@@ -207,7 +210,7 @@
 
   var loadMonth = function (m) {
     if (!chunks[m]) {
-      chunks[m] = fetch('/notes/html/' + m + '.json' + assetV).then(function (res) { return res.json(); });
+      chunks[m] = fetch(base + 'html/' + m + '.json' + assetV).then(function (res) { return res.json(); });
       chunks[m].catch(function () { delete chunks[m]; });
     }
     return chunks[m];
@@ -358,7 +361,7 @@
       busy = false;
       if (!left) return;
       if (more && list.children.length >= limit && (mode === 'results' ? shown < results.length : months[monthAt])) {
-        more.textContent = mode === 'months' ? '更早的 Notes' : '加载更多';
+        more.textContent = mode === 'months' ? olderText : more.getAttribute('data-more');
         more.href = mode === 'months' ? months[monthAt] : '#';
         more.hidden = false;
         return;

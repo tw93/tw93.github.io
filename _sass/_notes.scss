@@ -65,8 +65,16 @@ $notes-line: rgba($base-color, 0.14);
   margin-left: auto;
   align-items: center;
   gap: 0 14px;
+  // English labels run wider than the Chinese ones, so a 390px phone keeps
+  // the title and the controls on one row.
+  &:lang(en) {
+    column-gap: 10px;
+  }
   @media #{$medium} {
-    column-gap: 20px;
+    &,
+    &:lang(en) {
+      column-gap: 20px;
+    }
   }
   select {
     flex: none;

@@ -2,6 +2,7 @@
 layout: base
 body_id: notes
 ---
+{% assign ui = page.notes_ui %}
 {{ page.notes_sprite }}
 
 <div class="notes">
@@ -14,42 +15,42 @@ body_id: notes
 
   {% if page.notes_index %}
   <form class="notes-bar" id="J_notes_bar" role="search" onsubmit="return false">
-    <h1 class="notes-title">片语</h1>
+    <h1 class="notes-title">{{ ui.title }}</h1>
     <div class="notes-controls">
-      <select id="J_notes_c" name="c" aria-label="分类">
-        <option value="">分类</option>
+      <select id="J_notes_c" name="c" aria-label="{{ ui.category }}">
+        <option value="">{{ ui.category }}</option>
         {% for category in page.notes_categories %}<option value="{{ category.key }}">{{ category.label }}</option>{% endfor %}
       </select>
-      <select id="J_notes_y" name="y" aria-label="年份">
-        <option value="">年份</option>
+      <select id="J_notes_y" name="y" aria-label="{{ ui.year }}">
+        <option value="">{{ ui.year }}</option>
         {% for year in page.notes_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
       </select>
-      <select id="J_notes_t" name="t" aria-label="类型">
-        <option value="">类型</option>
-        <option value="l">长文</option>
-        <option value="p">图片</option>
-        <option value="v">视频</option>
-        <option value="t">串</option>
-        <option value="r">回复</option>
+      <select id="J_notes_t" name="t" aria-label="{{ ui.type }}">
+        <option value="">{{ ui.type }}</option>
+        <option value="l">{{ ui.long }}</option>
+        <option value="p">{{ ui.photo }}</option>
+        <option value="v">{{ ui.video }}</option>
+        <option value="t">{{ ui.thread }}</option>
+        <option value="r">{{ ui.replies_only }}</option>
       </select>
-      <select id="J_notes_sort" name="sort" aria-label="排序">
-        <option value="">最新</option>
-        <option value="old">最早</option>
-        <option value="like">点赞最多</option>
-        <option value="reply">评论最多</option>
-        <option value="bookmark">收藏最多</option>
+      <select id="J_notes_sort" name="sort" aria-label="{{ ui.sort }}">
+        <option value="">{{ ui.newest }}</option>
+        <option value="old">{{ ui.oldest }}</option>
+        <option value="like">{{ ui.like }}</option>
+        <option value="reply">{{ ui.reply }}</option>
+        <option value="bookmark">{{ ui.bookmark }}</option>
       </select>
-      <button class="notes-find" id="J_notes_find" type="button" aria-label="搜索" aria-expanded="false" aria-controls="J_notes_q"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="m10.4 10.4 3 3"/></svg></button>
+      <button class="notes-find" id="J_notes_find" type="button" aria-label="{{ ui.search }}" aria-expanded="false" aria-controls="J_notes_q"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="m10.4 10.4 3 3"/></svg></button>
     </div>
-    <input class="notes-search" id="J_notes_q" type="text" name="q" placeholder="搜索" aria-label="搜索 Notes" autocomplete="off" enterkeyhint="search">
+    <input class="notes-search" id="J_notes_q" type="text" name="q" placeholder="{{ ui.search }}" aria-label="{{ ui.search_label }}" autocomplete="off" enterkeyhint="search">
   </form>
   {% endif %}
 
-  <div class="notes-list" id="J_notes">{{ page.notes_html }}</div>
+  <div class="notes-list" id="J_notes" data-base="{{ ui.root }}">{{ page.notes_html }}</div>
 
   {% if page.notes_index %}
-  <div class="notes-empty" id="J_notes_empty" hidden><img src="https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png" width="64" height="64" alt=""><p>暂时没有相关的 Notes</p></div>
-  {% if page.notes_older %}<a class="notes-more" id="J_notes_more" href="{{ page.notes_older }}">更早的 Notes</a>{% endif %}
+  <div class="notes-empty" id="J_notes_empty" hidden><img src="https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png" width="64" height="64" alt=""><p>{{ ui.empty }}</p></div>
+  {% if page.notes_older %}<a class="notes-more" id="J_notes_more" href="{{ page.notes_older }}" data-more="{{ ui.more }}">{{ ui.older }}</a>{% endif %}
   {% else %}
   <nav class="notes-pager">
     {% if page.notes_newer %}<a href="{{ page.notes_newer.url }}">{{ page.notes_newer.label }}</a>{% else %}<span></span>{% endif %}
@@ -57,6 +58,6 @@ body_id: notes
   </nav>
   {% endif %}
 
-  <nav class="notes-archive" aria-label="按月浏览">{{ page.notes_archive }}</nav>
+  <nav class="notes-archive" aria-label="{{ ui.archive }}">{{ page.notes_archive }}</nav>
 </div>
 <script src="{{ '/js/notes.js' | relative_url }}?v={{ site.asset_version }}" defer></script>

@@ -13,6 +13,8 @@ require 'time'
 # - /notes/index.json, /notes/search.json and /notes/html/YYYY-MM.json, what
 #   js/notes.js filters, searches, sorts and renders;
 # - /notes/feed.xml, /notes.md and /api/notes.jsonl.
+# /en/notes/ repeats the list pages and data files with the notes written in
+# English and an English interface; the note pages stay at /notes/<id>.html.
 module Jekyll
   module Notes
     SITE_URL = 'https://tw93.fun'.freeze
@@ -37,6 +39,41 @@ module Jekyll
       'bookmark' => '<path d="M5 3h14v18l-7-4.67L5 21V3z"/>',
     }.freeze
     TITLES = { 'like' => '点赞', 'reply' => '评论', 'bookmark' => '收藏' }.freeze
+    # Interface text for each list: the Chinese one holds every note, the
+    # English one only the notes written in English. Keys under 'page' are
+    # read by _layouts/notes.html.
+    UI = {
+      'zh' => {
+        'lang' => 'zh', 'root' => '/notes/', 'categories' => CATEGORIES, 'titles' => TITLES,
+        'unfold' => '展开全文', 'view' => '在 X 上查看', 'play' => '在 X 上播放', 'quote' => '引用的推文',
+        'reply_to' => '回复', 'reply' => '回复', 'archive' => '按月浏览', 'all' => '全部 Notes',
+        'page' => {
+          'title' => '片语', 'category' => '分类', 'year' => '年份', 'type' => '类型',
+          'long' => '长文', 'photo' => '图片', 'video' => '视频', 'thread' => '串', 'replies_only' => '回复',
+          'sort' => '排序', 'newest' => '最新', 'oldest' => '最早', 'like' => '点赞最多', 'reply' => '评论最多', 'bookmark' => '收藏最多',
+          'search' => '搜索', 'search_label' => '搜索 Notes', 'empty' => '暂时没有相关的 Notes',
+          'older' => '更早的 Notes', 'more' => '加载更多', 'archive' => '按月浏览',
+        },
+      },
+      'en' => {
+        'lang' => 'en', 'root' => '/en/notes/',
+        'categories' => {
+          'ai' => 'AI', 'tools' => 'Tools', 'learn' => 'Learning',
+          'make' => 'Products', 'think' => 'Thoughts', 'life' => 'Life',
+        },
+        'titles' => { 'like' => 'Likes', 'reply' => 'Replies', 'bookmark' => 'Bookmarks' },
+        'unfold' => 'Show more', 'view' => 'View on X', 'play' => 'Play on X', 'quote' => 'Quoted post',
+        'reply_to' => 'Replying to', 'reply' => 'Reply', 'archive' => 'Browse by month', 'all' => 'All notes',
+        'page' => {
+          'title' => 'Notes', 'category' => 'Topic', 'year' => 'Year', 'type' => 'Type',
+          'long' => 'Long', 'photo' => 'Photos', 'video' => 'Videos', 'thread' => 'Threads', 'replies_only' => 'Replies',
+          'sort' => 'Sort', 'newest' => 'Latest', 'oldest' => 'Oldest', 'like' => 'Most liked', 'reply' => 'Most replies', 'bookmark' => 'Most bookmarked',
+          'search' => 'Search', 'search_label' => 'Search notes', 'empty' => 'No notes found',
+          'older' => 'Older notes', 'more' => 'Load more', 'archive' => 'Browse by month',
+        },
+      },
+    }.freeze
+    ZH = UI['zh']
     X_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3zm-1.08 16.17h1.7L7.4 4.73H5.58l11.09 14.44z"/></svg>'.freeze
     QUOTE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.58 17.32C3.55 16.23 3 15 3 13.01c0-3.5 2.46-6.64 6.03-8.19l.9 1.38C6.6 8 5.94 10.35 5.68 11.82c.54-.28 1.24-.38 1.93-.31 1.8.17 3.23 1.65 3.23 3.49a3.5 3.5 0 0 1-3.5 3.5c-1.07 0-2.1-.49-2.76-1.18zm10 0C13.55 16.23 13 15 13 13.01c0-3.5 2.46-6.64 6.03-8.19l.9 1.38c-3.34 1.8-4 4.15-4.25 5.62.54-.28 1.24-.38 1.93-.31 1.8.17 3.23 1.65 3.23 3.49a3.5 3.5 0 0 1-3.5 3.5c-1.07 0-2.1-.49-2.76-1.18z"/></svg>'.freeze
     PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'.freeze
@@ -67,8 +104,14 @@ module Jekyll
       "/notes/#{note['id']}.html"
     end
 
-    def count(n)
+    def count(n, ui = ZH)
+      return n >= 1_000 ? "#{(n / 1_000.0).round(1).to_s.sub(/\.0\z/, '')}K" : n.to_s if ui['lang'] == 'en'
+
       n >= 10_000 ? "#{(n / 10_000.0).round(1).to_s.sub(/\.0\z/, '')}万" : n.to_s
+    end
+
+    def month_label(year, month, ui = ZH)
+      ui['lang'] == 'en' ? Time.new(year.to_i, month.to_i).strftime('%B %Y') : "#{year.to_i} 年 #{month.to_i} 月"
     end
 
     def plain(text)
@@ -76,13 +119,13 @@ module Jekyll
     end
 
     # Hashtags and @mentions, on a run of text that holds no URL.
-    def rich(segment)
+    def rich(segment, ui = ZH)
       esc(segment)
-        .gsub(/(^|[^\p{L}\p{N}_&])#([\p{L}\p{N}_]+)/) { "#{$1}<a class=\"note-tag\" href=\"/notes/?q=%23#{CGI.escape($2)}\">##{$2}</a>" }
+        .gsub(/(^|[^\p{L}\p{N}_&])#([\p{L}\p{N}_]+)/) { "#{$1}<a class=\"note-tag\" href=\"#{ui['root']}?q=%23#{CGI.escape($2)}\">##{$2}</a>" }
         .gsub(/(^|[^\p{L}\p{N}_])@(\w{1,15})/) { "#{$1}<a href=\"https://x.com/#{$2}\" rel=\"nofollow noopener\" target=\"_blank\">@#{$2}</a>" }
     end
 
-    def inline(text)
+    def inline(text, ui = ZH)
       out = +''
       pos = 0
       text.to_enum(:scan, URL_RE).each do
@@ -92,17 +135,17 @@ module Jekyll
         url = url[0...(url.length - trail.length)]
         shown = url.sub(%r{\Ahttps?://(www\.)?}, '')
         shown = "#{shown[0, 40]}…" if shown.length > 42
-        out << rich(text[pos...match.begin(0)])
+        out << rich(text[pos...match.begin(0)], ui)
         out << %(<a href="#{esc(url)}" rel="nofollow noopener" target="_blank">#{esc(shown)}</a>#{esc(trail)})
         pos = match.end(0)
       end
-      out << rich(text[pos..])
+      out << rich(text[pos..], ui)
     end
 
-    def text_html(text)
+    def text_html(text, ui = ZH)
       return '' if text.to_s.strip.empty?
 
-      text.split(/\n{2,}/).map { |para| "<p>#{inline(para).gsub("\n", '<br>')}</p>" }.join
+      text.split(/\n{2,}/).map { |para| "<p>#{inline(para, ui).gsub("\n", '<br>')}</p>" }.join
     end
 
     # Display size for a thumbnail: a mirrored note image has WebP copies at
@@ -134,7 +177,7 @@ module Jekyll
     # One photo or video fills the column up to 640px tall (720px for a
     # video). Two or more sit in a row that scrolls sideways, every item at
     # one height and its own shape, so nothing is cropped.
-    def media_html(media)
+    def media_html(media, ui = ZH)
       return '' if media.nil? || media.empty?
 
       single = media.size == 1
@@ -161,7 +204,7 @@ module Jekyll
           end
         else
           length = item['duration'] ? %(<span class="note-duration">#{item['duration'] / 60}:#{format('%02d', item['duration'] % 60)}</span>) : ''
-          %(<a class="note-video" href="#{esc(item['src'])}" target="_blank" rel="noopener" style="--r: #{w} / #{h}" aria-label="在 X 上播放"><img #{img_attrs(item['poster'].to_s, sizes)} width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async"><span class="note-play">#{icon('play')}#{length}</span></a>)
+          %(<a class="note-video" href="#{esc(item['src'])}" target="_blank" rel="noopener" style="--r: #{w} / #{h}" aria-label="#{ui['play']}"><img #{img_attrs(item['poster'].to_s, sizes)} width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async"><span class="note-play">#{icon('play')}#{length}</span></a>)
         end
       end
       %(<div class="note-media#{single ? ' note-media-1' : ' note-strip'}">#{items.join}</div>)
@@ -177,7 +220,7 @@ module Jekyll
       %(<a class="note-article" href="#{esc(card['url'])}" target="_blank" rel="noopener">#{cover}<span class="note-article-body"><strong>#{esc(card['title'])}</strong>#{preview}</span></a>)
     end
 
-    def quote_html(note, by_id)
+    def quote_html(note, by_id, ui = ZH)
       quote = note['quote']
       return '' unless quote
 
@@ -185,15 +228,15 @@ module Jekyll
       if own
         excerpt = plain(own['text'])
         excerpt = "#{excerpt[0, 48]}…" if excerpt.length > 50
-        %(<a class="note-quote" href="#{page_url(own)}">#{icon('quote')}#{esc(excerpt.empty? ? '引用的推文' : excerpt)}</a>)
+        %(<a class="note-quote" href="#{page_url(own)}">#{icon('quote')}#{esc(excerpt.empty? ? ui['quote'] : excerpt)}</a>)
       else
-        %(<a class="note-quote" href="#{esc(quote['url'])}" target="_blank" rel="noopener">#{icon('quote')}引用的推文</a>)
+        %(<a class="note-quote" href="#{esc(quote['url'])}" target="_blank" rel="noopener">#{icon('quote')}#{ui['quote']}</a>)
       end
     end
 
     # Each count opens its own action on X, and the X mark the post itself,
     # one row of links rather than counts with a stray mark at the far end.
-    def stats_html(note)
+    def stats_html(note, ui = ZH)
       metrics = note['metrics'] || {}
       id = note['id']
       targets = {
@@ -205,9 +248,9 @@ module Jekyll
         value = metrics[key].to_i
         next if value.zero?
 
-        %(<a class="note-stat" href="#{esc(targets[key])}" target="_blank" rel="nofollow noopener" title="#{TITLES[key]}">#{icon(key)}#{count(value)}</a>)
+        %(<a class="note-stat" href="#{esc(targets[key])}" target="_blank" rel="nofollow noopener" title="#{ui['titles'][key]}">#{icon(key)}#{count(value, ui)}</a>)
       end
-      stats << %(<a class="note-stat note-x" href="#{esc(note['url'])}" target="_blank" rel="noopener" title="在 X 上查看" aria-label="在 X 上查看">#{icon('x')}</a>)
+      stats << %(<a class="note-stat note-x" href="#{esc(note['url'])}" target="_blank" rel="noopener" title="#{ui['view']}" aria-label="#{ui['view']}">#{icon('x')}</a>)
       stats.join
     end
 
@@ -246,14 +289,14 @@ module Jekyll
     # rest of its text and the thread wait behind 展开全文, which sits where
     # the text stops. The link opens the note's own page; js/notes.js
     # unfolds it in place instead.
-    def folded_text_html(note)
+    def folded_text_html(note, ui = ZH)
       text = note['text'].to_s
-      link = %(<a class="note-unfold" href="#{page_url(note)}">展开全文</a>)
+      link = %(<a class="note-unfold" href="#{page_url(note)}">#{ui['unfold']}</a>)
       cut = fold_cut(text)
       unless cut
         return %(<p class="note-fold-mark">#{link}</p>) if text.strip.empty?
 
-        return text_html(text).sub(%r{</p>\z}, %(<span class="note-fold-mark"> #{link}</span></p>))
+        return text_html(text, ui).sub(%r{</p>\z}, %(<span class="note-fold-mark"> #{link}</span></p>))
       end
 
       head = text[0...cut].rstrip
@@ -281,36 +324,36 @@ module Jekyll
                    end
                    '…'
                  end
-      html = paras.map { |para| "<p>#{inline(para).gsub("\n", '<br>')}</p>" }.join
-      html << "<p>#{inline(last).gsub("\n", '<br>')}<span class=\"note-fold-mark\">#{cut_mark}#{link}</span>"
-      html << %(<span class="note-tail">#{inline(lead).gsub("\n", '<br>')}</span>) unless lead.empty?
+      html = paras.map { |para| "<p>#{inline(para, ui).gsub("\n", '<br>')}</p>" }.join
+      html << "<p>#{inline(last, ui).gsub("\n", '<br>')}<span class=\"note-fold-mark\">#{cut_mark}#{link}</span>"
+      html << %(<span class="note-tail">#{inline(lead, ui).gsub("\n", '<br>')}</span>) unless lead.empty?
       html << '</p>'
-      html << %(<div class="note-rest">#{text_html(rest)}</div>) unless rest.to_s.strip.empty?
+      html << %(<div class="note-rest">#{text_html(rest, ui)}</div>) unless rest.to_s.strip.empty?
       html
     end
 
     # In lists a long note is folded; see folded_text_html.
-    def article(note, by_id, fold: false)
+    def article(note, by_id, fold: false, ui: ZH)
       folded = fold && !note['article'] && full_text(note).length > FOLD_CHARS
       time = local(note['date'])
-      category = CATEGORIES.fetch(note['category'])
+      category = ui['categories'].fetch(note['category'])
       meta = [%(<span class="note-name">Tw93</span>), %(<a class="note-date" href="#{page_url(note)}"><time datetime="#{time.iso8601}">#{time.strftime('%Y-%m-%d')}</time></a>)]
       if (reply = note['reply_to'])
-        label = reply['user'] ? "回复 @#{esc(reply['user'])}" : '回复'
+        label = reply['user'] ? "#{ui['reply_to']} @#{esc(reply['user'])}" : ui['reply']
         meta << %(<a href="#{esc(reply['url'])}" target="_blank" rel="nofollow noopener">#{label}</a>)
       end
-      meta << %(<a class="note-cat" href="/notes/?c=#{note['category']}">#{category}</a>)
+      meta << %(<a class="note-cat" href="#{ui['root']}?c=#{note['category']}">#{category}</a>)
 
-      body = (folded ? folded_text_html(note) : text_html(note['text'])) + article_html(note) + media_html(note['media'])
-      thread = (note['thread'] || []).map { |part| text_html(part['text']) + media_html(part['media']) + quote_html(part, by_id) }.join
+      body = (folded ? folded_text_html(note, ui) : text_html(note['text'], ui)) + article_html(note) + media_html(note['media'], ui)
+      thread = (note['thread'] || []).map { |part| text_html(part['text'], ui) + media_html(part['media'], ui) + quote_html(part, by_id, ui) }.join
       body << (folded && !thread.empty? ? %(<div class="note-rest">#{thread}</div>) : thread)
-      body << quote_html(note, by_id)
+      body << quote_html(note, by_id, ui)
 
       <<~HTML.delete("\n")
         <article class="note#{folded ? ' note-fold' : ''}" id="n#{note['id']}">
         <div class="note-meta"><img class="note-avatar" src="#{AVATAR}" width="20" height="20" alt="">#{meta.join('<span class="note-dot"> · </span>')}</div>
         <div class="note-body">#{body}</div>
-        <div class="note-foot">#{stats_html(note)}</div>
+        <div class="note-foot">#{stats_html(note, ui)}</div>
         </article>
       HTML
     end
@@ -353,16 +396,18 @@ module Jekyll
 
     # One row a year and a fixed column a month, December first, so the
     # months line up down the years instead of running on like a sentence.
-    def archive_html(months)
+    def archive_html(months, ui = ZH)
       years = months.keys.group_by { |key| key[0, 4] }
       rows = years.sort.reverse.map do |year, keys|
         links = keys.sort.reverse.map do |key|
           month = key[5, 2].to_i
-          %(<a href="/notes/#{key[0, 4]}/#{key[5, 2]}/" style="grid-column: #{14 - month}" title="#{key[0, 4]} 年 #{month} 月，#{months[key].size} 条">#{month}</a>)
+          size = months[key].size
+          title = ui['lang'] == 'en' ? "#{month_label(year, month, ui)}, #{size} note#{size == 1 ? '' : 's'}" : "#{month_label(year, month)}，#{size} 条"
+          %(<a href="#{ui['root']}#{key[0, 4]}/#{key[5, 2]}/" style="grid-column: #{14 - month}" title="#{title}">#{month}</a>)
         end
         %(<div class="notes-year"><span>#{year}</span>#{links.join}</div>)
       end
-      %(<h2 class="notes-archive-title">按月浏览</h2>#{rows.join})
+      %(<h2 class="notes-archive-title">#{ui['archive']}</h2>#{rows.join})
     end
 
     def make_page(site, dir, name, data)
@@ -385,43 +430,68 @@ module Jekyll
         missing = notes.reject { |note| CATEGORIES.key?(note['category']) }
         raise "notes: #{missing.size} note(s) without a known category, first #{missing.first['id']}" unless missing.empty?
 
-        html = notes.to_h { |note| [note['id'], Notes.article(note, by_id, fold: true)] }
-        months = notes.group_by { |note| Notes.local(note['date']).strftime('%Y-%m') }
-        archive = Notes.archive_html(months)
-
-        site.pages << Notes.make_page(site, 'notes', 'index.html',
-          'layout' => 'notes', 'title' => 'Notes', 'notes_index' => true,
-          'summary' => "Tw93 在 X 上写下的 #{notes.size} 条日常思考和碎碎念，从 #{months.keys.min[0, 4]} 年至今，可以搜索、按分类查找和按点赞排序。",
-          'notes_years' => months.keys.map { |key| key[0, 4] }.uniq.sort.reverse,
-          'notes_categories' => CATEGORIES.map { |key, label| { 'key' => key, 'label' => label } },
-          'notes_html' => Notes.eager(notes.first(FIRST_PAGE).map { |note| html[note['id']] }.join),
-          'notes_older' => notes.size > FIRST_PAGE ? "/notes/#{Notes.local(notes[FIRST_PAGE]['date']).strftime('%Y/%m')}/" : nil,
-          'notes_archive' => archive)
-
-        keys = months.keys.sort
-        keys.each_with_index do |key, index|
-          year, month = key.split('-')
-          newer = keys[index + 1]
-          older = index.positive? ? keys[index - 1] : nil
-          site.pages << Notes.make_page(site, "notes/#{year}/#{month}", 'index.html',
-            'layout' => 'notes', 'title' => "#{year} 年 #{month.to_i} 月 Notes",
-            'summary' => "Tw93 #{year} 年 #{month.to_i} 月在 X 上写下的 #{months[key].size} 条 Notes。",
-            'notes_month' => "#{year} 年 #{month.to_i} 月",
-            'notes_html' => Notes.eager(months[key].map { |note| html[note['id']] }.join),
-            'notes_newer' => newer && { 'url' => "/notes/#{newer.tr('-', '/')}/", 'label' => "#{newer[0, 4]} 年 #{newer[5, 2].to_i} 月" },
-            'notes_older' => older && { 'url' => "/notes/#{older.tr('-', '/')}/", 'label' => "#{older[0, 4]} 年 #{older[5, 2].to_i} 月" },
-            'notes_archive' => archive)
+        english = notes.select { |note| note['lang'] == 'en' }
+        lists = {
+          'zh' => { 'notes' => notes, 'dir' => 'notes' },
+          'en' => { 'notes' => english, 'dir' => 'en/notes' },
+        }
+        lists.each do |lang, list|
+          ui = UI[lang]
+          list['html'] = list['notes'].to_h { |note| [note['id'], Notes.article(note, by_id, fold: true, ui: ui)] }
+          list['months'] = list['notes'].group_by { |note| Notes.local(note['date']).strftime('%Y-%m') }
         end
 
+        lists.each do |lang, list|
+          next if list['notes'].empty?
+
+          ui = UI[lang]
+          group = list['notes']
+          html = list['html']
+          months = list['months']
+          archive = Notes.archive_html(months, ui)
+          since = months.keys.min[0, 4]
+          common = { 'notes_ui' => ui['page'].merge('root' => ui['root']), 'notes_archive' => archive }
+          common['lang'] = 'en-US' if lang == 'en'
+
+          site.pages << Notes.make_page(site, list['dir'], 'index.html', common.merge(
+            'layout' => 'notes', 'title' => 'Notes', 'notes_index' => true,
+            'lang_equivalent' => lang == 'en' ? UI['zh']['root'] : UI['en']['root'],
+            'summary' => lang == 'en' ? "#{group.size} short posts Tw93 wrote in English on X since #{since}, searchable, filterable by category and sortable by likes." : "Tw93 在 X 上写下的 #{group.size} 条日常思考和碎碎念，从 #{since} 年至今，可以搜索、按分类查找和按点赞排序。",
+            'notes_years' => months.keys.map { |key| key[0, 4] }.uniq.sort.reverse,
+            'notes_categories' => ui['categories'].filter_map { |key, label| { 'key' => key, 'label' => label } if group.any? { |note| note['category'] == key } },
+            'notes_html' => Notes.eager(group.first(FIRST_PAGE).map { |note| html[note['id']] }.join),
+            'notes_older' => group.size > FIRST_PAGE ? "#{ui['root']}#{Notes.local(group[FIRST_PAGE]['date']).strftime('%Y/%m')}/" : nil))
+
+          keys = months.keys.sort
+          keys.each_with_index do |key, index|
+            year, month = key.split('-')
+            newer = keys[index + 1]
+            older = index.positive? ? keys[index - 1] : nil
+            label = Notes.month_label(year, month, ui)
+            size = months[key].size
+            site.pages << Notes.make_page(site, "#{list['dir']}/#{year}/#{month}", 'index.html', common.merge(
+              'layout' => 'notes', 'title' => "#{label} Notes",
+              'summary' => lang == 'en' ? "#{size} note#{size == 1 ? '' : 's'} Tw93 wrote in English on X in #{label}." : "Tw93 #{label}在 X 上写下的 #{size} 条 Notes。",
+              'notes_month' => label,
+              'notes_html' => Notes.eager(months[key].map { |note| html[note['id']] }.join),
+              'notes_newer' => newer && { 'url' => "#{ui['root']}#{newer.tr('-', '/')}/", 'label' => Notes.month_label(newer[0, 4], newer[5, 2], ui) },
+              'notes_older' => older && { 'url' => "#{ui['root']}#{older.tr('-', '/')}/", 'label' => Notes.month_label(older[0, 4], older[5, 2], ui) }))
+          end
+        end
+
+        # A note written in English keeps its one page at /notes/<id>.html, in
+        # English and leading back to the English lists.
         notes.each do |note|
           time = Notes.local(note['date'])
+          ui = note['lang'] == 'en' ? UI['en'] : ZH
           data = {
             # Without an explicit permalink Jekyll drops the .html from page.url,
             # and canonical and sitemap.xml then point at a URL that 404s.
             'permalink' => Notes.page_url(note),
             'layout' => 'note', 'title' => Notes.title_of(note), 'summary' => Notes.summary_of(note),
-            'note_html' => Notes.eager(Notes.article(note, by_id)),
-            'note_month' => { 'url' => "/notes/#{time.strftime('%Y/%m')}/", 'label' => "#{time.year} 年 #{time.month} 月" },
+            'note_html' => Notes.eager(Notes.article(note, by_id, ui: ui)),
+            'note_all' => { 'url' => ui['root'], 'label' => ui['all'] },
+            'note_month' => { 'url' => "#{ui['root']}#{time.strftime('%Y/%m')}/", 'label' => Notes.month_label(time.year, time.month, ui) },
             'note_jsonld' => JSON.generate(
               '@context' => 'https://schema.org',
               '@type' => 'SocialMediaPosting',
@@ -439,10 +509,11 @@ module Jekyll
               ]
             ).gsub('</', '<\/'),
           }
+          data['lang'] = 'en-US' if note['lang'] == 'en'
           site.pages << Notes.make_page(site, 'notes', "#{note['id']}.html", data)
         end
 
-        site.config['notes_build'] = { 'notes' => notes, 'html' => html, 'months' => months }
+        site.config['notes_build'] = { 'notes' => notes, 'months' => lists['zh']['months'], 'lists' => lists.values }
       end
     end
 
@@ -530,21 +601,26 @@ module Jekyll
       # page fetches while idle; the text a search needs is a separate file in
       # the same order, fetched once the search field is touched. The HTML of
       # the notes they show comes per month, so a category's first screen
-      # loads a few months, not whole years.
-      items = notes.map do |note|
-        {
-          'i' => note['id'], 't' => Time.parse(note['date']).to_i, 'c' => note['category'], 'f' => flags(note),
-          'l' => note.dig('metrics', 'like').to_i, 'r' => note.dig('metrics', 'reply').to_i,
-          'b' => note.dig('metrics', 'bookmark').to_i,
-        }
-      end
-      text = notes.map do |note|
-        [full_text(note), note.dig('reply_to', 'user') && "@#{note['reply_to']['user']}"].compact.join(' ').gsub(/\s+/, ' ')
-      end
-      write(site, 'notes/index.json', JSON.generate(items))
-      write(site, 'notes/search.json', JSON.generate(text))
-      notes.group_by { |note| local(note['date']).strftime('%Y-%m') }.each do |month, group|
-        write(site, "notes/html/#{month}.json", JSON.generate(group.to_h { |note| [note['id'], state['html'][note['id']]] }))
+      # loads a few months, not whole years. Each list has its own set.
+      state['lists'].each do |list|
+        group = list['notes']
+        next if group.empty?
+
+        items = group.map do |note|
+          {
+            'i' => note['id'], 't' => Time.parse(note['date']).to_i, 'c' => note['category'], 'f' => flags(note),
+            'l' => note.dig('metrics', 'like').to_i, 'r' => note.dig('metrics', 'reply').to_i,
+            'b' => note.dig('metrics', 'bookmark').to_i,
+          }
+        end
+        text = group.map do |note|
+          [full_text(note), note.dig('reply_to', 'user') && "@#{note['reply_to']['user']}"].compact.join(' ').gsub(/\s+/, ' ')
+        end
+        write(site, "#{list['dir']}/index.json", JSON.generate(items))
+        write(site, "#{list['dir']}/search.json", JSON.generate(text))
+        list['months'].each do |month, notes_of_month|
+          write(site, "#{list['dir']}/html/#{month}.json", JSON.generate(notes_of_month.to_h { |note| [note['id'], list['html'][note['id']]] }))
+        end
       end
       write(site, 'notes/feed.xml', feed(notes))
       write(site, 'notes.md', markdown(notes, state['months']))
