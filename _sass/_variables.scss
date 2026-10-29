@@ -44,6 +44,9 @@ $warning: #dd8338;
 $danger: #c64537;
 $info: #1B365D;
 $border-radius: 8px;
+// Buttons are pills on this site, Weekly and the product sites; cards and
+// panels keep $border-radius.
+$button-radius: 999px;
 
 // Screen Size
 // --------------------------------------------------
