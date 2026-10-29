@@ -70,6 +70,7 @@ exclude:
     "Gemfile",
     "Gemfile.lock",
     "README.md",
+    "AGENTS.md",
     "LICENSE",
     "package.json",
     "node_modules",
