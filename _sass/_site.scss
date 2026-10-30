@@ -37,8 +37,9 @@ html {
 	}
 }
 
-// Language Toggle (Weekly Style)
+// Language Toggle
 // --------------------------------------------------
+// A globe in the same 36px box, size and grey as the search icon beside it.
 .language-switch {
   display: flex !important; // Override header link styles
   align-items: center;
@@ -48,17 +49,18 @@ html {
   padding: 0 !important; // Fix oval shape by removing inherited padding
   border-radius: 50%;
   background-color: transparent; // minimalist
-  color: #9ca3af !important; // gray-400
-  font-size: 14px;
-  font-weight: 500;
+  color: #4b5563 !important; // gray-600, one grey with GitHub, X and search
   text-decoration: none;
-  transition: colors 150ms ease;
+  transition: color 0.12s ease-out;
 
   &:hover {
     color: #111827 !important; // gray-900
     background-color: transparent;
   }
 
-  // Dark mode support (if applicable via body class or media query)
-
+  svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
 }

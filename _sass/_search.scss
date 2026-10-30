@@ -10,7 +10,7 @@
   a {
     display: flex;
     padding: 9px;
-    color: #4b5563; // gray-600, a step darker than search: these are links
+    color: #4b5563; // gray-600
     transition: color 0.12s ease-out;
     &:hover {
       color: #111827;
@@ -33,17 +33,19 @@
   }
 }
 
-// Drop the list items' 8px padding between the two groups, so GitHub, X and
-// search sit 18px apart ink to ink.
+// Drop the list items' 8px padding between the groups, so GitHub, X, search
+// and the language globe sit 18px apart ink to ink.
 .header-social {
   padding-right: 0;
 }
 
 .search-btn-container {
   line-height: 1;
+  padding-right: 0;
 }
 
-.header-social + .search-btn-container {
+.header-social + .search-btn-container,
+.search-btn-container + .language-item {
   padding-left: 0;
 }
 
@@ -58,12 +60,12 @@
   border: none;
   background-color: transparent; // minimalist
   cursor: pointer;
-  transition: colors 150ms ease;
+  transition: color 0.12s ease-out;
 
   &,
   &:link,
   &:visited {
-    color: #9ca3af !important; // gray-400
+    color: #4b5563 !important; // gray-600, one grey with GitHub and X
   }
 
   &:hover {
