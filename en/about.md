@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-poem: 行到水窮處，坐看雲起時
+poem: 且將新火試新茶，詩酒趁年華
 permalink: /en/about.html
 hideHomeActive: true
 lang: en-US
