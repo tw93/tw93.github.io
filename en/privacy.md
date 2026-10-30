@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Privacy Notice
+poem: 君子之交淡若水
 permalink: /en/privacy.html
 hideHomeActive: true
 lang: en-US

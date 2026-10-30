@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 关于我
+poem: 致廣大而盡精微
 permalink: /about.html
 hideHomeActive: true
 lang_equivalent: /en/about.html
