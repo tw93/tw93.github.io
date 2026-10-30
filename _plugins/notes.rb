@@ -52,7 +52,7 @@ module Jekyll
           'long' => '长文', 'photo' => '图片', 'video' => '视频', 'thread' => '串', 'replies_only' => '回复',
           'sort' => '排序', 'newest' => '最新', 'oldest' => '最早', 'like' => '点赞最多', 'reply' => '评论最多', 'bookmark' => '收藏最多',
           'search' => '搜索', 'search_label' => '搜索 Notes', 'empty' => '暂时没有相关的 Notes',
-          'older' => '更早的 Notes', 'more' => '加载更多', 'archive' => '按月浏览',
+          'older' => '更早的 Notes', 'more' => '加载更多', 'retry' => '重新加载', 'archive' => '按月浏览',
         },
       },
       'en' => {
@@ -69,7 +69,7 @@ module Jekyll
           'long' => 'Long', 'photo' => 'Photos', 'video' => 'Videos', 'thread' => 'Threads', 'replies_only' => 'Replies',
           'sort' => 'Sort', 'newest' => 'Latest', 'oldest' => 'Oldest', 'like' => 'Most liked', 'reply' => 'Most replies', 'bookmark' => 'Most bookmarked',
           'search' => 'Search', 'search_label' => 'Search notes', 'empty' => 'No notes found',
-          'older' => 'Older notes', 'more' => 'Load more', 'archive' => 'Browse by month',
+          'older' => 'Older notes', 'more' => 'Load more', 'retry' => 'Retry', 'archive' => 'Browse by month',
         },
       },
     }.freeze

@@ -172,6 +172,13 @@ $notes-line: rgba($base-color, 0.14);
   white-space: pre;
 }
 
+// A parameterized first visit must not paint the default newest notes.
+.notes.is-initial .notes-list {
+  visibility: hidden;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 .notes-list {
   transition: opacity 0.25s ease-out;
   &.is-waiting {

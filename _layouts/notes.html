@@ -44,13 +44,35 @@ body_id: notes
     </div>
     <input class="notes-search" id="J_notes_q" type="text" name="q" placeholder="{{ ui.search }}" aria-label="{{ ui.search_label }}" autocomplete="off" enterkeyhint="search">
   </form>
+  <script data-notes-initial>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var query = params.get('q') || '';
+      var tag = (params.get('tag') || '').trim();
+      if (tag) query = '#' + tag;
+      var pending = !!query.trim();
+      if (pending) {
+        document.getElementById('J_notes_q').value = query;
+        document.getElementById('J_notes_bar').classList.add('is-searching');
+        document.getElementById('J_notes_find').setAttribute('aria-expanded', 'true');
+      }
+      document.querySelectorAll('#J_notes_bar select').forEach(function (select) {
+        var value = params.get(select.name);
+        if (value && Array.prototype.some.call(select.options, function (option) { return option.value === value; })) {
+          select.value = value;
+          pending = true;
+        }
+      });
+      if (pending) document.currentScript.parentElement.classList.add('is-initial');
+    })();
+  </script>
   {% endif %}
 
   <div class="notes-list" id="J_notes" data-base="{{ ui.root }}">{{ page.notes_html }}</div>
 
   {% if page.notes_index %}
   <div class="notes-empty" id="J_notes_empty" hidden><img src="https://gw.alicdn.com/imgextra/i4/O1CN01XYYPwL1uheeXASHIQ_!!6000000006069-2-tps-420-420.png" width="64" height="64" alt=""><p>{{ ui.empty }}</p></div>
-  {% if page.notes_older %}<a class="notes-more" id="J_notes_more" href="{{ page.notes_older }}" data-more="{{ ui.more }}">{{ ui.older }}</a>{% endif %}
+  {% if page.notes_older %}<a class="notes-more" id="J_notes_more" href="{{ page.notes_older }}" data-more="{{ ui.more }}" data-retry="{{ ui.retry }}">{{ ui.older }}</a>{% endif %}
   {% else %}
   <nav class="notes-pager">
     {% if page.notes_newer %}<a href="{{ page.notes_newer.url }}">{{ page.notes_newer.label }}</a>{% else %}<span></span>{% endif %}
@@ -60,4 +82,4 @@ body_id: notes
 
   <nav class="notes-archive" aria-label="{{ ui.archive }}">{{ page.notes_archive }}</nav>
 </div>
-<script src="{{ '/js/notes.js' | relative_url }}?v={{ site.asset_version }}" defer></script>
+<script src="{{ '/js/notes.js' | relative_url }}?v={{ site.asset_version }}" defer onerror="var list=document.getElementById('J_notes');if(list.parentElement.classList.contains('is-initial')){list.hidden=true;var more=document.getElementById('J_notes_more');if(more){more.textContent=more.dataset.retry;more.href=location.href;more.hidden=false;}}"></script>

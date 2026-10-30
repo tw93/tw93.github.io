@@ -147,6 +147,7 @@
   var shown = 0;
   var token = 0;
   var busy = false;
+  var retryFilter = false;
   // A new filter keeps the old notes on screen, dimmed if the wait runs
   // long, until its first batch is ready to replace them, so the archive
   // below never moves up into the gap.
@@ -157,6 +158,8 @@
     clearTimeout(waitTimer);
     list.classList.remove('is-waiting');
     list.innerHTML = '';
+    list.hidden = false;
+    list.parentElement.classList.remove('is-initial');
     if (empty) empty.hidden = results.length > 0;
   };
   // Endless scrolling stops after this many notes so an old phone's memory
@@ -173,12 +176,15 @@
 
   var params = new URLSearchParams(location.search);
   Object.keys(state).forEach(function (key) { state[key] = params.get(key) || ''; });
-  if (params.get('tag')) state.q = '#' + params.get('tag');
+  if ((params.get('tag') || '').trim()) state.q = '#' + params.get('tag').trim();
 
   var loadIndex = function () {
     if (!indexLoading) {
       indexLoading = fetch(base + 'index.json' + assetV)
-        .then(function (res) { return res.json(); })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Notes request failed');
+          return res.json();
+        })
         .then(function (items) {
           items.forEach(function (item) {
             var day = new Date(item.t * 1000 + 8 * 3600 * 1000);
@@ -198,7 +204,10 @@
   // stuck behind it.
   var loadText = function (low) {
     if (!textLoading) {
-      textLoading = Promise.all([loadIndex(), fetch(base + 'search.json' + assetV, low === true ? { priority: 'low' } : {}).then(function (res) { return res.json(); })])
+      textLoading = Promise.all([loadIndex(), fetch(base + 'search.json' + assetV, low === true ? { priority: 'low' } : {}).then(function (res) {
+          if (!res.ok) throw new Error('Notes request failed');
+          return res.json();
+        })])
         .then(function (both) {
           var text = both[1];
           index.forEach(function (item, i) { item.s = (text[i] || '').toLowerCase(); });
@@ -210,7 +219,10 @@
 
   var loadMonth = function (m) {
     if (!chunks[m]) {
-      chunks[m] = fetch(base + 'html/' + m + '.json' + assetV).then(function (res) { return res.json(); });
+      chunks[m] = fetch(base + 'html/' + m + '.json' + assetV).then(function (res) {
+          if (!res.ok) throw new Error('Notes request failed');
+          return res.json();
+        });
       chunks[m].catch(function () { delete chunks[m]; });
     }
     return chunks[m];
@@ -341,7 +353,7 @@
 
   var syncControls = function () {
     input.value = state.q;
-    if (state.q) searching(true);
+    if (state.q.trim()) searching(true);
     [[cat, 'c'], [year, 'y'], [type, 't'], [sort, 'sort']].forEach(function (entry) {
       var select = entry[0], key = entry[1];
       select.value = state[key];
@@ -357,6 +369,17 @@
   var sentinel = document.createElement('div');
   sentinel.className = 'notes-sentinel';
   list.parentNode.insertBefore(sentinel, list.nextSibling);
+  var failedFilter = function () {
+    retryFilter = true;
+    clearTimeout(waitTimer);
+    list.classList.remove('is-waiting');
+    if (list.parentElement.classList.contains('is-initial')) list.hidden = true;
+    if (more) {
+      more.textContent = more.getAttribute('data-retry');
+      more.href = location.href;
+      more.hidden = false;
+    }
+  };
   var step = function () {
     if (busy) return;
     busy = true;
@@ -377,6 +400,7 @@
     }, function () {
       if (mine !== token) return;
       busy = false;
+      if (fresh) { failedFilter(); return; }
       clearTimeout(waitTimer);
       list.classList.remove('is-waiting');
       if (more) {
@@ -393,6 +417,7 @@
   if (more) more.addEventListener('click', function (e) {
     if (mode !== 'results') return;
     e.preventDefault();
+    if (retryFilter) { apply(); return; }
     limit = list.children.length + LIMIT;
     step();
   });
@@ -402,6 +427,8 @@
     limit = LIMIT;
     mode = 'results';
     busy = false;
+    retryFilter = false;
+    if (more) more.hidden = true;
     syncControls();
     syncUrl();
     // Until the new results are in, scrolling must not load more of the old.
@@ -416,8 +443,7 @@
       step();
     }, function () {
       if (mine !== token) return;
-      clearTimeout(waitTimer);
-      list.classList.remove('is-waiting');
+      failedFilter();
     });
   };
 
@@ -440,8 +466,8 @@
   if (document.readyState === 'complete') preload();
   else window.addEventListener('load', preload, { once: true });
   ['pointerover', 'focusin', 'touchstart'].forEach(function (name) {
-    bar.addEventListener(name, loadIndex, { once: true, passive: true });
-    find.addEventListener(name, loadText, { once: true, passive: true });
+    bar.addEventListener(name, function () { loadIndex().catch(function () {}); }, { once: true, passive: true });
+    find.addEventListener(name, function () { loadText().catch(function () {}); }, { once: true, passive: true });
   });
   cat.addEventListener('change', function () { state.c = cat.value; fit(); apply(); });
   year.addEventListener('change', function () { state.y = year.value; fit(); apply(); });

@@ -28,7 +28,7 @@ test('month failures keep the cursor and a successful retry adds that month', as
   }
 });
 test('a failed load leaves the existing more link usable', async()=>{
-  const c={busy:false,token:0,more:{hidden:false,getAttribute:()=> 'More'},observer:{unobserve(){},observe(){}},sentinel:{},renderMore:()=>Promise.reject(Error('offline')),clearTimeout(){},waitTimer:null,list:{classList:{remove(){}}},mode:'months',months:['/month/'],monthAt:0,olderText:'Older',step:null};
+  const c={busy:false,fresh:false,token:0,more:{hidden:false,getAttribute:()=> 'More'},observer:{unobserve(){},observe(){}},sentinel:{},renderMore:()=>Promise.reject(Error('offline')),clearTimeout(){},waitTimer:null,list:{classList:{remove(){}}},mode:'months',months:['/month/'],monthAt:0,olderText:'Older',step:null};
   vm.createContext(c);vm.runInContext(section('  var step =','  var observer ='),c);c.step();await new Promise(setImmediate);assert.equal(c.more.hidden,false);assert.equal(c.more.href,'/month/');assert.equal(c.busy,false);
 });
 test('the first search resumes after its data arrives',async()=>{
