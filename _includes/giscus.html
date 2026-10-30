@@ -13,6 +13,9 @@
         'data-category-id': 'DIC_kwDOAcyUa84CSbZ-',
         'data-mapping': 'specific',
         'data-term': {{ page.path | split: '/' | last | replace: '.md', '' | jsonify }},
+        // Match the term's SHA-1 in the discussion body, not a title search:
+        // the search put About on a 2015 post whose title holds "about".
+        'data-strict': '1',
         'data-reactions-enabled': '1',
         'data-emit-metadata': '0',
         'data-input-position': 'bottom',
