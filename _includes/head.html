@@ -13,11 +13,11 @@
   {% endif %}
   {% if page.layout == 'home' and page.is404 != true %}
     {% if is_english_surface %}
-      {% capture seo_title %}Tw93 · Product Engineering, AI Coding, and Open Source{% if archive_page > 1 %} · Page {{ archive_page }}{% endif %}{% endcapture %}
-      {% capture seo_description %}Tw93's writing on product engineering, AI coding, open-source tools, design, and building native macOS software.{% if archive_page > 1 %} Archive page {{ archive_page }}.{% endif %}{% endcapture %}
+      {% capture seo_title %}Tw93 - An engineer who loves open source and tinkering{% if archive_page > 1 %} - Page {{ archive_page }}{% endif %}{% endcapture %}
+      {% capture seo_description %}Notes on building products and writing code, AI and open-source tools, and observations and thoughts from everyday life.{% if archive_page > 1 %} Archive page {{ archive_page }}.{% endif %}{% endcapture %}
     {% else %}
-      {% capture seo_title %}Tw93 · 产品工程、AI Coding 与开源工具{% if archive_page > 1 %} · 第 {{ archive_page }} 页{% endif %}{% endcapture %}
-      {% capture seo_description %}Tw93 的个人博客，记录产品工程、AI Coding、开源工具、设计与原生 macOS 软件开发。{% if archive_page > 1 %}当前为第 {{ archive_page }} 页。{% endif %}{% endcapture %}
+      {% capture seo_title %}Tw93 - 一个喜欢开源和折腾的工程师{% if archive_page > 1 %} - 第 {{ archive_page }} 页{% endif %}{% endcapture %}
+      {% capture seo_description %}记录做产品、写代码的经验，分享 AI 和开源工具，也写一些生活中的见闻与思考。{% if archive_page > 1 %}当前为第 {{ archive_page }} 页。{% endif %}{% endcapture %}
     {% endif %}
     {% assign document_title = seo_title %}
   {% else %}
