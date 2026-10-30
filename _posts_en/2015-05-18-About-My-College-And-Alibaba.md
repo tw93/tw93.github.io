@@ -57,7 +57,7 @@ After the interview ended, I sent a WeChat Moment "The road ahead is still long,
 Afterwards, I went to West Lake to see the night view for a while and relaxed my mood.
 ![West Lake at Night]({{ site.assetUrl }}hznight.jpg){:class="img-zoom"}
 
-On March 12, I played in Hangzhou for a day, cycling around West Lake. And I ate famous Hangbang cuisine at Green Tea. The taste was completely different from Xi'an, giving a feeling of just having some snacks. It was very sweet and light. Hangbang cuisine was made particularly exquisitely and beautifully, making people like it very much. The following pictures are: Green Tea Cake, Pineapple Fritters with Shrimp, Bread Sensation (highly recommended), Roasted Fish.
+On March 12, I played in Hangzhou for a day, cycling around West Lake. And I ate famous Hangbang cuisine at Green Tea. The taste was completely different from Hunan and Xi'an, giving a feeling of just having some snacks. It was very sweet and light. Hangbang cuisine was made particularly exquisitely and beautifully, making people like it very much. The following pictures are: Green Tea Cake, Pineapple Fritters with Shrimp, Bread Sensation (highly recommended), Roasted Fish.
 
 ![Hangbang Cuisine 1]({{ site.assetUrl }}hbc1.jpg){:class="img-zoom"}
 
@@ -121,7 +121,7 @@ I still remember when I just entered university, I took everything in university
 
 At the very beginning, I was very hesitant, doing whatever others did, having no goal of my own.
 
-I was very honest in my freshmen year. Many times I was too shy in public. My Mandarin was not very standard then. Speaking Mandarin was really an unaccustomed thing.
+I was very honest in my freshmen year. Many times I was too shy in public. My Mandarin was not very standard then. After speaking Hunanese for seventeen years consecutively in Hunan, speaking Mandarin was really an unaccustomed thing.
 
 I was also a study commissary in freshmen year in a muddle. At that time, I took study as the first priority, soaking in the library when I had nothing to do, learning advanced mathematics and physics, giving a feeling of doing problems before the college entrance examination. However, it was of no use. The average score in the first semester was only in the 70s, not even one scholarship. Thinking back now, the study method at that time was very wrong.
 
