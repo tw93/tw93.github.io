@@ -101,6 +101,12 @@
   <meta name="twitter:title" content="{{ document_title | escape }}">
   <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
   <meta name="twitter:image" content="{{ twitter_image | escape }}">
+  {% else %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ site.twitter }}">
+  <meta name="twitter:title" content="{{ document_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
+  <meta name="twitter:image" content="{{ og_image | escape }}">
   {% endif %}
 
   <link rel="canonical" href="{{ canonical | escape }}">
