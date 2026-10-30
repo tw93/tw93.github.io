@@ -1,12 +1,12 @@
 ---
 layout: page
 title: About
-poem: 但行好事，莫問前程
+poem: 行到水窮處，坐看雲起時
 permalink: /en/about.html
 hideHomeActive: true
 lang: en-US
 lang_equivalent: /about.html
-summary: Tw93 is a product engineer in Hangzhou who builds restrained open-source tools, native macOS apps, and writes about product engineering.
+summary: A product engineer based in Hangzhou, building easy-to-use tools to simplify life. I know a bit of Swift, Rust, JavaScript, Python, Shell, and design.
 ---
 
 ## About Me
@@ -14,8 +14,6 @@ summary: Tw93 is a product engineer in Hangzhou who builds restrained open-sourc
 A product engineer based in Hangzhou, building easy-to-use tools to simplify life. I know a bit of Swift, Rust, JavaScript, Python, Shell, and design.
 
 I love open source, believe in AI, and invest in AI. Not into the tech-influencer scene, and a strong believer in long-termism. I write about tech and life on [**Tw93**](https://tw93.fun/) and share cool finds every week via [**Trend Weekly**](https://weekly.tw93.fun/).
-
-For a single index of these projects, visit [**Yobi**](https://yobi.tw93.fun/). It brings together what each project does, when to choose it, and its machine-readable references.
 
 ## Open Source Family
 
@@ -32,7 +30,7 @@ I like to hack on new projects during long holidays, so most of these "family me
 - [**Kami**](https://github.com/tw93/Kami) is the younger sister, born on a spring weekend in 2026. The youngest in the family, cheerful and bright, always smiling. She loves keeping things in order, loves drawing pretty pictures. Small, but very warm.
 - [**Mole**](https://github.com/tw93/Mole) is the family pet mole, brought home from a poolside in Sanya before the 2025 National Day. Round and sturdy, with a tiny headlamp and a small shovel. He loves rummaging through corners, finding things you no longer need and helping toss them out. Always there, keeping us company.
 
-The mole later grew a native Mac app, [Mole for Mac](https://mole.fit), a $19 one-time purchase and my first paid product. The command-line one is still free and open source under GPL-3.0.
+Mole later got a native Mac version, [Mole for Mac](https://mole.fit), a $19 one-time purchase and my first paid product. The command-line version is still free and open source.
 
 ## Follow Me
 

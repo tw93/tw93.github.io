@@ -1,11 +1,11 @@
 ---
 layout: page
 title: 关于我
-poem: 但行好事，莫問前程
+poem: 行到水窮處，坐看雲起時
 permalink: /about.html
 hideHomeActive: true
 lang_equivalent: /en/about.html
-summary: Tw93 是来自杭州的产品工程师，长期创作简洁、好用的开源工具、原生 macOS 应用与产品工程文章。
+summary: 来自杭州的产品工程师，做简洁好用的小工具让生活更简单，会一点 Swift、Rust、JavaScript、Python、Shell 和设计。
 ---
 
 ## 关于我
@@ -13,8 +13,6 @@ summary: Tw93 是来自杭州的产品工程师，长期创作简洁、好用的
 来自杭州的产品工程师，做简洁好用的小工具让生活更简单，会一点 Swift、Rust、JavaScript、Python、Shell 和设计。
 
 喜欢开源，相信 AI，也在投资 AI，不喜欢技术网红环境，相信长期主义。在 [**Tw93**](https://tw93.fun/) 博客沉淀技术和生活思考，用 [**潮流周刊**](https://weekly.tw93.fun/) 每周发一些看到的好东西。
-
-想一次看完这些项目，可以去 [**Yobi**](https://yobi.tw93.fun/)；那里把每个项目做什么、适合什么场景和机器可读资料放在一起。
 
 ## 开源小家庭
 
@@ -31,7 +29,7 @@ summary: Tw93 是来自杭州的产品工程师，长期创作简洁、好用的
 - [**Kami**](https://github.com/tw93/Kami) 是妹妹，2026 年一个春天的周末出生，家里最年轻的小可爱，轻快，爱笑，明亮的小女孩，爱把家里收拾得整整齐齐，喜欢画漂亮的画，虽然小，但很能给人温暖。
 - [**Mole**](https://github.com/tw93/Mole) 是家里的宠物鼹鼠，2025 年国庆前在三亚泳池边游泳带回家的，圆滚滚的，带着小头灯拿着小铲子，喜欢翻箱倒柜钻角落，找到不需要的东西帮忙扔掉，很爱干净，一直陪伴着我们。
 
-后来这只鼹鼠长出了一个原生 Mac 客户端 [Mole for Mac](https://mole.fit)，一次买断 19 美元，是我第一个付费产品；命令行那只还是免费开源，GPL-3.0。
+后来 Mole 有了原生的 Mac 版本 [Mole for Mac](https://mole.fit)，一次买断 19 美元，是我第一个付费产品，命令行版本还是免费开源的。
 
 ## 关注我
 
