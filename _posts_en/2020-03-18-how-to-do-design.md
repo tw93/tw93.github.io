@@ -9,7 +9,7 @@ categories: Share
 
 In 2020, my team was responsible for the B-end system frontend in the department. At that time, I shared some thoughts on mid-backend interaction design with the team. Details can be seen in [PDF](https://gw.alipayobjects.com/os/k/2b/%25E8%25BF%2590%25E8%2590%25A5%25E5%25B9%25B3%25E5%258F%25B0%25E8%25A7%2586%25E8%25A7%2589%25E4%25BA%25A4%25E4%25BA%2592.pdf).
 
-![1](https://gw.alipayobjects.com/zos/k/design/IMG_00001.jpeg)
+![1](https://cdn.tw93.fun/blog/2000/design-IMG_00001.webp)
 
 ![1](https://gw.alipayobjects.com/zos/k/design/IMG_00002.jpeg)
 

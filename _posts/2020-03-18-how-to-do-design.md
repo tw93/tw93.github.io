@@ -9,7 +9,7 @@ categories: Share
 
 2020 年我这边团队负责部门内 B 端系统的前端，当时给团队分享的中后台交互设计的一些思考，详细可见 [PDF](https://gw.alipayobjects.com/os/k/2b/%25E8%25BF%2590%25E8%2590%25A5%25E5%25B9%25B3%25E5%258F%25B0%25E8%25A7%2586%25E8%25A7%2589%25E4%25BA%25A4%25E4%25BA%2592.pdf)。
 
-![1](https://gw.alipayobjects.com/zos/k/design/IMG_00001.jpeg)
+![1](https://cdn.tw93.fun/blog/2000/design-IMG_00001.webp)
 
 ![1](https://gw.alipayobjects.com/zos/k/design/IMG_00002.jpeg)
 

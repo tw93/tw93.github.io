@@ -11,7 +11,7 @@ categories: Share
 
 ## Sharing Content
 
-![1](https://gw.alipayobjects.com/zos/k/open/IMG_00001.jpeg)
+![1](https://cdn.tw93.fun/blog/2000/open-IMG_00001.webp)
 
 ![1](https://gw.alipayobjects.com/zos/k/open/IMG_00002.jpeg)
 
