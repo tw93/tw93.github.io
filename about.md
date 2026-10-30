@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 关于我
-poem: 致廣大而盡精微
+poem: 但行好事，莫問前程
 permalink: /about.html
 hideHomeActive: true
 lang_equivalent: /en/about.html

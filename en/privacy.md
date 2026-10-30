@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Privacy Notice
-poem: 君子之交淡若水
+poem: 往者不追，來者不拒
 permalink: /en/privacy.html
 hideHomeActive: true
 lang: en-US

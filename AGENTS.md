@@ -80,7 +80,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 - Posts are zh/en mirror pairs keyed by identical filenames. When editing a post in `_posts/`, check whether `_posts_en/` has the same file and apply the equivalent change there (and vice versa). A few Chinese posts intentionally have no English mirror; do not create one unless asked.
 - Required frontmatter: `layout`, `title`, `date`. Preserve all existing frontmatter fields; do not drop keys.
 - Every post should carry `poem`, and mirror pairs share the same one. It is what the header banner renders; without it the banner falls back to the title, which cannot wrap on its SVG textPath. `js/index.js` shrinks an oversized banner down to 20px, below which it still clips.
-- Pages that are not posts carry a `poem` too, chosen for what the page is and who the author is, and never repeating a post's (maintainer 2026-10-30): the archive 腹有詩書氣自華, notes 人生到處知何似，應似飛鴻踏雪泥, about 致廣大而盡精微, privacy 君子之交淡若水, 404 只在此山中，雲深不知處. A zh/en pair shares one. The home banner keeps its motto instead.
+- Pages that are not posts carry a `poem` too, chosen for what the page is and who the author is, never praising the author and never repeating a post's (maintainer 2026-10-30; 腹有詩書氣自華, 致廣大而盡精微 and 君子之交淡若水 were replaced the same day as self-praise): the archive 舊書不厭百回讀，熟讀深思子自知, notes 人生到處知何似，應似飛鴻踏雪泥, about 但行好事，莫問前程, privacy 往者不追，來者不拒, 404 只在此山中，雲深不知處. They are all two lines, as 61 of the 89 posts' are. A zh/en pair shares one. The home banner keeps its motto instead.
 - Preserve the author's voice: do not rewrite colloquial phrasing to formal style, do not add emoji.
 
 ## Working Rules
