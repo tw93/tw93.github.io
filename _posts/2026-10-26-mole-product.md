@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 在快 AI 时代，如何做一款慢产品？
-poem: 大直若屈，大巧若拙
+poem: 欲速則不達
 date: 2026-10-26 20:00:00
 feature: https://cdn.tw93.fun/blog/pic/mole-product-cover-honest.png
 summary: 距离写完上一篇《Mole 出 Mac 版后，用户教会了我做产品》已经过去两个多月。这段时间里，Mole 从 1.13 一路发到了 1.18，加上了 AI 工具清理和系统数据清理，Windows 版也在 10 月 14 日晚上发了出来，GitHub 上的 Star 一转眼也到了 72.9K。

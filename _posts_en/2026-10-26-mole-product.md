@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Build a Slow Product in the Fast AI Era"
-poem: 大直若屈，大巧若拙
+poem: 欲速則不達
 date: 2026-10-26 20:00:00
 feature: https://cdn.tw93.fun/blog/pic/mole-product-cover-honest-en.png
 summary: "It has been a little over two months since I wrote the previous post, “From Mole CLI to Mole for Mac: What I Learned”. In that time Mole went from 1.13 all the way to 1.18, added AI tool cleanup and System Data cleanup, the Windows version shipped on the evening of October 14, and the GitHub repository quietly passed 72.9K stars."
