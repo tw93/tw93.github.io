@@ -77,6 +77,8 @@ exclude:
     "SEO_GUIDE.md",
     "data",
     "scripts",
+    "tests",
+    "docs",
   ]
 
 # Plugins

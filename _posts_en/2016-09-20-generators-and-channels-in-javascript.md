@@ -7,7 +7,7 @@ summary: The following article is an introduction to Generator and Channel. If y
 categories: Study
 ---
 
-![]({{ site.assetUrl }}1-smaK057Fp29kcTJPN5DdCg%20%281%29.png)
+![](/images/generators-and-channels.png)
 
 Original article from: [Generators and Channels in JavaScript](https://medium.com/javascript-inside/generators-and-channels-in-javascript-594f2cf9c16e#.pvgt62ocb)
 

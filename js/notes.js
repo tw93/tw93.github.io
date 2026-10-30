@@ -273,12 +273,17 @@
     var mine = token;
     if (mode === 'months') {
       if (monthAt >= months.length) return Promise.resolve(false);
-      return fetch(months[monthAt++]).then(function (res) { return res.text(); }).then(function (html) {
+      return fetch(months[monthAt]).then(function (res) {
+        if (!res.ok) throw new Error('Month request failed');
+        return res.text();
+      }).then(function (html) {
         if (mine !== token) return false;
         var page = new DOMParser().parseFromString(html, 'text/html');
+        if (!page.querySelector('#J_notes')) throw new Error('Invalid month page');
         page.querySelectorAll('#J_notes > .note').forEach(function (note) {
           if (!document.getElementById(note.id)) list.appendChild(document.adoptNode(note));
         });
+        monthAt += 1;
         watch();
         return true;
       });
@@ -337,10 +342,12 @@
   var syncControls = function () {
     input.value = state.q;
     if (state.q) searching(true);
-    cat.value = state.c;
-    year.value = state.y;
-    type.value = state.t;
-    sort.value = state.sort;
+    [[cat, 'c'], [year, 'y'], [type, 't'], [sort, 'sort']].forEach(function (entry) {
+      var select = entry[0], key = entry[1];
+      select.value = state[key];
+      if (select.selectedIndex < 0) select.value = '';
+      state[key] = select.value;
+    });
     fit();
   };
 
@@ -372,6 +379,11 @@
       busy = false;
       clearTimeout(waitTimer);
       list.classList.remove('is-waiting');
+      if (more) {
+        more.textContent = mode === 'months' ? olderText : more.getAttribute('data-more');
+        more.href = mode === 'months' ? months[monthAt] : '#';
+        more.hidden = false;
+      }
     });
   };
   var observer = new IntersectionObserver(function (entries) {
@@ -390,8 +402,8 @@
     limit = LIMIT;
     mode = 'results';
     busy = false;
-    syncUrl();
     syncControls();
+    syncUrl();
     // Until the new results are in, scrolling must not load more of the old.
     observer.unobserve(sentinel);
     clearTimeout(waitTimer);
@@ -485,6 +497,7 @@
   });
 
   syncControls();
+  syncUrl();
   if (filtering()) apply();
   else observer.observe(sentinel);
 })();

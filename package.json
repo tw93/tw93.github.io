@@ -13,6 +13,7 @@
     "prep": "bundle install",
     "dev": "python3 scripts/image_sizes.py && bundle exec jekyll serve --watch --trace",
     "start": "npm run dev",
-    "build": "python3 scripts/image_sizes.py && bundle exec jekyll build"
+    "build": "python3 scripts/image_sizes.py && bundle exec jekyll build",
+    "test": "node --test tests/*.test.cjs"
   }
 }

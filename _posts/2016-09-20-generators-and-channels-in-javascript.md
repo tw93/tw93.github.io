@@ -7,7 +7,7 @@ summary: 以下这篇文章是对 Generator 和 Channel 的一个介绍，如果
 categories: Study
 ---
 
-![]({{ site.assetUrl }}1-smaK057Fp29kcTJPN5DdCg%20%281%29.png)
+![](/images/generators-and-channels.png)
 
 原文来自：[Generators and Channels in JavaScript](https://medium.com/javascript-inside/generators-and-channels-in-javascript-594f2cf9c16e#.pvgt62ocb)
 

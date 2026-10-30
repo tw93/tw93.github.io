@@ -112,6 +112,7 @@
       .then(data => {
         searchData = data;
         isDataLoaded = true;
+        if (isSearchOpen()) performSearch();
       })
       .catch(err => {
         console.error('Failed to load search data:', err);
