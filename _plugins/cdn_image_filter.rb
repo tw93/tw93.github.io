@@ -15,6 +15,10 @@ module Jekyll
     CF_DOMAIN = 'cdn.tw93.fun'
     CF_PREFIX = "https://#{CF_DOMAIN}/".freeze
     CF_TRANSFORM = 'width=2000,quality=80,format=auto,fit=scale-down'.freeze
+    # Photos made locally at 2000px WebP with the EXIF (GPS included) stripped.
+    # They are served as is: a transform would only repeat the resize, and each
+    # new one counts against the free 5000 a month (9422 once they run out).
+    CF_PRESIZED = "#{CF_PREFIX}blog/2000/".freeze
 
     # Build an optimized image URL based on the source host.
     def self.optimize(url)
@@ -23,7 +27,7 @@ module Jekyll
 
       # cdn.tw93.fun (Cloudflare R2) -> /cdn-cgi/image/ transformation.
       if url.start_with?(CF_PREFIX)
-        return url if url.include?('/cdn-cgi/image/')
+        return url if url.include?('/cdn-cgi/image/') || url.start_with?(CF_PRESIZED)
         rest = url[CF_PREFIX.length..-1]
         return "#{CF_PREFIX}cdn-cgi/image/#{CF_TRANSFORM}/#{rest}"
       end

@@ -9,7 +9,7 @@ categories: Share
 
 最近看完了「别相信直觉」用数据思维获取你想要的生活这本小书，比较简单好读，基本上花一下午就可以看完，把生活中可能会遇到的婚恋、育儿、财富、创业、运气、外貌、快乐、痛苦都给讲了讲，把里面有一些有意思的观点记录到这里。
 
-<img src="https://gw.alipayobjects.com/zos/k/q6/CipA9j.jpg" width="800" />
+<img src="https://cdn.tw93.fun/blog/2000/q6-CipA9j.webp" width="800" />
 
 ### 婚恋
 

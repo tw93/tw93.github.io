@@ -9,7 +9,7 @@ categories: Share
 
 I recently finished reading "Don't Trust Your Gut: Use Data to Get the Life You Want." It's a relatively simple and easy read—you can finish it in an afternoon. It covers topics you might encounter in life, such as love and marriage, parenting, wealth, entrepreneurship, luck, appearance, happiness, and pain. I've recorded some of the interesting points here.
 
-<img src="https://gw.alipayobjects.com/zos/k/q6/CipA9j.jpg" width="800" />
+<img src="https://cdn.tw93.fun/blog/2000/q6-CipA9j.webp" width="800" />
 
 ### Love and Marriage
 
