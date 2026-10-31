@@ -128,7 +128,7 @@ Paul Graham 在 [Do Things that Don't Scale](https://paulgraham.com/ds.html) 里
 
 ## 一台 Mac，加一台 ThinkPad
 
-做 Windows 版的时候也是这样一个一个测出来的。其实 Windows 这边不是从零开始，Mole 的 Windows CLI 年初就开始陆续维护，有社区同学一起贡献，现在 CLI 已经很成熟了，有了这个底子才有了这次的桌面版。桌面版用的是 Windows 原生的 C# 和 WinUI 3，Mac 版的 Swift 代码几乎用不上，来来回回写了差不多一个月，攒下 7.8 万行代码和 4000 多个测试用例。测过的 486 款 Windows 软件大多是在 Mac 上的 Parallels 虚拟机里跑的，我又买了一台 ThinkPad X1，24 小时开着，Mac 通过 UU 远程和 ssh 连过去，让 AI 直接操作这台真实的电脑做安装、卸载和清理验收。
+做 Windows 版的时候也是这样一个一个测出来的。其实 Windows 这边不是从零开始，Mole 的 Windows CLI 年初就开始陆续维护，有社区同学一起贡献，现在 CLI 已经很成熟了，有了这个底子才有了这次的桌面版。桌面版用的是 Windows 原生的 C# 和 WinUI 3，Mac 版的 Swift 代码几乎用不上，来来回回写了差不多一个月，攒下 7.8 万行代码和 4000 多个测试用例。测过的 486 款 Windows 软件大多是在 Mac 上的 Parallels 虚拟机里跑的，我买了一台 ThinkPad X1，24 小时开着，Mac 通过 UU 远程和 ssh 连过去，让 AI 直接操作这台真实的电脑做安装、卸载和清理验收。
 
 ![Mole for Windows 的软件页，列出已安装的 App 和各自的大小](https://cdn.tw93.fun/blog/pic/mole-product-windows-ch-uninstall.webp)
 
