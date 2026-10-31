@@ -77,10 +77,6 @@
     armGA();
   }
 </script>
-<script>
-  // GEOInflow loads after the load event, so a slow fetch never holds the page.
-  (function(){function go(){var s=document.createElement('script');s.async=true;s.src='https://geo.tw93.fun/geo.js';s.dataset.websiteId='65adf703-dbef-4673-b834-09874b66e07b';s.dataset.domains='tw93.fun';document.head.appendChild(s)}document.readyState==='complete'?go():addEventListener('load',go,{once:true})})();
-</script>
 {% endif %} {% if page.url=="/" %}
 <script>
   function hereDoc (f) {
