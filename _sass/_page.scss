@@ -124,15 +124,13 @@ iframe {
         .qr-code {
           width: 128px;
           opacity: 1;
-          transform: none;
         }
       }
     }
     .qr-code {
       position: absolute;
       opacity: 0;
-      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-      transform: scale(0.8);
+      transition: opacity 0.2s ease-in-out;
       width: 0;
       left: -4px;
       top: -4px;
