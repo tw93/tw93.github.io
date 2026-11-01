@@ -46,6 +46,11 @@ $button-radius: 999px;
 // (744px) and iPad split-view widths get the tablet layout, not the phone one.
 $medium: "only screen and (min-width: 46em)";
 $large: "only screen and (min-width: 62.5em)";
+// $nav-full shows the whole header menu. Every item fits from about 480px, so
+// small Android tablets in portrait (600 to 735px, the OPPO Pad Mini among
+// them) and phones in landscape get it while the rest stays phone layout.
+// Weekly's header uses the same 540px as its Tailwind `nav` screen.
+$nav-full: "only screen and (min-width: 33.75em)";
 
 // Content Width
 // --------------------------------------------------

@@ -605,8 +605,8 @@ iframe {
   }
 }
 
-// Phones keep Blog and Notes; Weekly and About return at the tablet
-// breakpoint, as About always has.
+// Phones in portrait keep Blog and Notes; Weekly and About return at
+// $nav-full, where the whole menu still fits.
 .header-item-left {
   display: flex;
   align-items: center;
@@ -618,15 +618,16 @@ iframe {
     display: none;
   }
 
-  @media #{$medium} {
-    display: flex;
-    padding-left: 10px;
-    padding-right: 10px;
-
+  @media #{$nav-full} {
     &.header-item-weekly,
     &.header-item-about {
       display: flex;
     }
+  }
+
+  @media #{$medium} {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   a {
