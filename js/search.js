@@ -5,10 +5,6 @@
   let searchModal, searchInput, searchResults, searchBtn, searchClose;
   let selectedIndex = -1;
   let isDataLoaded = false;
-  const isEnglish = window.location.pathname.includes('/en/');
-  const TEXT = isEnglish
-    ? { loading: 'Loading...', empty: 'Type to search articles...', none: 'No results found', failed: 'Failed to load search data' }
-    : { loading: '加载中...', empty: '输入关键词搜索文章', none: '没有找到相关文章', failed: '搜索数据加载失败' };
 
   // Initialize
   function init() {
@@ -134,12 +130,12 @@
     }
 
     if (!isDataLoaded) {
-      searchResults.innerHTML = '<div class="search-loading">' + TEXT.loading + '</div>';
+      searchResults.innerHTML = '<div class="search-loading">Loading...</div>';
       return;
     }
 
     // Detect current page language
-    const isEnglishPage = isEnglish;
+    const isEnglishPage = window.location.pathname.includes('/en/');
 
     // Filter articles by language
     const filteredData = isEnglishPage
@@ -158,7 +154,7 @@
 
   // Show empty state
   function showEmptyState() {
-    searchResults.innerHTML = '<div class="search-empty-state">' + TEXT.empty + '</div>';
+    searchResults.innerHTML = '<div class="search-empty-state">Type to search articles...</div>';
   }
 
   // Display search results
@@ -166,7 +162,7 @@
     selectedIndex = -1;
 
     if (results.length === 0) {
-      searchResults.innerHTML = '<div class="search-no-results">' + TEXT.none + '</div>';
+      searchResults.innerHTML = '<div class="search-no-results">No results found</div>';
       return;
     }
 
@@ -250,7 +246,7 @@
 
   // Show error
   function showError() {
-    searchResults.innerHTML = '<div class="search-error">' + TEXT.failed + '</div>';
+    searchResults.innerHTML = '<div class="search-error">Failed to load search data</div>';
   }
 
   // Debounce

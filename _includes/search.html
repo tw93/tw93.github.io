@@ -1,5 +1,4 @@
 <!-- Search Modal -->
-{% if page.url contains '/en/' %}{% assign search_en = true %}{% else %}{% assign search_en = false %}{% endif %}
 <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-labelledby="search-title">
   <div class="search-container">
     <div class="search-header">
@@ -7,11 +6,11 @@
         type="search"
         id="search-input"
         class="search-input"
-        placeholder="{% if search_en %}Search articles...{% else %}搜索文章...{% endif %}"
-        aria-label="{% if search_en %}Search articles{% else %}搜索文章{% endif %}"
+        placeholder="Search articles..."
+        aria-label="Search articles"
         autocomplete="off"
       >
-      <button class="search-close" id="search-close" aria-label="{% if search_en %}Close search{% else %}关闭搜索{% endif %}">
+      <button class="search-close" id="search-close" aria-label="Close search">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -20,17 +19,10 @@
     <div id="search-results" class="search-results" role="listbox"></div>
     <div class="search-footer">
       <div class="search-tips">
-        {% if search_en %}
         <kbd>/</kbd> to search
         <kbd>ESC</kbd> to close
         <kbd>↑↓</kbd> to navigate
         <kbd>Enter</kbd> to select
-        {% else %}
-        <kbd>/</kbd> 搜索
-        <kbd>ESC</kbd> 关闭
-        <kbd>↑↓</kbd> 选择
-        <kbd>Enter</kbd> 打开
-        {% endif %}
       </div>
     </div>
   </div>

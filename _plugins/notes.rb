@@ -48,7 +48,7 @@ module Jekyll
         'unfold' => '展开全文', 'view' => '在 X 上查看', 'play' => '在 X 上播放', 'quote' => '引用的推文',
         'reply_to' => '回复', 'reply' => '回复', 'archive' => '按月浏览', 'all' => '全部 Notes',
         'page' => {
-          'title' => '片语', 'category' => '分类', 'year' => '年份', 'type' => '类型',
+          'title' => 'Notes', 'category' => '分类', 'year' => '年份', 'type' => '类型',
           'long' => '长文', 'photo' => '图片', 'video' => '视频', 'thread' => '串', 'replies_only' => '回复',
           'sort' => '排序', 'newest' => '最新', 'oldest' => '最早', 'like' => '点赞最多', 'reply' => '评论最多', 'bookmark' => '收藏最多',
           'search' => '搜索', 'search_label' => '搜索 Notes', 'empty' => '暂时没有相关的 Notes',
