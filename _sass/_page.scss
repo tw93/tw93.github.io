@@ -78,19 +78,19 @@ iframe {
     color: rgba(85, 85, 85, 0.8);
     font-size: 15px;
     font-weight: normal;
-    margin: -5px 2px 0;
+    // Below the title it reads as part of the head, so the gap to the body
+    // stays wider than the gap to the title, past the body's 1em margin.
+    margin: 0 2px 23px;
     position: relative;
     time {
       margin: 0 20px;
     }
     .qr-text {
-      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVRYR9VXWw7DIAwbN+Yo3HjTJqUfqSI/FNaWvwpIjeOYMOac75cw1lrjuzz2xXeEUOMNdcM2APkkmRR0YgSsincwcBsAOSXVyVRGgoEc78TAYwBk1SOm2hnYBqCyhJxzVgMonl0F7QBYM6ycL2uAjWc7IdIADYBdyDqjGu93sTij0oAaqzQiVNeVdaNqyfPXA6jEhHKunrRaf2gA5bTrh6fLSBWNygxab1cB8gFWpLYRdaXkPgB2tWSIKfs2ZDUgA3BbMreM23rCvwNwU5B9wWZgGwDUw7EvICS+mLerwM15+TBh7wS2J2T7CdsJXQ1k5j7FF35r3ynsoAAAAABJRU5ErkJggg==)
-        no-repeat;
-      background-size: 16px 16px;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       display: none;
       position: relative;
+      top: -1px;
       margin-bottom: -2px;
       &::before {
         content: "";
@@ -99,6 +99,16 @@ iframe {
         right: -20px;
         bottom: -20px;
         left: -20px;
+      }
+      // The icon sits on its own layer, toned to the meta grey, so the
+      // opacity never reaches the code that opens on hover.
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVRYR9VXWw7DIAwbN+Yo3HjTJqUfqSI/FNaWvwpIjeOYMOac75cw1lrjuzz2xXeEUOMNdcM2APkkmRR0YgSsincwcBsAOSXVyVRGgoEc78TAYwBk1SOm2hnYBqCyhJxzVgMonl0F7QBYM6ycL2uAjWc7IdIADYBdyDqjGu93sTij0oAaqzQiVNeVdaNqyfPXA6jEhHKunrRaf2gA5bTrh6fLSBWNygxab1cB8gFWpLYRdaXkPgB2tWSIKfs2ZDUgA3BbMreM23rCvwNwU5B9wWZgGwDUw7EvICS+mLerwM15+TBh7wS2J2T7CdsJXQ1k5j7FF35r3ynsoAAAAABJRU5ErkJggg==) no-repeat;
+        background-size: 14px 14px;
+        opacity: 0.55;
       }
       &:hover {
         .qr-code {
