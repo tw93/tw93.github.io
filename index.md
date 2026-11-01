@@ -96,7 +96,7 @@ There is no application server, so there are no application errors and no rate l
 
 - Blog: https://tw93.fun
 - GitHub: https://github.com/tw93
-- Twitter/X: https://twitter.com/HiTw93
+- Twitter/X: https://x.com/HiTw93
 - YouTube: https://www.youtube.com/@HiTw93
 - Weekly: https://weekly.tw93.fun
 - Kami: https://kami.tw93.fun

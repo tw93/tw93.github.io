@@ -34,7 +34,7 @@ summary: 来自杭州的产品工程师，做简洁好用的小工具让生活�
 ## 关注我
 
 - [GitHub](https://github.com/{{site.github}})
-- [Twitter](https://twitter.com/{{site.twitter}})
+- [Twitter](https://x.com/{{site.twitter}})
 - [YouTube](https://www.youtube.com/@HiTw93)
 - [知乎](https://www.zhihu.com/people/{{site.zhihu}})
 - [V2EX](https://www.v2ex.com/member/{{site.v2ex}})

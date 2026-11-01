@@ -107,6 +107,14 @@ def status_id(url):
     return m.group(1) if m else None
 
 
+def to_x(url):
+    # twitter.com answers with a redirect to x.com, so link straight there.
+    p = urllib.parse.urlsplit(url)
+    if (p.hostname or '').lower() in {'twitter.com', 'www.twitter.com', 'mobile.twitter.com'}:
+        return urllib.parse.urlunsplit(('https', 'x.com', p.path, p.query, p.fragment))
+    return url
+
+
 def clean(post, resolved):
     quoted = reference(post, 'quoted')
     links = []
@@ -118,7 +126,7 @@ def clean(post, resolved):
             sid = status_id(target)
             if sid and (re.search(r'/(?:photo|video)/\d+/?$', p.path) or (quoted and sid == quoted['id'])):
                 return ''
-        target = target or short
+        target = to_x(target) if target else short
         if target not in links:
             links.append(target)
         return target

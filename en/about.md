@@ -35,7 +35,7 @@ Mole later got a native Mac version, [Mole for Mac](https://mole.fit), a $19 one
 ## Follow Me
 
 - [GitHub](https://github.com/{{site.github}})
-- [Twitter](https://twitter.com/{{site.twitter}})
+- [Twitter](https://x.com/{{site.twitter}})
 - [YouTube](https://www.youtube.com/@HiTw93)
 - [Zhihu](https://www.zhihu.com/people/{{site.zhihu}})
 - [V2EX](https://www.v2ex.com/member/{{site.v2ex}})

@@ -115,7 +115,7 @@ All static files over HTTPS. No authentication, no API key, no rate limit, no qu
 ## Links
 
 - GitHub: https://github.com/tw93
-- Twitter: https://twitter.com/HiTw93
+- Twitter: https://x.com/HiTw93
 - YouTube: https://www.youtube.com/@HiTw93
 - Weekly: https://weekly.tw93.fun
 - Kami: https://kami.tw93.fun
