@@ -74,7 +74,7 @@ def select(posts):
         r = reference(p, 'replied_to') if p['is_reply'] else None
         if r and (r['id'] in by_id or r.get('author_id') in authors):
             self_parent[p['id']] = r['id']
-        elif not replying(p) or ((p.get('metrics') or {}).get('like', 0) >= 10 and len(TCO.sub('', own_words(p)).strip()) >= 10):
+        elif not replying(p) or ((p.get('metrics') or {}).get('like', 0) >= 10 and len(TCO.sub('', own_words(p)).strip()) >= 80):
             heads[p['id']] = p
     threads = collections.defaultdict(list)
     for pid in self_parent:

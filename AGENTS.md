@@ -21,7 +21,7 @@ Deploy surface: pushing `main` is production. Vercel builds the Jekyll site and 
 
 ## Notes
 
-`/notes/` shows every original post from @HiTw93 on X since the account opened in May 2022, plus replies to other people with at least 10 likes and 10 characters of the author's own words. Pipeline:
+`/notes/` shows every original post from @HiTw93 on X since the account opened in May 2022, plus replies to other people with at least 10 likes and 80 characters of the author's own words (after stripping @mentions / t.co as the code does). Pipeline:
 
 - Raw input is the local X export at `data/x/posts.json`. `data/` is gitignored and excluded from Jekyll: it once went live at `tw93.fun/data/x/` with 4485 replies written by other people (2026-10-28). The full dump lives in the maintainer's Google Drive (`HiTw93-x-export`).
 - `python3 -I scripts/notes.py resolve-links` expands t.co links into `scripts/notes/links.json`; `fetch-media` downloads photos and video posters to `data/x/mirror/`; `build` writes `_data/notes.json` offline; `--check` validates the schema. `scripts/notes/categories.json` (id to one of `ai tools learn make think life`) is hand-editable and the build fails on a note without one.

@@ -71,7 +71,7 @@ GET https://api.x.com/2/users/{user_id}/tweets
 
 ### 3. Night run only: refresh recent metrics
 
-Likes keep arriving for a day or two, and a reply only becomes a note once it has 10 likes, so counts read minutes after posting are too low to decide that. On the 23:30 run only, re-read the posts created in the last 72 hours with `GET /2/tweets?ids=…` (100 ids per request, same fields and expansions) and replace their `metrics`. A post that comes back as not found was deleted by the author: remove it from the archive. Never delete anything outside that 72-hour window.
+Likes keep arriving for a day or two, and a reply only becomes a note once it has 10 likes and the author's own words (after stripping @mentions / t.co) are at least 80 characters, so counts read minutes after posting are too low to decide that. On the 23:30 run only, re-read the posts created in the last 72 hours with `GET /2/tweets?ids=…` (100 ids per request, same fields and expansions) and replace their `metrics`. A post that comes back as not found was deleted by the author: remove it from the archive. Never delete anything outside that 72-hour window.
 
 ### 4. Convert and merge
 
@@ -155,7 +155,7 @@ Every new note needs a category in `scripts/notes/categories.json` (note id to c
 | `think` | 思考 | opinions, career and indie-product reflections, observations and jokes about the trade |
 | `life` | 生活 | daily life, travel, shopping, food, family and personal devices |
 
-Pick the one the post is mainly about; a post about his own product is `make` even when it is about AI. When unsure, find the two or three closest earlier notes in `categories.json` and follow them. A self-reply continuation takes the category of the note it continues (the build fails otherwise), and a reply that has just crossed 10 likes needs a category like any new note. Write the file only through a JSON parser, keeping keys sorted and one space of indent, the way `write_map` in `scripts/notes.py` writes it; `mirrored.json` and `videos.json` use the same one-space indent.
+Pick the one the post is mainly about; a post about his own product is `make` even when it is about AI. When unsure, find the two or three closest earlier notes in `categories.json` and follow them. A self-reply continuation takes the category of the note it continues (the build fails otherwise), and a reply that has just crossed 10 likes with own-words length ≥80 needs a category like any new note. Write the file only through a JSON parser, keeping keys sorted and one space of indent, the way `write_map` in `scripts/notes.py` writes it; `mirrored.json` and `videos.json` use the same one-space indent.
 
 ### 9. Build and check
 
