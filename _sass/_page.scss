@@ -85,6 +85,16 @@ iframe {
     time {
       margin: 0 20px;
     }
+    // The category opens its group in the archive; it keeps the meta grey
+    // and only darkens under the pointer.
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.12s ease-out;
+      &:hover {
+        color: $text-color;
+      }
+    }
     .qr-text {
       width: 14px;
       height: 14px;
