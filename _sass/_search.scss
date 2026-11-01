@@ -103,8 +103,11 @@
   justify-content: center;
   padding: 70px 0 0 0;
   opacity: 0;
+  // Hidden, not just transparent: iOS 26 Safari tints the status bar from a
+  // fixed element at the top, and a closed overlay at opacity 0 still counts.
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
 
   @media #{$medium} {
     padding: 120px 20px 20px;
@@ -112,7 +115,9 @@
 
   &.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+    transition: opacity 0.2s ease, visibility 0s;
   }
 }
 
