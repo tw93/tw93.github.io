@@ -20,7 +20,7 @@ summary: 来自杭州的产品工程师，做简洁好用的小工具让生活�
   <img src="https://cdn.tw93.fun/images/open-source-family-20261021.png" alt="Tw93 Open Source Family" style="width:100%">
 </figure>
 
-我喜欢在长假里折腾新项目，于是这些"家人"基本都诞生在春节、五一、国庆这些假期里：
+我喜欢在长假里折腾新项目，于是这些“家人”基本都诞生在春节、五一、国庆这些假期里：
 
 - [**Kaku**](https://github.com/tw93/Kaku) 是爸爸，2026 年过年期间写出来的，主要在写代码、终端、构建，AI 时代可靠能干，把家庭支撑得好好的。
 - [**Pake**](https://github.com/tw93/Pake) 是妈妈，2022 年国庆里出生，一直默默无闻地打包、整理、交付成 App，温和且利落，家里几个孩子最喜欢的就是妈妈。

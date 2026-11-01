@@ -32,7 +32,7 @@ AI 搜索增长很快，2025 年上半年同比涨了 527%，ChatGPT 到 2026 �
 
 **搜索和检索爬虫**，OAI-SearchBot、Claude-SearchBot、PerplexityBot，实时抓取内容来回答用户问题。屏蔽了这些，你就从 AI 搜索里消失了。
 
-**用户触发爬虫**，ChatGPT-User、Claude-User、Perplexity-User、Google-Agent，只在用户把你的 URL 贴进聊天窗口时才触发。屏蔽了它们，用户让 AI "总结一下这个页面" 就会啥也拿不到。
+**用户触发爬虫**，ChatGPT-User、Claude-User、Perplexity-User、Google-Agent，只在用户把你的 URL 贴进聊天窗口时才触发。屏蔽了它们，用户让 AI “总结一下这个页面” 就会啥也拿不到。
 
 **退出标识**，Google-Extended、Applebot-Extended，不是真正的爬虫，是你在 robots.txt 里声明退出 AI 训练的信号。
 
@@ -136,7 +136,7 @@ Claude Code 和 Cursor 在获取文档时已经会发 `Accept: text/markdown` he
 
 前面说的 robots.txt 和 llms.txt 是让 AI 读得懂你的内容，但前提是 AI 能找到你。ChatGPT 的搜索走 Bing，Google AI Overview 走 Google 自己的索引，Perplexity 也依赖搜索 API。如果你的页面没有被搜索引擎收录，后面做的结构化工作 AI 根本看不到。所以第一步是确保 Google 和 Bing 已经收录了你的站点。
 
-操作很简单：去 [Google Search Console](https://search.google.com/search-console) 用 DNS 或 HTML 文件验证你的域名，验证通过后提交 sitemap URL（通常是 `yoursite.com/sitemap.xml`）。在"网页索引"报告里可以看到哪些页面已收录、哪些有问题。如果某个重要页面没被收录，用"网址检查"工具手动请求编入索引。
+操作很简单：去 [Google Search Console](https://search.google.com/search-console) 用 DNS 或 HTML 文件验证你的域名，验证通过后提交 sitemap URL（通常是 `yoursite.com/sitemap.xml`）。在“网页索引”报告里可以看到哪些页面已收录、哪些有问题。如果某个重要页面没被收录，用“网址检查”工具手动请求编入索引。
 
 大伙可能觉得 Bing 没什么人用，但 Copilot、DuckDuckGo、Yahoo 的 AI 搜索底层都是 Bing 在驱动。去 Bing Webmaster Tools 注册一个号，提交 Sitemap，它有个 AI Performance 面板，能看到你的内容被 AI 引用了多少次。顺便设置一下 IndexNow，有新内容发布时主动通知 Bing，不用等爬虫来发现。
 
@@ -156,7 +156,7 @@ AI 去各个站点零散地抓信息很难抓全，可以直接给它一个集�
 
 一个知识网页要提供三层内容：概览（llms.txt）、完整版（llms-full.txt，30-60KB）、和每个核心项目的独立知识页面。再加上结构化的 JSON API，让 AI 工具可以程序化地获取数据。数据不要写死，从 GitHub API 之类的上游实时拉取，加缓存定期刷新，维护成本最低。
 
-还有一个容易忽略的点：别只列一堆项目，也写清楚它们之间的关系。如果你有多个项目，写一段把它们串起来的描述，它们之间的关系、你的技术方向、整体定位。AI 在回答"这个人是谁"或者"这个团队做什么"的时候，有叙事比有列表有效得多。
+还有一个容易忽略的点：别只列一堆项目，也写清楚它们之间的关系。如果你有多个项目，写一段把它们串起来的描述，它们之间的关系、你的技术方向、整体定位。AI 在回答“这个人是谁”或者“这个团队做什么”的时候，有叙事比有列表有效得多。
 
 我做的实现叫 Yobi（来自日语 呼び / よび，有呼唤、把人叫过来的动作感），提供 llms.txt 概览、50KB 的 llms-full.txt、独立项目页面，以及 `/api/profile`、`/api/projects`、`/api/blog`、`/api/weekly` 四个 JSON 端点，数据从 GitHub API 实时拉取，ISR 缓存一小时刷新。技术栈 Next.js + TypeScript，部署在 Vercel。
 
@@ -214,7 +214,7 @@ Princeton 和 IIT Delhi 的 GEO 论文在 KDD 2024 上发表，发现加入**权
 
 朋友 [@yaojingang](https://github.com/yaojingang) 在非常专业地做 GEO 方向的研究，他的 [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) 拿 602 条 prompt 跑了三个平台，抓了上万个页面做特征分析，有兴趣的可以去看他的[完整报告](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md)，这里从他的数据里提几个对做内容最有用的规律。
 
-**具体性** 写有真实数据、清晰定义、横向对比的页面，影响力比泛泛而谈的页面高出 50% 以上。有步骤结构的页面也明显更好。而纯 FAQ 格式反而有害，那些 GEO 工具让你"加 FAQ 提分"的建议，数据说它是反效果，这也验证了我前面删掉 FAQ 的判断。
+**具体性** 写有真实数据、清晰定义、横向对比的页面，影响力比泛泛而谈的页面高出 50% 以上。有步骤结构的页面也明显更好。而纯 FAQ 格式反而有害，那些 GEO 工具让你“加 FAQ 提分”的建议，数据说它是反效果，这也验证了我前面删掉 FAQ 的判断。
 
 **内容长度** AI 不偏爱短摘要，它偏爱可以切出多个可复用片段的长内容。被高频引用的页面平均近 2000 词、10 个以上标题，低影响力页面只有 170 词，差距超过 10 倍。最稳妥的区间是 1000-3000 词。
 
