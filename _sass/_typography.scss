@@ -31,6 +31,17 @@ h5,
 h6 {
   font-family: $heading-font;
 }
+// Post body headings sit on the reading ladder (30 titles, 24 h2, 20 h3, 17 body and
+// navigation, 14 meta; decide 1030-13 B1, maintainer 2026-11-01) instead of the browser's
+// 1.5em and 1.17em, which made 25.5 and 19.89 against the 17px body. Every width, so a
+// phone's h2 is never larger than the desktop's.
+.entry-content > h2 {
+  font-size: 24px;
+}
+.entry-content > h3 {
+  font-size: 20px;
+}
+
 h1 {
   margin: 8px 0 12px;
   @media #{$medium} {

@@ -38,7 +38,7 @@ $notes-line: rgba($base-color, 0.14);
   font-size: 22px;
   line-height: 1.35;
   @media #{$medium} {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
@@ -511,6 +511,9 @@ $notes-line: rgba($base-color, 0.14);
   gap: 24px;
   margin-top: 8px;
   font-size: 15px;
+  @media #{$large} {
+    font-size: 14px;
+  }
   svg {
     width: 17px;
     height: 17px;
@@ -542,6 +545,9 @@ $notes-line: rgba($base-color, 0.14);
   border: 1px solid $notes-line;
   border-radius: $button-radius;
   font-size: 15px;
+  @media #{$large} {
+    font-size: 14px;
+  }
   color: $text-color;
   transition: border-color 0.12s ease-out;
   &:hover {
@@ -575,6 +581,9 @@ $notes-line: rgba($base-color, 0.14);
 .notes-archive {
   margin-top: 48px;
   font-size: 15px;
+  @media #{$large} {
+    font-size: 14px;
+  }
 }
 
 .notes-archive-title {
