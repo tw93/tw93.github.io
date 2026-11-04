@@ -87,6 +87,7 @@ The reading column is driven by named tokens in `_sass/_variables.scss`. Use the
 ## Working Rules
 
 - Do not delete existing posts unless the task explicitly asks.
+- Once a new post is live, make sure its comment discussion exists and react to it as tw93 (maintainer 2026-11-04). giscus usually creates it on the first visit; if not, create it in the General category of `tw93/tw93.github.io` titled with the file name (`2026-11-03-senior`) and a body of `# <name>`, the summary, the post URL and `<!-- sha1: <sha1 of the name> -->`, the shape every recent discussion has. Then add the six positive reactions, `THUMBS_UP LAUGH HOORAY HEART ROCKET EYES` (never `THUMBS_DOWN` or `CONFUSED`), with `gh api graphql` `addReaction` on the discussion id, and read back `viewerHasReacted` for all six.
 - Preserve frontmatter fields and date semantics.
 - PPT posts use `layout: ppt`; old dates can intentionally hide slides from the normal feed.
 - Keep image paths compatible with the CDN image filter.
