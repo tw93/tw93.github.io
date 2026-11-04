@@ -64,6 +64,14 @@ iframe {
     font-size: 30px;
   }
 }
+// A post's own title is never smaller than its 24px h2 on a phone.
+.hentry h1.entry-title {
+  font-size: 26px;
+  line-height: 1.4;
+  @media #{$large} {
+    font-size: 30px;
+  }
+}
 
 .entry-content {
   font-size: 17px;

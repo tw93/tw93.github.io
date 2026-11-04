@@ -13,7 +13,7 @@ $code-red: #ff6767;
 
 .highlight {
   position: relative;
-  margin-bottom: 1.5em;
+  margin: 1.15em 0;
   overflow: hidden;
   box-shadow: none !important;
   border-radius: 8px;
@@ -92,8 +92,8 @@ $code-red: #ff6767;
     margin: 0;
     padding: 15px 18px 18px;
     overflow-x: auto;
-    font-size: 14px;
-    line-height: 1.75;
+    font-size: 0.86em;
+    line-height: 1.6;
     border-radius: 0;
     background-color: transparent;
     color: $code-fg;
