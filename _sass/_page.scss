@@ -53,7 +53,7 @@ iframe {
 .hentry h1.entry-title,
 .hentry h2.entry-title {
   font-size: 22px;
-  line-height: 1.35;
+  line-height: 1.4;
   margin: 6px 0 8px;
   // Step with the column: 30px against the 760px tablet card leaves a
   // one-character orphan on the longer titles.
@@ -64,10 +64,10 @@ iframe {
     font-size: 30px;
   }
 }
-// A post's own title is never smaller than its 24px h2 on a phone.
+// A post's own title is never smaller than its 24px h2 on a phone; the wide step is
+// repeated because this rule comes after the group's.
 .hentry h1.entry-title {
   font-size: 26px;
-  line-height: 1.4;
   @media #{$large} {
     font-size: 30px;
   }

@@ -96,7 +96,12 @@ table {
 
 td,
 th {
-  padding: 8px 12px;
+  // A phone keeps 6px 8px: fixed layout splits four columns evenly, and 12px a side
+  // left code and headers breaking mid-word at 393px.
+  padding: 6px 8px;
+  @media #{$medium} {
+    padding: 8px 12px;
+  }
   text-align: left;
   vertical-align: top;
   overflow-wrap: anywhere;
@@ -173,6 +178,10 @@ blockquote {
 .entry-content li {
   margin: 0.4em 0;
 }
+// A loose list wraps each item in a paragraph; keep items 0.4em apart, not 1.15em.
+.entry-content li > p {
+  margin: 0.26em 0;
+}
 
 // Footnotes
 // --------------------------------------------------
@@ -233,10 +242,11 @@ pre {
   }
 }
 
-// The block right under a post heading belongs to it, so it drops its own top margin.
-// Rouge wraps each code block in a div, and the margin sits on the inner .highlight.
+// The block right under a post heading belongs to it, so it drops its own top margin;
+// a heading that follows keeps its own. Rouge wraps each code block in a div, and the
+// margin sits on the inner .highlight.
 .entry-content > :is(h2, h3, h4, h5, h6):not(.page-info) {
-  + *,
+  + :not(h1, h2, h3, h4, h5, h6),
   + .highlighter-rouge > .highlight {
     margin-top: 0;
   }
