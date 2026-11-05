@@ -18,7 +18,7 @@ I hate gaming rankings or generating junk content. This article won't teach you 
 
 I looked into why it happened and found that AI search runs on entirely different logic. Traditional SEO is about fighting into the top 10, but 83% of AI Overview citations come from pages outside the top 10. AI rewards clear structure and reliable sourcing, not PageRank. My projects aren't big, but the READMEs and docs are well-written enough that AI picks them up where bigger sites have thin content. That's probably why friends were seeing Pake and MiaoYan in their AI results.
 
-AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But it still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week, because your product is your real competitive advantage, not this.
+AI search is growing fast: 527% year-over-year in the first half of 2025, ChatGPT hit 900 million weekly active users by February 2026, and referral traffic converts at roughly 5x the rate of traditional search. But it still accounts for less than 1% of total referral traffic. This is a brand visibility strategy, not a traffic strategy. Worth an hour of setup, not a week.
 
 <img src="https://gw.alipayobjects.com/zos/k/lq/6.png" width="900" alt="AI visibility roadmap: from robots.txt to main domain mirroring">
 
@@ -182,7 +182,7 @@ The fix is to mirror key structured data onto your main domain so that `example.
 
 <img src="https://gw.alipayobjects.com/zos/k/ds/5.png" width="900" alt="GitHub Action syncing data daily from Yobi subdomain to tw93.fun main domain">
 
-When launching a new site, use a checklist to avoid gaps. Core items: robots.txt (categorized crawler permissions), llms.txt (site summary with cross-references), sitemap (submitted to search engines), Bing Webmaster Tools (enable IndexNow), Google Search Console (monitor indexing). Each site's llms.txt should reference the others, forming a discovery mesh.
+When launching a new site, use a checklist to avoid gaps. Core items: robots.txt (categorized crawler permissions), llms.txt (site summary with cross-references), sitemap (submitted to search engines), Bing Webmaster Tools (enable IndexNow), Google Search Console (monitor indexing).
 
 ---
 
@@ -214,7 +214,7 @@ The GEO paper from Princeton and IIT Delhi, published at KDD 2024, found that ad
 
 My friend [@yaojingang](https://github.com/yaojingang) has been doing serious research on GEO. His [geo-citation-lab](https://github.com/yaojingang/geo-citation-lab) ran 602 prompts across three platforms and scraped tens of thousands of pages for feature analysis. His [full report](https://github.com/yaojingang/geo-citation-lab/blob/main/04-repet/final_report.md) is worth reading. Here are the patterns most useful for content creators.
 
-**Specificity.** Pages with real data, clear definitions, and side-by-side comparisons see over 50% higher impact than vague, general pages. Step-by-step structure also helps noticeably. Pure FAQ format actually hurts. Those GEO tools that tell you "add FAQ to boost your score" are giving advice the data contradicts, which also validates my decision to drop FAQ sections from my own pages.
+**Specificity.** Pages with real data, clear definitions, and side-by-side comparisons see over 50% higher impact than vague, general pages. Step-by-step structure also helps noticeably. Pure FAQ format actually hurts. Those GEO tools that tell you "add FAQ to boost your score" are giving advice the data contradicts, which also validates my decision, covered below, to drop FAQ sections from my own pages.
 
 **Content depth.** AI doesn't favor short summaries. It favors long content it can slice into reusable segments. High-impact pages average nearly 2,000 words with 10+ headings. Low-impact pages average just 170 words, over a 10x gap. The sweet spot is 1,000 to 3,000 words.
 
@@ -235,8 +235,6 @@ Brands get cited 6.5x more often through third-party sources than through their 
 There are AI SEO audit tools that score your site and tell you to add FAQ sections, trust pages, or more text. Don't let scores drive your decisions. The test is simple: does every paragraph you add contain information that isn't already on the page? If not, don't add it. I once added a FAQ to Yobi that just restated what the About section already said, purely to push the score up. That's padding. I removed it.
 
 ---
-
-Everything here is about helping AI understand what you have accurately, giving it a clean working environment. That lasts longer than any shortcut.
 
 The basic configuration takes about an hour. The knowledge endpoint and per-project pages take longer, but once the data structure is in place, maintenance is easy. The daily sync runs on its own.
 
