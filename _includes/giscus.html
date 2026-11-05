@@ -20,7 +20,7 @@
         'data-emit-metadata': '0',
         'data-input-position': 'bottom',
         'data-lang': '{% assign current_lang = page.lang | default: site.lang %}{% if current_lang == 'en-US' or current_lang == 'en' %}en{% else %}zh-CN{% endif %}',
-        'data-theme': 'https://weekly.tw93.fun/styles/giscus-blog.css?v=113fc62'
+        'data-theme': 'https://weekly.tw93.fun/styles/giscus-blog.css?v=99984e7'
       };
       var load = function () {
         var script = document.createElement('script');
@@ -31,6 +31,25 @@
         document.querySelector('.giscus-container').appendChild(script);
       };
       var target = document.querySelector('.giscus');
+      // Back from GitHub sign-in (giscus adds ?giscus= to the page URL), keep
+      // the comment box, which sits under every comment, at the bottom of the
+      // screen while images above and the comments load, until the reader
+      // scrolls. Pinning once is not enough: images above push the box down,
+      // and an offscreen giscus frame is throttled and never grows.
+      if ('ResizeObserver' in window && /[?&]giscus=/.test(location.search)) {
+        var events = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+        var pin = function () { target.scrollIntoView({ block: 'end', behavior: 'instant' }); };
+        var resizes = new ResizeObserver(pin);
+        var stop = function () {
+          resizes.disconnect();
+          events.forEach(function (type) { window.removeEventListener(type, stop); });
+        };
+        resizes.observe(document.body);
+        events.forEach(function (type) { window.addEventListener(type, stop, { passive: true }); });
+        setTimeout(stop, 15000);
+        load();
+        return pin();
+      }
       if (!('IntersectionObserver' in window)) return load();
       var observer = new IntersectionObserver(function (entries) {
         if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
