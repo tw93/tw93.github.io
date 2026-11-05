@@ -38,7 +38,7 @@ I also wrote up the leftover paths and uninstall steps for every app as guides i
 
 ![The AI tools part of the tested app list](https://cdn.tw93.fun/blog/pic/mole-product-testing-mac-apps-800.webp)
 
-## Actually using 30-plus AI tools
+## What AI tools actually leave on your Mac
 
 Before Mole had AI cleanup, many people had asked to clean up the data AI tools leave behind. I used to see AI coding session history as a valuable asset, so Mole only cleaned real caches and old versions there.
 
@@ -62,7 +62,7 @@ All this changed one of my earlier judgments. Sessions really are valuable, but 
 
 ![Mole's AI Cleanup & Care page, listed in three sections: caches and old versions, sessions and workspaces, idle tools](https://cdn.tw93.fun/blog/pic/mole-product-en-ai.webp)
 
-## Mac System Data can now be seen and cleaned
+## Why System Data so often hits one or two hundred GB
 
 A while ago I was browsing Reddit and saw many people complaining that System Data in macOS settings often reaches one or two hundred GB, asking what it is and whether it can be deleted. That number is only the result of a classification. [Apple's own explanation](https://support.apple.com/102624) also counts every file the other categories did not take, so it is not a list you can delete from. Mole's System Data group therefore only states how much it measured and can handle, and does not try to match the total in System Settings.
 
@@ -76,7 +76,7 @@ As for things like the 119 GB iPhone backup and the 79.5 GB Parallels virtual ma
 
 ![Mole's Clean page during development, with System Data at the top and Other Storage read-only](https://cdn.tw93.fun/blog/pic/mole-product-mole-system-data-review.webp)
 
-## Resending keys to 400 unactivated buyers
+## Resending keys to buyers who never activated
 
 Over the National Day holiday I spent a day on something I had put off for a long time. I went through every Mole order from the May launch to the end of September that was bought but never activated, about 400, had AI write a simple local script to list the emails and keys, and resent them one by one, grouped by purchase month, country and language. It was more like sending a message to a friend: a reminder not to forget it, and no rush if they are not using it yet.
 
@@ -102,7 +102,7 @@ I wrote this letter myself by hand, the way I would talk to a friend.
 
 Paul Graham wrote in [Do Things that Don't Scale](https://paulgraham.com/ds.html) that Wufoo sent handwritten thank-you notes to early users and that the Stripe founders would take a user's laptop and set them up on the spot.
 
-## Redrawing icons and rewriting copy from feedback
+## Icons and copy went through several rounds
 
 The detail that took the most time these two months was replacing every icon in Mole. Before, I used system icons, which are fine for simple cases but lack a bit of soul up close. After looking around, Remix Icon, which I use a lot for the web, did not look right in an app. I settled on Phosphor: about 70% could be used directly, and the other 30% I drew as SVGs with Opus 5.5 so the line width and style would stay consistent.
 
@@ -120,13 +120,13 @@ The copy took the same kind of fiddling. I had used up most of my Claude and Cod
 
 I had it output before and after versions with the reason for each change, then went through them one by one. It really felt like having a very patient language teacher sitting beside me, turning a lot of programmer-pleasing phrasing into words normal people can follow. For example, the cache deletion item used to be easy to misread as the way the whole app gets deleted; now it says clearly that it only covers ordinary caches on the Clean page and does not affect uninstall.
 
-## Accessibility made AI testing more precise
+## One unexpected bonus
 
 Testing hundreds of apps brought an unexpected bonus. In its first few versions Mole already supported blind and low-vision users with many accessibility attributes, and this time they helped a lot: with them, the AI could find every button and element very precisely, and testing went much more smoothly.
 
 Accessibility attributes give more than a coordinate. They say what a control is called, what kind it is and what state it is in, so when the interface shifts a little, a script still finds the same button. Relying only on screenshots and coordinates, a changed dialog or a moved window easily makes the click miss. From the start Apple wanted everyone to be able to use a computer equally, so much of the system can be read by VoiceOver, and I love that.
 
-## Testing the Windows version in a VM and on a ThinkPad
+## The Windows version was tested one app at a time too
 
 The Windows version was tested the same way, one app at a time. Windows was not starting from zero: Mole's Windows CLI has been maintained since early this year with contributions from the community, and the CLI is quite mature now. That groundwork is what made this desktop version possible. The desktop version uses native C# and WinUI 3 on Windows, and the Swift code of the Mac version is almost no use there. It took close to a month of back and forth, more than 90,000 lines of code and more than 5,500 test cases. The 482 Windows apps tested so far ran mostly in a Parallels virtual machine on the Mac. I also bought a ThinkPad X1 that stays on 24 hours a day, and the Mac connects to it through UU Remote and ssh, letting the AI operate this real computer directly for install, uninstall and cleanup acceptance.
 
