@@ -2,7 +2,7 @@
 
 > Refined SVG icons for the AI era.
 
-Aiko is an open source project by [Tw93](https://tw93.fun) with 37 GitHub stars. A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for the metaphors and actions of AI agents and modern interfaces.
+Aiko is an open source project by [Tw93](https://tw93.fun) with 36 GitHub stars. A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for the metaphors and actions of AI agents and modern interfaces.
 
 ## Key Features
 

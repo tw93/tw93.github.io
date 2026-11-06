@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 173K+ stars, 17K+ forks, 13,728 followers
+- **GitHub**: 173K+ stars, 17K+ forks, 13,751 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,817
-- Forks: 12,927
+- Stars: 62,837
+- Forks: 12,936
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.18.0 "Haven" (2026-11-04)
@@ -74,8 +74,7 @@ A: Yes, and the repository ships the contract for it. Pass `--json` for machine-
 <div align="center">
   <img src="https://raw.githubusercontent.com/tw93/Pake/ac5508cf519064684c4214fe3f263c58ad7aaf5f/assets/logo.png" width="138" />
   <h1>Pake</h1>
-  <p><b>Turn any website into a lightweight desktop app with one command. Supports macOS, Windows, and Linux. Free open-source CLI, plus a desktop app.</b></p>
-  <p>The only official site is <a href="https://pake.run">pake.run</a>, and other domains using the Pake name are fake</p>
+  <p><b>Turn any website into a lightweight desktop app with one command. Supports macOS, Windows and Linux. Free open-source CLI, plus a desktop app.</b></p>
   <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
   <a href="https://x.com/HiTw93" target="_blank"><img alt="twitter" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=x"></a>
   <a href="https://t.me/+9f9gf4ZrFSQ2OWVl" target="_blank"><img alt="telegram" src="https://img.shields.io/badge/chat-telegram-blueviolet?style=flat-square&logo=Telegram"></a>
@@ -84,19 +83,20 @@ A: Yes, and the repository ships the contract for it. Pass `--json` for machine-
   <a href="https://github.com/tw93/Pake/issues?q=is%3Aissue+is%3Aclosed" target="_blank"><img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/tw93/Pake.svg?style=flat-square"></a>
 </div>
 
-> 💡 This repo is the free open-source Pake CLI, and the popular apps, online builds and local development below stay free. Prefer a graphical app? The [Pake desktop app](https://pake.run/) is a separate download: pick a gallery app or paste a URL with no Node.js or Rust to install, change settings and update apps in one window, and make separate apps for other accounts. `pnpm install -g pake-cli` installs the CLI only.
+> This repo is the free open-source Pake CLI, and everything below stays free. Prefer a graphical app? The Pake desktop app is a separate download from [pake.run](https://pake.run/), its only official site. It makes apps from a ready-made gallery or any URL without Node.js or Rust, with settings, updates and separate apps for other accounts in one window. `pnpm install -g pake-cli` installs the CLI only.
 
 ###### Features
 
-- 🎐 **Lightweight**: Installer is nearly 20 times smaller than Electron packages, typically under 10 MB on disk, a lighter alternative to Nativefier and other Electron wrappers
-- 🚀 **Fast**: Built with Rust Tauri, much faster than traditional JS frameworks with lower memory usage
-- ⚡ **Easy to use**: One-command packaging via CLI or online building, no complex configuration needed
-- 📦 **Feature-rich**: Supports shortcuts, immersive windows, drag & drop, style customization, ad removal
+- **Lightweight**: Installers are typically under 10 MB, nearly 20 times smaller than Electron packages, a lighter alternative to Nativefier and other Electron wrappers
+- **Fast**: Built with Rust Tauri on the system WebView instead of a bundled Chromium, so apps use less memory than Electron ones
+- **Easy to use**: One-command packaging via CLI or online building, no complex configuration needed
+- **Feature-rich**: Supports shortcuts, immersive windows, drag & drop, style customization, ad removal
 
 ###### Getting Started
 
-- **Beginners**: Download ready-made [Popular Packages](#popular-packages) or use [Online Building](docs/github-actions-usage.md) with no environment setup required
+- **Beginners**: Make apps without a command line in the [Pake desktop app](https://pake.run/), download ready-made [Popular Packages](#popular-packages) or use [Online Building](docs/github-actions-usage.md) with no environment setup required
 - **Developers**: Install [CLI Tool](docs/cli-usage.md) for one-command packaging of any website with customizable icons, window settings, and more
+- **Advanced Users**: Clone the project locally for [Custom Development](#development), or check [Advanced Usage](docs/advanced-usage.md) for style customization and feature enhancement
 
 [...truncated]
 
@@ -106,7 +106,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,184
+- Stars: 6,187
 - Forks: 330
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -193,7 +193,7 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,733
+- Stars: 8,741
 - Forks: 522
 - Stack: Swift, AppKit
 - License: MIT
@@ -278,8 +278,8 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 73,895
-- Forks: 2,621
+- Stars: 74,024
+- Forks: 2,632
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -456,8 +456,8 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,509
-- Forks: 431
+- Stars: 7,521
+- Forks: 432
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.41.0 "V3.41.0 Lens 🔍" (2026-10-30)
@@ -526,8 +526,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,241
-- Forks: 575
+- Stars: 12,276
+- Forks: 576
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.20.0 "Cleaner Reports" (2026-10-29)
@@ -616,7 +616,7 @@ Sample PDFs in several formats and languages. Click any preview to open it.
 
 ## Secondary Projects
 
-### Weekly (882 stars)
+### Weekly (883 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
@@ -668,7 +668,7 @@ A commitizen adapter that enables standardized git commit messages with emoji pr
 - Chinese localization
 - Commitizen integration
 
-### MiaoYan NetNewsWire Theme (120 stars)
+### MiaoYan NetNewsWire Theme (121 stars)
 
 A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
 
@@ -945,7 +945,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 - [我的 10 条人生最佳实践](https://tw93.fun/2026-11-03/senior.html) (2026-11-03)
 - [2026 年，我的 21 条 AI Coding 最佳实践](https://tw93.fun/2026-10-29/practice.html) (2026-10-29)
-- [在快 AI 时代，如何做一款慢产品？](https://tw93.fun/2026-10-26/mole-product.html) (2026-10-26)
+- [在快 AI 时代，我是怎么把 Mole 做成一款慢产品的？](https://tw93.fun/2026-10-26/mole-product.html) (2026-10-26)
 - [你不知道的客户端开发：AI 时代下的选型、原生与借力](https://tw93.fun/2026-10-22/desktop.html) (2026-10-22)
 - [Mole 出 Mac 版后，用户教会了我做产品](https://tw93.fun/2026-08-16/mole-mac.html) (2026-08-16)
 - [你不知道的具身智能：从小机器狗到 Optimus](https://tw93.fun/2026-06-07/robot.html) (2026-06-07)
