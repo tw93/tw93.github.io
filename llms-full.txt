@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 173K+ stars, 17K+ forks, 13,751 followers
+- **GitHub**: 173K+ stars, 17K+ forks, 13,764 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -33,8 +33,8 @@ Tw93 frames his open source projects as a family. Each project was born during a
 Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
 
 - Source: https://github.com/tw93/Pake
-- Stars: 62,837
-- Forks: 12,936
+- Stars: 62,857
+- Forks: 12,939
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.18.0 "Haven" (2026-11-04)
@@ -106,12 +106,12 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,187
-- Forks: 330
+- Stars: 6,186
+- Forks: 329
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
-- Latest Release: V0.28.0 "Steady" (2026-11-03)
+- Latest Release: V0.29.0 "Beacon" (2026-11-06)
 - Install: `brew install --cask kaku`
 
 **Features:**
@@ -193,12 +193,12 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,741
+- Stars: 8,747
 - Forks: 522
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
-- Latest Release: V4.7.0 "Gore Magala 🌑" (2026-11-04)
+- Latest Release: V4.8.0 "Brachydios 💥" (2026-11-06)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
@@ -244,7 +244,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
   <img alt="macOS 12.0+" src="https://img.shields.io/badge/macOS-12.0%2B-orange?style=flat-square">
 </div>
 
-<img src="https://raw.githubusercontent.com/tw93/static/main/miaoyan/miaoyan.gif" width="900px" />
+<img src="https://miaoyan.app/assets/shots/readme-en.webp?v=20261106" width="900" alt="MiaoYan on Mac, iPad and iPhone" />
 
 ###### Features
 
@@ -252,6 +252,7 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 - **Focused**: Folders, notes, and editor in three columns, with dark mode and no plugin system to maintain
 - **Native**: Built with Swift 6, lighter than web wrappers, with 60fps scroll sync in split preview
 - **Capable**: Wikilinks, LaTeX, Mermaid, version history, auto-formatting, and PPT presentations built in
+- **Portable**: The iPhone and iPad apps are on the [App Store](https://apps.apple.com/app/miaoyan/id6759252269), one purchase covers them and the Mac, and they open the same iCloud Drive folder, so you can keep writing on your phone and tablet
 
 ###### Installation
 
@@ -266,10 +267,6 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 
 3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+)
 
-Homebrew and GitHub Releases install the same free, open-source Mac app, which keeps being developed. The App Store version is recommended: one purchase gets you MiaoYan on iPhone, iPad and Mac, all opening the same iCloud Drive folder, with automatic updates.
-
-###### Sync with Nutstore or Other Cloud Drives
-
 
 [...truncated]
 
@@ -278,8 +275,8 @@ Homebrew and GitHub Releases install the same free, open-source Mac app, which k
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 74,024
-- Forks: 2,632
+- Stars: 74,117
+- Forks: 2,648
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -456,7 +453,7 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,521
+- Stars: 7,523
 - Forks: 432
 - Stack: Markdown, Shell
 - License: MIT
@@ -526,8 +523,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,276
-- Forks: 576
+- Stars: 12,302
+- Forks: 581
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.20.0 "Cleaner Reports" (2026-10-29)
@@ -627,7 +624,7 @@ Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsle
 - Covers front-end, tools, AI, and lifestyle
 - Published as a static site via GitHub Pages
 
-### Maple (520 stars)
+### Maple (521 stars)
 
 Maple is a set of three Chrome extensions for browsing with the bookmark bar hidden. Maple Bookmarks opens your bookmarks with a shortcut and searches them as you type, Maple NewTab replaces the new-tab page so the bookmark bar stays hidden there too, and Maple Theme is a plain white browser theme.
 
@@ -695,7 +692,7 @@ A movie information website built with Node.js. An early project demonstrating f
 - Movie information aggregation
 - Server-side rendered pages
 
-### Aiko (37 stars)
+### Aiko (36 stars)
 
 A handcrafted collection of SVG icons built with geometric precision and uniform stroke weights, designed for the metaphors and actions of AI agents and modern interfaces.
 

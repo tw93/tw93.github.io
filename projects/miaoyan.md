@@ -8,7 +8,7 @@ MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub s
 
 License: MIT
 
-Latest release: V4.7.0 (2026-11-04)
+Latest release: V4.8.0 (2026-11-06)
 
 ## Key Features
 
