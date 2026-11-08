@@ -2,7 +2,9 @@
 
 > Turn any webpage into a lightweight desktop app with Rust + Tauri. Nearly 20x smaller than Electron.
 
-Pake is an open source project by [Tw93](https://tw93.fun) with 62.9K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
+Website: https://pake.run
+
+Pake is an open source project by [Tw93](https://tw93.fun) with 62.9K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration. Besides the free CLI, pake.run offers a paid Pake desktop app for Mac, Windows and Linux that needs no compiler.
 
 License: GPL-3.0
 
@@ -69,7 +71,8 @@ Yes, and the repository ships the contract for it. Pass `--json` for machine-rea
 
 ## Links
 
-- GitHub: https://github.com/tw93/Pake
+- Website: https://pake.run
+- Source: https://github.com/tw93/Pake
 - Author: [Tw93](https://tw93.fun)
 - All projects: https://tw93.fun/api/projects.json
 - Full knowledge base: https://tw93.fun/llms-full.txt

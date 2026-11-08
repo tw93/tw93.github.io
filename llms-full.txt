@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 174K+ stars, 17K+ forks, 13,770 followers
+- **GitHub**: 174K+ stars, 17K+ forks, 13,774 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -30,16 +30,16 @@ Tw93 frames his open source projects as a family. Each project was born during a
 
 ### Pake
 
-Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration.
+Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration. Besides the free CLI, pake.run offers a paid Pake desktop app for Mac, Windows and Linux that needs no compiler.
 
+- Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 62,875
-- Forks: 12,941
+- Stars: 62,881
+- Forks: 12,943
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.18.0 "Haven" (2026-11-04)
 - Install: `npm install -g pake-cli`
-- Homepage: https://pake.run
 
 **Features:**
 - Nearly 20x smaller than Electron apps
@@ -193,7 +193,7 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,749
+- Stars: 8,750
 - Forks: 523
 - Stack: Swift, AppKit
 - License: MIT
@@ -275,8 +275,8 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 74,200
-- Forks: 2,654
+- Stars: 74,238
+- Forks: 2,659
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -453,7 +453,7 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,530
+- Stars: 7,533
 - Forks: 432
 - Stack: Markdown, Shell
 - License: MIT
@@ -523,7 +523,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,394
+- Stars: 12,417
 - Forks: 583
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -665,7 +665,7 @@ A commitizen adapter that enables standardized git commit messages with emoji pr
 - Chinese localization
 - Commitizen integration
 
-### MiaoYan NetNewsWire Theme (121 stars)
+### MiaoYan NetNewsWire Theme (122 stars)
 
 A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
 

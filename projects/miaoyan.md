@@ -4,7 +4,7 @@
 
 Website: https://miaoyan.app
 
-MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.7K GitHub stars. MiaoYan (妙言) is a native Markdown note app. The recommended App Store edition (https://miaoyan.app) is one purchase for Mac, iPhone and iPad. The free, open-source Mac app (MIT, Swift and AppKit) installs from Homebrew or GitHub Releases. Notes stay as plain Markdown files in a folder you choose, no data is collected, and the Mac app combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, export, and a command-line interface.
+MiaoYan is an open source project by [Tw93](https://tw93.fun) with 8.8K GitHub stars. MiaoYan (妙言) is a native Markdown note app. The recommended App Store edition (https://miaoyan.app) is one purchase for Mac, iPhone and iPad. The free, open-source Mac app (MIT, Swift and AppKit) installs from Homebrew or GitHub Releases. Notes stay as plain Markdown files in a folder you choose, no data is collected, and the Mac app combines a three-column library with split editing and preview, wikilink backlinks, LaTeX, Mermaid, version history, export, and a command-line interface.
 
 License: MIT
 
