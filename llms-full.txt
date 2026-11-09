@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 174K+ stars, 17K+ forks, 13,774 followers
+- **GitHub**: 174K+ stars, 17K+ forks, 13,782 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 62,881
-- Forks: 12,943
+- Stars: 62,953
+- Forks: 12,945
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.18.0 "Haven" (2026-11-04)
@@ -106,7 +106,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,187
+- Stars: 6,191
 - Forks: 329
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -193,7 +193,7 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,750
+- Stars: 8,751
 - Forks: 523
 - Stack: Swift, AppKit
 - License: MIT
@@ -275,12 +275,12 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 74,238
-- Forks: 2,659
+- Stars: 74,278
+- Forks: 2,665
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
-- Latest Release: V1.69.0 "Clear" (2026-11-04)
+- Latest Release: V1.70.0 "Guard" (2026-11-08)
 - Install: `brew install mole`
 - Homepage: https://mole.fit
 
@@ -453,7 +453,7 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,533
+- Stars: 7,539
 - Forks: 432
 - Stack: Markdown, Shell
 - License: MIT
@@ -523,8 +523,8 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,417
-- Forks: 583
+- Stars: 12,435
+- Forks: 584
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.20.0 "Cleaner Reports" (2026-10-29)
@@ -880,7 +880,7 @@ A: Both. His blog (tw93.fun) has posts in both languages. Project documentation 
 A: Pake uses Tauri (Rust + system WebView) instead of bundling Chromium. Apps are ~20x smaller and more resource-efficient.
 
 **Q: What is 潮流周刊 (Trendy Weekly)?**
-A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 288 issues since 2021.
+A: A Chinese-language weekly newsletter curating tech discoveries, interesting tools, and lifestyle content. Published at weekly.tw93.fun with 289 issues since 2021.
 
 **Q: How do I install Pake?**
 A: Run `npm install -g pake-cli`, then `pake <url>` to turn any webpage into a desktop app. Pre-built popular apps are also available on the GitHub releases page.
@@ -955,6 +955,7 @@ From [tw93.fun](https://tw93.fun) (10 most recent):
 
 From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 
+- [第289期 - 南京李志](https://weekly.tw93.fun/posts/289/) (2026-11-09)
 - [第288期 - 偶遇小猫](https://weekly.tw93.fun/posts/288/) (2026-11-02)
 - [第287期 - 杭州金桂](https://weekly.tw93.fun/posts/287/) (2026-10-26)
 - [第286期 - 径山双溪](https://weekly.tw93.fun/posts/286/) (2026-10-19)
@@ -966,12 +967,12 @@ From [weekly.tw93.fun](https://weekly.tw93.fun) (潮流周刊, 12 most recent):
 - [第280期 - 喜欢宋体](https://weekly.tw93.fun/posts/280/) (2026-08-31)
 - [第279期 - 风之谷泉](https://weekly.tw93.fun/posts/279/) (2026-08-24)
 - [第278期 - 大巧若拙](https://weekly.tw93.fun/posts/278/) (2026-08-17)
-- [第277期 - 小叶赤楠](https://weekly.tw93.fun/posts/277/) (2026-08-10)
 
 ## Weekly Issues (English)
 
 From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most recent):
 
+- [289. Nanjing Li Zhi](https://weekly.tw93.fun/en/posts/289/) (2026-11-09)
 - [288. Meeting Kittens](https://weekly.tw93.fun/en/posts/288/) (2026-11-02)
 - [287. Hangzhou Osmanthus](https://weekly.tw93.fun/en/posts/287/) (2026-10-26)
 - [286. Jingshan Shuangxi](https://weekly.tw93.fun/en/posts/286/) (2026-10-19)
@@ -983,7 +984,6 @@ From [weekly.tw93.fun/en](https://weekly.tw93.fun/en/) (Tw93 Weekly, 12 most rec
 - [280. Fond of Song Type](https://weekly.tw93.fun/en/posts/280/) (2026-08-31)
 - [279. Spring in the Valley of the Wind](https://weekly.tw93.fun/en/posts/279/) (2026-08-24)
 - [278. Great Skill Appears Clumsy](https://weekly.tw93.fun/en/posts/278/) (2026-08-17)
-- [277. Brush Cherry](https://weekly.tw93.fun/en/posts/277/) (2026-08-10)
 
 ## Links
 
