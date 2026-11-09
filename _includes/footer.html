@@ -51,6 +51,8 @@
     dataLayer.push(arguments);
   }
   const loadGA = () => {
+    // Screens with no engagement at all, from automated browsers rather than readers.
+    if (/^(1366x1366|1280x1200)$/.test(screen.width + 'x' + screen.height)) return;
     const script = document.createElement('script');
     script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
     script.async = true;
