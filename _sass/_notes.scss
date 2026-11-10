@@ -612,11 +612,10 @@ $notes-line: rgba($base-color, 0.14);
   }
 }
 
+// The single-note page reads as one post, so its body matches the blog body
+// (17px at every width, _page.scss .entry-content) instead of stepping up to
+// 20px on tablet and desktop; that larger size read oversized next to a post
+// and against the notes list's own 17px cards (maintainer 2026-11-10).
 .notes-single .note {
   margin-bottom: 28px;
-  .note-body {
-    @media #{$medium} {
-      font-size: 20px;
-    }
-  }
 }
