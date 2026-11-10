@@ -1,0 +1,22 @@
+---
+paths:
+  - "scripts/notes/**"
+  - "scripts/notes.py"
+  - "_plugins/notes.rb"
+  - "js/notes.js"
+  - "_data/notes.json"
+  - "_sass/_notes.scss"
+  - "css/notes-page.scss"
+---
+
+`/notes/` shows every original post from @HiTw93 on X since the account opened in May 2022, plus replies to other people with at least 10 likes and 80 characters of the author's own words (after stripping @mentions / t.co as the code does). Pipeline:
+
+- Raw input is the local X export at `data/x/posts.json`. `data/` is gitignored and excluded from Jekyll: it once went live at `tw93.fun/data/x/` with 4485 replies written by other people (2026-10-28). The full dump lives in the maintainer's Google Drive (`HiTw93-x-export`).
+- `python3 -I scripts/notes.py resolve-links` expands t.co links into `scripts/notes/links.json`; `fetch-media` downloads photos and video posters to `data/x/mirror/`; `build` writes `_data/notes.json` offline; `--check` validates the schema. `scripts/notes/categories.json` (id to one of `ai tools learn make think life`) is hand-editable and the build fails on a note without one.
+- Older export records carry `is_reply: false` and no `referenced` even when they are replies; `replying()` treats a leading @mention as the reply marker. Keep that, or about 430 conversational replies show up as originals.
+- The export cut 229 long posts short without a `note_tweet` (some at about 180 of X's weighted 280, so length is no filter). `python3 -I scripts/notes.py fetch-long` asks fxtwitter's public API for every record without `note_tweet` and keeps the full text in the tracked `scripts/notes/long.json`, which `build` applies as `note_tweet` while keeping the export's leading @mentions; run `resolve-links` after it. The sync's API calls return `note_tweet` themselves.
+- Images are served from R2 at `cdn.tw93.fun/notes/<media_key>.jpg`; `scripts/notes/mirrored.json` lists the uploaded keys, and a note falls back to `pbs.twimg.com` (blocked in mainland China) for any key not listed. Upload new files before listing them. The page shows WebP copies at `cdn.tw93.fun/notes/680/` and `/1200/`, made locally by `notes.py resize-media` and uploaded with the JPEG, and keeps the JPEG for the lightbox. Do not move notes to `/cdn-cgi/image/` resizing: 2920 photos at two widths used up Cloudflare's 5000 free transformations a month and the rest answered 429 `ERROR 9422` (2026-10-28).
+- Videos and GIFs play on the page from `cdn.tw93.fun/notes/<media_key>.mp4`: `fetch-videos` downloads the sharpest MP4 at most 720px on its short side into `data/x/mirror/video/` (about 5GB for all 455), and `scripts/notes/videos.json` lists the uploaded keys; an unlisted one shows its poster linking to X. `fetch-articles` reads each X Article's title, preview and cover from `cdn.syndication.twimg.com/tweet-result` into `scripts/notes/articles.json` and saves the cover as `article_<id>.jpg`, which goes to R2 and `mirrored.json` like any photo; an article that is also a blog post carries a hand-set `post` address, and its card links there instead of X (maintainer 2026-10-28: link to the blog rather than X wherever the content lives here). A link in a note to another of the author's notes is rewritten to that note's page here. The export itself only carries the article's link.
+- The scheduled sync (three runs a day, posts since the newest archived id, media to R2, categories, build, push, live check) follows `scripts/notes/SYNC.md`.
+- `_plugins/notes.rb` renders each note's HTML once and reuses it for `/notes/`, the monthly archives `/notes/YYYY/MM/`, one page per note `/notes/<id>.html` (all indexed, maintainer 2026-10-28), `/notes/index.json` (filter and sort fields, about 50KB gzipped, fetched while the page is idle), `/notes/search.json` (each note's text in index order, fetched once the search field is touched) and `/notes/html/YYYY-MM.json` (the notes' HTML per month; endless scroll without a filter reads the month pages instead), `/notes/feed.xml`, `/notes.md` and `/api/notes.jsonl`.
+- `/en/notes/` is the same list with an English interface and only the notes whose `lang` is `en`, no translation: its index, month pages and `index.json` / `search.json` / `html/` live under `/en/notes/`, and `js/notes.js` reads them from the list's `data-base`. Interface text for both lists sits in `UI` in `_plugins/notes.rb`; an English note's own page stays at `/notes/<id>.html` with English labels and links back to `/en/notes/`.
