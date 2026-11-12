@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 174K+ stars, 17K+ forks, 13,799 followers
+- **GitHub**: 175K+ stars, 17K+ forks, 13,828 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 63,046
-- Forks: 12,951
+- Stars: 63,321
+- Forks: 12,975
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.18.0 "Haven" (2026-11-04)
@@ -72,7 +72,7 @@ A: Yes, and the repository ships the contract for it. Pass `--json` for machine-
 #### README Excerpt
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/tw93/Pake/ac5508cf519064684c4214fe3f263c58ad7aaf5f/assets/logo.png" width="138" />
+  <img src="https://raw.githubusercontent.com/tw93/Pake/52b662606332cbbe53760d4e5a5cec2f87769190/assets/logo.png" width="138" />
   <h1>Pake</h1>
   <p><b>Turn any website into a lightweight desktop app with one command. Supports macOS, Windows and Linux. Free open-source CLI, plus a desktop app.</b></p>
   <p>English · <a href="README_CN.md">中文</a> · <a href="README_TW.md">繁體</a> · <a href="README_JA.md">日本語</a> · <a href="README_KR.md">한국어</a> · <a href="README_DE.md">Deutsch</a> · <a href="README_FR.md">Français</a></p>
@@ -106,8 +106,8 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,197
-- Forks: 329
+- Stars: 6,203
+- Forks: 330
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
@@ -193,12 +193,12 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,757
-- Forks: 523
+- Stars: 8,774
+- Forks: 526
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
-- Latest Release: V4.8.0 "Brachydios 💥" (2026-11-06)
+- Latest Release: V4.9.0 "Barioth 🐯" (2026-11-11)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
@@ -275,12 +275,12 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 74,414
-- Forks: 2,675
+- Stars: 74,653
+- Forks: 2,683
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
-- Latest Release: V1.70.0 "Guard" (2026-11-08)
+- Latest Release: V1.71.0 "Sound" (2026-11-10)
 - Install: `brew install mole`
 - Homepage: https://mole.fit
 
@@ -453,11 +453,11 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,544
-- Forks: 433
+- Stars: 7,568
+- Forks: 435
 - Stack: Markdown, Shell
 - License: MIT
-- Latest Release: v3.41.0 "V3.41.0 Lens 🔍" (2026-10-30)
+- Latest Release: v3.42.0 "V3.42.0 Prune ✂️" (2026-11-11)
 - Install: `npx skills add tw93/Waza -a claude-code codex cursor -g -y`
 
 **Features:**
@@ -523,7 +523,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,483
+- Stars: 12,515
 - Forks: 585
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -644,7 +644,7 @@ Tw93's GitHub profile repository. Uses automated workflows to keep the README up
 - Auto-updating project stats
 - Dynamic blog post feed
 
-### tw93 Blog (8 stars)
+### tw93 Blog (9 stars)
 
 Source code for tw93.fun, Tw93's personal blog. Essays cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool craftsmanship.
 
@@ -865,7 +865,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 174K+ GitHub stars across 20 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 175K+ GitHub stars across 20 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.

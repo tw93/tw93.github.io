@@ -2,11 +2,11 @@
 
 > Engineering habits turned into eight skills AI coding agents can run.
 
-Waza is an open source project by [Tw93](https://tw93.fun) with 7.5K GitHub stars. Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
+Waza is an open source project by [Tw93](https://tw93.fun) with 7.6K GitHub stars. Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 License: MIT
 
-Latest release: v3.41.0 (2026-10-30)
+Latest release: v3.42.0 (2026-11-11)
 
 ## Key Features
 
