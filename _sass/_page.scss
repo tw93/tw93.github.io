@@ -182,6 +182,26 @@ iframe {
   }
 }
 
+.footer-apps {
+  margin: 6px 0 0;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  @media #{$medium} {
+    margin-top: 4px;
+    padding: 0 15px;
+    font-size: 17px;
+  }
+}
+
+.footer-app {
+  white-space: nowrap;
+  &:not(:last-child)::after {
+    content: "\00b7" / "";
+    margin: 0 0.4em;
+  }
+}
+
 .repo-time {
   font-size: 17px;
   display: inline-block;
