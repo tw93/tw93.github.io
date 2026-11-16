@@ -314,6 +314,38 @@ $notes-line: rgba($base-color, 0.14);
   width: min(100%, calc(720px * var(--r)));
 }
 
+// X can omit a photo or video poster's width and height. With no ratio to
+// reserve a box, the item keeps its own shape, fitted to the column and a
+// height cap, so it is never stretched (maintainer 2026-11-16).
+.note-media-1 > .note-dim-auto {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.note-media-1 > .note-img.note-dim-auto {
+  max-height: 640px;
+}
+
+// The poster drops out of the player's absolute stack to set the box from its
+// own shape; the clip and play overlay still cover it. Playing keeps the
+// poster in flow but invisible, so the box does not collapse under the clip.
+.note-media-1 > .note-player.note-dim-auto {
+  display: inline-block;
+  .note-poster {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 720px;
+  }
+  &.is-playing .note-poster {
+    display: block;
+    visibility: hidden;
+  }
+}
+
 // Two or more scroll sideways at one height, each in its own shape, inside
 // the text column: the row starts and ends on the text's edges, and the
 // photo cut off at the right edge shows there is more.

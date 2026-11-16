@@ -182,29 +182,42 @@ module Jekyll
 
       single = media.size == 1
       items = media.map do |item|
-        w = item['w'].to_i.positive? ? item['w'].to_i : 1200
-        h = item['h'].to_i.positive? ? item['h'].to_i : 900
-        r = w / h.to_f
+        # X sometimes returns a photo or video poster with no width/height.
+        # Without them, reserve no fixed box and mark the item note-dim-auto so
+        # it keeps its own shape, rather than guessing a ratio that stretches
+        # it (maintainer 2026-11-16: a 16:9 photo and a portrait video poster
+        # were squashed into a fabricated 1200x900).
+        known = item['w'].to_i.positive? && item['h'].to_i.positive?
+        w = item['w'].to_i
+        h = item['h'].to_i
+        r = known ? w / h.to_f : nil
         # Shown widths: the strip is 280px tall on phones and 360px above,
         # a single item fills the column (100vw - 30px, at most 740px).
-        sizes = single ? "(max-width: 736px) calc(100vw - 30px), #{[740, ((item['type'] == 'photo' ? 640 : 720) * r).round].min}px" : "(max-width: 736px) #{(280 * r).round}px, #{(360 * r).round}px"
-        shape = %(width="#{w}" height="#{h}" style="--r: #{w} / #{h}")
+        sizes = if single
+                  known ? "(max-width: 736px) calc(100vw - 30px), #{[740, ((item['type'] == 'photo' ? 640 : 720) * r).round].min}px" : '(max-width: 736px) calc(100vw - 30px), 740px'
+                else
+                  known ? "(max-width: 736px) #{(280 * r).round}px, #{(360 * r).round}px" : '(max-width: 736px) 280px, 360px'
+                end
+        box = known ? %( width="#{w}" height="#{h}") : ''
+        ratio = known ? %( style="--r: #{w} / #{h}") : ''
+        auto = known ? '' : ' note-dim-auto'
         if item['type'] == 'photo'
           src = item['src']
-          %(<img class="note-img" #{img_attrs(src, sizes)} data-pswp-src="#{esc(src)}" data-width="#{w}" data-height="#{h}" #{shape} alt="" loading="lazy" decoding="async">)
+          dims = known ? %( data-width="#{w}" data-height="#{h}") : ''
+          %(<img class="note-img#{auto}" #{img_attrs(src, sizes)} data-pswp-src="#{esc(src)}"#{dims}#{box}#{ratio} alt="" loading="lazy" decoding="async">)
         elsif item['video']
           # A <video poster> is fetched at once, lazy or not, so the poster is
           # a lazy <img> over a video that loads nothing until it plays.
-          poster = %(<img class="note-poster" #{img_attrs(item['poster'].to_s, sizes)} width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async">)
+          poster = %(<img class="note-poster" #{img_attrs(item['poster'].to_s, sizes)}#{box} alt="" loading="lazy" decoding="async">)
           if item['type'] == 'gif'
-            %(<span class="note-player note-gif" style="--r: #{w} / #{h}">#{poster}<video class="note-clip" src="#{esc(item['video'])}" width="#{w}" height="#{h}" muted loop playsinline preload="none"></video></span>)
+            %(<span class="note-player note-gif#{auto}"#{ratio}>#{poster}<video class="note-clip" src="#{esc(item['video'])}"#{box} muted loop playsinline preload="none"></video></span>)
           else
             length = item['duration'] ? %(<span class="note-duration">#{item['duration'] / 60}:#{format('%02d', item['duration'] % 60)}</span>) : ''
-            %(<span class="note-player" style="--r: #{w} / #{h}">#{poster}<video class="note-clip" src="#{esc(item['video'])}" width="#{w}" height="#{h}" controls playsinline preload="none"></video><span class="note-play note-play-center">#{icon('play')}#{length}</span></span>)
+            %(<span class="note-player#{auto}"#{ratio}>#{poster}<video class="note-clip" src="#{esc(item['video'])}"#{box} controls playsinline preload="none"></video><span class="note-play note-play-center">#{icon('play')}#{length}</span></span>)
           end
         else
           length = item['duration'] ? %(<span class="note-duration">#{item['duration'] / 60}:#{format('%02d', item['duration'] % 60)}</span>) : ''
-          %(<a class="note-video" href="#{esc(item['src'])}" target="_blank" rel="noopener" style="--r: #{w} / #{h}" aria-label="#{ui['play']}"><img #{img_attrs(item['poster'].to_s, sizes)} width="#{w}" height="#{h}" alt="" loading="lazy" decoding="async"><span class="note-play">#{icon('play')}#{length}</span></a>)
+          %(<a class="note-video#{auto}" href="#{esc(item['src'])}" target="_blank" rel="noopener"#{ratio} aria-label="#{ui['play']}"><img #{img_attrs(item['poster'].to_s, sizes)}#{box} alt="" loading="lazy" decoding="async"><span class="note-play">#{icon('play')}#{length}</span></a>)
         end
       end
       %(<div class="note-media#{single ? ' note-media-1' : ' note-strip'}">#{items.join}</div>)

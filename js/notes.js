@@ -48,11 +48,13 @@
   var open = function (img) {
     var imgs = Array.prototype.slice.call(img.closest('.note').querySelectorAll('.note-img'));
     var items = imgs.map(function (el) {
+      // An image whose dimensions X did not report carries no data-width/height;
+      // the loaded thumbnail's own size gives the lightbox the right ratio.
       return {
         src: el.getAttribute('data-pswp-src'),
         msrc: el.currentSrc || el.src,
-        w: Number(el.getAttribute('data-width')),
-        h: Number(el.getAttribute('data-height')),
+        w: Number(el.getAttribute('data-width')) || el.naturalWidth,
+        h: Number(el.getAttribute('data-height')) || el.naturalHeight,
         element: el,
         thumbCropped: !el.closest('.note-media-1'),
       };
