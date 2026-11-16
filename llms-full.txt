@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 175K+ stars, 17K+ forks, 13,864 followers
+- **GitHub**: 176K+ stars, 17K+ forks, 13,875 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 63,599
-- Forks: 13,008
+- Stars: 63,644
+- Forks: 13,018
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.19.0 "Glass" (2026-11-14)
@@ -106,7 +106,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,207
+- Stars: 6,209
 - Forks: 330
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -193,12 +193,12 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,780
+- Stars: 8,781
 - Forks: 527
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
-- Latest Release: V4.9.0 "Barioth 🐯" (2026-11-11)
+- Latest Release: V4.10.0 "Mizutsune 🫧" (2026-11-15)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
@@ -275,8 +275,8 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 75,050
-- Forks: 2,702
+- Stars: 75,177
+- Forks: 2,706
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -453,8 +453,8 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,590
-- Forks: 436
+- Stars: 7,598
+- Forks: 437
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.42.0 "V3.42.0 Prune ✂️" (2026-11-11)
@@ -523,7 +523,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,545
+- Stars: 12,554
 - Forks: 585
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -613,7 +613,7 @@ Sample PDFs in several formats and languages. Click any preview to open it.
 
 ## Secondary Projects
 
-### Weekly (884 stars)
+### Weekly (883 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
@@ -865,7 +865,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 175K+ GitHub stars across 20 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 176K+ GitHub stars across 20 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.
