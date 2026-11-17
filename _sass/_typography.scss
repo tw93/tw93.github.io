@@ -283,16 +283,19 @@ pre {
 // English reads in Charter, the Latin face of the product sites and of Weekly's
 // English issues (Georgia on Windows, Noto Serif on Android), with no CJK
 // tracking; JinKai's own Latin letters read as handwriting over a long paragraph.
-// Han inside an English post still falls to JinKai. The title, the meta line and
-// the buttons are chrome and keep the face of the header and the banner.
+// Han inside an English post still falls to JinKai. The post title is Charter
+// Bold too (maintainer 2026-11-17, picked over JinKai and Mole's Libre
+// Baskerville 500, which read lighter than the h2 under it and ran a line longer
+// on phones); the meta line and the buttons are chrome and keep the face of the
+// header and the banner.
 html:lang(en) .entry-content {
   font-family: Charter, "Bitstream Charter", Georgia, "Noto Serif", $base-font;
   letter-spacing: 0;
   :not(pre) > code,
+  .post-title,
   > :is(h2, h3, h4, h5, h6):not(.page-info) {
     font-family: inherit;
   }
-  .post-title,
   .page-info,
   .buy-me-coffee,
   .newsletter {
