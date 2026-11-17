@@ -108,6 +108,28 @@ th {
   word-break: break-word;
 }
 
+// On a phone a table keeps readable columns and scrolls sideways instead of
+// splitting the screen evenly: three fixed columns left three or four Han a line
+// and broke an inline code chip into two pills. The table becomes the scroller,
+// so its own frame goes and the cells keep theirs.
+@media only screen and (max-width: 45.99em) {
+  .entry-content table {
+    display: block;
+    overflow-x: auto;
+    border: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .entry-content td,
+  .entry-content th {
+    min-width: 7em;
+  }
+  // One class more than the inline code rule further down, which allows wrapping.
+  .entry-content table td code,
+  .entry-content table th code {
+    white-space: nowrap;
+  }
+}
+
 .text-table td,
 .text-table th {
   padding: 6px 16px;
@@ -256,4 +278,25 @@ pre {
 
 .entry-content img {
   border-radius: 8px;
+}
+
+// English reads in Charter, the Latin face of the product sites and of Weekly's
+// English issues (Georgia on Windows, Noto Serif on Android), with no CJK
+// tracking; JinKai's own Latin letters read as handwriting over a long paragraph.
+// Han inside an English post still falls to JinKai. The title, the meta line and
+// the buttons are chrome and keep the face of the header and the banner.
+html:lang(en) .entry-content {
+  font-family: Charter, "Bitstream Charter", Georgia, "Noto Serif", $base-font;
+  letter-spacing: 0;
+  :not(pre) > code,
+  > :is(h2, h3, h4, h5, h6):not(.page-info) {
+    font-family: inherit;
+  }
+  .post-title,
+  .page-info,
+  .buy-me-coffee,
+  .newsletter {
+    font-family: $base-font;
+    letter-spacing: 0.02em;
+  }
 }
