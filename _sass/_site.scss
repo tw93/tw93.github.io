@@ -39,7 +39,9 @@ html {
 
 // Language Toggle
 // --------------------------------------------------
-// A globe in the same 36px box, size and grey as the search icon beside it.
+// The language it switches to, EN on a Chinese page and 中 on an English one, in the
+// same 36px box and grey as the search icon beside it; a globe did not read as a
+// language switch (maintainer 2026-11-17).
 .language-switch {
   display: flex !important; // Override header link styles
   align-items: center;
@@ -51,6 +53,10 @@ html {
   background-color: transparent; // minimalist
   color: #4b5563 !important; // gray-600, one grey with GitHub, X and search
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
   transition: color 0.12s ease-out;
 
   &:hover {
@@ -58,9 +64,4 @@ html {
     background-color: transparent;
   }
 
-  svg {
-    display: block;
-    width: 18px;
-    height: 18px;
-  }
 }

@@ -31,8 +31,9 @@ $border-color: #c9ced4;
 $white: #fff;
 $black: #000;
 $link-color: rgba(#24292f, 0.8);
-// Links inside posts and notes, the blue Weekly uses.
-$link-blue: #1d9bf0;
+// Links inside posts and notes: mole.fit's link ink, 7.5:1 on white, which Weekly's
+// running text uses too; #1d9bf0 read bright and cold at 3.0:1 (maintainer 2026-11-17).
+$link-blue: #34558a;
 
 $primary: #24292f;
 $border-radius: 8px;
