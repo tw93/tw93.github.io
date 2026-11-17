@@ -1,7 +1,8 @@
 const CACHE_NAME = "tw93-cache-v1";
-// Posts rarely change after publishing, so repeat visits are served from cache
-// at once and refreshed in the background. Home and list pages stay on the
-// network so a new post shows up immediately.
+// Post pages go to the network first and fall back to the cache only when it
+// fails, so a corrected post or a new layout shows on the first visit after a
+// deploy; clicks stay fast through hover prerendering. Weekly served cached
+// pages first and its sidebars hid each new issue (2026-11-17).
 const PAGE_CACHE = "tw93-pages-v1";
 const PAGE_CACHE_LIMIT = 40;
 const POST_PAGE = /^\/(?:en\/)?\d{4}-\d{2}-\d{2}\/[^/]+\.html$/;
@@ -36,21 +37,24 @@ const trimPageCache = async (cache) => {
 
 const servePage = async (event) => {
   const cache = await caches.open(PAGE_CACHE);
-  const cached = await cache.match(event.request, { ignoreSearch: true });
-  const network = fetch(event.request).then(async (response) => {
+  try {
+    const response = await fetch(event.request);
     // Redirected responses cannot answer a navigation, so never store them.
     if (response.ok && !response.redirected) {
-      await cache.delete(event.request, { ignoreSearch: true });
-      await cache.put(event.request, response.clone());
-      await trimPageCache(cache);
+      const copy = response.clone();
+      event.waitUntil(
+        cache
+          .delete(event.request, { ignoreSearch: true })
+          .then(() => cache.put(event.request, copy))
+          .then(() => trimPageCache(cache)),
+      );
     }
     return response;
-  });
-  if (cached) {
-    event.waitUntil(network.catch(() => {}));
-    return cached;
+  } catch (error) {
+    const cached = await cache.match(event.request, { ignoreSearch: true });
+    if (cached) return cached;
+    throw error;
   }
-  return network;
 };
 
 self.addEventListener("fetch", (event) => {

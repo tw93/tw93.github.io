@@ -39,3 +39,33 @@ test('the first search resumes after its data arrives',async()=>{
   vm.runInNewContext(source,c);elements['search-input'].value='missing';c.probe.loadSearchData();c.probe.performSearch();assert.match(elements['search-results'].innerHTML,/Loading/);
   resolve({json:async()=>[]});await new Promise(setImmediate);assert.match(elements['search-results'].innerHTML,/No results/);
 });
+
+// A cached post served first hid fixes until the next visit; Weekly's issue
+// sidebars lost each new issue the same way (2026-11-17).
+test('post pages come from the network and use the cache only offline', async () => {
+  const source = fs.readFileSync(process.env.SW_SOURCE || 'sw.js', 'utf8');
+  const page = 'https://tw93.fun/2026-10-26/mole-product.html';
+  const run = async (fetchImpl) => {
+    const listeners = {}, stored = new Map([[page, 'cached']]);
+    const cache = {
+      match: async (req) => stored.get(req.url),
+      put: async (req, res) => stored.set(req.url, res),
+      delete: async () => true,
+      keys: async () => [...stored.keys()],
+    };
+    vm.runInNewContext(source, {
+      self: { addEventListener: (name, fn) => (listeners[name] = fn), location: { origin: 'https://tw93.fun' } },
+      caches: { open: async () => cache, keys: async () => [], match: async () => undefined },
+      fetch: fetchImpl, URL, Promise,
+    });
+    let answer;
+    const waits = [];
+    listeners.fetch({ request: { url: page, mode: 'navigate' }, respondWith: (p) => (answer = p), waitUntil: (p) => waits.push(p) });
+    const result = await answer;
+    await Promise.all(waits);
+    return result;
+  };
+  const fresh = { ok: true, redirected: false, clone() { return this; } };
+  assert.equal(await run(async () => fresh), fresh);
+  assert.equal(await run(async () => { throw new TypeError('offline'); }), 'cached');
+});
