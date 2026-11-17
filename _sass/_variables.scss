@@ -26,6 +26,9 @@ $menu-top: white;
 $menu-height: 60px;
 $body-color: #f5f4ed;
 $text-color: rgba(#24292f, 0.9);
+// One hairline for rules, tables, the search footer and the comments (giscus-blog.css
+// in the Weekly repo carries the same value), lighter than the #ddd rule it replaces.
+$line: #eeeeee;
 $comp-color: #d0d6db;
 $border-color: #c9ced4;
 $white: #fff;

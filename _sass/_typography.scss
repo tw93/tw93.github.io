@@ -12,13 +12,17 @@
 body {
   font-family: $base-font;
   color: $text-color;
-  letter-spacing: 0.5px;
+  // The post body's 0.02em everywhere; the fixed 0.5px and 0.6px were 0.043em on the
+  // 14px meta and 0.02em only on the 30px titles.
+  letter-spacing: 0.02em;
   // Same as Weekly's --line-height-normal: 1.7 read loose, 1.6 dense on phones.
   line-height: 1.64;
   -webkit-text-size-adjust: 100%; // Prevent iOS text resize
-  @media #{$medium} {
-    letter-spacing: 0.6px;
-  }
+}
+
+// Latin sets without CJK tracking on the English pages, chrome included.
+html:lang(en) body {
+  letter-spacing: 0;
 }
 
 // Headings
@@ -80,7 +84,7 @@ table,
 th,
 td {
   border-collapse: collapse;
-  border: 1px solid #f2f3f4;
+  border: 1px solid $line;
   font-variant-numeric: tabular-nums;
 }
 
@@ -300,6 +304,5 @@ html:lang(en) .entry-content {
   .buy-me-coffee,
   .newsletter {
     font-family: $base-font;
-    letter-spacing: 0.02em;
   }
 }
