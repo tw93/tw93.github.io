@@ -536,13 +536,15 @@ iframe {
     clear: both;
   }
   margin: 0 auto;
-  padding: 14px 0 30px;
+  // Weighted to the bottom (maintainer 2026-11-18): at 14/30 and 8/20 the icons sat close to the
+  // pager or comments above and the app line floated well off the page end.
+  padding: 24px 0 20px;
   text-align: center;
   font-size: 15px;
   background-color: $body-color;
 
   @media #{$medium} {
-    padding: 8px 0 20px;
+    padding: 24px 0 8px;
     font-size: 17px;
   }
 }
