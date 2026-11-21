@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 176K+ stars, 18K+ forks, 13,918 followers
+- **GitHub**: 176K+ stars, 18K+ forks, 13,926 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 63,859
-- Forks: 13,048
+- Stars: 63,883
+- Forks: 13,036
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.19.0 "Glass" (2026-11-14)
@@ -106,7 +106,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,227
+- Stars: 6,228
 - Forks: 332
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -193,12 +193,12 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,788
-- Forks: 529
+- Stars: 8,802
+- Forks: 532
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
-- Latest Release: V4.10.0 "Mizutsune 🫧" (2026-11-15)
+- Latest Release: V4.11.0 "Kirin 🦄" (2026-11-20)
 - Install: `brew install --cask miaoyan`
 
 **Features:**
@@ -252,20 +252,17 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 - **Focused**: Folders, notes, and editor in three columns, with dark mode and no plugin system to maintain
 - **Native**: Built with Swift 6, lighter than web wrappers, with 60fps scroll sync in split preview
 - **Capable**: Wikilinks, LaTeX, Mermaid, version history, auto-formatting, and PPT presentations built in
-- **Portable**: The iPhone and iPad apps are on the [App Store](https://apps.apple.com/app/miaoyan/id6759252269), one purchase covers them and the Mac, and they open the same iCloud Drive folder, so you can keep writing on your phone and tablet
+- **Portable**: The iPhone and iPad apps are on the [App Store](https://apps.apple.com/app/miaoyan/id6759252269), one purchase covers them and the Mac, and they open the same iCloud Drive folder, so you can keep writing on your phone and tablet, share a note as an image, or start one from a widget, Siri or Shortcuts
 
 ###### Installation
 
-1. **App Store** (recommended, one purchase for iPhone, iPad and Mac, automatic updates):
+Get it on the App Store, one purchase for iPhone, iPad and Mac, with automatic updates:
 
-   <a href="https://apps.apple.com/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
+<a href="https://apps.apple.com/app/miaoyan/id6759252269"><img src="https://cdn.tw93.fun/uPic/C3Renh.png" width="160" alt="Download on the Mac App Store" /></a>
 
-2. **Homebrew**:
-   ```bash
-   brew install --cask miaoyan
-   ```
+The open-source Mac app is also available through Homebrew (`brew install --cask miaoyan`) or [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+).
 
-3. **GitHub Releases**: download the latest DMG from [GitHub Releases](https://github.com/tw93/MiaoYan/releases/latest) (macOS 12.0+)
+###### Sync with Nutstore or Other Cloud Drives
 
 
 [...truncated]
@@ -275,8 +272,8 @@ A: Yes. The repository ships an agent skill covering MiaoYan syntax, attachments
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 75,617
-- Forks: 2,725
+- Stars: 75,720
+- Forks: 2,722
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -453,7 +450,7 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,614
+- Stars: 7,623
 - Forks: 437
 - Stack: Markdown, Shell
 - License: MIT
@@ -523,7 +520,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,583
+- Stars: 12,587
 - Forks: 585
 - Stack: HTML, CSS, Python
 - License: MIT
@@ -613,7 +610,7 @@ Sample PDFs in several formats and languages. Click any preview to open it.
 
 ## Secondary Projects
 
-### Weekly (885 stars)
+### Weekly (884 stars)
 
 Source repository for 潮流周刊 (Trendy Weekly), a long-running weekly newsletter curating interesting tech discoveries, tools, and lifestyle content. Published continuously since 2021; the live issue count is in the RSS feed at weekly.tw93.fun.
 
@@ -644,7 +641,7 @@ Tw93's GitHub profile repository. Uses automated workflows to keep the README up
 - Auto-updating project stats
 - Dynamic blog post feed
 
-### tw93 Blog (10 stars)
+### tw93 Blog (9 stars)
 
 Source code for tw93.fun, Tw93's personal blog. Essays cover product engineering philosophy, AI-assisted coding workflows, design thinking, and tool craftsmanship.
 
@@ -655,7 +652,7 @@ Source code for tw93.fun, Tw93's personal blog. Essays cover product engineering
 - Topics: product engineering, AI, design
 - Static site deployed via GitHub Pages
 
-### cz-emoji-chinese (141 stars)
+### cz-emoji-chinese (140 stars)
 
 A commitizen adapter that enables standardized git commit messages with emoji prefixes, localized for Chinese developers. Makes commit history readable and consistent.
 
