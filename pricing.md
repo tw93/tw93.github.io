@@ -21,7 +21,7 @@ There is no SaaS, no subscription, no API key, no usage quota, and no enterprise
 
 ### Mole for Mac
 
-Native macOS app at https://mole.fit. The same jobs as the Mole CLI, with a GUI.
+Native macOS app at https://mole.fit, with its own code and its own licence.
 
 - **Price:** $19, one-time
 - **Billing model:** one-time purchase, no subscription and no feature tiers
