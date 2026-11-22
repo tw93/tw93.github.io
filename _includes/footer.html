@@ -58,6 +58,8 @@
     dataLayer.push(arguments);
   }
   const loadGA = () => {
+    // Forks keep this file and _config.yml unchanged, so only the real site reports to this property.
+    if (location.hostname !== 'tw93.fun') return;
     // Screens with no engagement at all, from automated browsers rather than readers.
     if (/^(1366x1366|1280x1200)$/.test(screen.width + 'x' + screen.height)) return;
     const script = document.createElement('script');
