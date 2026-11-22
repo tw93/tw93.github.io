@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 177K+ stars, 18K+ forks, 13,934 followers
+- **GitHub**: 177K+ stars, 18K+ forks, 13,935 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 63,906
-- Forks: 13,042
+- Stars: 63,908
+- Forks: 13,043
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.20.0 "Keyring" (2026-11-21)
@@ -106,7 +106,7 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,230
+- Stars: 6,229
 - Forks: 331
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
@@ -193,7 +193,7 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,805
+- Stars: 8,804
 - Forks: 532
 - Stack: Swift, AppKit
 - License: MIT
@@ -269,10 +269,10 @@ The open-source Mac app is also available through Homebrew (`brew install --cask
 
 ### Mole
 
-Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is the separate paid native app that covers the same jobs with a GUI.
+Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is a separate paid native app with its own code and licence, not a GUI wrapper around this CLI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 75,788
+- Stars: 75,792
 - Forks: 2,718
 - Stack: Shell, Go
 - License: GPL-3.0
@@ -520,7 +520,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
-- Stars: 12,599
+- Stars: 12,601
 - Forks: 586
 - Stack: HTML, CSS, Python
 - License: MIT
