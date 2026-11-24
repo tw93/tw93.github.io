@@ -4,11 +4,11 @@
 
 Website: https://pake.run
 
-Pake is an open source project by [Tw93](https://tw93.fun) with 63.9K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration. Besides the free CLI, pake.run offers a paid Pake desktop app for Mac, Windows and Linux that needs no compiler.
+Pake is an open source project by [Tw93](https://tw93.fun) with 64.0K GitHub stars. Pake wraps any web page into a native desktop application using Tauri v2. A typical app uses under 10MB of disk space because it relies on the system WebView instead of bundling Chromium. It supports macOS, Windows, and Linux with shortcut customization, immersive windows, and system tray integration. Besides the free CLI, pake.run offers a paid Pake desktop app for Mac, Windows and Linux that needs no compiler.
 
 License: GPL-3.0
 
-Latest release: V3.20.0 (2026-11-21)
+Latest release: V3.21.0 (2026-11-23)
 
 ## Key Features
 
