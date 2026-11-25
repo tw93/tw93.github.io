@@ -9,7 +9,8 @@ require 'time'
 # - /notes/, the newest notes with search, filters and sorting in js/notes.js;
 # - /notes/YYYY/MM/, every note of a month as plain HTML for readers without
 #   JavaScript and for crawlers;
-# - /notes/<id>.html, one page per note, all indexed and in the sitemap;
+# - /notes/<id>.html, one page per note, indexed and in the sitemap unless
+#   it is only a few words of text (see indexable?);
 # - /notes/index.json, /notes/search.json and /notes/html/YYYY-MM.json, what
 #   js/notes.js filters, searches, sorts and renders;
 # - /notes/feed.xml, /notes.md and /api/notes.jsonl.
@@ -394,6 +395,18 @@ module Jekyll
       (article + [note['text']] + (note['thread'] || []).map { |part| part['text'] }).compact.reject(&:empty?).join("\n\n")
     end
 
+    # A note with only a line of text and no photo, video, thread, quote or
+    # article is noindex and left out of the sitemap: Google already had 329
+    # note pages as crawled but not indexed (Search Console, 2026-11-16), and
+    # the same words sit on X. Its page still exists and its links are followed.
+    INDEX_MIN_CHARS = 140
+
+    def indexable?(note)
+      return true if %w[media thread quote article].any? { |key| !Array(note[key]).empty? }
+
+      note['text'].to_s.gsub(%r{https?://\S+|@\w+}, '').gsub(/\s+/, ' ').strip.length >= INDEX_MIN_CHARS
+    end
+
     def title_of(note)
       return note['article']['title'] if note['article']
 
@@ -523,6 +536,7 @@ module Jekyll
             ).gsub('</', '<\/'),
           }
           data['lang'] = 'en-US' if note['lang'] == 'en'
+          data.merge!('robots' => 'noindex, follow', 'sitemap' => false) unless Notes.indexable?(note)
           site.pages << Notes.make_page(site, 'notes', "#{note['id']}.html", data)
         end
 
