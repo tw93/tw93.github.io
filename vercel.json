@@ -190,6 +190,10 @@
       "source": "/(posts|en/posts|notes).md",
       "headers": [
         {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
           "key": "Content-Type",
           "value": "text/markdown; charset=utf-8"
         },
@@ -206,6 +210,10 @@
     {
       "source": "/:date(\\d{4}-\\d{2}-\\d{2})/:slug.md",
       "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
         {
           "key": "Content-Type",
           "value": "text/markdown; charset=utf-8"
@@ -224,6 +232,10 @@
       "source": "/en/:date(\\d{4}-\\d{2}-\\d{2})/:slug.md",
       "headers": [
         {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
           "key": "Content-Type",
           "value": "text/markdown; charset=utf-8"
         },
@@ -234,6 +246,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/index.md",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     },
