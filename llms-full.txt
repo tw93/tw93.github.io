@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 177K+ stars, 18K+ forks, 13,995 followers
+- **GitHub**: 177K+ stars, 18K+ forks, 14,013 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 64,035
-- Forks: 13,064
+- Stars: 64,062
+- Forks: 13,067
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.21.0 "Doorway" (2026-11-23)
@@ -106,8 +106,8 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,259
-- Forks: 328
+- Stars: 6,262
+- Forks: 329
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
@@ -193,8 +193,8 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,829
-- Forks: 533
+- Stars: 8,839
+- Forks: 535
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
@@ -272,8 +272,8 @@ The open-source Mac app is also available through Homebrew (`brew install --cask
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is a separate paid native app with its own code and licence, not a GUI wrapper around this CLI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 76,191
-- Forks: 2,739
+- Stars: 76,325
+- Forks: 2,749
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -450,7 +450,7 @@ A: No. The Windows app is a closed source commercial product. The Mole CLI for W
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,648
+- Stars: 7,654
 - Forks: 437
 - Stack: Markdown, Shell
 - License: MIT
@@ -521,7 +521,7 @@ Kami is a document design system that produces beautifully typeset PDFs. It uses
 - Website: https://kami.tw93.fun
 - Source: https://github.com/tw93/Kami
 - Stars: 12,649
-- Forks: 592
+- Forks: 591
 - Stack: HTML, CSS, Python
 - License: MIT
 - Latest Release: V1.20.0 "Cleaner Reports" (2026-10-29)
@@ -631,7 +631,7 @@ Maple is a set of three Chrome extensions for browsing with the bookmark bar hid
 - Maple NewTab: Renaissance art, Bing image, Weekly picture, or blank backgrounds
 - Maple Theme: a plain white Chrome theme
 
-### tw93 Profile (254 stars)
+### tw93 Profile (255 stars)
 
 Tw93's GitHub profile repository. Uses automated workflows to keep the README updated with latest project stats, blog posts, and activity.
 
@@ -662,7 +662,7 @@ A commitizen adapter that enables standardized git commit messages with emoji pr
 - Chinese localization
 - Commitizen integration
 
-### MiaoYan NetNewsWire Theme (127 stars)
+### MiaoYan NetNewsWire Theme (129 stars)
 
 A companion NetNewsWire theme designed to match MiaoYan's visual style. Provides a consistent reading experience between your Markdown editor and RSS reader on macOS.
 
