@@ -9,7 +9,7 @@ Tw93 is a product engineer based in Hangzhou, China. He designs, builds, and mai
 - **Values**: Believes in AI, invests in AI, believes in long-termism. Dislikes tech celebrity culture and hype.
 - **Philosophy**: Tools should be small, fast, and solve one problem well.
 - **How readers describe the work**: not chasing hype, restraint over feature count, light and genuinely usable, attention to aesthetic detail, long-termism, and something of the Hackers & Painters spirit. In the original Chinese: 不追热点、简洁克制、轻量好用、审美细节、长期主义、黑客与画家的气质.
-- **GitHub**: 177K+ stars, 18K+ forks, 14,013 followers
+- **GitHub**: 177K+ stars, 18K+ forks, 14,017 followers
 
 He prefers Rust for performance-critical systems, Swift for macOS-native experiences, and keeps dependencies minimal. He actively maintains his projects, responds to community issues, and publishes a weekly newsletter (潮流周刊) covering tech discoveries and lifestyle.
 
@@ -34,8 +34,8 @@ Pake wraps any web page into a native desktop application using Tauri v2. A typi
 
 - Website: https://pake.run
 - Source: https://github.com/tw93/Pake
-- Stars: 64,062
-- Forks: 13,067
+- Stars: 64,080
+- Forks: 13,075
 - Stack: Rust, Tauri v2, TypeScript
 - License: GPL-3.0
 - Latest Release: V3.21.0 "Doorway" (2026-11-23)
@@ -106,8 +106,8 @@ Kaku (書く) is a deeply customized WezTerm fork for macOS. It keeps full Lua a
 
 - Website: https://kaku.fun
 - Source: https://github.com/tw93/Kaku
-- Stars: 6,262
-- Forks: 329
+- Stars: 6,264
+- Forks: 330
 - Stack: Rust, Lua, Metal/GPU
 - License: MIT
 - Requirements: macOS only.
@@ -193,8 +193,8 @@ MiaoYan (妙言) is a native Markdown note app. The recommended App Store editio
 
 - Website: https://miaoyan.app
 - Source: https://github.com/tw93/MiaoYan
-- Stars: 8,839
-- Forks: 535
+- Stars: 8,846
+- Forks: 534
 - Stack: Swift, AppKit
 - License: MIT
 - Requirements: macOS 12.0 or later. The App Store edition also runs on iPhone and iPad with iOS 18.0 or later.
@@ -272,8 +272,8 @@ The open-source Mac app is also available through Homebrew (`brew install --cask
 Mole is a macOS system maintenance tool that runs in the terminal. It clears caches, removes apps with their leftovers, runs maintenance tasks, maps disk usage, and shows live system status. Built with Shell and Go, licensed GPL-3.0. Mole for Mac (https://mole.fit) is a separate paid native app with its own code and licence, not a GUI wrapper around this CLI.
 
 - Source: https://github.com/tw93/Mole
-- Stars: 76,325
-- Forks: 2,749
+- Stars: 76,372
+- Forks: 2,752
 - Stack: Shell, Go
 - License: GPL-3.0
 - Requirements: macOS (macOS 12 or later; macOS 14 or later for the Homebrew path). A separate Windows CLI lives on the windows branch and installs with `scoop install mole`.
@@ -445,13 +445,48 @@ A: Windows 10 22H2 or Windows 11, on x64 or Arm64.
 A: No. The Windows app is a closed source commercial product. The Mole CLI for Windows is open source under GPL-3.0 at github.com/tw93/Mole/tree/windows.
 
 
+### Yado
+
+Yado is a paid native Mac app at https://yado.house for managing an iPhone from a Mac. It clears duplicate photos, blurry shots, old screenshots, large videos and unused apps, exports originals to the Mac and verifies them before anything is deleted, arranges the Home Screen, moves files both ways, and keeps incremental local backups that can be browsed, exported and restored. Photos, exports and backups stay on the Mac or the connected iPhone. This is a closed source commercial product, so there is no public repository.
+
+- Website: https://yado.house
+- Stack: Swift, SwiftUI
+- License: Proprietary
+- Pricing: $19 once for two Macs, with all future updates, two free tries of each action and a 14-day full refund.
+- Requirements: macOS 14 or later. iPhone only.
+
+**Features:**
+- Overview: device, battery and storage details, cable speed, backup management, screenshots and screen recording
+- Clean: duplicate photos, blurry shots, clutter and old screenshots, all confirmed before anything changes
+- Photos: browse by album or place, export originals or JPG to the Mac, and verify local copies before deletion
+- Apps: inspect storage use, uninstall selected apps, organize the Home Screen and save or restore its layouts
+- Files: browse accessible folders and file-sharing apps' Documents, preview, upload and export
+- Backups: incremental and scheduled local backups with encryption controls, validation and restore; browse and export contacts, notes and messages
+- Hardware Check: battery authenticity, replaced parts and restart history, saved as one picture
+
+**Q: How much does Yado cost?**
+A: $19 once for two Macs, with all future updates. Each action can be tried twice for free, and there is a 14-day full refund.
+
+**Q: What does Yado need to run?**
+A: A Mac on macOS 14 or later and an iPhone. Connect the unlocked iPhone by USB and accept Trust the first time. After Connect over Wi-Fi is turned on, the overview, apps, files and backups also work over Wi-Fi; photo-library access, restore, screenshots and screen recording need a cable.
+
+**Q: Does Yado work with iPad, Android or Windows?**
+A: No. Yado supports iPhone only and runs on the Mac. It does not need a jailbreak, and it reads what is stored on the phone, so iCloud-only originals that are not on the phone are not exported over USB.
+
+**Q: Where does Yado keep my photos and backups?**
+A: On the Mac or the connected iPhone. Yado does not ask for an Apple Account or retain backup passwords, and the installed app list never leaves the Mac. Full details are at https://yado.house/privacy.
+
+**Q: Is Yado open source?**
+A: No. Yado is a closed source commercial product. Guides, bug reports and feature requests live at https://github.com/tw93/Yado-App, which holds no source code.
+
+
 ### Waza
 
 Waza is a pack of eight skills that give an AI coding agent a repeatable workflow for planning, UI work, review, debugging, prose, research, reading sources, and config audits. One install writes a canonical copy into the shared ~/.agents/skills store, so Claude Code, Codex, Cursor, Antigravity CLI, and other agents reading that directory pick it up.
 
 - Source: https://github.com/tw93/Waza
-- Stars: 7,654
-- Forks: 437
+- Stars: 7,656
+- Forks: 439
 - Stack: Markdown, Shell
 - License: MIT
 - Latest Release: v3.42.0 "V3.42.0 Prune ✂️" (2026-11-11)
@@ -739,11 +774,12 @@ A web-based music player built as a tribute to Chinese indie musician Li Zhi (�
 
 - **JavaScript**: Maple, tw93 Blog, cz-emoji-chinese, twMovie, CreateJS npm, 900Month, Lizhi (7 projects)
 - **CSS**: Kami, tw93 Blog, MiaoYan NetNewsWire Theme, Lizhi (4 projects)
+- **Swift**: MiaoYan, Mole for Mac, Yado (3 projects)
 - **Markdown**: Waza, Weekly, tw93 Profile (3 projects)
 - **HTML**: Kami, tw93 Blog, Lizhi (3 projects)
 - **Rust**: Pake, Kaku (2 projects)
-- **Swift**: MiaoYan, Mole for Mac (2 projects)
 - **Shell**: Mole, Waza (2 projects)
+- **SwiftUI**: Mole for Mac, Yado (2 projects)
 - **Chrome Extension**: Maple, 900Month (2 projects)
 - **Node.js**: cz-emoji-chinese, twMovie (2 projects)
 - **Tauri v2**: Pake (1 projects)
@@ -752,7 +788,6 @@ A web-based music player built as a tribute to Chinese indie musician Li Zhi (�
 - **Metal**: Kaku (1 projects)
 - **AppKit**: MiaoYan (1 projects)
 - **Go**: Mole (1 projects)
-- **SwiftUI**: Mole for Mac (1 projects)
 - **C#**: Mole for Windows (1 projects)
 - **.NET**: Mole for Windows (1 projects)
 - **WinUI 3**: Mole for Windows (1 projects)
@@ -862,7 +897,7 @@ Two products cover this. **Mole for Mac** (https://mole.fit) is the paid native 
 ## Frequently Asked Questions
 
 **Q: Who is Tw93?**
-A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 177K+ GitHub stars across 20 projects.
+A: Tw93 is a product engineer based in Hangzhou, China, and the creator of Kaku, Waza, Kami, Mole, Pake, and MiaoYan. He builds open source developer tools and macOS applications, with a combined 177K+ GitHub stars across 21 projects.
 
 **Q: What is Tw93 best known for?**
 A: Pake, a tool that turns any webpage into a lightweight desktop app using Rust + Tauri, roughly 20x smaller than Electron. It has the most stars among his projects.
